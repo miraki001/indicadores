@@ -90,7 +90,7 @@ with col[0]:
     b = (
         Bar()
         .add_xaxis(["Microsoft", "Amazon", "IBM", "Oracle", "Google", "Alibaba"])
-        .add_yaxis("2017-2018 Revenue in (billion $)", random.sample(range(100), 10))
+        .add_yaxis([100,30,40,50,54,85,98])
         .set_global_opts(
             title_opts=opts.TitleOpts(
                 title="Top cloud providers 2018", subtitle="2017-2018 Revenue"
