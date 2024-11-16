@@ -101,8 +101,8 @@ json_obj = json.loads(f)
 raw_data = json_obj
 
 
-with open("./data/life-expectancy-table.json") as f:
-        raw_data1 = json.load(f)
+#with open("./data/life-expectancy-table.json") as f:
+#        raw_data1 = json.load(f)
 countries = [
         "DINAMARCA",
         "ESTADOS UNIDOS",
