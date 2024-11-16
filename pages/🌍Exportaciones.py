@@ -250,7 +250,7 @@ options = {
         "series": [
             {
                 "symbolSize": 20,
-                "data": json_list,
+                "data": json_obj,
                 "type": "scatter",
             }
         ],
