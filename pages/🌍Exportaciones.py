@@ -84,7 +84,7 @@ st.write('otro')
 
 conn = st.connection("postgresql", type="sql")
 dfp = conn.query('select value as Income, 0 as LifeExpectancy, 0 as Population,pais as country,anio as year from info_expo_anio_paises ;', ttl="0")
-dff = conn.query('select value, pais ,anio  from info_expo_anio_paises ;', ttl="0")
+dff = conn.query('select value, pais  from info_expo_anio_paises ;', ttl="0")
 dfpe = conn.query('select distinct pais as country from info_expo_anio_paises ;', ttl="0")
 #st.write(dfp['pais'])
 json_list = json.loads(json.dumps(list(dfp.T.to_dict().values()))) 
