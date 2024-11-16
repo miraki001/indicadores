@@ -247,7 +247,7 @@ st_echarts(
     options=option, height="600px",
 )
 st.write('por paises')
-st.write(dff)
+st.write(json_str1)
 
 options = {
         "tooltip": {
