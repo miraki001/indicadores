@@ -98,7 +98,7 @@ f = f.replace("[[" ,tt)
 json_str = dfp.to_json(orient='records')
 json_obj = json.loads(f)
 
-json_str1 = dff.to_json(orient='records')
+json_str1 = dff.to_json(orient='values')
 json_obj1 = json.loads(f)
 
 
