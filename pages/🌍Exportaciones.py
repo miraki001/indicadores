@@ -241,8 +241,9 @@ option = {
 st_echarts(
     options=option, height="600px",
 )
+st.write('por paises')
 
- options = {
+options = {
         "xAxis": {},
         "yAxis": {},
         "series": [
@@ -252,7 +253,7 @@ st_echarts(
                 "type": "scatter",
             }
         ],
-    }
+}
 st_echarts(
       options=options, height="500px"
 )
