@@ -85,7 +85,7 @@ st.write('otro')
 conn = st.connection("postgresql", type="sql")
 dfp = conn.query('select value as Income, 0 as LifeExpectancy, 0 as Population,pais as country,anio as year from info_expo_anio_paises ;', ttl="0")
 dff = conn.query('select pais,value  from info_expo_anio_paises ;', ttl="0")
-dfpe = conn.query('select distinct pais as country from info_expo_anio_paises ;', ttl="0")
+#dfpe = conn.query('select distinct pais as country from info_expo_anio_paises ;', ttl="0")
 #st.write(dfp['pais'])
 json_list = json.loads(json.dumps(list(dfp.T.to_dict().values()))) 
 tt = '[["Income","Life Expectancy","Population","Country","Year"],['
@@ -97,6 +97,11 @@ f = f.replace("[[" ,tt)
 
 json_str = dfp.to_json(orient='records')
 json_obj = json.loads(f)
+
+json_str1 = dff.to_json(orient='records')
+json_obj1 = json.loads(f)
+
+
 #st.write(json_obj)  
 raw_data = json_obj
 
@@ -257,7 +262,7 @@ options = {
         "series": [
             {
                 "symbolSize": 20,
-                "data": json_obj,
+                "data": json_str1,
                 "type": "scatter",
             }
         ],
