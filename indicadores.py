@@ -89,11 +89,11 @@ with col[0]:
     st.metric(label='FOB', value= 46389836 , delta=85.97)
     b = (
         Bar()
-        .add_xaxis(["Microsoft", "Amazon", "IBM", "Oracle", "Google", "Alibaba"])
-        .add_yaxis("wewrer",["100","30","40","50","54","85","98"])
+        .add_xaxis(["2023", "2024"])
+        .add_yaxis("HL",["814101","806199"])
         .set_global_opts(
             title_opts=opts.TitleOpts(
-                title="Top cloud providers 2018", subtitle="2017-2018 Revenue"
+                title="Exportacions", subtitle="Hl"
             ),
             toolbox_opts=opts.ToolboxOpts(),
         )
