@@ -93,7 +93,7 @@ with col[0]:
         .add_yaxis("HL",["814101","806199"])
         .set_global_opts(
             title_opts=opts.TitleOpts(
-                title="Exportacions", subtitle="Hl"
+                title="Exp.", subtitle="Hl"
             ),
             toolbox_opts=opts.ToolboxOpts(),
         )
