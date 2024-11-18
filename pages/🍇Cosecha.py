@@ -28,6 +28,25 @@ tab1, tab2, tab3 = st.tabs(["Superficie", "Cosecha", "Rendimientos"])
 with tab1:
     st.header("Cantidad de Viñedos")
     dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m group by anio ;', ttl="0")
+
+    option = {
+    "tooltip": {
+        "trigger": 'axis',
+        "axisPointer": { "type": 'cross' }
+    },
+    "legend": {},    
+    "xAxis": {
+        "type": "category",
+        "data": dv1['anio'].to_list(),
+    },
+    "yAxis": {"type": "value"},
+    "series": [{"data": dv1['sup'].to_list(), "type": "line", "name": 'Hectareas'}
+               ,{"data": dv1['cnt'].to_list(), "type": "line","name":'Cnt Viñedos'}]
+    }
+    st_echarts(
+        options=option, height="400px" ,
+    )
+
     
     
 with tab2:
