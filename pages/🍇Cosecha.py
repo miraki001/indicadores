@@ -46,10 +46,10 @@ with tab1:
         "yAxis": {"type": "value"},
         "series": [{"data": dv1['sup'].to_list(), "type": "line", "name": 'Hectareas'}
                    ,{"data": dv1['cnt'].to_list(), "type": "line","name":'Cnt Viñedos'}]
-        }
-        st_echarts(
-            options=option, height="400px" ,
-        )
+    }
+    st_echarts(
+        options=option, height="400px" ,
+    )
 
     
     
