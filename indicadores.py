@@ -78,6 +78,19 @@ conn = st.connection("postgresql", type="sql")
 df = conn.query('SELECT periodo,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_res;', ttl="0")
 #st.write(df)
 
+tab1, tab2, tab3 = st.tabs(["Exportaciones", "Mercado Interno", "Cosecha y Superficie"])
+
+with tab1:
+    st.header("Exportaciones")
+    
+with tab2:
+    st.header("A dog")
+    st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+with tab3:
+    st.header("An owl")
+    st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+
+
 col = st.columns((1.5, 4.5, 2), gap='medium')
 
 with col[0]:
@@ -248,3 +261,11 @@ with col[2]:
     st_echarts(
         options=option, height="400px" ,
     )    
+
+
+with tab2:
+    st.header("Mercado Interno")
+    
+with tab3:
+    st.header("Cosecha y Superficie")
+    
