@@ -26,7 +26,9 @@ with st.popover("Abrir Filtros"):
 tab1, tab2, tab3 = st.tabs(["Superficie", "Cosecha", "Rendimientos"])
 
 with tab1:
-    st.header("A cat")
+    st.header("Cantidad de Viñedos")
+    dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m group by anio ;', ttl="0")
+    
     
 with tab2:
     st.header("A dog")
