@@ -83,12 +83,6 @@ tab1, tab2, tab3 = st.tabs(["Exportaciones", "Mercado Interno", "Cosecha y Super
 with tab1:
     st.header("Exportaciones")
     
-with tab2:
-    st.header("A dog")
-    st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
-with tab3:
-    st.header("An owl")
-    st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
 
 
 col = st.columns((1.5, 4.5, 2), gap='medium')
