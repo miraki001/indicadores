@@ -51,7 +51,7 @@ conn = st.connection("postgresql", type="sql")
 df = conn.query('select anio,litros,fob from inf_expo_anio ;', ttl="0")
 #st.write(df)
  
-st.subheader('Evolución Exportaciones de vimos por año')
+st.subheader('Evolución Exportaciones de vinos por año')
 
 if st.checkbox('Ver datos en forma de tabla'):
     st.write(df)
