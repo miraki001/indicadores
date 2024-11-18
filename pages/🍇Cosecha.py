@@ -9,8 +9,8 @@ year_list = list(df.anio.unique())[::-1]
 dv = conn.query('select distinct variedad from superficievariedad_m ;', ttl="0")
 var_list = list(dv.variedad.unique())[::-1]
 
-dv = conn.query('select distinct provincia from superficievariedad_m ;', ttl="0")
-prov_list = list(dv.variedad.unique())[::-1]
+dp = conn.query('select distinct provincia from superficievariedad_m ;', ttl="0")
+prov_list = list(dp.variedad.unique())[::-1]
 color_list =  ("Tinto", "Blanco","Rosado","Sin Dato")
 
 with st.popover("Abrir Filtros"):
