@@ -7,7 +7,7 @@ df = conn.query('select * from superficievariedad_m ;', ttl="0")
 
 with st.popover("Abrir Filtros"):
     st.markdown("Filtros 👋")
-    anio = st.sidebar.selectbox( "Año :", (df['anio'].unique)
+    anio = st.popover.selectbox( "Año :", (df['anio'].unique)
     )
 
 
