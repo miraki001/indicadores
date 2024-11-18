@@ -4,10 +4,12 @@ import streamlit as st
 
 conn = st.connection("postgresql", type="sql")
 df = conn.query('select * from superficievariedad_m ;', ttl="0")
+year_list = list(df.anio.unique())[::-1]
+
 
 with st.popover("Abrir Filtros"):
     st.markdown("Filtros 👋")
-    anio = st.selectbox( "Año :", (df['anio'].unique) )
+    anio = st.selectbox( "Año :", year_list )
 
 
 
