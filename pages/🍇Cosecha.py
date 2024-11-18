@@ -34,22 +34,22 @@ with tab1:
     newdf=dv1.set_index('anio',inplace=False).rename_axis(None)
     
     option = {
-    "tooltip": {
-        "trigger": 'axis',
-        "axisPointer": { "type": 'cross' }
-    },
-    "legend": {},    
-    "xAxis": {
-        "type": "category",
-        "data": dv1['anio'].to_list(),
-    },
-    "yAxis": {"type": "value"},
-    "series": [{"data": dv1['sup'].to_list(), "type": "line", "name": 'Hectareas'}
-               ,{"data": dv1['cnt'].to_list(), "type": "line","name":'Cnt Viñedos'}]
-    }
-    st_echarts(
-        options=option, height="400px" ,
-    )
+        "tooltip": {
+            "trigger": 'axis',
+            "axisPointer": { "type": 'cross' }
+            },
+        "legend": {},    
+        "xAxis": {
+            "type": "category",
+            "data": dv1['anio'].to_list(),
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": dv1['sup'].to_list(), "type": "line", "name": 'Hectareas'}
+                   ,{"data": dv1['cnt'].to_list(), "type": "line","name":'Cnt Viñedos'}]
+        }
+        st_echarts(
+            options=option, height="400px" ,
+        )
 
     
     
