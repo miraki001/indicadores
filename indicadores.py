@@ -82,29 +82,27 @@ tab1, tab2, tab3 = st.tabs(["Exportaciones", "Mercado Interno", "Cosecha y Super
 
 with tab1:
     st.header("Exportaciones")
-    
 
+    col = st.columns((1.5, 4.5, 2), gap='medium')
 
-col = st.columns((1.5, 4.5, 2), gap='medium')
-
-with col[0]:
-    st.markdown('Exportaciones')
-    st.metric(label='HL', value= 814101 , delta=-0.97)
-    st.metric(label='FOB', value= 272923476 , delta=-1.72)
-    st.markdown('Mostos')
-    st.metric(label='HL', value= 201909 , delta=102.98)
-    st.metric(label='FOB', value= 46389836 , delta=85.97)
+    with col[0]:
+        st.markdown('Exportaciones')
+        st.metric(label='HL', value= 814101 , delta=-0.97)
+        st.metric(label='FOB', value= 272923476 , delta=-1.72)
+        st.markdown('Mostos')
+        st.metric(label='HL', value= 201909 , delta=102.98)
+        st.metric(label='FOB', value= 46389836 , delta=85.97)
 
     
-with col[1]:
-    st.markdown('Mercado Interno')
-    st.markdown('Despachos por color, en H')
-    options = {
-        "title": {"text": "", "left": "center"},
-        "subtitle":{"text": ""},
-        "tooltip": {"trigger": "item"},
-        "legend": {"orient": "vertical", "left": "left",},
-        "series": [
+    with col[1]:
+        st.markdown('Mercado Interno')
+        st.markdown('Despachos por color, en H')
+        options = {
+            "title": {"text": "", "left": "center"},
+            "subtitle":{"text": ""},
+            "tooltip": {"trigger": "item"},
+            "legend": {"orient": "vertical", "left": "left",},
+            "series": [
             {
                 "name": "Hl",
                 "type": "pie",
@@ -122,32 +120,32 @@ with col[1]:
                     }
                 },
             }
-        ],
-    }
-    st_echarts(
-        options=options, height="200px",
-    )
+            ],
+        }
+        st_echarts(
+            options=options, height="200px",
+        )
 
-    st.markdown('Por Envases Tintos')
-    options = {
-        "color": [
-        '#dd6b66',
-        '#759aa0',
-        '#e69d87',
-        '#8dc1a9',
-        '#ea7e53',
-        '#eedd78',
-        '#73a373',
-        '#73b9bc',
-        '#7289ab',
-        '#91ca8c',
-        '#f49f42'
-         ],
-        "title": {"text": "", "left": "center"},
-        "subtitle":{"text": ""},
-        "tooltip": {"trigger": "item"},
-        "legend": {"orient": "vertical", "left": "left",},
-        "series": [
+        st.markdown('Por Envases Tintos')
+        options = {
+            "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+             ],
+            "title": {"text": "", "left": "center"},
+            "subtitle":{"text": ""},
+            "tooltip": {"trigger": "item"},
+            "legend": {"orient": "vertical", "left": "left",},
+            "series": [
             {
                 "name": "Hl",
                 "type": "pie",
@@ -165,33 +163,33 @@ with col[1]:
                     }
                 },
             }
-        ],
-    }
-    st_echarts(
-        options=options, height="200px",
-    )
-    st.markdown('Por Envases  Blancos')
-    options = {
-        "color": [
-        '#37A2DA',
-        '#32C5E9',
-        '#67E0E3',
-        '#9FE6B8',
-        '#FFDB5C',
-        '#ff9f7f',
-        '#fb7293',
-        '#E062AE',
-        '#E690D1',
-        '#e7bcf3',
-        '#9d96f5',
-        '#8378EA',
-        '#96BFFF'
-        ],
-        "title": {"text": "", "left": "center"},
-        "subtitle":{"text": ""},
-        "tooltip": {"trigger": "item"},
-        "legend": {"orient": "vertical", "left": "left",},
-        "series": [
+            ],
+        }
+        st_echarts(
+            options=options, height="200px",
+        )
+        st.markdown('Por Envases  Blancos')
+        options = {
+            "color": [
+            '#37A2DA',
+            '#32C5E9',
+            '#67E0E3',
+            '#9FE6B8',
+            '#FFDB5C',
+            '#ff9f7f',
+            '#fb7293',
+            '#E062AE',
+            '#E690D1',
+            '#e7bcf3',
+            '#9d96f5',
+            '#8378EA',
+            '#96BFFF'
+            ],
+            "title": {"text": "", "left": "center"},
+            "subtitle":{"text": ""},
+            "tooltip": {"trigger": "item"},
+            "legend": {"orient": "vertical", "left": "left",},
+            "series": [
             {
                 "name": "Hl",
                 "type": "pie",
@@ -209,52 +207,52 @@ with col[1]:
                     }
                 },
             }
-        ],
-    }
-    st_echarts(
-        options=options, height="200px",
-    )
-
-with col[2]:
-    st.markdown('Mercado Interno')
-    st.markdown('Evolucion Mensual')
-
-    conn = st.connection("postgresql", type="sql")
-    df1 = conn.query('select anio,tintos,blancos,rosados from info_desp_anio_mes_v1 where anio >= 2022;', ttl="0"),
-    df2 = df1[0]
-    
-    option = {
-        "color": [
-        '#dd6b66',
-        '#759aa0',
-        '#e69d87',
-        '#8dc1a9',
-        '#ea7e53',
-        '#eedd78',
-        '#73a373',
-        '#73b9bc',
-        '#7289ab',
-        '#91ca8c',
-        '#f49f42'
-         ],
-        "tooltip": {
-            "trigger": 'axis',
-            "axisPointer": { "type": 'cross' }
-        },
-        "legend": {},    
-        "xAxis": {
-            "type": "category",
-            "data": df2['anio'].to_list(),
-        },
-        "yAxis": {"type": "value"},
-        "series": [{"data": df2['tintos'].to_list(), "type": "line", "name": 'Tintos'},
-                   {"data": df2['blancos'].to_list(), "type": "line", "name": 'Blancos'},
-                   {"data": df2['rosados'].to_list(), "type": "line", "name": 'Rosados'},
-               ]
+            ],
         }
-    st_echarts(
-        options=option, height="400px" ,
-    )    
+        st_echarts(
+            options=options, height="200px",
+        )
+
+    with col[2]:
+        st.markdown('Mercado Interno')
+        st.markdown('Evolucion Mensual')
+
+        conn = st.connection("postgresql", type="sql")
+        df1 = conn.query('select anio,tintos,blancos,rosados from info_desp_anio_mes_v1 where anio >= 2022;', ttl="0"),
+        df2 = df1[0]
+    
+        option = {
+            "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+             ],
+            "tooltip": {
+                "trigger": 'axis',
+                "axisPointer": { "type": 'cross' }
+            },
+            "legend": {},    
+            "xAxis": {
+                "type": "category",
+                "data": df2['anio'].to_list(),
+            },
+            "yAxis": {"type": "value"},
+            "series": [{"data": df2['tintos'].to_list(), "type": "line", "name": 'Tintos'},
+                       {"data": df2['blancos'].to_list(), "type": "line", "name": 'Blancos'},
+                       {"data": df2['rosados'].to_list(), "type": "line", "name": 'Rosados'},
+                   ]
+            }
+        st_echarts(
+            options=option, height="400px" ,
+        )    
 
 
 with tab2:
