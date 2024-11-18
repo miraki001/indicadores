@@ -37,7 +37,7 @@ tab1, tab2, tab3 = st.tabs(["Superficie", "Cosecha", "Rendimientos"])
 
 with tab1:
     st.header("Cantidad de Viñedos")
-    sql = "select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = ? or ?= '-1' group by anio order by anio",(vcolor)
+    sql = "select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = ? or ?= '-1' group by anio order by anio",('Tinto')
     dv1 = conn.query(sql)
     #dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = %1 or %1= '-1' group by anio order by anio ;', ttl="0")
     st.write(dv1)
