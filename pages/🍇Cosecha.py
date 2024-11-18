@@ -6,10 +6,13 @@ conn = st.connection("postgresql", type="sql")
 df = conn.query('select distinct anio from superficievariedad_m ;', ttl="0")
 year_list = list(df.anio.unique())[::-1]
 
+dv = conn.query('select distinct variedad from superficievariedad_m ;', ttl="0")
+var_list = list(dv.variedad.unique())[::-1]
 
 with st.popover("Abrir Filtros"):
     st.markdown("Filtros 👋")
     anio = st.selectbox( "Año :", year_list )
+    var = st.selectbox( "Variedad :", var_list )
 
 
 
