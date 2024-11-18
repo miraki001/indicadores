@@ -13,6 +13,7 @@ with st.popover("Abrir Filtros"):
     st.markdown("Filtros 👋")
     anio = st.selectbox( "Año :", year_list )
     var = st.selectbox( "Variedad :", var_list )
+    st.button("Ok", type="primary")
 
 
 
