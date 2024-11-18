@@ -74,10 +74,6 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.markdown(""" <style> #MainMenu {visibility: hidden;} footer {visibility: hidden;} </style> """, unsafe_allow_html=True)
 
-conn = st.connection("postgresql", type="sql")
-df = conn.query('SELECT periodo,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_res;', ttl="0")
-#st.write(df)
-
 tab1, tab2, tab3 = st.tabs(["Exportaciones", "Mercado Interno", "Cosecha y Superficie"])
 
 with tab1:
