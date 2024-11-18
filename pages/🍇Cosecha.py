@@ -14,7 +14,7 @@ prov_list = list(dp.provincia.unique())[::-1]
 color_list =  ("Tinto", "Blanco","Rosado","Sin Dato")
 
 with st.popover("Abrir Filtros"):
-    st.markdown("Filtros 👋")
+    st.markdown("Filtros 🔎")
     anio = st.selectbox( "Año :", year_list )
     var = st.selectbox( "Variedad :", var_list )
     prov = st.selectbox( "Provincia :", prov_list )
@@ -27,7 +27,7 @@ tab1, tab2, tab3 = st.tabs(["Superficie", "Cosecha", "Rendimientos"])
 
 with tab1:
     st.header("Cantidad de Viñedos")
-    dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m group by anio ;', ttl="0")
+    dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m group by anio order by anio ;', ttl="0")
     st.write(dv1)
     dv1['anio'] = dv1['anio'].astype(str)
 
@@ -45,7 +45,7 @@ with tab1:
         },
         "yAxis": {"type": "value"},
         "series": [{"data": dv1['sup'].to_list(), "type": "line", "name": 'Hectareas'}
-                   ,{"data": dv1['cnt'].to_list(), "type": "line","name":'Cnt Viñedos'}]
+                   ,{"data": dv1['cnt'].to_list(), "type": "bar","name":'Cnt Viñedos'}]
     }
     st_echarts(
         options=option, height="400px" ,
