@@ -4,6 +4,7 @@ import streamlit as st
 
 conn = st.connection("postgresql", type="sql")
 df = conn.query('select * from superficievariedad_m ;', ttl="0")
+
 with st.popover("Abrir Filtros"):
     st.markdown("Filtros 👋")
     anio = st.sidebar.selectbox( "Año :", (df['anio'].unique)
