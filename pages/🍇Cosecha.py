@@ -29,6 +29,10 @@ with tab1:
     st.header("Cantidad de Viñedos")
     dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m group by anio ;', ttl="0")
 
+    dv1['anio'] = dv1['anio'].astype(str)
+
+    newdf=dv1.set_index('anio',inplace=False).rename_axis(None)
+    
     option = {
     "tooltip": {
         "trigger": 'axis',
