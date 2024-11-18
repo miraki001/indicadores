@@ -3,7 +3,7 @@ import streamlit as st
 
 
 conn = st.connection("postgresql", type="sql")
-df = conn.query('select * from superficievariedad_m ;', ttl="0")
+df = conn.query('select distinct anio from superficievariedad_m ;', ttl="0")
 year_list = list(df.anio.unique())[::-1]
 
 
