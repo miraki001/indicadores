@@ -293,8 +293,8 @@ with tab2:
             "type": "pie",
             "radius": ["40%", "70%"],
             "center": ["50%", "70%"],
-            "startAngle": 180,
-            "endAngle": 360,
+            "startAngle": "180",
+            "endAngle": "360",
             "data": [
                 {"value": blancoant, "name": "Blanco"},
                 {"value": colorant, "name": "Color"},
