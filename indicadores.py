@@ -291,7 +291,7 @@ with tab2:
         {
             "name": "año 2023",
             "type": "pie",
-            "radius": [5, 25],
+            "radius": [15, 125],
             "center": ["50%", "50%"],
             "itemStyle": {"borderRadius": 8},
             "data": [
