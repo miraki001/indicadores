@@ -259,22 +259,22 @@ with tab2:
     st.write(df1)
     df2 = df1[0]
     blancoant = df2.anioant[0]
-    blancoact = df2.anioactual
+    blancoact = df2.anioactual[0]
     st.write(blancoant)
 
     conn = st.connection("postgresql", type="sql")
     df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 600;', ttl="0"),
     st.write(df1)
     df2 = df1[0]
-    colorant = df2.anioant
-    coloract = df2.anioactual
+    colorant = df2.anioant[0]
+    coloract = df2.anioactual[0]
 
     conn = st.connection("postgresql", type="sql")
     df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 700;', ttl="0"),
     st.write(df1)
     df2 = df1[0]
-    sinant = df2.anioant
-    sinact = df2.anioactual
+    sinant = df2.anioant[0]
+    sinact = df2.anioactual[0]
 
     option = {
     "legend": {"top": "bottom"},
@@ -297,13 +297,8 @@ with tab2:
             "itemStyle": {"borderRadius": 8},
             "data": [
                 {"value": blancoant, "name": "Blanco"},
-                {"value": 38, "name": "rose 2"},
-                {"value": 32, "name": "rose 3"},
-                {"value": 30, "name": "rose 4"},
-                {"value": 28, "name": "rose 5"},
-                {"value": 26, "name": "rose 6"},
-                {"value": 22, "name": "rose 7"},
-                {"value": 18, "name": "rose 8"},
+                {"value": colorant, "name": "Color"},
+                {"value": 32, "sinant": "sin espec."},
             ],
         }
         ],
