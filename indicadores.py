@@ -258,6 +258,7 @@ with tab2:
     df1 = conn.query('select anioant,anioactua from inv_desp_compa() where indice = 500;', ttl="0"),
     st.write(df1)
     df2 = df1[0]
+    st.write(df2)
 
     
 with tab3:
