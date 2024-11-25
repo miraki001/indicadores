@@ -278,15 +278,7 @@ with tab2:
 
     option = {
     "legend": {"top": "5%", "left": "center" },
-    "toolbox": {
-        "show": True,
-        "feature": {
-            "mark": {"show": True},
-            "dataView": {"show": True, "readOnly": False},
-            "restore": {"show": True},
-            "saveAsImage": {"show": True},
-        },
-    },
+
     "series": [
         {
             "name": "año 2023",
