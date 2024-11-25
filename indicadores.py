@@ -253,6 +253,11 @@ with tab1:
 
 with tab2:
     st.header("Mercado Interno")
+
+    conn = st.connection("postgresql", type="sql")
+    df1 = conn.query('select anioant,anioactua from inv_desp_compa() where indice = 500;', ttl="0"),
+    df2 = df1[0]
+
     
 with tab3:
     st.header("Cosecha y Superficie")
