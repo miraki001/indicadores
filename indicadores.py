@@ -275,7 +275,7 @@ with tab2:
     sinant = df2.anioant
     sinact = df2.anioactual
 
-    option = {
+   option = {
     "legend": {"top": "bottom"},
     "toolbox": {
         "show": True,
@@ -288,16 +288,21 @@ with tab2:
     },
     "series": [
         {
-            "name": "Año 2023",
+            "name": "面积模式",
             "type": "pie",
             "radius": [50, 250],
             "center": ["50%", "50%"],
             "roseType": "area",
             "itemStyle": {"borderRadius": 8},
             "data": [
-                {"value": blancoant, "name": "Blanco"},
-                {"value": colorant, "name": "Color"},
-                {"value": sinant, "name": "Sin Espec."},
+                {"value": 40, "name": "rose 1"},
+                {"value": 38, "name": "rose 2"},
+                {"value": 32, "name": "rose 3"},
+                {"value": 30, "name": "rose 4"},
+                {"value": 28, "name": "rose 5"},
+                {"value": 26, "name": "rose 6"},
+                {"value": 22, "name": "rose 7"},
+                {"value": 18, "name": "rose 8"},
             ],
         }
         ],
@@ -305,7 +310,6 @@ with tab2:
     st_echarts(
         options=option, height="600px",
     )
-
 
 
     
