@@ -277,6 +277,9 @@ with tab2:
     sinact = df2.anioactual[0]
 
     option = {
+    tooltip: {
+        "trigger": "item"
+    },    
     "legend": {"top": "5%", "left": "center" },
 
     "series": [
