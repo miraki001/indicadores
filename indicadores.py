@@ -260,6 +260,7 @@ with tab2:
     df2 = df1[0]
     blancoant = df2.anioant
     blancoact = df2.anioactual
+     st.write(blancoant)
 
     conn = st.connection("postgresql", type="sql")
     df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 600;', ttl="0"),
