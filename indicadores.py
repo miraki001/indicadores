@@ -280,7 +280,10 @@ with tab2:
     "tooltip": {
         "trigger": "item"
     },    
-    "legend": {"top": "5%", "left": "center" },
+    "legend": {
+        "top": "5%",
+        "left": "center" 
+        },
 
     "series": [
         {
