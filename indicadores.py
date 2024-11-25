@@ -293,7 +293,6 @@ with tab2:
             "type": "pie",
             "radius": [50, 250],
             "center": ["50%", "50%"],
-            "roseType": "area",
             "itemStyle": {"borderRadius": 8},
             "data": [
                 {"value": blancoant, "name": "Blanco"},
