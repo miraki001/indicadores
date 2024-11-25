@@ -277,7 +277,7 @@ with tab2:
     sinact = df2.anioactual[0]
 
     option = {
-    "legend": {"top": "bottom"},
+    "legend": {"top": "5%", "left": "center" },
     "toolbox": {
         "show": True,
         "feature": {
