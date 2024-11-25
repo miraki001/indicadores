@@ -291,13 +291,13 @@ with tab2:
         {
             "name": "año 2023",
             "type": "pie",
-            "radius": [50, 250],
+            "radius": [5, 25],
             "center": ["50%", "50%"],
             "itemStyle": {"borderRadius": 8},
             "data": [
                 {"value": blancoant, "name": "Blanco"},
                 {"value": colorant, "name": "Color"},
-                {"value": 32, "sinant": "sin espec."},
+                {"value": sinant, "name": "sin espec."},
             ],
         }
         ],
