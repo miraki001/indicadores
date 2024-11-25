@@ -258,7 +258,7 @@ with tab2:
     df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 500;', ttl="0"),
     st.write(df1)
     df2 = df1[0]
-    blancoant = df2.anioant
+    blancoant = df2.anioant[0]
     blancoact = df2.anioactual
     st.write(blancoant)
 
