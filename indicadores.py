@@ -275,7 +275,7 @@ with tab2:
     sinant = df2.anioant
     sinact = df2.anioactual
 
-   option = {
+    option = {
     "legend": {"top": "bottom"},
     "toolbox": {
         "show": True,
@@ -305,7 +305,7 @@ with tab2:
                 {"value": 18, "name": "rose 8"},
             ],
         }
-    ],
+        ],
     }
     st_echarts(
         options=option, height="600px",
