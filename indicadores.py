@@ -305,7 +305,7 @@ with tab2:
                 {"value": 18, "name": "rose 8"},
             ],
         }
-        ],
+    ],
     }
     st_echarts(
         options=option, height="600px",
