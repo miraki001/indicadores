@@ -258,7 +258,60 @@ with tab2:
     df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 500;', ttl="0"),
     st.write(df1)
     df2 = df1[0]
-    st.write(df2.anioant)
+    blancoant = df2.anioant
+    blancoact = df2.anioactual
+
+    conn = st.connection("postgresql", type="sql")
+    df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 600;', ttl="0"),
+    st.write(df1)
+    df2 = df1[0]
+    colorant = df2.anioant
+    coloract = df2.anioactual
+
+    conn = st.connection("postgresql", type="sql")
+    df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 700;', ttl="0"),
+    st.write(df1)
+    df2 = df1[0]
+    colorant = df2.anioant
+    coloract = df2.anioactual
+
+    option = {
+    "legend": {"top": "bottom"},
+    "toolbox": {
+        "show": True,
+        "feature": {
+            "mark": {"show": True},
+            "dataView": {"show": True, "readOnly": False},
+            "restore": {"show": True},
+            "saveAsImage": {"show": True},
+        },
+    },
+    "series": [
+        {
+            "name": "面积模式",
+            "type": "pie",
+            "radius": [50, 250],
+            "center": ["50%", "50%"],
+            "roseType": "area",
+            "itemStyle": {"borderRadius": 8},
+            "data": [
+                {"value": 40, "name": "rose 1"},
+                {"value": 38, "name": "rose 2"},
+                {"value": 32, "name": "rose 3"},
+                {"value": 30, "name": "rose 4"},
+                {"value": 28, "name": "rose 5"},
+                {"value": 26, "name": "rose 6"},
+                {"value": 22, "name": "rose 7"},
+                {"value": 18, "name": "rose 8"},
+            ],
+        }
+        ],
+    }
+    st_echarts(
+        options=option, height="600px",
+    )
+
+
 
     
 with tab3:
