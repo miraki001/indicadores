@@ -288,14 +288,14 @@ with tab2:
     },
     "series": [
         {
-            "name": "面积模式",
+            "name": "año 2023",
             "type": "pie",
             "radius": [50, 250],
             "center": ["50%", "50%"],
             "roseType": "area",
             "itemStyle": {"borderRadius": 8},
             "data": [
-                {"value": 40, "name": "rose 1"},
+                {"value": blancoant, "name": "Blanco"},
                 {"value": 38, "name": "rose 2"},
                 {"value": 32, "name": "rose 3"},
                 {"value": 30, "name": "rose 4"},
