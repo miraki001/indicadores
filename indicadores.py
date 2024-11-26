@@ -341,7 +341,7 @@ with tab2:
             "trigger": "item"
         },    
         "legend": {
-            "top": "15%",
+            "top": "1%",
             "left": "center" 
             },
         "label": {
