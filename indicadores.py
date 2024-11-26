@@ -488,7 +488,7 @@ with tab2:
             ],
         }
         st_echarts(
-            options=option, height="200px",
+            options=option, height="400px",
         )
     
 
