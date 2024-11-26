@@ -295,7 +295,7 @@ with tab2:
             "trigger": "item"
         },    
         "legend": {
-            "top": "5%",
+            "top": "1%",
             "left": "center" 
             },
         "label": {
@@ -337,6 +337,19 @@ with tab2:
         st.markdown('Despachos Noviembre 2024')
 
         option = {
+        "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],
         "tooltip": {
             "trigger": "item"
         },    
