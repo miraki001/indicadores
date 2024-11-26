@@ -266,15 +266,30 @@ with tab2:
     coloract = df2.anioactual[14]
     sinact = df2.anioactual[15]
 
-    if st.checkbox('Ver datos en forma de tabla'):
+    conn = st.connection("postgresql", type="sql")
+    df3 = conn.query('select color,anioant,anioactual ,indice from inv_desp_comp_acu() order by indice;', ttl="0"),
+    df4 = df3[0]
+    ablancoant = df4.anioant[13]
+    acolorant = df4.anioant[14]
+    asinant = df4.anioant[15]
+    atotant = df4.anioant[16]
+    ablancoact = df4.anioactual[13]
+    acoloract = df4.anioactual[14]
+    asinact = df4.anioactual[15]
+    
+
+    if st.checkbox('Ver tabla mes Actual'):
         st.write(df2)
+    if st.checkbox('Ver tabla Acumulados'):
+        st.write(df2)
+        
 
     col1 = st.columns((3.5, 4.5, 2), gap='medium')
     
 
     
     with col1[0]:
-        st.markdown('Despachos Noviembre 2023')
+        st.markdown('Despachos Noviembre 2023 en Hl.')
 
 
         option = {
@@ -332,9 +347,74 @@ with tab2:
         st_echarts(
             options=option, height="200px",
         )
+#acumulados
+
+        st.markdown('Despachos Noviembre 2023 en Hl.')
+
+
+        option = {
+        "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],            
+        "tooltip": {
+            "trigger": "item"
+        },    
+        "legend": {
+            "top": "1%",
+            "left": "center" 
+            },
+        "label": {
+            "alignTo": 'edge',
+#            "formatter": '{name|{b}}\n{time|{c} }',
+            "formatter": '{name|{b}}\n  ({d}%)  ',
+            "minMargin": 5,
+            "edgeDistance": 10,
+            "lineHeight": 15,
+            "rich": {
+              "time": {
+              "fontSize": 10,
+               "color": '#999'
+              }
+            }
+          },    
+
+        "series": [
+            {
+                "name": "año 2023",
+                "type": "pie",
+                "radius": ["40%", "70%"],
+                "center": ["50%", "50%"],
+                "startAngle": 180,
+                "endAngle": 360,
+                "data": [
+                    {"value": ablancoant, "name": "Blanco"},
+                    {"value": acolorant, "name": "Color"},
+                    {"value": asinant, "name": "sin espec."},
+                ],
+            }
+            ],
+        }
+        st_echarts(
+            options=option, height="200px",
+        )
+
+    
+
+
+    
 
     with col1[1]:
-        st.markdown('Despachos Noviembre 2024')
+        st.markdown('Despachos Noviembre 2024 en Hl.')
 
         option = {
         "color": [
