@@ -427,12 +427,7 @@ with tab2:
         st.markdown('Despachos Noviembre 2023 por Envase en Hl.')
 
 
-        option = {
-        "title": {
-            "text": 'Despachos por Envase',
-            "subtext": 'Noviembre 2023',
-            "left": 'center'
-        },            
+        option = {           
         "color": [
             '#dd6b66',
             '#759aa0',
@@ -488,7 +483,7 @@ with tab2:
             ],
         }
         st_echarts(
-            options=option, height="400px",
+            options=option, height="350px",
         )
     
 
