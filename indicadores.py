@@ -280,6 +280,12 @@ with tab2:
     conn = st.connection("postgresql", type="sql")
     df5 = conn.query('select envase,anioant,anioactual ,indice from inv_desp_env() order by indice;', ttl="0"),
     df6 = df5[0]
+    botella = df6.anioant[0]
+    tetra = df6.anioant[1]
+    dama = df6.anioant[2]
+    lata = df6.anioant[3]
+    bag  = df6.anioant[4]
+    otro = df6.anioant[5]
     
     
 
@@ -417,6 +423,68 @@ with tab2:
             options=option, height="200px",
         )
 
+# por envase
+        st.markdown('Despachos Ene-Nov 2023 en Hl.')
+
+
+        option = {
+        "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],            
+        "tooltip": {
+            "trigger": "item"
+        },    
+        "legend": {
+            "top": "1%",
+            "left": "center" 
+            },
+        "label": {
+            "alignTo": 'edge',
+#            "formatter": '{name|{b}}\n{time|{c} }',
+            "formatter": '{name|{b}}\n  ({d}%)  ',
+            "minMargin": 5,
+            "edgeDistance": 10,
+            "lineHeight": 15,
+            "rich": {
+              "time": {
+              "fontSize": 10,
+               "color": '#999'
+              }
+            }
+          },    
+
+        "series": [
+            {
+                "name": "año 2023",
+                "type": "pie",
+                "radius": ["40%", "70%"],
+                "center": ["50%", "50%"],
+                "startAngle": 180,
+                "endAngle": 360,
+                "data": [
+                    {"value": botella, "name": "Botellas"},
+                    {"value": tetra, "name": "Tetra"},
+                    {"value": dama, "name": "Damajuana"},
+                    {"value": lata, "name": "Lata"},
+                    {"value": bag, "name": "Bag in Box"},
+                    {"value": otro, "name": "Otros"},
+                ],
+            }
+            ],
+        }
+        st_echarts(
+            options=option, height="200px",
+        )
     
 
 
