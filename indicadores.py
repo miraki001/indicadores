@@ -331,7 +331,7 @@ with tab2:
             },
         "label": {
             "alignTo": 'edge',
-            "formatter": '{name|{b}}\n{time|{c} 小时}',
+            "formatter": '{name|{b}}\n{time|{c} }',
             "minMargin": 5,
             "edgeDistance": 10,
             "lineHeight": 15,
