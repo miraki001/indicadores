@@ -265,6 +265,8 @@ with tab2:
     coloract = df2.anioactual[14]
     sinact = df2.anioactual[15]
 
+    if st.checkbox('Ver datos en forma de tabla'):
+        st.write(df2)
 
     col1 = st.columns((3.5, 4.5, 2), gap='medium')
     
