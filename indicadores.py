@@ -467,7 +467,7 @@ with tab2:
             {
                 "name": "año 2023",
                 "type": "pie",
-                "radius": ["40%", "70%"],
+                "radius": ["20%", "60%"],
                 "center": ["50%", "50%"],
                 "startAngle": 180,
                 "endAngle": 360,
