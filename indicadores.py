@@ -428,6 +428,11 @@ with tab2:
 
 
         option = {
+        "title": {
+            "text": 'Despachos por Envase',
+            subtext: 'Noviembre 2023',
+            left: 'center'
+        },            
         "color": [
             '#dd6b66',
             '#759aa0',
@@ -445,7 +450,7 @@ with tab2:
             "trigger": "item"
         },    
         "legend": {
-            "left": "0.5%",
+            "top": "1%",
             "left": "center" 
             },
         "label": {
