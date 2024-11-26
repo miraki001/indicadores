@@ -261,6 +261,7 @@ with tab2:
     blancoant = df2.anioant[13]
     colorant = df2.anioant[14]
     sinant = df2.anioant[15]
+    totant = df2.anioant[16]
     blancoact = df2.anioactual[13]
     coloract = df2.anioactual[14]
     sinact = df2.anioactual[15]
@@ -332,7 +333,7 @@ with tab2:
         "label": {
             "alignTo": 'edge',
 #            "formatter": '{name|{b}}\n{time|{c} }',
-            "formatter": '{name|{b}}\n {time|{c}  ',
+            "formatter": '{name|{b}}\n {totant|{c}  ',
             "minMargin": 5,
             "edgeDistance": 10,
             "lineHeight": 15,
