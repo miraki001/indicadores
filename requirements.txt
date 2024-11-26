@@ -4,4 +4,4 @@ sqlalchemy
 streamlit-echarts
 altair
 plotly
-matplotlib
+
