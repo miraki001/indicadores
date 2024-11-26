@@ -530,7 +530,7 @@ with tab2:
           },    
         "series": [
             {
-                "name": "año 2023",
+                "name": "año 2024",
                 "type": "pie",
                 "radius": ["40%", "70%"],
                 "center": ["50%", "50%"],
@@ -587,7 +587,7 @@ with tab2:
           },    
         "series": [
             {
-                "name": "año 2023",
+                "name": "año 2024",
                 "type": "pie",
                 "radius": ["40%", "70%"],
                 "center": ["50%", "50%"],
