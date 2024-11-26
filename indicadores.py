@@ -255,56 +255,46 @@ with tab1:
 with tab2:
     st.header("Mercado Interno")
 
+    col = st.columns((1.5, 4.5, 2), gap='medium')
     conn = st.connection("postgresql", type="sql")
-    df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 500;', ttl="0"),
-    st.write(df1)
+    df1 = conn.query('select anioant,anioactual from inv_desp_compa();', ttl="0"),
     df2 = df1[0]
-    blancoant = df2.anioant[0]
-    blancoact = df2.anioactual[0]
-    st.write(blancoant)
+    st.write(df2[0])
+    blancoant = 100
+    colorant = 200
+    sinant = 50
 
-    conn = st.connection("postgresql", type="sql")
-    df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 600;', ttl="0"),
-    st.write(df1)
-    df2 = df1[0]
-    colorant = df2.anioant[0]
-    coloract = df2.anioactual[0]
+    
+    with col[0]:
 
-    conn = st.connection("postgresql", type="sql")
-    df1 = conn.query('select anioant,anioactual from inv_desp_compa() where indice = 700;', ttl="0"),
-    st.write(df1)
-    df2 = df1[0]
-    sinant = df2.anioant[0]
-    sinact = df2.anioactual[0]
+        option = {
+        "tooltip": {
+            "trigger": "item"
+        },    
+        "legend": {
+            "top": "5%",
+            "left": "center" 
+            },
 
-    option = {
-    "tooltip": {
-        "trigger": "item"
-    },    
-    "legend": {
-        "top": "5%",
-        "left": "center" 
-        },
-
-    "series": [
-        {
-            "name": "año 2023",
-            "type": "pie",
-            "radius": ["40%", "70%"],
-            "center": ["50%", "50%"],
-            "startAngle": 180,
-            "endAngle": 360,
-            "data": [
-                {"value": blancoant, "name": "Blanco"},
-                {"value": colorant, "name": "Color"},
-                {"value": sinant, "name": "sin espec."},
+        "series": [
+            {
+                "name": "año 2023",
+                "type": "pie",
+                "radius": ["40%", "70%"],
+                "center": ["50%", "50%"],
+                "startAngle": 180,
+                "endAngle": 360,
+                "data": [
+                    {"value": blancoant, "name": "Blanco"},
+                    {"value": colorant, "name": "Color"},
+                    {"value": sinant, "name": "sin espec."},
+                ],
+            }
             ],
         }
-        ],
-    }
-    st_echarts(
-        options=option, height="200px",
-    )
+        st_echarts(
+            options=option, height="200px",
+        )
 
 
     
