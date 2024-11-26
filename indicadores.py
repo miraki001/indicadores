@@ -255,7 +255,8 @@ with tab1:
 with tab2:
     st.header("Mercado Interno")
 
-    col = st.columns((1.5, 4.5, 2), gap='medium')
+    col1 = st.columns((1.5, 4.5, 2), gap='medium')
+    
     conn = st.connection("postgresql", type="sql")
     df1 = conn.query('select anioant,anioactual from inv_desp_compa();', ttl="0"),
     df2 = df1[0]
