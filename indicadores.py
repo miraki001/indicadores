@@ -266,7 +266,7 @@ with tab2:
     sinant = 50
 
     
-    with col[0]:
+    with col1[0]:
 
         option = {
         "tooltip": {
