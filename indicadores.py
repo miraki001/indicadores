@@ -445,16 +445,16 @@ with tab2:
             "trigger": "item"
         },    
         "legend": {
-            "bottom": "10%",
+            "bottom": "0.5%",
             "left": "center" 
             },
         "label": {
-            "alignTo": "edge",
+            "alignTo": 'edge',
 #            "formatter": '{name|{b}}\n{time|{c} }',
             "formatter": '{name|{b}}\n  ({d}%)  ',
-            "minMargin": "5",
-            "edgeDistance": "10",
-            "lineHeight": "15",
+            "minMargin": 5,
+            "edgeDistance": 10,
+            "lineHeight": 15,
             "rich": {
               "time": {
               "fontSize": 8,
