@@ -258,14 +258,15 @@ with tab2:
     conn = st.connection("postgresql", type="sql")
     df1 = conn.query('select color,anioant,anioactual ,indice from inv_desp_compa() order by indice;', ttl="0"),
     df2 = df1[0]
-    st.write(df2)
-    st.write(df2.anioant[13])
     blancoant = df2.anioant[13]
     colorant = df2.anioant[14]
     sinant = df2.anioant[15]
+    blancoact = df2.anioactual[13]
+    coloract = df2.anioactual[14]
+    sinact = df2.anioactual[15]
 
 
-    col1 = st.columns((2.5, 4.5, 2), gap='medium')
+    col1 = st.columns((3.5, 4.5, 2), gap='medium')
     
 
     
@@ -302,8 +303,39 @@ with tab2:
             options=option, height="200px",
         )
 
+    with col1[1]:
+        st.markdown('Despachos Noviembre 2024')
 
-    
+        option = {
+        "tooltip": {
+            "trigger": "item"
+        },    
+        "legend": {
+            "top": "5%",
+            "left": "center" 
+            },
+
+        "series": [
+            {
+                "name": "año 2023",
+                "type": "pie",
+                "radius": ["40%", "70%"],
+                "center": ["50%", "50%"],
+                "startAngle": 180,
+                "endAngle": 360,
+                "data": [
+                    {"value": blancoant, "name": "Blanco"},
+                    {"value": colorant, "name": "Color"},
+                    {"value": sinant, "name": "sin espec."},
+                ],
+            }
+            ],
+        }
+        st_echarts(
+            options=option, height="200px",
+        )
+
+
 with tab3:
     st.header("Cosecha y Superficie")
     
