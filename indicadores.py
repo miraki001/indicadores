@@ -284,6 +284,7 @@ with tab2:
     
 
     
+    
     if st.checkbox('Ver tabla Por Color mes Actual'):
         st.write(df2)
     if st.checkbox('Ver tabla Por Color Acumulados'):
