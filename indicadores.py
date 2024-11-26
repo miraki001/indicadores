@@ -445,19 +445,19 @@ with tab2:
             "trigger": "item"
         },    
         "legend": {
-            "bottom": 10,
+            "bottom": "10%",
             "left": "center" 
             },
         "label": {
-            "alignTo": 'edge',
+            "alignTo": "edge",
 #            "formatter": '{name|{b}}\n{time|{c} }',
             "formatter": '{name|{b}}\n  ({d}%)  ',
-            "minMargin": 5,
-            "edgeDistance": 10,
-            "lineHeight": 15,
+            "minMargin": "5",
+            "edgeDistance": "10",
+            "lineHeight": "15",
             "rich": {
               "time": {
-              "fontSize": 10,
+              "fontSize": 8,
                "color": '#999'
               }
             }
@@ -483,7 +483,7 @@ with tab2:
             ],
         }
         st_echarts(
-            options=option, height="300px",
+            options=option, height="200px",
         )
     
 
