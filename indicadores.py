@@ -265,7 +265,7 @@ with tab2:
     sinant = df2.anioant[15]
 
 
-    col1 = st.columns((1.5, 4.5, 2), gap='medium')
+    col1 = st.columns((2.5, 4.5, 2), gap='medium')
     
 
     
