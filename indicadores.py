@@ -424,7 +424,7 @@ with tab2:
         )
 
 # por envase
-        st.markdown('Despachos Ene-Nov 2023 en Hl.')
+        st.markdown('Despachos Noviembre 2023 por Envase en Hl.')
 
 
         option = {
