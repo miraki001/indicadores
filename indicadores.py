@@ -332,7 +332,7 @@ with tab2:
         "label": {
             "alignTo": 'edge',
 #            "formatter": '{name|{b}}\n{time|{c} }',
-            "formatter": '{name }',
+            "formatter": '{name|{b}} ,
             "minMargin": 5,
             "edgeDistance": 10,
             "lineHeight": 15,
