@@ -260,7 +260,7 @@ with tab2:
     conn = st.connection("postgresql", type="sql")
     df1 = conn.query('select anioant,anioactual from inv_desp_compa();', ttl="0"),
     df2 = df1[0]
-    st.write(df2)
+    st.write(df2.[0])
     blancoant = 100
     colorant = 200
     sinant = 50
