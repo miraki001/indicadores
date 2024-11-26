@@ -276,12 +276,19 @@ with tab2:
     ablancoact = df4.anioactual[13]
     acoloract = df4.anioactual[14]
     asinact = df4.anioactual[15]
+
+    conn = st.connection("postgresql", type="sql")
+    df5 = conn.query('select envase,anioant,anioactual ,indice from inv_desp_env() order by indice;', ttl="0"),
+    df6 = df5[0]
+    
     
 
-    if st.checkbox('Ver tabla mes Actual'):
+    if st.checkbox('Ver tabla Por Color mes Actual'):
         st.write(df2)
-    if st.checkbox('Ver tabla Acumulados'):
+    if st.checkbox('Ver tabla Por Color Acumulados'):
         st.write(df2)
+    if st.checkbox('Ver tabla Por Envase Acumulados'):
+        st.write(df6)
         
 
     col1 = st.columns((3.5, 4.5, 2), gap='medium')
