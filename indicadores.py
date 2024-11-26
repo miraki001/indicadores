@@ -8,6 +8,7 @@ from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Bar
 from pyecharts import options as opts
 import altair as alt
+import matplotlib.pyplot as plt
 
 
 colorPalette = ['#00b04f', '#ffbf00', 'ff0000']
@@ -304,7 +305,16 @@ with tab2:
     st_echarts(
         options=option, height="400px",
     )
+    labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+    sizes = [15, 30, 45, 10]
+    explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
+    fig1, ax1 = plt.subplots()
+    ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+    st.pyplot(fig1)
 
     
 with tab3:
