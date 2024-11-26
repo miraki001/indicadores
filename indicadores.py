@@ -255,18 +255,23 @@ with tab1:
 with tab2:
     st.header("Mercado Interno")
 
-    col1 = st.columns((1.5, 4.5, 2), gap='medium')
-    
     conn = st.connection("postgresql", type="sql")
     df1 = conn.query('select anioant,anioactual from inv_desp_compa();', ttl="0"),
     df2 = df1[0]
+    st.write(df2)
     st.write(df2.anioant[2])
-    blancoant = 100
-    colorant = 200
-    sinant = 50
+    blancoant = df2.anioant[5]
+    colorant = df2.anioant[6]
+    sinant = df2.anioant[7]
+
+
+    col1 = st.columns((1.5, 4.5, 2), gap='medium')
+    
 
     
     with col1[0]:
+        st.markdown('Despachos Noviembre 2023')
+
 
         option = {
         "tooltip": {
