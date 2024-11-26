@@ -324,9 +324,9 @@ with tab2:
                 "startAngle": 180,
                 "endAngle": 360,
                 "data": [
-                    {"value": blancoant, "name": "Blanco"},
-                    {"value": colorant, "name": "Color"},
-                    {"value": sinant, "name": "sin espec."},
+                    {"value": blancoact, "name": "Blanco"},
+                    {"value": coloract, "name": "Color"},
+                    {"value": sinact, "name": "sin espec."},
                 ],
             }
             ],
