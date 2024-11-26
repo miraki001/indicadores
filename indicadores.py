@@ -298,6 +298,20 @@ with tab2:
             "top": "5%",
             "left": "center" 
             },
+        "label": {
+            "alignTo": 'edge',
+#            "formatter": '{name|{b}}\n{time|{c} }',
+            "formatter": '{name|{b}}\n  ({d}%)  ',
+            "minMargin": 5,
+            "edgeDistance": 10,
+            "lineHeight": 15,
+            "rich": {
+              "time": {
+              "fontSize": 10,
+               "color": '#999'
+              }
+            }
+          },    
 
         "series": [
             {
