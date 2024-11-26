@@ -349,7 +349,7 @@ with tab2:
         )
 #acumulados
 
-        st.markdown('Despachos Noviembre 2023 en Hl.')
+        st.markdown('Despachos Ene-Nov 2023 en Hl.')
 
 
         option = {
@@ -463,6 +463,63 @@ with tab2:
                     {"value": blancoact, "name": "Blanco"},
                     {"value": coloract, "name": "Color"},
                     {"value": sinact, "name": "sin espec."},
+                ],
+            }
+            ],
+        }
+        st_echarts(
+            options=option, height="200px",
+        )
+
+        st.markdown('Despachos Ene-Nov 2024 en Hl.')
+
+        option = {
+        "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],
+        "tooltip": {
+            "trigger": "item"
+        },    
+        "legend": {
+            "top": "1%",
+            "left": "center" 
+            },
+        "label": {
+            "alignTo": 'edge',
+#            "formatter": '{name|{b}}\n{time|{c} }',
+            "formatter": '{name|{b}}\n  ({d}%)  ',
+            "minMargin": 5,
+            "edgeDistance": 10,
+            "lineHeight": 15,
+            "rich": {
+              "time": {
+              "fontSize": 10,
+               "color": '#999'
+              }
+            }
+          },    
+        "series": [
+            {
+                "name": "año 2023",
+                "type": "pie",
+                "radius": ["40%", "70%"],
+                "center": ["50%", "50%"],
+                "startAngle": 180,
+                "endAngle": 360,
+                "data": [
+                    {"value": ablancoact, "name": "Blanco"},
+                    {"value": acoloract, "name": "Color"},
+                    {"value": asinact, "name": "sin espec."},
                 ],
             }
             ],
