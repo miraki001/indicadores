@@ -430,8 +430,8 @@ with tab2:
         option = {
         "title": {
             "text": 'Despachos por Envase',
-            subtext: 'Noviembre 2023',
-            left: 'center'
+            "subtext": 'Noviembre 2023',
+            "left": 'center'
         },            
         "color": [
             '#dd6b66',
