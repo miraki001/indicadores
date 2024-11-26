@@ -256,7 +256,7 @@ with tab2:
     st.header("Mercado Interno")
 
     conn = st.connection("postgresql", type="sql")
-    df1 = conn.query('select anioant,anioactual from inv_desp_compa();', ttl="0"),
+    df1 = conn.query('select anioant,anioactual from inv_desp_compa() order by indice;', ttl="0"),
     df2 = df1[0]
     st.write(df2)
     st.write(df2.anioant[14])
