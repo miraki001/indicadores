@@ -259,10 +259,10 @@ with tab2:
     df1 = conn.query('select color,anioant,anioactual ,indice from inv_desp_compa() order by indice;', ttl="0"),
     df2 = df1[0]
     st.write(df2)
-    st.write(df2.anioant[14])
-    blancoant = df2.anioant[14]
-    colorant = df2.anioant[15]
-    sinant = df2.anioant[16]
+    st.write(df2.anioant[13])
+    blancoant = df2.anioant[13]
+    colorant = df2.anioant[14]
+    sinant = df2.anioant[15]
 
 
     col1 = st.columns((1.5, 4.5, 2), gap='medium')
