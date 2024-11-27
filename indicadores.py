@@ -286,12 +286,12 @@ with tab2:
     lata = df6.anioant[3]
     bag  = df6.anioant[4]
     otro = df6.anioant[5]
-    abotella = df6.anioant[0]
-    atetra = df6.anioant[1]
-    adama = df6.anioant[2]
-    alata = df6.anioant[3]
-    abag  = df6.anioant[4]
-    aotro = df6.anioant[5]
+    abotella = df6.anioact[0]
+    atetra = df6.anioact[1]
+    adama = df6.anioact[2]
+    alata = df6.anioact[3]
+    abag  = df6.anioact[4]
+    aotro = df6.anioact[5]
     
     
 
@@ -653,7 +653,7 @@ with tab2:
 
         "series": [
             {
-                "name": "año 2023",
+                "name": "año 2024",
                 "type": "pie",
                 "radius": ["30%", "50%"],
                 "center": ["50%", "50%"],
