@@ -286,6 +286,12 @@ with tab2:
     lata = df6.anioant[3]
     bag  = df6.anioant[4]
     otro = df6.anioant[5]
+    abotella = df6.anioant[0]
+    atetra = df6.anioant[1]
+    adama = df6.anioant[2]
+    alata = df6.anioant[3]
+    abag  = df6.anioant[4]
+    aotro = df6.anioant[5]
     
     
 
@@ -604,6 +610,70 @@ with tab2:
         st_echarts(
             options=option, height="200px",
         )
+
+# por envase
+        st.markdown('Despachos Noviembre 2024 por Envase en Hl.')
+
+
+        option = {           
+        "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],            
+        "tooltip": {
+            "trigger": "item"
+        },    
+        "legend": {
+            "top": "1%",
+            "left": "center" 
+            },
+        "label": {
+            "alignTo": 'edge',
+#            "formatter": '{name|{b}}\n{time|{c} }',
+            "formatter": '{name|{b}}\n  ({d}%)  ',
+            "minMargin": 5,
+            "edgeDistance": 10,
+            "lineHeight": 15,
+            "rich": {
+              "time": {
+              "fontSize": 8,
+               "color": '#999'
+              }
+            }
+          },    
+
+        "series": [
+            {
+                "name": "año 2023",
+                "type": "pie",
+                "radius": ["30%", "50%"],
+                "center": ["50%", "50%"],
+                "startAngle": 180,
+                "endAngle": 360,
+                "data": [
+                    {"value": abotella, "name": "Botellas"},
+                    {"value": atetra, "name": "Tetra"},
+                    {"value": adama, "name": "Damajuana"},
+                    {"value": alata, "name": "Lata"},
+                    {"value": abag, "name": "Bag in Box"},
+                    {"value": aotro, "name": "Otros"},
+                ],
+            }
+            ],
+        }
+        st_echarts(
+            options=option, height="350px",
+        )
+
 
 
 with tab3:
