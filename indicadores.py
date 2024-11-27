@@ -286,12 +286,13 @@ with tab2:
     lata = df6.anioant[3]
     bag  = df6.anioant[4]
     otro = df6.anioant[5]
-    abotella = df6.anioact[0]
-    atetra = df6.anioact[1]
-    adama = df6.anioact[2]
-    alata = df6.anioact[3]
-    abag  = df6.anioact[4]
-    aotro = df6.anioact[5]
+    
+    abotella = df6.anioactual[0]
+    atetra = df6.anioactual[1]
+    adama = df6.anioactual[2]
+    alata = df6.anioactual[3]
+    abag  = df6.anioactual[4]
+    aotro = df6.anioactual[5]
     
     
 
