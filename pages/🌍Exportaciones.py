@@ -64,8 +64,8 @@ newdf=df.set_index('anio',inplace=False).rename_axis(None)
 option = {
     "dataZoom": [
     {
-      "show": true,
-      "realtime": true,
+      "show": 'true',
+      "realtime": 'true',
       "start": 30,
       "end": 70,
       "xAxisIndex": [0, 1]
