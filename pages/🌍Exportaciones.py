@@ -72,7 +72,7 @@ option = {
     },
     {
       "type": 'inside',
-      "realtime": true,
+      "realtime": 'true',
       "start": 30,
       "end": 70,
       "xAxisIndex": [0, 1]
