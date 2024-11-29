@@ -159,7 +159,7 @@ with col2:
   envase = st.selectbox(
       "Seleccionar Tipo de Envase",dfev.subgrupoenvase
   )
-qu = 'select cnt,provincia from inf_desp_prov where provincia = ' + prov  + ' or ' + prov + ' = "Todas" ;'
+qu = 'select cnt,provincia from inf_desp_prov where provincia = ' + "prov"  + ' or ' + "prov" + ' = "Todas" ;'
 st.write(qu)
 dfpv1 = conn.query(qu, ttl="0"),
 dfpv2 = dfpv1[0]
