@@ -142,7 +142,20 @@ new_row = pd.DataFrame({"provincia": ["Todas"]})
 dfpv = pd.concat([dfpv, new_row], ignore_index=True)
 
 st.write(dfpv)
+dfe = conn.query('select subgrupoenvase from dimsubgrupoenvase;', ttl="0"),
+dfev = dfe[0]
+new_row1 = pd.DataFrame({"subgrupoenvase": ["Todos"]})
+dfev = pd.concat([dfev, new_row1], ignore_index=True)
 
-option = st.selectbox(
-    "Seleccionar Provincia",dfpv.provincia
-)
+
+col1, col2 = st.columns(2)
+
+with col1:
+  option = st.selectbox(
+      "Seleccionar Provincia",dfpv.provincia
+  )
+
+with col1:
+  option = st.selectbox(
+      "Seleccionar Tipo de Envase",dfev.subgrupoenvase
+  )
