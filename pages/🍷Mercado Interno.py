@@ -138,8 +138,8 @@ st.subheader('Evolución de los despachos por Provincias')
 conn = st.connection("postgresql", type="sql")
 dfp = conn.query('select provincia from dimprovincia;', ttl="0"),
 dfpv = dfp[0]
-
-dfpv = pd.concat([dfpv, "Todas"], ignore_index=True)
+new_row = pd.DataFrame({"provincia": ["Todas"]})
+dfpv = pd.concat([dfpv, new_row], ignore_index=True)
 
 st.write(dfpv)
 
