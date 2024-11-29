@@ -161,10 +161,10 @@ with col2:
   )
 
 st.write("You selected:", prov)
-if prov == "Todas"
+if prov == "Todas":
   qu = 'select cnt,provincia from inf_desp_prov ;'  
   dfpv1 = conn.query(qu, ttl="0"),
-if prov 1= "Todas" 
+if prov 1= "Todas": 
   qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
   dfpv1 = conn.query(qu, ttl="0", params={"prov": prov},),
 st.write(qu)
