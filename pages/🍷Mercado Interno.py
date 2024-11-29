@@ -151,11 +151,16 @@ dfev = pd.concat([dfev, new_row1], ignore_index=True)
 col1, col2 = st.columns(2)
 
 with col1:
-  option = st.selectbox(
+  prov = st.selectbox(
       "Seleccionar Provincia",dfpv.provincia
   )
 
 with col2:
-  option = st.selectbox(
+  envase = st.selectbox(
       "Seleccionar Tipo de Envase",dfev.subgrupoenvase
   )
+
+dfpv1 = conn.query('select cnt,provincia from inf_desp_prov where provincia = ' + prov 'or ' + prov + ' = "Todas" ;', ttl="0"),
+dfpv2 = dfpv1[0]
+st.write(dfpv2)
+
