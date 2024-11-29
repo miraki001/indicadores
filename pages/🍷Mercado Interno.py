@@ -104,7 +104,7 @@ option = {
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": df2['anio,mes'].to_list(),
+        "data": df2['anio','mes'].to_list(),
     },
     "yAxis": {"type": "value"},
     "series": [{"data": df2['tintos'].to_list(), "type": "line", "name": 'Tintos'},
