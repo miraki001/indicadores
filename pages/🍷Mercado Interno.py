@@ -82,7 +82,7 @@ st_echarts(
 
 
 conn = st.connection("postgresql", type="sql")
-df1 = conn.query('select anio,tintos,blancos,rosados from info_desp_anio_mes_v1;', ttl="0"),
+df1 = conn.query('select anio,mes,tintos,blancos,rosados from info_desp_anio_mes_v1;', ttl="0"),
 
 df2 = df1[0]
  
@@ -104,7 +104,7 @@ option = {
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": df2['anio'].to_list(),
+        "data": df2['anio,mes'].to_list(),
     },
     "yAxis": {"type": "value"},
     "series": [{"data": df2['tintos'].to_list(), "type": "line", "name": 'Tintos'},
