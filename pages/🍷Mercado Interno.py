@@ -161,10 +161,10 @@ with col2:
   )
 
 st.write("You selected:", prov)
-qu = 'select cnt,provincia from inf_desp_prov where provincia =  + %s    or  + %s  = "Todas" ;'
+qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov  or  :prov  = "Todas" ;'
 st.write(qu)
-#dfpv1 = conn.query(qu,prov, ttl="0"),
-dfpv1 = conn.execute(qu,prov),
+dfpv1 = conn.query(qu,prov, ttl="0", params={"prov": prov},),
+
 dfpv2 = dfpv1[0]
 st.write(dfpv2)
 
