@@ -10,6 +10,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 
 
+
 hide_streamlit_style = """
                 <style>
                 div[data-testid="stToolbar"] {
