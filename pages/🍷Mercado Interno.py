@@ -131,3 +131,15 @@ option = {
 st_echarts(
     options=option, height="400px" ,
 )
+
+st.subheader('Evolución de los despachos por Provincias')
+
+conn = st.connection("postgresql", type="sql")
+dfp = conn.query('select distinct provincia from despachos;', ttl="0"),
+
+st.write(dfp)
+
+option = st.selectbox(
+    "Seleccionar Provincia",
+    ("Email", "Home phone", "Mobile phone"),
+)
