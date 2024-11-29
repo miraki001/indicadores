@@ -137,10 +137,11 @@ st.subheader('Evolución de los despachos por Provincias')
 
 conn = st.connection("postgresql", type="sql")
 dfp = conn.query('select distinct provincia from "Despachos";', ttl="0"),
+dfpv = dfp[0]
 
-st.write(dfp)
+st.write(dfpv)
 
 option = st.selectbox(
-    "Seleccionar Provincia",
-    ("Email", "Home phone", "Mobile phone"),
+    "Seleccionar Provincia",dfpv.provincia),
+    
 )
