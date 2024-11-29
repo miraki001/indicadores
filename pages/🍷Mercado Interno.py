@@ -161,9 +161,9 @@ with col2:
   )
 
 st.write("You selected:", prov)
-qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov  or  :prov  = '''Todas''' ;'
+qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov  or  :prov  = "-1" ;'
 st.write(qu)
-dfpv1 = conn.query(qu, ttl="0", params={"prov": "Todas"},),
+dfpv1 = conn.query(qu, ttl="0", params={"prov": "-1"},),
 
 dfpv2 = dfpv1[0]
 st.write(dfpv2)
