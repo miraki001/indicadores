@@ -142,6 +142,5 @@ dfpv = dfp[0]
 st.write(dfpv)
 
 option = st.selectbox(
-    "Seleccionar Provincia",dfpv.provincia),
-    
+    "Seleccionar Provincia",dfpv.provincia
 )
