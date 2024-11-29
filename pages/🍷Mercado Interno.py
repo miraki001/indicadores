@@ -136,9 +136,9 @@ st_echarts(
 st.subheader('Evolución de los despachos por Provincias')
 
 conn = st.connection("postgresql", type="sql")
-dfp = conn.query('select distinct provincia from "Despachos";', ttl="0"),
+dfp = conn.query('select provincia from dimprovincia;', ttl="0"),
 dfpv = dfp[0]
-
+dfpv = dfpv + "Todas",
 st.write(dfpv)
 
 option = st.selectbox(
