@@ -162,7 +162,7 @@ with col2:
 
 st.write("You selected:", prov)
 if prov == "Todas":
-  qu = 'select cnt,provincia from inf_desp_prov ;'  
+  qu = 'select año,sum(cnt) cnt,provincia from inf_desp_prov group by provincia ;'  
   dfpv1 = conn.query(qu, ttl="0"),
 if prov != "Todas": 
   qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
