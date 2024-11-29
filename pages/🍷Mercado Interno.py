@@ -173,3 +173,42 @@ st.write(qu)
 dfpv2 = dfpv1[0]
 st.write(dfpv2)
 
+#dfpv2['anio'] = dfpv2['anio'].astype(str)
+
+#newdf=dfpv2.set_index('anio',inplace=False).rename_axis(None)
+
+option = {
+    "dataZoom": [
+    {
+      "show": 'true',
+      "realtime": 'true',
+      "start": 30,
+      "end": 70,
+      "xAxisIndex": [0, 1]
+    },
+    {
+      "type": 'inside',
+      "realtime": 'true',
+      "start": 30,
+      "end": 70,
+      "xAxisIndex": [0, 1]
+    }
+    ],
+    "tooltip": {
+        "trigger": 'axis',
+        "axisPointer": { "type": 'cross' }
+    },
+    "legend": {},    
+    "xAxis": {
+        "type": "category",
+        "data": df2['anio'].to_list(),
+    },
+    "yAxis": {"type": "value"},
+    "series": [{"data": df2['provincias'].to_list(), "type": "line", "name": 'prov'},
+               ]
+}
+st_echarts(
+    options=option, height="400px" ,
+)
+
+
