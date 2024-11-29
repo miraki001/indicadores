@@ -204,7 +204,9 @@ option = {
         "data": df2['anio'].to_list(),
     },
     "yAxis": {"type": "value"},
+    "stack": 'Total',
     "series": [{"data": dfpv2['cnt'].to_list(), "type": "line", "name": 'prov'},
+               {"data": dfpv2['provincia'].to_list(), "type": "line", "name": 'prov'},
                ]
 }
 st_echarts(
