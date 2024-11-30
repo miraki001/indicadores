@@ -167,7 +167,7 @@ if prov == "Todas":
 if prov != "Todas": 
   qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
   dfpv1 = conn.query(qu, ttl="0", params={"prov": prov},),
-dfpv1 = dfpv1.[0]
+dfpv1 = dfpv1[0]
 dfpv1 = dfpv1[dfpv1['anio'] > 2020]
 st.write(dfpv1)
 
