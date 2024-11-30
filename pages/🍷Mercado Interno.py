@@ -212,7 +212,7 @@ option = {
         "data": df['anio'].to_list(),
     },
     "yAxis": {"type": "value"},
-    "stack": 'Total',
+    "stack": 'cnt',
     "series": [{"data": df['MENDOZA'].to_list() ,"type": "line", "name": 'Mendoza'},
                {"data": df['SAN JUAN'].to_list(), "type": "line", "name": 'San Juan'},
                {"data": df['LA RIOJA'].to_list(), "type": "line", "name": 'La Rioja'},
