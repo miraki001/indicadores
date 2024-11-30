@@ -162,7 +162,7 @@ with col2:
 
 st.write("You selected:", prov)
 if prov == "Todas":
-  qu = 'select año,sum(cnt) cnt,provincia from inf_desp_prov group by provincia,año ;'  
+  qu = 'select año anio,sum(cnt) cnt,provincia from inf_desp_prov group by provincia,año ;'  
   dfpv1 = conn.query(qu, ttl="0"),
 if prov != "Todas": 
   qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
@@ -170,7 +170,7 @@ if prov != "Todas":
 st.write(dfpv1)
 
 
-dfpv2 = dfpv1[0]
+dfpv2 = dfpv1[0].transpose()
 st.write(dfpv2)
 
 #dfpv2['anio'] = dfpv2['anio'].astype(str)
