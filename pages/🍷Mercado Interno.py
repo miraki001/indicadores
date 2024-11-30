@@ -208,7 +208,7 @@ option = {
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": df[0].to_list(),
+        "data": df['provincia'].to_list(),
     },
     "yAxis": {"type": "value"},
     "stack": 'Total',
