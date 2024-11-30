@@ -213,9 +213,13 @@ option = {
     },
     "yAxis": {"type": "value"},
     "stack": 'Total',
-    "series": [{"data": df['MENDOZA'].to_list() ,"type": "line", "name": '2021'},
-               {"data": df['SAN JUAN'].to_list(), "type": "line", "name": '2022'},
-               {"data": df['LA RIOJA'].to_list(), "type": "line", "name": '2023'},
+    "series": [{"data": df['MENDOZA'].to_list() ,"type": "line", "name": 'Mendoza'},
+               {"data": df['SAN JUAN'].to_list(), "type": "line", "name": 'San Juan'},
+               {"data": df['LA RIOJA'].to_list(), "type": "line", "name": 'La Rioja'},
+               {"data": df['CORDOBA'].to_list(), "type": "line", "name": 'Cordoba'},
+               {"data": df['CATAMARCA'].to_list(), "type": "line", "name": 'Catamarca'},
+               {"data": df['NEUQUEN'].to_list(), "type": "line", "name": 'Neuqun'},
+               {"data": df['BUENOS AIRES'].to_list(), "type": "line", "name": 'Buenos Aires'},
                ]
 }
 st_echarts(
