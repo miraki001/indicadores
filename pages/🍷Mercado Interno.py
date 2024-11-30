@@ -173,6 +173,7 @@ st.write(dfpv1)
 
 df = dfpv1.pivot_table(index='provincia', columns='anio', values='cnt')
 st.write(df)
+st.write(df[0])
 
 dfpv2 = dfpv1.transpose()
 st.write(dfpv2)
@@ -206,7 +207,7 @@ option = {
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": df['provincia'].to_list(),
+        "data": df[0].to_list(),
     },
     "yAxis": {"type": "value"},
     "stack": 'Total',
