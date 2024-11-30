@@ -213,9 +213,9 @@ option = {
     },
     "yAxis": {"type": "value"},
     "stack": 'Total',
-    "series": [{"data": df[2021].to_list() ,"type": "line", "name": 'prov'},
-               {"data": df[2022].to_list(), "type": "line", "name": 'prov'},
-               {"data": df[2023].to_list(), "type": "line", "name": 'prov'},
+    "series": [{"data": df[2021].to_list() ,"type": "line", "name": '2021'},
+               {"data": df[2022].to_list(), "type": "line", "name": '2022'},
+               {"data": df[2023].to_list(), "type": "line", "name": '2023'},
                ]
 }
 st_echarts(
