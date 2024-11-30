@@ -172,7 +172,7 @@ st.write(dfpv1)
 
 dfpv2 = dfpv1[0].transpose()
 st.write(dfpv2)
-dfpv3 = dfpv2[dfpv2["anio"] > 2020]
+dfpv3 = dfpv2[dfpv2['anio'] > "2020"]
 st.write(dfpv3)
 
 #dfpv2['anio'] = dfpv2['anio'].astype(str)
