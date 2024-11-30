@@ -172,7 +172,7 @@ dfpv1 = dfpv1[dfpv1['anio'] > 2020]
 st.write(dfpv1)
 
 
-dfpv2 = dfpv1[0].transpose()
+dfpv2 = dfpv1.transpose()
 st.write(dfpv2)
 st.write(dfpv2[0])
 
