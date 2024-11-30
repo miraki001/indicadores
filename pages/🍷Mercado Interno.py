@@ -210,9 +210,9 @@ option = {
     },
     "yAxis": {"type": "value"},
     "stack": 'Total',
-    "series": [{"data": dfpv1['anio'] == 2021 ,"type": "line", "name": 'prov'},
-               {"data": dfpv1['anio'] == 2022, "type": "line", "name": 'prov'},
-               {"data": dfpv1['provincia'].to_list(), "type": "line", "name": 'prov'},
+    "series": [{"data": df['2021'].to_list() ,"type": "line", "name": 'prov'},
+               {"data": df['2022'].to_list(), "type": "line", "name": 'prov'},
+               {"data": df['2023'].to_list(), "type": "line", "name": 'prov'},
                ]
 }
 st_echarts(
