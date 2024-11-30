@@ -208,7 +208,8 @@ option = {
     },
     "yAxis": {"type": "value"},
     "stack": 'Total',
-    "series": [{"data": dfpv1['cnt'].to_list(), "type": "line", "name": 'prov'},
+    "series": [{"data": dfpv1['anio'] == 2021 "type": "line", "name": 'prov'},
+               [{"data": dfpv1['anio'] == 2022 "type": "line", "name": 'prov'},
                {"data": dfpv1['provincia'].to_list(), "type": "line", "name": 'prov'},
                ]
 }
