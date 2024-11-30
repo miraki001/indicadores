@@ -175,8 +175,6 @@ st.write(dfpv1)
 dfpv2 = dfpv1[0].transpose()
 st.write(dfpv2)
 st.write(dfpv2[0])
-dfpv3 = dfpv2[dfpv2['provincia'] == "MENDOZA"]
-st.write(dfpv3)
 
 #dfpv2['anio'] = dfpv2['anio'].astype(str)
 
