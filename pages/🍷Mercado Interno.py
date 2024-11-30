@@ -171,6 +171,8 @@ dfpv1 = dfpv1[0]
 dfpv1 = dfpv1[dfpv1['anio'] > 2020]
 st.write(dfpv1)
 
+df = dfpv1.pivot_table(index='provincia', columns='anio', values='cnt')
+st.write(df)
 
 dfpv2 = dfpv1.transpose()
 st.write(dfpv2)
