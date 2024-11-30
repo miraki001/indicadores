@@ -172,7 +172,7 @@ st.write(dfpv1)
 
 dfpv2 = dfpv1[0].transpose()
 st.write(dfpv2)
-st.write(dfpv2['provincia'])
+st.write(dfpv2['provincia'].to_list())
 dfpv3 = dfpv2[dfpv2['provincia'] == "MENDOZA"]
 st.write(dfpv3)
 
