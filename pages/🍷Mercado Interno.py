@@ -170,7 +170,7 @@ if prov != "Todas":
 st.write(qu)
 
 
-dfpv2 = dfpv1[0]
+dfpv2 = dfpv1[0].transpose()
 st.write(dfpv2)
 
 #dfpv2['anio'] = dfpv2['anio'].astype(str)
