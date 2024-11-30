@@ -171,11 +171,11 @@ dfpv1 = dfpv1[0]
 dfpv1 = dfpv1[dfpv1['anio'] > 2020]
 st.write(dfpv1)
 
-df = dfpv1.pivot_table(index='provincia', columns='anio', values='cnt')
+df = dfpv1.pivot_table(index='anio', columns='provincia', values='cnt')
 st.write(df)
 df = df.reset_index() 
 st.write(df)
-st.write(df[2021])
+#st.write(df[2021])
 
 dfpv2 = dfpv1.transpose()
 st.write(dfpv2)
@@ -209,13 +209,13 @@ option = {
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": df['provincia'].to_list(),
+        "data": df['anio'].to_list(),
     },
     "yAxis": {"type": "value"},
     "stack": 'Total',
-    "series": [{"data": df[2021].to_list() ,"type": "line", "name": '2021'},
-               {"data": df[2022].to_list(), "type": "line", "name": '2022'},
-               {"data": df[2023].to_list(), "type": "line", "name": '2023'},
+    "series": [{"data": df['MENDOZA'].to_list() ,"type": "line", "name": '2021'},
+               {"data": df['SAN JUAN'].to_list(), "type": "line", "name": '2022'},
+               {"data": df['LA RIOJA'].to_list(), "type": "line", "name": '2023'},
                ]
 }
 st_echarts(
