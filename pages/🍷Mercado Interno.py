@@ -174,7 +174,7 @@ st.write(dfpv1)
 
 dfpv2 = dfpv1.transpose()
 st.write(dfpv2)
-st.write(dfpv2[0])
+#st.write(dfpv2[0])
 
 #dfpv2['anio'] = dfpv2['anio'].astype(str)
 
