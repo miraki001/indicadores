@@ -173,7 +173,7 @@ st.write(dfpv1)
 
 df = dfpv1.pivot_table(index='provincia', columns='anio', values='cnt')
 st.write(df)
-st.write(df[1])
+st.write(df['2021'])
 
 dfpv2 = dfpv1.transpose()
 st.write(dfpv2)
