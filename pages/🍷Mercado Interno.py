@@ -255,16 +255,6 @@ option = {
                 "data": [820, 932, 901, 934, 1290, 1330, 1320],
             },
     ],    
-"""
-    "series": [{"data": df['MENDOZA'].to_list() ,"type": "line", "name": 'Mendoza'},
-               {"data": df['SAN JUAN'].to_list(), "type": "line", "name": 'San Juan'},
-               {"data": df['LA RIOJA'].to_list(), "type": "line", "name": 'La Rioja'},
-               {"data": df['CORDOBA'].to_list(), "type": "line", "name": 'Cordoba'},
-               {"data": df['CATAMARCA'].to_list(), "type": "line", "name": 'Catamarca'},
-               {"data": df['NEUQUEN'].to_list(), "type": "line", "name": 'Neuqun'},
-               {"data": df['BUENOS AIRES'].to_list(), "type": "line", "name": 'Buenos Aires'},
-               ]
-"""
 }
 
 st_echarts(
