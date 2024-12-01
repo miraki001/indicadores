@@ -211,10 +211,11 @@ option = {
         "type": "category",
         "data": df['anio'].to_list(),
     },
-    "yAxis": {"type": "value"},
-    "stack": 'cnt',
-    "areaStyle": {},
-
+    "yAxis": [
+    {
+      "type": 'value'
+    }
+    ],
     "series": [
      {
       "name": 'Email',
