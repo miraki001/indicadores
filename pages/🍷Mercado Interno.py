@@ -213,7 +213,7 @@ option = {
     },
     "yAxis": [
     {
-      "type": 'value'
+      "type": 'value',
     }
     ],
     "series": [
