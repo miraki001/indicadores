@@ -252,7 +252,7 @@ option = {
                 "label": {"show": True, "position": "top"},
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": [820, 932, 901, 934, 1290, 1330, 1320],
+                "data":  df['CATAMARCA'].to_list(),
             },
             {
                 "name": "Buenos Aires",
