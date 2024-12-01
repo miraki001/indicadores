@@ -214,20 +214,20 @@ option = {
     "yAxis": [{"type": "value"}],
     "series": [
             {
-                "name": "邮件营销",
+                "name": "Mendoza",
                 "type": "line",
-                "stack": "总量",
+                "stack": "cnt",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": [120, 132, 101, 134, 90, 230, 210],
+                "data":  df['MENDOZA'].to_list(),
             },
             {
-                "name": "联盟广告",
+                "name": "San Juan",
                 "type": "line",
-                "stack": "总量",
+                "stack": "cnt",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": [220, 182, 191, 234, 290, 330, 310],
+                "data": df['SAN JUAN'].to_list(),
             },
             {
                 "name": "视频广告",
