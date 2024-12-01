@@ -214,7 +214,7 @@ option = {
     "yAxis": [
     {
       "type": 'value',
-    }
+    },
     ],
     "series": [
      {
