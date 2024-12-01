@@ -254,7 +254,7 @@ option = {
                 "emphasis": {"focus": "series"},
                 "data": [820, 932, 901, 934, 1290, 1330, 1320],
             },
-        ],    
+      ],    
 """
     "series": [{"data": df['MENDOZA'].to_list() ,"type": "line", "name": 'Mendoza'},
                {"data": df['SAN JUAN'].to_list(), "type": "line", "name": 'San Juan'},
