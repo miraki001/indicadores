@@ -280,8 +280,9 @@ option = {
                {"data": df['NEUQUEN'].to_list(), "type": "line", "name": 'Neuqun'},
                {"data": df['BUENOS AIRES'].to_list(), "type": "line", "name": 'Buenos Aires'},
                ]
+               """
 }
-"""
+
 st_echarts(
     options=option, height="400px" ,
 )
