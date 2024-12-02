@@ -218,6 +218,7 @@ option = {
     },
     "yAxis": [{"type": "value"}],
     "series": [
+        if 'MENDOZA' in prov:
             {
                 "name": "Mendoza",
                 "type": "line",
