@@ -201,21 +201,11 @@ option = {
       df,
     ]
   },
-  "xAxis": [
-    { "type": 'category', "gridIndex": 0 },
-    { "type": 'category', "gridIndex": 1 }
-  ],
-  "yAxis": [{ "gridIndex": 0 }, { "gridIndex": 1 }],
-  "grid": [{ "bottom": '55%' }, { "top": '55%' }],
-  "series": [
-    { "type": 'bar', "seriesLayoutBy": 'row' },
-    { "type": 'bar', "seriesLayoutBy": 'row' },
-    { "type": 'bar', "seriesLayoutBy": 'row' },
-    { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 },
-    { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 },
-    { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 },
-    { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 }
-  ]
+  "xAxis":  { type: 'category' },
+  yAxis: {},
+  // Declare several bar series, each will be mapped
+  // to a column of dataset.source by default.
+  "series": [{ "type": 'bar' }, { "type": 'bar' }, { "type": 'bar' }]
 };
 st_echarts(
     options=option, height="400px" ,
