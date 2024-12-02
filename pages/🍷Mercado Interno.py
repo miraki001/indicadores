@@ -285,6 +285,7 @@ de = dfpv1.pivot_table(index='anio', columns='subgrupoenvase', values='cnt')
 #de = de.fillna(value=np.nan)
 de.fillna(0),
 de = de.reset_index() 
+de.fillna(0),
 st.write(de)
 
 option = {
