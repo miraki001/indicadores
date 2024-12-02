@@ -173,6 +173,7 @@ if prov != "Todas":
   dfpv1 = conn.query(qu, ttl="0", params={"prov": prov},),
 dfpv1 = dfpv1[0]
 dfpv1 = dfpv1[dfpv1['anio'] > 2010]
+dfpv1 = dfpv1[dfpv1['provincia'] isin(select_options)]
 st.write(dfpv1)
 
 df = dfpv1.pivot_table(index='anio', columns='provincia', values='cnt')
