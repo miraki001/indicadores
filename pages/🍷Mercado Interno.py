@@ -359,15 +359,6 @@ option = {
                 "data":  de['Granel'].to_list(),
             },
             {
-                "name": "Lata",
-                "type": "line",
-                "stack": "cnt",
-                "label": {"show": True, "position": "top"},
-                "areaStyle": {},
-                "emphasis": {"focus": "series"},
-                "data":de['Lata'].to_list(),
-            },
-            {
                 "name": "Multilaminado",
                 "type": "line",
                 "stack": "cnt",
