@@ -156,7 +156,7 @@ with col1:
   )
   all_options = st.button("Select all options")
   if all_options:
-        selected_options = dfpv.provincia,
+        prov = dfpv.provincia,
     
   #selected_options
 with col2:
@@ -164,7 +164,7 @@ with col2:
       "Seleccionar Tipo de Envase",dfev.subgrupoenvase
   )
 
-st.write("You selected:", selected_options)
+st.write("You selected:", prov)
 #if prov == "Todas":
 qu = 'select año anio,sum(cnt) cnt,provincia from inf_desp_prov group by provincia,año ;'  
 dfpv1 = conn.query(qu, ttl="0"),
