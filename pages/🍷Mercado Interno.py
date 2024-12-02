@@ -283,4 +283,98 @@ st_echarts(
 de = dfpv1.pivot_table(index='anio', columns='subgrupoenvase', values='cnt')
 st.write(de)
 
+option = {
+    "dataZoom": [
+    {
+      "show": 'true',
+      "realtime": 'true',
+      "start": 30,
+      "end": 70,
+      "xAxisIndex": [0, 1]
+    },
+    {
+      "type": 'inside',
+      "realtime": 'true',
+      "start": 30,
+      "end": 70,
+      "xAxisIndex": [0, 1]
+    }
+    ],
+    "tooltip": {
+        "trigger": 'axis',
+        "axisPointer": { "type": 'cross' }
+    },
+    "legend": {},    
+    "xAxis": {
+        "type": "category",
+        "data": de['anio'].to_list(),
+    },
+    "yAxis": [{"type": "value"}],
+    "series": [
+            {
+                "name": "Bag in Box",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data":  de['Bag in Box'].to_list(),
+            },
+            {
+                "name": "Bidon",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": de['Bidon'].to_list(),
+            },
+            {
+                "name": "Botella",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": de['Botella'].to_list(),
+            },
+            {
+                "name": "Damajuana",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": de['Damajuana'].to_list(),
+            },
+            {
+                "name": "Granel",
+                "type": "line",
+                "stack": "cnt",
+                "label": {"show": True, "position": "top"},
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data":  de['Granel'].to_list(),
+            },
+            {
+                "name": "Lata",
+                "type": "line",
+                "stack": "cnt",
+                "label": {"show": True, "position": "top"},
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data":de['Lata'].to_list(),
+            },
+            {
+                "name": "Multilaminado",
+                "type": "line",
+                "stack": "cnt",
+                "label": {"show": True, "position": "top"},
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data":de['Multilaminado'].to_list(),
+            },
+    ],    
+}
+
+st_echarts(
+    options=option, height="400px" ,
+)
+
 
