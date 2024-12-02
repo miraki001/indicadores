@@ -193,7 +193,7 @@ st.write(dfpv2.transpose())
 option = {
   "legend": {},
   "tooltip": {},
-  "dataset": [
+  "dataset": {
     "source": [
       df.provincia,
       df.anio,
