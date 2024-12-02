@@ -280,4 +280,7 @@ st_echarts(
     options=option, height="400px" ,
 )
 
+de = dfpv1.pivot_table(index='anio', columns='subgrupoenvase', values='cnt')
+st.write(de')
+
 
