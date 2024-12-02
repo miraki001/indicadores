@@ -202,7 +202,7 @@ option = {
     ]
   },
   "xAxis":  { type: 'category' },
-  yAxis: {},
+  "yAxis": {},
   "series": [{ "type": 'bar' }, { "type": 'bar' }, { "type": 'bar' }]
 };
 st_echarts(
