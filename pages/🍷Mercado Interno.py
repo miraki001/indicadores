@@ -164,7 +164,7 @@ with col2:
       "Seleccionar Tipo de Envase",dfev.subgrupoenvase
   )
 
-st.write("You selected:", prov)
+st.write("You selected:", selected_options)
 #if prov == "Todas":
 qu = 'select año anio,sum(cnt) cnt,provincia from inf_desp_prov group by provincia,año ;'  
 dfpv1 = conn.query(qu, ttl="0"),
