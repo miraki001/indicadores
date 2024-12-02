@@ -283,11 +283,12 @@ st_echarts(
 de = dfpv1.pivot_table(index='anio', columns='subgrupoenvase', values='cnt')
 #de.replace(to_replace=[None], value=0, inplace=True)
 #de = de.fillna(value=np.nan)
+st.write('antes')
 #de.fillna(0),
 de = de.reset_index() 
 de.fillna(0),
 #st.write(de)
-
+st.write('despues')
 option = {
     "dataZoom": [
     {
