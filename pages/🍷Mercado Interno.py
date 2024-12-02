@@ -195,7 +195,7 @@ option = {
   "tooltip": {},
   "dataset": {
     "source": [
-      df['provincia'].to_list(),
+      dfpv2['provincia'].to_list(),
     ]
   },
   "xAxis": [
