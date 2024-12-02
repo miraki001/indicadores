@@ -196,7 +196,7 @@ st.write(df['anio']),
 option = {
   "legend": {},
   "tooltip": {},
-  "dataset": df,
+  "dataset": dfpv2,
   "xAxis":  { type: 'category' },
   "yAxis": {},
   "series": [{ "type": 'bar' }, { "type": 'bar' }, { "type": 'bar' }]
