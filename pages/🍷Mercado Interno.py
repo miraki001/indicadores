@@ -207,7 +207,7 @@ option = {
     { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 },
     { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 },
     { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 },
-    { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 }
+    { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 }
   ]
 };
 st_echarts(
