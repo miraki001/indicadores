@@ -158,7 +158,7 @@ with col1:
   if all_options:
         selected_options = dfpv.provincia,
     
-  selected_options,
+  #selected_options
 with col2:
   envase = st.multiselect(
       "Seleccionar Tipo de Envase",dfev.subgrupoenvase
