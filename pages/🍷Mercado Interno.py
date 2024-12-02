@@ -155,6 +155,10 @@ with col1:
       "Seleccionar Provincia",dfpv.provincia
   )
   all_options = st.button("Select all options")
+  if all_options:
+        selected_options = dfpv.provincia
+    
+    selected_options
 with col2:
   envase = st.multiselect(
       "Seleccionar Tipo de Envase",dfev.subgrupoenvase
