@@ -199,7 +199,7 @@ option = {
       df.anio,
       df.cnt,
     ]
-  }
+  },
   "xAxis": [
     { "type": 'category', "gridIndex": 0 },
     { "type": 'category', "gridIndex": 1 }
