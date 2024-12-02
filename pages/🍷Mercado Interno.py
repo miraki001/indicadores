@@ -287,6 +287,8 @@ st.write('antes')
 #de.fillna(0),
 de = de.reset_index() 
 de.round(0)
+de = de.round({'Bag in Box': 0})
+de = de.round({'Botella': 0})
 de.fillna(0),
 de.round(0)
 #st.write(de)
