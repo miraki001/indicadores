@@ -196,7 +196,6 @@ option = {
   "dataset": {
     "source": [
       df['anio'].to_list(),
-      df['provincia'],
       df['cnt'].to_list(),
     ]
   },
