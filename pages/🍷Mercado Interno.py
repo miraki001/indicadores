@@ -243,7 +243,6 @@ option = {
     },
     "yAxis": [{"type": "value"}],
     "series": [
-        if 'MENDOZA' in prov:
             {
                 "name": "Mendoza",
                 "type": "line",
@@ -252,7 +251,6 @@ option = {
                 "emphasis": {"focus": "series"},
                 "data":  df['MENDOZA'].to_list(),
             },
-        if 'SAN JUAN' in prov:
             {
                 "name": "San Juan",
                 "type": "line",
