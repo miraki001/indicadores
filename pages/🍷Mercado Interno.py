@@ -191,6 +191,33 @@ st.write(dfpv2.transpose())
 #newdf=dfpv2.set_index('anio',inplace=False).rename_axis(None)
 
 option = {
+  "legend": {},
+  "tooltip": {},
+  "dataset": df
+  "xAxis": [
+    { "type": 'category', "gridIndex": 0 },
+    { "type": 'category', "gridIndex": 1 }
+  ],
+  "yAxis": [{ "gridIndex": 0 }, { "gridIndex": 1 }],
+  "grid": [{ "bottom": '55%' }, { "top": '55%' }],
+  "series": [
+    // These series are in the first grid.
+    { "type": 'bar', "seriesLayoutBy": 'row' },
+    { "type": 'bar', "seriesLayoutBy": 'row' },
+    { "type": 'bar', "seriesLayoutBy": 'row' },
+    // These series are in the second grid.
+    { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 },
+    { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 },
+    { "type": 'bar', "xAxisIndex": 1, "yAxisIndex": 1 },
+    { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 }
+  ]
+};
+st_echarts(
+    options=option, height="400px" ,
+)
+
+
+option = {
     "dataZoom": [
     {
       "show": 'true',
