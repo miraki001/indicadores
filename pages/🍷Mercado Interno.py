@@ -193,7 +193,12 @@ st.write(dfpv2.transpose())
 option = {
   "legend": {},
   "tooltip": {},
-  "dataset": df,
+  "dataset": [
+    "source": [
+      df.provincia,
+      df.anio,
+      df.cnt,
+  }
   "xAxis": [
     { "type": 'category', "gridIndex": 0 },
     { "type": 'category', "gridIndex": 1 }
