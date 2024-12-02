@@ -186,7 +186,7 @@ dfpv2 = dfpv1.transpose()
 st.write(dfpv2)
 st.write('dfpv2')
 st.write(dfpv2.transpose())
-
+ds = dfpv2.transpose(),
 #dfpv2['anio'] = dfpv2['anio'].astype(str)
 
 #newdf=dfpv2.set_index('anio',inplace=False).rename_axis(None)
@@ -196,7 +196,7 @@ option = {
   "tooltip": {},
   "dataset": {
     "source": [
-      dfpv2['provincia'].to_list(),
+      ds['provincia'].to_list(),
     ]
   },
   "xAxis": [
