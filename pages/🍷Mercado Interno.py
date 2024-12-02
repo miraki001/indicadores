@@ -168,9 +168,9 @@ st.write("You selected:", prov)
 if prov == "Todas":
   qu = 'select año anio,sum(cnt) cnt,provincia from inf_desp_prov group by provincia,año ;'  
   dfpv1 = conn.query(qu, ttl="0"),
-if prov != "Todas": 
-  qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
-  dfpv1 = conn.query(qu, ttl="0", params={"prov": prov},),
+#if prov != "Todas": 
+#  qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
+#  dfpv1 = conn.query(qu, ttl="0", params={"prov": prov},),
 dfpv1 = dfpv1[0]
 dfpv1 = dfpv1[dfpv1['anio'] > 2010]
 dfpv1 = dfpv1[dfpv1['provincia'].isin(selected_options)]
