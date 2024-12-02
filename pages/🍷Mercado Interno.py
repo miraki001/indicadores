@@ -151,12 +151,12 @@ dfev = pd.concat([dfev, new_row1], ignore_index=True)
 col1, col2 = st.columns(2)
 
 with col1:
-  prov = st.selectbox(
+  prov = st.multiselect(
       "Seleccionar Provincia",dfpv.provincia
   )
 
 with col2:
-  envase = st.selectbox(
+  envase = st.multiselect(
       "Seleccionar Tipo de Envase",dfev.subgrupoenvase
   )
 
