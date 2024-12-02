@@ -177,6 +177,7 @@ dfpv1 = dfpv1[dfpv1['provincia'].isin(prov)]
 st.write(dfpv1)
 
 df = dfpv1.pivot_table(index='anio', columns='provincia', values='cnt')
+st.write('df')
 st.write(df)
 df = df.reset_index() 
 st.write(df)
