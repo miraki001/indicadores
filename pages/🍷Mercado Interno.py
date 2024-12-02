@@ -195,7 +195,7 @@ option = {
   "tooltip": {},
   "dataset": {
     "source": [
-      df['anio'].to_list(),
+      df,
     ]
   },
   "xAxis": [
