@@ -287,6 +287,7 @@ st.write('antes')
 #de.fillna(0),
 de = de.reset_index() 
 de.fillna(0),
+de.round(0)
 #st.write(de)
 st.write('despues')
 option = {
