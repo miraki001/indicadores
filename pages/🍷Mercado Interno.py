@@ -174,19 +174,19 @@ dfpv1 = conn.query(qu, ttl="0"),
 dfpv1 = dfpv1[0]
 dfpv1 = dfpv1[dfpv1['anio'] > 2010]
 dfpv1 = dfpv1[dfpv1['provincia'].isin(prov)]
-st.write(dfpv1)
+#st.write(dfpv1)
 
 df = dfpv1.pivot_table(index='anio', columns='provincia', values='cnt')
-st.write('df')
-st.write(df)
+#st.write('df')
+#st.write(df)
 df = df.reset_index() 
-st.write(df)
+#st.write(df)
 #st.write(df[2021])
 
 dfpv2 = dfpv1.transpose()
-st.write(dfpv2)
-st.write('dfpv2')
-st.write(dfpv2.transpose())
+#st.write(dfpv2)
+#st.write('dfpv2')
+#st.write(dfpv2.transpose())
 ds = dfpv2.transpose(),
 #ds = ds.reset_index() 
 #dfpv2['anio'] = dfpv2['anio'].astype(str)
