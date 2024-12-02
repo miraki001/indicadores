@@ -188,7 +188,7 @@ st.write(dfpv2)
 st.write('dfpv2')
 st.write(dfpv2.transpose())
 ds = dfpv2.transpose(),
-ds = ds.reset_index() 
+#ds = ds.reset_index() 
 #dfpv2['anio'] = dfpv2['anio'].astype(str)
 
 #newdf=dfpv2.set_index('anio',inplace=False).rename_axis(None)
