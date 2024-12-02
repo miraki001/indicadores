@@ -281,7 +281,7 @@ st_echarts(
 )
 
 de = dfpv1.pivot_table(index='anio', columns='subgrupoenvase', values='cnt')
-de.replace(to_replace=[None], value=0, inplace=True)
+#de.replace(to_replace=[None], value=0, inplace=True)
 #de = de.fillna(value=np.nan)
 de.fillna(0),
 de = de.reset_index() 
