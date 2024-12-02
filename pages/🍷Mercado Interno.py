@@ -198,6 +198,7 @@ option = {
       df.provincia,
       df.anio,
       df.cnt,
+    ]
   }
   "xAxis": [
     { "type": 'category', "gridIndex": 0 },
