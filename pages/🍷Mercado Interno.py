@@ -401,7 +401,7 @@ options = {
             "trigger": "item",
             "showDelay": 0,
             "transitionDuration": 0.2,
-            "formatter": formatter,
+#            "formatter": formatter,
         },
         "visualMap": {
             "left": "right",
