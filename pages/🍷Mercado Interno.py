@@ -537,14 +537,7 @@ option = {
                 "emphasis": {"focus": "series"},
                 "data": prod['Espumantes'].to_list(),
             },
-            {
-                "name": "Gasificados",
-                "type": "line",
-                "stack": "cnt",
-                "areaStyle": {},
-                "emphasis": {"focus": "series"},
-                "data": prod['Gasificados'].to_list(),
-            },
+
             {
                 "name": "Otros Vinos",
                 "type": "line",
