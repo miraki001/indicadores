@@ -382,4 +382,74 @@ st_echarts(
     options=option, height="400px" ,
 )
 
+def render_usa():
+    formatter = JsCode(
+        "function (params) {"
+        + "var value = (params.value + '').split('.');"
+        + "value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,');"
+        + "return params.seriesName + '<br/>' + params.name + ': ' + value;}"
+    ).js_code
+    options = {
+        "title": {
+            "text": "USA Population Estimates (2012)",
+            "subtext": "Data from www.census.gov",
+            "sublink": "http://www.census.gov/popest/data/datasets.html",
+            "left": "right",
+        },
+        "tooltip": {
+            "trigger": "item",
+            "showDelay": 0,
+            "transitionDuration": 0.2,
+            "formatter": formatter,
+        },
+        "visualMap": {
+            "left": "right",
+            "min": 500000,
+            "max": 38000000,
+            "inRange": {
+                "color": [
+                    "#313695",
+                    "#4575b4",
+                    "#74add1",
+                    "#abd9e9",
+                    "#e0f3f8",
+                    "#ffffbf",
+                    "#fee090",
+                    "#fdae61",
+                    "#f46d43",
+                    "#d73027",
+                    "#a50026",
+                ]
+            },
+            "text": ["High", "Low"],
+            "calculable": True,
+        },
+        "toolbox": {
+            "show": True,
+            "left": "left",
+            "top": "top",
+            "feature": {
+                "dataView": {"readOnly": False},
+                "restore": {},
+                "saveAsImage": {},
+            },
+        },
+        "series": [
+            {
+                "name": "USA PopEstimates",
+                "type": "map",
+                "roam": True,
+                "map": "AR",
+                "emphasis": {"label": {"show": True}},
+                "data": [
+                    {"name": "Mendoza", "value": 4822023},
+                    {"name": "San Juan", "value": 731449},
+                    {"name": "Catamarca", "value": 6553255},
+                    {"name": "San luis", "value": 2949131},
+                ],
+            }
+        ],
+    }
+    st_echarts(options, map=map)
+  
 
