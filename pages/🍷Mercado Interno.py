@@ -245,7 +245,7 @@ option = {
                 "stack": "cnt",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": df['La Rrioja'].to_list(),
+                "data": df['La Rioja'].to_list(),
             },
             {
                 "name": "Cordoba",
