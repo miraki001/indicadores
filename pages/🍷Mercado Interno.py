@@ -392,9 +392,9 @@ with open("./data/argentina.json", "r") as f:
   
 options = {
         "title": {
-            "text": "USA Population Estimates (2012)",
-            "subtext": "Data from www.census.gov",
-            "sublink": "http://www.census.gov/popest/data/datasets.html",
+            "text": "Despachos por Provincias",
+#            "subtext": "Data from www.census.gov",
+#            "sublink": "http://www.census.gov/popest/data/datasets.html",
             "left": "right",
         },
         "tooltip": {
@@ -437,7 +437,7 @@ options = {
         },
         "series": [
             {
-                "name": "USA PopEstimates",
+                "name": "Despachos por Provincias",
                 "type": "map",
                 "roam": True,
                 "map": "Argentina",
