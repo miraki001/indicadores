@@ -517,7 +517,7 @@ option = {
                 "stack": "cnt",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": prod['Vino sin Mension'].to_list(),
+                "data": prod['Vino sin Mencion'].to_list(),
             },
             {
                 "name": "Espumantes",
