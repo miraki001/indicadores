@@ -271,7 +271,7 @@ option = {
                 "label": {"show": True, "position": "top"},
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data":df['Buenos Aire'].to_list(),
+                "data":df['Buenos Aires'].to_list(),
             },
     ],    
 }
