@@ -283,7 +283,7 @@ st_echarts(
 de = dfpv1.pivot_table(index='anio', columns='subgrupoenvase', values='cnt')
 #de.replace(to_replace=[None], value=0, inplace=True)
 #de = de.fillna(value=np.nan)
-st.write('antes')
+#st.write('antes')
 #de.fillna(0),
 de = de.reset_index() 
 de.round(0)
@@ -296,7 +296,7 @@ de = de.round({'Granel': 0})
 de.fillna(0),
 de.round(0)
 #st.write(de)
-st.write('despues')
+#st.write('despues')
 option = {
     "dataZoom": [
     {
@@ -463,4 +463,87 @@ options = {
 }
 st_echarts(options, map=map)
   
+
+qu2 = 'select anio||mes anio, cnt,producto from inf_desp_prod  ;'  
+prod = conn.query(qu2, ttl="0"),
+#st.write(prod)
+
+
+
+option = {
+    "dataZoom": [
+    {
+      "show": 'true',
+      "realtime": 'true',
+      "start": 30,
+      "end": 70,
+      "xAxisIndex": [0, 1]
+    },
+    {
+      "type": 'inside',
+      "realtime": 'true',
+      "start": 30,
+      "end": 70,
+      "xAxisIndex": [0, 1]
+    }
+    ],
+    "tooltip": {
+        "trigger": 'axis',
+        "axisPointer": { "type": 'cross' }
+    },
+    "legend": {},    
+    "xAxis": {
+        "type": "category",
+        "data": prod['anio'].to_list(),
+    },
+    "yAxis": [{"type": "value"}],
+    "series": [
+            {
+                "name": "Vino Varietal",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data":  prod['Vino Varietal'].to_list(),
+            },
+            {
+                "name": "Vino Sin Mencion",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": prod['Vino sin Mension'].to_list(),
+            },
+            {
+                "name": "Espumantes",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": prod['Espumantes'].to_list(),
+            },
+            {
+                "name": "Gasificados",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": prod['Gasificados'].to_list(),
+            },
+            {
+                "name": "Otros Vinos",
+                "type": "line",
+                "stack": "cnt",
+                "label": {"show": True, "position": "top"},
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data":  prod['Otros Vinos'].to_list(),
+            },
+    ],    
+}
+
+st_echarts(
+    options=option, height="400px" ,
+)
+
 
