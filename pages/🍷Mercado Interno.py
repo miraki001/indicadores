@@ -382,14 +382,7 @@ st_echarts(
     options=option, height="400px" ,
 )
 
-def render_usa():
-    formatter = JsCode(
-        "function (params) {"
-        + "var value = (params.value + '').split('.');"
-        + "value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,');"
-        + "return params.seriesName + '<br/>' + params.name + ': ' + value;}"
-    ).js_code
-  
+
 with open("./data/argentina.json", "r") as f:
         map = Map(
             "Argentina",
