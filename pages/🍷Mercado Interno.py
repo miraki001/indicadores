@@ -384,7 +384,7 @@ st_echarts(
 
 qu1 = 'select name,value from inf_desp_prov_tot ;'  
 data = conn.query(qu1, ttl="0"),
-st.write(data)
+st.write(data[0])
 
 with open("./data/argentina.json", "r") as f:
         map = Map(
