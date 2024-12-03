@@ -385,6 +385,17 @@ st_echarts(
 qu1 = 'select name,value from inf_desp_prov_tot ;'  
 data = conn.query(qu1, ttl="0"),
 st.write(data[0])
+f = data.to_json(orient="values")
+
+st.write(f)  
+
+json_obj = json.loads(f)
+
+
+st.write(json_obj)  
+raw_data = json_obj
+
+
 
 with open("./data/argentina.json", "r") as f:
         map = Map(
@@ -445,7 +456,7 @@ options = {
                 "roam": True,
                 "map": "Argentina",
                 "emphasis": {"label": {"show": True}},
-                "data": data,
+                "data": raw_data,
             }
         ],
 }
