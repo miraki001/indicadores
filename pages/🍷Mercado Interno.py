@@ -420,8 +420,8 @@ options = {
         },
         "visualMap": {
             "left": "right",
-            "min": 500000,
-            "max": 38000000,
+            "min": 5000,
+            "max": 14000000,
             "inRange": {
                 "color": [
                     "#313695",
