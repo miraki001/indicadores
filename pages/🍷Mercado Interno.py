@@ -8,7 +8,7 @@ from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
-
+from streamlit_echarts import Map
 
 
 hide_streamlit_style = """
