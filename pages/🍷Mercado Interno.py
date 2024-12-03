@@ -466,7 +466,11 @@ st_echarts(options, map=map)
 
 qu2 = 'select anio||mes anio, cnt,producto from inf_desp_prod  ;'  
 prod1 = conn.query(qu2, ttl="0"),
-prod = prod1[0]
+prod2 = prod1[0]
+
+prod = prod2.pivot_table(index='anio', columns='producto', values='cnt')
+prod = pord.reset_index() 
+
 st.write(prod)
 
 
