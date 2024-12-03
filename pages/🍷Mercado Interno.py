@@ -395,7 +395,7 @@ with open("./data/argentina.json", "r") as f:
             "Argentina",
             json.loads(f.read()),
         )
-render_usa,
+#render_usa,
   
 options = {
         "title": {
