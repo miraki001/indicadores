@@ -24873,7 +24873,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "ARQ", 
-        "name": "Neuquén"
+        "name": "Neuquen"
       }, 
       "id": 12
     }, 
@@ -29877,7 +29877,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "ARR", 
-        "name": "Río Negro"
+        "name": "Rio Negro"
       }, 
       "id": 14
     }, 
@@ -39437,7 +39437,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "ART", 
-        "name": "Tucumán"
+        "name": "Tucuman"
       }, 
       "id": 20
     }, 
@@ -43349,7 +43349,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "ARX", 
-        "name": "Córdoba"
+        "name": "Cordoba"
       }, 
       "id": 24
     }
