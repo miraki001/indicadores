@@ -389,6 +389,18 @@ def render_usa():
         + "value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,');"
         + "return params.seriesName + '<br/>' + params.name + ': ' + value;}"
     ).js_code
+  
+    with open("./data/argentina.json", "r") as f:
+        map = Map(
+            "AR",
+            json.loads(f.read()),
+            {
+                "Alaska": {"left": -131, "top": 25, "width": 15},
+                "Hawaii": {"left": -110, "top": 28, "width": 5},
+                "Puerto Rico": {"left": -76, "top": 26, "width": 2},
+            },
+        )
+  
     options = {
         "title": {
             "text": "USA Population Estimates (2012)",
