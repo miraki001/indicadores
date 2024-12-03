@@ -445,7 +445,7 @@ options = {
                 "roam": True,
                 "map": "Argentina",
                 "emphasis": {"label": {"show": True}},
-                "data": data[0],
+                "data": data,
             }
         ],
 }
