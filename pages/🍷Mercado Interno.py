@@ -443,7 +443,7 @@ options = {
                 "map": "Argentina",
                 "emphasis": {"label": {"show": True}},
                 "data": [
-                    {"name": "Mendoza", "value": 4822023},
+                    {"name": "MENDOZA", "value": 4822023},
                     {"name": "San Juan", "value": 731449},
                     {"name": "Catamarca", "value": 6553255},
                     {"name": "San luis", "value": 2949131},
