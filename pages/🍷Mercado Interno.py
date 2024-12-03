@@ -418,9 +418,6 @@ options = {
             "transitionDuration": 0.2,
 #            "formatter": formatter,
         },
-        data.sort(function (a, b) {
-          return a.value - b.value;
-        });
         "visualMap": {
             "left": "right",
             "min": 5000,
