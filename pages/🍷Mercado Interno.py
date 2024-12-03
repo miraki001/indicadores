@@ -382,6 +382,9 @@ st_echarts(
     options=option, height="400px" ,
 )
 
+qu = 'select name,value from inf_desp_prov_tot ;'  
+data = conn.query(qu, ttl="0"),
+st.write(data)
 
 with open("./data/argentina.json", "r") as f:
         map = Map(
@@ -443,10 +446,10 @@ options = {
                 "map": "Argentina",
                 "emphasis": {"label": {"show": True}},
                 "data": [
-                    {"name": "MENDOZA", "value": 4822023},
+                    {"name": "Mendoza", "value": 4822023},
                     {"name": "San Juan", "value": 731449},
                     {"name": "Catamarca", "value": 6553255},
-                    {"name": "San luis", "value": 2949131},
+                    {"name": "San Luis", "value": 2949131},
                 ],
             }
         ],
