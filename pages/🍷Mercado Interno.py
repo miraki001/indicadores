@@ -445,12 +445,7 @@ options = {
                 "roam": True,
                 "map": "Argentina",
                 "emphasis": {"label": {"show": True}},
-                "data": [
-                    {"name": "Mendoza", "value": 4822023},
-                    {"name": "San Juan", "value": 731449},
-                    {"name": "Catamarca", "value": 6553255},
-                    {"name": "San Luis", "value": 2949131},
-                ],
+                "data": data[0],
             }
         ],
 }
