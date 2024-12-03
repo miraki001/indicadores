@@ -439,7 +439,7 @@ def render_usa():
                 "name": "USA PopEstimates",
                 "type": "map",
                 "roam": True,
-                "map": "ARG",
+                "map": "Argentina",
                 "emphasis": {"label": {"show": True}},
                 "data": [
                     {"name": "Mendoza", "value": 4822023},
