@@ -382,8 +382,8 @@ st_echarts(
     options=option, height="400px" ,
 )
 
-qu = 'select name,value from inf_desp_prov_tot ;'  
-data = conn.query(qu, ttl="0"),
+qu1 = 'select name,value from inf_desp_prov_tot ;'  
+data = conn.query(qu1, ttl="0"),
 st.write(data)
 
 with open("./data/argentina.json", "r") as f:
