@@ -136,7 +136,7 @@ st_echarts(
 st.subheader('Evolución de los despachos por Provincias')
  
 conn = st.connection("postgresql", type="sql")
-dfp = conn.query('select provincia from dimprovincia;', ttl="0"),
+dfp = conn.query('select initcap(provincia) provincia from dimprovincia;', ttl="0"),
 dfpv = dfp[0]
 new_row = pd.DataFrame({"provincia": ["Todas"]})
 dfpv = pd.concat([dfpv, new_row], ignore_index=True)
