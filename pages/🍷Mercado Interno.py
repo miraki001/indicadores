@@ -469,7 +469,7 @@ prod1 = conn.query(qu2, ttl="0"),
 prod2 = prod1[0]
 
 prod = prod2.pivot_table(index='anio', columns='producto', values='cnt')
-prod = pord.reset_index() 
+prod = prod.reset_index() 
 
 st.write(prod)
 
