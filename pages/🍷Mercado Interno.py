@@ -229,7 +229,7 @@ option = {
                 "stack": "cnt",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data":  df['MENDOZA'].to_list(),
+                "data":  df['Mendoza'].to_list(),
             },
             {
                 "name": "San Juan",
@@ -237,7 +237,7 @@ option = {
                 "stack": "cnt",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": df['SAN JUAN'].to_list(),
+                "data": df['San Juan'].to_list(),
             },
             {
                 "name": "La Rioja",
@@ -245,7 +245,7 @@ option = {
                 "stack": "cnt",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": df['LA RIOJA'].to_list(),
+                "data": df['La Rrioja'].to_list(),
             },
             {
                 "name": "Cordoba",
@@ -253,7 +253,7 @@ option = {
                 "stack": "cnt",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": df['CORDOBA'].to_list(),
+                "data": df['Cordoba'].to_list(),
             },
             {
                 "name": "Catamarca",
@@ -262,7 +262,7 @@ option = {
                 "label": {"show": True, "position": "top"},
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data":  df['CATAMARCA'].to_list(),
+                "data":  df['Catamarca'].to_list(),
             },
             {
                 "name": "Buenos Aires",
@@ -271,7 +271,7 @@ option = {
                 "label": {"show": True, "position": "top"},
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data":df['BUENOS AIRES'].to_list(),
+                "data":df['Buenos Aire'].to_list(),
             },
     ],    
 }
