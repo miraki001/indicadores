@@ -471,6 +471,16 @@ prod2 = prod1[0]
 prod = prod2.pivot_table(index='anio', columns='producto', values='cnt')
 prod = prod.reset_index() 
 
+prod.round(0)
+prod = prod.round({'Vino Varietal': 0})
+prod = prod.round({'Vinos sin Mencion': 0})
+prod = prod.round({'Espumantes': 0})
+prod = prod.round({'Gasificados': 0})
+prod = prod.round({'Otros Vinos': 0})
+
+prod.fillna(0),
+prod.round(0)
+
 st.write(prod)
 
 
