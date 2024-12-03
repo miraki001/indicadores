@@ -390,18 +390,14 @@ def render_usa():
         + "return params.seriesName + '<br/>' + params.name + ': ' + value;}"
     ).js_code
   
-    with open("./data/argentina.json", "r") as f:
+with open("./data/argentina.json", "r") as f:
         map = Map(
-            "AR",
+            "Argentina",
             json.loads(f.read()),
-            {
-                "Alaska": {"left": -131, "top": 25, "width": 15},
-                "Hawaii": {"left": -110, "top": 28, "width": 5},
-                "Puerto Rico": {"left": -76, "top": 26, "width": 2},
-            },
         )
+render_usa,
   
-    options = {
+options = {
         "title": {
             "text": "USA Population Estimates (2012)",
             "subtext": "Data from www.census.gov",
@@ -461,7 +457,7 @@ def render_usa():
                 ],
             }
         ],
-    }
-    st_echarts(options, map=map)
+}
+st_echarts(options, map=map)
   
 
