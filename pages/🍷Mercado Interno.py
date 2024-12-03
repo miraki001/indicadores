@@ -465,8 +465,9 @@ st_echarts(options, map=map)
   
 
 qu2 = 'select anio||mes anio, cnt,producto from inf_desp_prod  ;'  
-prod = conn.query(qu2, ttl="0"),
-#st.write(prod)
+prod1 = conn.query(qu2, ttl="0"),
+prod = prod1[0]
+st.write(prod)
 
 
 
