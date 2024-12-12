@@ -428,7 +428,7 @@ option = {
                 "name": "Vino Varietal",
                 "type": "line",
                 "stack": "cnt",
-                "label": {"show": True, "position": "top"},
+#                "label": {"show": True, "position": "top"},
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
                 "data":  df['Vino Varietal'].to_list(),
