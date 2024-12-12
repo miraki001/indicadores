@@ -344,12 +344,12 @@ option = {
                 "data": df['Otros Vinos'].to_list(),
             },
             {
-                "name": "Vinos sin Mension",
+                "name": "Vinos sin Mencion",
                 "type": "line",
                 "stack": "cnt",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": df['Vinos sin Mension'].to_list(),
+                "data": df['Vinos sin Mencion'].to_list(),
             },
             {
                 "name": "Vino Varietal",
