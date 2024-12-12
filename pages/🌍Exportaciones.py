@@ -272,8 +272,8 @@ dfpv1 = conn.query(qu, ttl="0"),
 #  qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
 #  dfpv1 = conn.query(qu, ttl="0", params={"prov": prov},),
 dfpv1 = dfpv1[0]
-dfpv1 = dfpv1[dfpv1['anio'] > 2010]
-#dfpv1 = dfpv1[dfpv1['provincia'].isin(prov)]
+#dfpv1 = dfpv1[dfpv1['periodo'] > '2010-12']
+
 st.write(dfpv1)
 
 df = dfpv1.pivot_table(index='periodo', columns='producto', values='litros')
