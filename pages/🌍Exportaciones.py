@@ -327,14 +327,7 @@ option = {
                 "emphasis": {"focus": "series"},
                 "data":  df['Espumantes'].to_list(),
             },
-            {
-                "name": "Gasificados",
-                "type": "line",
-                "stack": "cnt",
-                "areaStyle": {},
-                "emphasis": {"focus": "series"},
-                "data": df['Gasificados'].to_list(),
-            },
+
             {
                 "name": "Otros Vinos",
                 "type": "line",
