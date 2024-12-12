@@ -262,6 +262,113 @@ option = {
 st_echarts(
     options=option, height="600px",
 )
+
+
+
+
+qu = 'select periodo,litro,producto from inf_expo_anio_mes_tot ;'  
+dfpv1 = conn.query(qu, ttl="0"),
+#if prov != "Todas": 
+#  qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
+#  dfpv1 = conn.query(qu, ttl="0", params={"prov": prov},),
+dfpv1 = dfpv1[0]
+dfpv1 = dfpv1[dfpv1['anio'] > 2010]
+#dfpv1 = dfpv1[dfpv1['provincia'].isin(prov)]
+st.write(dfpv1)
+
+df = dfpv1.pivot_table(index='periodo', columns='producto', values='litros')
+#st.write('df')
+#st.write(df)
+df = df.reset_index() 
+#st.write(df)
+#st.write(df[2021])
+
+dfpv2 = dfpv1.transpose()
+#st.write(dfpv2)
+#st.write('dfpv2')
+#st.write(dfpv2.transpose())
+ds = dfpv2.transpose(),
+
+
+
+option = {
+    "dataZoom": [
+    {
+      "show": 'true',
+      "realtime": 'true',
+      "start": 30,
+      "end": 70,
+      "xAxisIndex": [0, 1]
+    },
+    {
+      "type": 'inside',
+      "realtime": 'true',
+      "start": 30,
+      "end": 70,
+      "xAxisIndex": [0, 1]
+    }
+    ],
+    "tooltip": {
+        "trigger": 'axis',
+        "axisPointer": { "type": 'cross' }
+    },
+    "legend": {},    
+    "xAxis": {
+        "type": "category",
+        "data": df['periodo'].to_list(),
+    },
+    "yAxis": [{"type": "value"}],
+    "series": [
+            {
+                "name": "Espumantes",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data":  df['Espumantes'].to_list(),
+            },
+            {
+                "name": "Gasificados",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": df['Gasificados'].to_list(),
+            },
+            {
+                "name": "Otros Vinos",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": df['Otros Vinos'].to_list(),
+            },
+            {
+                "name": "Vinos sin Mension",
+                "type": "line",
+                "stack": "cnt",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": df['Vinos sin Mension'].to_list(),
+            },
+            {
+                "name": "Vino Varietal",
+                "type": "line",
+                "stack": "cnt",
+                "label": {"show": True, "position": "top"},
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data":  df['Vino Varietal'].to_list(),
+            },
+    ],    
+}
+
+st_echarts(
+    options=option, height="400px" ,
+)
+
+
+
 st.write('por paises')
 #st.write(json_str1)
 
