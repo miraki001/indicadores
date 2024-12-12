@@ -266,7 +266,7 @@ st_echarts(
 
 
 
-qu = 'select periodo,litro,producto from info_expo_anio_mes_tot ;'  
+qu = 'select periodo,litros,producto from info_expo_anio_mes_tot ;'  
 dfpv1 = conn.query(qu, ttl="0"),
 #if prov != "Todas": 
 #  qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
