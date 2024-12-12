@@ -370,7 +370,7 @@ option = {
                 "name": "Multilaminado",
                 "type": "line",
                 "stack": "cnt",
-                "label": {"show": True, "position": "top"},
+#                "label": {"show": True, "position": "top"},
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
                 "data":de['Multilaminado'].to_list(),
