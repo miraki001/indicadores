@@ -289,7 +289,7 @@ dfpv2 = dfpv1.transpose()
 #st.write(dfpv2.transpose())
 ds = dfpv2.transpose(),
 
-
+st.write('df')
 
 option = {
     "dataZoom": [
