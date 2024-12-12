@@ -196,7 +196,7 @@ st_echarts(options=option, height="600px")
 df1 = conn.query('select periodo,litros,fob from info_expo_anio_mes ;', ttl="0")
 #st.write(df1)
  
-st.subheader('Evolución Exportaciones de vimos por Mes')
+st.subheader('Evolución Exportaciones de vinos por Mes')
 
 if st.checkbox('Ver datos en  tabla'):
     st.write(df1)
