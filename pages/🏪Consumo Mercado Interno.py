@@ -191,7 +191,7 @@ df21 = conn.query('SELECT periodo,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APER
 
 st.subheader('Ventas en el Canal Tiendas y Kioscos, Según datos de Scentia')
 
-if st.checkbox('Ver como Tabla1 '):
+if st.checkbox('Ver como Tabla tienda '):
     st.write(df21)
 
 
