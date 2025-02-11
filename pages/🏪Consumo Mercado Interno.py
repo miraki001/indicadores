@@ -187,6 +187,47 @@ st_echarts(
     options=option, height="400px",
 )
 
+df21 = conn.query('SELECT periodo,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_tiendas;', ttl="0")
+
+st.subheader('Ventas en el Canal Tiendas y Kioscos, Según datos de Scentia')
+
+if st.checkbox('Ver como Tabla1 '):
+    st.write(df21)
+
+
+df21['periodo'] = df21['periodo'].astype(str)
+
+newdf21=df21.set_index('periodo',inplace=False).rename_axis(None)
+
+
+
+option = {
+    "tooltip": {
+        "trigger": 'axis',
+        "axisPointer": { "type": 'cross' }
+    },
+    "legend": {},    
+    "xAxis": {
+        "type": "category",
+        "data": df21['periodo'].to_list(),
+    },
+    "yAxis": {"type": "value"},
+    "series": [{"data": df21['VINOS_COMUNES'].to_list(), "type": "line", "name": 'Vinos Comunes'}
+               ,{"data": df21['VINOS_FINOS'].to_list(), "type": "line","name":'Vinos Finos'}
+               ,{"data": df21['CERVEZAS'].to_list(), "type": "line","name":'Cervezas'} 
+               ,{"data": df21['APERITIVOS_RTD'].to_list(), "type": "line","name":'Ape. RTD'} 
+               ,{"data": df21['ESPUMANTES'].to_list(), "type": "line","name":'Espumantes'} 
+               ,{"data": df21['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
+               ,{"data": df21['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
+               ,{"data": df21['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
+#    "series": [{"data": df21['VINOS_FINOS'].to_list(), "type": "line"}],
+}
+st_echarts(
+    options=option, height="400px",
+)
+
+
+
 
 df3 = conn.query('SELECT periodo,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_total order by periodo;', ttl="0")
 
