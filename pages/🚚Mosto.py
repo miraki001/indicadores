@@ -9,5 +9,5 @@ dfpv1 = conn.query(qu, ttl="0"),
 dfpv1 = dfpv1[0]
 dfpv1 = dfpv1[dfpv1['anio'] > 2010]
 
-pivot = pd.pivot_table(dfpv1, values="cnt", index=['anio','provincia'],columns=['subgrupoenvase'], aggfunc={'cnt': [min,max]} )
+pivot = pd.pivot_table(dfpv1, values="cnt", index=['anio','provincia'],columns=['subgrupoenvase'])
 st.dataframe(pivot)
