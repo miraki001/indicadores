@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from pivottablejs import pivot_ui
 import pandas as pd
+import json
 
 iris = pd.read_csv(
     "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv"
@@ -17,7 +18,7 @@ dfpv1 = dfpv1[dfpv1['anio'] > 2010]
 #dfpv1 = dfpv1[dfpv1['provincia'].isin(prov)]
 #st.write(dfpv1)
 
-t = pivot_ui(iris)
+t = pivot_ui(dfpv1)
 
 with open(t.src) as t:
     components.html(t.read(), width=900, height=1000, scrolling=True)
