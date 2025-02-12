@@ -4,5 +4,5 @@ sqlalchemy
 streamlit-echarts
 altair
 plotly
-pivottablejs
+pivot_ui
 
