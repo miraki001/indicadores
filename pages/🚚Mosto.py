@@ -49,6 +49,7 @@ gb.configure_column(
     width=50,
     type=["numericColumn"],
     aggFunc="sum",
+    valueFormatter="value.toLocaleString()",
 )
 
 gb.configure_grid_options(
