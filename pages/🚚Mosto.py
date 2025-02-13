@@ -30,7 +30,8 @@ gb.configure_column(
     field="subgrupoenvase",
     header_name="Tipo Envase",
     flex=1,
-    tooltipField="powerPlant",
+    tooltipField="subgrupoenvase",
+    rowGroup=True 
 )
 
 
