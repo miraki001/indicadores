@@ -46,7 +46,7 @@ gb.configure_column(
 gb.configure_column(
     field="cnt",
     header_name="cnt",
-    width=250,
+    width=150,
     type=["numericColumn"],
     aggFunc="sum",
     valueFormatter="value.toLocaleString()",
