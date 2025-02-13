@@ -33,10 +33,6 @@ gb.configure_column(
 )
 gb.configure_column(field="anio", header_name="año", width=110)
 
-gb.configure_column(
-    field="buyer", header_name="Buyer", width=150, tooltipField="buyer"
-)
-
 
 gb.configure_column(
     field="provincia",
@@ -53,6 +49,7 @@ gb.configure_column(
 
 gb.configure_grid_options(
     tooltipShowDelay=0,
+    pivotMode=True,
 )
 go = gb.build()
 
