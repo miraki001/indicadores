@@ -53,7 +53,6 @@ gb.configure_column(
 
 gb.configure_grid_options(
     tooltipShowDelay=0,
-    pivotMode=shouldDisplayPivoted
 )
 go = gb.build()
 
