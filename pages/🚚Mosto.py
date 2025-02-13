@@ -24,7 +24,7 @@ gb.configure_default_column(
     editable=False,
 )
 
-gb.configure_column(field="provincia", header_name="provincia", width=80)
+gb.configure_column(field="provincia", header_name="provincia", width=80, rowGroup= True, )
 
 gb.configure_column(
     field="subgrupoenvase",
