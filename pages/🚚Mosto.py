@@ -55,6 +55,14 @@ gb.configure_grid_options(
     tooltipShowDelay=0,
     pivotMode=True,
 )
+
+gb.configure_grid_options(
+    autoGroupColumnDef=dict(
+        minWidth=300, 
+        pinned="left", 
+        cellRendererParams=dict(suppressCount=True)
+    )
+)
 go = gb.build()
 
 AgGrid(data, gridOptions=go, height=400)
