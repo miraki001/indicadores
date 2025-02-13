@@ -24,19 +24,21 @@ gb.configure_default_column(
     editable=False,
 )
 
+gb.configure_column(field="provincia", header_name="provincia", width=80)
 
 gb.configure_column(
     field="subgrupoenvase",
-    header_name="subgrupoenvase",
+    header_name="Tipo Envase",
     flex=1,
-    tooltipField="subgrupoenvase",
+    tooltipField="powerPlant",
 )
-gb.configure_column(field="anio", header_name="año", width=110)
+
+
 
 
 gb.configure_column(
-    field="provincia",
-    header_name="provincia",
+    field="anio",
+    header_name="anio",
     width=100,    
     pivot=True,
 )
