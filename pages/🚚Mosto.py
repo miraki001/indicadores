@@ -48,6 +48,7 @@ gb.configure_column(
     header_name="cnt",
     width=50,
     type=["numericColumn"],
+    aggFunc="sum",
 )
 
 gb.configure_grid_options(
