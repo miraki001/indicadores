@@ -2,9 +2,15 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import json
-from st_aggrid import AgGrid, GridOptionsBuilder,DataReturnMode
+from st_aggrid import AgGrid, GridOptionsBuilder,DataReturnMode,GridUpdateMode
 import altair as alt
 import numpy as np
+
+return_mode = st.sidebar.selectbox(
+    "Return Mode", list(DataReturnMode.__members__), index=1
+)
+return_mode_value = DataReturnMode.__members__[return_mode]
+
 
 conn = st.connection("postgresql", type="sql")
 qu = 'select año anio,sum(cnt) cnt,provincia,subgrupoenvase from inf_desp_prov group by provincia,año,subgrupoenvase ;'  
