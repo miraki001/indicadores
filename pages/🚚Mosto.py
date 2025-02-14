@@ -80,6 +80,7 @@ go = gb.build()
 grid_response  = AgGrid(data, gridOptions=go,data_return_mode=return_mode_value, height=400)
 
 df = grid_response["data"]
+st.write(df)
 selected = grid_response["selected_rows"]
 selected_df = pd.DataFrame(selected).apply(pd.to_numeric, errors="coerce")
 
