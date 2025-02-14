@@ -4,6 +4,7 @@ import pandas as pd
 import json
 from st_aggrid import AgGrid, GridOptionsBuilder
 import altair as alt
+import numpy as np
 
 conn = st.connection("postgresql", type="sql")
 qu = 'select año anio,sum(cnt) cnt,provincia,subgrupoenvase from inf_desp_prov group by provincia,año,subgrupoenvase ;'  
