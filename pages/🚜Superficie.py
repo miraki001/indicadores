@@ -11,3 +11,12 @@ import numpy as np
 conn = st.connection("postgresql", type="sql")
 qu = 'select * from despachos_m ;'  
 dfpv1 = conn.query(qu, ttl="0"),
+
+gb = GridOptionsBuilder()
+
+gb.configure_default_column(
+    resizable=True,
+    filterable=True,
+    sortable=True,
+    editable=False,
+)
