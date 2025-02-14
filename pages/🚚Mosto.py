@@ -66,7 +66,7 @@ gb.configure_grid_options(
 )
 
 gb.configure_selection(
-    ‘multiple’,
+    'multiple',
     use_checkbox=False,
 )
 
