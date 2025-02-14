@@ -20,3 +20,19 @@ gb.configure_default_column(
     sortable=True,
     editable=False,
 )
+
+
+gb.configure_grid_options(
+    autoGroupColumnDef=dict(
+        minWidth=600, 
+        enableRangeSelection=True,
+        enableRangeHandle=True,
+        pinned="left", 
+        cellRendererParams=dict(suppressCount=True)
+    )
+)
+go = gb.build()
+
+grid_response  = AgGrid(dfpv1, gridOptions=go,data_return_mode=return_mode_value,height=400)
+
+
