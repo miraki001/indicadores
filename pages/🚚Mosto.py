@@ -78,7 +78,7 @@ gb.configure_grid_options(
 )
 go = gb.build()
 
-grid_response  = AgGrid(data, gridOptions=go,data_return_mode=return_mode_value,height=400)
+grid_response  = AgGrid(data, gridOptions=go,height=400)
 
 
 chart = (
