@@ -84,10 +84,10 @@ st.write(df)
 selected = grid_response["selected_rows"]
 selected_df = pd.DataFrame(selected).apply(pd.to_numeric, errors="coerce")
 
-chart_data = df.loc[:, ["Mendoza", "San Juan", "Catanarca"]].assign(source="total")
+chart_data = df.loc[:, ["provincia"]].assign(source="total")
 
 if not selected_df.empty:
-    selected_data = selected_df.loc[:, ["Mendoza", "San Juan", "Catanarca"]].assign(
+    selected_data = selected_df.loc[:, ["provincia"]].assign(
         source="selection"
     )
     chart_data = pd.concat([chart_data, selected_data])
