@@ -75,7 +75,7 @@ AgGrid(data, gridOptions=go, height=400)
 
 chart_data = data
 chart_data = pd.melt(
-    chart_data, id_vars=["provincia"], var_name="anio", value_name="cnt"
+    chart_data, id_vars=["provincia"], var_name="anio", value_name="quantity"
 )
 chart = (
     alt.Chart(data=chart_data)
