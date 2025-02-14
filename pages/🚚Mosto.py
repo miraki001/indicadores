@@ -66,10 +66,8 @@ gb.configure_grid_options(
 )
 
 gb.configure_selection(
-    selection_mode,
+    ‘multiple’,
     use_checkbox=False,
-    rowMultiSelectWithClick=rowMultiSelectWithClick,
-    suppressRowDeselection=suppressRowDeselection,
 )
 
 gb.configure_grid_options(
