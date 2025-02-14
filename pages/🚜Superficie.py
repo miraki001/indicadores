@@ -11,6 +11,7 @@ import numpy as np
 conn = st.connection("postgresql", type="sql")
 qu = 'select * from despachos_m ;'  
 dfpv1 = conn.query(qu, ttl="0"),
+data = dfpv1
 
 gb = GridOptionsBuilder()
 
@@ -44,6 +45,6 @@ gb.configure_selection(
 
 go = gb.build()
 
-grid_response  = AgGrid(dfpv1, gridOptions=go,height=500)
+grid_response  = AgGrid(data, gridOptions=go,height=500)
 
 
