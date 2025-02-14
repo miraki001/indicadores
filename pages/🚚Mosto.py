@@ -79,31 +79,15 @@ go = gb.build()
 
 grid_response  = AgGrid(data, gridOptions=go,data_return_mode=return_mode_value, height=400)
 
-df = grid_response["data"]
-st.write(df)
-selected = grid_response["selected_rows"]
-selected_df = pd.DataFrame(selected).apply(pd.to_numeric, errors="coerce")
 
-chart_data = df.loc[:, ["provincia"]].assign(source="total")
-
-if not selected_df.empty:
-    selected_data = selected_df.loc[:, ["provincia"]].assign(
-        source="selection"
-    )
-    chart_data = pd.concat([chart_data, selected_data])
-
-
-#chart_data = data
-chart_data = pd.melt(
-    chart_data, id_vars=["provincia"], var_name="item", value_name="quantity"
-)
 chart = (
-    alt.Chart(data=chart_data)
+    alt.Chart(data=dfpv1)
     .mark_bar()
     .encode(
-        x=alt.X("item:O"),
-        y=alt.Y("sum(quantity):Q", stack=False),
-        color=alt.Color("source:N", scale=alt.Scale(domain=["total", "selection"])),
-    )
+        x="anio",
+        y="cnt",
+        )
 )
+    
+
 st.altair_chart(chart, use_container_width=True)
