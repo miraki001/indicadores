@@ -73,6 +73,10 @@ go = gb.build()
 
 AgGrid(data, gridOptions=go, height=400)
 
+df = AgGrid["data"]
+selected = grid_response["selected_rows"]
+selected_df = pd.DataFrame(selected).apply(pd.to_numeric, errors="coerce")
+
 chart_data = data
 chart_data = pd.melt(
     chart_data, id_vars=["provincia"], var_name="anio", value_name="quantity"
