@@ -71,7 +71,7 @@ gb.configure_grid_options(
 )
 go = gb.build()
 
-AgGrid(data, gridOptions=go, height=400)
+AgGrid(data, gridOptions=go,data_return_mode=return_mode_value, height=400)
 
 df = AgGrid["data"]
 selected = grid_response["selected_rows"]
