@@ -71,3 +71,18 @@ gb.configure_grid_options(
 go = gb.build()
 
 AgGrid(data, gridOptions=go, height=400)
+
+chart_data = data
+chart_data = pd.melt(
+    chart_data, id_vars=["source"], var_name="item", value_name="quantity"
+)
+chart = (
+    alt.Chart(data=chart_data)
+    .mark_bar()
+    .encode(
+        x=alt.X("item:O"),
+        y=alt.Y("sum(quantity):Q", stack=False),
+        color=alt.Color("source:N", scale=alt.Scale(domain=["total", "selection"])),
+    )
+)
+st.altair_chart(chart, use_container_width=True)
