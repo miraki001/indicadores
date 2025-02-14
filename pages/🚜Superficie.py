@@ -31,6 +31,17 @@ gb.configure_grid_options(
         cellRendererParams=dict(suppressCount=True)
     )
 )
+
+gb.configure_grid_options(
+    tooltipShowDelay=0,
+    pivotMode=True,
+)
+
+gb.configure_selection(
+    'multiple',
+    use_checkbox=False,
+)
+
 go = gb.build()
 
 grid_response  = AgGrid(dfpv1, gridOptions=go,height=500)
