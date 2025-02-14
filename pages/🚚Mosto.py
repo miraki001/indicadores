@@ -92,7 +92,7 @@ if not selected_df.empty:
     chart_data = pd.concat([chart_data, selected_data])
 
 
-//chart_data = data
+#chart_data = data
 chart_data = pd.melt(
     chart_data, id_vars=["source"], var_name="item", value_name="quantity"
 )
