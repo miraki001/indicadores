@@ -11,6 +11,7 @@ import numpy as np
 conn = st.connection("postgresql", type="sql")
 qu = 'select * from despachos_m ;'  
 dfpv1 = conn.query(qu, ttl="0"),
+dfpv1 = dfpv1[0]
 data = dfpv1
 st.write(data)
 
