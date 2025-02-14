@@ -60,7 +60,7 @@ gb.configure_grid_options(
 gb.configure_grid_options(
     autoGroupColumnDef=dict(
         minWidth=300, 
-        headerName = 'My Group',
+        headerName = 'Provincias',
         pinned="left", 
         cellRendererParams=dict(suppressCount=True)
     )
