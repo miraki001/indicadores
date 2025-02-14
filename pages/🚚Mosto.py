@@ -95,7 +95,7 @@ if not selected_df.empty:
 
 #chart_data = data
 chart_data = pd.melt(
-    chart_data, id_vars=["provincias"], var_name="item", value_name="quantity"
+    chart_data, id_vars=["provincia"], var_name="item", value_name="quantity"
 )
 chart = (
     alt.Chart(data=chart_data)
