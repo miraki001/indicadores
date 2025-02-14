@@ -79,11 +79,11 @@ go = gb.build()
 
 AgGrid(data, gridOptions=go,data_return_mode=return_mode_value, height=400)
 
-data = AgGrid["data"]
+data22 = AgGrid["data"]
 selected = grid_response["selected_rows"]
 selected_df = pd.DataFrame(selected).apply(pd.to_numeric, errors="coerce")
 
-chart_data = df.loc[:, ["Mendoza", "San Juan", "Catanarca"]].assign(source="total")
+chart_data = data22.loc[:, ["Mendoza", "San Juan", "Catanarca"]].assign(source="total")
 
 if not selected_df.empty:
     selected_data = selected_df.loc[:, ["Mendoza", "San Juan", "Catanarca"]].assign(
