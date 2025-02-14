@@ -6,10 +6,6 @@ from st_aggrid import AgGrid, GridOptionsBuilder,DataReturnMode,GridUpdateMode
 import altair as alt
 import numpy as np
 
-return_mode = st.sidebar.selectbox(
-    "Return Mode", list(DataReturnMode.__members__), index=1
-)
-return_mode_value = DataReturnMode.__members__[return_mode]
 
 
 conn = st.connection("postgresql", type="sql")
