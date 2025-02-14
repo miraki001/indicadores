@@ -33,6 +33,6 @@ gb.configure_grid_options(
 )
 go = gb.build()
 
-grid_response  = AgGrid(dfpv1, gridOptions=go,data_return_mode=return_mode_value,height=400)
+grid_response  = AgGrid(dfpv1, gridOptions=go,height=500)
 
 
