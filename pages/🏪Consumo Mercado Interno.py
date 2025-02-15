@@ -433,7 +433,7 @@ st.subheader('Ventas Totales, Según datos de Scentia en Valores')
 
 
 #data1['canal'] = 'Mayoristas'
-data_filt = data1.groupby("canal",).sum()
+data_filt = data1.groupby("canal","periodo").sum()
 st.write(data_filt)
 
 data_filt['periodo'] = data_filt['periodo'].astype(str)
