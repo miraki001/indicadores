@@ -436,10 +436,10 @@ st.subheader('Ventas Totales, Según datos de Scentia en Valores')
 data_filt = data1.groupby("periodo").sum()
 st.write(data_filt)
 
-data_filt['periodo'] = data_filt['periodo'].astype(str)
+#data_filt['periodo'] = data_filt['periodo'].astype(str)
 
 
-newdf=data_filt.set_index('periodo',inplace=False).rename_axis(None)
+#newdf=data_filt.set_index('periodo',inplace=False).rename_axis(None)
 
 option = {
     "tooltip": {
