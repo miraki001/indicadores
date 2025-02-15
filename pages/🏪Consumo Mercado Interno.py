@@ -108,7 +108,7 @@ st_echarts(
     options=option, height="400px",
 )
 
-data1 = conn.query('SELECT periodo,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_valores;', ttl="0")
+data1 = conn.query('SELECT periodo,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_valores order by periodo desc;', ttl="0")
 #st.write(df)
 
 st.subheader('Ventas en el Canal Mayorista, Según datos de Scentia en Valores')
@@ -117,11 +117,13 @@ st.subheader('Ventas en el Canal Mayorista, Según datos de Scentia en Valores')
 if st.checkbox('Ver datos en forma de tabla Valores'):
     st.write(data1)
 
+#data1['canal'] = 'Mayoristas'
+data_filt = data1[data1['canal'] = 'Mayoristas' ]
 
-data1['periodo'] = data1['periodo'].astype(str)
-data1['canal'] = 'Mayoristas'
+data_filt['periodo'] = data_filt['periodo'].astype(str)
 
-newdf=data1.set_index('periodo',inplace=False).rename_axis(None)
+
+newdf=data_filt.set_index('periodo',inplace=False).rename_axis(None)
 
 option = {
     "tooltip": {
@@ -131,18 +133,18 @@ option = {
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": data1['periodo'].to_list(),
+        "data": data_filt['periodo'].to_list(),
     },
     "yAxis": {"type": "value"},
-    "series": [{"data": data1['VINOS_COMUNES'].to_list(), "type": "line", "name": 'Vinos Comunes'}
-               ,{"data": data1['VINOS_FINOS'].to_list(), "type": "line","name":'Vinos Finos'}
-               ,{"data": data1['CERVEZAS'].to_list(), "type": "line","name":'Cervezas'} 
-               ,{"data": data1['APERITIVOS_RTD'].to_list(), "type": "line","name":'Ape. RTD'} 
-               ,{"data": data1['ESPUMANTES'].to_list(), "type": "line","name":'Espumantes'} 
-               ,{"data": data1['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
-               ,{"data": data1['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
-               ,{"data": data1['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": data1['VINOS_FINOS'].to_list(), "type": "line"}],
+    "series": [{"data": data_filt['VINOS_COMUNES'].to_list(), "type": "line", "name": 'Vinos Comunes'}
+               ,{"data": data_filt['VINOS_FINOS'].to_list(), "type": "line","name":'Vinos Finos'}
+               ,{"data": data_filt['CERVEZAS'].to_list(), "type": "line","name":'Cervezas'} 
+               ,{"data": data_filt['APERITIVOS_RTD'].to_list(), "type": "line","name":'Ape. RTD'} 
+               ,{"data": data_filt['ESPUMANTES'].to_list(), "type": "line","name":'Espumantes'} 
+               ,{"data": data_filt['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
+               ,{"data": data_filt['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
+               ,{"data": data_filt['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
+#    "series": [{"data": data_filt['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
