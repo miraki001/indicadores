@@ -118,7 +118,7 @@ if st.checkbox('Ver datos en forma de tabla Valores'):
     st.write(data1)
 
 #data1['canal'] = 'Mayoristas'
-data_filt = data1[data1['canal'] = 'Mayoristas' ]
+data_filt = data1[data1['canal'] ==  'Mayoristas' ]
 
 data_filt['periodo'] = data_filt['periodo'].astype(str)
 
