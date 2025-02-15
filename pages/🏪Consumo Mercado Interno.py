@@ -436,7 +436,7 @@ st.subheader('Ventas Totales, Según datos de Scentia en Valores')
 #data_filt = data1.groupby('periodo').sum()
 
 
-dft["VINOS_COMUNES"] = data1.groupby("periodo").agg(sum) 
+dft["VINOS_COMUNES"] = data1.groupby("periodo").agg(sum)
 dft["VINOS_FINOS"] = data1.groupby("periodo").agg(sum)
 dft["CERVEZAS"] = data1.groupby("periodo").agg(sum)
 dft["APERITIVOS_RTD"] = data1.groupby("periodo").agg(sum)
