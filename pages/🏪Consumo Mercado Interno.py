@@ -108,7 +108,7 @@ st_echarts(
     options=option, height="400px",
 )
 
-data1 = conn.query('SELECT periodo,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_valores order by periodo desc;', ttl="0")
+data1 = conn.query('SELECT periodo,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_valores order by periodo ;', ttl="0")
 #st.write(df)
 
 st.subheader('Ventas en el Canal Mayorista, Según datos de Scentia en Valores')
