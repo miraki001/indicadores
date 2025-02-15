@@ -434,8 +434,11 @@ st.subheader('Ventas Totales, Según datos de Scentia en Valores')
 
 #data1['canal'] = 'Mayoristas'
 data_filt = data1.groupby('periodo').sum()
+
 st.write(data_filt)
-st.write(data_filt[2])
+
+df22 = pd.DataFrame(data_filt)
+st.write(df22)
 
 data_filt['periodo'] = data_filt['periodo'].astype(str)
 
