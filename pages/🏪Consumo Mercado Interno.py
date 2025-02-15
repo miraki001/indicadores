@@ -108,6 +108,51 @@ st_echarts(
     options=option, height="400px",
 )
 
+data = conn.query('SELECT periodo,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_valores;', ttl="0")
+#st.write(df)
+
+st.subheader('Ventas en el Canal Mayorista, Según datos de Scentia en Valores')
+
+
+if st.checkbox('Ver datos en forma de tabla Valores'):
+    st.write(data)
+
+
+data['periodo'] = data['periodo'].astype(str)
+data['canal'] = 'Mayoristas'
+
+newdf=data.set_index('periodo',inplace=False).rename_axis(None)
+
+option = {
+    "tooltip": {
+        "trigger": 'axis',
+        "axisPointer": { "type": 'cross' }
+    },
+    "legend": {},    
+    "xAxis": {
+        "type": "category",
+        "data": data['periodo'].to_list(),
+    },
+    "yAxis": {"type": "value"},
+    "series": [{"data": data['VINOS_COMUNES'].to_list(), "type": "line", "name": 'Vinos Comunes'}
+               ,{"data": data['VINOS_FINOS'].to_list(), "type": "line","name":'Vinos Finos'}
+               ,{"data": data['CERVEZAS'].to_list(), "type": "line","name":'Cervezas'} 
+               ,{"data": data['APERITIVOS_RTD'].to_list(), "type": "line","name":'Ape. RTD'} 
+               ,{"data": data['ESPUMANTES'].to_list(), "type": "line","name":'Espumantes'} 
+               ,{"data": data['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
+               ,{"data": data['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
+               ,{"data": data['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
+#    "series": [{"data": data['VINOS_FINOS'].to_list(), "type": "line"}],
+}
+st_echarts(
+    options=option, height="400px",
+)
+
+
+
+
+
+
 df1 = conn.query('SELECT periodo,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" FROM scentia_self_cadenas;', ttl="0")
 
 st.subheader('Ventas en el Canal Self Cadenas, Según datos de Scentia')
