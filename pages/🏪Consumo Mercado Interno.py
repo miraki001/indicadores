@@ -433,12 +433,20 @@ st.subheader('Ventas Totales, Según datos de Scentia en Valores')
 
 
 #data1['canal'] = 'Mayoristas'
-data_filt = data1.groupby('periodo').sum()
+#data_filt = data1.groupby('periodo').sum()
 
-st.write(data_filt)
+dft["VINOS_COMUNES"] = data1.groupby("periodo").agg(sum) 
+dft["VINOS_FINOS"] = data1.groupby("periodo").agg(sum)
+dft["CERVEZAS"] = data1.groupby("periodo").agg(sum)
+dft["APERITIVOS_RTD"] = data1.groupby("periodo").agg(sum)
+dft["ESPUMANTES"] = data1.groupby("periodo").agg(sum)
+dft["APERITIVOS_ALC"] = data1.groupby("periodo").agg(sum)
+dft["VINOS_FORTIFICADOS"] = data1.groupby("periodo").agg(sum)
+dft["SIDRAS_Y_SABORES"] = data1.groupby("periodo").agg(sum)
 
-df22 = pd.DataFrame(data_filt)
-st.write(df22)
+
+st.write(dft)
+
 
 data_filt['periodo'] = data_filt['periodo'].astype(str)
 
