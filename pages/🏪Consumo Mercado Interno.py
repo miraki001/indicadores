@@ -118,7 +118,7 @@ if st.checkbox('Ver datos en forma de tabla Valores'):
     st.write(data1)
 
 
-data1['periodo'] = data['periodo'].astype(str)
+data1['periodo'] = data1['periodo'].astype(str)
 data1['canal'] = 'Mayoristas'
 
 newdf=data1.set_index('periodo',inplace=False).rename_axis(None)
