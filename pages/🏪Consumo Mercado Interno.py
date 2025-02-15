@@ -198,9 +198,6 @@ st_echarts(
 st.subheader('Ventas en el Canal Self Cadenas, Según datos de Scentia en Valores')
 
 
-if st.checkbox('Ver datos en forma de tabla Valores'):
-    st.write(data1)
-
 #data1['canal'] = 'Mayoristas'
 data_filt = data1[data1['canal'] ==  'Self Cadenas' ]
 
