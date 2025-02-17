@@ -608,6 +608,6 @@ with tab2:
 
     #pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
     #pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
-    pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
+    #pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
     st.write(pivot_table_basic)
   
