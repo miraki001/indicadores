@@ -581,7 +581,7 @@ with tab2:
                          on_change=cambiar_producto_cb, args=(df2,),
                          placeholder='type to search')
                 st.dataframe(st.session_state.product_result, hide_index=True,
-                             use_container_width=True, height=500)
+                             use_container_width=True, height=150)
 
             # Shows airline checkboxes
             for a in df2['producto'].unique():
