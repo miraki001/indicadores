@@ -68,9 +68,9 @@ if st.checkbox('Ver datos en forma de tabla'):
     st.write(df)
 
 df1 = df[df['canal'] ==  'Mayoristas' ]
-df1['periodo'] = df['periodo'].astype(str)
+df1['periodo'] = df1['periodo'].astype(str)
 
-newdf=df1.set_index('periodo',inplace=False).rename_axis(None)
+#newdf=df1.set_index('periodo',inplace=False).rename_axis(None)
 
 option = {
     "tooltip": {
