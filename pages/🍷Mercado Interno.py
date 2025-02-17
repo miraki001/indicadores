@@ -551,7 +551,8 @@ with tab1:
   st_echarts(
     options=option, height="400px" ,
   )
-
+if 'product_result' not in st.session_state:
+    st.session_state.product_result = None
 
 def cambiar_producto_cb(df):
     st.session_state.product_result = filter_by_producto(
