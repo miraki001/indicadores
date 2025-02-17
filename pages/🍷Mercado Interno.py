@@ -570,7 +570,7 @@ with tab2:
     pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
     pivot_table_basic = pivot_table_basic.reset_index()    
     st.write(pivot_table_basic)
-    st.write(pivot_table_basic['mes'])
+    st.write(pivot_table_basic[3])
   
     pivot_table_basic['cum_sum'] = pivot_table_basic['2022'].cumsum()
     pivot_table_basic['cum_perc'] =  100*pivot_table_basic['cum_sum']/pivot_table_basic['2023'].sum()
