@@ -601,6 +601,6 @@ with tab2:
     st.write(pivot_table_basic)
     st.write(pivot_table_basic.columns.tolist())
     st.write(pivot_table_basic[2022])
-    pivot_table_basic['var 23'] = np.sum(pivot_table_basic[2023]/pivot_table_basic[2022], 2)
+    pivot_table_basic['var 23'] = np.sum(pivot_table_basic[2023]/pivot_table_basic[2022])
     st.write(pivot_table_basic)
   
