@@ -10,7 +10,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from streamlit_echarts import Map
 
-function lambda x: (sum(x) / sum(df['column']) * 100)
+function lambda x: sum(x) / (sum(df['column']) * 100)
 
 
 hide_streamlit_style = """
