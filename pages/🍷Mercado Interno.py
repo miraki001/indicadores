@@ -603,7 +603,7 @@ with tab2:
     st.write(pivot_table_basic[2022])
     #pivot_table_basic.columns = pivo_table_basic.columns.str.decode("utf-8")
     pivot_table_basic['2022/dif'] = (1-(pivot_table_basic[2022]/pivot_table_basic[2023]))*100
-    pivot_table_basic.columns = pivo_table_basic.columns.str.decode("utf-8")
+    pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
     #pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
     pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
     st.write(pivot_table_basic)
