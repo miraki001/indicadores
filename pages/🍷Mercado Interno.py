@@ -46,22 +46,19 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 tab1, tab2, tab3 = st.tabs(["Evolución", "Totales", "Filtros])
 
-conn = st.connection("postgresql", type="sql")
-dfd = conn.query('select anio,tintos,blancos,rosados from info_desp_anio_v1;', ttl="0"),
+with tab1:
+                            
+  conn = st.connection("postgresql", type="sql")
+  dfd = conn.query('select anio,tintos,blancos,rosados from info_desp_anio_v1;', ttl="0"),
 
-df = dfd[0]
+  df = dfd[0]
  
-st.subheader('Evolución de los despachos por año')
+  st.subheader('Evolución de los despachos por año')
 
-if st.checkbox('Ver datos en forma de tabla'):
-    st.write(df)
+  if st.checkbox('Ver datos en forma de tabla'):
+      st.write(df)
 
-
-#dfd['anio'] = dfd['anio'].astype(str)
-
-#newdf=dfd.set_index('anio',inplace=False).rename_axis(None)
-
-option = {
+  option = {
     "tooltip": {
         "trigger": 'axis',
         "axisPointer": { "type": 'cross' }
@@ -76,28 +73,26 @@ option = {
                {"data": df['blancos'].to_list(), "type": "line", "name": 'Blancos'},
                {"data": df['rosados'].to_list(), "type": "line", "name": 'Rosados'},
                ]
-}
-st_echarts(
+  }
+  st_echarts(
     options=option, height="400px" ,
-)
+  )
 
 
-conn = st.connection("postgresql", type="sql")
-df1 = conn.query('select anio||mes anio,tintos,blancos,rosados from info_desp_anio_mes_v1;', ttl="0"),
+  conn = st.connection("postgresql", type="sql")
+  df1 = conn.query('select anio||mes anio,tintos,blancos,rosados from info_desp_anio_mes_v1;', ttl="0"),
 
-df2 = df1[0]
+  df2 = df1[0]
  
-st.subheader('Evolución de los despachos por Mes')
+  st.subheader('Evolución de los despachos por Mes')
 
-if st.checkbox('Ver datos como tabla'):
+  if st.checkbox('Ver datos como tabla'):
     st.write(df)
 
 
-#dfd['anio'] = dfd['anio'].astype(str)
 
-#newdf=dfd.set_index('anio',inplace=False).rename_axis(None)
 
-option = {
+  option = {
     "dataZoom": [
     {
       "show": 'true',
@@ -128,74 +123,74 @@ option = {
                {"data": df2['blancos'].to_list(), "type": "line", "name": 'Blancos'},
                {"data": df2['rosados'].to_list(), "type": "line", "name": 'Rosados'},
                ]
-}
-st_echarts(
+  }
+  st_echarts(
     options=option, height="400px" ,
-)
-
-st.subheader('Evolución de los despachos por Provincias')
- 
-conn = st.connection("postgresql", type="sql")
-dfp = conn.query('select initcap(provincia) provincia from dimprovincia;', ttl="0"),
-dfpv = dfp[0]
-new_row = pd.DataFrame({"provincia": ["Todas"]})
-dfpv = pd.concat([dfpv, new_row], ignore_index=True)
-
-#st.write(dfpv)
-dfe = conn.query('select subgrupoenvase from dimsubgrupoenvase;', ttl="0"),
-dfev = dfe[0]
-new_row1 = pd.DataFrame({"subgrupoenvase": ["Todos"]})
-dfev = pd.concat([dfev, new_row1], ignore_index=True)
-
-
-col1, col2 = st.columns(2)
-
-with col1:
-  prov = st.multiselect(
-      "Seleccionar Provincia",dfpv.provincia
   )
-  all_options = st.button("Select all options")
-  if all_options:
+
+  st.subheader('Evolución de los despachos por Provincias')
+ 
+  conn = st.connection("postgresql", type="sql")
+  dfp = conn.query('select initcap(provincia) provincia from dimprovincia;', ttl="0"),
+  dfpv = dfp[0]
+  new_row = pd.DataFrame({"provincia": ["Todas"]})
+  dfpv = pd.concat([dfpv, new_row], ignore_index=True)
+
+  #st.write(dfpv)
+  dfe = conn.query('select subgrupoenvase from dimsubgrupoenvase;', ttl="0"),
+  dfev = dfe[0]
+  new_row1 = pd.DataFrame({"subgrupoenvase": ["Todos"]})
+  dfev = pd.concat([dfev, new_row1], ignore_index=True)
+
+
+  col1, col2 = st.columns(2)
+
+  with col1:
+    prov = st.multiselect(
+      "Seleccionar Provincia",dfpv.provincia
+    )
+    all_options = st.button("Select all options")
+    if all_options:
         prov = dfpv.provincia,
     
-  #selected_options
-with col2:
-  envase = st.multiselect(
-      "Seleccionar Tipo de Envase",dfev.subgrupoenvase
-  )
+    #selected_options
+  with col2:
+    envase = st.multiselect(
+        "Seleccionar Tipo de Envase",dfev.subgrupoenvase
+    )
 
-st.write("You selected:", prov)
-#if prov == "Todas":
-qu = 'select año anio,sum(cnt) cnt,provincia,subgrupoenvase from inf_desp_prov group by provincia,año,subgrupoenvase ;'  
-dfpv1 = conn.query(qu, ttl="0"),
-#if prov != "Todas": 
-#  qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
-#  dfpv1 = conn.query(qu, ttl="0", params={"prov": prov},),
-dfpv1 = dfpv1[0]
-dfpv1 = dfpv1[dfpv1['anio'] > 2010]
-#dfpv1 = dfpv1[dfpv1['provincia'].isin(prov)]
-#st.write(dfpv1)
+  st.write("You selected:", prov)
+  #if prov == "Todas":
+  qu = 'select año anio,sum(cnt) cnt,provincia,subgrupoenvase from inf_desp_prov group by provincia,año,subgrupoenvase ;'  
+  dfpv1 = conn.query(qu, ttl="0"),
+  #if prov != "Todas": 
+  #  qu = 'select cnt,provincia from inf_desp_prov where provincia =  :prov;'
+  #  dfpv1 = conn.query(qu, ttl="0", params={"prov": prov},),
+  dfpv1 = dfpv1[0]
+  dfpv1 = dfpv1[dfpv1['anio'] > 2010]
+  #dfpv1 = dfpv1[dfpv1['provincia'].isin(prov)]
+  #st.write(dfpv1)
 
-df = dfpv1.pivot_table(index='anio', columns='provincia', values='cnt')
-#st.write('df')
-#st.write(df)
-df = df.reset_index() 
-#st.write(df)
-#st.write(df[2021])
+  df = dfpv1.pivot_table(index='anio', columns='provincia', values='cnt')
+  #st.write('df')
+  #st.write(df)
+  df = df.reset_index() 
+  #st.write(df)
+  #st.write(df[2021])
 
-dfpv2 = dfpv1.transpose()
-#st.write(dfpv2)
-#st.write('dfpv2')
-#st.write(dfpv2.transpose())
-ds = dfpv2.transpose(),
-#ds = ds.reset_index() 
-#dfpv2['anio'] = dfpv2['anio'].astype(str)
+  dfpv2 = dfpv1.transpose()
+  #st.write(dfpv2)
+  #st.write('dfpv2')
+  #st.write(dfpv2.transpose())
+  ds = dfpv2.transpose(),
+  #ds = ds.reset_index() 
+  #dfpv2['anio'] = dfpv2['anio'].astype(str)
 
-#newdf=dfpv2.set_index('anio',inplace=False).rename_axis(None)
+  #newdf=dfpv2.set_index('anio',inplace=False).rename_axis(None)
 
 
 
-option = {
+  option = {
     "dataZoom": [
     {
       "show": 'true',
@@ -274,30 +269,30 @@ option = {
                 "data":df['Buenos Aires'].to_list(),
             },
     ],    
-}
+  }
 
-st_echarts(
+  st_echarts(
     options=option, height="400px" ,
-)
+  )
 
-de = dfpv1.pivot_table(index='anio', columns='subgrupoenvase', values='cnt')
-#de.replace(to_replace=[None], value=0, inplace=True)
-#de = de.fillna(value=np.nan)
-#st.write('antes')
-#de.fillna(0),
-de = de.reset_index() 
-de.round(0)
-de = de.round({'Bag in Box': 0})
-de = de.round({'Botella': 0})
-de = de.round({'Bidon': 0})
-de = de.round({'Multilaminado': 0})
-de = de.round({'Damajuana': 0})
-de = de.round({'Granel': 0})
-de.fillna(0),
-de.round(0)
-#st.write(de)
-#st.write('despues')
-option = {
+  de = dfpv1.pivot_table(index='anio', columns='subgrupoenvase', values='cnt')
+  #de.replace(to_replace=[None], value=0, inplace=True)
+  #de = de.fillna(value=np.nan)
+  #st.write('antes')
+  #de.fillna(0),
+  de = de.reset_index() 
+  de.round(0)
+  de = de.round({'Bag in Box': 0})
+  de = de.round({'Botella': 0})
+  de = de.round({'Bidon': 0})
+  de = de.round({'Multilaminado': 0})
+  de = de.round({'Damajuana': 0})
+  de = de.round({'Granel': 0})
+  de.fillna(0),
+  de.round(0)
+  #st.write(de)
+  #st.write('despues')
+  option = {
     "dataZoom": [
     {
       "show": 'true',
@@ -376,36 +371,36 @@ option = {
                 "data":de['Multilaminado'].to_list(),
             },
     ],    
-}
+  }
 
-st_echarts(
+  st_echarts(
     options=option, height="400px" ,
-)
+  )
 
-qu1 = 'select name,value from inf_desp_prov_tot ;'  
-data = conn.query(qu1, ttl="0"),
-#st.write(data[0])
-f = data[0].to_json(orient="records")
+  qu1 = 'select name,value from inf_desp_prov_tot ;'  
+  data = conn.query(qu1, ttl="0"),
+  #st.write(data[0])
+  f = data[0].to_json(orient="records")
 
-#st.write(f)  
+  #st.write(f)  
 
-json_obj = json.loads(f)
-
-
-#st.write(json_obj)  
-raw_data = json_obj
+  json_obj = json.loads(f)
 
 
+  #st.write(json_obj)  
+  raw_data = json_obj
 
-with open("./data/argentina.json", "r") as f:
+
+
+  with open("./data/argentina.json", "r") as f:
         map = Map(
             "Argentina",
             json.loads(f.read()),
         )
-#render_usa,
+  #render_usa,
 
   
-options = {
+  options = {
         "title": {
             "text": "Despachos por Provincias",
 #            "subtext": "Data from www.census.gov",
@@ -460,32 +455,32 @@ options = {
                 "data": raw_data,
             }
         ],
-}
-st_echarts(options, map=map)
+  }
+  st_echarts(options, map=map)
   
 
-qu2 = 'select anio||mes anio, cnt,producto from inf_desp_prod  ;'  
-prod1 = conn.query(qu2, ttl="0"),
-prod2 = prod1[0]
-#st.write(prod2)
-prod = prod2.pivot_table(index='anio', columns='producto', values='cnt')
-prod = prod.reset_index() 
+  qu2 = 'select anio||mes anio, cnt,producto from inf_desp_prod  ;'  
+  prod1 = conn.query(qu2, ttl="0"),
+  prod2 = prod1[0]
+  #st.write(prod2)
+  prod = prod2.pivot_table(index='anio', columns='producto', values='cnt')
+  prod = prod.reset_index() 
 
-prod.round(0)
-prod = prod.round({'Vino Varietal': 0})
-prod = prod.round({'Vinos sin Mencion': 0})
-prod = prod.round({'Espumantes': 0})
-prod = prod.round({'Gasificados': 0})
-prod = prod.round({'Otros Vinos': 0})
+  prod.round(0)
+  prod = prod.round({'Vino Varietal': 0})
+  prod = prod.round({'Vinos sin Mencion': 0})
+  prod = prod.round({'Espumantes': 0})
+  prod = prod.round({'Gasificados': 0})
+  prod = prod.round({'Otros Vinos': 0})
 
-prod.fillna(0),
-prod.round(0)
+  prod.fillna(0),
+  prod.round(0)
 
-st.write(prod)
+  st.write(prod)
 
 
 
-option = {
+  option = {
     "dataZoom": [
     {
       "show": 'true',
@@ -548,10 +543,10 @@ option = {
                 "data":  prod['Otros Vinos'].to_list(),
             },
     ],    
-}
+  }
 
-st_echarts(
+  st_echarts(
     options=option, height="400px" ,
-)
+  )
 
 
