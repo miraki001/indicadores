@@ -563,9 +563,11 @@ with tab2:
       index='mes', 
       columns='anio',  
       values=['lts'],
-      aggfunc=lambda x: round(sum(x)/sum(df2['lts']) * 100, 2)
+      aggfunc='sum')
     )
     #pivot_table_basic = pivot_table_basic.reset_index()    
+    pivot_table_basic['cum_sum'] = pivot_table_basic['2022'].cumsum()
+    pivot_table_basic['cum_perc'] =  100*pivot_table_basic['cum_sum']/pivot_table_basic['2023'].sum()
     #pivot_table_basic['% lts'] = (pivot_table_basic['lts']/pivot_table_basic['lts'].sum())*100
   
     st.write(pivot_table_basic)
