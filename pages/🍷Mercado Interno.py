@@ -9,6 +9,7 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
 from streamlit_echarts import Map
+from st_keyup import st_keyup
 
 #function lambda x: sum(x) / (sum(df['column']) * 100)
 
