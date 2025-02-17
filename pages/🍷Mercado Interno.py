@@ -600,4 +600,5 @@ with tab2:
     pivot_table_basic = pivot_table_basic.reset_index()    
     st.write(pivot_table_basic)
     st.write(pivot_table_basic.columns.tolist())
+    st.write(pivot_table_basic[2022])
   
