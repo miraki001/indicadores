@@ -566,6 +566,8 @@ with tab2:
       aggfunc='sum'
     )
     st.write(pivot_table_basic)
+    pivot_table_basic.columns = pivot_table_basic.columns.droplevel(0)
+
     pivot_table_basic = pivot_table_basic.reset_index()    
     st.write(pivot_table_basic)
     pivot_table_basic['cum_sum'] = pivot_table_basic['2022'].cumsum()
