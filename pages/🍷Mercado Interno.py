@@ -556,4 +556,11 @@ with tab2:
 
     df2 = df3[0]
     st.write(df2)
-  
+
+    pivot_table_basic = df.pivot_table(
+      index='mes', 
+      columns='anio',  
+      values=['lts'],
+      aggfunc='mean'
+    )
+    st.write(pivot_table_basic)
