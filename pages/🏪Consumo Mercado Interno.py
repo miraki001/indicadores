@@ -69,6 +69,7 @@ if st.checkbox('Ver datos en forma de tabla'):
 
 df1 = df[df['canal'] ==  'Mayoristas' ]
 df1['periodo'] = df1['periodo'].astype(str)
+st.write(df1)
 
 newdf=df1.set_index('periodo',inplace=False).rename_axis(None)
 
