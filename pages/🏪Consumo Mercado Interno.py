@@ -80,7 +80,7 @@ option = {
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": df['periodo'].to_list(),
+        "data": df1['periodo'].to_list(),
     },
     "yAxis": {"type": "value"},
     "series": [{"data": df1['VINOS_COMUNES'].to_list(), "type": "line", "name": 'Vinos Comunes'}
