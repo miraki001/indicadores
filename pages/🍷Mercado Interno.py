@@ -554,7 +554,7 @@ with tab1:
 
 
 with tab2:
-    df3 = conn.query('select sum(cantidadlitros) lts,anio,mes from despachos_m  where anio > 2021  group by anio,mes ;', ttl="0"),
+    df3 = conn.query('select cantidadlitros lts,anio,mes,provincia,producto,subgrupoenvase,variedad1 from despachos_m  where anio > 2021  group by anio,mes ;', ttl="0"),
 
     df2 = df3[0]
     st.write(df2)
@@ -570,10 +570,4 @@ with tab2:
     pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
     pivot_table_basic = pivot_table_basic.reset_index()    
     st.write(pivot_table_basic)
-    st.write(pivot_table_basic["2022"])
   
-    pivot_table_basic['cum_sum'] = pivot_table_basic['2022'].cumsum()
-    pivot_table_basic['cum_perc'] =  100*pivot_table_basic['cum_sum']/pivot_table_basic['2023'].sum()
-    #pivot_table_basic['% lts'] = (pivot_table_basic['lts']/pivot_table_basic['lts'].sum())*100
-  
-    st.write(pivot_table_basic)
