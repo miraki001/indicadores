@@ -563,7 +563,7 @@ with tab2:
       index='mes', 
       columns='anio',  
       values=['lts'],
-      aggfunc='sum')
+      aggfunc='sum'
     )
     #pivot_table_basic = pivot_table_basic.reset_index()    
     pivot_table_basic['cum_sum'] = pivot_table_basic['2022'].cumsum()
