@@ -552,12 +552,38 @@ with tab1:
   )
 
 
+def cambiar_producto_cb(df):
+    st.session_state.product_result = filter_by_producto(
+        df, st.session_state.txt_searchairlinek)
+
+def filter_by_producto(df, airline):
+    filtered_df = df[df['producto'].str.contains(producto, case=False)]
+    unique_produto = filtered_df['producto'].unique()
+    return unique_producto
+
 
 with tab2:
     df3 = conn.query('select cantidadlitros lts,anio,mes,provincia,producto,subgrupoenvase,variedad1 from despachos_m  where anio > 2021  ;', ttl="0"),
 
     df2 = df3[0]
-    st.write(df2)
+    #st.write(df2)
+
+
+    col1, col2,col3,col4 = st.columns(4)
+
+    with col1:
+      with st.popover(label='Producto', use_container_width=True):
+            cols = st.columns([2, 1], gap='small')
+            with cols[0]:
+                st_keyup('Search Producto', key='txt_searchairlinek',
+                         on_change=cambiar_producto_cb, args=(df2,),
+                         placeholder='type to search')
+                st.dataframe(st.session_state.product_result, hide_index=True,
+                             use_container_width=True, height=DATAFRAME_HEIGTH)
+
+            # Shows airline checkboxes
+            for a in df2['producto'].unique():
+                st.checkbox(a, value=True, key=a)
 
     pivot_table_basic = df2.pivot_table(
       index='mes', 
