@@ -44,7 +44,7 @@ hide_streamlit_style = """
                 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-tab1, tab2, tab3 = st.tabs(["Evolución", "Totales", "Filtros])
+tab1, tab2, tab3 = st.tabs(["Evolución", "Totales", "Filtros"])
 
 with tab1:
                             
