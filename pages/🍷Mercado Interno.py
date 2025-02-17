@@ -44,7 +44,7 @@ hide_streamlit_style = """
                 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-
+tab1, tab2, tab3 = st.tabs(["Evolución", "Totales", "Filtros])
 
 conn = st.connection("postgresql", type="sql")
 dfd = conn.query('select anio,tintos,blancos,rosados from info_desp_anio_v1;', ttl="0"),
