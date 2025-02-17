@@ -550,3 +550,10 @@ with tab1:
   )
 
 
+
+with tab2:
+    df3 = conn.query('select sum(cantidadlitros) lts,anio,mes group by anio,mes where anio > 2021 ;', ttl="0"),
+
+    df2 = df3[0]
+    st.write(df2)
+  
