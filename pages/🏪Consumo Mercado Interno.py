@@ -443,7 +443,12 @@ pivot_table_basic = data1.pivot_table(
 
 data_filt = pd.DataFrame(pivot_table_basic)
 #data_filt = data1
-st.write(data_filt["periodo"])
+
+
+
+data_filt.columns = data_filt.columns.droplevel(0)
+data_filt = data_filt.reset_index().rename_axis(None, axis=1)
+st.write(data_filt)
 
 
 
