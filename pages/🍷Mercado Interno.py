@@ -559,7 +559,8 @@ def cambiar_producto_cb(df):
         df, st.session_state.txt_searchairlinek)
 
 def filter_by_producto(df, airline):
-    filtered_df = df[df['producto'].str.contains(producto, case=False)]
+    #filtered_df = df[df['producto'].str.contains(producto, case=False)]
+   filtered_df = df[df['producto'].str]
     unique_produto = filtered_df['producto'].unique()
     return unique_producto
 
