@@ -10,6 +10,8 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from streamlit_echarts import Map
 
+function lambda x: sum(x) / sum(df['column']) * 100)
+
 
 hide_streamlit_style = """
                 <style>
@@ -561,9 +563,9 @@ with tab2:
       index='mes', 
       columns='anio',  
       values=['lts'],
-      aggfunc='mean'
+      aggfunc=lambda x: round(sum(x)/sum(df2['lts']) * 100, 2)
     )
-    pivot_table_basic = pivot_table_basic.reset_index()    
-    pivot_table_basic['% lts'] = (pivot_table_basic['lts']/pivot_table_basic['lts'].sum())*100
+    #pivot_table_basic = pivot_table_basic.reset_index()    
+    #pivot_table_basic['% lts'] = (pivot_table_basic['lts']/pivot_table_basic['lts'].sum())*100
   
     st.write(pivot_table_basic)
