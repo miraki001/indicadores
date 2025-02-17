@@ -560,8 +560,8 @@ def cambiar_producto_cb(df):
 
 def filter_by_producto(df, airline):
     #filtered_df = df[df['producto'].str.contains(producto, case=False)]
-    filtered_df = df[df['producto'].str.contains(airline, case=False)]
-    unique_produto = filtered_df['producto'].unique()
+    filtered_df = df[df['producto'].str]
+    unique_producto = filtered_df['producto'].unique()
     return unique_producto
 
 
