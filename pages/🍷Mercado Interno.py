@@ -565,7 +565,9 @@ with tab2:
       values=['lts'],
       aggfunc='sum'
     )
+    st.write(pivot_table_basic)
     pivot_table_basic = pivot_table_basic.reset_index()    
+    st.write(pivot_table_basic)
     pivot_table_basic['cum_sum'] = pivot_table_basic['2022'].cumsum()
     pivot_table_basic['cum_perc'] =  100*pivot_table_basic['cum_sum']/pivot_table_basic['2023'].sum()
     #pivot_table_basic['% lts'] = (pivot_table_basic['lts']/pivot_table_basic['lts'].sum())*100
