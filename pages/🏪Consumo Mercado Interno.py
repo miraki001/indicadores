@@ -68,6 +68,9 @@ if st.checkbox('Ver datos en forma de tabla'):
     st.write(df)
 
 df1 = df[df['canal'] ==  'Mayoristas' ]
+st.write(df1)
+
+
 df1['periodo'] = df1['periodo'].astype(str)
 st.write(df1)
 
@@ -107,7 +110,7 @@ st.subheader('Ventas en el Canal Mayorista, Según datos de Scentia en Valores')
 if st.checkbox('Ver datos en forma de tabla Valores'):
     st.write(data1)
 
-#data1['canal'] = 'Mayoristas'
+
 data_filt = data1[data1['canal'] ==  'Mayoristas' ]
 
 data_filt['periodo'] = data_filt['periodo'].astype(str)
