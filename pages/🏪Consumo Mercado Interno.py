@@ -361,7 +361,7 @@ st_echarts(
 
 st.subheader('Ventas Totales, Según datos de Scentia')
 
-pivot_table_basic = data1.pivot_table(
+pivot_table_basic = df.pivot_table(
     index='periodo', 
     values=['VINOS_COMUNES', 'VINOS_FINOS', 'CERVEZAS','APERITIVOS_RTD','ESPUMANTES','APERITIVOS_ALC','VINOS_FORTIFICADOS','SIDRAS_Y_SABORES'],
     aggfunc='sum'
