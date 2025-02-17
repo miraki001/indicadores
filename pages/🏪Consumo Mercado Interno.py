@@ -441,13 +441,13 @@ pivot_table_basic = data1.pivot_table(
     aggfunc='sum'
 )
 
-data_filt = pd.DataFrame(pivot_table_basic)
+#data_filt = pd.DataFrame(pivot_table_basic)
 #data_filt = data1
 
 
 
-data_filt.columns = data_filt.columns.droplevel(0)
-data_filt = data_filt.reset_index().rename_axis(None, axis=1)
+data_filt.columns = pivot_table_basic.columns.droplevel(0)
+data_filt = pivot_table_basic.reset_index().rename_axis(None, axis=1)
 st.write(data_filt)
 
 
