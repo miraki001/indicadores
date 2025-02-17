@@ -368,7 +368,7 @@ pivot_table_basic = df.pivot_table(
 )
 
 df1 = pd.DataFrame(pivot_table_basic)
-df1 = data_filt.reset_index()  
+df1 = df1.reset_index()  
 
 df1['periodo'] = df1['periodo'].astype(str)
 
