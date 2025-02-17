@@ -440,13 +440,15 @@ pivot_table_basic = data1.pivot_table(
     values=['VINOS_COMUNES', 'VINOS_FINOS', 'CERVEZAS','APERITIVOS_RTD','ESPUMANTES','APERITIVOS_ALC','VINOS_FORTIFICADOS','SIDRAS_Y_SABORES'],
     aggfunc='sum'
 )
+
+data_filt = pd.DataFrame(pivot_table_basic)
 #data_filt = data1
-st.write(pivot_table_basic)
+st.write(data_filt)
 
 
 
 
-pivot_table_basic['periodo'] = pivot_table_basic['periodo'].astype(str)
+data_filt['periodo'] = data_filt['periodo'].astype(str)
 
 
 #newdf=data_filt.set_index('periodo',inplace=False).rename_axis(None)
@@ -459,18 +461,18 @@ option = {
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": pivot_table_basic['periodo'].to_list(),
+        "data": data_filt['periodo'].to_list(),
     },
     "yAxis": {"type": "value"},
-    "series": [{"data": pivot_table_basic['VINOS_COMUNES'].to_list(), "type": "line", "name": 'Vinos Comunes'}
-               ,{"data": pivot_table_basic['VINOS_FINOS'].to_list(), "type": "line","name":'Vinos Finos'}
-               ,{"data": pivot_table_basic['CERVEZAS'].to_list(), "type": "line","name":'Cervezas'} 
-               ,{"data": pivot_table_basic['APERITIVOS_RTD'].to_list(), "type": "line","name":'Ape. RTD'} 
-               ,{"data": pivot_table_basic['ESPUMANTES'].to_list(), "type": "line","name":'Espumantes'} 
-               ,{"data": pivot_table_basic['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
-               ,{"data": pivot_table_basic['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
-               ,{"data": pivot_table_basic['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": pivot_table_basic['VINOS_FINOS'].to_list(), "type": "line"}],
+    "series": [{"data": data_filt['VINOS_COMUNES'].to_list(), "type": "line", "name": 'Vinos Comunes'}
+               ,{"data": data_filt['VINOS_FINOS'].to_list(), "type": "line","name":'Vinos Finos'}
+               ,{"data": data_filt['CERVEZAS'].to_list(), "type": "line","name":'Cervezas'} 
+               ,{"data": data_filt['APERITIVOS_RTD'].to_list(), "type": "line","name":'Ape. RTD'} 
+               ,{"data": data_filt['ESPUMANTES'].to_list(), "type": "line","name":'Espumantes'} 
+               ,{"data": data_filt['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
+               ,{"data": data_filt['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
+               ,{"data": data_filt['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
+#    "series": [{"data": data_filt['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
