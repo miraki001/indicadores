@@ -602,6 +602,6 @@ with tab2:
     st.write(pivot_table_basic.columns.tolist())
     st.write(pivot_table_basic[2022])
     pivot_table_basic['2022-23'] = (1-(pivot_table_basic[2022]/pivot_table_basic[2023]))*100
-    pivot_table_basic = pivot_table_basic.reindex(sorted(df.columns), axis=1)
+    pivot_table_basic = pivot_table_basic.reindex(sorted(pivot_table_basic.columns), axis=1)
     st.write(pivot_table_basic)
   
