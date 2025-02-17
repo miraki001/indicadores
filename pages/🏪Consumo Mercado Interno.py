@@ -443,7 +443,7 @@ pivot_table_basic = data1.pivot_table(
 
 data_filt = pd.DataFrame(pivot_table_basic)
 #data_filt = data1
-st.write(data_filt)
+st.write(data_filt[0])
 
 
 
