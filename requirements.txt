@@ -5,5 +5,4 @@ streamlit-echarts
 altair
 plotly
 streamlit-aggrid
-st_keyup
 
