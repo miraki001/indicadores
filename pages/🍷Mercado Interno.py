@@ -604,10 +604,10 @@ with tab2:
     #pivot_table_basic.columns = pivo_table_basic.columns.str.decode("utf-8")
     pivot_table_basic['2022-dif'] = (1-(pivot_table_basic[2022]/pivot_table_basic[2023]))*100
     st.write(pivot_table_basic)
-    pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024"})
+    pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
 
     #pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
     #pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
-    #pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
+    pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
     st.write(pivot_table_basic)
   
