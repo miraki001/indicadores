@@ -68,11 +68,9 @@ if st.checkbox('Ver datos en forma de tabla'):
     st.write(df)
 
 df1 = df[df['canal'] ==  'Mayoristas' ]
-st.write(df1)
 
 
 df1['periodo'] = df1['periodo'].astype(str)
-st.write(df1)
 
 newdf=df1.set_index('periodo',inplace=False).rename_axis(None)
 
@@ -95,7 +93,6 @@ option = {
                ,{"data": df1['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": df1['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": df1['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": df1['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
@@ -137,7 +134,6 @@ option = {
                ,{"data": data_filt['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": data_filt['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": data_filt['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": data_filt['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
@@ -173,7 +169,6 @@ option = {
                ,{"data": df1['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": df1['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": df1['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": df1['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
@@ -209,7 +204,6 @@ option = {
                ,{"data": data_filt['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": data_filt['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": data_filt['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": data_filt['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
@@ -244,7 +238,6 @@ option = {
                ,{"data": df1['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": df1['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": df1['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": df1['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
@@ -280,7 +273,6 @@ option = {
                ,{"data": data_filt['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": data_filt['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": data_filt['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": data_filt['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
@@ -313,7 +305,6 @@ option = {
                ,{"data": df1['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": df1['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": df1['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": df1['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
@@ -350,7 +341,6 @@ option = {
                ,{"data": data_filt['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": data_filt['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": data_filt['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": data_filt['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
@@ -395,7 +385,6 @@ option = {
                ,{"data": df1['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": df1['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": df1['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": df1['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
@@ -422,7 +411,7 @@ data_filt = data_filt.reset_index()
 
 #data_filt.columns = pivot_table_basic.columns.droplevel(0)
 #data_filt = pivot_table_basic.reset_index().rename_axis(None, axis=1)
-st.write(data_filt)
+#st.write(data_filt)
 
 
 
@@ -451,7 +440,6 @@ option = {
                ,{"data": data_filt['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
                ,{"data": data_filt['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
                ,{"data": data_filt['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
-#    "series": [{"data": data_filt['VINOS_FINOS'].to_list(), "type": "line"}],
 }
 st_echarts(
     options=option, height="400px",
