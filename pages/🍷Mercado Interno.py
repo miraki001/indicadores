@@ -563,6 +563,6 @@ with tab2:
       values=['lts'],
       aggfunc='mean'
     )
-    pivot_table_basic['% points'] = (my_table['mes']/my_table['mes'].sum())*100
+    pivot_table_basic['% points'] = (pivot_table_basic['mes']/pivot_table_basic['mes'].sum())*100
   
     st.write(pivot_table_basic)
