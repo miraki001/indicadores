@@ -621,11 +621,11 @@ with tab2:
     st.dataframe(styled_df,
       column_config={
         'mes': st.column_config.Column('Key'),
-        '2022': st.column_config.Column('Key'),
-        '2023': st.column_config.Column('Key'),
-        '2024': st.column_config.Column('Key'),
-        '2023/2022': st.column_config.Column('Value'),
-        '2024/2023': st.column_config.Column('Value')
+        '2022': st.column_config.Column('2022'),
+        '2023': st.column_config.Column('2023'),
+        '2024': st.column_config.Column('2024'),
+        '2023/2022': st.column_config.Column('2023/2022'),
+        '2024/2023': st.column_config.Column('2024/2023')
       },
       hide_index=True)
     #st.write(pivot_table_basic)
