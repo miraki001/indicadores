@@ -592,8 +592,8 @@ with tab2:
                 st.checkbox(a, value=True, key=a)
 
     with col2:
-        selected_categories = st.multiselect('Select productos:', df2['producto'].unique())
-
+        selected_categories = st.multiselect('Productos:', df2['producto'].unique())
+        st.write(selected_categories)
         # Filter the dataframe based on selected categories
         df2 = df2[df2['producto'].isin(selected_categories)]
         
