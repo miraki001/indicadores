@@ -655,9 +655,9 @@ with tab2:
       hide_index=False)
   
 
-    styled_df['anio'] = styled_df['anio'].astype(str)
+    styled_df['mes'] = styled_df['mes'].astype(str)
 
-    newdf=styled_df.set_index('anio',inplace=False).rename_axis(None)
+    newdf=styled_df.set_index('mes',inplace=False).rename_axis(None)
 
     option = {
         "dataZoom": [
@@ -683,7 +683,7 @@ with tab2:
         "legend": {},    
         "xAxis": {
             "type": "category",
-            "data": styled_df['anio'].to_list(),
+            "data": styled_df['mes'].to_list(),
         },
         "yAxis": {"type": "value"},
         "series": [{"data": styled_df['2022'].to_list(), "type": "line", "name": 'Litros'}
