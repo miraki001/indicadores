@@ -654,7 +654,7 @@ with tab2:
       width = 600,   
       height = 800,
       hide_index=False)
-  
+    st.write(dfg)  
     
     dfg['mes'] = dfg['mes'].astype(str)
 
