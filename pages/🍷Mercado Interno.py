@@ -686,8 +686,8 @@ with tab2:
             "data": dfg['mes'].to_list(),
         },
         "yAxis": {"type": "value"},
-        "series": [{"data": dfg['2022'].to_list(), "type": "line", "name": 'Litros'}
-               ,{"data": dfg['2023'].to_list(), "type": "line","name":'Litros'}]
+        "series": [{"data": dfg[2022].to_list(), "type": "line", "name": 'Litros'}
+               ,{"data": dfg[2023].to_list(), "type": "line","name":'Litros'}]
     }
     st_echarts(
         options=option, height="400px" ,
