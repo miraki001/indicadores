@@ -640,7 +640,7 @@ with tab2:
         "2023": lambda x : '{:,.0f}'.format(x),
         "2023/2022": lambda x : '{:,.2f} %'.format(x),
     },
-    thousands=' ',
+    thousands='.',
     decimal=',',
     )
     st.write(pivot_table_basic)
