@@ -569,7 +569,7 @@ def filter_by_producto(df, airline):
 
 
 with tab2:
-    @st.cache(allow_output_mutation=True)
+    @st.cache
     df3 = conn.query('select cantidadlitros lts,anio,mes,provincia,producto,subgrupoenvase,variedad1 from despachos_m  where anio > 2021  ;', ttl="0"),
 
     df2 = df3[0]
