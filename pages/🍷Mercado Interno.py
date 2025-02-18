@@ -625,6 +625,11 @@ with tab2:
     #pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=Trueaxis=0)
     #pivot_table_basic['Total'] = pivot_table_basic.sum(axis=1)
     pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
+    styled_df = pivot_table_basic.style.format({
+        '2023': '${:.,0f}',  # Format as dollar amount with two decimal places
+    }).format({
+        'Year': lambda x: f"{x:.0f}"  # Remove commas from years (treated as float/int)
+    })
     
     styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
     st.dataframe(styled_df,
