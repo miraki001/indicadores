@@ -630,6 +630,7 @@ with tab2:
     #pivot_table_basic['Total'] = pivot_table_basic.sum(axis=1)
     #pivot_table_basic['2022'] = pivot_table_basic['2022'].apply('{:,.0f}'.format)
     pivot_table_basic.style.format(precision=0, thousands=".", decimal=",")
+    pivot_table_basic['2022'] = pivot_table_basic['2022'].apply('{:,.0f}'.format)
     pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
     styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
