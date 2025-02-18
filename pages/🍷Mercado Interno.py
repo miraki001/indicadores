@@ -595,7 +595,7 @@ with tab2:
         selected_categories = st.multiselect('Select productos:', df2['producto'].unique())
 
         # Filter the dataframe based on selected categories
-        filtered_df = df2[df2['producto'].isin(selected_categories)]
+        df2 = df2[df2['producto'].isin(selected_categories)]
         
     pivot_table_basic = df2.pivot_table(
       index='mes', 
