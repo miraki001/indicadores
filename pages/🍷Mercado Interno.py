@@ -15,7 +15,11 @@ def bgcolor_positive_or_negative(value):
     bgcolor = "lightcoral" if value < 0 else "lightgreen"
     return f"background-color: {bgcolor};"
 
+def _format_with_thousands_commas(val): 
+  return f'{val:.,0f}' 
 
+def _format_as_percentage(val, prec=0): 
+  return f'{val:.{prec}%}' 
 
 hide_streamlit_style = """
                 <style>
@@ -633,11 +637,11 @@ with tab2:
     })
     
     styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
-    styled_df = styled_df.styler.format(precision=0, thousands=".", decimal=",")
+    #styled_df = styled_df.styler.format(precision=0, thousands=".", decimal=",")
     st.dataframe(styled_df,
       column_config={
         'mes': st.column_config.Column('Key'),
-        '2022': st.column_config.Column('2022'),
+        '2022': st.column_config.Column('2022',format="$%.2g"),
         '2023': st.column_config.Column('2023'),
         '2024': st.column_config.Column('2024'),
         '2023/2022': st.column_config.Column('2023/2022'),
