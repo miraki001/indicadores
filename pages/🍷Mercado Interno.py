@@ -591,6 +591,12 @@ with tab2:
             for a in df2['producto'].unique():
                 st.checkbox(a, value=True, key=a)
 
+    with col2:
+        ship_to = df2['producto'].unique().tolist()  
+        selected_shipto = st.multiselect(
+                'Which ship to would like to choose ? ',
+                ship_to)
+
     pivot_table_basic = df2.pivot_table(
       index='mes', 
       columns='anio',  
