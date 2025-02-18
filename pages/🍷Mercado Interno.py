@@ -609,7 +609,7 @@ with tab2:
             # Filter the dataframe based on selected categories
             df2 = df2[df2['provincia'].isin(selected_prov)]
             
-        
+    dfg = df2    
     pivot_table_basic = df2.pivot_table(
       index='mes', 
       columns='anio',  
@@ -654,10 +654,10 @@ with tab2:
       height = 800,
       hide_index=False)
   
-    styled_df.drop(index=('Total'))
-    styled_df['mes'] = styled_df['mes'].astype(str)
+    
+    dfg['mes'] = dfg['mes'].astype(str)
 
-    newdf=styled_df.set_index('mes',inplace=False).rename_axis(None)
+    newdf=dfg.set_index('mes',inplace=False).rename_axis(None)
 
     option = {
         "dataZoom": [
@@ -683,11 +683,11 @@ with tab2:
         "legend": {},    
         "xAxis": {
             "type": "category",
-            "data": styled_df['mes'].to_list(),
+            "data": dfg['mes'].to_list(),
         },
         "yAxis": {"type": "value"},
-        "series": [{"data": styled_df['2022'].to_list(), "type": "line", "name": 'Litros'}
-               ,{"data": styled_df['2023'].to_list(), "type": "line","name":'Litros'}]
+        "series": [{"data": dfg['2022'].to_list(), "type": "line", "name": 'Litros'}
+               ,{"data": dfg['2023'].to_list(), "type": "line","name":'Litros'}]
     }
     st_echarts(
         options=option, height="400px" ,
