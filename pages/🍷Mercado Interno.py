@@ -627,7 +627,8 @@ with tab2:
         '2023/2022': st.column_config.Column('2023/2022'),
         '2024/2023': st.column_config.Column('2024/2023')
       },
-      width = 600,                 
+      width = 600,   
+      height = 800
       hide_index=False)
     #st.write(pivot_table_basic)
   
