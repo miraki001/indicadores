@@ -608,6 +608,11 @@ with tab2:
         if selected_prov:
             # Filter the dataframe based on selected categories
             df2 = df2[df2['provincia'].isin(selected_prov)]
+    with col4:
+        selected_var = st.multiselect('variedad:', df2['variedad1'].unique() ,help=None,placeholder="")
+        if selected_var:
+            # Filter the dataframe based on selected categories
+            df2 = df2[df2['variedad1'].isin(selected_prov)]    
             
     pivot_table_basic = df2.pivot_table(
       index='mes', 
