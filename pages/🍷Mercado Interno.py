@@ -625,7 +625,7 @@ with tab2:
         '2023': st.column_config.Column('Key'),
         '2024': st.column_config.Column('Key'),
         '2023/2022': st.column_config.Column('Value'),
-        '2024/2023: st.column_config.Column('Value')
+        '2024/2023': st.column_config.Column('Value')
       },
       hide_index=True)
     #st.write(pivot_table_basic)
