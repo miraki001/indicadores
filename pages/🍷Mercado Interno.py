@@ -635,13 +635,13 @@ with tab2:
     #pivot_table_basic['2022'] = pivot_table_basic['2022'].replace(',','.',regex=True)
     pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
-    st.write(pivot_table_basic)
+    #st.write(pivot_table_basic)
     #pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
     styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023']).format(
         {"2022": lambda x : '{:,.0f}'.format(x), 
         "2023": lambda x : '{:,.0f}'.format(x),
-        "2023": lambda x : '{:,.0f}'.format(x),
+        "2024": lambda x : '{:,.0f}'.format(x),
         "2023/2022": lambda x : '{:,.2f} %'.format(x),
         "2024/2023": lambda x : '{:,.2f} %'.format(x),
                                         }
