@@ -604,7 +604,7 @@ with tab2:
             # Filter the dataframe based on selected categories
             df2 = df2[df2['producto'].isin(selected_categories)]
     with col3:
-        selected_prov = st.multiselect('Provincias:', df2['provincia'].unique() ,label_visibility=None)
+        selected_prov = st.multiselect('Provincias:', df2['provincia'].unique() ,help=None)
         if selected_prov:
             # Filter the dataframe based on selected categories
             df2 = df2[df2['provincia'].isin(selected_prov)]
