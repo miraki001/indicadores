@@ -592,11 +592,11 @@ with tab2:
                 st.checkbox(a, value=True, key=a)
 
     with col2:
-        ship_to = df2['producto'].unique().tolist()  
-        selected_shipto = st.multiselect(
-                'Which ship to would like to choose ? ',
-                ship_to)
+        selected_categories = st.multiselect('Select productos:', df2['producto'].unique())
 
+        # Filter the dataframe based on selected categories
+        filtered_df = df2[df2['producto'].isin(selected_categories)]
+        
     pivot_table_basic = df2.pivot_table(
       index='mes', 
       columns='anio',  
