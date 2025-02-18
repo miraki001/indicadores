@@ -660,9 +660,9 @@ with tab2:
       hide_index=False)
     st.write(dfg)  
     
-    dfg['mes'] = dfg['mes'].astype(str)
+    #dfg['mes'] = dfg['mes'].astype(str)
 
-    newdf=dfg.set_index('mes',inplace=False).rename_axis(None)
+    #newdf=dfg.set_index('mes',inplace=False).rename_axis(None)
 
     option = {
         "dataZoom": [
