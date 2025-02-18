@@ -603,6 +603,12 @@ with tab2:
         if selected_categories:
             # Filter the dataframe based on selected categories
             df2 = df2[df2['producto'].isin(selected_categories)]
+    with col3:
+        selected_prov = st.multiselect('Provincias:', df2['provincia'].unique())
+        if selected_prov:
+            # Filter the dataframe based on selected categories
+            df2 = df2[df2['provincia'].isin(selected_prov)]
+            
         
     pivot_table_basic = df2.pivot_table(
       index='mes', 
@@ -610,33 +616,15 @@ with tab2:
       values=['lts'],
       aggfunc='sum'
     )
-    #st.write(pivot_table_basic)
     pivot_table_basic.columns = pivot_table_basic.columns.droplevel(0)
     pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
-    #pivot_table_basic = pivot_table_basic.reset_index()    
-    #st.write(pivot_table_basic)
-    #st.write(pivot_table_basic.columns.tolist())
-    #st.write(pivot_table_basic[2022])
-    #pivot_table_basic.columns = pivo_table_basic.columns.str.decode("utf-8")
     pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=True,axis=0)
     pivot_table_basic['2023/2022'] = (1-(pivot_table_basic[2022]/pivot_table_basic[2023]))*100
     pivot_table_basic['2024/2023'] = (1-(pivot_table_basic[2023]/pivot_table_basic[2024]))*100
-    #st.write(pivot_table_basic)
     pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
 
-    #pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
-    #pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
-    #pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=Trueaxis=0)
-    #pivot_table_basic['Total'] = pivot_table_basic.sum(axis=1)
-    #pivot_table_basic['2022'] = pivot_table_basic['2022'].apply('{:,.0f}'.format)
-    pivot_table_basic.style.format(precision=0, thousands=".", decimal=",")
-    #pivot_table_basic['2022'] = pivot_table_basic['2022'].apply('{:,.0f}'.format)
-    #pivot_table_basic = pivot_table_basic.style.format({"2022": lambda x : '{:,.4f}'.format(x)})
-    #pivot_table_basic['2022'] = pivot_table_basic['2022'].replace(',','.',regex=True)
     pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
-    #st.write(pivot_table_basic)
-    #pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
     styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023']).format(
         {"2022": lambda x : '{:,.0f}'.format(x), 
@@ -653,10 +641,6 @@ with tab2:
 
     
     
-    #styled_df = styled_df.styler.format(precision=0, thousands=".", decimal=",")
-    #df_styled = (df.style.format({‘col_1’: ‘{:.2f}’, ‘col_2’: ‘{:.1f}’}).applymap(color_df, subset=[‘col_1’]))
-    #styled_df['2022'] = styled_df['2022'].apply(lambda x: '{:.,0f}'.format(x))
-    #styled_df['2022'] = styled_df['2022'].apply('{:,.0f}'.format)
     st.dataframe(styled_df,
       column_config={
         'mes': st.column_config.Column('Key'),
@@ -669,5 +653,4 @@ with tab2:
       width = 600,   
       height = 800,
       hide_index=False)
-    #st.write(pivot_table_basic)
   
