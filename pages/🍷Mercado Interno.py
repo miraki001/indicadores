@@ -656,7 +656,7 @@ with tab2:
         '2024/2023': st.column_config.Column('2024/2023')
       },
       width = 600,   
-      height = 600,
+      height = 500,
       hide_index=False)
 
     dfg = dfg.reset_index().rename_axis(None, axis=1)
