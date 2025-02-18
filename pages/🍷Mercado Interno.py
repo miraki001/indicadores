@@ -615,9 +615,11 @@ with tab2:
       values=['lts'],
       aggfunc='sum'
     )
+    """
     dfg = pivot_table_basic
     dfg.columns = dfg.columns.droplevel(0)
     dfg = dfg.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
+    """
     pivot_table_basic.columns = pivot_table_basic.columns.droplevel(0)
     pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
     pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=True,axis=0)
