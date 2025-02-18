@@ -593,7 +593,7 @@ with tab2:
 
     with col2:
         selected_categories = st.multiselect('Productos:', df2['producto'].unique())
-        st.write(selected_categories)
+        st.write(selected_categories[0])
         # Filter the dataframe based on selected categories
         df2 = df2[df2['producto'].isin(selected_categories)]
         
