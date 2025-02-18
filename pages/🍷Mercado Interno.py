@@ -636,7 +636,7 @@ with tab2:
         'mes': lambda x: f"{x:.0f}"  # Remove commas from years (treated as float/int)
     })
     
-    styled_df = pivot_table_basic.style.format({‘2022’: ‘{:.2f}’, ‘2023’: ‘{:.1f}’}).applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
+    styled_df = pivot_table_basic.style.format({'2022': '{:.2f}', '2023': '{:.1f}'}).applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
     #styled_df = styled_df.styler.format(precision=0, thousands=".", decimal=",")
     #df_styled = (df.style.format({‘col_1’: ‘{:.2f}’, ‘col_2’: ‘{:.1f}’}).applymap(color_df, subset=[‘col_1’]))
     st.dataframe(styled_df,
