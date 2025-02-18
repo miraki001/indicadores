@@ -609,13 +609,14 @@ with tab2:
             # Filter the dataframe based on selected categories
             df2 = df2[df2['provincia'].isin(selected_prov)]
             
-    dfg = df2    
     pivot_table_basic = df2.pivot_table(
       index='mes', 
       columns='anio',  
       values=['lts'],
       aggfunc='sum'
     )
+    dfg = pivot_table_basic
+    dfg = dfg.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
     pivot_table_basic.columns = pivot_table_basic.columns.droplevel(0)
     pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
     pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=True,axis=0)
