@@ -634,7 +634,14 @@ with tab2:
     #pivot_table_basic = pivot_table_basic.style.format({"2022": lambda x : '{:,.4f}'.format(x)})
     #pivot_table_basic['2022'] = pivot_table_basic['2022'].replace(',','.',regex=True)
     pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
-    pivot_table_basic = pivot_table_basic.style.format(
+
+    st.write(pivot_table_basic)
+    #pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
+
+    styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
+
+
+    styled_df = styled_df.style.format(
     {
         "2022": lambda x : '{:,.0f}'.format(x),
         "2023": lambda x : '{:,.0f}'.format(x),
@@ -643,10 +650,9 @@ with tab2:
     thousands='.',
     decimal=',',
     )
-    st.write(pivot_table_basic)
-    #pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
-    styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
+    
+    
     #styled_df = styled_df.styler.format(precision=0, thousands=".", decimal=",")
     #df_styled = (df.style.format({‘col_1’: ‘{:.2f}’, ‘col_2’: ‘{:.1f}’}).applymap(color_df, subset=[‘col_1’]))
     #styled_df['2022'] = styled_df['2022'].apply(lambda x: '{:.,0f}'.format(x))
