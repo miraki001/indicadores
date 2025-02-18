@@ -654,3 +654,41 @@ with tab2:
       height = 800,
       hide_index=False)
   
+
+    styled_df['anio'] = styled_df['anio'].astype(str)
+
+    newdf=styled_df.set_index('anio',inplace=False).rename_axis(None)
+
+    option = {
+        "dataZoom": [
+        {
+          "show": 'true',
+          "realtime": 'true',
+          "start": 30,
+          "end": 70,
+          "xAxisIndex": [0, 1]
+        },
+        {
+          "type": 'inside',
+          "realtime": 'true',
+          "start": 30,
+          "end": 70,
+          "xAxisIndex": [0, 1]
+        }
+        ],
+            "tooltip": {
+            "trigger": 'axis',
+            "axisPointer": { "type": 'cross' }
+        },
+        "legend": {},    
+        "xAxis": {
+            "type": "category",
+            "data": styled_df['anio'].to_list(),
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": styled_df['2022'].to_list(), "type": "line", "name": 'Litros'}
+               ,{"data": styled_df['2023'].to_list(), "type": "line","name":'Litros'}]
+    }
+    st_echarts(
+        options=option, height="400px" ,
+    )
