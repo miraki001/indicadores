@@ -636,11 +636,11 @@ with tab2:
     pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
     pivot_table_basic = pivot_table_basic.style.format(
     {
-        "2022": lambda x : '{:,.1f} €'.format(x),
-        "2023": lambda x : '{:,.1f} €'.format(x),
-        "2024": lambda x : '{:,.1f} %'.format(x),
+        "2022": lambda x : '{:,.0f}'.format(x),
+        "2023": lambda x : '{:,.f}'.format(x),
+        "2023/2022": lambda x : '{:,.2f} %'.format(x),
     },
-    thousands=' ',
+    thousands='.',
     decimal=',',
     )
     st.write(pivot_table_basic)
