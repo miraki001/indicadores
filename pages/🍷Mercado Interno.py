@@ -654,7 +654,7 @@ with tab2:
       height = 800,
       hide_index=False)
   
-
+    styled_df.drop(index=('Total'))
     styled_df['mes'] = styled_df['mes'].astype(str)
 
     newdf=styled_df.set_index('mes',inplace=False).rename_axis(None)
