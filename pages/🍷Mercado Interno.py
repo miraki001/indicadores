@@ -641,24 +641,16 @@ with tab2:
     styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023']).format(
         {"2022": lambda x : '{:,.0f}'.format(x), 
         "2023": lambda x : '{:,.0f}'.format(x),
+        "2023": lambda x : '{:,.0f}'.format(x),
         "2023/2022": lambda x : '{:,.2f} %'.format(x),
+        "2024/2023": lambda x : '{:,.2f} %'.format(x),
                                         }
         ,
     thousands='.',
     decimal=',',
     )
 
-    """
-    styled_df = styled_df.style.format(
-    {
-        "2022": lambda x : '{:,.0f}'.format(x),
-        "2023": lambda x : '{:,.0f}'.format(x),
-        "2023/2022": lambda x : '{:,.2f} %'.format(x),
-    },
-    thousands='.',
-    decimal=',',
-    )
-    """
+
     
     
     #styled_df = styled_df.styler.format(precision=0, thousands=".", decimal=",")
