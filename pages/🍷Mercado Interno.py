@@ -597,18 +597,18 @@ with tab2:
       values=['lts'],
       aggfunc='sum'
     )
-    st.write(pivot_table_basic)
+    #st.write(pivot_table_basic)
     pivot_table_basic.columns = pivot_table_basic.columns.droplevel(0)
     pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
     #pivot_table_basic = pivot_table_basic.reset_index()    
-    st.write(pivot_table_basic)
+    #st.write(pivot_table_basic)
     #st.write(pivot_table_basic.columns.tolist())
     #st.write(pivot_table_basic[2022])
     #pivot_table_basic.columns = pivo_table_basic.columns.str.decode("utf-8")
     pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=True,axis=0)
     pivot_table_basic['2023/2022'] = (1-(pivot_table_basic[2022]/pivot_table_basic[2023]))*100
     pivot_table_basic['2024/2023'] = (1-(pivot_table_basic[2023]/pivot_table_basic[2024]))*100
-    st.write(pivot_table_basic)
+    #st.write(pivot_table_basic)
     pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
 
     #pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
