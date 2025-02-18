@@ -633,6 +633,7 @@ with tab2:
     #pivot_table_basic['2022'] = pivot_table_basic['2022'].apply('{:,.0f}'.format)
     #pivot_table_basic = pivot_table_basic.style.format({"2022": lambda x : '{:,.4f}'.format(x)})
     #pivot_table_basic['2022'] = pivot_table_basic['2022'].replace(',','.',regex=True)
+    pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
     pivot_table_basic = pivot_table_basic.style.format(
     {
         "2022": lambda x : '{:,.1f} €'.format(x),
@@ -643,7 +644,7 @@ with tab2:
     decimal=',',
     )
     st.write(pivot_table_basic)
-    pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
+    #pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
     styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
     #styled_df = styled_df.styler.format(precision=0, thousands=".", decimal=",")
