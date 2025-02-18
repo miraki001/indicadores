@@ -619,7 +619,7 @@ with tab2:
     dfg = pivot_table_basic
     dfg.columns = dfg.columns.droplevel(0)
     dfg = dfg.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
-    st.write(dfg) 
+    #st.write(dfg) 
     
     #pivot_table_basic.columns = pivot_table_basic.columns.droplevel(0)
     pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
@@ -660,7 +660,7 @@ with tab2:
       hide_index=False)
 
     dfg = dfg.reset_index().rename_axis(None, axis=1)
-    st.write(dfg)  
+    #st.write(dfg)  
     
     #dfg['mes'] = dfg['mes'].astype(str)
 
@@ -671,8 +671,8 @@ with tab2:
         {
           "show": 'true',
           "realtime": 'true',
-          "start": 30,
-          "end": 70,
+          "start": 0,
+          "end": 100,
           "xAxisIndex": [0, 1]
         },
         {
