@@ -11,7 +11,10 @@ from pyecharts.charts import Line
 from streamlit_echarts import Map
 from st_keyup import st_keyup
 
-#function lambda x: sum(x) / (sum(df['column']) * 100)
+def bgcolor_positive_or_negative(value):
+    bgcolor = "lightcoral" if value < 0 else "lightgreen"
+    return f"background-color: {bgcolor};"
+
 
 
 hide_streamlit_style = """
@@ -613,5 +616,17 @@ with tab2:
     #pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=Trueaxis=0)
     #pivot_table_basic['Total'] = pivot_table_basic.sum(axis=1)
     pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
-    st.write(pivot_table_basic)
+    
+    styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
+    st.dataframe(styled_df,
+      column_config={
+        'mes': st.column_config.Column('Key'),
+        '2022': st.column_config.Column('Key'),
+        '2023': st.column_config.Column('Key'),
+        '2024': st.column_config.Column('Key'),
+        '2023/2022': st.column_config.Column('Value'),
+        '2024/2023: st.column_config.Column('Value')
+      },
+      hide_index=True)
+    #st.write(pivot_table_basic)
   
