@@ -628,6 +628,7 @@ with tab2:
     #pivot_table_basic.columns = pivot_table_basic.columns.str.decode("utf-8")
     #pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=Trueaxis=0)
     #pivot_table_basic['Total'] = pivot_table_basic.sum(axis=1)
+    pivot_table_basic['2022'] = pivot_table_basic['2022'].str.replace(',', '.').astype(float)
     pivot_table_basic['2022'] = pivot_table_basic['2022'].apply('{:,.0f}'.format)
     pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
