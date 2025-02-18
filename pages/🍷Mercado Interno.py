@@ -637,7 +637,7 @@ with tab2:
     pivot_table_basic = pivot_table_basic.style.format(
     {
         "2022": lambda x : '{:,.0f}'.format(x),
-        "2023": lambda x : '{:,.f}'.format(x),
+        "2023": lambda x : '{:,.0f}'.format(x),
         "2023/2022": lambda x : '{:,.2f} %'.format(x),
     },
     thousands=' ',
