@@ -658,6 +658,8 @@ with tab2:
       width = 600,   
       height = 800,
       hide_index=False)
+
+    dfg = dfg.reset_index().rename_axis(None, axis=1)
     st.write(dfg)  
     
     #dfg['mes'] = dfg['mes'].astype(str)
