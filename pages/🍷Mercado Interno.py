@@ -628,7 +628,7 @@ with tab2:
     styled_df = pivot_table_basic.style.format({
         '2023': '${:.,0f}',  # Format as dollar amount with two decimal places
     }).format({
-        'Year': lambda x: f"{x:.0f}"  # Remove commas from years (treated as float/int)
+        'mes': lambda x: f"{x:.0f}"  # Remove commas from years (treated as float/int)
     })
     
     styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
