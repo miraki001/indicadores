@@ -644,7 +644,7 @@ with tab2:
     thousands='.',
     decimal=',',
     )
-.
+
     """
     styled_df = styled_df.style.format(
     {
