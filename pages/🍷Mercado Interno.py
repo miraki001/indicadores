@@ -495,8 +495,8 @@ with tab1:
     {
       "show": 'true',
       "realtime": 'true',
-      "start": 30,
-      "end": 70,
+      "start": 0,
+      "end": 100,
       "xAxisIndex": [0, 1]
     },
     {
