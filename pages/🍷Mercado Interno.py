@@ -633,7 +633,7 @@ with tab2:
     })
     
     styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023'])
-    styled_df.style.format(precision=0, thousands=".", decimal=",")
+    styled_df = styled_df.style.format(precision=0, thousands=".", decimal=",")
     st.dataframe(styled_df,
       column_config={
         'mes': st.column_config.Column('Key'),
