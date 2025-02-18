@@ -635,7 +635,7 @@ with tab2:
     #styled_df = styled_df.styler.format(precision=0, thousands=".", decimal=",")
     #df_styled = (df.style.format({‘col_1’: ‘{:.2f}’, ‘col_2’: ‘{:.1f}’}).applymap(color_df, subset=[‘col_1’]))
     #styled_df['2022'] = styled_df['2022'].apply(lambda x: '{:.,0f}'.format(x))
-    styled_df['2022'] = styled_df['2022'].apply('{:,.0f}'.format)
+    #styled_df['2022'] = styled_df['2022'].apply('{:,.0f}'.format)
     st.dataframe(styled_df,
       column_config={
         'mes': st.column_config.Column('Key'),
