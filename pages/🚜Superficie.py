@@ -18,6 +18,7 @@ st.write(df2)
 total = []
 for index in range(len(df2)):
   if index > 0:
-    total.append(df2['supeficie'].loc[index] + df2['supeficie'].loc[index -1])
+    total.append(df2['supeficie'].loc[index] / df2['supeficie'].loc[index -1])
 st.write(total)
+
 
