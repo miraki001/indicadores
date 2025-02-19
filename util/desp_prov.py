@@ -67,7 +67,7 @@ def despachos_prov(df):
       hide_index=False)
 
       dfg = dfg.reset_index().rename_axis(None, axis=1)
-      #st.write(dfg)  
+      st.write(dfg)  
     
       #dfg['mes'] = dfg['mes'].astype(str)
 
