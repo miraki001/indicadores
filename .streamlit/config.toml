@@ -1,10 +1,10 @@
 [server]
 fileWatcherType = "poll"
-[ui]
-hideTopBar = true
-[client]
-showSidebarNavigation = false
-toolbarMode = 'minimal'
+#[ui]
+#hideTopBar = true
+#[client]
+#showSidebarNavigation = false
+#toolbarMode = 'minimal'
 [theme] #
 #backgroundColor = '#daeeed' 
 primaryColor="blue"
