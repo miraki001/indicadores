@@ -45,7 +45,7 @@ styled_df = df2.style.applymap(bgcolor_positive_or_negative, subset=['Superficie
 )
 
 
-"st.write(df2)
+#st.write(df2)
 
 st.dataframe(styled_df,
       column_config={
