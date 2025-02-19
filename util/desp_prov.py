@@ -34,7 +34,7 @@ def despachos_prov(df):
       pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=True,axis=0)
       pivot_table_basic['2023/2022'] = (1-(pivot_table_basic[2022]/pivot_table_basic[2023]))*100
       pivot_table_basic['2024/2023'] = (1-(pivot_table_basic[2023]/pivot_table_basic[2024]))*100
-      pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'provincia': "provincia"})
+      pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'provincia': " provincia"})
 
       pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
@@ -56,7 +56,7 @@ def despachos_prov(df):
     
       st.dataframe(styled_df,
       column_config={
-        'provincia': st.column_config.Column('Provincia'),
+        'provincia': st.column_config.Column('provincia'),
         '2022': st.column_config.Column('2022'),
         '2023': st.column_config.Column('2023'),
         '2024': st.column_config.Column('2024'),
