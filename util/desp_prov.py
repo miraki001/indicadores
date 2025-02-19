@@ -72,7 +72,7 @@ def despachos_prov(df):
       dfg['2022'] = dfg['2022'].fillna(0)
       dfg['2023'] = dfg['2023'].fillna(0)
       dfg['2024'] = dfg['2024'].fillna(0)
-      #st.write(dfg)  
+      st.write(dfg)  
 
 
       #dfg['mes'] = dfg['mes'].astype(str)
