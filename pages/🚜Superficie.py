@@ -5,6 +5,12 @@ import json
 from st_aggrid import AgGrid, GridOptionsBuilder,DataReturnMode,GridUpdateMode
 import altair as alt
 import numpy as np
+from streamlit_echarts import st_echarts
+from streamlit_echarts import JsCode
+from streamlit_echarts import st_pyecharts
+from pyecharts.charts import Bar
+from pyecharts import options as opts
+from pyecharts.charts import Line
 
 conn = st.connection("postgresql", type="sql")
 def bgcolor_positive_or_negative(value):
