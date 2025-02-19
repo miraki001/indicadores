@@ -10,7 +10,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from streamlit_echarts import Map
 from st_keyup import st_keyup
-from pages import desp_prov
+from .pages import desp_prov
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "lightcoral" if value < 0 else "lightgreen"
