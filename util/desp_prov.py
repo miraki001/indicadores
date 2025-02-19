@@ -67,7 +67,8 @@ def despachos_prov(df):
       hide_index=False)
 
       dfg = dfg.reset_index().rename_axis(None, axis=1)
-      dfg=dfg.replace(to_replace="None",value=0)
+      #dfg=dfg.replace(to_replace="None",value=0)
+      dfg['2022'] = dfg['2022'].fillna(0)
       st.write(dfg)  
 
       dfg=dfg.replace(to_replace="None",value=0)
