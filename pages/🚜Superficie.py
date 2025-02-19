@@ -6,6 +6,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder,DataReturnMode,GridUpdateMode
 import altair as alt
 import numpy as np
 
+conn = st.connection("postgresql", type="sql")
 
 @st.cache_data
 def query():
