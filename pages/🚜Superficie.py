@@ -24,8 +24,12 @@ for index in range(len(df2)):
     total.append((  (df2['supeficie'].loc[index] / df2['supeficie'].loc[index -1]) -1 ) *100 )
     tot1.append((  (df2['cant_viñedos'].loc[index] / df2['cant_viñedos'].loc[index -1]) -1 ) *100 )
 st.write(total)
-df2['sup var'] = total
-df2['var_cnt'] = tot1
+df2 = df2.rename(columns={'supeficie': "Superficie", 'cant_viñedos': "Viñedos Cnt."})
+df2['sup Var %'] = total
+df2['Viñedos Var. %'] = tot1
+
+df2 = df2.sort_index(axis = 1)
+
 st.write(df2)
 
 
