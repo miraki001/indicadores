@@ -10,7 +10,7 @@ conn = st.connection("postgresql", type="sql")
 
 @st.cache_data
 def query():
-  df3 = conn.query('select año,sum(sup) supeficie,sum(cant) cant_viñedos from superficie_m group by año  ;', ttl="0"),
+  df3 = conn.query('select año,sum(sup) supeficie,sum(cant) cant_viñedos from superficie_m group by año order by año  ;', ttl="0"),
   return df3
 df3 = query()
 df2 = df3[0]
