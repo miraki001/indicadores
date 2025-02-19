@@ -13,7 +13,7 @@ from st_keyup import st_keyup
 
 def despachos_prov(df):
       pivot_table_basic = df.pivot_table(
-            index='provicnia', 
+            index='provincia', 
             columns='anio',  
             values=['lts'],
             aggfunc='sum'
