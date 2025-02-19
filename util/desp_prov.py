@@ -70,7 +70,7 @@ def despachos_prov(df):
       dfg=dfg.replace(to_replace="None",value=0)
       st.write(dfg)  
 
-      dfg=dfg.replace(to_replace=" NULL",value=0)
+      dfg=dfg.replace(to_replace="NULL",value=0)
       #dfg['mes'] = dfg['mes'].astype(str)
 
       #newdf=dfg.set_index('mes',inplace=False).rename_axis(None)
