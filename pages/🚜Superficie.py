@@ -93,8 +93,8 @@ option = {
             "data": df2['Año'].to_list(),
         },
         "yAxis": {"type": "value"},
-        "series": [{"data": df2['Superficie'].to_list(), "type": "line", "name": '2022'}
-               ,{"data": df2['Viñedos Cnt.'].to_list(), "type": "line","name":'2023'}
+        "series": [{"data": df2['Superficie'].to_list(), "type": "line", "name": 'Supericie'}
+               ,{"data": df2['Viñedos Cnt.'].to_list(), "type": "line","name":'Cnt. de Viñedos'}
                  
                   ]
 }
