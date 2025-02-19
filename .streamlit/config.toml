@@ -7,4 +7,4 @@ fileWatcherType = "poll"
 #toolbarMode = 'minimal'
 [theme] #
 #backgroundColor = '#daeeed' 
-primaryColor="blue"
+#primaryColor="blue"
