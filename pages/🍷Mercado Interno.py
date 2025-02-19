@@ -10,6 +10,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from streamlit_echarts import Map
 from st_keyup import st_keyup
+from util.desp_prov import despachos_prov
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "lightcoral" if value < 0 else "lightgreen"
@@ -54,7 +55,7 @@ hide_streamlit_style = """
                 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-tab1, tab2, tab3 = st.tabs(["Evolución", "Totales", "Filtros"])
+tab1, tab2, tab3,tab4 = st.tabs(["Evolución", "Totales", "Filtros","Por Provincias"])
 
 with tab1:
                             
@@ -706,3 +707,10 @@ with tab2:
     st_echarts(
         options=option, height="400px" ,
     )
+with tab4:
+    @st.cache_data
+    def query():
+        df31 = conn.query('select cantidadlitros lts,anio,mes,provincia,producto,subgrupoenvase,variedad1 from despachos_m  where anio > 2021  ;', ttl="0"),
+        return df31
+    df31 = query()
+    df21 = df31[0]
