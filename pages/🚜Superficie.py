@@ -24,7 +24,7 @@ for index in range(len(df2)):
     total.append((  (df2['supeficie'].loc[index] / df2['supeficie'].loc[index -1]) -1 ) *100 )
     tot1.append((  (df2['cant_viñedos'].loc[index] / df2['cant_viñedos'].loc[index -1]) -1 ) *100 )
 st.write(total)
-df2['var_ha'] = total
+df2['sup var'] = total
 df2['var_cnt'] = tot1
 st.write(df2)
 
