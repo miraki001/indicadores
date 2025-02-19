@@ -56,7 +56,7 @@ def despachos_prov(df):
     
       st.dataframe(styled_df,
       column_config={
-        'provincia': st.column_config.Column('Key'),
+        'provincia': st.column_config.Column('Provincia'),
         '2022': st.column_config.Column('2022'),
         '2023': st.column_config.Column('2023'),
         '2024': st.column_config.Column('2024'),
