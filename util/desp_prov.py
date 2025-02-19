@@ -72,7 +72,7 @@ def despachos_prov(df):
       dfg['2022'] = dfg['2022'].fillna(0)
       dfg['2023'] = dfg['2023'].fillna(0)
       dfg['2024'] = dfg['2024'].fillna(0)
-      st.write(dfg)  
+      #st.write(dfg)  
 
 
       #dfg['mes'] = dfg['mes'].astype(str)
@@ -103,7 +103,7 @@ def despachos_prov(df):
         "legend": {},    
         "xAxis": {
             "type": "category",
-            "data": dfg['provincia'].to_list(),
+            "data": dfg[' provincia'].to_list(),
         },
         "yAxis": {"type": "value"},
         "series": [{"data": dfg['2022'].to_list(), "type": "line", "name": '2022'}
