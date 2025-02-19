@@ -582,6 +582,18 @@ with tab2:
     df2 = df3[0]
     #st.write(df2)
 
+    st.markdown(
+        """
+        <style>
+        span[data-baseweb="tag"] {
+        background-color: blue !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    
 
     col1, col2,col3,col4 = st.columns(4)
 
