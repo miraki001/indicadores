@@ -27,7 +27,7 @@ def despachos_prov(df):
       dfg = pivot_table_basic
       dfg.columns = dfg.columns.droplevel(0)
       dfg = dfg.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'provincia': "provincia"})
-      st.write(pivot_table_basic) 
+      #st.write(pivot_table_basic) 
     
 
       pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
