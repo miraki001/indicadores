@@ -13,13 +13,13 @@ from st_keyup import st_keyup
 
 def despachos_prov(df):
       pivot_table_basic = df.pivot_table(
-      index='provicnia', 
-      columns='anio',  
-      values=['lts'],
-      aggfunc='sum'
-    )
+            index='provicnia', 
+            columns='anio',  
+            values=['lts'],
+            aggfunc='sum'
+          )
     
-    dfg = pivot_table_basic
-    dfg.columns = dfg.columns.droplevel(0)
-    dfg = dfg.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
-    st.write(dfg) 
+          dfg = pivot_table_basic
+          dfg.columns = dfg.columns.droplevel(0)
+          dfg = dfg.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
+          st.write(dfg) 
