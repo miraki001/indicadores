@@ -20,5 +20,7 @@ for index in range(len(df2)):
   if index > 0:
     total.append(df2['supeficie'].loc[index] / df2['supeficie'].loc[index -1])
 st.write(total)
+df2['var ha'] = total
+st.write(df2)
 
 
