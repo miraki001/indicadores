@@ -37,7 +37,7 @@ styled_df = df2.style.applymap(bgcolor_positive_or_negative, subset=['Superficie
         {"Superficie": lambda x : '{:,.0f}'.format(x), 
         "Viñedos Cnt.": lambda x : '{:,.0f}'.format(x),
         "Superficie Var %": lambda x : '{:,.2f} %'.format(x),
-        "Viñedos Var. %'": lambda x : '{:,.2f} %'.format(x),
+        "Viñedos Var. %": lambda x : '{:,.2f} %'.format(x),
                                         }
         ,
     thousands='.',
@@ -45,8 +45,20 @@ styled_df = df2.style.applymap(bgcolor_positive_or_negative, subset=['Superficie
 )
 
 
-
-
 st.write(df2)
+
+st.dataframe(styled_df,
+      column_config={
+        'Año': st.column_config.Column('Año'),
+        'Superficie': st.column_config.Column('Superficie'),
+        'Viñedos Cnt.': st.column_config.Column('Viñedos Cnt.'),
+        'Superficie Var %': st.column_config.Column('Superficie Var %'),
+        'Viñedos Var. %': st.column_config.Column('Viñedos Var. %'),
+        
+    },
+    width = 600,   
+    height = 500,
+    hide_index=False)
+
 
 
