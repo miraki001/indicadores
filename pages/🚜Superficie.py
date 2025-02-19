@@ -60,5 +60,39 @@ st.dataframe(styled_df,
     height = 800,
     hide_index=True)
 
-
+    option = {
+        "dataZoom": [
+        {
+          "show": 'true',
+          "realtime": 'true',
+          "start": 0,
+          "end": 100,
+          "xAxisIndex": [0, 1]
+        },
+        {
+          "type": 'inside',
+          "realtime": 'true',
+          "start": 30,
+          "end": 70,
+          "xAxisIndex": [0, 1]
+        }
+        ],
+            "tooltip": {
+            "trigger": 'axis',
+            "axisPointer": { "type": 'cross' }
+        },
+        "legend": {},    
+        "xAxis": {
+            "type": "category",
+            "data": df2['Año'].to_list(),
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": df2['Superficie'].to_list(), "type": "line", "name": '2022'}
+               ,{"data": df2['Viñedos Cnt'].to_list(), "type": "line","name":'2023'}
+#               ,{"data": dfg['2024'].to_list(), "type": "line","name":'2024'}                   
+                  ]
+      }
+      st_echarts(
+        options=option, height="400px" ,
+      )
 
