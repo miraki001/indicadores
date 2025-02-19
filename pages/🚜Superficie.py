@@ -15,6 +15,7 @@ def query():
 df3 = query()
 df2 = df3[0]
 st.write(df2)
+total = []
 for index in range(len(df2)):
   if index > 0:
     total.append(df2['superficie'].loc[index] + df2['superficie'].loc[index -1])
