@@ -7,6 +7,9 @@ import altair as alt
 import numpy as np
 
 conn = st.connection("postgresql", type="sql")
+def bgcolor_positive_or_negative(value):
+    bgcolor = "lightcoral" if value < 0 else "lightgreen"
+    return f"background-color: {bgcolor};"
 
 @st.cache_data
 def query():
