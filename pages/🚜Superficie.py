@@ -16,11 +16,12 @@ df3 = query()
 df2 = df3[0]
 st.write(df2)
 total = []
+total.append(0)
 for index in range(len(df2)):
   if index > 0:
     total.append(df2['supeficie'].loc[index] / df2['supeficie'].loc[index -1])
 st.write(total)
-df2['var ha'] = total
+df2['varha'] = total
 st.write(df2)
 
 
