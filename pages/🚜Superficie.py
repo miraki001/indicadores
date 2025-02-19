@@ -19,7 +19,7 @@ total = []
 total.append(0)
 for index in range(len(df2)):
   if index > 0:
-    total.append(1 -( df2['supeficie'].loc[index] / df2['supeficie'].loc[index -1] *100) )
+    total.append((1 -( df2['supeficie'].loc[index] / df2['supeficie'].loc[index -1])) *100 )
 st.write(total)
 df2['varha'] = total
 st.write(df2)
