@@ -24,7 +24,7 @@ def query():
 df3 = query()
 df2 = df3[0]
 
-tab1, tab2, tab3,tab4 = st.tabs(["Evolución", "Por Provincia y Color", "Por Provincia y Color","Por Variedad"])
+tab1, tab2, tab3,tab4 = st.tabs(["Evolución", "Por Provincia y Color", "Por Provincia y Variedad","Por Variedad"])
 
 with tab1:
 
