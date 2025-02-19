@@ -11,6 +11,7 @@ from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
+from superficie import sup_prov_color
 
 conn = st.connection("postgresql", type="sql")
 def bgcolor_positive_or_negative(value):
