@@ -103,7 +103,7 @@ def despachos_prov(df):
         "legend": {},    
         "xAxis": {
             "type": "category",
-            "data": dfg[' provincia'].to_list(),
+            "data": dfg['provincia'].to_list(),
         },
         "yAxis": {"type": "value"},
         "series": [{"data": dfg['2022'].to_list(), "type": "line", "name": '2022'}
