@@ -60,7 +60,7 @@ st.dataframe(styled_df,
     height = 800,
     hide_index=True)
 
-    option = {
+option = {
         "dataZoom": [
         {
           "show": 'true',
@@ -91,8 +91,8 @@ st.dataframe(styled_df,
                ,{"data": df2['Viñedos Cnt'].to_list(), "type": "line","name":'2023'}
                  
                   ]
-      }
-      st_echarts(
+}
+st_echarts(
         options=option, height="400px" ,
-      )
+)
 
