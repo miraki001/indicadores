@@ -11,6 +11,11 @@ from pyecharts.charts import Line
 from streamlit_echarts import Map
 from st_keyup import st_keyup
 
+def bgcolor_positive_or_negative(value):
+    bgcolor = "lightcoral" if value < 0 else "lightgreen"
+    return f"background-color: {bgcolor};"
+
+
 def despachos_prov(df):
       pivot_table_basic = df.pivot_table(
             index='provincia', 
