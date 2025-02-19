@@ -7,16 +7,11 @@ import altair as alt
 import numpy as np
 
 
-
-conn = st.connection("postgresql", type="sql")
-qu = 'select * from despachos_m ;'  
-dfpv1 = conn.query(qu, ttl="0"),
-dfpv1 = dfpv1[0]
-dfpv1 = dfpv1[dfpv1['anio'] > 2014]
-data = dfpv1
-#st.write(data)
-
-
-AgGrid(data,height=500)
-
+@st.cache_data
+def query():
+  df3 = conn.query('select año,sum(sup) supeficie,sum(cant) cant_viñedos from superficie_m group by año  ;', ttl="0"),
+  return df3
+df3 = query()
+df2 = df3[0]
+st.write(df2)
 
