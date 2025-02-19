@@ -27,7 +27,7 @@ def despachos_prov(df):
       dfg = pivot_table_basic
       dfg.columns = dfg.columns.droplevel(0)
       dfg = dfg.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'provincia': "provincia"})
-      st.write(dfg) 
+      #st.write(dfg) 
 
       pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
       pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=True,axis=0)
@@ -71,7 +71,7 @@ def despachos_prov(df):
       dfg['2022'] = dfg['2022'].fillna(0)
       dfg['2023'] = dfg['2023'].fillna(0)
       dfg['2024'] = dfg['2024'].fillna(0)
-      st.write(dfg)  
+      #st.write(dfg)  
 
 
       #dfg['mes'] = dfg['mes'].astype(str)
