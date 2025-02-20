@@ -56,6 +56,7 @@ def prov_color(df):
         "Blanca %": lambda x : '{:,.2f} %'.format(x),
         "Rosada %": lambda x : '{:,.2f} %'.format(x),
         "Tinta %": lambda x : '{:,.2f} %'.format(x), 
+        "Total Prov.": lambda x : '{:,.0f}'.format(x),
                                         }
         ,
     thousands='.',
