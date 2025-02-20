@@ -17,7 +17,13 @@ def prov_map(df):
 
   f = df.to_json(orient="records")
 
-  #st.write(f)  
+  pivot_table_basic = df.pivot_table(
+      index='provincia', 
+      values=['sup'],
+      aggfunc='sum'
+  )
+  
+  st.write(pivot_table_basic)  
 
   json_obj = json.loads(f)
 
