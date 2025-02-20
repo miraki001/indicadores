@@ -24,7 +24,7 @@ def prov_map(df):
   )
   
   st.write(pivot_table_basic)  
-  pivot_table_basic.columns = pivot_table_basic.columns.droplevel(0)
+  pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
   json_obj = json.loads(pivot_table_basic)
 
 
