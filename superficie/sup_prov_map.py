@@ -15,6 +15,14 @@ from pyecharts.charts import Line
 
 def prov_map(df):
 
+  formatter = JsCode(
+    "function (params) {"
+    + "var value = (params.value + '').split('.');"
+    + "value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,');"
+    + "return params.seriesName + '<br/>' + params.name + ': ' + value;}"
+  ).js_code
+
+  
   f = df.to_json(orient="records")
 
   pivot_table_basic = df.pivot_table(
