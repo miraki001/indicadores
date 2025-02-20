@@ -49,7 +49,7 @@ def prov_color(df):
   pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
 
-  styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023']).format(
+  styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['Blanca %'','Rosada %','Tinta %']).format(
         {"Blanca": lambda x : '{:,.0f}'.format(x), 
         "Rosada": lambda x : '{:,.0f}'.format(x),
         "Tinta": lambda x : '{:,.0f}'.format(x),
@@ -61,3 +61,20 @@ def prov_color(df):
     thousands='.',
     decimal=',',
   )
+  st.dataframe(styled_df,
+      column_config={
+        'provincia': st.column_config.Column('provincia'),
+        'Blanca': st.column_config.Column('Blanca'),
+        'Rosada': st.column_config.Column('Rosada'),
+        'Tinta': st.column_config.Column('Tinta'),
+        'Blanca %': st.column_config.Column('Blanca %'),
+        'Rosada %': st.column_config.Column('Rosada %'),
+        'Tinta %': st.column_config.Column('Tinta %'),
+        'Total Prov.: st.column_config.Column('Total Prov.'),  
+      },
+      width = 600,   
+      height = 500,
+      hide_index=False
+  )
+
+    
