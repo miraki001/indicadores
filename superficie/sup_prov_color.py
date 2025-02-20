@@ -70,7 +70,7 @@ def prov_color(df):
         'Blanca %': st.column_config.Column('Blanca %'),
         'Rosada %': st.column_config.Column('Rosada %'),
         'Tinta %': st.column_config.Column('Tinta %'),
-        'Total Prov.: st.column_config.Column('Total Prov.'),  
+        'Total Prov.': st.column_config.Column('Total Prov.')  
       },
       width = 600,   
       height = 500,
