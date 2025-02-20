@@ -114,4 +114,4 @@ with tab1:
     st_echarts(
         options=option, height="400px" ,
     )
-
+with tab2:
