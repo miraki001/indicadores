@@ -6,3 +6,4 @@ altair
 plotly
 streamlit-aggrid
 streamlit-keyup
+geopandas
