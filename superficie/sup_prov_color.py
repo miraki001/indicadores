@@ -27,6 +27,13 @@ def prov_color(df):
   dfg = pivot_table_basic
   dfg.columns = dfg.columns.droplevel(0)
   dfg = dfg.reset_index().rename_axis(None, axis=1)
+  dfg['Blanca'] = dfg['Blanca'].fillna(0)  
+  dfg['Rosada'] = dfg['Rosada'].fillna(0)   
+  dfg['Tinta'] = dfg['Tinta'].fillna(0)    
+  pivot_table_basic['Blanca'] = pivot_table_basic['Blanca'].fillna(0)  
+  pivot_table_basic['Rosada'] = pivot_table_basic['Rosada'].fillna(0)   
+  pivot_table_basic['Tinta'] = pivot_table_basic['Tinta'].fillna(0)    
+    
   #st.write(dfg) 
 
   total = []
