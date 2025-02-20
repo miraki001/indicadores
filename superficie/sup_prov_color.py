@@ -49,7 +49,7 @@ def prov_color(df):
   pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
 
-  styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['Blanca %'','Rosada %','Tinta %']).format(
+  styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['Blanca %','Rosada %','Tinta %']).format(
         {"Blanca": lambda x : '{:,.0f}'.format(x), 
         "Rosada": lambda x : '{:,.0f}'.format(x),
         "Tinta": lambda x : '{:,.0f}'.format(x),
