@@ -398,7 +398,7 @@ with tab1:
   json_obj = json.loads(f)
 
 
-  #st.write(json_obj)  
+  st.write(json_obj)  
   raw_data = json_obj
 
 
