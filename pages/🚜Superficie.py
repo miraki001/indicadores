@@ -25,6 +25,13 @@ def query():
 df3 = query()
 df2 = df3[0]
 
+@st.cache_data
+def query1():
+  df4 = conn.query('select s.anio anio,sum(s.sup) sup,s.provincia,s.color ,s.variedad,s.departamento,s.tipouva tipoVariedad,s.sistemaconduccion,s.pie from superficieVariedad_m s whee s.anio = 2023  ;', ttl="0"),
+  return df4
+df4 = query1()
+df1 = df4[0]
+
 tab1, tab2, tab3,tab4 = st.tabs(["Evolución", "Por Provincia y Color", "Por Provincia y Variedad","Por Variedad"])
 
 with tab1:
