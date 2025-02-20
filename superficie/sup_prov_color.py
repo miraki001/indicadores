@@ -26,8 +26,8 @@ def prov_color(df):
 
   total = []
   #total.append(0)
-  for index in range(len(df)):
-      total.append(  df['Blanca'].loc[index]  + df['Rosada'].loc[index]  + df['Tinta'].loc[index] )
+  for index in range(len(dfg)):
+      total.append(  dfg['Blanca'].loc[index]  + dfg['Rosada'].loc[index]  + dfg['Tinta'].loc[index] )
 
   pivot_table_basic['Total Prov.'] = total  
 
