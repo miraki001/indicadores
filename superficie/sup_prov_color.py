@@ -44,7 +44,7 @@ def prov_color(df):
   #pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
 
   pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
-  st.write(pivot_table_basic)
+  #st.write(pivot_table_basic)
 
   pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
 
