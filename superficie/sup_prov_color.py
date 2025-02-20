@@ -12,7 +12,7 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
 
-def sup_prov_color(df):
+def prov_color(df):
   pivot_table_basic = df.pivot_table(
       index='provincia', 
       columns='color',  
