@@ -12,7 +12,7 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
 
-def pov_map(df)
+def pov_map(df):
 
   f = df.to_json(orient="records")
 
