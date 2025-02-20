@@ -12,6 +12,7 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from streamlit_echarts import Map
 from pyecharts.charts import Line
+import geopandas as gpd
 
 def prov_map(df):
 
