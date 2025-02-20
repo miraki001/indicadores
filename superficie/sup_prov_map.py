@@ -110,3 +110,4 @@ def prov_map(df):
         ],
   }
   st_echarts(options, map=map)
+  st.map(pivot_table_basic)
