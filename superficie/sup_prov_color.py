@@ -12,6 +12,10 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
 
+def bgcolor_positive_or_negative(value):
+    bgcolor = "lightcoral" if value < 0 else "lightgreen"
+    return f"background-color: {bgcolor};"
+
 def prov_color(df):
   pivot_table_basic = df.pivot_table(
       index='provincia', 
@@ -23,7 +27,7 @@ def prov_color(df):
   dfg = pivot_table_basic
   dfg.columns = dfg.columns.droplevel(0)
   dfg = dfg.reset_index().rename_axis(None, axis=1)
-  st.write(dfg) 
+  #st.write(dfg) 
 
   total = []
   #total.append(0)
