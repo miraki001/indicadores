@@ -53,7 +53,7 @@ def prov_color(df):
         {"Blanca": lambda x : '{:,.0f}'.format(x), 
         "Rosada": lambda x : '{:,.0f}'.format(x),
         "Tinta": lambda x : '{:,.0f}'.format(x),
-        "Blanca %': lambda x : '{:,.2f} %'.format(x),
+        "Blanca %": lambda x : '{:,.2f} %'.format(x),
         "Rosada %": lambda x : '{:,.2f} %'.format(x),
         "Tinta %": lambda x : '{:,.2f} %'.format(x), 
                                         }
