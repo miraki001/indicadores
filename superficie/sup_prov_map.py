@@ -23,10 +23,10 @@ def prov_map(df):
       aggfunc='sum'
   )
   
-  st.write(pivot_table_basic)  
+  #st.write(pivot_table_basic)  
   pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
-  pivot_table_basic = pivot_table_basic.rename(columns={'provincia': "name", 'sup': "value"})
-    
+  pivot_table_basic = pivot_table_basic.rename(columns={'provincia': "name", 'sup': "value"})    
+  
   f = pivot_table_basic.to_json(orient="records")
   json_obj = json.loads(f)
 
