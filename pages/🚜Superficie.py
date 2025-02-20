@@ -27,7 +27,7 @@ df2 = df3[0]
 
 @st.cache_data
 def query1():
-  df4 = conn.query('select s.anio anio,s.sup sup,s.provincia,s.color ,s.variedad,s.departamento,s.tipouva tipoVariedad,s.sistemaconduccion,s.pie from superficieVariedad_m s whee s.anio = 2023  ;', ttl="0"),
+  df4 = conn.query('select s.anio anio,s.sup sup,s.provincia,s.color ,s.variedad,s.departamento,s.tipouva tipoVariedad,s.sistemaconduccion,s.pie from superficieVariedad_m s where s.anio = 2023  ;', ttl="0"),
   return df4
 df4 = query1()
 df1 = df4[0]
