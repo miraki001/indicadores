@@ -23,10 +23,20 @@ def prov_color(df):
   dfg = pivot_table_basic
   dfg.columns = dfg.columns.droplevel(0)
   #st.write(dfg) 
+
+  total = []
+  #total.append(0)
+  for index in range(len(dfg)):
+      total.append((  (dfg['Blanca'].loc[index]  + dfg['Rosada'].loc[index] dfg['Tinta'].loc[index] )
+
     
   #pivot_table_basic.columns = pivot_table_basic.columns.droplevel(0)
   pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
   pivot_table_basic.loc['Total']= pivot_table_basic.sum(numeric_only=True,axis=0)
+
+    #st.write(total)
+    df2 = df2.rename(columns={'supeficie': "Superficie", 'cant_viñedos': "Viñedos Cnt.",'año': "Año"})
+
   pivot_table_basic['Blancas %'] = (1-(pivot_table_basic['blancas']/pivot_table_basic['Total']))*100
   pivot_table_basic['2024/2023'] = (1-(pivot_table_basic[2023]/pivot_table_basic[2024]))*100
   pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
