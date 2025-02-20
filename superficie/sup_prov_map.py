@@ -59,8 +59,8 @@ def prov_map(df):
         },
         "visualMap": {
             "left": "right",
-            "min": 5000,
-            "max": 14000000,
+            "min": 1,
+            "max": 160000,
             "inRange": {
                 "color": [
                     "#313695",
@@ -91,7 +91,7 @@ def prov_map(df):
         },
         "series": [
             {
-                "name": "Despachos por Provincias",
+                "name": "Superficie por provincias",
                 "type": "map",
                 "roam": True,
                 "map": "Argentina",
