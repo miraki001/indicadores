@@ -25,10 +25,10 @@ def prov_map(df):
   
   st.write(pivot_table_basic)  
 
-  json_obj = json.loads(f)
+  json_obj = json.loads(pivot_table_basic)
 
 
-  st.write(json_obj)  
+  #st.write(json_obj)  
   raw_data = json_obj
 
 
