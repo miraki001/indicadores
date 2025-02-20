@@ -84,5 +84,39 @@ def prov_color(df):
       height = 500,
       hide_index=False
   )
-
+  option = {
+        "dataZoom": [
+        {
+          "show": 'true',
+          "realtime": 'true',
+          "start": 0,
+          "end": 100,
+          "xAxisIndex": [0, 1]
+        },
+        {
+          "type": 'inside',
+          "realtime": 'true',
+          "start": 30,
+          "end": 70,
+          "xAxisIndex": [0, 1]
+        }
+        ],
+            "tooltip": {
+            "trigger": 'axis',
+            "axisPointer": { "type": 'cross' }
+        },
+        "legend": {},    
+        "xAxis": {
+            "type": "category",
+            "data": dfg['provincia'].to_list(),
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": dfg['Blanca'].to_list(), "type": "line", "name": 'Blancas'}
+               ,{"data": dfg['Rosada'].to_list(), "type": "line","name":'Rosadas'}
+               ,{"data": dfg['Tinta'].to_list(), "type": "line","name":'Tintas'}                   
+                  ]
+  }
+  st_echarts(
+        options=option, height="400px" ,
+  )
     
