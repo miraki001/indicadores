@@ -115,3 +115,4 @@ with tab1:
         options=option, height="400px" ,
     )
 with tab2:
+    sup_prov_color(df1)
