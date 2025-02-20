@@ -25,7 +25,8 @@ def prov_map(df):
   
   st.write(pivot_table_basic)  
   pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
-
+  pivot_table_basic = pivot_table_basic.rename(columns={'provincia': "name", 'sup': "value"})
+    df2['Superficie Var %'] = total
   f = pivot_table_basic.to_json(orient="records")
   json_obj = json.loads(f)
 
