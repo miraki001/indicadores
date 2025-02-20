@@ -12,7 +12,7 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
 from superficie import sup_prov_color
-from superficie import prov_map
+from superficie import sup_prov_map
 
 conn = st.connection("postgresql", type="sql")
 def bgcolor_positive_or_negative(value):
@@ -119,4 +119,4 @@ with tab1:
 with tab2:
     
     sup_prov_color.prov_color(df1)
-    prov_map.
+    sup_prov_map.prov_map(df1)
