@@ -117,4 +117,4 @@ with tab1:
 
 with tab2:
     
-    sup_prov_color.sup_prov_color(df1)
+    sup_prov_color.prov_color(df1)
