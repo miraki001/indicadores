@@ -17,12 +17,12 @@ def prov_map(df):
 
   f = df.to_json(orient="records")
 
-  st.write(f)  
+  #st.write(f)  
 
   json_obj = json.loads(f)
 
 
-  #st.write(json_obj)  
+  st.write(json_obj)  
   raw_data = json_obj
 
 
