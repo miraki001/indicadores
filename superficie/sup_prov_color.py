@@ -27,13 +27,13 @@ def prov_color(df):
   total = []
   #total.append(0)
   for index in range(len(df)):
-      total.append((  (df['Blanca'].loc[index]  + df['Rosada'].loc[index] df['Tinta'].loc[index] )
+      total.append((  (df['Blanca'].loc[index]  + df['Rosada'].loc[index]  + df['Tinta'].loc[index] )
 
   pivot_table_basic['Total Prov.'] = total  
 
   st.write(pivot_table_basic)
 
-  pivot_table_basic['Blancas %'] = (1-(pivot_table_basic['blancas']/pivot_table_basic['Total']))*100
+  pivot_table_basic['Blanca %'] = (1-(pivot_table_basic['blanca']/pivot_table_basic['Total']))*100
   pivot_table_basic['2024/2023'] = (1-(pivot_table_basic[2023]/pivot_table_basic[2024]))*100
   pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
 
