@@ -114,7 +114,7 @@ with tab1:
     st_echarts(
         options=option, height="400px" ,
     )
-    
+
 with tab2:
     
     sup_prov_color.sup_prov_color(df1)
