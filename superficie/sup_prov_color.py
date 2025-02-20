@@ -45,3 +45,19 @@ def prov_color(df):
 
   pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
   st.write(pivot_table_basic)
+
+  pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
+
+
+  styled_df = pivot_table_basic.style.applymap(bgcolor_positive_or_negative, subset=['2023/2022','2024/2023']).format(
+        {"Blanca": lambda x : '{:,.0f}'.format(x), 
+        "Rosada": lambda x : '{:,.0f}'.format(x),
+        "Tinta": lambda x : '{:,.0f}'.format(x),
+        "Blanca %': lambda x : '{:,.2f} %'.format(x),
+        "Rosada %": lambda x : '{:,.2f} %'.format(x),
+        "Tinta %": lambda x : '{:,.2f} %'.format(x), 
+                                        }
+        ,
+    thousands='.',
+    decimal=',',
+  )
