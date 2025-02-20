@@ -22,7 +22,7 @@ def prov_color(df):
   st.write(pivot_table_basic)  
   dfg = pivot_table_basic
   dfg.columns = dfg.columns.droplevel(0)
-  #st.write(dfg) 
+  st.write(dfg) 
 
   total = []
   #total.append(0)
