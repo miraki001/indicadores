@@ -36,7 +36,7 @@ def prov_color(df):
 
   pivot_table_basic['Blanca %'] = (1-(pivot_table_basic['Blanca']/pivot_table_basic['Total Prov.']))*100
   pivot_table_basic['Rosada %'] = (1-(pivot_table_basic['Rosada']/pivot_table_basic['Total Prov.']))*100
-  pivot_table_basic['Tinta %'] = (1-(pivot_table_basic['tinta']/pivot_table_basic['Total Prov.']))*100
+  pivot_table_basic['Tinta %'] = (1-(pivot_table_basic['Tinta']/pivot_table_basic['Total Prov.']))*100
   #pivot_table_basic = pivot_table_basic.rename(columns={2022: "2022", 2023: "2023", 2024: "2024",'mes': " mes"})
 
   pivot_table_basic = pivot_table_basic.sort_index(axis = 1)
