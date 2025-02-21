@@ -19,7 +19,7 @@ import plotly.express as px
 def make_choropleth(input_df, input_id, input_column, input_color_theme):
     choropleth = px.choropleth(input_df, locations=input_id, color=input_column, locationmode="USA-states",
                                color_continuous_scale=input_color_theme,
-                               range_color=(0, max(pivot_table_basic.sup)),
+                               range_color=(0, max(input_df.sup)),
                                scope="arg",
                                labels={'population':'Population'}
                               )
