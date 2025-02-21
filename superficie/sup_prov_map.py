@@ -46,7 +46,7 @@ def prov_map(df):
 
   pivot_table_basic = df.pivot_table(
       index='provincia', 
-      columns='iso_loc'
+      #columns='iso_loc'
       values=['sup'],
       aggfunc='sum'
   )
