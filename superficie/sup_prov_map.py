@@ -46,10 +46,17 @@ def prov_map(df):
 
   pivot_table_basic = df.pivot_table(
       index='provincia', 
-      columns='iso_loc',
+      #columns='iso_loc',
       values=['sup'],
       aggfunc='sum'
   )
+
+  df1 = df.pivot_table(
+      index='iso_loc', 
+      #columns='iso_loc',
+      values=['sup'],
+      aggfunc='sum'
+  )  
   
   st.write(pivot_table_basic)  
   dftt = pivot_table_basic
@@ -132,4 +139,4 @@ def prov_map(df):
   st_echarts(options, map=map)
   #st.map(pivot_table_basic)
 
-  choropleth = make_choropleth(dftt, 'iso_loc', 'sup', 'blues')  
+  choropleth = make_choropleth(df1, 'iso_loc', 'sup', 'blues')  
