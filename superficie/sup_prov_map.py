@@ -20,7 +20,7 @@ def make_choropleth(input_df, input_id, input_column, input_color_theme):
     choropleth = px.choropleth(input_df, locations=input_id, color=input_column, locationmode="USA-states",
                                color_continuous_scale=input_color_theme,
                                range_color=(0, max(df_selected_year.population)),
-                               scope="usa",
+                               scope="arg",
                                labels={'population':'Population'}
                               )
     choropleth.update_layout(
@@ -128,4 +128,6 @@ def prov_map(df):
         ],
   }
   st_echarts(options, map=map)
-  st.map(pivot_table_basic)
+  #st.map(pivot_table_basic)
+
+  choropleth = make_choropleth(pivot_table_basic, 'provincia', 'sup', selected_color_theme)  
