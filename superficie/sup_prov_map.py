@@ -17,11 +17,11 @@ import plotly.express as px
 
 
 def make_choropleth(input_df, input_id, input_column, input_color_theme):
-    choropleth = px.choropleth(input_df, locations=input_id, color=input_column, locationmode="USA-states",
+    choropleth = px.choropleth(input_df, locations=input_id, color=input_column, locationmode="Argentina",
                                color_continuous_scale=input_color_theme,
                                range_color=(0, max(input_df['sup'])),
-                               scope="arg",
-                               labels={'population':'Population'}
+                               scope="ARG",
+                               labels={'sup':'sup'}
                               )
     choropleth.update_layout(
         template='plotly_dark',
@@ -140,3 +140,4 @@ def prov_map(df):
   #st.map(pivot_table_basic)
 
   choropleth = make_choropleth(df1, 'iso_loc', 'sup', 'blues')  
+  st.plotly_chart(choropleth, use_container_width=True)
