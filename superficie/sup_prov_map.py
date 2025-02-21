@@ -144,5 +144,5 @@ def prov_map(df):
  
   fig.show()
 
-  #choropleth = make_choropleth(df1, 'iso_loc', 'sup', 'blues')  
-  #st.plotly_chart(choropleth, use_container_width=True)
+  choropleth = make_choropleth(df1, 'iso_loc', 'sup', 'blues')  
+  st.plotly_chart(choropleth, use_container_width=True)
