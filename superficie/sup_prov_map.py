@@ -57,7 +57,7 @@ def prov_map(df):
       values=['sup'],
       aggfunc='sum'
   )  
-  
+  df1 = df1.reset_index().rename_axis(None, axis=1)
   st.write(df1)  
   dftt = pivot_table_basic
   pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
@@ -139,7 +139,7 @@ def prov_map(df):
   st_echarts(options, map=map)
   #st.map(pivot_table_basic)
 
-  fig = px.choropleth(df1, locations= df1['iso_loc'],locationmode="ISO-3", color=[1,2,3])
+  fig = px.choropleth(df1, locations='iso_loc',locationmode="ISO-3", color=[1,2,3])
  
   fig.show()
 
