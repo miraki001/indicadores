@@ -41,7 +41,7 @@ def prov_map(df):
     + "return params.seriesName + '<br/>' + params.name + ': ' + value;}"
   ).js_code
 
-  
+  st.write(df)
   f = df.to_json(orient="records")
 
   pivot_table_basic = df.pivot_table(
