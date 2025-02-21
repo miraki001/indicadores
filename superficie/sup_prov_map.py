@@ -130,4 +130,4 @@ def prov_map(df):
   st_echarts(options, map=map)
   #st.map(pivot_table_basic)
 
-  choropleth = make_choropleth(pivot_table_basic, 'provincia', 'sup', selected_color_theme)  
+  choropleth = make_choropleth(pivot_table_basic, 'provincia', 'sup', 'blues')  
