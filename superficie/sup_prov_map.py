@@ -50,7 +50,8 @@ def prov_map(df):
       aggfunc='sum'
   )
   
-  st.write(pivot_table_basic)  
+  #st.write(pivot_table_basic)  
+  dftt = pivot_table_basic
   pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
   pivot_table_basic = pivot_table_basic.rename(columns={'provincia': "name", 'sup': "value"})    
   
@@ -130,4 +131,4 @@ def prov_map(df):
   st_echarts(options, map=map)
   #st.map(pivot_table_basic)
 
-  choropleth = make_choropleth(pivot_table_basic, 'name', 'value', 'blues')  
+  choropleth = make_choropleth(dftt, 'provincia', 'sup', 'blues')  
