@@ -139,7 +139,7 @@ def prov_map(df):
   st_echarts(options, map=map)
   #st.map(pivot_table_basic)
 
-  fig = px.choropleth(locations=df1, color=[1,2,3])
+  fig = px.choropleth(locations=df1['iso_lo'], color=[1,2,3])
  
   fig.show()
 
