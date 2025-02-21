@@ -139,5 +139,9 @@ def prov_map(df):
   st_echarts(options, map=map)
   #st.map(pivot_table_basic)
 
-  choropleth = make_choropleth(df1, 'iso_loc', 'sup', 'blues')  
-  st.plotly_chart(choropleth, use_container_width=True)
+  fig = px.choropleth(locationmode="ARG-states", color=[1], scope="arg")
+ 
+  fig.show()
+
+  #choropleth = make_choropleth(df1, 'iso_loc', 'sup', 'blues')  
+  #st.plotly_chart(choropleth, use_container_width=True)
