@@ -13,7 +13,6 @@ import altair as alt
 
 #colorPalette = ['#00b04f', '#ffbf00', 'ff0000']
 colorPalette = ['#332D75', '#604994', '#06C2CC']
-#332D75
 
 st.set_page_config(
     page_title="Indicadores",
@@ -128,6 +127,10 @@ with tab1:
         st.markdown('Por Envases Tintos')
         options = {
             "color": [
+
+            '#332D75',
+            '#1E8DB6',
+            '#604994',
             '#dd6b66',
             '#759aa0',
             '#e69d87',
