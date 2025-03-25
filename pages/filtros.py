@@ -6,8 +6,8 @@ from sqlalchemy import create_engine
 # Configuración de conexión a PostgreSQL
 DB_USER = "observa"
 DB_PASSWORD = "observa"
-DB_HOST = "119.8.155.25
-DB_PORT = "5433"
+DB_HOST = "119.8.155.25"
+DB_PORT = "5432"
 DB_NAME = "observa"
 
 # Crear la conexión con SQLAlchemy
