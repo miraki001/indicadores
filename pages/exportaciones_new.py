@@ -63,3 +63,12 @@ def cargar_datos(consulta):
 QUERY_INICIAL = "select anio,litros,fob from inf_expo_anio"
 df_filtros = cargar_datos(QUERY_INICIAL)
 
+if df_filtros.empty:
+    st.error("No se encontraron datos en la base de datos.")
+    st.stop()
+
+# Listas de valores únicos para los filtros
+year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
+var_list = sorted(df_filtros["variedad"].dropna().unique())
+prov_list = sorted(df_filtros["provincia"].dropna().unique())
+color_list = ("Tinta", "Blanca", "Rosada", "Sin Dato", "Todas")
