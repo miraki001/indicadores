@@ -11,7 +11,9 @@ import altair as alt
 
 
 
-colorPalette = ['#00b04f', '#ffbf00', 'ff0000']
+#colorPalette = ['#00b04f', '#ffbf00', 'ff0000']
+colorPalette = ['#332D75', '#604994', '#06C2CC']
+#332D75
 
 st.set_page_config(
     page_title="Indicadores",
