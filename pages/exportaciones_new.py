@@ -73,3 +73,27 @@ var_list = sorted(df_filtros["variedad"].dropna().unique())
 envase_list = sorted(df_filtros["tipo_envase"].dropna().unique())
 color_list = sorted(df_filtros["color"].dropna().unique())
 producto_list = sorted(df_filtros["producto"].dropna().unique())
+if "filtros" not in st.session_state:
+    st.session_state.filtros = {
+        "anio": "Todos",
+        "var": "Todas",
+        "envase": "Todos",
+        "color": "Todos"
+        "producto": "Todos"
+    }
+
+# Interfaz de filtros
+with st.popover("Abrir Filtros"):
+    st.markdown("Filtros ??")
+    anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
+    var = st.multiselect("Variedad:", ["Todas"] + var_list, default=["Todas"])
+    envase = st.multiselect("Envases:", ["Todos"] + envase_list, default=["Todos"])
+    color = st.multiselect("Color:", color_list, default=["Todos"])
+    producto = st.multiselect("Producto:", producto_list, default=["Todos"])
+
+    if st.button("Aplicar filtros", type="primary"):
+        st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "color": color,"producto": producto}
+        st.rerun()  # Vuelve a ejecutar la app para aplicar los filtros
+
+# Obtener filtros aplicados
+filtros = st.session_state.filtros
