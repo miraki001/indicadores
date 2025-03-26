@@ -118,8 +118,8 @@ if "Todas" not in filtros["var"]:
 
 # Filtro por envase
 if "Todos" not in filtros["envase"]:
-    envase = "', '".join(filtros["prov"])
-    condiciones.append(f"provincia IN ('{provincias}')")
+    envase = "', '".join(filtros["envase"])
+    condiciones.append(f"envase IN ('{envase}')")
 
 if "Todos" not in filtros["producto"]:
     producto = "', '".join(filtros["producto"])
