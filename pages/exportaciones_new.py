@@ -97,3 +97,40 @@ with st.popover("Abrir Filtros"):
 
 # Obtener filtros aplicados
 filtros = st.session_state.filtros
+condiciones = []
+
+# Filtro por color
+if "Todas" in filtros["vcolor"]:
+    condiciones.append("1=1")  # No se aplica filtro
+else:
+    colores = "', '".join(filtros["vcolor"])  # Convierte lista a formato SQL
+    condiciones.append(f"color IN ('{colores}')")
+
+# Filtro por año
+if "Todos" not in filtros["anio"]:
+    años = ", ".join(map(str, filtros["anio"]))
+    condiciones.append(f"anio IN ({años})")
+
+# Filtro por variedad
+if "Todas" not in filtros["var"]:
+    variedades = "', '".join(filtros["var"])
+    condiciones.append(f"variedad IN ('{variedades}')")
+
+# Filtro por provincia
+if "Todas" not in filtros["prov"]:
+    provincias = "', '".join(filtros["prov"])
+    condiciones.append(f"provincia IN ('{provincias}')")
+
+# Unir todas las condiciones con AND
+where_clause = " AND ".join(condiciones)
+
+QUERY_V1 = f"""
+    SELECT anio, SUM(cntlitros) AS litros, sum(valorfobsolo) AS fob
+    FROM exportaciones2_m 
+    WHERE {where_clause}
+    GROUP BY anio 
+    ORDER BY anio
+"""
+
+# Dataframe de datos filtrados
+dv1 = cargar_datos(QUERY_V1)
