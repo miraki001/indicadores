@@ -47,7 +47,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 conn = st.connection("postgresql", type="sql")
-df = conn.query('select anio,litros,fob from inf_expo_anio ;', ttl="0")
+#df = conn.query('select anio,litros,fob from inf_expo_anio ;', ttl="0")
 #st.write(df)
 
 @st.cache_data
@@ -60,7 +60,7 @@ def cargar_datos(consulta):
         return pd.DataFrame()
 
 # Cargar datos iniciales para llenar los filtros
-QUERY_INICIAL = "select anio,litros,fob from inf_expo_anio"
+QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m
 df_filtros = cargar_datos(QUERY_INICIAL)
 
 if df_filtros.empty:
@@ -70,5 +70,6 @@ if df_filtros.empty:
 # Listas de valores únicos para los filtros
 year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
 var_list = sorted(df_filtros["variedad"].dropna().unique())
-prov_list = sorted(df_filtros["provincia"].dropna().unique())
-color_list = ("Tinta", "Blanca", "Rosada", "Sin Dato", "Todas")
+envase_list = sorted(df_filtros["tipo_envase"].dropna().unique())
+color_list = sorted(df_filtros["color"].dropna().unique())
+producto_list = sorted(df_filtros["producto"].dropna().unique())
