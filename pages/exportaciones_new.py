@@ -156,8 +156,8 @@ else:
         "xAxis": {"type": "category", "data": dv1["anio"].tolist()},
         "yAxis": {"type": "value"},
         "series": [
-            {"data": dv1["sup"].tolist(), "type": "line", "name": "Hectáreas"},
-            {"data": dv1["cnt"].tolist(), "type": "bar", "name": "Cantidad de Viñedos"},
+            {"data": dv1["litros"].tolist(), "type": "line", "name": "Hectáreas"},
+            {"data": dv1["fob"].tolist(), "type": "bar", "name": "Cantidad de Viñedos"},
         ],
     }
 
