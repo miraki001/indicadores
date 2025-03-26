@@ -100,7 +100,7 @@ filtros = st.session_state.filtros
 condiciones = []
 
 # Filtro por color
-if "Todas" in filtros["vcolor"]:
+if "Todos" in filtros["vcolor"]:
     condiciones.append("1=1")  # No se aplica filtro
 else:
     colores = "', '".join(filtros["vcolor"])  # Convierte lista a formato SQL
@@ -116,10 +116,15 @@ if "Todas" not in filtros["var"]:
     variedades = "', '".join(filtros["var"])
     condiciones.append(f"variedad IN ('{variedades}')")
 
-# Filtro por provincia
-if "Todas" not in filtros["prov"]:
-    provincias = "', '".join(filtros["prov"])
+# Filtro por envase
+if "Todos" not in filtros["envase"]:
+    envase = "', '".join(filtros["prov"])
     condiciones.append(f"provincia IN ('{provincias}')")
+
+if "Todos" not in filtros["producto"]:
+    producto = "', '".join(filtros["producto"])
+    condiciones.append(f"producto IN ('{producto}')")
+
 
 # Unir todas las condiciones con AND
 where_clause = " AND ".join(condiciones)
