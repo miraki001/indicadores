@@ -134,3 +134,26 @@ QUERY_V1 = f"""
 
 # Dataframe de datos filtrados
 dv1 = cargar_datos(QUERY_V1)
+if dv1.empty:
+    st.warning("No se encontraron resultados con los filtros seleccionados.")
+else:
+    # Tabla
+    st.subheader("Cantidad de Viñedos")
+    st.dataframe(dv1)
+
+    # Convertir 'anio' a string para el gráfico
+    dv1["anio"] = dv1["anio"].astype(str)
+
+    # Crear gráfico de líneas y barras
+    option = {
+        "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+        "legend": {},
+        "xAxis": {"type": "category", "data": dv1["anio"].tolist()},
+        "yAxis": {"type": "value"},
+        "series": [
+            {"data": dv1["sup"].tolist(), "type": "line", "name": "Hectáreas"},
+            {"data": dv1["cnt"].tolist(), "type": "bar", "name": "Cantidad de Viñedos"},
+        ],
+    }
+
+    st_echarts(options=option, height="400px")
