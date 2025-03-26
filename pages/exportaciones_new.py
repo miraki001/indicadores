@@ -114,12 +114,12 @@ if "Todos" not in filtros["anio"]:
 # Filtro por variedad
 if "Todas" not in filtros["var"]:
     variedades = "', '".join(filtros["var"])
-    condiciones.append(f"variedad IN ('{variedades}')")
+    condiciones.append(f"variedad1 IN ('{variedades}')")
 
 # Filtro por envase
 if "Todos" not in filtros["envase"]:
     envase = "', '".join(filtros["envase"])
-    condiciones.append(f"envase IN ('{envase}')")
+    condiciones.append(f"tipo_envase IN ('{envase}')")
 
 if "Todos" not in filtros["producto"]:
     producto = "', '".join(filtros["producto"])
