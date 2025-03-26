@@ -92,7 +92,7 @@ with st.popover("Abrir Filtros"):
     producto = st.multiselect("Producto:", producto_list, default=["Todos"])
 
     if st.button("Aplicar filtros", type="primary"):
-        st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "color": vcolor,"producto": producto}
+        st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "vcolor": vcolor,"producto": producto}
         st.rerun()  # Vuelve a ejecutar la app para aplicar los filtros
 
 # Obtener filtros aplicados
