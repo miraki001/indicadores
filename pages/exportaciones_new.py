@@ -88,7 +88,7 @@ with st.popover("Abrir Filtros"):
     anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
     var = st.multiselect("Variedad:", ["Todas"] + var_list, default=["Todas"])
     envase = st.multiselect("Envases:", ["Todos"] + envase_list, default=["Todos"])
-    color = st.multiselect("Color:", color_list, default=["Todos"])
+    vcolor = st.multiselect("Color:", color_list, default=["Todos"])
     producto = st.multiselect("Producto:", producto_list, default=["Todos"])
 
     if st.button("Aplicar filtros", type="primary"):
