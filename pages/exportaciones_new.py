@@ -78,7 +78,7 @@ if "filtros" not in st.session_state:
         "anio": "Todos",
         "var": "Todas",
         "envase": "Todos",
-        "color": "Todos"
+        "color": "Todos",
         "producto": "Todos"
     }
 
