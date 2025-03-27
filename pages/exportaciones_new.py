@@ -230,7 +230,7 @@ else:
         "legend": {},
         "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
         "yAxis": [
-            {"type": "value" ,"name" : "Litros" ,
+            {"type": "value" ,"name" : "Litros/Fob" ,
              "axisLine": {
                 "show": 'false',
               },              
