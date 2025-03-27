@@ -184,7 +184,7 @@ else:
     styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %','Fob Var. %','Prec x Litro Var. %']).format(
         {"Litros": lambda x : '{:,.0f}'.format(x), 
         "Fob": lambda x : '{:,.0f}'.format(x),
-        "ppl": lambda x : '{:,.0f}'.format(x),
+        "ppl": lambda x : '{:,.2f}'.format(x),
         "Litros Var %": lambda x : '{:,.2f} %'.format(x),
         "Fob Var. %": lambda x : '{:,.2f} %'.format(x),
         "Prec x Litro Var. %": lambda x : '{:,.2f} %'.format(x),
@@ -232,6 +232,7 @@ else:
         "yAxis": {"type": "value"},
         "series": [
             {"data": dv1["Litros"].tolist(), "type": "line", "name": "Litros"},
+            {"data": dv1["ppl"].tolist(), "type": "line", "name": "ppl"},
             {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Valor Fob"},
         ],
     }
