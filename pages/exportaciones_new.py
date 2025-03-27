@@ -152,7 +152,7 @@ QUERY_V1 = f"""
     WHERE {where_clause}
     and producto not in ('Mosto','Alcohol')
     GROUP BY anio 
-    ORDER BY anio
+    ORDER BY anio desc
 """
 
 # Dataframe de datos filtrados
