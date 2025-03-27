@@ -147,7 +147,7 @@ if "Todos" not in filtros["producto"]:
 where_clause = " AND ".join(condiciones)
 
 QUERY_V1 = f"""
-    SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob,sum(valorfobsolo) / sum(cantlitros) ppl
+    SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob,sum(valorfobsolo) / sum(cantlitros) as ppl
     FROM exportaciones2_m 
     WHERE {where_clause}
     and producto not in ('Mosto','Alcohol')
