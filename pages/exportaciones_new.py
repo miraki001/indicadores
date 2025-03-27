@@ -151,6 +151,12 @@ else:
 
     # Crear gráfico de líneas y barras
     option = {
+      "color": [
+            '#332D75',
+            '#1E8DB6',
+            '#604994',
+            '#dd6b66',
+        ]
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
         "legend": {},
         "xAxis": {"type": "category", "data": dv1["anio"].tolist()},
