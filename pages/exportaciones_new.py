@@ -147,7 +147,7 @@ if "Todos" not in filtros["producto"]:
 where_clause = " AND ".join(condiciones)
 
 QUERY_V1 = f"""
-    SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo/cantlitros) ppl
+    SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob
     FROM exportaciones2_m 
     WHERE {where_clause}
     and producto not in ('Mosto','Alcohol')
@@ -168,16 +168,19 @@ else:
     total.append(0)
     tot1.append(0)
     tot2.append(0)
+    tot3.append(0)
     for index in range(len(dv1)):
       if index > 0:
         total.append((  (dv1['litros'].loc[index] / dv1['litros'].loc[index -1]) -1 ) *100 )
         tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
-        tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100 )
+        tot2.append( dv1['fob'].loc[index] / dv1['litros'].loc[index ]  )
+        tot3.append((  tot2.loc[index] / tot2.loc[index ]) -1 ) *100     )
     #st.write(total)
     dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año"})
     dv1['Litros Var %'] = total
     dv1['Fob Var. %'] = tot1
-    dv1['Prec x Litro Var. %'] = tot2
+    dv1['Ppl'] = tot2
+    dv1['Prec x Litro Var. %'] = tot3
 
     dv1 = dv1.sort_index(axis = 1)
 
