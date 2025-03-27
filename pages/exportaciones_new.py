@@ -252,7 +252,7 @@ else:
              "offset": 80,
              "axisLine": {
                 "show": 'true',
-                "color" : '#604994',
+                "color" : '#C92488',
               },             
              "axisLabel": {
                 "formatter": '{value} $ '
