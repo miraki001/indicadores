@@ -238,6 +238,7 @@ else:
             {"type": "value" , "name" : "fob",
              "position" : 'rigth',
              "alignTicks": 'true',
+             "offset": 80,
              "axisLine": {
                 "show": 'true',
               },             
