@@ -167,9 +167,38 @@ else:
         total.append((  (dv1['litros'].loc[index] / dv1['litros'].loc[index -1]) -1 ) *100 )
         tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
     #st.write(total)
-    #dv1 = dv1.rename(columns={'supeficie': "Superficie", 'cant_viñedos': "Viñedos Cnt.",'año': "Año"})
+    dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año"})
     dv1['Litros Var %'] = total
     dv1['Fob Var. %'] = tot1
+
+    dv1 = dv1.sort_index(axis = 1)
+
+    styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %','Fob Var. %']).format(
+        {"Litros": lambda x : '{:,.0f}'.format(x), 
+        "Fob": lambda x : '{:,.0f}'.format(x),
+        "Litros Var %": lambda x : '{:,.2f} %'.format(x),
+        "Fob Var. %": lambda x : '{:,.2f} %'.format(x),
+                                        }
+        ,
+        thousands='.',
+        decimal=',',
+    )
+
+
+    #st.write(df2)
+
+    st.dataframe(styled_df,
+      column_config={
+        'Año': st.column_config.Column('Año'),
+        'Litros': st.column_config.Column('Litros'),
+        'Fob': st.column_config.Column('Fob'),
+        'Litros Var %': st.column_config.Column('Litros Var %'),
+        'Fob Var. %': st.column_config.Column('Fob Var. %'),
+        
+        },
+        width = 600,   
+        height = 800,
+        hide_index=True)
 
   
     st.dataframe(dv1)
