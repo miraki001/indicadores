@@ -235,7 +235,17 @@ else:
                 "formatter": '{value} '
                   }
             } ,
-
+            {"type": "value" , "name" : "",
+             "position" : 'left',
+             "alignTicks": 'true',
+             "offset": 80,
+             "axisLine": {
+                "show": 'true',
+              },             
+             "axisLabel": {
+                "formatter": '{value}  '
+                  }
+            },
             {"type": "value" , "name" : "ppl",
              "position" : 'rigth',
              "alignTicks": 'true',
