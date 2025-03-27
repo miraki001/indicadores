@@ -223,8 +223,8 @@ else:
         "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
         "yAxis": {"type": "value"},
         "series": [
-            {"data": dv1["litros"].tolist(), "type": "line", "name": "Litros"},
-            {"data": dv1["fob"].tolist(), "type": "bar", "name": "Valor Fob"},
+            {"data": dv1["Litros"].tolist(), "type": "line", "name": "Litros"},
+            {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Valor Fob"},
         ],
     }
 
