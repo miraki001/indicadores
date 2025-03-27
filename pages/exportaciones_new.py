@@ -238,6 +238,9 @@ else:
             {"type": "value" , "name" : "fob",
              "position" : 'rigth',
              "alignTicks": 'true',
+             "axisLine": {
+                "show": 'true',
+              },             
              "axisLabel": {
                 "formatter": '{value} $ '
                   }
