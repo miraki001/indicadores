@@ -89,6 +89,7 @@ st.html(
                 min-height: 32.4px;
                 height: 32.4px;
                 background-color: #A9F8FA;
+                color: black;
             }
         </style>
     '''
