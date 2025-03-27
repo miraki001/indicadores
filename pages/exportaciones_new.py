@@ -165,6 +165,7 @@ else:
     total = []
     tot1 = []
     tot2 = []
+    tot3 = []
     total.append(0)
     tot1.append(0)
     tot2.append(0)
