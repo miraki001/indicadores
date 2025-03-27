@@ -258,7 +258,7 @@ else:
 
               },             
              "axisLabel": {
-                "formatter": '{value} $ '
+                "formatter": '{value} u$s '
                   }
             },            
         ],
