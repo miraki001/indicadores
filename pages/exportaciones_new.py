@@ -246,11 +246,22 @@ else:
                 "formatter": '{value} $ '
                   }
             },
+            {"type": "value" , "name" : "ppl",
+             "position" : 'rigth',
+             "alignTicks": 'true',
+             "offset": 80,
+             "axisLine": {
+                "show": 'true',
+              },             
+             "axisLabel": {
+                "formatter": '{value} $ '
+                  }
+            },            
         ],
         "series": [
             {"data": dv1["Litros"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
             {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
-            {"data": dv1["ppl"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 2, },
+            {"data": dv1["ppl"].tolist(), "type": "bar", "name": "ppl", "yAxisIndex": 2, },
         ],
     }
 
