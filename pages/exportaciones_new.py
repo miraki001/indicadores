@@ -174,7 +174,7 @@ else:
         total.append((  (dv1['litros'].loc[index] / dv1['litros'].loc[index -1]) -1 ) *100 )
         tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
         tot2.append( dv1['fob'].loc[index] / dv1['litros'].loc[index ]  )
-        tot3.append((  tot2.loc[index] / tot2.loc[index ]) -1 ) *100     )
+        tot3.append((  (tot2.loc[index] / tot2.loc[index ]) -1 ) *100     )
     #st.write(total)
     dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año"})
     dv1['Litros Var %'] = total
