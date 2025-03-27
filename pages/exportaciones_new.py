@@ -239,6 +239,7 @@ else:
              "position" : 'rigth',
              "alignTicks": 'true',
              "offset": 80,
+             "yAxisIndex": 2,
              "axisLine": {
                 "show": 'true',
               },             
