@@ -88,7 +88,7 @@ st.html(
             div[data-testid="stPopover"]>div>button {
                 min-height: 32.4px;
                 height: 32.4px;
-                background-color: #0066cc;
+                background-color: #A9F8FA;
             }
         </style>
     '''
