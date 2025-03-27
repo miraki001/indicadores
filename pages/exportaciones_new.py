@@ -82,6 +82,18 @@ if "filtros" not in st.session_state:
         "producto": "Todos"
     }
 
+st.html(
+    '''
+        <style>
+            div[data-testid="stPopover"]>div>button {
+                min-height: 32.4px;
+                height: 32.4px;
+            }
+        </style>
+    '''
+)
+
+
 # Interfaz de filtros
 with st.popover("Abrir Filtros"):
     st.markdown("Filtros ??")
@@ -143,7 +155,7 @@ if dv1.empty:
     st.warning("No se encontraron resultados con los filtros seleccionados.")
 else:
     # Tabla
-    st.subheader("Cantidad de Viñedos")
+    st.subheader("Exportaciones")
     st.dataframe(dv1)
 
     # Convertir 'anio' a string para el gráfico
