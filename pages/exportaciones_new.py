@@ -252,9 +252,9 @@ else:
             {"type": "value" , "name" : "ppl",
              "position" : 'rigth',
              "alignTicks": 'true',
-             "offset": 80,
+             "offset": 0,
              "axisLine": {
-                "show": 'true',
+                "show": 'false',
 
               },             
              "axisLabel": {
