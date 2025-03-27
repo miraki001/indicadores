@@ -10,7 +10,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 
 def bgcolor_positive_or_negative(value):
-    bgcolor = "#C02222" if value < 0 else "lightgreen"
+    bgcolor = "#EC654A" if value < 0 else "lightgreen"
     return f"background-color: {bgcolor};"
 
 hide_streamlit_style = """
