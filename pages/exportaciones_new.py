@@ -147,7 +147,7 @@ if "Todos" not in filtros["producto"]:
 where_clause = " AND ".join(condiciones)
 
 QUERY_V1 = f"""
-    SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob,sum(valorfobsolo) / sum(cantlitros) as ppl
+    SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros) AS ppl
     FROM exportaciones2_m 
     WHERE {where_clause}
     and producto not in ('Mosto','Alcohol')
@@ -204,7 +204,7 @@ else:
         'Fob': st.column_config.Column('Fob'),
         'Litros Var %': st.column_config.Column('Litros Var %'),
         'Fob Var. %': st.column_config.Column('Fob Var. %'),
-        'ppl': st.column_config.Column('ppl),
+        'ppl': st.column_config.Column('ppl'),
         'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
         
         },
