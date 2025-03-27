@@ -229,7 +229,10 @@ else:
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
         "legend": {},
         "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
-        "yAxis": {"type": "value"},
+        "yAxis": [
+            {"type": "value" ,"name" : "Litros"},
+            {"type": "value" , "name" : "fob"},
+        ],
         "series": [
             {"data": dv1["Litros"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros"},
             {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob"},
