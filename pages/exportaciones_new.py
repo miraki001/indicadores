@@ -230,7 +230,11 @@ else:
         "legend": {},
         "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
         "yAxis": [
-            {"type": "value" ,"name" : "Litros"},
+            {"type": "value" ,"name" : "Litros" ,
+             axisLabel: {
+                formatter: '{value} °C'
+                  }
+          } ,
             {"type": "value" , "name" : "fob"},
         ],
         "series": [
