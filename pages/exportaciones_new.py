@@ -232,10 +232,14 @@ else:
         "yAxis": [
             {"type": "value" ,"name" : "Litros" ,
              "axisLabel": {
-                "formatter": '{value} °C'
+                "formatter": '{value} '
                   }
             } ,
-            {"type": "value" , "name" : "fob"},
+            {"type": "value" , "name" : "fob",
+             "axisLabel": {
+                "formatter": '{value} $ '
+                  }
+            },
         ],
         "series": [
             {"data": dv1["Litros"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros"},
