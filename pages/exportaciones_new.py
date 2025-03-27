@@ -231,6 +231,9 @@ else:
         "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
         "yAxis": [
             {"type": "value" ,"name" : "Litros" ,
+             "axisLine": {
+                "show": 'false',
+              },              
              "axisLabel": {
                 "formatter": '{value} '
                   }
