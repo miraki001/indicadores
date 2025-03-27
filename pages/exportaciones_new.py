@@ -150,6 +150,7 @@ QUERY_V1 = f"""
     SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob
     FROM exportaciones2_m 
     WHERE {where_clause}
+    and producto not in ('Mosto','Alcohol')
     GROUP BY anio 
     ORDER BY anio
 """
