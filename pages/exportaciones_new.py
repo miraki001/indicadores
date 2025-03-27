@@ -174,16 +174,17 @@ else:
         tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
         tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100     )
     #st.write(total)
-    dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año"})
+    dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
     dv1['Litros Var %'] = total
     dv1['Fob Var. %'] = tot1
     dv1['Prec x Litro Var. %'] = tot2
 
     dv1 = dv1.sort_index(axis = 1)
 
-    styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %','Fob Var. %']).format(
+    styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %','Fob Var. %','Prec x Litro Var. %']).format(
         {"Litros": lambda x : '{:,.0f}'.format(x), 
         "Fob": lambda x : '{:,.0f}'.format(x),
+        "ppl": lambda x : '{:,.0f}'.format(x),
         "Litros Var %": lambda x : '{:,.2f} %'.format(x),
         "Fob Var. %": lambda x : '{:,.2f} %'.format(x),
         "Prec x Litro Var. %": lambda x : '{:,.2f} %'.format(x),
