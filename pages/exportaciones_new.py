@@ -236,7 +236,7 @@ else:
                   }
             } ,
             {"type": "value" , "name" : "fob",
-             "position" : 'rigth',
+             "position" : 'left',
              "alignTicks": 'true',
              "offset": 80,
              "axisLine": {
