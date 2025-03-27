@@ -196,21 +196,21 @@ else:
 
 
     #st.write(df2)
-
-    st.dataframe(styled_df,
-      column_config={
-        'Año': st.column_config.Column('Año'),
-        'Litros': st.column_config.Column('Litros'),
-        'Fob': st.column_config.Column('Fob'),
-        'Litros Var %': st.column_config.Column('Litros Var %'),
-        'Fob Var. %': st.column_config.Column('Fob Var. %'),
-        'ppl': st.column_config.Column('ppl'),
-        'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
+    if st.checkbox('Ver datos en forma de tabla'):
+        st.dataframe(styled_df,
+          column_config={
+            'Año': st.column_config.Column('Año'),
+            'Litros': st.column_config.Column('Litros'),
+            'Fob': st.column_config.Column('Fob'),
+            'Litros Var %': st.column_config.Column('Litros Var %'),
+            'Fob Var. %': st.column_config.Column('Fob Var. %'),
+            'ppl': st.column_config.Column('ppl'),
+            'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
         
-        },
-        width = 600,   
-        height = 800,
-        hide_index=True)
+            },
+            width = 600,   
+            height = 800,
+            hide_index=True)
 
   
     #st.dataframe(dv1)
