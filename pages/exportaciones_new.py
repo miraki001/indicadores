@@ -248,8 +248,9 @@ else:
             },
         ],
         "series": [
-            {"data": dv1["Litros"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros"},
-            {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 2, },
+            {"data": dv1["Litros"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
+            {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
+            {"data": dv1["ppl"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 2, },
         ],
     }
 
