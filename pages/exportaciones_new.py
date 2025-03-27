@@ -208,7 +208,7 @@ else:
     #st.dataframe(dv1)
 
     # Convertir 'anio' a string para el gráfico
-    dv1["año"] = dv1["año"].astype(str)
+    dv1["Año"] = dv1["Año"].astype(str)
 
     # Crear gráfico de líneas y barras
     option = {
@@ -220,7 +220,7 @@ else:
         ],
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
         "legend": {},
-        "xAxis": {"type": "category", "data": dv1["año"].tolist()},
+        "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
         "yAxis": {"type": "value"},
         "series": [
             {"data": dv1["litros"].tolist(), "type": "line", "name": "Litros"},
