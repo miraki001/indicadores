@@ -158,6 +158,20 @@ if dv1.empty:
 else:
     # Tabla
     st.subheader("Exportaciones")
+    total = []
+    tot1 = []
+    total.append(0)
+    tot1.append(0)
+    for index in range(len(dv1)):
+      if index > 0:
+        total.append((  (dv1['litros'].loc[index] / dv1['litros'].loc[index -1]) -1 ) *100 )
+        tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
+    #st.write(total)
+    #dv1 = dv1.rename(columns={'supeficie': "Superficie", 'cant_viñedos': "Viñedos Cnt.",'año': "Año"})
+    dv1['Litros Var %'] = total
+    dv1['Fob Var. %'] = tot1
+
+  
     st.dataframe(dv1)
 
     # Convertir 'anio' a string para el gráfico
