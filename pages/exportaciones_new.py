@@ -249,7 +249,7 @@ else:
                 "formatter": '{value}  '
                   }
             },
-            {"type": "value" , "name" : "ppl",
+            {"type": "value" , "name" : "Precio x Lts",
              "position" : 'rigth',
              "alignTicks": 'true',
              "offset": 10,
