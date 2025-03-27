@@ -147,12 +147,12 @@ if "Todos" not in filtros["producto"]:
 where_clause = " AND ".join(condiciones)
 
 QUERY_V1 = f"""
-    SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob
+    SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, avg(unitario) ppl
     FROM exportaciones2_m 
     WHERE {where_clause}
     and producto not in ('Mosto','Alcohol')
     GROUP BY anio 
-    ORDER BY anio desc
+    ORDER BY anio 
 """
 
 # Dataframe de datos filtrados
@@ -164,16 +164,20 @@ else:
     st.subheader("Exportaciones")
     total = []
     tot1 = []
+    tot2 = []
     total.append(0)
     tot1.append(0)
+    tot2.append(0)
     for index in range(len(dv1)):
       if index > 0:
         total.append((  (dv1['litros'].loc[index] / dv1['litros'].loc[index -1]) -1 ) *100 )
         tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
+        tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100 )
     #st.write(total)
     dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año"})
     dv1['Litros Var %'] = total
     dv1['Fob Var. %'] = tot1
+    dv1['Prec x Litro Var. %'] = tot2
 
     dv1 = dv1.sort_index(axis = 1)
 
@@ -182,6 +186,7 @@ else:
         "Fob": lambda x : '{:,.0f}'.format(x),
         "Litros Var %": lambda x : '{:,.2f} %'.format(x),
         "Fob Var. %": lambda x : '{:,.2f} %'.format(x),
+        "Prec x Litro Var. %": lambda x : '{:,.2f} %'.format(x),
                                         }
         ,
         thousands='.',
@@ -198,6 +203,7 @@ else:
         'Fob': st.column_config.Column('Fob'),
         'Litros Var %': st.column_config.Column('Litros Var %'),
         'Fob Var. %': st.column_config.Column('Fob Var. %'),
+        'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
         
         },
         width = 600,   
