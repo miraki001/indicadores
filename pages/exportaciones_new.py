@@ -236,6 +236,7 @@ else:
                   }
             } ,
             {"type": "value" , "name" : "fob",
+             "position" : 'rigth'
              "axisLabel": {
                 "formatter": '{value} $ '
                   }
