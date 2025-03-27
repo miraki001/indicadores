@@ -231,10 +231,10 @@ else:
         "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
         "yAxis": [
             {"type": "value" ,"name" : "Litros" ,
-             axisLabel: {
-                formatter: '{value} °C'
+             "axisLabel": {
+                "formatter": '{value} °C'
                   }
-          } ,
+            } ,
             {"type": "value" , "name" : "fob"},
         ],
         "series": [
