@@ -346,7 +346,7 @@ else:
         "series": [
             {"data": anio1.tolist(), "type": "line", "name": "Litros", },
             {"data": anio2.tolist(), "type": "line", "name": "Fob",},
-            {"data": anio3.tolist(), "type": "line", "name": "Precio x Lts, "color":'#07ECFA', },
+            {"data": anio3.tolist(), "type": "line", "name": "Precio x Lts", "color":'#07ECFA', },
         ],
     }
 
