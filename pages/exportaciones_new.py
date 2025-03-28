@@ -172,8 +172,9 @@ dv1 = cargar_datos(QUERY_V1)
 dv2 = cargar_datos(QUERY_V2)
 
 pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum') 
-pivot = pivot.reset_index() 
-st.dataframe(pivot)
+#pivot = pivot.reset_index() 
+newdf=pivot.set_index('anio',inplace=False).rename_axis(None)
+st.dataframe(newdf)
 
 #dv2 = dv1
 st.write(dv2)
