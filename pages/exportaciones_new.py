@@ -159,6 +159,7 @@ QUERY_V1 = f"""
 # Dataframe de datos filtrados
 dv1 = cargar_datos(QUERY_V1)
 dv2 = dv1
+st.write(dv2)
 actual = dt.now().year -3 
 dv2  = dv2.query('anio > actual')
 st.write(dv2)
