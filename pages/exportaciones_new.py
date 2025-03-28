@@ -158,12 +158,12 @@ QUERY_V1 = f"""
 actual = dt.now().year -4 
 
 QUERY_V2 = f"""
-    SELECT anio,mes, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros) AS ppl
+    SELECT anio, mes, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros) AS ppl
     FROM exportaciones2_m 
     WHERE {where_clause}
     and producto not in ('Mosto','Alcohol')
     and anio > { actual }
-    GROUP BY anio 
+    GROUP BY anio,mes 
     ORDER BY anio 
 """
 
