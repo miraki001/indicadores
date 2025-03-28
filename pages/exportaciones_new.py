@@ -173,6 +173,13 @@ dv2 = cargar_datos(QUERY_V2)
 
 st.write(dv2)
 
+litros = dv2.pivot_table(
+      index='mes', 
+      columns='anio',  
+      values=['litros'],
+      aggfunc='sum'
+)
+st.write(litros)
 pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum') 
 #dv3 = dv2.transpose()
 #st.dataframe(pivot)
