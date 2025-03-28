@@ -327,6 +327,9 @@ else:
 
 
     litros["mes"] = litros["mes"].astype(str)
+    anio1 = litros[2024]
+    anio2 = litros[2023]
+    anio3 = litros[2022]
 
     # Crear gráfico de líneas y barras
     option = {
@@ -341,9 +344,9 @@ else:
         "xAxis": {"type": "category", "data": litros["mes"].tolist()},
         "yAxis": {"type": "value"},
         "series": [
-            {"data": litros[2024].tolist(), "type": "line", "name": "Litros", },
-            {"data": litros[2023].tolist(), "type": "line", "name": "Fob",},
-            {"data": litros[2022].tolist(), "type": "line", "name": "Precio x Lts, "color":'#07ECFA', },
+            {"data": anio1.tolist(), "type": "line", "name": "Litros", },
+            {"data": anio2.tolist(), "type": "line", "name": "Fob",},
+            {"data": anio3.tolist(), "type": "line", "name": "Precio x Lts, "color":'#07ECFA', },
         ],
     }
 
