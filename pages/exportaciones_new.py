@@ -162,7 +162,7 @@ QUERY_V2 = f"""
     FROM exportaciones2_m 
     WHERE {where_clause}
     and producto not in ('Mosto','Alcohol')
-    and anio > { actual }
+    and anio > {actual}
     GROUP BY anio,mes 
     ORDER BY anio 
 """
@@ -170,7 +170,7 @@ QUERY_V2 = f"""
 # Dataframe de datos filtrados
 dv1 = cargar_datos(QUERY_V1)
 dv2 = cargar_datos(QUERY_V2)
-dv2 = dv1
+#dv2 = dv1
 st.write(dv2)
 actual = dt.now().year -4 
 
