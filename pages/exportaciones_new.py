@@ -159,11 +159,14 @@ QUERY_V1 = f"""
 # Dataframe de datos filtrados
 dv1 = cargar_datos(QUERY_V1)
 dv2 = dv1
+actual = dt.now().year -3 
+dv2  = dv2.query('anio > actual')
+st.write(dv2)
 dv3 = dv2.transpose()
 actual = dt.now().year -3 
 st.write(actual)
 st.write(dv3)
-dv4 = dv3.query('anio > actual')
+#dv4 = dv3.query('anio > actual')
 st.write(dv4)
 
 if dv1.empty:
