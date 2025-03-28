@@ -339,17 +339,7 @@ else:
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
         "legend": {},
         "xAxis": {"type": "category", "data": litros["mes"].tolist()},
-        "yAxis": [
-            {"type": "value" ,"name" : "Litros" ,
-             "axisLine": {
-                "show": 'false',
-              },              
-             "axisLabel": {
-                "formatter": '{value} '
-                  }
-            } ,
-           
-        ],
+        "yAxis": {"type": "value"},
         "series": [
             {"data": litros[2024].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
             {"data": litros[2023].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
