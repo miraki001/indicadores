@@ -180,7 +180,7 @@ st.dataframe(pivot)
 #st.write(dv2)
 actual = dt.now().year -4 
 
-dv2  =  dv2[dv2["anio"] > actual]
+#dv2  =  dv2[dv2["anio"] > actual]
 #st.write(dv2)
 dv3 = dv2.transpose()
 #actual = dt.now().year -3 
