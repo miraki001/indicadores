@@ -155,9 +155,21 @@ QUERY_V1 = f"""
     GROUP BY anio 
     ORDER BY anio 
 """
+actual = dt.now().year -4 
+
+QUERY_V2 = f"""
+    SELECT anio,mes, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros) AS ppl
+    FROM exportaciones2_m 
+    WHERE {where_clause}
+    and producto not in ('Mosto','Alcohol')
+    and anio > {}
+    GROUP BY anio 
+    ORDER BY anio 
+"""
 
 # Dataframe de datos filtrados
 dv1 = cargar_datos(QUERY_V1)
+dv2 = cargar_datos(QUERY_V2)
 dv2 = dv1
 st.write(dv2)
 actual = dt.now().year -4 
@@ -169,7 +181,7 @@ dv3 = dv2.transpose()
 #st.write(actual)
 #st.write(dv3)
 #dv4 = dv3.query('anio > actual')
-st.write(dv3)
+#st.write(dv3)
 
 if dv1.empty:
     st.warning("No se encontraron resultados con los filtros seleccionados.")
