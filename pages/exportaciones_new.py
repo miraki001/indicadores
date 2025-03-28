@@ -182,7 +182,7 @@ litros = dv2.pivot_table(
 st.write(litros)
 
 litros.columns = litros.columns.droplevel(0)
-litros = litros.reset_index().rename_axis(None, axis=1)
+litros = litros.reset_index().rename_axis(None, axis=0)
 st.write(litros)
 #pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum') 
 #dv3 = dv2.transpose()
