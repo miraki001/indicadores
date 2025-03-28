@@ -212,6 +212,7 @@ else:
             height = 800,
             hide_index=True)
 
+        st.write(dv1.describe())
   
     #st.dataframe(dv1)
 
