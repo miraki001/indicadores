@@ -179,18 +179,26 @@ litros = dv2.pivot_table(
       values=['litros'],
       aggfunc='sum'
 )
-st.write(litros)
+#st.write(litros)
 
+fob = dv2.pivot_table(
+      index='mes', 
+      columns='anio',  
+      values=['fob'],
+      aggfunc='sum'
+)
 litros.columns = litros.columns.droplevel(0)
 litros = litros.reset_index().rename_axis(None, axis=1)
-st.write(litros)
+fob.columns = litros.columns.droplevel(0)
+fob = litros.reset_index().rename_axis(None, axis=1)
+#st.write(litros)
 #pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum') 
 #dv3 = dv2.transpose()
 #st.dataframe(pivot)
-st.write(len(litros.columns))
-st.write(litros.keys())
+#st.write(len(litros.columns))
+#st.write(litros.keys())
 #litros = litros.rename(columns={'2024': "anterior", '2023': "2023",})
-st.write(litros[2024])
+#st.write(litros[2024])
 
 #pivot.columns = pivot.columns.droplevel(0)
 #pivot = pivot.reset_index().rename_axis(None, axis=1)
@@ -324,7 +332,7 @@ else:
 
     st_echarts(options=option, height="400px")
 
-
+    st.subheader("Exportaciones evolución mensual en litros")
 
     litros["mes"] = litros["mes"].astype(str)
     anio1 = litros.columns[1]
@@ -352,3 +360,33 @@ else:
     }
 
     st_echarts(options=option, height="400px")
+
+    st.subheader("Exportaciones evolución mensual en Fob")
+   
+    fob["mes"] = fob["mes"].astype(str)
+    anio1 = fob.columns[1]
+    st.write(fob.columns[1])
+    anio2 = fob.columns[2]
+    anio3 = fob.columns[3]
+
+    # Crear gráfico de líneas y barras
+    option = {
+      "color": [
+            '#332D75',
+            '#1E8DB6',
+            '#604994',
+            '#dd6b66',
+        ],
+        "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+        "legend": {},
+        "xAxis": {"type": "category", "data": litros["mes"].tolist()},
+        "yAxis": {"type": "value"},
+        "series": [
+            {"data": fob[anio1].tolist(), "type": "line", "name": anio1, },
+            {"data": fob[anio2].tolist(), "type": "line", "name": anio2,},
+            {"data": fob[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
+        ],
+    }
+
+    st_echarts(options=option, height="400px")
+
