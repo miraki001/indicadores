@@ -47,7 +47,7 @@ hide_streamlit_style = """
                 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-st.write(dt.now())
+st.write(dt.now().year())
 
 
 conn = st.connection("postgresql", type="sql")
