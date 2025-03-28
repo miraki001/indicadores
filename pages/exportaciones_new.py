@@ -327,10 +327,10 @@ else:
 
 
     litros["mes"] = litros["mes"].astype(str)
-    #anio1 = litros[2024].header
+    anio1 = litros.columns[1]
     st.write(litros.columns[1])
-    anio2 = litros[2023]
-    anio3 = litros[2022]
+    anio2 = litros.columns[2]
+    anio3 = litros.columns[3]
 
     # Crear gráfico de líneas y barras
     option = {
@@ -345,9 +345,9 @@ else:
         "xAxis": {"type": "category", "data": litros["mes"].tolist()},
         "yAxis": {"type": "value"},
         "series": [
-            {"data": litros[2024].tolist(), "type": "line", "name": "Litros", },
-            {"data": litros[2023].tolist(), "type": "line", "name": "Fob",},
-            {"data": litros[2022].tolist(), "type": "line", "name": "Precio x Lts", "color":'#07ECFA', },
+            {"data": litros[anio1].tolist(), "type": "line", "name": anio1, },
+            {"data": litros[anio2].tolist(), "type": "line", "name": anio2,},
+            {"data": litros[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
         ],
     }
 
