@@ -157,6 +157,7 @@ QUERY_V1 = f"""
 
 # Dataframe de datos filtrados
 dv1 = cargar_datos(QUERY_V1)
+dv2 = dv1
 if dv1.empty:
     st.warning("No se encontraron resultados con los filtros seleccionados.")
 else:
@@ -212,7 +213,7 @@ else:
             height = 800,
             hide_index=True)
 
-        st.write(dv1.describe(include=[np.number]))
+        st.write(dv2.describe(include=[np.number]))
   
     #st.dataframe(dv1)
 
