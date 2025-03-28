@@ -163,7 +163,7 @@ dv3 = dv2.transpose()
 actual = dt.now().year -3 
 st.write(actual)
 st.write(dv3)
-dv4 = dv3['anio'].gt(actual)
+dv4 = dv3.query("anio > actual")
 st.write(dv4)
 
 if dv1.empty:
