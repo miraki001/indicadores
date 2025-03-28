@@ -341,9 +341,9 @@ else:
         "xAxis": {"type": "category", "data": litros["mes"].tolist()},
         "yAxis": {"type": "value"},
         "series": [
-            {"data": litros[2024].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
-            {"data": litros[2023].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
-            {"data": litros[2022].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 1, "color":'#07ECFA', },
+            {"data": litros[2024].tolist(), "type": "line", "name": "Litros", },
+            {"data": litros[2023].tolist(), "type": "line", "name": "Fob",},
+            {"data": litros[2022].tolist(), "type": "line", "name": "Precio x Lts, "color":'#07ECFA', },
         ],
     }
 
