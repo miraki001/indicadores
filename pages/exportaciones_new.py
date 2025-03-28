@@ -174,6 +174,7 @@ dv2 = cargar_datos(QUERY_V2)
 pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum') 
 
 st.dataframe(pivot)
+st.write(dv2)
 
 #dv2 = dv1
 st.write(dv2)
