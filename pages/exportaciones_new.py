@@ -188,6 +188,7 @@ st.write(litros)
 #dv3 = dv2.transpose()
 #st.dataframe(pivot)
 st.write(len(litros.columns))
+st.write(litros.keys())
 litros = litros.rename(columns={'2024': "anterior", '2023': "2023",})
 st.write(litros)
 
