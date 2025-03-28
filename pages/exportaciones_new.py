@@ -171,7 +171,7 @@ QUERY_V2 = f"""
 dv1 = cargar_datos(QUERY_V1)
 dv2 = cargar_datos(QUERY_V2)
 
-pivot = pd.pivot_table(dv2, values="litros","fob", index=['mes'],columns=['anio'])
+pivot = pd.pivot_table(dv2, values="litros", index=['mes'],columns=['anio','fob','litros'])
 st.dataframe(pivot)
 
 #dv2 = dv1
