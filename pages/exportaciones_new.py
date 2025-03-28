@@ -336,7 +336,7 @@ else:
 
     litros["mes"] = litros["mes"].astype(str)
     anio1 = litros.columns[1]
-    st.write(litros.columns[1])
+    #st.write(litros.columns[1])
     anio2 = litros.columns[2]
     anio3 = litros.columns[3]
 
@@ -365,7 +365,7 @@ else:
    
     fob["mes"] = fob["mes"].astype(str)
     anio1 = fob.columns[1]
-    st.write(fob.columns[1])
+    #st.write(fob.columns[1])
     anio2 = fob.columns[2]
     anio3 = fob.columns[3]
 
