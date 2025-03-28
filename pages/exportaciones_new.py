@@ -162,7 +162,7 @@ QUERY_V2 = f"""
     FROM exportaciones2_m 
     WHERE {where_clause}
     and producto not in ('Mosto','Alcohol')
-    and anio > {}
+    and anio > { actual }
     GROUP BY anio 
     ORDER BY anio 
 """
