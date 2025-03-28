@@ -171,7 +171,7 @@ QUERY_V2 = f"""
 dv1 = cargar_datos(QUERY_V1)
 dv2 = cargar_datos(QUERY_V2)
 
-st.write(dv2)
+#st.write(dv2)
 
 litros = dv2.pivot_table(
       index='mes', 
