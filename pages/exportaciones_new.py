@@ -328,7 +328,7 @@ else:
 
     litros["mes"] = litros["mes"].astype(str)
     #anio1 = litros[2024].header
-    st.write(litros.columns)
+    st.write(litros.columns[2])
     anio2 = litros[2023]
     anio3 = litros[2022]
 
