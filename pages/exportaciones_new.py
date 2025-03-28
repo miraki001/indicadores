@@ -161,7 +161,9 @@ dv1 = cargar_datos(QUERY_V1)
 dv2 = dv1
 dv3 = dv2.transpose()
 actual = dt.now().year -3 
-dv3 = dv3.gt(actual ,axis = 1)
+st.write(actual)
+st.write(dv3)
+dv3 = dv3.gt(actual ,axis = 0)
 st.write(dv3)
 
 if dv1.empty:
