@@ -176,6 +176,9 @@ pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum')
 #st.dataframe(pivot)
 st.write(pivot)
 
+pivot.columns = pivot.columns.droplevel(0)
+pivot = pivot.reset_index().rename_axis(None, axis=1)
+st.write(pivot)
 #dv2 = dv1
 #st.write(dv2)
 actual = dt.now().year -4 
