@@ -174,10 +174,10 @@ dv2 = cargar_datos(QUERY_V2)
 pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum') 
 
 st.dataframe(pivot)
-st.write(dv2)
+#st.write(dv2)
 
 #dv2 = dv1
-st.write(dv2)
+#st.write(dv2)
 actual = dt.now().year -4 
 
 dv2  =  dv2[dv2["anio"] > actual]
@@ -185,7 +185,7 @@ dv2  =  dv2[dv2["anio"] > actual]
 dv3 = dv2.transpose()
 #actual = dt.now().year -3 
 #st.write(actual)
-#st.write(dv3)
+st.write(dv3)
 #dv4 = dv3.query('anio > actual')
 #st.write(dv3)
 
