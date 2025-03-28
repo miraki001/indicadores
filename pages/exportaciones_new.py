@@ -160,7 +160,8 @@ QUERY_V1 = f"""
 dv1 = cargar_datos(QUERY_V1)
 dv2 = dv1
 dv3 = dv2.transpose()
-st.write(dt.now().year)
+dv3 = dv3.gt(dt.now().year -3 ,axis = 'anio')
+#st.write(dt.now().year)
 
 if dv1.empty:
     st.warning("No se encontraron resultados con los filtros seleccionados.")
