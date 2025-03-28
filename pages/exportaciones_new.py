@@ -187,7 +187,7 @@ st.write(litros)
 pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum') 
 #dv3 = dv2.transpose()
 #st.dataframe(pivot)
-st.write(litros['2024'])
+st.write(litros['mes'])
 
 #pivot.columns = pivot.columns.droplevel(0)
 #pivot = pivot.reset_index().rename_axis(None, axis=1)
