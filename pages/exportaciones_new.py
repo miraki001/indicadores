@@ -178,7 +178,7 @@ st.write(pivot)
 
 #pivot.columns = pivot.columns.droplevel(0)
 #pivot = pivot.reset_index().rename_axis(None, axis=1)
-st.write(pivot[0])
+#st.write(pivot[0])
 #dv2 = dv1
 #st.write(dv2)
 actual = dt.now().year -4 
