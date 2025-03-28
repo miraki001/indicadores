@@ -320,3 +320,38 @@ else:
     }
 
     st_echarts(options=option, height="400px")
+
+
+
+    litros["mes"] = litros["mes"].astype(str)
+
+    # Crear gráfico de líneas y barras
+    option = {
+      "color": [
+            '#332D75',
+            '#1E8DB6',
+            '#604994',
+            '#dd6b66',
+        ],
+        "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+        "legend": {},
+        "xAxis": {"type": "category", "data": litros["mes"].tolist()},
+        "yAxis": [
+            {"type": "value" ,"name" : "Litros" ,
+             "axisLine": {
+                "show": 'false',
+              },              
+             "axisLabel": {
+                "formatter": '{value} '
+                  }
+            } ,
+           
+        ],
+        "series": [
+            {"data": litros["2025"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
+            {"data": litros["2024"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
+            {"data": litros["2023"].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 2, "color":'#07ECFA', },
+        ],
+    }
+
+    st_echarts(options=option, height="400px")
