@@ -348,9 +348,9 @@ else:
            
         ],
         "series": [
-            {"data": litros["2025"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
-            {"data": litros["2024"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
-            {"data": litros["2023"].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 2, "color":'#07ECFA', },
+            {"data": litros[1].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
+            {"data": litros[2].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
+            {"data": litros[3].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 2, "color":'#07ECFA', },
         ],
     }
 
