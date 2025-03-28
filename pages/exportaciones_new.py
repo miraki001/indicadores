@@ -189,7 +189,7 @@ st.write(litros)
 #st.dataframe(pivot)
 st.write(len(litros.columns))
 litros = litros.rename(columns={'2024': "anterior", '2023': "2023",})
-st.write(litros['anterior'])
+st.write(litros[[2]])
 
 #pivot.columns = pivot.columns.droplevel(0)
 #pivot = pivot.reset_index().rename_axis(None, axis=1)
