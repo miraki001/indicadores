@@ -170,6 +170,10 @@ QUERY_V2 = f"""
 # Dataframe de datos filtrados
 dv1 = cargar_datos(QUERY_V1)
 dv2 = cargar_datos(QUERY_V2)
+
+pivot = pd.pivot_table(dv2, values="cnt", index=['anio','litros'],columns=['mes'])
+st.dataframe(pivot)
+
 #dv2 = dv1
 st.write(dv2)
 actual = dt.now().year -4 
