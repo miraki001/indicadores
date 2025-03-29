@@ -9,6 +9,7 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
+from exportaciones import exporta_evo
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "#EC654A" if value < 0 else "lightgreen"
