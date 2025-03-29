@@ -200,9 +200,9 @@ fob.columns = fob.columns.droplevel(0)
 fob = fob.reset_index().rename_axis(None, axis=1)
 ppl.columns = ppl.columns.droplevel(0)
 ppl = ppl.reset_index().rename_axis(None, axis=1)
-ppl  = ppl.fillna(0),
-fob  = fob.fillna(0),
-litros  = litros.fillna(0),
+ppl  = ppl.fillna(0)
+fob  = fob.fillna(0)
+litros  = litros.fillna(0)
 
 
 #st.write(litros)
