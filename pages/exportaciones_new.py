@@ -366,7 +366,6 @@ else:
             {"data": litros[anio1].tolist(), "type": "line", "name": anio1, },
             {"data": litros[anio2].tolist(), "type": "line", "name": anio2,},
             {"data": litros[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
-            {"data": ppl[anio3].tolist(), "type": "line", "name": anio3,  "yAxisIndex": 2, "color":'#07ECFA', },
         ],
     }
 
@@ -395,6 +394,35 @@ else:
         "series": [
             {"data": fob[anio1].tolist(), "type": "line", "name": anio1, },
             {"data": fob[anio2].tolist(), "type": "line", "name": anio2,},
+            {"data": fob[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
+        ],
+    }
+
+    st_echarts(options=option, height="400px")
+
+    st.subheader("Exportaciones evolución precio promedio por litro ")
+   
+    ppl["mes"] = ppl["mes"].astype(str)
+    anio1 = ppl.columns[1]
+    #st.write(fob.columns[1])
+    anio2 = ppl.columns[2]
+    anio3 = ppl.columns[3]
+
+    # Crear gráfico de líneas y barras
+    option = {
+      "color": [
+            '#332D75',
+            '#1E8DB6',
+            '#604994',
+            '#dd6b66',
+        ],
+        "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+        "legend": {},
+        "xAxis": {"type": "category", "data": litros["mes"].tolist()},
+        "yAxis": {"type": "value"},
+        "series": [
+            {"data": ppl[anio1].tolist(), "type": "line", "name": anio1, },
+            {"data": ppl[anio2].tolist(), "type": "line", "name": anio2,},
             {"data": fob[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
         ],
     }
