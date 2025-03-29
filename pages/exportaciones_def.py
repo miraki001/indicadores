@@ -51,7 +51,7 @@ listTabs = [
      "Mosto Productos",
 ]
 
-whitespace = 9
+whitespace = 29
 #tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab9 = st.tabs(["Evolución", "Destinos", "Variedades","Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos","                              "])
 
 tabs = st.tabs([s.center(whitespace,"-") for s in listTabs])
