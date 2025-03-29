@@ -15,6 +15,8 @@ def bgcolor_positive_or_negative(value):
     bgcolor = "#EC654A" if value < 0 else "lightgreen"
     return f"background-color: {bgcolor};"
 
+st.set_page_config(initial_sidebar_state="collapsed",
+                  layout="wide",menu_items=None,page_title="Miraki🖼")
 
 
 st.markdown(
