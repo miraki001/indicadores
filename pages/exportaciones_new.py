@@ -200,6 +200,10 @@ fob.columns = fob.columns.droplevel(0)
 fob = fob.reset_index().rename_axis(None, axis=1)
 ppl.columns = ppl.columns.droplevel(0)
 ppl = ppl.reset_index().rename_axis(None, axis=1)
+ppl  = ppl.fillna(0),
+fob  = fob.fillna(0),
+litros  = litros.fillna(0),
+
 
 #st.write(litros)
 #pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum') 
@@ -350,7 +354,6 @@ else:
     anio2 = litros.columns[2]
     anio3 = litros.columns[3]
     anio4 = litros.columns[4]
-    anio4  = anio4.fillna(0),
 
     # Crear gráfico de líneas y barras
     option = {
@@ -382,7 +385,6 @@ else:
     anio2 = fob.columns[2]
     anio3 = fob.columns[3]
     anio4 = fob.columns[4]
-    anio4  = anio4.fillna(0),
 
     # Crear gráfico de líneas y barras
     option = {
@@ -414,7 +416,6 @@ else:
     anio2 = ppl.columns[2]
     anio3 = ppl.columns[3]
     anio4 = ppl.columns[4]
-    anio4  = anio4.fillna(0),
 
     # Crear gráfico de líneas y barras
     option = {
