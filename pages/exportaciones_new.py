@@ -350,6 +350,7 @@ else:
     anio2 = litros.columns[2]
     anio3 = litros.columns[3]
     anio4 = litros.columns[4]
+    anio4  = anio4.fillna(0),
 
     # Crear gráfico de líneas y barras
     option = {
@@ -381,6 +382,7 @@ else:
     anio2 = fob.columns[2]
     anio3 = fob.columns[3]
     anio4 = fob.columns[4]
+    anio4  = anio4.fillna(0),
 
     # Crear gráfico de líneas y barras
     option = {
@@ -412,6 +414,7 @@ else:
     anio2 = ppl.columns[2]
     anio3 = ppl.columns[3]
     anio4 = ppl.columns[4]
+    anio4  = anio4.fillna(0),
 
     # Crear gráfico de líneas y barras
     option = {
