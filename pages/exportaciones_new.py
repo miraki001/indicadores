@@ -348,7 +348,7 @@ else:
 
     st.subheader("Exportaciones evolución mensual en litros")
 
-    litros["mes"] = litros["mes"].astype(str)
+    #litros["mes"] = litros["mes"].astype(str)
     anio1 = litros.columns[1]
     #st.write(litros.columns[1])
     anio2 = litros.columns[2]
@@ -379,7 +379,7 @@ else:
 
     st.subheader("Exportaciones evolución mensual en Fob")
    
-    fob["mes"] = fob["mes"].astype(str)
+    #fob["mes"] = fob["mes"].astype(str)
     anio1 = fob.columns[1]
     #st.write(fob.columns[1])
     anio2 = fob.columns[2]
@@ -410,7 +410,7 @@ else:
 
     st.subheader("Exportaciones evolución precio promedio por litro ")
    
-    ppl["mes"] = ppl["mes"].astype(str)
+    #ppl["mes"] = ppl["mes"].astype(str)
     anio1 = ppl.columns[1]
     #st.write(fob.columns[1])
     anio2 = ppl.columns[2]
