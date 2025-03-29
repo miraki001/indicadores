@@ -56,5 +56,5 @@ whitespace = 9
 
 tabs = st.tabs([s.center(whitespace,"-") for s in listTabs])
 
-with Evolución:
-    exporta_evo.exporta_evolucion()
+#with Evolución:
+#    exporta_evo.exporta_evolucion()
