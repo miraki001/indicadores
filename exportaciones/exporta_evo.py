@@ -55,7 +55,6 @@ def exporta_evolucion():
     conn = st.connection("postgresql", type="sql")
 
     @st.cache_data
-
     def cargar_datos(consulta):
         try:
             df = conn.query(consulta, ttl="0")
@@ -169,6 +168,7 @@ def exporta_evolucion():
     """
 
     # Dataframe de datos filtrados
+    @st.cache_data
     dv1 = cargar_datos(QUERY_V1)
     dv2 = cargar_datos(QUERY_V2)
 
