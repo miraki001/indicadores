@@ -349,6 +349,7 @@ else:
     #st.write(litros.columns[1])
     anio2 = litros.columns[2]
     anio3 = litros.columns[3]
+    anio4 = litros.columns[4]
 
     # Crear gráfico de líneas y barras
     option = {
@@ -366,6 +367,7 @@ else:
             {"data": litros[anio1].tolist(), "type": "line", "name": anio1, },
             {"data": litros[anio2].tolist(), "type": "line", "name": anio2,},
             {"data": litros[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
+            {"data": litros[anio4].tolist(), "type": "line", "name": anio4, "color":'#C92488', },
         ],
     }
 
@@ -378,6 +380,7 @@ else:
     #st.write(fob.columns[1])
     anio2 = fob.columns[2]
     anio3 = fob.columns[3]
+    anio4 = fob.columns[4]
 
     # Crear gráfico de líneas y barras
     option = {
@@ -395,6 +398,7 @@ else:
             {"data": fob[anio1].tolist(), "type": "line", "name": anio1, },
             {"data": fob[anio2].tolist(), "type": "line", "name": anio2,},
             {"data": fob[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
+            {"data": fob[anio4].tolist(), "type": "line", "name": anio4, "color":'#C92488', },
         ],
     }
 
@@ -407,6 +411,7 @@ else:
     #st.write(fob.columns[1])
     anio2 = ppl.columns[2]
     anio3 = ppl.columns[3]
+    anio4 = ppl.columns[4]
 
     # Crear gráfico de líneas y barras
     option = {
@@ -424,6 +429,7 @@ else:
             {"data": ppl[anio1].tolist(), "type": "line", "name": anio1, },
             {"data": ppl[anio2].tolist(), "type": "line", "name": anio2,},
             {"data": ppl[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
+            {"data": ppl[anio4].tolist(), "type": "line", "name": anio4, "color":'#C92488', },
         ],
     }
 
