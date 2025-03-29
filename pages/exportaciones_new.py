@@ -187,10 +187,20 @@ fob = dv2.pivot_table(
       values=['fob'],
       aggfunc='sum'
 )
+ppl = dv2.pivot_table(
+      index='mes', 
+      columns='anio',  
+      values=['ppl'],
+      aggfunc='sum'
+)
+
 litros.columns = litros.columns.droplevel(0)
 litros = litros.reset_index().rename_axis(None, axis=1)
 fob.columns = fob.columns.droplevel(0)
 fob = fob.reset_index().rename_axis(None, axis=1)
+ppl.columns = ppl.columns.droplevel(0)
+ppl = ppl.reset_index().rename_axis(None, axis=1)
+
 #st.write(litros)
 #pivot = pd.pivot_table(dv2, index=['mes'],columns=['anio'], aggfunc='sum') 
 #dv3 = dv2.transpose()
@@ -356,6 +366,7 @@ else:
             {"data": litros[anio1].tolist(), "type": "line", "name": anio1, },
             {"data": litros[anio2].tolist(), "type": "line", "name": anio2,},
             {"data": litros[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
+            {"data": ppl[anio3].tolist(), "type": "line", "name": anio3,  "yAxisIndex": 2, "color":'#07ECFA', },
         ],
     }
 
