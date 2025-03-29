@@ -265,6 +265,9 @@ def exporta_evolucion():
                 hide_index=True)
 
             st.write(dv2.describe(include=[np.number]))
+        else:
+            st.rerun() 
+
             #st.write(dv3)
   
         #st.dataframe(dv1)
