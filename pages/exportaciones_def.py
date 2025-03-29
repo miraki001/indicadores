@@ -26,7 +26,11 @@ st.markdown(
                     background-position: 80px 80px;
                     visibility: visible;  /* Ensure the header is visible */
                 }
-
+               button[data-baseweb="tab"] {
+                   font-size: 24px;
+                   margin: 0;
+                   width: 100%;
+               }
                .block-container {
                     padding-top: 0rem;
                     padding-bottom: 0rem;
@@ -52,9 +56,9 @@ listTabs = [
 ]
 
 whitespace = 29
-#tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab9 = st.tabs(["Evolución", "Destinos", "Variedades","Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos","                              "])
+tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab9 = st.tabs(["Evolución", "Destinos", "Variedades","Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos","                              "])
 
-tabs = st.tabs([s.center(whitespace,"-") for s in listTabs])
+#tabs = st.tabs([s.center(whitespace,"-") for s in listTabs])
 
-#with Evolución:
-#    exporta_evo.exporta_evolucion()
+with tab1:
+    exporta_evo.exporta_evolucion()
