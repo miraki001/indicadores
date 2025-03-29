@@ -168,7 +168,7 @@ def exporta_evolucion():
     """
 
     # Dataframe de datos filtrados
-    @st.cache_data
+
     dv1 = cargar_datos(QUERY_V1)
     dv2 = cargar_datos(QUERY_V2)
 
