@@ -39,6 +39,7 @@ st.markdown(
 )
 
 #st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+st.set_page_config(layout="wide")
 
 tab1, tab2, tab3,tab4,tab5,tab6,tab9 = st.tabs(["Evolución", "Destinos", "Variedades","Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos"])
 
