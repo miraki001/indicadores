@@ -16,7 +16,7 @@ def bgcolor_positive_or_negative(value):
     return f"background-color: {bgcolor};"
 
 st.set_page_config(initial_sidebar_state="collapsed",
-                  layout="wide",menu_items=None,page_title="Miraki🖼")
+                  layout="wide",menu_items=None)
 
 
 st.markdown(
