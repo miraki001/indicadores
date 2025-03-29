@@ -423,7 +423,7 @@ else:
         "series": [
             {"data": ppl[anio1].tolist(), "type": "line", "name": anio1, },
             {"data": ppl[anio2].tolist(), "type": "line", "name": anio2,},
-            {"data": fob[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
+            {"data": ppl[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
         ],
     }
 
