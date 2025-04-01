@@ -144,3 +144,5 @@ def exporta_destino():
         st.write(variedad)
 
     st.write("Tabla de Datos: ", df_filtered)
+    st.write(año)
+    st.write(variedad)
