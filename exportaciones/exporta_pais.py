@@ -107,7 +107,6 @@ def exporta_destino():
 
     dv1 = cargar_datos(QUERY_V1)
  
-    st.write("Tabla de Datos: ", dv1)
     dv1['anio'] = dv1['anio'].astype(str)
 
     
