@@ -128,5 +128,16 @@ def exporta_destino():
 
 
     # Dataframe de datos filtrados
-
+    df_filtered
     dv1 = cargar_datos(QUERY_V1)
+    df_filtered = dv1.copy()
+
+    
+    if año:
+        df_filtered = df_filtered[df_filtered['anio'].isin(año)]
+        df_filtered["anio"] = df_filtered["anio"].astype(str)
+
+    if Varieadad:
+        df_filtered = df_filtered[df_filtered['varieadad1'].isin(país)]
+
+    st.write("Tabla de Datos: ", df_filtered)
