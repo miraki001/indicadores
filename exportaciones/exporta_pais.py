@@ -146,6 +146,6 @@ def exporta_destino():
         st.write(variedad)
 
 
-    df_anual = df_filtered.groupby(['anio','variedad1','tipo_envase'], as_index=False)[['fob', 'litros']].sum()
+    df_anual = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros']].sum()
     st.write("Tabla de Datos: ", df_anual)
 
