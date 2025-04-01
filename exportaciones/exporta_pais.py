@@ -111,9 +111,9 @@ def exporta_destino():
             
         # Columna 2: Filtro para Países
         with col2:
-            with st.popover("País"):
-                st.caption("Selecciona uno o más países de la lista")
-                país = st.multiselect("Países", df['pais'].unique(), default=[],label_visibility="collapsed")
+            with st.popover("Variedad"):
+                st.caption("Selecciona uno o más Variedades de la lista")
+                Varieadad = st.multiselect("Variedad",  ["Todas"] + year_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
