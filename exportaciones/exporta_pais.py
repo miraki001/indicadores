@@ -100,7 +100,7 @@ def exporta_destino():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
         FROM exportaciones2_m 
     """
 
@@ -145,6 +145,6 @@ def exporta_destino():
             st.write(variedad)
 
 
-    df_anual = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros']].sum()
+    df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     st.write("Tabla de Datos: ", df_anual)
 
