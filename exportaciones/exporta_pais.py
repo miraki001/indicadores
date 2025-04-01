@@ -98,6 +98,18 @@ def exporta_destino():
             </style>
         '''
     )
+
+    QUERY_V1 = f"""
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,envase
+        FROM exportaciones2_m 
+    """
+
+
+    dv1 = cargar_datos(QUERY_V1)
+    df_filtered = dv1.copy()
+
+
+    
     with st.container(border=True):
         col1, col2, col3 = st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
 
@@ -120,17 +132,6 @@ def exporta_destino():
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
                 Envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
-
-    QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,envase
-        FROM exportaciones2_m 
-    """
-
-
-    # Dataframe de datos filtrados
-    df_filtered
-    dv1 = cargar_datos(QUERY_V1)
-    df_filtered = dv1.copy()
 
     
     if año:
