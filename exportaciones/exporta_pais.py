@@ -10,7 +10,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
 
-def exporta_pais():
+def exporta_destino():
 
     def bgcolor_positive_or_negative(value):
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
