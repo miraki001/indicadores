@@ -10,6 +10,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
 from exportaciones import exporta_evo
+from exportaciones import exporta_pais
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "#EC654A" if value < 0 else "lightgreen"
@@ -64,3 +65,5 @@ tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab9 = st.tabs(["Evolución", "Destinos", "
 
 with tab1:
     exporta_evo.exporta_evolucion()
+with tab2:
+    exporta_pais.exporta_pais()    
