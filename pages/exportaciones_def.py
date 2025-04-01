@@ -32,6 +32,33 @@ tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Evolución", "Destinos", "Varie
 #tab1, tab2, tab3,tab4 = st.tabs(["Evolución", "Totales", "Filtros","Por Provincias"])
 #tabs = st.tabs([s.center(whitespace,"-") for s in listTabs])
 
+st.markdown(
+    """
+        <style>
+                .stAppHeader {
+                    background-color: rgba(255, 255, 255, 0.0);  /* Transparent background */
+                    background-image: url(http://placekitten.com/200/200);
+                    background-position: 80px 80px;
+                    visibility: visible;  /* Ensure the header is visible */
+                }
+               button[data-baseweb="tab"] {
+                   font-size: 24px;
+                   margin: 0;
+                   width: 100%;
+               }
+               .block-container {
+                    padding-top: 0rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 2rem;
+                }
+        </style>
+        """,
+    unsafe_allow_html=True,
+)
+
+
+
 with tab1:
     exporta_evo.exporta_evolucion()
     
