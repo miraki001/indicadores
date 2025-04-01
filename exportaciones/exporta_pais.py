@@ -113,9 +113,11 @@ def exporta_destino():
         with col2:
             with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                Varieadad = st.multiselect("Variedad",  ["Todas"] + year_list, default=["Todas"],label_visibility="collapsed")
+                Varieadad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
-            st.write("")
+            with st.popover("Envase"):
+                st.caption("Selecciona uno o más Envases de la lista")
+                Envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
