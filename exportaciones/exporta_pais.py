@@ -125,13 +125,13 @@ def exporta_destino():
         with col2:
             with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                Varieadad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+                variedad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
-                Envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+                envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
     
     if año:
@@ -139,6 +139,6 @@ def exporta_destino():
         df_filtered["anio"] = df_filtered["anio"].astype(str)
 
     if Varieadad:
-        df_filtered = df_filtered[df_filtered['variedad1'].isin(Varieadad)]
+        df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
 
     st.write("Tabla de Datos: ", df_filtered)
