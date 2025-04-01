@@ -16,10 +16,10 @@ def bgcolor_positive_or_negative(value):
     bgcolor = "#EC654A" if value < 0 else "lightgreen"
     return f"background-color: {bgcolor};"
 
-#st.set_page_config(initial_sidebar_state="collapsed",
-#                  layout="wide",menu_items=None)
+st.set_page_config(initial_sidebar_state="collapsed",
+                  layout="wide",menu_items=None)
 
-
+"""
 st.markdown(
     """
         <style>
@@ -44,7 +44,7 @@ st.markdown(
         """,
     unsafe_allow_html=True,
 )
-
+"""
 #st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 #st.set_page_config(layout="wide")
 
