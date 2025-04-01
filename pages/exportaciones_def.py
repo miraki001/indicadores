@@ -59,8 +59,9 @@ listTabs = [
 ]
 
 whitespace = 29
-tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab9 = st.tabs(["Evolución", "Destinos", "Variedades","Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos","                              "])
+tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Evolución", "Destinos", "Variedades","Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos"])
 
+#tab1, tab2, tab3,tab4 = st.tabs(["Evolución", "Totales", "Filtros","Por Provincias"])
 #tabs = st.tabs([s.center(whitespace,"-") for s in listTabs])
 
 with tab1:
