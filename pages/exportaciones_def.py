@@ -67,5 +67,5 @@ with tab1:
     exporta_evo.exporta_evolucion()
     
 with tab2:
-    exporta_pais.exporta_pais()    
+    exporta_pais.exporta_destino()    
     
