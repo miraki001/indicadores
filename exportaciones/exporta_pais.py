@@ -139,6 +139,6 @@ def exporta_destino():
         df_filtered["anio"] = df_filtered["anio"].astype(str)
 
     if Varieadad:
-        df_filtered = df_filtered[df_filtered['variedad1'].isin(país)]
+        df_filtered = df_filtered[df_filtered['variedad1'].isin(Varieadad)]
 
     st.write("Tabla de Datos: ", df_filtered)
