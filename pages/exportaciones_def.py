@@ -41,11 +41,7 @@ st.markdown(
                     background-position: 80px 80px;
                     visibility: visible;  /* Ensure the header is visible */
                 }
-               button[data-baseweb="tab"] {
-                   font-size: 24px;
-                   margin: 0;
-                   width: 100%;
-               }
+
                .block-container {
                     padding-top: 0rem;
                     padding-bottom: 0rem;
