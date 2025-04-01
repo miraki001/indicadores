@@ -10,7 +10,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
 
-def exporta_evolucion():
+def exporta_pais():
 
     def bgcolor_positive_or_negative(value):
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
@@ -98,5 +98,23 @@ def exporta_evolucion():
             </style>
         '''
     )
+    with st.container(border=True):
+        col1, col2, col3 = st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
 
+    # Columna 1: Filtro para Año
+        with col1:
+            with st.popover("Año"):
+                st.caption("Selecciona uno o más años de la lista")
+                año = st.multiselect("Año", valores_anio_ordenados, default=[],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = [str(a) for a in año]  # Asegura que la selección sea string también
+            
+        # Columna 2: Filtro para Países
+        with col2:
+            with st.popover("País"):
+                st.caption("Selecciona uno o más países de la lista")
+                país = st.multiselect("Países", df['pais'].unique(), default=[],label_visibility="collapsed")
+    
+        # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
+        with col3:
+            st.write("")
 
