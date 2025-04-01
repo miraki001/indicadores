@@ -107,7 +107,7 @@ def exporta_destino():
 
     dv1 = cargar_datos(QUERY_V1)
     df_filtered = dv1.copy()
-
+    st.write("Tabla de Datos: ", dv1)
 
     
     with st.container(border=True):
