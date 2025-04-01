@@ -141,7 +141,7 @@ def exporta_destino():
         df_filtered["anio"] = df_filtered["anio"].astype(str)
 
 
-    if variedad != 'Todas':
+    if variedad != "Todas":
         df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
         st.write(variedad)
 
