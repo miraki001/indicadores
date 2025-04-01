@@ -65,5 +65,7 @@ tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab9 = st.tabs(["Evolución", "Destinos", "
 
 with tab1:
     exporta_evo.exporta_evolucion()
+    
 with tab2:
     exporta_pais.exporta_pais()    
+    
