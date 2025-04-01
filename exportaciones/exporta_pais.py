@@ -106,7 +106,7 @@ def exporta_destino():
 
 
     dv1 = cargar_datos(QUERY_V1)
-    df_filtered = dv1.copy()
+ 
     st.write("Tabla de Datos: ", dv1)
 
     
@@ -133,7 +133,8 @@ def exporta_destino():
                 st.caption("Selecciona uno o más Envases de la lista")
                 envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
-    
+    df_filtered = dv1.copy()
+
     if año:
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)
