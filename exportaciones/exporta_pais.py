@@ -140,10 +140,10 @@ def exporta_destino():
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)
 
-
-    if variedad[0] != 'Todas':
-        df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
-        st.write(variedad)
+    if variedad:
+        if variedad[0] != 'Todas':
+            df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
+            st.write(variedad)
 
 
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros']].sum()
