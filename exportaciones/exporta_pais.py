@@ -170,7 +170,7 @@ def exporta_destino():
     df_anual['Prec x Litro'] = tot2
 
     
-    df_sorted = df_anual.sort_values(by='fob', ascending=False)
+    df_sorted = df_anual.sort_values(by='Fob', ascending=False)
 
     st.dataframe(df_sorted)
     json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
