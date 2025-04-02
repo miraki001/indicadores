@@ -153,7 +153,7 @@ def exporta_color():
     total.append(0)
     tot1.append(0)
     tot2.append(0)
-    df_anual.columns = df_anual.columns.droplevel(0)
+    #df_anual.columns = df_anual.columns.droplevel(0)
     #st.write(df_anual['litros'])
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     totlitros = df_anual['litros'].sum()
