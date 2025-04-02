@@ -161,11 +161,11 @@ def exporta_color():
     totlitros = df_anual['litros'].sum()
     totfob = df_anual['fob'].sum()
     st.write(range(len(df_anual)))
-    for index in range(len(df_anual)):
+    for index in range(len(df_anual)-1):
         #if index > 0:
-            total.append((  (df_anual['litros'].loc[index-1] / totlitros ) *100 ))
-            tot1.append((  (df_anual['fob'].loc[index-1] / totfob *100 )))
-            tot2.append((  (df_anual['fob'].loc[index-1] / df_anual['litros'].loc[index]) )    )
+            total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 ))
+            tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )))
+            tot2.append((  (df_anual['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
         #st.write(total)
     df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
     df_anual['Part. % Litros'] = total
