@@ -209,7 +209,7 @@ def exporta_destino():
         ]
     }
     st_echarts(
-        options=option, height="600px",
+        options=option,key="gauge2" + str(dt.now()), height="600px",
     )
     st.subheader('Exportaciones por Pais en Fob')
     
@@ -249,6 +249,6 @@ def exporta_destino():
         ]
     }
     st_echarts(
-        options=option, height="600px",
+        options=option,key="gauge4" + str(dt.now()), height="600px",
     )
 
