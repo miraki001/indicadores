@@ -45,6 +45,6 @@ with tab2:
     exporta_pais.exporta_destino()  
     
 with tab3:
-    exporta_pais.exporta_variedad()    
+    exporta_pais.exporta_variedades()    
     
    
