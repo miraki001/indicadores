@@ -154,7 +154,7 @@ def exporta_destino():
     tot1.append(0)
     tot2.append(0)
     #df_anual.columns = df_anual.columns.droplevel(0)
-    st.write(df_anual['litros'])
+    #st.write(df_anual['litros'])
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     totlitros = df_anual['litros'].sum()
     totfob = df_anual['fob'].sum()
@@ -173,6 +173,7 @@ def exporta_destino():
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
 
     st.dataframe(df_sorted)
+    dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "values", 'pais': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
     st.subheader('Exportaciones por Variedad')
