@@ -176,7 +176,6 @@ def exporta_color():
 
     options = {
         "color": [
-
             '#332D75',
             '#1E8DB6',
             '#604994',
@@ -191,7 +190,7 @@ def exporta_color():
             '#7289ab',
             '#91ca8c',
             '#f49f42'
-             ],
+        ],
         "title": {"text": "exportacion por color", "subtext": "ver1", "left": "center"},
         "tooltip": {"trigger": "item"},
         "legend": {"orient": "vertical", "left": "left",},
