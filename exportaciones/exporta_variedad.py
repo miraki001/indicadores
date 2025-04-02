@@ -129,9 +129,9 @@ def exporta_variedades():
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
-            with st.popover("Envase1"):
+            with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
-                envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+                envase = st.multiselect("Envase1",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
     df_filtered = dv1.copy()
 
