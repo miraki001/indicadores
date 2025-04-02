@@ -188,7 +188,47 @@ def exporta_destino():
                 "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
             ).js_code,
         },
-        "legend": {"data": ["litros","variedad1"]},   
+        "legend": {"data": ["litros","Pais"]},   
+        "series": [
+                {
+                    "name": "Ventas Totales",
+                    "type": "treemap",
+                    "visibleMin": 100,
+                    "label": {"show": True, "formatter": "{b}"},
+                    "itemStyle": {"borderColor": "#fff"},
+                    "levels": [
+                        {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
+                        {"itemStyle": {"gapWidth": 1}},
+                        {
+                            "colorSaturation": [0.35, 0.5],
+                            "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
+                        },
+                    ],
+                    "data": json_list,
+                }
+        ]
+    }
+    st_echarts(
+        options=option, height="600px",
+    )
+    st.subheader('Exportaciones por Pais en Fob')
+    
+    dv = dv.rename(columns={'value': "litros", 'pais': "name",})
+    dv = dv.rename(columns={'fob': "value", 'pais': "name",})
+    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+
+    #st.write(json_list)
+
+
+    option = {
+        "tooltip": {
+            #"trigger": 'axis',
+            #"axisPointer": { "type": 'cross' },
+            "formatter": JsCode(
+                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
+            ).js_code,
+        },
+        "legend": {"data": ["litros","Pais"]},   
         "series": [
                 {
                     "name": "Ventas Totales",
