@@ -47,6 +47,6 @@ with tab2:
     
 with tab3:
     exporta_variedad.exporta_variedades()    
- with tab4:
+with tab4:
     exporta_color.exporta_color()    
    
