@@ -184,7 +184,7 @@ def exporta_color():
                 "type": "pie",
                 "radius": "50%",
                 "data":json_list,
-                "label": {"show": True, "position": "center"},
+                "label": {"show": False, "position": "center"},
                 "emphasis": {
                     "itemStyle": {
                         "shadowBlur": 10,
