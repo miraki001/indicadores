@@ -334,8 +334,8 @@ def exporta_evolucion():
         anio2 = litros.columns[2]
         anio3 = litros.columns[3]
         anio4 = litros.columns[4]
-        if anio1.empty:
-            st.rerun()
+        st.write('año')
+        st.write(anio1)
 
         # Crear gráfico de líneas y barras
         option = {
