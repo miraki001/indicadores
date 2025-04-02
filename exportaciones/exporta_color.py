@@ -175,12 +175,12 @@ def exporta_color():
     #st.write(json_list)
 
     options = {
-        "title": {"text": "某站点用户访问来源", "subtext": "纯属虚构", "left": "center"},
+        "title": {"text": "exportacion por color", "subtext": "ver1", "left": "center"},
         "tooltip": {"trigger": "item"},
         "legend": {"orient": "vertical", "left": "left",},
         "series": [
             {
-                "name": "访问来源",
+                "name": df['color'],
                 "type": "pie",
                 "radius": "50%",
                 "data":json_list,
