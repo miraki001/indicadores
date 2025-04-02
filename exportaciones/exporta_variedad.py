@@ -117,19 +117,19 @@ def exporta_variedades():
         with col1:
             with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año",  ["Todos"] + year_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Año1",  ["Todos"] + year_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
         # Columna 2: Filtro para Países
         with col2:
-            with st.popover("Variedad"):
+            with st.popover("Variedad1"):
                 st.caption("Selecciona uno o más Variedades de la lista")
                 variedad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
-            with st.popover("Envase"):
+            with st.popover("Envase1"):
                 st.caption("Selecciona uno o más Envases de la lista")
                 envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
