@@ -221,7 +221,6 @@ def exporta_color():
                 "data": json_list
                 ],
             }
-            ],
         }
         st_echarts(
             options=option, height="200px",
