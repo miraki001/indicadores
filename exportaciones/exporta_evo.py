@@ -324,7 +324,7 @@ def exporta_evolucion():
             ],
         }
 
-        st_echarts(options=option,true,key="gauge" + str(dt.now()), height="400px")
+        st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
 
         st.subheader("Exportaciones evolución mensual en litros")
        
@@ -357,7 +357,7 @@ def exporta_evolucion():
             ],
         }
 
-        st_echarts(options=option,true,key="otro" + str(dt.now()), height="400px")
+        st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
 
         st.subheader("Exportaciones evolución mensual en Fob")
    
