@@ -272,7 +272,7 @@ def exporta_evolucion():
 
         # Convertir 'anio' a string para el gráfico
         dv1["Año"] = dv1["Año"].astype(str)
-
+        placeholder = st.empty()
         # Crear gráfico de líneas y barras
         option = {
           "color": [
@@ -324,7 +324,7 @@ def exporta_evolucion():
             ],
         }
 
-        st_echarts(options=option,key="gauge" + str(datetime.datetime.now()), height="400px")
+        st_echarts(options=option,key="gauge" + str(dt.datetime.now()), height="400px")
 
         st.subheader("Exportaciones evolución mensual en litros")
 
