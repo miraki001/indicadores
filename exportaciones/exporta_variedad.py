@@ -117,7 +117,7 @@ def exporta_variedades():
         with col1:
             with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año1",  ["2024"] + year_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Año1",  [2024] + year_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
