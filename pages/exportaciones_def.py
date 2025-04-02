@@ -12,6 +12,7 @@ from datetime import datetime as dt
 from exportaciones import exporta_evo
 from exportaciones import exporta_pais
 from exportaciones import exporta_variedad
+from exportaciones import exporta_color
 
 
 def bgcolor_positive_or_negative(value):
@@ -46,5 +47,6 @@ with tab2:
     
 with tab3:
     exporta_variedad.exporta_variedades()    
-    
+ with tab4:
+    exporta_color.exporta_color()    
    
