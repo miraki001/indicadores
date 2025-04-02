@@ -174,56 +174,30 @@ def exporta_color():
     st.subheader('Exportaciones por Variedad en Litros')
     #st.write(json_list)
 
-    option = {
-        "color": [
-            '#dd6b66',
-            '#759aa0',
-            '#e69d87',
-            '#8dc1a9',
-            '#ea7e53',
-            '#eedd78',
-            '#73a373',
-            '#73b9bc',
-            '#7289ab',
-            '#91ca8c',
-            '#f49f42'
-        ],            
-        "tooltip": {
-            "trigger": "item"
-        },    
-        "legend": {
-            "top": "1%",
-            "left": "center" 
-            },
-        "label": {
-            "alignTo": 'edge',
-#            "formatter": '{name|{b}}\n{time|{c} }',
-            "formatter": '{name|{b}}\n  ({d}%)  ',
-            "minMargin": 5,
-            "edgeDistance": 10,
-            "lineHeight": 15,
-            "rich": {
-              "time": {
-              "fontSize": 10,
-               "color": '#999'
-              }
-            }
-        },    
-
+    options = {
+        "title": {"text": "某站点用户访问来源", "subtext": "纯属虚构", "left": "center"},
+        "tooltip": {"trigger": "item"},
+        "legend": {"orient": "vertical", "left": "left",},
         "series": [
             {
-                "name": "año 2023",
+                "name": "访问来源",
                 "type": "pie",
-                "radius": ["40%", "70%"],
-                "center": ["50%", "50%"],
-                "startAngle": 180,
-                "endAngle": 360,
-                "data": json_list,
+                "radius": "50%",
+                "data":json_list,
+                "emphasis": {
+                    "itemStyle": {
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)",
+                    }
+                },
             }
-        }
-        st_echarts(
-            options=option, height="200px",
-        )
+        ],
+    }
+    st_echarts(
+        options=options, height="600px",
+    )
+
 
     
 
