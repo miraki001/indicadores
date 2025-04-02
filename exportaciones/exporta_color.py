@@ -161,8 +161,8 @@ def exporta_color():
     totlitros = df_anual['litros'].sum()
     totfob = df_anual['fob'].sum()
     st.write(range(len(df_anual)))
-    for index in range(len(df_anual)):
-        if index > 0:
+    for index in range(len(df_anual)-1):
+        #if index > 0:
             st.write(totlitros)
             st.write(df_anual['litros'].loc[index])
             st.write(index)
