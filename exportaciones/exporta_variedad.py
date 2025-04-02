@@ -150,16 +150,16 @@ def exporta_variedades():
     total = []
     tot1 = []
     tot2 = []
-    total.append(0)
-    tot1.append(0)
-    tot2.append(0)
+    #total.append(0)
+    #tot1.append(0)
+    #tot2.append(0)
     #df_anual.columns = df_anual.columns.droplevel(0)
     #st.write(df_anual['litros'])
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     totlitros = df_anual['litros'].sum()
     totfob = df_anual['fob'].sum()
     for index in range(len(df_anual)):
-        if index > 0:
+        #if index > 0:
             total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 ))
             tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )))
             tot2.append((  (df_anual['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
