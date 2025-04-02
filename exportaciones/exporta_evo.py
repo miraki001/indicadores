@@ -335,7 +335,7 @@ def exporta_evolucion():
         anio3 = litros.columns[3]
         anio4 = litros.columns[4]
         st.write('año')
-        st.write(litros["mes"])
+        #st.write(litros["mes"])
 
         # Crear gráfico de líneas y barras
         option = {
@@ -388,7 +388,7 @@ def exporta_evolucion():
             ],
         }
 
-        st_echarts(options=option, height="400px")
+        st_echarts(options=option,key="otro1" + str(dt.now()), height="400px")
 
         st.subheader("Exportaciones evolución precio promedio por litro ")
    
@@ -419,4 +419,4 @@ def exporta_evolucion():
             ],
         }
 
-        st_echarts(options=option, height="400px")
+        st_echarts(options=option,key="otro2" + str(dt.now()), height="400px")
