@@ -324,7 +324,7 @@ def exporta_evolucion():
             ],
         }
 
-        st_echarts(options=option, height="400px")
+        st_echarts(options=option,key="gauge" + str(datetime.datetime.now(), height="400px")
 
         st.subheader("Exportaciones evolución mensual en litros")
 
