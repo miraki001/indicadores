@@ -168,6 +168,7 @@ def exporta_color():
             tot2.append((  (df_anual['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
         #st.write(total)
     df_anual = df_anual.sort_index(axis = 1)
+    st.write(tot1)
     df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
     df_anual['Part. % Litros'] = total
     df_anual['Part % Fob '] = tot1
