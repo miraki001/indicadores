@@ -264,7 +264,7 @@ def exporta_evolucion():
                 height = 800,
                 hide_index=True)
 
-            st.write(dv2.describe(include=[np.number]))
+            st.write(dv1.describe(include=[np.number]))
 
             #st.write(dv3)
   
