@@ -159,7 +159,7 @@ def exporta_destino():
         if index > 0:
             total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 ))
             tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )))
-            tot2.append((  (df_anual['litros'].loc[index] / df_anual['fob'].loc[index 1]) -1 ) *100     )
+            tot2.append((  (df_anual['litros'].loc[index] / df_anual['fob'].loc[index]) -1 ) *100     )
         #st.write(total)
     df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
     df_anual['Part. % Litros'] = total
