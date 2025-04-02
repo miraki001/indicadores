@@ -180,7 +180,7 @@ def exporta_color():
         "legend": {"orient": "vertical", "left": "left",},
         "series": [
             {
-                "name": df['color'],
+                "name": df_anual['color'],
                 "type": "pie",
                 "radius": "50%",
                 "data":json_list,
