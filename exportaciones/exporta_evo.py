@@ -327,7 +327,7 @@ def exporta_evolucion():
         st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
 
         st.subheader("Exportaciones evolución mensual en litros")
-
+        st.rerun()
         #litros["mes"] = litros["mes"].astype(str)
         anio1 = litros.columns[1]
         #st.write(litros.columns[1])
