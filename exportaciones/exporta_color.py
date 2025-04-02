@@ -175,6 +175,23 @@ def exporta_color():
     #st.write(json_list)
 
     options = {
+        "color": [
+
+            '#332D75',
+            '#1E8DB6',
+            '#604994',
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+             ],
         "title": {"text": "exportacion por color", "subtext": "ver1", "left": "center"},
         "tooltip": {"trigger": "item"},
         "legend": {"orient": "vertical", "left": "left",},
