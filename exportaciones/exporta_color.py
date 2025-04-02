@@ -169,9 +169,9 @@ def exporta_color():
 
     st.dataframe(df_sorted)
     #dv.drop('fob', axis=1, inplace=True)
-    dv = dv.rename(columns={'litros': "value", 'variedad1': "name",})
+    dv = dv.rename(columns={'litros': "value", 'color': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
-    st.subheader('Exportaciones por Variedad en Litros')
+    st.subheader('Exportaciones por color en Litros')
     #st.write(json_list)
 
     options = {
