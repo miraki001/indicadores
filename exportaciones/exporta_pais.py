@@ -148,5 +148,6 @@ def exporta_destino():
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     #df_anual.sort_values(by=['fob'])
     df_anual.sort_values(by='fob', ascending=False)
+    df_anual.sort_values('fob')
     st.write("Tabla de Datos: ", df_anual)
 
