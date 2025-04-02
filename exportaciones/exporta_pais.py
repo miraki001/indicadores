@@ -156,8 +156,8 @@ def exporta_destino():
     #df_anual.columns = df_anual.columns.droplevel(0)
     st.write(df_anual['litros'])
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
-    totlitros = df_anual.groupby['litros'].sum()
-    totfob = df_anual.groupby['fob'].sum()
+    totlitros = df_anual['litros'].sum()
+    totfob = df_anual['fob'].sum()
     for index in range(len(df_anual)):
         if index > 0:
             total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 ))
