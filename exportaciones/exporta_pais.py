@@ -150,12 +150,13 @@ def exporta_destino():
     df_anual.sort_values(by='fob', ascending=False)
     df_anual.reset_index()
     df_anual.sort_values('fob')
-    st.write("Tabla de Datos: ", df_anual)
+    #st.write("Tabla de Datos: ", df_anual)
     df_sorted = df_anual.sort_values(by='fob', ascending=False)
 
     st.dataframe(df_sorted)
     json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
     st.subheader('Exportaciones por Variedad')
+    st.write(json_list)
 
 
     option = {
