@@ -146,11 +146,27 @@ def exporta_destino():
 
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
-    #df_anual.sort_values(by=['fob'])
-    df_anual.sort_values(by='fob', ascending=False)
-    df_anual.reset_index()
-    df_anual.sort_values('fob')
-    #st.write("Tabla de Datos: ", df_anual)
+
+    total = []
+    tot1 = []
+    tot2 = []
+    total.append(0)
+    tot1.append(0)
+    tot2.append(0)
+    totlitros = df_anual.groupby['litros'].sum()
+    totfob = df_anual.groupby['fob'].sum()
+    for index in range(len(df_anual)):
+        if index > 0:
+            total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 )
+            tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )
+            tot2.append((  (df_anual['litros'].loc[index] / df_anual['fob'].loc[index 1]) -1 ) *100     )
+        #st.write(total)
+    df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
+    df_anual['Part. % Litros'] = total
+    df_anual['Part % Fob '] = tot1
+    df_anual['Prec x Litro'] = tot2
+
+    
     df_sorted = df_anual.sort_values(by='fob', ascending=False)
 
     st.dataframe(df_sorted)
