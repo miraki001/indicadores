@@ -327,13 +327,15 @@ def exporta_evolucion():
         st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
 
         st.subheader("Exportaciones evolución mensual en litros")
-        st.rerun()
+       
         #litros["mes"] = litros["mes"].astype(str)
         anio1 = litros.columns[1]
         #st.write(litros.columns[1])
         anio2 = litros.columns[2]
         anio3 = litros.columns[3]
         anio4 = litros.columns[4]
+        if anio1.empy:
+            st.rerun()
 
         # Crear gráfico de líneas y barras
         option = {
