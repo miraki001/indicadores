@@ -11,6 +11,8 @@ from pyecharts.charts import Line
 from datetime import datetime as dt
 from exportaciones import exporta_evo
 from exportaciones import exporta_pais
+from exportaciones import exporta_variedad
+
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "#EC654A" if value < 0 else "lightgreen"
@@ -40,5 +42,9 @@ with tab1:
     exporta_evo.exporta_evolucion()
     
 with tab2:
-    exporta_pais.exporta_destino()    
+    exporta_pais.exporta_destino()  
     
+ with tab3:
+    exporta_pais.exporta_variedad()    
+    
+   
