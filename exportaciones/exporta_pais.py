@@ -153,6 +153,8 @@ def exporta_destino():
     total.append(0)
     tot1.append(0)
     tot2.append(0)
+    df_anual.columns = df_anual.columns.droplevel(0)
+    df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     totlitros = df_anual.groupby['litros'].sum()
     totfob = df_anual.groupby['fob'].sum()
     for index in range(len(df_anual)):
