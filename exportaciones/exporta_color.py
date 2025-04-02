@@ -145,7 +145,7 @@ def exporta_color():
             st.write(variedad)
 
 
-    df_anual = df_filtered.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
+    df_anual = df_filtered.groupby(['color'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
     total = []
     tot1 = []
