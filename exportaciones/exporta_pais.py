@@ -162,7 +162,7 @@ def exporta_destino():
         if index > 0:
             total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 ))
             tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )))
-            tot2.append((  (df_anual['litros'].loc[index] / df_anual['fob'].loc[index]) -1 ) *100     )
+            tot2.append((  (df_anual['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
         #st.write(total)
     df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
     df_anual['Part. % Litros'] = total
@@ -173,7 +173,7 @@ def exporta_destino():
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
 
     st.dataframe(df_sorted)
-    json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
+    json_list = json.loads(json.dumps(list(df_filtered.T.to_dict().values()))) 
     st.subheader('Exportaciones por Variedad')
     st.write(json_list)
 
