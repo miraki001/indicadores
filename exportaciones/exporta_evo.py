@@ -334,7 +334,7 @@ def exporta_evolucion():
         anio2 = litros.columns[2]
         anio3 = litros.columns[3]
         anio4 = litros.columns[4]
-        if anio1.empy:
+        if anio1.empty:
             st.rerun()
 
         # Crear gráfico de líneas y barras
