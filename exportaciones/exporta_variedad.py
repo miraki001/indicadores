@@ -145,7 +145,7 @@ def exporta_variedades():
             st.write(variedad)
 
 
-    df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
+    df_anual = df_filtered.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
     total = []
     tot1 = []
@@ -176,7 +176,7 @@ def exporta_variedades():
     #dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "value", 'pais': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
-    st.subheader('Exportaciones por Pais en Litros')
+    st.subheader('Exportaciones por Variedad en Litros')
     #st.write(json_list)
 
 
@@ -211,7 +211,7 @@ def exporta_variedades():
     st_echarts(
         options=option,key="gauge2" + str(dt.now()), height="600px",
     )
-    st.subheader('Exportaciones por Pais en Fob')
+    st.subheader('Exportaciones por variedad en Fob')
     
     dv = dv.rename(columns={'value': "litros", 'pais': "name",})
     dv = dv.rename(columns={'fob': "value", 'pais': "name",})
