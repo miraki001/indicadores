@@ -335,7 +335,7 @@ def exporta_evolucion():
         anio3 = litros.columns[3]
         anio4 = litros.columns[4]
         st.write('año')
-        st.write(anio1)
+        st.write(litros["mes"])
 
         # Crear gráfico de líneas y barras
         option = {
@@ -357,7 +357,7 @@ def exporta_evolucion():
             ],
         }
 
-        st_echarts(options=option, height="400px")
+        st_echarts(options=option,,true,key="gauge" + str(dt.now()) height="400px")
 
         st.subheader("Exportaciones evolución mensual en Fob")
    
