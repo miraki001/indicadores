@@ -173,6 +173,7 @@ def exporta_destino():
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
 
     st.dataframe(df_sorted)
+    df_filtered = df_filtered.rename(columns={'litros': "values", 'pais': "name",})
     json_list = json.loads(json.dumps(list(df_filtered.T.to_dict().values()))) 
     st.subheader('Exportaciones por Variedad')
     st.write(json_list)
