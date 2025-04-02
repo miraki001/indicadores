@@ -259,4 +259,122 @@ def exporta_color():
         options=options, height="600px",
     )   
 
+  # ahora por envase
+
+
+
+    df_anual = df_filtered.groupby(['tipo_envase'], as_index=False)[['fob', 'litros']].sum()
+    dv = df_anual.copy()
+    total = []
+    tot1 = []
+    tot2 = []
+    totlitros = df_anual['litros'].sum()
+    totfob = df_anual['fob'].sum()
+    st.write(range(len(df_anual)))
+    for index in range(len(df_anual)):
+        #if index > 0:
+            total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 ))
+            tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )))
+            tot2.append((  (df_anual['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
+    df_anual = df_anual.sort_index(axis = 1)
+    df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
+    df_anual['Part. % Litros'] = total
+    df_anual['Part % Fob '] = tot1
+    df_anual['Prec x Litro'] = tot2
+
+    
+    df_sorted = df_anual.sort_values(by='Fob', ascending=False)
+
+    st.dataframe(df_sorted)
+    #dv.drop('fob', axis=1, inplace=True)
+    dv = dv.rename(columns={'litros': "value", 'color': "name",})
+    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+    #st.subheader('Exportaciones por tipo de envase en Litros')
+    #st.write(json_list)
+
+    options = {
+        "color": [
+            '#332D75',
+            '#1E8DB6',
+            '#604994',
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],
+        "title": {"text": "exportacion por tipo de envase en Litros", "subtext": "", "left": "center"},
+        "tooltip": {"trigger": "item"},
+        "legend": {"orient": "vertical", "left": "left",},
+        "series": [
+            {
+                "name": json_list,
+                "type": "pie",
+                "radius": "50%",
+                "data":json_list,
+                "label": {"show": False, "position": "center"},
+                "emphasis": {
+                    "itemStyle": {
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)",
+                    }
+                },
+            }
+        ],
+    }
+    st_echarts(
+        options=options, height="600px",
+    )
+    dv = dv.rename(columns={'value': "litros", 'color': "name",})
+    dv = dv.rename(columns={'fob': "value", 'color': "name",})
+    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+
+    options = {
+        "color": [
+            '#332D75',
+            '#1E8DB6',
+            '#604994',
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],
+        "title": {"text": "exportacion por tipo de envase en Fob", "subtext": "", "left": "center"},
+        "tooltip": {"trigger": "item"},
+        "legend": {"orient": "vertical", "left": "left",},
+        "series": [
+            {
+                "name": json_list,
+                "type": "pie",
+                "radius": "50%",
+                "data":json_list,
+                "label": {"show": False, "position": "center"},
+                "emphasis": {
+                    "itemStyle": {
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)",
+                    }
+                },
+            }
+        ],
+    }
+    st_echarts(
+        options=options, height="600px",
+    )   
+
    
