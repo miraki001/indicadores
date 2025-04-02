@@ -218,7 +218,7 @@ def exporta_color():
                 "center": ["50%", "50%"],
                 "startAngle": 180,
                 "endAngle": 360,
-                "data": json_list
+                "data": json_list,
             }
         }
         st_echarts(
