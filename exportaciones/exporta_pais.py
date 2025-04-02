@@ -152,7 +152,7 @@ def exporta_destino():
     df_anual.sort_values('fob')
     st.write("Tabla de Datos: ", df_anual)
 
-    json_list = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
+    json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
     st.subheader('Exportaciones por Variedad')
 
 
