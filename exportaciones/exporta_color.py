@@ -174,75 +174,59 @@ def exporta_color():
     st.subheader('Exportaciones por Variedad en Litros')
     #st.write(json_list)
 
-
     option = {
+        "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],            
         "tooltip": {
-            #"trigger": 'axis',
-            #"axisPointer": { "type": 'cross' },
-            "formatter": JsCode(
-                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
-            ).js_code,
-        },
-        "legend": {"data": ["litros","Pais"]},   
+            "trigger": "item"
+        },    
+        "legend": {
+            "top": "1%",
+            "left": "center" 
+            },
+        "label": {
+            "alignTo": 'edge',
+#            "formatter": '{name|{b}}\n{time|{c} }',
+            "formatter": '{name|{b}}\n  ({d}%)  ',
+            "minMargin": 5,
+            "edgeDistance": 10,
+            "lineHeight": 15,
+            "rich": {
+              "time": {
+              "fontSize": 10,
+               "color": '#999'
+              }
+            }
+        },    
+
         "series": [
-                {
-                    "name": "Ventas Totales",
-                    "type": "treemap",
-                    "visibleMin": 100,
-                    "label": {"show": True, "formatter": "{b}"},
-                    "itemStyle": {"borderColor": "#fff"},
-                    "levels": [
-                        {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
-                        {"itemStyle": {"gapWidth": 1}},
-                        {
-                            "colorSaturation": [0.35, 0.5],
-                            "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
-                        },
-                    ],
-                    "data": json_list,
-                }
-        ]
-    }
-    st_echarts(
-        options=option,key="gauge2" + str(dt.now()), height="600px",
-    )
-    st.subheader('Exportaciones por variedad en Fob')
+            {
+                "name": "año 2023",
+                "type": "pie",
+                "radius": ["40%", "70%"],
+                "center": ["50%", "50%"],
+                "startAngle": 180,
+                "endAngle": 360,
+                "data": json_list
+                ],
+            }
+            ],
+        }
+        st_echarts(
+            options=option, height="200px",
+        )
+
     
-    dv = dv.rename(columns={'value': "litros", 'variedad1': "name",})
-    dv = dv.rename(columns={'fob': "value", 'variedad1': "name",})
-    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
 
-    #st.write(json_list)
-
-
-    option = {
-        "tooltip": {
-            #"trigger": 'axis',
-            #"axisPointer": { "type": 'cross' },
-            "formatter": JsCode(
-                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
-            ).js_code,
-        },
-        "legend": {"data": ["litros","Pais"]},   
-        "series": [
-                {
-                    "name": "Ventas Totales",
-                    "type": "treemap",
-                    "visibleMin": 100,
-                    "label": {"show": True, "formatter": "{b}"},
-                    "itemStyle": {"borderColor": "#fff"},
-                    "levels": [
-                        {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
-                        {"itemStyle": {"gapWidth": 1}},
-                        {
-                            "colorSaturation": [0.35, 0.5],
-                            "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
-                        },
-                    ],
-                    "data": json_list,
-                }
-        ]
-    }
-    st_echarts(
-        options=option,key="gauge4" + str(dt.now()), height="600px",
-    )
+   
