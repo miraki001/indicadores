@@ -219,7 +219,6 @@ def exporta_color():
                 "startAngle": 180,
                 "endAngle": 360,
                 "data": json_list
-                ],
             }
         }
         st_echarts(
