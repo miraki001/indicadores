@@ -287,7 +287,7 @@ def exporta_color():
 
     st.dataframe(df_sorted)
     #dv.drop('fob', axis=1, inplace=True)
-    dv = dv.rename(columns={'litros': "value", 'color': "name",})
+    dv = dv.rename(columns={'litros': "value", 'tipo_envase': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
     #st.subheader('Exportaciones por tipo de envase en Litros')
     #st.write(json_list)
@@ -332,8 +332,8 @@ def exporta_color():
     st_echarts(
         options=options, height="600px",
     )
-    dv = dv.rename(columns={'value': "litros", 'color': "name",})
-    dv = dv.rename(columns={'fob': "value", 'color': "name",})
+    dv = dv.rename(columns={'value': "litros", 'tipo_envase': "name",})
+    dv = dv.rename(columns={'fob': "value", 'tipo_envase': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
 
     options = {
