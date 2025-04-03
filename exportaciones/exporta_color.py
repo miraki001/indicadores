@@ -202,7 +202,7 @@ def exporta_color():
                 '#91ca8c',
                 '#f49f42'
             ],
-            "title": {"text": "exportacion por color en Litros", "subtext": "", "left": "center"},
+            "title": {"text": "Exportaciones por color en Litros", "subtext": "", "left": "center"},
             "tooltip": {"trigger": "item"},
             "legend": {"orient": "vertical", "left": "left",},
             "series": [
@@ -233,9 +233,9 @@ def exporta_color():
 
         options = {
             "color": [
-                '#332D75',
                 '#1E8DB6',
-                '#604994',
+                '#06C2CC',
+                '#07ECFA',
                 '#dd6b66',
                 '#759aa0',
                 '#e69d87',
@@ -248,7 +248,7 @@ def exporta_color():
                 '#91ca8c',
                 '#f49f42'
             ],
-            "title": {"text": "exportacion por color en Fob", "subtext": "", "left": "center"},
+            "title": {"text": "Exportaciones por color en Fob", "subtext": "", "left": "center"},
             "tooltip": {"trigger": "item"},
             "legend": {"orient": "vertical", "left": "left",},
             "series": [
