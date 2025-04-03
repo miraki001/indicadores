@@ -185,7 +185,7 @@ def exporta_color():
             ,
             thousands='.',
             decimal=',',
-    )
+    ))
     st.dataframe(styled_df,
               column_config={
                 'color': st.column_config.Column('color'),
