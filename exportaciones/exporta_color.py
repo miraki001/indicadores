@@ -459,4 +459,4 @@ def exporta_color():
           values=['fob','litros'],
           aggfunc='sum'
     )
-    st.dataframe(producto1)
+    st.dataframe(producto1.stack())
