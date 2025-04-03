@@ -53,7 +53,7 @@ def exporta_variedades():
 
     streamlit_style = """
         <style>
-        iframe[title="streamlit_echarts.st_echarts"]{ height: 100px;} 
+        iframe[title="streamlit_echarts.st_echarts"]{ height: 1000px;} 
        </style>
         """
     st.markdown(streamlit_style, unsafe_allow_html=True) 
