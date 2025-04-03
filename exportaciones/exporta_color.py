@@ -235,7 +235,7 @@ def exporta_color():
             "color": [
                 '#1E8DB6',
                 '#06C2CC',
-                '#07ECFA',
+                '#C92488',
                 '#dd6b66',
                 '#759aa0',
                 '#e69d87',
