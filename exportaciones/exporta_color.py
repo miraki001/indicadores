@@ -175,7 +175,7 @@ def exporta_color():
 
 
 #    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['anio','anio']).format(
-    styled_df = df_sorted.style.applymap(format(
+    styled_df = df_sorted.style.applymap(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
             "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
@@ -185,7 +185,7 @@ def exporta_color():
             ,
             thousands='.',
             decimal=',',
-    ))
+    )
     st.dataframe(styled_df,
               column_config={
                 'color': st.column_config.Column('color'),
