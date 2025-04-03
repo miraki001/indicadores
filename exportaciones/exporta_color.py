@@ -180,90 +180,97 @@ def exporta_color():
     #st.subheader('Exportaciones por color en Litros')
     #st.write(json_list)
 
-    options = {
-        "color": [
-            '#332D75',
-            '#1E8DB6',
-            '#604994',
-            '#dd6b66',
-            '#759aa0',
-            '#e69d87',
-            '#8dc1a9',
-            '#ea7e53',
-            '#eedd78',
-            '#73a373',
-            '#73b9bc',
-            '#7289ab',
-            '#91ca8c',
-            '#f49f42'
-        ],
-        "title": {"text": "exportacion por color en Litros", "subtext": "", "left": "center"},
-        "tooltip": {"trigger": "item"},
-        "legend": {"orient": "vertical", "left": "left",},
-        "series": [
-            {
-                "name": json_list,
-                "type": "pie",
-                "radius": "50%",
-                "data":json_list,
-                "label": {"show": False, "position": "center"},
-                "emphasis": {
-                    "itemStyle": {
-                        "shadowBlur": 10,
-                        "shadowOffsetX": 0,
-                        "shadowColor": "rgba(0, 0, 0, 0.5)",
-                    }
-                },
-            }
-        ],
-    }
-    st_echarts(
-        options=options,key="pie1" + str(dt.now()), height="400px",
-    )
-    dv = dv.rename(columns={'value': "litros", 'color': "name",})
-    dv = dv.rename(columns={'fob': "value", 'color': "name",})
-    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+    col = st.columns([0.25, 0.25], gap='small')
 
-    options = {
-        "color": [
-            '#332D75',
-            '#1E8DB6',
-            '#604994',
-            '#dd6b66',
-            '#759aa0',
-            '#e69d87',
-            '#8dc1a9',
-            '#ea7e53',
-            '#eedd78',
-            '#73a373',
-            '#73b9bc',
-            '#7289ab',
-            '#91ca8c',
-            '#f49f42'
-        ],
-        "title": {"text": "exportacion por color en Fob", "subtext": "", "left": "center"},
-        "tooltip": {"trigger": "item"},
-        "legend": {"orient": "vertical", "left": "left",},
-        "series": [
-            {
-                "name": json_list,
-                "type": "pie",
-                "radius": "50%",
-                "data":json_list,
-                "label": {"show": False, "position": "center"},
-                "emphasis": {
-                    "itemStyle": {
-                        "shadowBlur": 10,
-                        "shadowOffsetX": 0,
-                        "shadowColor": "rgba(0, 0, 0, 0.5)",
-                    }
-                },
-            }
-        ],
-    }
-    st_echarts(
-        options=options,key="pie2" + str(dt.now()), height="400px",
-    )   
+
+    with col[0]:
+    
+        options = {
+            "color": [
+                '#332D75',
+                '#1E8DB6',
+                '#604994',
+                '#dd6b66',
+                '#759aa0',
+                '#e69d87',
+                '#8dc1a9',
+                '#ea7e53',
+                '#eedd78',
+                '#73a373',
+                '#73b9bc',
+                '#7289ab',
+                '#91ca8c',
+                '#f49f42'
+            ],
+            "title": {"text": "exportacion por color en Litros", "subtext": "", "left": "center"},
+            "tooltip": {"trigger": "item"},
+            "legend": {"orient": "vertical", "left": "left",},
+            "series": [
+                {
+                    "name": json_list,
+                    "type": "pie",
+                    "radius": "50%",
+                    "data":json_list,
+                    "label": {"show": False, "position": "center"},
+                    "emphasis": {
+                        "itemStyle": {
+                            "shadowBlur": 10,
+                            "shadowOffsetX": 0,
+                            "shadowColor": "rgba(0, 0, 0, 0.5)",
+                        }
+                    },
+                }
+            ],
+        }
+        st_echarts(
+            options=options,key="pie1" + str(dt.now()), height="400px",
+        )
+    with col[0]:
+
+        dv = dv.rename(columns={'value': "litros", 'color': "name",})
+        dv = dv.rename(columns={'fob': "value", 'color': "name",})
+        json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+
+        options = {
+            "color": [
+                '#332D75',
+                '#1E8DB6',
+                '#604994',
+                '#dd6b66',
+                '#759aa0',
+                '#e69d87',
+                '#8dc1a9',
+                '#ea7e53',
+                '#eedd78',
+                '#73a373',
+                '#73b9bc',
+                '#7289ab',
+                '#91ca8c',
+                '#f49f42'
+            ],
+            "title": {"text": "exportacion por color en Fob", "subtext": "", "left": "center"},
+            "tooltip": {"trigger": "item"},
+            "legend": {"orient": "vertical", "left": "left",},
+            "series": [
+                {
+                    "name": json_list,
+                    "type": "pie",
+                    "radius": "50%",
+                    "data":json_list,
+                    "label": {"show": False, "position": "center"},
+                    "emphasis": {
+                        "itemStyle": {
+                            "shadowBlur": 10,
+                            "shadowOffsetX": 0,
+                            "shadowColor": "rgba(0, 0, 0, 0.5)",
+                        }
+                    },
+                }
+            ],
+        }
+        st_echarts(
+            options=options,key="pie2" + str(dt.now()), height="400px",
+        )   
 
   # ahora por envase
 
