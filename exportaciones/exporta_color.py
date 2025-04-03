@@ -283,7 +283,7 @@ def exporta_color():
     tot2 = []
     totlitros = df_anual['litros'].sum()
     totfob = df_anual['fob'].sum()
-    st.write(range(len(df_anual)))
+    
     for index in range(len(df_anual)):
         #if index > 0:
             total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 ))
@@ -305,89 +305,95 @@ def exporta_color():
     #st.subheader('Exportaciones por tipo de envase en Litros')
     #st.write(json_list)
 
-    options = {
-        "color": [
-            '#332D75',
-            '#1E8DB6',
-            '#604994',
-            '#dd6b66',
-            '#759aa0',
-            '#e69d87',
-            '#8dc1a9',
-            '#ea7e53',
-            '#eedd78',
-            '#73a373',
-            '#73b9bc',
-            '#7289ab',
-            '#91ca8c',
-            '#f49f42'
-        ],
-        "title": {"text": "exportacion por tipo de envase en Litros", "subtext": "", "left": "center"},
-        "tooltip": {"trigger": "item"},
-        "legend": {"orient": "vertical", "left": "left",},
-        "series": [
-            {
-                "name": json_list,
-                "type": "pie",
-                "radius": "50%",
-                "data":json_list,
-                "label": {"show": False, "position": "center"},
-                "emphasis": {
-                    "itemStyle": {
-                        "shadowBlur": 10,
-                        "shadowOffsetX": 0,
-                        "shadowColor": "rgba(0, 0, 0, 0.5)",
-                    }
-                },
-            }
-        ],
-    }
-    st_echarts(
-        options=options,key="pie3" + str(dt.now()), height="600px",
-    )
-    dv = dv.rename(columns={'value': "litros", 'tipo_envase': "name",})
-    dv = dv.rename(columns={'fob': "value", 'tipo_envase': "name",})
-    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+    col = st.columns([0.25, 0.25], gap='small')
 
-    options = {
-        "color": [
-            '#332D75',
-            '#1E8DB6',
-            '#604994',
-            '#dd6b66',
-            '#759aa0',
-            '#e69d87',
-            '#8dc1a9',
-            '#ea7e53',
-            '#eedd78',
-            '#73a373',
-            '#73b9bc',
-            '#7289ab',
-            '#91ca8c',
-            '#f49f42'
-        ],
-        "title": {"text": "exportacion por tipo de envase en Fob", "subtext": "", "left": "center"},
-        "tooltip": {"trigger": "item"},
-        "legend": {"orient": "vertical", "left": "left",},
-        "series": [
-            {
-                "name": json_list,
-                "type": "pie",
-                "radius": "50%",
-                "data":json_list,
-                "label": {"show": False, "position": "center"},
-                "emphasis": {
-                    "itemStyle": {
-                        "shadowBlur": 10,
-                        "shadowOffsetX": 0,
-                        "shadowColor": "rgba(0, 0, 0, 0.5)",
-                    }
-                },
-            }
-        ],
-    }
-    st_echarts(
-        options=options,key="pie4" + str(dt.now()), height="600px",
-    )   
+
+    with col[0]:
+
+        options = {
+            "color": [
+                '#332D75',
+                '#1E8DB6',
+                '#604994',
+                '#dd6b66',
+                '#759aa0',
+                '#e69d87',
+                '#8dc1a9',
+                '#ea7e53',
+                '#eedd78',
+                '#73a373',
+                '#73b9bc',
+                '#7289ab',
+                '#91ca8c',
+                '#f49f42'
+            ],
+            "title": {"text": "exportacion por tipo de envase en Litros", "subtext": "", "left": "center"},
+            "tooltip": {"trigger": "item"},
+            "legend": {"orient": "vertical", "left": "left",},
+            "series": [
+                {
+                    "name": json_list,
+                    "type": "pie",
+                    "radius": "50%",
+                    "data":json_list,
+                    "label": {"show": False, "position": "center"},
+                    "emphasis": {
+                        "itemStyle": {
+                            "shadowBlur": 10,
+                            "shadowOffsetX": 0,
+                            "shadowColor": "rgba(0, 0, 0, 0.5)",
+                        }
+                    },
+                }
+            ],
+        }
+        st_echarts(
+            options=options,key="pie3" + str(dt.now()), height="600px",
+        )
+    with col[1]:    
+        dv = dv.rename(columns={'value': "litros", 'tipo_envase': "name",})
+        dv = dv.rename(columns={'fob': "value", 'tipo_envase': "name",})
+        json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+
+        options = {
+            "color": [
+                '#332D75',
+                '#1E8DB6',
+                '#604994',
+                '#dd6b66',
+                '#759aa0',
+                '#e69d87',
+                '#8dc1a9',
+                '#ea7e53',
+                '#eedd78',
+                '#73a373',
+                '#73b9bc',
+                '#7289ab',
+                '#91ca8c',
+                '#f49f42'
+            ],
+            "title": {"text": "exportacion por tipo de envase en Fob", "subtext": "", "left": "center"},
+            "tooltip": {"trigger": "item"},
+            "legend": {"orient": "vertical", "left": "left",},
+            "series": [
+                {
+                    "name": json_list,
+                    "type": "pie",
+                    "radius": "50%",
+                    "data":json_list,
+                    "label": {"show": False, "position": "center"},
+                    "emphasis": {
+                        "itemStyle": {
+                            "shadowBlur": 10,
+                            "shadowOffsetX": 0,
+                            "shadowColor": "rgba(0, 0, 0, 0.5)",
+                        }
+                    },
+                }
+            ],
+        }
+        st_echarts(
+            options=options,key="pie4" + str(dt.now()), height="600px",
+        )   
 
    
