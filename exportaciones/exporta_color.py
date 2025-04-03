@@ -58,7 +58,7 @@ def exporta_color():
         """
     st.markdown(streamlit_style, unsafe_allow_html=True) 
     
-
+    st.markdown(" <style>iframe{ height: 300px !important } ", unsafe_allow_html=True)
     conn = st.connection("postgresql", type="sql")
 
     @st.cache_data
