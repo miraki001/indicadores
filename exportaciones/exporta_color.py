@@ -460,4 +460,4 @@ def exporta_color():
           aggfunc=np.sum
     )
     st.dataframe(producto1)
-    st.write(pd.pivot_table(dv1, values=['fob','litros'], index=["tipo_envase","producto"]))
+    st.write(pd.pivot_table(dv1, values=['fob','litros'], index=["tipo_envase","producto"],columns=['fob','litros']))
