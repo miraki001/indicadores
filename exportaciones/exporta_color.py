@@ -305,10 +305,10 @@ def exporta_color():
     #st.subheader('Exportaciones por tipo de envase en Litros')
     #st.write(json_list)
 
-    col = st.columns([0.25, 0.25], gap='small')
+    col1 = st.columns([0.25, 0.25], gap='small')
 
 
-    with col[0]:
+    with col1[0]:
 
         options = {
             "color": [
@@ -350,7 +350,7 @@ def exporta_color():
         st_echarts(
             options=options,key="pie3" + str(dt.now()), height="600px",
         )
-    with col[1]:    
+    with col1[1]:    
         dv = dv.rename(columns={'value': "litros", 'tipo_envase': "name",})
         dv = dv.rename(columns={'fob': "value", 'tipo_envase': "name",})
         json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
