@@ -175,7 +175,7 @@ def exporta_color():
 
 
 #    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['anio','anio']).format(
-    styled_df = df_sorted.style.applymap(
+    styled_df = df_sorted.style.format(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
             "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
