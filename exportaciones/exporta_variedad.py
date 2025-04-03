@@ -110,6 +110,7 @@ def exporta_variedades():
     QUERY_V1 = f"""
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
         FROM exportaciones2_m 
+        where producto not in ('Mosto','Alcohol')
     """
 
 
