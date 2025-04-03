@@ -196,7 +196,7 @@ def exporta_color():
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
                 },
-                width = 300,   
+                width = 600,   
                 height = 200,
                 hide_index=True)
 
