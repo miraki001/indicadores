@@ -195,8 +195,8 @@ def exporta_color():
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
                 },
-                width = 600,   
-                height = 800,
+                width = 300,   
+                height = 200,
                 hide_index=True)
 
     #st.dataframe(styled_df)
