@@ -452,11 +452,11 @@ def exporta_color():
         st_echarts(
             options=options,key="pie4" + str(dt.now()), height="400px",
         )   
-    st.write(dv1)    
+    #st.write(dv1)    
     producto1 = dv1.pivot_table(
           index=['tipo_envase','producto'], 
           #columns='producto',  
           values=['fob','litros'],
           aggfunc='sum'
     )
-    st.write(producto1)
+    st.dataframe(producto1)
