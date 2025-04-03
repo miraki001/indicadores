@@ -167,11 +167,25 @@ def exporta_color():
     df_anual = df_anual.sort_index(axis = 1)
     df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
     df_anual['Part. % Litros'] = total
-    df_anual['Part % Fob '] = tot1
+    df_anual['Part % Fob'] = tot1
     df_anual['Prec x Litro'] = tot2
 
     
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
+
+
+    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['Part. % Litros','Part % Fob']).format(
+            {"Litros": lambda x : '{:,.0f}'.format(x), 
+            "Fob": lambda x : '{:,.0f}'.format(x),
+            "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
+            "Part % Fob'": lambda x : '{:,.2f} %'.format(x),
+            "Prec x Litro": lambda x : '{:,.2f} %'.format(x),
+                                        }
+            ,
+            thousands='.',
+            decimal=',',
+    )
+    
 
     st.dataframe(df_sorted)
     #dv.drop('fob', axis=1, inplace=True)
