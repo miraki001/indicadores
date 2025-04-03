@@ -174,12 +174,12 @@ def exporta_color():
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
 
 
-    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['Part. % Litros','Part % Fob']).format(
+    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['','']).format(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
             "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
             "Part % Fob": lambda x : '{:,.2f} %'.format(x),
-            "Prec x Litro": lambda x : '{:,.2f} %'.format(x),
+            "Prec x Litro": lambda x : '{:,.2f}'.format(x),
                                         }
             ,
             thousands='.',
