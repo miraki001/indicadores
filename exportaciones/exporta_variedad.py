@@ -209,7 +209,7 @@ def exporta_variedades():
         ]
     }
     st_echarts(
-        options=option,key="gauge2" + str(dt.now()), height="600px",
+        options=option,key="gauge22" + str(dt.now()), height="600px",
     )
     st.subheader('Exportaciones por variedad en Fob')
     
@@ -249,5 +249,5 @@ def exporta_variedades():
         ]
     }
     st_echarts(
-        options=option,key="gauge4" + str(dt.now()), height="600px",
+        options=option,key="gauge44" + str(dt.now()), height="600px",
     )
