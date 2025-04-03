@@ -190,7 +190,7 @@ def exporta_color():
                 'color': st.column_config.Column('Año'),
                 'Litros': st.column_config.Column('Litros'),
                 'Fob': st.column_config.Column('Fob'),
-                'Part. % Litro': st.column_config.Column('Part. % Litro''),
+                'Part. % Litro': st.column_config.Column('Part. % Litro'),
                 'Part % Fob': st.column_config.Column('Part % Fob'),
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
