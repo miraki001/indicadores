@@ -457,6 +457,6 @@ def exporta_color():
           index=["tipo_envase","producto"], 
           #columns='producto',  
           values=['fob','litros'],
-          aggfunc='sum'
+          aggfunc=np.sum
     )
     st.dataframe(producto1)
