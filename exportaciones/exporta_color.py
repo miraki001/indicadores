@@ -450,8 +450,8 @@ def exporta_color():
             options=options,key="pie4" + str(dt.now()), height="400px",
         )   
     producto1 = dv1.pivot_table(
-          index='tipo_envase', 
-          columns='producto',  
+          index=['tipo_envase','producto'], 
+          #columns='producto',  
           values=['fob','litros'],
           aggfunc='sum'
     )
