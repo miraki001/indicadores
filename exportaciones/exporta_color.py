@@ -178,16 +178,28 @@ def exporta_color():
             {"Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
             "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
-            "Part % Fob'": lambda x : '{:,.2f} %'.format(x),
+            "Part % Fob": lambda x : '{:,.2f} %'.format(x),
             "Prec x Litro": lambda x : '{:,.2f} %'.format(x),
                                         }
             ,
             thousands='.',
             decimal=',',
     )
-    
+    st.dataframe(styled_df,
+              column_config={
+                'color': st.column_config.Column('Año'),
+                'Litros': st.column_config.Column('Litros'),
+                'Fob': st.column_config.Column('Fob'),
+                'Part. % Litro': st.column_config.Column('Part. % Litro''),
+                'Part % Fob': st.column_config.Column('Part % Fob'),
+                'Prec x Litro': st.column_config.Column('Prec x Litr'),
+        
+                },
+                width = 600,   
+                height = 800,
+                hide_index=True)
 
-    st.dataframe(styled_df)
+    #st.dataframe(styled_df)
     #dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "value", 'color': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
