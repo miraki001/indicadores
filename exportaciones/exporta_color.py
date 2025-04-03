@@ -51,6 +51,13 @@ def exporta_color():
 
     #st.write(dt.now().year)
 
+    streamlit_style = """
+        <style>
+        iframe[title="streamlit_echarts.st_echarts"]{ height: 1000px;} 
+       </style>
+        """
+    st.markdown(streamlit_style, unsafe_allow_html=True) 
+    
 
     conn = st.connection("postgresql", type="sql")
 
