@@ -454,7 +454,7 @@ def exporta_color():
         )   
     #st.write(dv1)    
     producto1 = dv1.pivot_table(
-          index=['tipo_envase','producto'], 
+          index=["tipo_envase","producto"], 
           #columns='producto',  
           values=['fob','litros'],
           aggfunc='sum'
