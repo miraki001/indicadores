@@ -107,7 +107,7 @@ def exporta_color():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,color,pais
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,color,pais,producto
         FROM exportaciones2_m 
     """
 
