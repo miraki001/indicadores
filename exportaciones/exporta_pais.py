@@ -51,7 +51,7 @@ def exporta_destino():
 
     streamlit_style = """
         <style>
-        iframe[title="streamlit_echarts.st_echarts"]{ height: 1000px;} 
+        iframe[title="streamlit_echarts.st_echarts"]{ height: 1px;} 
        </style>
         """
     st.markdown(streamlit_style, unsafe_allow_html=True) 
