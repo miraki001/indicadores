@@ -174,7 +174,7 @@ def exporta_color():
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
 
 
-    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['','']).format(
+    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['anio','anio']).format(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
             "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
@@ -187,7 +187,7 @@ def exporta_color():
     )
     st.dataframe(styled_df,
               column_config={
-                'color': st.column_config.Column('Año'),
+                'color': st.column_config.Column('color'),
                 'Litros': st.column_config.Column('Litros'),
                 'Fob': st.column_config.Column('Fob'),
                 'Part. % Litro': st.column_config.Column('Part. % Litro'),
