@@ -113,7 +113,7 @@ def exporta_evolucion():
     # Interfaz de filtros
     with st.popover("Abrir Filtros"):
         st.markdown("Filtros ??")
-        anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
+        #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
         var = st.multiselect("Variedad:", ["Todas"] + var_list, default=["Todas"])
         envase = st.multiselect("Envases:", ["Todos"] + envase_list, default=["Todos"])
         vcolor = st.multiselect("Color:", ["Todos"] +  color_list, default=["Todos"])
@@ -135,9 +135,9 @@ def exporta_evolucion():
         condiciones.append(f"color IN ('{colores}')")
 
     # Filtro por año
-    if "Todos" not in filtros["anio"]:
-        años = ", ".join(map(str, filtros["anio"]))
-        condiciones.append(f"anio IN ({años})")
+    #if "Todos" not in filtros["anio"]:
+        #años = ", ".join(map(str, filtros["anio"]))
+        #condiciones.append(f"anio IN ({años})")
 
     # Filtro por variedad
     if "Todas" not in filtros["var"]:
