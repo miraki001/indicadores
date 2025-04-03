@@ -211,7 +211,7 @@ def exporta_color():
         ],
     }
     st_echarts(
-        options=options, height="600px",
+        options=options,key="pie1" + str(dt.now()), height="600px",
     )
     dv = dv.rename(columns={'value': "litros", 'color': "name",})
     dv = dv.rename(columns={'fob': "value", 'color': "name",})
@@ -255,7 +255,7 @@ def exporta_color():
         ],
     }
     st_echarts(
-        options=options, height="600px",
+        options=options,key="pie2" + str(dt.now()), height="600px",
     )   
 
   # ahora por envase
@@ -329,7 +329,7 @@ def exporta_color():
         ],
     }
     st_echarts(
-        options=options, height="600px",
+        options=options,key="pie3" + str(dt.now()), height="600px",
     )
     dv = dv.rename(columns={'value': "litros", 'tipo_envase': "name",})
     dv = dv.rename(columns={'fob': "value", 'tipo_envase': "name",})
@@ -373,7 +373,7 @@ def exporta_color():
         ],
     }
     st_echarts(
-        options=options, height="600px",
+        options=options,key="pie4" + str(dt.now()), height="600px",
     )   
 
    
