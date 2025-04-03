@@ -348,7 +348,7 @@ def exporta_color():
             ],
         }
         st_echarts(
-            options=options,key="pie3" + str(dt.now()), height="600px",
+            options=options,key="pie3" + str(dt.now()), height="400px",
         )
     with col1[1]:    
         dv = dv.rename(columns={'value': "litros", 'tipo_envase': "name",})
@@ -393,7 +393,7 @@ def exporta_color():
             ],
         }
         st_echarts(
-            options=options,key="pie4" + str(dt.now()), height="600px",
+            options=options,key="pie4" + str(dt.now()), height="400px",
         )   
 
    
