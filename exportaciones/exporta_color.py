@@ -187,7 +187,7 @@ def exporta_color():
     )
     
 
-    st.dataframe(df_sorted)
+    st.dataframe(styled_df)
     #dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "value", 'color': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
