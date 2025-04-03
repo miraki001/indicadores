@@ -37,16 +37,20 @@ tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Evolución", "Destinos", "Varie
 
 
 
-
+st.session_state['vEstado'] = '0'
 
 with tab1:
+    st.session_state['vEstado'] = '0'
     exporta_evo.exporta_evolucion()
     
 with tab2:
+    st.session_state['vEstado'] = '0'
     exporta_pais.exporta_destino()  
     
 with tab3:
+    st.session_state['vEstado'] = '0'
     exporta_variedad.exporta_variedades()    
 with tab4:
+    st.session_state['vEstado'] = '0'
     exporta_color.exporta_color()    
    
