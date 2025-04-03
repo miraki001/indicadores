@@ -10,6 +10,8 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
 
+st.markdown(" <style>iframe{ height: 300px !important } ", unsafe_allow_html=True)
+
 def exporta_evolucion():
 
     def bgcolor_positive_or_negative(value):
