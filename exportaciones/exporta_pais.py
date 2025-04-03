@@ -50,9 +50,9 @@ def exporta_destino():
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
     #st.write(dt.now().year)
-    estado =  st.session_state['vEstado'] 
-    if estado == '0':
-        st.rerun()
+    #estado =  st.session_state['vEstado'] 
+    #if estado == '0':
+        #st.rerun()
         
 
     conn = st.connection("postgresql", type="sql")
