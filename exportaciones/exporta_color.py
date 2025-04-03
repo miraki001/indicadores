@@ -187,7 +187,7 @@ def exporta_color():
     
         options = {
             "color": [
-                '#A9F8FA',
+                '#07ECFA',
                 '#C92488',
                 '#604994',
                 '#dd6b66',
