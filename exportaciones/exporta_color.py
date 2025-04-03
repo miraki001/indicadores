@@ -449,7 +449,7 @@ def exporta_color():
         st_echarts(
             options=options,key="pie4" + str(dt.now()), height="400px",
         )   
-    producto = dv2.pivot_table(
+    producto = dv1.pivot_table(
           index='tipo_envase', 
           columns='produto',  
           values=['fob','litros'],
