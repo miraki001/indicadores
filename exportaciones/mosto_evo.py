@@ -74,7 +74,7 @@ def exporta_mosto_evo():
             return pd.DataFrame()
 
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m  where producto = 'Mosto';"
+    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m  where producto = 'Mosto' and codigoproducto like '%CONCENTRADO%'  ;"
     df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
@@ -162,6 +162,7 @@ def exporta_mosto_evo():
         FROM exportaciones2_m 
         WHERE {where_clause}
         and producto = 'Mosto'
+        and codigoproducto like '%CONCENTRADO%' 
         GROUP BY anio 
         ORDER BY anio 
     """
@@ -172,6 +173,7 @@ def exporta_mosto_evo():
         FROM exportaciones2_m 
         WHERE {where_clause}
         and producto in ('Mosto')
+        and codigoproducto like '%CONCENTRADO%' 
         and anio > {actual}
         GROUP BY anio,mes 
         ORDER BY anio 
