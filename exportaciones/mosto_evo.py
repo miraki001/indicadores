@@ -297,7 +297,7 @@ def exporta_mosto_evo():
             "legend": {},
             "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
             "yAxis": [
-                {"type": "value" ,"name" : "Litros/Fob" ,
+                {"type": "value" ,"name" : "Toneladas/Fob" ,
                  "axisLine": {
                     "show": 'false',
                   },              
@@ -330,9 +330,9 @@ def exporta_mosto_evo():
                 },            
             ],
             "series": [
-                {"data": dv1["Toneladas"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
+                {"data": dv1["Toneladas"].tolist(),"position" : 'rigth', "type": "line", "name": "Toneladas", "yAxisIndex": 1, },
                 {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
-                {"data": dv1["ppt"].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 2, "color":'#07ECFA', },
+                {"data": dv1["ppt"].tolist(), "type": "line", "name": "Precio x Tn.", "yAxisIndex": 2, "color":'#07ECFA', },
             ],
         }
 
@@ -402,7 +402,7 @@ def exporta_mosto_evo():
 
         st_echarts(options=option,key="otro1" + str(dt.now()), height="400px")
 
-        st.subheader("Exportaciones evolución precio promedio por litro ")
+        st.subheader("Exportaciones evolución precio promedio por Tonelada ")
    
         #ppl["mes"] = ppl["mes"].astype(str)
         anio1 = ppl.columns[1]
