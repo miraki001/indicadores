@@ -320,6 +320,7 @@ def exporta_mosto_evo():
                  "axisLabel": {
                     "formatter":   '{value} '           
                     } ,
+                },
                 {"type": "value" , "name" : "eee",
                  "position" : 'left',
                  "alignTicks": 'true',
