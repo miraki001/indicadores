@@ -326,7 +326,7 @@ def exporta_mosto_evo():
                  "alignTicks": 'true',
                  "offset": 100,
                  "axisLine": {
-                    "show": 'True',
+                    "show": 'False',
                   },             
                  "axisLabel": {
                     "formatter": '{value}  '
