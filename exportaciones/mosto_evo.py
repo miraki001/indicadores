@@ -158,7 +158,7 @@ def exporta_mosto_evo():
     where_clause = " AND ".join(condiciones)
 
     QUERY_V1 = f"""
-        SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros) AS ppl
+        SELECT anio, SUM(cantlitros/743.5) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros/743.5) AS ppl
         FROM exportaciones2_m 
         WHERE {where_clause}
         and producto = 'Mosto'
@@ -169,7 +169,7 @@ def exporta_mosto_evo():
     actual = dt.now().year -4 
 
     QUERY_V2 = f"""
-        SELECT anio, mes, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros) AS ppl
+        SELECT anio, mes, SUM(cantlitros/743.5) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros/743.5) AS ppl
         FROM exportaciones2_m 
         WHERE {where_clause}
         and producto in ('Mosto')
@@ -238,20 +238,20 @@ def exporta_mosto_evo():
             tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
             tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100     )
         #st.write(total)
-        dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
-        dv1['Litros Var %'] = total
+        dv1 = dv1.rename(columns={'litros': "Toneladas", 'fob': "Fob",'anio': "Año","ppl": 'ppt'})
+        dv1['Tn Var %'] = total
         dv1['Fob Var. %'] = tot1
-        dv1['Prec x Litro Var. %'] = tot2
+        dv1['Prec x Tn Var. %'] = tot2
 
         dv1 = dv1.sort_index(axis = 1)
 
-        styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %','Fob Var. %','Prec x Litro Var. %']).format(
+        styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %','Fob Var. %','Prec x Tn Var. %']).format(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
-            "ppl": lambda x : '{:,.2f}'.format(x),
-            "Litros Var %": lambda x : '{:,.2f} %'.format(x),
+            "ppt": lambda x : '{:,.2f}'.format(x),
+            "Tn Var %": lambda x : '{:,.2f} %'.format(x),
             "Fob Var. %": lambda x : '{:,.2f} %'.format(x),
-            "Prec x Litro Var. %": lambda x : '{:,.2f} %'.format(x),
+            "Prec x Tn Var. %": lambda x : '{:,.2f} %'.format(x),
                                         }
             ,
             thousands='.',
@@ -264,12 +264,12 @@ def exporta_mosto_evo():
             st.dataframe(styled_df,
               column_config={
                 'Año': st.column_config.Column('Año'),
-                'Litros': st.column_config.Column('Litros'),
+                'Toneladas': st.column_config.Column('Toneladas'),
                 'Fob': st.column_config.Column('Fob'),
-                'Litros Var %': st.column_config.Column('Litros Var %'),
+                'Tn Var %': st.column_config.Column('Tn Var %'),
                 'Fob Var. %': st.column_config.Column('Fob Var. %'),
-                'ppl': st.column_config.Column('ppl'),
-                'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
+                'ppt': st.column_config.Column('ppt'),
+                'Prec x Tn Var. %': st.column_config.Column('Prec x Tn Var. %'),
         
                 },
                 width = 600,   
