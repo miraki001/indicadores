@@ -318,14 +318,14 @@ def exporta_mosto_evo():
                     "show": 'True',
                   },              
                  "axisLabel": {
-                    "formatter":  'function (value, index) { return value + 'M';}',           
+                    "formatter":   '{value} M',           
                     } ,
                 {"type": "value" , "name" : "eee",
                  "position" : 'left',
                  "alignTicks": 'true',
                  "offset": 100,
                  "axisLine": {
-                    "show": 'True',
+                    "show": 'False',
                   },             
                  "axisLabel": {
                     "formatter": '{value}  '
