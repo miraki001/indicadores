@@ -287,7 +287,7 @@ def exporta_mosto_evo():
         # Convertir 'anio' a string para el gráfico
         dv1["Año"] = dv1["Año"].astype(str)
         dv1 = dv1.astype({'Fob' : int, 'Toneladas': int } )
-        dv1['ppt'] = dv1['ppt'].apply(lambda x:'{:,.2f}'.format(x) )
+        #dv1['ppt'] = dv1['ppt'].apply(lambda x:'{:,.2f}'.format(x) )
         #dv1["Toneladas"] = dv1["Toneladas"].map("{:.,0f}".format)
         #dv1["ppt"] = dv1["ppt"].map("{:.,0f}".format)
         #dv4 = dv1.style.format({
