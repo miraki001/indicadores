@@ -14,6 +14,9 @@ from datetime import datetime as dt
 
 def exporta_mosto_evo():
 
+    def formato(value):
+        return value/1000000
+
     def bgcolor_positive_or_negative(value):
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
         return f"background-color: {bgcolor};"
@@ -318,7 +321,7 @@ def exporta_mosto_evo():
                     "show": 'True',
                   },              
                  "axisLabel": {
-                    "formatter":  'function (value, index) {return value + 'kg';}'          
+                    "formatter":   formato(value)         
                     } ,
                 },
                 {"type": "value" , "name" : "",
