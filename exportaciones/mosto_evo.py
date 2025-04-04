@@ -324,7 +324,7 @@ def exporta_mosto_evo():
                 {"type": "value" , "name" : "",
                  "position" : 'left',
                  "alignTicks": 'true',
-                 "offset": 0,
+                 "offset": 60,
                  "axisLine": {
                     "show": 'False',
                   },             
