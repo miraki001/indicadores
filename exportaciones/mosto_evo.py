@@ -293,7 +293,7 @@ def exporta_mosto_evo():
             "Toneladas": "{:.0f}",
             "Fob": "{:.0f}"
             })
-        st.write(dv4)
+        st.write(dv4.hide_index())
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
         option = {
