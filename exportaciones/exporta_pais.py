@@ -212,7 +212,7 @@ def exporta_destino():
                 height = 200,
                 hide_index=True)
     
-    st.dataframe(df_sorted)
+    #st.dataframe(df_sorted)
     #dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "value", 'pais': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
