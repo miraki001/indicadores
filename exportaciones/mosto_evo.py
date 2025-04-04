@@ -328,9 +328,7 @@ def exporta_mosto_evo():
                  "axisLine": {
                     "show": 'False',
                   },             
-                 "axisLabel": {
-                    "formatter": '{value}  '
-                      }
+
                 },
                 {"type": "value" , "name" : "Precio x Tn.",
                  "position" : 'rigth',
