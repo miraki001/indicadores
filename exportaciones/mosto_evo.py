@@ -321,7 +321,7 @@ def exporta_mosto_evo():
                     "formatter":   '{value} '           
                     } ,
                 },
-                {"type": "value" , "name" : "eee",
+                {"type": "value" , "name" : "",
                  "position" : 'left',
                  "alignTicks": 'true',
                  "offset": 0,
