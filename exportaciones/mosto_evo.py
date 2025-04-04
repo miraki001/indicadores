@@ -318,7 +318,7 @@ def exporta_mosto_evo():
                     "show": 'True',
                   },              
                  "axisLabel": {
-                    "formatter":   '{value} '           
+                    "formatter":  function (value, index) {return value + 'kg';}          
                     } ,
                 },
                 {"type": "value" , "name" : "",
