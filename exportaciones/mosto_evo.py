@@ -286,7 +286,7 @@ def exporta_mosto_evo():
 
         # Convertir 'anio' a string para el gráfico
         dv1["Año"] = dv1["Año"].astype(str)
-        dv1["fob"] = dv1["fob"].map("${:,.0f}K".format)
+        dv1["Fob"] = dv1["Fob"].map("${:,.0f}K".format)
         st.write(dv1["fob"])
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
