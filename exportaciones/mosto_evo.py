@@ -318,7 +318,7 @@ def exporta_mosto_evo():
                     "show": 'True',
                   },              
                  "axisLabel": {
-                    "formatter":  '{value}<br/>/{1000000} M'
+                    "formatter":  function (value, index) { return value/1000000 + 'M';
                       }
                 } ,
                 {"type": "value" , "name" : "eee",
