@@ -13,6 +13,7 @@ from exportaciones import exporta_evo
 from exportaciones import exporta_pais
 from exportaciones import exporta_variedad
 from exportaciones import exporta_color
+from exportaciones import mosto_evo
 
 
 def bgcolor_positive_or_negative(value):
@@ -53,4 +54,7 @@ with tab3:
 with tab4:
     #st.session_state['vEstado'] = '0'
     exporta_color.exporta_color()    
+with tab5:
+    #st.session_state['vEstado'] = '0'
+    mosto_evo.exporta_mosto_evo()    
    
