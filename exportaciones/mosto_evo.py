@@ -318,7 +318,7 @@ def exporta_mosto_evo():
                     "show": 'True',
                   },              
                  "axisLabel": {
-                    "formatter":  function (value, index) { return value + 'M';},           
+                    "formatter":  'function (value, index) { return value + 'M';}',           
                     } ,
                 {"type": "value" , "name" : "eee",
                  "position" : 'left',
