@@ -135,9 +135,9 @@ def exporta_evolucion():
         condiciones.append(f"color IN ('{colores}')")
 
     # Filtro por año
-    #if "Todos" not in filtros["anio"]:
-        #años = ", ".join(map(str, filtros["anio"]))
-        #condiciones.append(f"anio IN ({años})")
+    if "Todos" not in filtros["anio"]:
+        años = ", ".join(map(str, filtros["anio"]))
+        condiciones.append(f"anio IN ({años})")
 
     # Filtro por variedad
     if "Todas" not in filtros["var"]:
