@@ -289,7 +289,10 @@ def exporta_mosto_evo():
         #dv1["Fob"] = dv1["Fob"].map(" lambda x    {:.,0f}".format(x))
         #dv1["Toneladas"] = dv1["Toneladas"].map("{:.,0f}".format)
         #dv1["ppt"] = dv1["ppt"].map("{:.,0f}".format)
-        dv4 =styled_df.hide_index()
+        dv4 = dv1.style.format({
+            "Toneladas": "{:.0f}",
+            "Fob": "{:.0f}"
+            }).hide_index() 
         st.write(dv4)
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
