@@ -296,7 +296,7 @@ def exporta_mosto_evo():
         #    })
         #dv4.columns = dv4.columns.droplevel(0)
         #dv4.styler.hide(axis=0).highlight_max(axis=1) 
-        st.write(dv1['Fob'])
+        st.write(dv1['ppt'])
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
         option = {
