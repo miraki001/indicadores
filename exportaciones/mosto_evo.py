@@ -258,7 +258,7 @@ def exporta_mosto_evo():
             decimal=',',
         )
 
-
+        styled_df = styled_df.reset_index().rename_axis(None, axis=1)
         st.write(styled_df)
         if st.checkbox('Ver datos en forma de tabla '):
             st.dataframe(styled_df,
