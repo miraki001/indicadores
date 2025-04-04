@@ -187,6 +187,31 @@ def exporta_destino():
     
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
 
+    styled_df = df_sorted.style.format(
+            {"Litros": lambda x : '{:,.0f}'.format(x), 
+            "Fob": lambda x : '{:,.0f}'.format(x),
+            "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
+            "Part % Fob": lambda x : '{:,.2f} %'.format(x),
+            "Prec x Litro": lambda x : '{:,.2f}'.format(x),
+                                        }
+            ,
+            thousands='.',
+            decimal=',',
+    )
+    st.dataframe(styled_df,
+              column_config={
+                'Pais': st.column_config.Column('Pais'),
+                'Litros': st.column_config.Column('Litros'),
+                'Fob': st.column_config.Column('Fob'),
+                'Part. % Litro': st.column_config.Column('Part. % Litro'),
+                'Part % Fob': st.column_config.Column('Part % Fob'),
+                'Prec x Litro': st.column_config.Column('Prec x Litr'),
+        
+                },
+                width = 800,   
+                height = 200,
+                hide_index=True)
+    
     st.dataframe(df_sorted)
     #dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "value", 'pais': "name",})
