@@ -119,7 +119,7 @@ def exporta_mosto_evo():
         vcolor = st.multiselect("Colorm:", ["Todos"] +  color_list, default=["Todos"])
         producto = st.multiselect("Productom:",   ["Todos"] +  producto_list, default=["Todos"])
 
-        if st.button("Aplicar filtros", type="primary"):
+        if st.button("Aplicar filtros1", type="primary"):
             st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "vcolor": vcolor,"producto": producto}
             st.rerun()  # Vuelve a ejecutar la app para aplicar los filtros
 
