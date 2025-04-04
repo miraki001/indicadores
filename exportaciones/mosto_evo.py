@@ -245,8 +245,8 @@ def exporta_mosto_evo():
 
         dv1 = dv1.sort_index(axis = 1)
 
-        styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %','Fob Var. %','Prec x Tn Var. %']).format(
-            {"Litros": lambda x : '{:,.0f}'.format(x), 
+        styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Tn Var %','Fob Var. %','Prec x Tn Var. %']).format(
+            {"Toneladas": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
             "ppt": lambda x : '{:,.2f}'.format(x),
             "Tn Var %": lambda x : '{:,.2f} %'.format(x),
