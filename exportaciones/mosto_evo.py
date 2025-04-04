@@ -113,11 +113,11 @@ def exporta_mosto_evo():
     # Interfaz de filtros
     with st.popover("Abrir Filtros"):
         st.markdown("Filtros ??")
-        anio = st.multiselect("Año:", ["Todos"], default=["Todos"])
-        var = st.multiselect("Variedad:", ["Todas"] + var_list, default=["Todas"])
-        envase = st.multiselect("Envases:", ["Todos"] + envase_list, default=["Todos"])
-        vcolor = st.multiselect("Color:", ["Todos"] +  color_list, default=["Todos"])
-        producto = st.multiselect("Producto:",   ["Todos"] +  producto_list, default=["Todos"])
+        anio = st.multiselect("Añom:", ["Todos"], default=["Todos"])
+        var = st.multiselect("Variedadm:", ["Todas"] + var_list, default=["Todas"])
+        envase = st.multiselect("Envasesm:", ["Todos"] + envase_list, default=["Todos"])
+        vcolor = st.multiselect("Colorm:", ["Todos"] +  color_list, default=["Todos"])
+        producto = st.multiselect("Productom:",   ["Todos"] +  producto_list, default=["Todos"])
 
         if st.button("Aplicar filtros", type="primary"):
             st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "vcolor": vcolor,"producto": producto}
