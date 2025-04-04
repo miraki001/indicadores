@@ -347,7 +347,7 @@ def exporta_mosto_evo():
             ],
             "series": [
                 {"data": dv1["Toneladas"].tolist(),"position" : 'rigth', "type": "line", "name": "Toneladas", "yAxisIndex": 0, "formatter": =v=>v.toFixed(0)  },
-                {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1,  "formatter": =v=>v.toFixed(0) },
+                {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1,  "valueformatter": =v=>v.toFixed(0) },
                 {"data": dv1["ppt"].tolist(), "type": "line", "name": "Precio x Tn.", "yAxisIndex": 2, "color":'#07ECFA', },
             ],
         }
