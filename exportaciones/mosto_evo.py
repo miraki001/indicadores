@@ -313,7 +313,7 @@ def exporta_mosto_evo():
                 {"type": "value" ,"name" : "Toneladas/Fob" ,
                  "position" : 'left',
                  "alignTicks": 'true',
-                 "offset": 0,                 
+                 "offset": 10,                 
                  "axisLine": {
                     "show": 'True',
                   },              
@@ -324,7 +324,7 @@ def exporta_mosto_evo():
                 {"type": "value" , "name" : "eee",
                  "position" : 'left',
                  "alignTicks": 'true',
-                 "offset": 0,
+                 "offset": 20,
                  "axisLine": {
                     "show": 'True',
                   },             
