@@ -286,7 +286,7 @@ def exporta_mosto_evo():
 
         # Convertir 'anio' a string para el gráfico
         dv1["Año"] = dv1["Año"].astype(str)
-        #dv1["Fob"] = dv1["Fob"].map(" lambda x    {:.,0f}".format(x))
+        dv1["Fob"] =pd.to_integer(df['Fob'])
         #dv1["Toneladas"] = dv1["Toneladas"].map("{:.,0f}".format)
         #dv1["ppt"] = dv1["ppt"].map("{:.,0f}".format)
         dv4 = dv1.style.format({
@@ -294,8 +294,8 @@ def exporta_mosto_evo():
             "Fob": "{:.0f}"
             })
         #dv4.columns = dv4.columns.droplevel(0)
-        dv4.styler.hide(axis=0).highlight_max(axis=1) 
-        st.write(dv4)
+        #dv4.styler.hide(axis=0).highlight_max(axis=1) 
+        st.write(dv1['Fob'])
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
         option = {
