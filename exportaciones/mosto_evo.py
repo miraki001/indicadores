@@ -311,14 +311,17 @@ def exporta_mosto_evo():
             "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
             "yAxis": [
                 {"type": "value" ,"name" : "Toneladas/Fob" ,
+                 "position" : 'left',
+                 "alignTicks": 'true',
+                 "offset": 0,                 
                  "axisLine": {
-                    "show": 'false',
+                    "show": 'True',
                   },              
                  "axisLabel": {
                     "formatter": '{value} '
                       }
                 } ,
-                {"type": "value" , "name" : "",
+                {"type": "value" , "name" : "eee",
                  "position" : 'left',
                  "alignTicks": 'true',
                  "offset": 0,
@@ -343,7 +346,7 @@ def exporta_mosto_evo():
                 },            
             ],
             "series": [
-                {"data": dv1["Toneladas"].tolist(),"position" : 'rigth', "type": "line", "name": "Toneladas", "yAxisIndex": 1, "formatter": 'function (value) {return value.toFixed(0) * 1000;}'  },
+                {"data": dv1["Toneladas"].tolist(),"position" : 'rigth', "type": "line", "name": "Toneladas", "yAxisIndex": 1,  },
                 {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 2, },
                 {"data": dv1["ppt"].tolist(), "type": "line", "name": "Precio x Tn.", "yAxisIndex": 3, "color":'#07ECFA', },
             ],
