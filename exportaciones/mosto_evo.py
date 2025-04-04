@@ -293,8 +293,8 @@ def exporta_mosto_evo():
             "Toneladas": "{:.0f}",
             "Fob": "{:.0f}"
             })
-        dv4.columns = dv4.columns.droplevel(0)
-        st.write(dv4)
+        #dv4.columns = dv4.columns.droplevel(0)
+        st.write(dv4.style.hide_index())
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
         option = {
