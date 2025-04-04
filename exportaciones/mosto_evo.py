@@ -286,7 +286,7 @@ def exporta_mosto_evo():
 
         # Convertir 'anio' a string para el gráfico
         dv1["Año"] = dv1["Año"].astype(str)
-        dv1["Fob"] =pd.to_integer(df['Fob'])
+        dv1["Fob"] =pd.to_int(df['Fob'])
         #dv1["Toneladas"] = dv1["Toneladas"].map("{:.,0f}".format)
         #dv1["ppt"] = dv1["ppt"].map("{:.,0f}".format)
         dv4 = dv1.style.format({
