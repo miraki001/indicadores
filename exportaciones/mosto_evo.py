@@ -352,7 +352,7 @@ def exporta_mosto_evo():
             ],
         }
 
-        st_echarts(options=option,key="gauge444" + str(dt.now()), height="800px")
+        st_echarts(options=option,key="gauge444" + str(dt.now()), height="400px")
 
         st.subheader("Exportaciones evolución mensual en Toneladas")
        
