@@ -294,7 +294,7 @@ def exporta_mosto_evo():
             "Fob": "{:.0f}"
             })
         #dv4.columns = dv4.columns.droplevel(0)
-        dv4.hide(axis="index", **kwargs)
+        dv4.hide(axis="index",0 )
         st.write(dv4)
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
