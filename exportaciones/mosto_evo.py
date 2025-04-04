@@ -12,7 +12,7 @@ from datetime import datetime as dt
 
 
 
-def exporta_evolucion():
+def exporta_mosto_evo():
 
     def bgcolor_positive_or_negative(value):
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
