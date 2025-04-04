@@ -259,7 +259,7 @@ def exporta_mosto_evo():
         )
 
 
-        #st.write(df2)
+        st.write(styled_df)
         if st.checkbox('Ver datos en forma de tabla '):
             st.dataframe(styled_df,
               column_config={
