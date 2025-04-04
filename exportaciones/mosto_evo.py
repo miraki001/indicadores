@@ -296,7 +296,7 @@ def exporta_mosto_evo():
         #    })
         #dv4.columns = dv4.columns.droplevel(0)
         #dv4.styler.hide(axis=0).highlight_max(axis=1) 
-        st.write(dv1['ppt'])
+        #st.write(dv1['ppt'])
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
         option = {
@@ -313,7 +313,7 @@ def exporta_mosto_evo():
                 {"type": "value" ,"name" : "Toneladas/Fob" ,
                  "position" : 'left',
                  "alignTicks": 'true',
-                 "offset": 10,                 
+                 "offset": 0,                 
                  "axisLine": {
                     "show": 'True',
                   },              
@@ -324,7 +324,7 @@ def exporta_mosto_evo():
                 {"type": "value" , "name" : "eee",
                  "position" : 'left',
                  "alignTicks": 'true',
-                 "offset": 50,
+                 "offset": 100,
                  "axisLine": {
                     "show": 'True',
                   },             
