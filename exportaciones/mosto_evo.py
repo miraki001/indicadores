@@ -289,7 +289,8 @@ def exporta_mosto_evo():
         dv1["Fob"] = dv1["Fob"].map("{:,.0f}".format)
         dv1["Toneladas"] = dv1["Toneladas"].map("{:,.0f}".format)
         dv1["ppt"] = dv1["ppt"].map("{:,.0f}".format)
-        #st.write(dv1["Fob"])
+        st.write(dv1["Fob"])
+        st.write(dv1["Toneladas"])
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
         option = {
