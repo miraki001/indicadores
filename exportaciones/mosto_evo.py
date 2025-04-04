@@ -74,7 +74,7 @@ def exporta_mosto_evo():
             return pd.DataFrame()
 
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m  where producto in ('Mosto');"
+    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m  where producto = 'Mosto';"
     df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
@@ -161,7 +161,7 @@ def exporta_mosto_evo():
         SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros) AS ppl
         FROM exportaciones2_m 
         WHERE {where_clause}
-        and producto in ('Mosto'')
+        and producto = 'Mosto'
         GROUP BY anio 
         ORDER BY anio 
     """
