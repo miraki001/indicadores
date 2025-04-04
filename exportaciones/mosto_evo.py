@@ -316,7 +316,7 @@ def exporta_mosto_evo():
                     "formatter": '{value}  '
                       }
                 },
-                {"type": "value" , "name" : "Precio x Lts",
+                {"type": "value" , "name" : "Precio x Tn.",
                  "position" : 'rigth',
                  "alignTicks": 'true',
                  "offset": 10,
@@ -330,15 +330,15 @@ def exporta_mosto_evo():
                 },            
             ],
             "series": [
-                {"data": dv1["Litros"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
+                {"data": dv1["Toneladas"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
                 {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
-                {"data": dv1["ppl"].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 2, "color":'#07ECFA', },
+                {"data": dv1["ppt"].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 2, "color":'#07ECFA', },
             ],
         }
 
         st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
 
-        st.subheader("Exportaciones evolución mensual en litros")
+        st.subheader("Exportaciones evolución mensual en Toneladas")
        
         #litros["mes"] = litros["mes"].astype(str)
         anio1 = litros.columns[1]
