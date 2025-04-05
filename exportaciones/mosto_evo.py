@@ -332,8 +332,8 @@ def exporta_mosto_evo():
                     "show": 'True',
                   },             
                  "axisLabel": {
-                    #"formatter":   formato('{value}')         
-                    "formatter": function (a) {a == +a;  return isFinite(a) ? echarts.format.addCommas(+a / 1000000) : ''; }, 
+                    "formatter":   '{value}',         
+                    #"formatter": function (a) {a == +a;  return isFinite(a) ? echarts.format.addCommas(+a / 1000000) : ''; }, 
                  },
                 },
                 {"type": "value" , "name" : "Precio x Tn.",
