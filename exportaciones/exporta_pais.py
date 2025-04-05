@@ -293,7 +293,7 @@ def exporta_destino():
     )
 
     df1 = dv1['pais']
-    json_list = json.loads(json.dumps(list(df.T.to_dict().values()))) 
+    json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
     t.write(json_list)
 
     
