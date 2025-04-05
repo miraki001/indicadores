@@ -313,6 +313,10 @@ def exporta_destino():
     st.write(tt)
     df_variedad.drop(['litros'], axis='columns', inplace=True)
     st.write(df_variedad)
+    df_variedad = df_variedad.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
+    json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
+    result = json.loads(json.dumps(list(df_variedad.T.to_dict().values()))) 
+    st.write(result)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
     #st.write(df3)
