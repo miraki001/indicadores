@@ -324,7 +324,7 @@ def exporta_mosto_evo():
                     "formatter":  '{value}'        
                  },  
                 },
-                {"type": "value" , "name" : "Fob en M",
+                {"type": "value" , "name" : "Fob",
                  "position" : 'left',
                  "alignTicks": 'true',
                  "offset": 60,
@@ -333,7 +333,7 @@ def exporta_mosto_evo():
                   },             
                  "axisLabel": {
                     #"formatter":   formato('{value}')         
-                    "formatter": 'function (a) {a = +a;  return isFinite(a) ? echarts.format.addCommas(+a / 1000000) : ''; }', 
+                    "formatter": function (a) {a = +a;  return isFinite(a) ? echarts.format.addCommas(+a / 1000000) : ''; }, 
                  },
                 },
                 {"type": "value" , "name" : "Precio x Tn.",
