@@ -332,7 +332,8 @@ def exporta_mosto_evo():
                     "show": 'True',
                   },             
                  "axisLabel": {
-                    "formatter":   formato('{value}')         
+                    #"formatter":   formato('{value}')         
+                    "formatter":  "function (value) {return (value / 1000) + '%';}"        
                     } 
                 },
                 {"type": "value" , "name" : "Precio x Tn.",
