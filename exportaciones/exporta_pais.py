@@ -292,8 +292,9 @@ def exporta_destino():
     st_echarts(
         options=option,key="gauge4" + str(dt.now()), height="600px",
     )
-    dv1 = dv1.rename(columns={'pais': "name"})
-    df1 = dv1['nodes'].unique()
+    
+    #dv1 = dv1.rename(columns={'pais': "name"})
+    #df1 = dv1['nodes'].unique()
 
     df1 = pd.DataFrame({'nodes':var_list})
     df2 = pd.DataFrame({'nodes':pais_list})
