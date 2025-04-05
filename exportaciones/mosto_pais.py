@@ -112,7 +112,7 @@ def exporta_mosto_destino():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, SUM(cantlitros/743.5) AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
+        SELECT anio, (cantlitros/743.5) AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
         FROM exportaciones2_m 
         where producto = 'Mosto'
         and codigoproducto like '%CONCENTRADO%' 
