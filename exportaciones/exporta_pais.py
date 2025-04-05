@@ -301,8 +301,8 @@ def exporta_destino():
     #df1 = df1.reset_index().rename_axis(None, axis=1)
     #df1.reset_index(drop=True)
     #result = var_list.to_json(orient="split")
-    #json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
-    #st.write(json_list)
+    json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
+    st.write(json_list)
 
     
     #df2 = dv1['variedad1']
