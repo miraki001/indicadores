@@ -333,8 +333,10 @@ def exporta_mosto_evo():
                   },             
                  "axisLabel": {
                     #"formatter":   formato('{value}')         
-                    "formatter":  "function (value) {return (value / 1000) + '%';}"        
-                    } 
+                    "formatter":  'function (a) {  
+                         a = +a;
+                         return isFinite(a) ? echarts.format.addCommas(+a / 1000) : '';
+                    }', 
                 },
                 {"type": "value" , "name" : "Precio x Tn.",
                  "position" : 'rigth',
