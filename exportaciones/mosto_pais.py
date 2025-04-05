@@ -123,7 +123,7 @@ def exporta_mosto_destino():
     dv1 = cargar_datos(QUERY_V1)
  
     dv1['anio'] = dv1['anio'].astype(str)
-
+    dv1 = dv2.astype({'litros' : int, 'fob': int} )    
     
     with st.container(border=True):
         col1, col2, col3 = st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
