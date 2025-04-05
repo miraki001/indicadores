@@ -297,9 +297,10 @@ def exporta_destino():
     df1 = pd.DataFrame({'nodes':var_list})
     #df1 = df1.rename(columns={'pais': "nodes"})
     st.write(df1)
+    result = df1.to_json(orient="split")
     #df1 = df1.reset_index().rename_axis(None, axis=1)
     #df1.reset_index(drop=True)
-    result = var_list.to_json(orient="split")
+    #result = var_list.to_json(orient="split")
     #json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
     st.write(result)
 
