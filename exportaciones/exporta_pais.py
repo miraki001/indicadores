@@ -293,6 +293,7 @@ def exporta_destino():
     )
 
     df1 = dv1['pais'].unique()
+    st.write(df1)
     json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
     st.write(json_list)
 
