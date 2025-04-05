@@ -212,7 +212,7 @@ def exporta_mosto_destino():
         
                 },
                 width = 800,   
-                height = 400,
+                height = 600,
                 hide_index=True)
     
     #st.dataframe(df_sorted)
