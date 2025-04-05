@@ -292,7 +292,7 @@ def exporta_destino():
         options=option,key="gauge4" + str(dt.now()), height="600px",
     )
 
-    df1 = dv1['pais']
+    df1 = dv1['pais'].unique()
     json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
     st.write(json_list)
 
