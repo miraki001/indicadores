@@ -10,7 +10,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
 
-def exporta_destino():
+def exporta_mosto_destino():
 
     def bgcolor_positive_or_negative(value):
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
@@ -113,7 +113,9 @@ def exporta_destino():
     QUERY_V1 = f"""
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
         FROM exportaciones2_m 
-        where producto not in ('Mosto','Alcohol')
+        where producto = 'Mosto'
+        and codigoproducto like '%CONCENTRADO%' 
+        
     """
 
 
