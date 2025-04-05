@@ -112,7 +112,7 @@ def exporta_mosto_destino():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
+        SELECT anio, SUM(cantlitros/743.5) AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
         FROM exportaciones2_m 
         where producto = 'Mosto'
         and codigoproducto like '%CONCENTRADO%' 
@@ -182,7 +182,7 @@ def exporta_mosto_destino():
             tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )))
             tot2.append((  (df_anual['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
         #st.write(total)
-    df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
+    df_anual = df_anual.rename(columns={'litros': "Toneladas", 'fob': "Fob",})
     df_anual['Part. % Litros'] = total
     df_anual['Part % Fob '] = tot1
     df_anual['Prec x Litro'] = tot2
@@ -191,7 +191,7 @@ def exporta_mosto_destino():
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
 
     styled_df = df_sorted.style.format(
-            {"Litros": lambda x : '{:,.0f}'.format(x), 
+            {"Toneladas": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
             "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
             "Part % Fob": lambda x : '{:,.2f} %'.format(x),
@@ -204,7 +204,7 @@ def exporta_mosto_destino():
     st.dataframe(styled_df,
               column_config={
                 'Pais': st.column_config.Column('Pais'),
-                'Litros': st.column_config.Column('Litros'),
+                'Toneladas': st.column_config.Column('Toneladas'),
                 'Fob': st.column_config.Column('Fob'),
                 'Part. % Litro': st.column_config.Column('Part. % Litro'),
                 'Part % Fob': st.column_config.Column('Part % Fob'),
@@ -231,7 +231,7 @@ def exporta_mosto_destino():
                 "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
             ).js_code,
         },
-        "legend": {"data": ["litros","Pais"]},   
+        "legend": {"data": ["Toneladas","Pais"]},   
         "series": [
                 {
                     "name": "Ventas Totales",
