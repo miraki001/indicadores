@@ -296,8 +296,8 @@ def exporta_destino():
     #dv1 = dv1.rename(columns={'pais': "name"})
     #df1 = dv1['nodes'].unique()
 
-    df1 = pd.DataFrame({'nodes':var_list})
-    df2 = pd.DataFrame({'nodes':pais_list})
+    df1 = pd.DataFrame({'name':var_list})
+    df2 = pd.DataFrame({'name':pais_list})
     #df1 = df1.rename(columns={'pais': "nodes"})
     st.write(df1)
     #result = df1.to_json(orient="split")
@@ -308,7 +308,8 @@ def exporta_destino():
     st.write(json_list)
     json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
     st.write(json_list1)
-    
+    tt = json_list + json_list1
+    st.write(tt)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
     #st.write(df3)
