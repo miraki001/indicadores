@@ -322,7 +322,7 @@ def exporta_mosto_evo():
                   },              
                  "axisLabel": {
                     "formatter":  '{value}'        
-                    } ,
+                    
                 },
                 {"type": "value" , "name" : "",
                  "position" : 'left',
