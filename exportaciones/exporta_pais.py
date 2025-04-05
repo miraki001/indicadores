@@ -311,6 +311,7 @@ def exporta_destino():
     #st.write(json_list1)
     tt = json_list + json_list1
     st.write(tt)
+    df_variedad.drop(['litros'], axis='columns', inplace=True)
     st.write(df_variedad)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
