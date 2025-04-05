@@ -75,7 +75,7 @@ def exporta_destino():
             return pd.DataFrame()
 
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m where producto not in ('Mosto','Alcohol');"
+    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais  from exportaciones2_m where producto not in ('Mosto','Alcohol');"
     df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
@@ -84,6 +84,7 @@ def exporta_destino():
 
     # Listas de valores únicos para los filtros
     year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
+    pais_list = sorted(df_filtros["pais"].dropna().unique(), reverse=True)
     var_list = sorted(df_filtros["variedad"].dropna().unique())
     envase_list = sorted(df_filtros["tipo_envase"].dropna().unique())
     color_list = sorted(df_filtros["color"].dropna().unique())
@@ -291,10 +292,11 @@ def exporta_destino():
     st_echarts(
         options=option,key="gauge4" + str(dt.now()), height="600px",
     )
-    dv1 = dv1.rename(columns={'pais': "nodes"})
+    dv1 = dv1.rename(columns={'pais': "name"})
     df1 = dv1['nodes'].unique()
 
     df1 = pd.DataFrame({'nodes':var_list})
+    df2 = pd.DataFrame({'nodes':pais_list})
     #df1 = df1.rename(columns={'pais': "nodes"})
     st.write(df1)
     #result = df1.to_json(orient="split")
@@ -303,7 +305,8 @@ def exporta_destino():
     #result = var_list.to_json(orient="split")
     json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
     st.write(json_list)
-
+    json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
+    st.write(json_list1)
     
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
