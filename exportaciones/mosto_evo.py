@@ -15,7 +15,7 @@ from datetime import datetime as dt
 def exporta_mosto_evo():
 
     def formato(value):
-        return value/1000000
+        return int(value)/1000000
 
     def bgcolor_positive_or_negative(value):
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
