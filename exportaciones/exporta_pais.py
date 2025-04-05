@@ -162,6 +162,7 @@ def exporta_destino():
 
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
+    df_variedad = df_filtered.groupby(['pais','variedad1'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
     total = []
     tot1 = []
@@ -299,17 +300,18 @@ def exporta_destino():
     df1 = pd.DataFrame({'name':var_list})
     df2 = pd.DataFrame({'name':pais_list})
     #df1 = df1.rename(columns={'pais': "nodes"})
-    st.write(df1)
+    #st.write(df1)
     #result = df1.to_json(orient="split")
     #df1 = df1.reset_index().rename_axis(None, axis=1)
     #df1.reset_index(drop=True)
     #result = var_list.to_json(orient="split")
     json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
-    st.write(json_list)
+    #st.write(json_list)
     json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
-    st.write(json_list1)
+    #st.write(json_list1)
     tt = json_list + json_list1
     st.write(tt)
+    st.write(df_variedad)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
     #st.write(df3)
