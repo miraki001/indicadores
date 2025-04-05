@@ -219,7 +219,7 @@ def exporta_mosto_destino():
     #dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "value", 'pais': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
-    st.subheader('Exportaciones por Pais en Litros')
+    st.subheader('Exportaciones por Pais en Toneladas')
     #st.write(json_list)
 
 
