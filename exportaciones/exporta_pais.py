@@ -320,3 +320,29 @@ def exporta_destino():
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
     #st.write(df3)
+    option = {
+        "title": {"text": "Sankey Diagram"},
+        "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
+        "series": [
+            {
+                "type": "sankey",
+                "data": tt,
+                "links": result,
+                "emphasis": {"focus": "adjacency"},
+                "levels": [
+                    {
+                        "depth": 0,
+                        "itemStyle": {"color": "#fbb4ae"},
+                        "lineStyle": {"color": "source", "opacity": 0.6},
+                    },
+                    {
+                        "depth": 1,
+                        "itemStyle": {"color": "#b3cde3"},
+                        "lineStyle": {"color": "source", "opacity": 0.6},
+                    },
+                ],
+                "lineStyle": {"curveness": 0.5},
+            }
+        ],
+    }
+    st_echarts(option, height="500px")
