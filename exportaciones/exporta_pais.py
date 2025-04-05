@@ -292,3 +292,7 @@ def exporta_destino():
         options=option,key="gauge4" + str(dt.now()), height="600px",
     )
 
+    df1 = dv1['pais']
+    df2 = dv1['variedad1']
+    df3 = df1+ df2
+    st.write(df3)
