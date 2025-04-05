@@ -291,9 +291,9 @@ def exporta_destino():
     st_echarts(
         options=option,key="gauge4" + str(dt.now()), height="600px",
     )
-
-    df1 = dv1['pais'].unique()
     df1 = df1.rename(columns={'pais': "nodes"})
+    df1 = dv1['nodes'].unique()
+    #df1 = df1.rename(columns={'pais': "nodes"})
     st.write(df1)
     result = df1.to_json(orient="split")
     #json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
