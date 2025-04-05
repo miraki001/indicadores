@@ -186,7 +186,7 @@ def exporta_mosto_evo():
 
     dv1 = cargar_datos(QUERY_V1)
     dv2 = cargar_datos(QUERY_V2)
-
+    dv2 = dv1.astype({'litros' : int, 'fob': int,'ppl' :int } )
     #st.write(dv2)
 
     litros = dv2.pivot_table(
@@ -211,6 +211,8 @@ def exporta_mosto_evo():
     )
 
     litros.columns = litros.columns.droplevel(0)
+    
+       
     litros = litros.reset_index().rename_axis(None, axis=1)
     fob.columns = fob.columns.droplevel(0)
     fob = fob.reset_index().rename_axis(None, axis=1)
