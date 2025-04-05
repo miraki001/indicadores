@@ -295,6 +295,7 @@ def exporta_destino():
     df1 = dv1['nodes'].unique()
     #df1 = df1.rename(columns={'pais': "nodes"})
     st.write(df1)
+    df1 = df1.reset_index().rename_axis(None, axis=1)
     result = df1.to_json(orient="split")
     #json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
     st.write(result)
