@@ -75,7 +75,7 @@ def exporta_destino():
             return pd.DataFrame()
 
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m where producto not in ('Mosto','Alcohol');');"
+    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m where producto not in ('Mosto','Alcohol');"
     df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
