@@ -313,7 +313,7 @@ def exporta_mosto_evo():
             "legend": {},
             "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
             "yAxis": [
-                {"type": "value" ,"name" : "Toneladas/Fob" ,
+                {"type": "value" ,"name" : "Tn." ,
                  "position" : 'left',
                  "alignTicks": 'true',
                  "offset": 0,                 
