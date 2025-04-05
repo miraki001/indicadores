@@ -335,6 +335,7 @@ def exporta_mosto_evo():
                     #"formatter":   formato('{value}')         
                     "formatter": JsCode('function (a) {a = +a;  return isFinite(a) ? echarts.format.addCommas(+a / 1000) : ''; }'), 
                  },
+                },
                 {"type": "value" , "name" : "Precio x Tn.",
                  "position" : 'rigth',
                  "alignTicks": 'true',
