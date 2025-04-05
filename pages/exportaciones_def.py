@@ -14,7 +14,7 @@ from exportaciones import exporta_pais
 from exportaciones import exporta_variedad
 from exportaciones import exporta_color
 from exportaciones import mosto_evo
-
+from exportaciones import mosto_pais
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "#EC654A" if value < 0 else "lightgreen"
@@ -58,4 +58,7 @@ with tab4:
 with tab5:
     #st.session_state['vEstado'] = '0'
     mosto_evo.exporta_mosto_evo()    
-   
+    
+with tab6:
+    #st.session_state['vEstado'] = '0'
+    mosto_evo.exporta_mosto_destino()    
