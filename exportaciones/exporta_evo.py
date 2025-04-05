@@ -242,7 +242,7 @@ def exporta_evolucion():
         dv1['Litros Var %'] = total
         dv1['Fob Var. %'] = tot1
         dv1['Prec x Litro Var. %'] = tot2
-        dv1 = dv1.astype({'Fob' : int, 'Litros': int})
+        dv1 = dv1.astype({'Fob' : int, 'Litros': int} )
 
         dv1 = dv1.sort_index(axis = 1)
 
