@@ -291,7 +291,7 @@ def exporta_destino():
     st_echarts(
         options=option,key="gauge4" + str(dt.now()), height="600px",
     )
-    df1 = df1.rename(columns={'pais': "nodes"})
+    dv1 = dv1.rename(columns={'pais': "nodes"})
     df1 = dv1['nodes'].unique()
     #df1 = df1.rename(columns={'pais': "nodes"})
     st.write(df1)
