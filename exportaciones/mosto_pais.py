@@ -140,13 +140,13 @@ def exporta_mosto_destino():
         with col2:
             with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+                variedad = st.multiselect("Variedad4",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
-                envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+                envase = st.multiselect("Envase4",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
     df_filtered = dv1.copy()
 
