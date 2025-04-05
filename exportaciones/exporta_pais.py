@@ -305,6 +305,6 @@ def exporta_destino():
     #st.write(json_list)
 
     
-    df2 = dv1['variedad1']
-    df3 = df1+ df2
-    st.write(df3)
+    #df2 = dv1['variedad1']
+    #df3 = df1+ df2
+    #st.write(df3)
