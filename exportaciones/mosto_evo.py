@@ -321,7 +321,7 @@ def exporta_mosto_evo():
                     "show": 'True',
                   },              
                  "axisLabel": {
-                    "formatter":  val = '${val / 1000}K'        
+                    "formatter":  "function (value) {return (value / 1000) + '%';}"        
                     } ,
                 },
                 {"type": "value" , "name" : "",
