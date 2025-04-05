@@ -293,9 +293,11 @@ def exporta_destino():
     )
 
     df1 = dv1['pais'].unique()
+    df1 = df1.rename(columns={'pais': "nodes"})
     st.write(df1)
-    json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
-    st.write(json_list)
+    result = df1.to_json(orient="split")
+    #json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
+    st.write(result)
 
     
     df2 = dv1['variedad1']
