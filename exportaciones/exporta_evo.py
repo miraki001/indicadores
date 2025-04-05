@@ -183,7 +183,7 @@ def exporta_evolucion():
     dv2 = cargar_datos(QUERY_V2)
 
 
-    dv2 = dv2.astype({'fob' : int, 'litros': int,'ppl' :int } )
+    dv2 = dv2.astype({'fob' : int, 'litros': int} )
     #st.write(dv2)
 
     litros = dv2.pivot_table(
@@ -242,7 +242,7 @@ def exporta_evolucion():
         dv1['Litros Var %'] = total
         dv1['Fob Var. %'] = tot1
         dv1['Prec x Litro Var. %'] = tot2
-        dv1 = dv1.astype({'Fob' : int, 'Litros': int,'ppl' :int } )
+        dv1 = dv1.astype({'Fob' : int, 'Litros': int)
 
         dv1 = dv1.sort_index(axis = 1)
 
