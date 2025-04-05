@@ -293,6 +293,10 @@ def exporta_destino():
     )
 
     df1 = dv1['pais']
+    json_list = json.loads(json.dumps(list(df.T.to_dict().values()))) 
+    t.write(json_list)
+
+    
     df2 = dv1['variedad1']
     df3 = df1+ df2
     st.write(df3)
