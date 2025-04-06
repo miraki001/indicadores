@@ -1,4 +1,4 @@
-with open("./data/product.json", "r") as f:
+with open("./data/producto.json", "r") as f:
     data = json.loads(f.read())
 
 option = {
