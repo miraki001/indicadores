@@ -60,7 +60,10 @@ def exporta_evolucion():
         """
     st.markdown(streamlit_style, unsafe_allow_html=True) 
 
-    st.markdown(" <style>iframe{ height: 500px !important } ", unsafe_allow_html=True)
+   
+    
+    
+    #st.markdown(" <style>iframe{ height: 500px !important } ", unsafe_allow_html=True)
 
     conn = st.connection("postgresql", type="sql")
 
