@@ -156,3 +156,6 @@ option = {
     ],
 }
 st_echarts(option,key="gauge2", height="500px")
+
+with tab1:
+  
