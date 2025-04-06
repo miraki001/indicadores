@@ -300,8 +300,9 @@ def exporta_destino():
     df1 = pd.DataFrame({'name':var_list})
     df2 = pd.DataFrame({'name':pais_list})
     #df1 = df1.rename(columns={'pais': "nodes"})
-    st.write(df1)
-    st.write(df1.to_json(orient="records"))
+    #st.write(df1)
+    result1 = df1.to_json(orient="records"))
+    result2 = df2.to_json(orient="records"))
     #result = df1.to_json(orient="split")
     #df1 = df1.reset_index().rename_axis(None, axis=1)
     #df1.reset_index(drop=True)
@@ -310,14 +311,15 @@ def exporta_destino():
     #st.write(json_list)
     json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
     #st.write(json_list1)
-    tt = json_list + json_list1
+    tt = result1 + result2
     st.write(tt)
     df_variedad.drop(['litros'], axis='columns', inplace=True)
     st.write(df_variedad)
     df_variedad = df_variedad.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
     result = json.loads(json.dumps(list(df_variedad.T.to_dict().values()))) 
-    st.write(result)
+    result3 = result2 = df_variedad.to_json(orient="records"))
+    st.write(result3)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
     #st.write(df3)
@@ -328,7 +330,7 @@ def exporta_destino():
             {
                 "type": "sankey",
                 "data": tt,
-                "links": result,
+                "links": result3,
                 "emphasis": {"focus": "adjacency"},
                 "levels": [
                     {
