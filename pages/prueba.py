@@ -158,6 +158,6 @@ option = {
 }
 st_echarts(option,key="gauge2", height="500px")
 
-with tab1:
+with tab2:
    exporta_pais1.exporta_destino()  
   
