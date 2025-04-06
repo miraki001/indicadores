@@ -176,7 +176,7 @@ def exporta_destino():
     pais_list1 = sorted(top_bottom_10["pais"].dropna().unique(), reverse=True)
     var_list1 = sorted(top_bottom_10["variedad1"].dropna().unique())
     top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexes]
-    st.write(top_bottom_11)
+    #st.write(top_bottom_11)
     pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
     var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
     dv = df_anual.copy()
