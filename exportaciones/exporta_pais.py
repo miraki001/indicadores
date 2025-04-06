@@ -173,10 +173,11 @@ def exporta_destino():
     df_variedad = df_filtered.groupby(['pais','variedad1'], as_index=False)[['fob', 'litros']].sum()
     indexes = np.r_[-30:0]
     top_bottom_10 = df_variedad.sort_values("fob", ignore_index=True).iloc[indexes]
-    #df_variedad = df_variedad.sort_values('fob').head(10)
-    st.write(top_bottom_10)
     pais_list1 = sorted(top_bottom_10["pais"].dropna().unique(), reverse=True)
     var_list1 = sorted(top_bottom_10["variedad1"].dropna().unique())
+    top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexes]
+    pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
+    var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
     dv = df_anual.copy()
     total = []
     tot1 = []
@@ -322,7 +323,7 @@ def exporta_destino():
     #df1.reset_index(drop=True)
     #result = var_list.to_json(orient="split")
     #json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
-    st.write(result1)
+    #st.write(result1)
     #json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
     #st.write(json_list1)
     #tt = result1 + result2
@@ -348,7 +349,7 @@ def exporta_destino():
 
 
     option = {
-        "title": {"text": "Sankey Diagram"},
+        "title": {"text": "Top 20 en Valor Fob"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
@@ -383,3 +384,51 @@ def exporta_destino():
         ],
     }
     st_echarts(option,key="otro", height="500px")
+
+    df1 = pd.DataFrame({'name':var_list11 + pais_list11})
+    result1 = df1.to_json(orient="records")
+    top_bottom_11.drop(['fob'], axis='columns', inplace=True)
+    #st.write(df_variedad)
+    top_bottom_11 = top_bottom_11.rename(columns={'pais': "source",'variedad1': "target",'litros': "value"})
+    result3 = top_bottom_10.to_json(orient="records")
+    #st.write(result3)
+    pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
+    #st.write(pp)
+    data1 = json.loads(pp)
+    option = {
+        "title": {"text": "Top 20 en Litros"},
+        "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
+        "series": [
+            {
+                "type": "sankey",
+                "data":  data1["nodes"],
+                "links": data1["links"],
+                "emphasis": {"focus": "adjacency"},
+                "levels": [
+                    {
+                        "depth": 0,
+                        "itemStyle": {"color": "#fbb4ae"},
+                        "lineStyle": {"color": "target", "opacity": 0.6},
+                    },
+                    {
+                        "depth": 1,
+                        "itemStyle": {"color": "#b3cde3"},
+                        "lineStyle": {"color": "source", "opacity": 0.6},
+                    },
+                    {
+                        "depth": 2,
+                        "itemStyle": {"color": "#ccebc5"},
+                        "lineStyle": {"color": "source", "opacity": 0.6},
+                    },
+                    {
+                        "depth": 3,
+                        "itemStyle": {"color": "#decbe4"},
+                        "lineStyle": {"color": "source", "opacity": 0.6},
+                    },
+                ],
+                "lineStyle": {"curveness": 0.5},
+            }
+        ],
+    }
+    st_echarts(option,key="otro", height="500px")
+
