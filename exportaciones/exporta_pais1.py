@@ -83,8 +83,8 @@ def exporta_destino():
     top_bottom_10 = df_variedad.sort_values("fob", ignore_index=True).iloc[indexes]
     df_variedad = df_variedad.sort_values('fob').head(10)
     st.write(top_bottom_10)
-    pais_list1 = sorted(df_variedad["pais"].dropna().unique(), reverse=True)
-    var_list1 = sorted(df_variedad["variedad1"].dropna().unique())
+    pais_list1 = sorted(top_bottom_10["pais"].dropna().unique(), reverse=True)
+    var_list1 = sorted(top_bottom_10["variedad1"].dropna().unique())
     
 
 
