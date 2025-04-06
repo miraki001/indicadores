@@ -73,10 +73,18 @@ def exporta_destino():
         except Exception as e:
             st.error(f"Error al cargar datos: {e}")
             return pd.DataFrame()
+    QUERY_V0 = f"""
+        SELECT distinct anio,variedad1 variedad,tipo_envase,color,producto,pais
+        FROM exportaciones2_m 
+        where producto not in ('Mosto','Alcohol')
+        and variedad1 in ('MALBEC','CABERNET FRANC')
+        and pais in ('ESTADOS UNIDOS','REINO UNIDO','BRASIL','CANADA')
+    """
 
+    
     # Cargar datos iniciales para llenar los filtros
     QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais  from exportaciones2_m where producto not in ('Mosto','Alcohol');"
-    df_filtros = cargar_datos(QUERY_INICIAL)
+    df_filtros = cargar_datos(QUERY_V0)
 
     if df_filtros.empty:
         st.error("No se encontraron datos en la base de datos.")
@@ -115,6 +123,8 @@ def exporta_destino():
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
+        and variedad1 in ('MALBEC','CABERNET FRANC')
+        and pais in ('ESTADOS UNIDOS','REINO UNIDO','BRASIL','CANADA')
     """
 
 
