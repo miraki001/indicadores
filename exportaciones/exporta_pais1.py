@@ -55,7 +55,7 @@ def exporta_destino():
 
     conn = st.connection("postgresql", type="sql")
 
-    @st.cache_data
+
     def cargar_datos(consulta):
         try:
             df = conn.query(consulta, ttl="0")
