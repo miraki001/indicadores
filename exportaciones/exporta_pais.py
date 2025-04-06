@@ -378,4 +378,4 @@ def exporta_destino():
             }
         ],
     }
-    st_echarts(option, height="500px")
+    st_echarts(option,key="gauge4444" + str(dt.now()), height="500px")
