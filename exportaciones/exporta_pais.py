@@ -301,7 +301,7 @@ def exporta_destino():
     df2 = pd.DataFrame({'name':pais_list})
     #df1 = df1.rename(columns={'pais': "nodes"})
     st.write(df1)
-    st.write(df1.to_json(orient="split"))
+    st.write(df1.to_json(orient="records"))
     #result = df1.to_json(orient="split")
     #df1 = df1.reset_index().rename_axis(None, axis=1)
     #df1.reset_index(drop=True)
