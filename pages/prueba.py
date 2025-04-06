@@ -1,3 +1,6 @@
+import json
+from streamlit_echarts import st_echarts
+
 with open("./data/producto.json", "r") as f:
     data = json.loads(f.read())
 
