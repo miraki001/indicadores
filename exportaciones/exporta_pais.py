@@ -349,8 +349,8 @@ def exporta_destino():
         "series": [
             {
                 "type": "sankey",
-                "data": data1["nodes"],
-                "links": data1["links"],
+                "data": data["nodes"],
+                "links": data["links"],
                 "emphasis": {"focus": "adjacency"},
                 "levels": [
                     {
