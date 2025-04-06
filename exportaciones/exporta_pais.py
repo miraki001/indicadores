@@ -331,6 +331,8 @@ def exporta_destino():
     with open("./data/producto.json", "r") as f:
         data = json.loads(f.read())
     st.write(data)
+    data1 = json.loads(pp)
+    st.write(data1)
     option = {
         "title": {"text": "Sankey Diagram"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
