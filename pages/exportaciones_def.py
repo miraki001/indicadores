@@ -15,6 +15,7 @@ from exportaciones import exporta_variedad
 from exportaciones import exporta_color
 from exportaciones import mosto_evo
 from exportaciones import mosto_pais
+from exportaciones import exporta_pais1
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "#EC654A" if value < 0 else "lightgreen"
@@ -31,7 +32,7 @@ st.set_page_config(initial_sidebar_state="collapsed",
 #st.set_page_config(layout="wide")
 
 
-tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Evolución", "Destinos", "Variedades","Color/Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos"])
+tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab8 = st.tabs(["Evolución", "Destinos", "Variedades","Color/Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos","Destinos1"])
 
 #tab1, tab2, tab3,tab4 = st.tabs(["Evolución", "Totales", "Filtros","Por Provincias"])
 #tabs = st.tabs([s.center(whitespace,"-") for s in listTabs])
@@ -62,3 +63,6 @@ with tab5:
 with tab6:
     #st.session_state['vEstado'] = '0'
     mosto_pais.exporta_mosto_destino()    
+with tab8:
+    #st.session_state['vEstado'] = '0'
+    exporta_pais1.exporta_destino()  
