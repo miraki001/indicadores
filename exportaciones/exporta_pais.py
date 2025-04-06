@@ -326,15 +326,19 @@ def exporta_destino():
     #st.write(pp)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
-    st.write(data["nodes"])
+    #st.write(data["nodes"])
+
+    with open("./data/producto.json", "r") as f:
+        data = json.loads(f.read())
+    st.write(data)
     option = {
         "title": {"text": "Sankey Diagram"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
                 "type": "sankey",
-                "data": pp["nodes"],
-                "links": pp["links"],
+                "data": data["nodes"],
+                "links": data["links"],
                 "emphasis": {"focus": "adjacency"},
                 "levels": [
                     {
