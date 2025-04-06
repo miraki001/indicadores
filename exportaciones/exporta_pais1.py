@@ -79,7 +79,7 @@ def exporta_destino():
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_variedad = df_filtered.groupby(['pais','variedad1'], as_index=False)[['fob', 'litros']].sum()
-    indexes = np.r_[0:10, -10:0]
+    indexes = np.r_[-10:0]
     top_bottom_10 = df_variedad.sort_values("fob", ignore_index=True).iloc[indexes]
     df_variedad = df_variedad.sort_values('fob').head(10)
     st.write(top_bottom_10)
