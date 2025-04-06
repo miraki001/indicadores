@@ -12,9 +12,6 @@ from datetime import datetime as dt
 
 def exporta_destino():
 
-    def bgcolor_positive_or_negative(value):
-        bgcolor = "#EC654A" if value < 0 else "lightgreen"
-        return f"background-color: {bgcolor};"
 
     hide_streamlit_style = """
                 <style>
@@ -54,14 +51,7 @@ def exporta_destino():
         iframe[title="streamlit_echarts.st_echarts"]{ height: 800px;} 
        </style>
         """
-    st.markdown(streamlit_style, unsafe_allow_html=True) 
-
-    
-    #st.write(dt.now().year)
-    #estado =  st.session_state['vEstado'] 
-    #if estado == '0':
-        #st.rerun()
-        
+    st.markdown(streamlit_style, unsafe_allow_html=True)     
 
     conn = st.connection("postgresql", type="sql")
 
@@ -98,18 +88,7 @@ def exporta_destino():
     color_list = sorted(df_filtros["color"].dropna().unique())
     producto_list = sorted(df_filtros["producto"].dropna().unique())
 
-    st.html(
-        '''
-            <style>
-                div[data-testid="stPopover"]>div>button {
-                    min-height: 22.4px;
-                    height: 22.4px;
-                    background-color: #A9F8FA !important;
-                    color: black;
-                }
-            </style>
-        '''
-    )
+
 
     QUERY_V1 = f"""
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
