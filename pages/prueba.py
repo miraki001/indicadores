@@ -5,7 +5,7 @@ import streamlit as st
 
 streamlit_style = """
         <style>
-        iframe[title="streamlit_echarts.st_echarts"]{ height: 1px;} 
+        iframe[title="streamlit_echarts.st_echarts"]{ height: 500px;} 
        </style>
         """
 st.markdown(streamlit_style, unsafe_allow_html=True) 
