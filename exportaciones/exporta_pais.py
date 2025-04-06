@@ -332,7 +332,7 @@ def exporta_destino():
     #st.write(result3)
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
     #st.write(pp)
-    data = json.loads(pp)
+    data1 = json.loads(pp)
     #st.write(pp)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
@@ -349,7 +349,7 @@ def exporta_destino():
         "series": [
             {
                 "type": "sankey",
-                "data": data1["nodes"],
+                "data":  data1["nodes"],
                 "links": data1["links"],
                 "emphasis": {"focus": "adjacency"},
                 "levels": [
