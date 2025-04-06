@@ -301,8 +301,8 @@ def exporta_destino():
     df2 = pd.DataFrame({'name':pais_list})
     #df1 = df1.rename(columns={'pais': "nodes"})
     #st.write(df1)
-    result1 = df1.to_json(orient="records"))
-    result2 = df2.to_json(orient="records"))
+    result1 = df1.to_json(orient="records")
+    result2 = df2.to_json(orient="records")
     #result = df1.to_json(orient="split")
     #df1 = df1.reset_index().rename_axis(None, axis=1)
     #df1.reset_index(drop=True)
@@ -318,7 +318,7 @@ def exporta_destino():
     df_variedad = df_variedad.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
     result = json.loads(json.dumps(list(df_variedad.T.to_dict().values()))) 
-    result3 = result2 = df_variedad.to_json(orient="records"))
+    result3 = df_variedad.to_json(orient="records")
     st.write(result3)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
