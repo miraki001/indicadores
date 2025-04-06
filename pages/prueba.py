@@ -77,6 +77,9 @@ st.html(
             </style>
         '''
 )    
+
+
+tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Evolución", "Destinos", "Variedades","Color/Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos"])
 with open("./data/producto.json", "r") as f:
     data = json.loads(f.read())
 
