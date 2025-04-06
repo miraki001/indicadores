@@ -324,7 +324,7 @@ def exporta_destino():
     st.write(pp)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
-    #st.write(df3)
+    st.write(pp['nodes'])
     option = {
         "title": {"text": "Sankey Diagram"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
