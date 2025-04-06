@@ -8,6 +8,7 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
+from exportaciones import exporta_pais1
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
