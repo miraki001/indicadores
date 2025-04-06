@@ -321,10 +321,11 @@ def exporta_destino():
     result3 = df_variedad.to_json(orient="records")
     #st.write(result3)
     pp = '{ "nodes": ' + tt + ' , "links": ' + result3 + '}' 
+    data = json.load(pp)
     st.write(pp)
     #df2 = dv1['variedad1']
     #df3 = df1+ df2
-    st.write(pp["nodes"])
+    st.write(data["nodes"])
     option = {
         "title": {"text": "Sankey Diagram"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
