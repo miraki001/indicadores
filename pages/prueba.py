@@ -61,6 +61,20 @@ st.html(
             </style>
         '''
 )
+
+
+  st.html(
+        '''
+            <style>
+                div[data-testid="stPopover"]>div>button {
+                    min-height: 22.4px;
+                    height: 22.4px;
+                    background-color: #A9F8FA !important;
+                    color: black;
+                }
+            </style>
+        '''
+)    
 with open("./data/producto.json", "r") as f:
     data = json.loads(f.read())
 
