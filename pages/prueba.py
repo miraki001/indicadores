@@ -1,5 +1,6 @@
 import json
 from streamlit_echarts import st_echarts
+import streamlit as st
 
 
 streamlit_style = """
