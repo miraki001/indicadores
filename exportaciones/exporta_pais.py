@@ -77,8 +77,7 @@ def exporta_destino():
         SELECT distinct anio,variedad1 variedad,tipo_envase,color,producto,pais
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
-        and variedad1 in ('MALBEC','CABERNET FRANC','CABERNET SAUVIGNON','BONARDA')
-        and pais in ('ESTADOS UNIDOS','REINO UNIDO','BRASIL','CANADA')
+
     """
 
     
@@ -123,8 +122,7 @@ def exporta_destino():
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
-        and variedad1 in  ('MALBEC','CABERNET FRANC','CABERNET SAUVIGNON','BONARDA')
-        and pais in ('ESTADOS UNIDOS','REINO UNIDO','BRASIL','CANADA')
+
     """
 
 
@@ -173,6 +171,12 @@ def exporta_destino():
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_variedad = df_filtered.groupby(['pais','variedad1'], as_index=False)[['fob', 'litros']].sum()
+    indexes = np.r_[-100:0]
+    top_bottom_10 = df_variedad.sort_values("fob", ignore_index=True).iloc[indexes]
+    df_variedad = df_variedad.sort_values('fob').head(10)
+    st.write(top_bottom_10)
+    pais_list1 = sorted(top_bottom_10["pais"].dropna().unique(), reverse=True)
+    var_list1 = sorted(top_bottom_10["variedad1"].dropna().unique())
     dv = df_anual.copy()
     total = []
     tot1 = []
@@ -307,7 +311,7 @@ def exporta_destino():
     #dv1 = dv1.rename(columns={'pais': "name"})
     #df1 = dv1['nodes'].unique()
 
-    df1 = pd.DataFrame({'name':var_list + pais_list})
+    df1 = pd.DataFrame({'name':var_list1 + pais_list1})
     #df2 = pd.DataFrame({'name':pais_list})
     #df1 = df1.rename(columns={'pais': "nodes"})
     #st.write(df1)
@@ -323,12 +327,12 @@ def exporta_destino():
     #st.write(json_list1)
     #tt = result1 + result2
     #st.write(tt)
-    df_variedad.drop(['litros'], axis='columns', inplace=True)
+    top_bottom_10.drop(['litros'], axis='columns', inplace=True)
     #st.write(df_variedad)
-    df_variedad = df_variedad.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
+    top_bottom_10 = top_bottom_10.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     #json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
     #result = json.loads(json.dumps(list(df_variedad.T.to_dict().values()))) 
-    result3 = df_variedad.to_json(orient="records")
+    result3 = top_bottom_10.to_json(orient="records")
     #st.write(result3)
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
     #st.write(pp)
