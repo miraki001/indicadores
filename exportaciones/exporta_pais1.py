@@ -78,14 +78,13 @@ def exporta_destino():
         SELECT distinct anio,variedad1 variedad,tipo_envase,color,producto,pais
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
-        and variedad1 in ('MALBEC','CABERNET FRANC','CABERNET SAUVIGNON','BONARDA')
-        and pais in ('ESTADOS UNIDOS','REINO UNIDO','BRASIL','CANADA')
+
     """
 
     
     # Cargar datos iniciales para llenar los filtros
     QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais  from exportaciones2_m where producto not in ('Mosto','Alcohol');"
-    df_filtros = cargar_datos(QUERY_V0)
+    df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
         st.error("No se encontraron datos en la base de datos.")
@@ -105,8 +104,7 @@ def exporta_destino():
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
-        and variedad1 in  ('MALBEC','CABERNET FRANC','CABERNET SAUVIGNON','BONARDA')
-        and pais in ('ESTADOS UNIDOS','REINO UNIDO','BRASIL','CANADA')
+
     """
 
 
@@ -123,8 +121,10 @@ def exporta_destino():
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_variedad = df_filtered.groupby(['pais','variedad1'], as_index=False)[['fob', 'litros']].sum()
-
-
+    df_variedad = df_variedad[df_variedad.sort_values('fob')['litros'].head(10)
+    st.write(df_variedad)
+    pais_list1 = sorted(df_variedad["pais"].dropna().unique(), reverse=True)
+    var_list1 = sorted(df_variedad["variedad"].dropna().unique())
     
 
 
