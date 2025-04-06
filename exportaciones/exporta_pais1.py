@@ -25,7 +25,7 @@ def exporta_destino():
 
 
     option = {
-        "title": {"text": "Sankey Diagram"},
+        "title": {"text": "Sankey Diagram otro qu si anda"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
