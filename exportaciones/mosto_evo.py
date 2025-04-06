@@ -58,12 +58,12 @@ def exporta_mosto_evo():
 
     streamlit_style = """
         <style>
-        iframe[title="streamlit_echarts.st_echarts"]{ height: 1px;} 
+        iframe[title="streamlit_echarts.st_echarts"]{ height: 500px;} 
        </style>
         """
     st.markdown(streamlit_style, unsafe_allow_html=True) 
 
-    st.markdown(" <style>iframe{ height: 300px !important } ", unsafe_allow_html=True)
+    #st.markdown(" <style>iframe{ height: 300px !important } ", unsafe_allow_html=True)
 
     conn = st.connection("postgresql", type="sql")
 
