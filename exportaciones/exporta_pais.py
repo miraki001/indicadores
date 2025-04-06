@@ -77,7 +77,7 @@ def exporta_destino():
         SELECT distinct anio,variedad1 variedad,tipo_envase,color,producto,pais
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
-        and variedad1 in ('MALBEC','CABERNET FRANC')
+        and variedad1 in ('MALBEC','CABERNET FRANC','CABERNET SAUVIGNON','BONARDA')
         and pais in ('ESTADOS UNIDOS','REINO UNIDO','BRASIL','CANADA')
     """
 
@@ -123,7 +123,7 @@ def exporta_destino():
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
-        and variedad1 in ('MALBEC','CABERNET FRANC')
+        and variedad1 in  ('MALBEC','CABERNET FRANC','CABERNET SAUVIGNON','BONARDA')
         and pais in ('ESTADOS UNIDOS','REINO UNIDO','BRASIL','CANADA')
     """
 
