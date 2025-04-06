@@ -133,63 +133,9 @@ def exporta_destino():
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_variedad = df_filtered.groupby(['pais','variedad1'], as_index=False)[['fob', 'litros']].sum()
-    dv = df_anual.copy()
-    total = []
-    tot1 = []
-    tot2 = []
-    #total.append(0)
-    #tot1.append(0)
-    #tot2.append(0)
-    #df_anual.columns = df_anual.columns.droplevel(0)
-    #st.write(df_anual['litros'])
-    df_anual = df_anual.reset_index().rename_axis(None, axis=1)
-    totlitros = df_anual['litros'].sum()
-    totfob = df_anual['fob'].sum()
-    for index in range(len(df_anual)):
-        #if index > 0:
-            total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 ))
-            tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )))
-            tot2.append((  (df_anual['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
-        #st.write(total)
-    df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
-    df_anual['Part. % Litros'] = total
-    df_anual['Part % Fob '] = tot1
-    df_anual['Prec x Litro'] = tot2
+
 
     
-    df_sorted = df_anual.sort_values(by='Fob', ascending=False)
-
-    styled_df = df_sorted.style.format(
-            {"Litros": lambda x : '{:,.0f}'.format(x), 
-            "Fob": lambda x : '{:,.0f}'.format(x),
-            "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
-            "Part % Fob": lambda x : '{:,.2f} %'.format(x),
-            "Prec x Litro": lambda x : '{:,.2f}'.format(x),
-                                        }
-            ,
-            thousands='.',
-            decimal=',',
-    )
-    st.dataframe(styled_df,
-              column_config={
-                'Pais': st.column_config.Column('Pais'),
-                'Litros': st.column_config.Column('Litros'),
-                'Fob': st.column_config.Column('Fob'),
-                'Part. % Litro': st.column_config.Column('Part. % Litro'),
-                'Part % Fob': st.column_config.Column('Part % Fob'),
-                'Prec x Litro': st.column_config.Column('Prec x Litr'),
-        
-                },
-                width = 800,   
-                height = 400,
-                hide_index=True)
-    
-    #st.dataframe(df_sorted)
-    #dv.drop('fob', axis=1, inplace=True)
-    dv = dv.rename(columns={'litros': "value", 'pais': "name",})
-    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
-    st.subheader('Exportaciones por Pais en Litros')
-    #st.write(json_list)
 
 
 
@@ -198,31 +144,18 @@ def exporta_destino():
     df1 = pd.DataFrame({'name':var_list + pais_list})
 
     result1 = df1.to_json(orient="records")
-    #result2 = df2.to_json(orient="records")
-    #result = df1.to_json(orient="split")
-    #df1 = df1.reset_index().rename_axis(None, axis=1)
-    #df1.reset_index(drop=True)
-    #result = var_list.to_json(orient="split")
-    #json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
-    st.write(result1)
-    #json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
-    #st.write(json_list1)
-    #tt = result1 + result2
-    #st.write(tt)
+
+
     df_variedad.drop(['litros'], axis='columns', inplace=True)
     #st.write(df_variedad)
     df_variedad = df_variedad.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
-    #json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
-    #result = json.loads(json.dumps(list(df_variedad.T.to_dict().values()))) 
+
     result3 = df_variedad.to_json(orient="records")
-    #st.write(result3)
+
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
-    #st.write(pp)
+
     data = json.loads(pp)
-    #st.write(pp)
-    #df2 = dv1['variedad1']
-    #df3 = df1+ df2
-    #st.write(data["nodes"])
+
 
     with open("./data/producto.json", "r") as f:
         data = json.loads(f.read())
