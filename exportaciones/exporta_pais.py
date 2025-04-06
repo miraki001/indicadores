@@ -356,7 +356,7 @@ def exporta_destino():
                     {
                         "depth": 0,
                         "itemStyle": {"color": "#fbb4ae"},
-                        "lineStyle": {"color": "source", "opacity": 0.6},
+                        "lineStyle": {"color": "target", "opacity": 0.6},
                     },
                     {
                         "depth": 1,
