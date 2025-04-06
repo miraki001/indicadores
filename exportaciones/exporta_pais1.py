@@ -121,7 +121,7 @@ def exporta_destino():
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_variedad = df_filtered.groupby(['pais','variedad1'], as_index=False)[['fob', 'litros']].sum()
-    df_variedad = df_variedad[df_variedad.sort_values('fob')['litros'].head(10)
+    df_variedad = df_variedad.sort_values('fob')['litros'].head(10)
     st.write(df_variedad)
     pais_list1 = sorted(df_variedad["pais"].dropna().unique(), reverse=True)
     var_list1 = sorted(df_variedad["variedad"].dropna().unique())
