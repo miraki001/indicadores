@@ -378,4 +378,4 @@ def exporta_destino():
             }
         ],
     }
-    st_echarts(option, height="500px")
+    st_echarts(option,key="otro", height="500px")
