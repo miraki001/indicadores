@@ -1,6 +1,13 @@
 import json
 from streamlit_echarts import st_echarts
 
+
+streamlit_style = """
+        <style>
+        iframe[title="streamlit_echarts.st_echarts"]{ height: 1px;} 
+       </style>
+        """
+st.markdown(streamlit_style, unsafe_allow_html=True) 
 with open("./data/producto.json", "r") as f:
     data = json.loads(f.read())
 
