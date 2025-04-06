@@ -385,24 +385,24 @@ def exporta_destino():
     }
     st_echarts(option,key="otro", height="500px")
 
-    df1 = pd.DataFrame({'name':var_list11 + pais_list11})
-    result1 = df1.to_json(orient="records")
+    df11 = pd.DataFrame({'name':var_list11 + pais_list11})
+    result11 = df11.to_json(orient="records")
     top_bottom_11.drop(['fob'], axis='columns', inplace=True)
     #st.write(df_variedad)
     top_bottom_11 = top_bottom_11.rename(columns={'pais': "source",'variedad1': "target",'litros': "value"})
-    result3 = top_bottom_10.to_json(orient="records")
+    result32 = top_bottom_10.to_json(orient="records")
     #st.write(result3)
-    pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
+    pp11 = '{ "nodes": ' + result11 + ' , "links": ' + result32 + '}' 
     #st.write(pp)
-    data1 = json.loads(pp)
+    data11 = json.loads(pp11)
     option = {
         "title": {"text": "Top 20 en Litros"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
                 "type": "sankey",
-                "data":  data1["nodes"],
-                "links": data1["links"],
+                "data":  data11["nodes"],
+                "links": data11["links"],
                 "emphasis": {"focus": "adjacency"},
                 "levels": [
                     {
