@@ -184,6 +184,7 @@ def exporta_destino():
     var_list1 = sorted(top_bottom_10_var["variedad1"].dropna().unique())
     df_var2= df_variedad[df_variedad['variedad1'].isin(var_list1)]
     df_var2= df_var2[df_var2['pais'].isin(pais_list1)]
+    df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
     #st.write(df_var2)
 
     df11 = pd.DataFrame({'name':var_list1 + pais_list1})
@@ -193,7 +194,7 @@ def exporta_destino():
     #st.write(top_bottom_10_pais)
     #st.write(top_bottom_10_var)
     #var_list1 = sorted(top_bottom_10["variedad1"].dropna().unique())
-    st.write(df_var2.fob[1])
+    st.write(df_var2])
     top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexes]
     #st.write(top_bottom_11)
     pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
