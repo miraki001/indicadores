@@ -336,6 +336,7 @@ def exporta_destino():
 
     df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     st.write(df_var3)
+    lista = []
     for index in range(len(top_bottom_10_pais)) :
         valor = top_bottom_10_pais['fob'].iloc[index]
         pais = top_bottom_10_pais['pais'].iloc[index]
@@ -344,7 +345,9 @@ def exporta_destino():
         st.write(pais)
         st.write(valor)
         st.write(valor1.iloc[0])
-        
+        lista = lista '{  "source": " ' +  pais + '",  "target": "Otras variedades", "value":  ' + (valor - valor1) + ' },'
+
+    st.write(lista)    
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     result3 = df_var2.to_json(orient="records")
