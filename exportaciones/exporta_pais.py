@@ -205,7 +205,7 @@ def exporta_destino():
     st.write(var_listlts)
     df_varlts= df_variedad[df_variedad['variedad1'].isin(var_listlts)]
     
-    df_varlts= df_varlts[df_var2['pais'].isin(pais_listlts)]
+    df_varlts= df_varlts[df_varlts['pais'].isin(pais_listlts)]
     st.write(df_varlts)
     var_listlts.append("OTRAS")
     var_listlts.append("TOTAL VARIEDAD")
