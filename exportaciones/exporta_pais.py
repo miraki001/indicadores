@@ -193,9 +193,9 @@ def exporta_destino():
     pais_list1.append("OTROS")
 
     top_litros_10_pais = df_pais.sort_values("litros", ignore_index=True).iloc[indexe1]
-    top_litros10_var = df_var.sort_values("litros", ignore_index=True).iloc[indexe1]
+    top_litros_10_var = df_var.sort_values("litros", ignore_index=True).iloc[indexe1]
     pais_listlts = sorted(top_litros_10_pais["pais"].dropna().unique(), reverse=True)
-    var_listlts = sorted(top_litros10_var["variedad1"].dropna().unique())
+    var_listlts = sorted(top_litros_10_var["variedad1"].dropna().unique())
     df_varlts= df_variedad[df_variedad['variedad1'].isin(var_listlts)]
     df_varlts= df_var2[df_var2['pais'].isin(pais_listlts)]
     var_listlts.append("OTRAS")
