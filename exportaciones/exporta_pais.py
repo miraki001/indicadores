@@ -340,7 +340,7 @@ def exporta_destino():
         valor = top_bottom_10_pais['fob'].iloc[index]
         pais = top_bottom_10_pais['pais'].iloc[index]
         #valor1 = df_var3['fob'].iloc[index]
-        valor1 = df_var3.loc[df_var3["pais"] == pais, "fob"].value
+        valor1 = df_var3.loc[df_var3["pais"] == pais, "fob"].value[0]
         st.write(pais)
         st.write(valor)
         st.write(valor1)
