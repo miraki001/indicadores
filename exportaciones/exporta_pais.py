@@ -333,8 +333,11 @@ def exporta_destino():
     #top_bottom_10 = top_bottom_10.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     #result3 = top_bottom_10.to_json(orient="records")
 
-
-
+    df_var3 = df_var.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
+    for i in range(len(df_var2)):
+        valor = df_var2['fob'].[i]
+        st.write(valor)
+        
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     result3 = df_var2.to_json(orient="records")
