@@ -12,6 +12,12 @@ from datetime import datetime as dt
 
 def exporta_destino():
 
+    def append_row(df, row):
+        return pd.concat([
+                df, 
+                pd.DataFrame([row], columns=row.index)]
+           ).reset_index(drop=True)
+    
     def bgcolor_positive_or_negative(value):
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
         return f"background-color: {bgcolor};"
