@@ -192,6 +192,10 @@ def exporta_destino():
     var_list1.append("OTRAS")
     pais_list1.append("OTROS")
 
+    df_pais = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
+    df_var = df_filtered.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
+
+    
     top_litros_10_pais = df_pais.sort_values("litros", ignore_index=True).iloc[indexe1]
     top_litros_10_var = df_var.sort_values("litros", ignore_index=True).iloc[indexe1]
     pais_listlts = sorted(top_litros_10_pais["pais"].dropna().unique(), reverse=True)
