@@ -336,8 +336,10 @@ def exporta_destino():
 
     df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     for index in range(len(df_var2)):
-        valor = df_var2['fob'].iloc[index]
+        valor = top_bottom_10_pais['fob'].iloc[index]
+        pais = top_bottom_10_pais['pais'].iloc[index]
         st.write(valor)
+        st.wirte(pais)
         
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
