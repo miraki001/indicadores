@@ -186,6 +186,9 @@ def exporta_destino():
     df_var2= df_var2[df_var2['pais'].isin(pais_list1)]
     st.write(df_var2)
 
+    df11 = pd.DataFrame({'name':var_list1 + pais_list1})
+    result1 = df11.to_json(orient="records")
+    
     
     st.write(top_bottom_10_pais)
     st.write(top_bottom_10_var)
@@ -195,8 +198,6 @@ def exporta_destino():
     #st.write(top_bottom_11)
     pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
     var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
-    df11 = pd.DataFrame({'name':var_list11 + pais_list11})
-    result1 = df11.to_json(orient="records")
     #result1 = top_bottom_10.to_json(orient="records")
     #result1 = json.loads(json.dumps(pais_list11+var_list11) )
     dv = df_anual.copy()
@@ -328,9 +329,16 @@ def exporta_destino():
  
 
 
-    top_bottom_10.drop(['litros'], axis='columns', inplace=True)
-    top_bottom_10 = top_bottom_10.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
-    result3 = top_bottom_10.to_json(orient="records")
+    #top_bottom_10.drop(['litros'], axis='columns', inplace=True)
+    #top_bottom_10 = top_bottom_10.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
+    #result3 = top_bottom_10.to_json(orient="records")
+
+
+
+    df_var2.drop(['litros'], axis='columns', inplace=True)
+    df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
+    result3 = df_var2.to_json(orient="records")
+    
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
     data1 = json.loads(pp)
 
