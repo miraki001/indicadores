@@ -185,7 +185,7 @@ def exporta_destino():
     df_var2= df_variedad[df_variedad['variedad1'].isin(var_list1)]
     df_var2= df_var2[df_var2['pais'].isin(pais_list1)]
     df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
-    #st.write(df_var2)
+    st.write(df_var2)
 
     df11 = pd.DataFrame({'name':var_list1 + pais_list1})
     result1 = df11.to_json(orient="records")
