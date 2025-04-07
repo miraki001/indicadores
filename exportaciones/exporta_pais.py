@@ -194,7 +194,7 @@ def exporta_destino():
     #st.write(top_bottom_10_pais)
     #st.write(top_bottom_10_var)
     #var_list1 = sorted(top_bottom_10["variedad1"].dropna().unique())
-    st.write(df_var2.fob.iloc[1])
+    st.write(df_var2.fob.iloc[0])
     top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexes]
     #st.write(top_bottom_11)
     pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
@@ -336,7 +336,7 @@ def exporta_destino():
 
     df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     for index in range(len(df_var2)):
-        valor = df_var2['fob'].loc[index]
+        valor = df_var2['fob'].iloc[index]
         st.write(valor)
         
     df_var2.drop(['litros'], axis='columns', inplace=True)
