@@ -354,7 +354,7 @@ def exporta_destino():
         st.write(pais)
         st.write(valor)
         st.write(valor1.iloc[0])
-        new_row = pd.Series({'fob': dif, 'pais': pais, 'variedad1': 'Otras variedades'})
+        new_row = pd.Series({'fob': dif, 'pais': pais, 'variedad1': 'Otras variedades','index' : len(df_var2)})
 
         df_var2 = append_row(df_var2, new_row)    
         #df_var2 = df_var2._set_values(index=len(df_var2),col = 'fob' ,col
