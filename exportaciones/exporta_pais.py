@@ -429,6 +429,8 @@ def exporta_destino():
 
     df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
+    st.write(top_litros_10_pais)
+    st.write(top_litros_10_var)
     for index in range(len(top_litros_10_pais)) :
         valor = top_litros_10_pais['litros'].iloc[index]
         pais = top_litros_10_pais['pais'].iloc[index]
