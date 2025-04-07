@@ -334,8 +334,8 @@ def exporta_destino():
     #result3 = top_bottom_10.to_json(orient="records")
 
     df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
-    for i in range(len(df_var2)):
-        valor = df_var2['fob']
+    for index in range(len(df_var2)):
+        valor = df_var2['fob'].loc[index]
         st.write(valor)
         
     df_var2.drop(['litros'], axis='columns', inplace=True)
