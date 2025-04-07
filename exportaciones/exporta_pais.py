@@ -348,9 +348,13 @@ def exporta_destino():
         st.write(pais)
         st.write(valor)
         st.write(valor1.iloc[0])
-        lista = lista +  '{  "source": " ' +  pais + '",  "target": "Otras variedades", "value":  ' + str(dif) + ' },'
+        new_row = pd.Series({'fob': dif, 'pais': pais, 'variedad1': 'Otras variedades'})
 
-    st.write(lista)    
+        df_var2 = append_row(df_var2, new_row)    
+        #df_var2 = df_var2._set_values(index=len(df_var2),col = 'fob' ,col
+        #lista = lista +  '{  "source": " ' +  pais + '",  "target": "Otras variedades", "value":  ' + str(dif) + ' },'
+
+    st.write(df_var2)    
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     result3 = df_var2.to_json(orient="records")
