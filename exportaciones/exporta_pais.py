@@ -192,6 +192,20 @@ def exporta_destino():
     var_list1.append("OTRAS")
     pais_list1.append("OTROS")
 
+    top_litros_10_pais = df_pais.sort_values("litros", ignore_index=True).iloc[indexe1]
+    top_litros10_var = df_var.sort_values("litros", ignore_index=True).iloc[indexe1]
+    pais_listlts = sorted(top_litros_10_pais["pais"].dropna().unique(), reverse=True)
+    var_listlts = sorted(top_litros10_var["variedad1"].dropna().unique())
+    df_varlts= df_variedad[df_variedad['variedad1'].isin(var_listlts)]
+    df_varlts= df_var2[df_var2['pais'].isin(pais_listlts)]
+    var_listlts.append("OTRAS")
+    var_listlts.append("TOTAL VARIEDAD")
+    pais_listlts.append("OTROS")
+    pais_listlts.append("TOTAL PAISES")
+
+
+    
+
     df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
     #st.write(top_bottom_10_pais)
 
@@ -336,12 +350,7 @@ def exporta_destino():
         options=option,key="gauge4" + str(dt.now()), height="600px",
     )
     
- 
-
-
-    #top_bottom_10.drop(['litros'], axis='columns', inplace=True)
-    #top_bottom_10 = top_bottom_10.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
-    #result3 = top_bottom_10.to_json(orient="records")
+#agregamos el fob del resto de los paises y el resto de las variedade
 
     df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_var4 = df_var2.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
@@ -415,16 +424,50 @@ def exporta_destino():
     }
     st_echarts(option,key="otro", height="500px")
 
-    df11 = pd.DataFrame({'name':var_list11 + pais_list11})
-    result11 = df11.to_json(orient="records")
-    top_bottom_11.drop(['fob'], axis='columns', inplace=True)
+    
+    #agregamos los litros del resto de los paises y el resto de las variedade
+
+    df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
+    df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
+    for index in range(len(top_litros_10_pais)) :
+        valor = top_litros_10_pais['litros'].iloc[index]
+        pais = top_litros_10_pais['pais'].iloc[index]
+        valor1 = df_var3.loc[df_var3["pais"] == pais, "litros"]
+        dif = valor - int(valor1)
+        new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif, 'index' : len(df_var2)})
+        df_varlts = append_row(df_varlts, new_row)    
+
+    for index in range(len(top_litros_10_var)) :
+        valor = top_litros_10_var['litros'].iloc[index]
+        var = top_litros_10_var['variedad1'].iloc[index]
+        valor1 = df_var4.loc[df_var4["variedad1"] == var, "litros"]
+        dif = valor - int(valor1)
+        new_row = pd.Series({'fob': 1, 'pais': 'OTROS', 'variedad1': var,'litros': dif, 'index' : len(df_var2)})
+        df_varlts = append_row(df_varlts, new_row)    
+
+    
+    
+    
+    
+
+    df11 = pd.DataFrame({'name':var_listlts + pais_listlts})
+    result1 = df11.to_json(orient="records")
+    
+    df_varlts.drop(['fob'], axis='columns', inplace=True)
     #st.write(df_variedad)
-    top_bottom_11 = top_bottom_11.rename(columns={'pais': "source",'variedad1': "target",'litros': "value"})
-    result32 = top_bottom_11.to_json(orient="records")
-    #st.write(result3)
+    df_varlts = df_varlts.rename(columns={'pais': "source",'variedad1': "target",'litros': "value"})
+    result32 = df_varlts.to_json(orient="records")
+    st.write(result32)
     pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}' 
     #st.write(pp)
     data11 = json.loads(pp11)
+
+
+
+
+
+
+    
     option = {
         "title": {"text": "Top 10 en Litros"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
