@@ -335,10 +335,10 @@ def exporta_destino():
     #result3 = top_bottom_10.to_json(orient="records")
 
     df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
-    for index in range(len(df_var2) -1) :
+    for index in range(len(top_bottom_10_pais)) :
         valor = top_bottom_10_pais['fob'].iloc[index]
         pais = top_bottom_10_pais['pais'].iloc[index]
-        valor1 = df_var2['fob'].iloc[index]
+        valor1 = df_var3['fob'].iloc[index]
         st.write(valor)
         st.write(pais)
         st.write(valor1)
