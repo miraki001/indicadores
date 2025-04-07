@@ -433,6 +433,8 @@ def exporta_destino():
         valor = top_litros_10_pais['litros'].iloc[index]
         pais = top_litros_10_pais['pais'].iloc[index]
         valor1 = df_var3.loc[df_var3["pais"] == pais, "litros"]
+        st.write(valor)
+        st.write(valor1)
         dif = valor - int(valor1)
         new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif, 'index' : len(df_var2)})
         df_varlts = append_row(df_varlts, new_row)    
