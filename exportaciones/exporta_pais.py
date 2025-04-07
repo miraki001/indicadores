@@ -174,7 +174,9 @@ def exporta_destino():
     indexes = np.r_[-30:0]
     top_bottom_10 = df_variedad.sort_values("fob", ignore_index=True).iloc[indexes]
     pais_list1 = sorted(top_bottom_10["pais"].dropna().unique(), reverse=True)
+    st.write(pais_list1)
     var_list1 = sorted(top_bottom_10["variedad1"].dropna().unique())
+    st.write(var_list1)
     top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexes]
     #st.write(top_bottom_11)
     pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
@@ -183,11 +185,6 @@ def exporta_destino():
     total = []
     tot1 = []
     tot2 = []
-    #total.append(0)
-    #tot1.append(0)
-    #tot2.append(0)
-    #df_anual.columns = df_anual.columns.droplevel(0)
-    #st.write(df_anual['litros'])
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     totlitros = df_anual['litros'].sum()
     totfob = df_anual['fob'].sum()
@@ -310,39 +307,15 @@ def exporta_destino():
         options=option,key="gauge4" + str(dt.now()), height="600px",
     )
     
-    #dv1 = dv1.rename(columns={'pais': "name"})
-    #df1 = dv1['nodes'].unique()
+ 
 
-    df1 = pd.DataFrame({'name':var_list1 + pais_list1})
-    #df2 = pd.DataFrame({'name':pais_list})
-    #df1 = df1.rename(columns={'pais': "nodes"})
-    #st.write(df1)
-    result1 = df1.to_json(orient="records")
-    #result2 = df2.to_json(orient="records")
-    #result = df1.to_json(orient="split")
-    #df1 = df1.reset_index().rename_axis(None, axis=1)
-    #df1.reset_index(drop=True)
-    #result = var_list.to_json(orient="split")
-    #json_list = json.loads(json.dumps(list(df1.T.to_dict().values()))) 
-    #st.write(result1)
-    #json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
-    #st.write(json_list1)
-    #tt = result1 + result2
-    #st.write(tt)
+
     top_bottom_10.drop(['litros'], axis='columns', inplace=True)
-    #st.write(df_variedad)
     top_bottom_10 = top_bottom_10.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
-    #json_list1 = json.loads(json.dumps(list(df2.T.to_dict().values()))) 
-    #result = json.loads(json.dumps(list(df_variedad.T.to_dict().values()))) 
     result3 = top_bottom_10.to_json(orient="records")
-    #st.write(result3)
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
-    #st.write(pp)
     data1 = json.loads(pp)
-    #st.write(pp)
-    #df2 = dv1['variedad1']
-    #df3 = df1+ df2
-    #st.write(data["nodes"])
+
 
     with open("./data/producto.json", "r") as f:
         data = json.loads(f.read())
