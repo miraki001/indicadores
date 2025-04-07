@@ -201,12 +201,12 @@ def exporta_destino():
     top_litros_10_var = df_var.sort_values("litros", ignore_index=True).iloc[indexe1]
     pais_listlts = sorted(top_litros_10_pais["pais"].dropna().unique(), reverse=True)
     var_listlts = sorted(top_litros_10_var["variedad1"].dropna().unique())
-    st.write(pais_listlts)
-    st.write(var_listlts)
+    #st.write(pais_listlts)
+    #st.write(var_listlts)
     df_varlts= df_variedad[df_variedad['variedad1'].isin(var_listlts)]
     
     df_varlts= df_varlts[df_varlts['pais'].isin(pais_listlts)]
-    st.write(df_varlts)
+    #st.write(df_varlts)
     var_listlts.append("OTRAS")
     var_listlts.append("TOTAL VARIEDAD")
     pais_listlts.append("OTROS")
@@ -435,11 +435,11 @@ def exporta_destino():
 
     
     #agregamos los litros del resto de los paises y el resto de las variedade
-    st.write(df_varlts)
+    #st.write(df_varlts)
     df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
-    st.write(top_litros_10_pais)
-    st.write(top_litros_10_var)
+    #st.write(top_litros_10_pais)
+    #st.write(top_litros_10_var)
     for index in range(len(top_litros_10_pais)) :
         valor = top_litros_10_pais['litros'].iloc[index]
         pais = top_litros_10_pais['pais'].iloc[index]
@@ -465,7 +465,7 @@ def exporta_destino():
     
 
     df11 = pd.DataFrame({'name':var_listlts + pais_listlts})
-    result1 = df11.to_json(orient="records")
+    result11 = df11.to_json(orient="records")
     
     df_varlts.drop(['fob'], axis='columns', inplace=True)
     #st.write(df_variedad)
