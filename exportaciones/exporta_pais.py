@@ -190,6 +190,7 @@ def exporta_destino():
     df_var2= df_variedad[df_variedad['variedad1'].isin(var_list1)]
     df_var2= df_var2[df_var2['pais'].isin(pais_list1)]
     var_list1.append("OTRAS")
+    pais_list1.append("OTROS")
 
     df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
     #st.write(top_bottom_10_pais)
@@ -343,6 +344,7 @@ def exporta_destino():
     #result3 = top_bottom_10.to_json(orient="records")
 
     df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
+    df_var4 = df_var2.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
     #st.write(df_var3)
     lista = ''
     for index in range(len(top_bottom_10_pais)) :
@@ -354,9 +356,20 @@ def exporta_destino():
         st.write(valor)
         st.write(valor1.iloc[0])
         new_row = pd.Series({'fob': dif, 'pais': pais, 'variedad1': 'OTRAS','litros': 1, 'index' : len(df_var2)})
-
         df_var2 = append_row(df_var2, new_row)    
 
+    for index in range(len(top_bottom_10_var)) :
+        valor = top_bottom_10_var['fob'].iloc[index]
+        var = top_bottom_10_var['variedad1'].iloc[index]
+        valor1 = df_var4.loc[df_var3["variedad1"] == var, "fob"]
+        dif = valor - int(valor1)
+        st.write(pais)
+        st.write(valor)
+        st.write(valor1.iloc[0])
+        new_row = pd.Series({'fob': dif, 'pais': 'OTROS', 'variedad1': var,'litros': 1, 'index' : len(df_var2)})
+        df_var2 = append_row(df_var2, new_row)    
+
+    
     st.write(df_var2)    
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
