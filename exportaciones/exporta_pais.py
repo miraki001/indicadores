@@ -345,7 +345,7 @@ def exporta_destino():
         st.write(pais)
         st.write(valor)
         st.write(valor1.iloc[0])
-        lista = lista '{  "source": " ' +  pais + '",  "target": "Otras variedades", "value":  ' + (valor - valor1) + ' },'
+        lista = lista +  '{  "source": " ' +  pais + '",  "target": "Otras variedades", "value":  ' + (valor - valor1) + ' },'
 
     st.write(lista)    
     df_var2.drop(['litros'], axis='columns', inplace=True)
