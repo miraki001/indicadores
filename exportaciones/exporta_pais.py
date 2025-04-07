@@ -197,6 +197,7 @@ def exporta_destino():
 
     
     top_litros_10_pais = df_pais.sort_values("litros", ignore_index=True).iloc[indexe1]
+    st.write(top_litros_10_pais)
     top_litros_10_var = df_var.sort_values("litros", ignore_index=True).iloc[indexe1]
     pais_listlts = sorted(top_litros_10_pais["pais"].dropna().unique(), reverse=True)
     var_listlts = sorted(top_litros_10_var["variedad1"].dropna().unique())
