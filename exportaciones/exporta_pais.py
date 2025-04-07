@@ -335,7 +335,7 @@ def exporta_destino():
 
     df_var3 = df_var.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     for i in range(len(df_var2)):
-        valor = df_var2['fob'].[i]
+        valor = df_var2['fob'][i]
         st.write(valor)
         
     df_var2.drop(['litros'], axis='columns', inplace=True)
