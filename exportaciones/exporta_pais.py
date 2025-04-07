@@ -426,7 +426,7 @@ def exporta_destino():
 
     
     #agregamos los litros del resto de los paises y el resto de las variedade
-
+    st.write(df_varlts)
     df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
     st.write(top_litros_10_pais)
