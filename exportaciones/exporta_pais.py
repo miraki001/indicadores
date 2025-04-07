@@ -177,7 +177,7 @@ def exporta_destino():
     pais_list1 = sorted(top_bottom_10["pais"].dropna().unique(), reverse=True)
     #st.write(pais_list1)
     indexe1 = np.r_[-10:0]
-    top_bottom_10_pais = df_pais.sort_values("fob", ignore_index=True).iloc[indexes]
+    top_bottom_10_pais = df_pais.sort_values("fob", ignore_index=True).iloc[indexe1]
     st.write(top_bottom_10_pais)
     var_list1 = sorted(top_bottom_10["variedad1"].dropna().unique())
     st.write(var_list1)
