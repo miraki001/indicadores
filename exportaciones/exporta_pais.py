@@ -342,10 +342,11 @@ def exporta_destino():
         pais = top_bottom_10_pais['pais'].iloc[index]
         #valor1 = df_var3['fob'].iloc[index]
         valor1 = df_var3.loc[df_var3["pais"] == pais, "fob"]
+        dif = valor - valor1
         st.write(pais)
         st.write(valor)
         st.write(valor1.iloc[0])
-        lista = lista +  '{  "source": " ' +  pais + '",  "target": "Otras variedades", "value":  ' + str((valor - valor1)) + ' },'
+        lista = lista +  '{  "source": " ' +  pais + '",  "target": "Otras variedades", "value":  ' + str(dif) + ' },'
 
     st.write(lista)    
     df_var2.drop(['litros'], axis='columns', inplace=True)
