@@ -343,7 +343,7 @@ def exporta_destino():
         valor1 = df_var3.loc[df_var3["pais"] == pais, "fob"]
         st.write(pais)
         st.write(valor)
-        st.write(valor1)
+        st.write(valor1.iloc[0])
         
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
