@@ -339,7 +339,7 @@ def exporta_destino():
         valor = top_bottom_10_pais['fob'].iloc[index]
         pais = top_bottom_10_pais['pais'].iloc[index]
         st.write(valor)
-        st.wirte(pais)
+        st.write(pais)
         
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
