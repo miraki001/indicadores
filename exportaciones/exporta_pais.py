@@ -181,8 +181,10 @@ def exporta_destino():
     #st.write(top_bottom_11)
     pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
     var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
-    result1 = top_bottom_10.to_json(orient="records")
-    result1 = json.loads(json.dumps(pais_list11+var_list11) )
+    df11 = pd.DataFrame({'name':var_list11 + pais_list11})
+    result1 = df11.to_json(orient="records")
+    #result1 = top_bottom_10.to_json(orient="records")
+    #result1 = json.loads(json.dumps(pais_list11+var_list11) )
     dv = df_anual.copy()
     total = []
     tot1 = []
