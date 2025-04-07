@@ -408,7 +408,7 @@ def exporta_destino():
     top_bottom_11 = top_bottom_11.rename(columns={'pais': "source",'variedad1': "target",'litros': "value"})
     result32 = top_bottom_11.to_json(orient="records")
     #st.write(result3)
-    pp11 = '{ "nodes": ' + result11 + ' , "links": ' + result32 + lista + '}' 
+    pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}' 
     #st.write(pp)
     data11 = json.loads(pp11)
     option = {
