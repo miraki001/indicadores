@@ -379,7 +379,7 @@ def exporta_destino():
 
 
     option = {
-        "title": {"text": "Top 20 en Valor Fob"},
+        "title": {"text": "Top 10 en Valor Fob"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
@@ -426,7 +426,7 @@ def exporta_destino():
     #st.write(pp)
     data11 = json.loads(pp11)
     option = {
-        "title": {"text": "Top 20 en Litros"},
+        "title": {"text": "Top 10 en Litros"},
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
