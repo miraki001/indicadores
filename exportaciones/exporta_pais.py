@@ -352,9 +352,6 @@ def exporta_destino():
         pais = top_bottom_10_pais['pais'].iloc[index]
         valor1 = df_var3.loc[df_var3["pais"] == pais, "fob"]
         dif = valor - int(valor1)
-        st.write(pais)
-        st.write(valor)
-        st.write(valor1.iloc[0])
         new_row = pd.Series({'fob': dif, 'pais': pais, 'variedad1': 'OTRAS','litros': 1, 'index' : len(df_var2)})
         df_var2 = append_row(df_var2, new_row)    
 
@@ -363,18 +360,15 @@ def exporta_destino():
         var = top_bottom_10_var['variedad1'].iloc[index]
         valor1 = df_var4.loc[df_var4["variedad1"] == var, "fob"]
         dif = valor - int(valor1)
-        st.write(pais)
-        st.write(valor)
-        st.write(valor1.iloc[0])
         new_row = pd.Series({'fob': dif, 'pais': 'OTROS', 'variedad1': var,'litros': 1, 'index' : len(df_var2)})
         df_var2 = append_row(df_var2, new_row)    
 
     
-    st.write(df_var2)    
+    #t.write(df_var2)    
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     result3 = df_var2.to_json(orient="records")
-    st.write(result3)
+    #st.write(result3)
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
     data1 = json.loads(pp)
 
