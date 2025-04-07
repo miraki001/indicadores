@@ -338,7 +338,7 @@ def exporta_destino():
     for index in range(len(df_var2) -1) :
         valor = top_bottom_10_pais['fob'].iloc[index]
         pais = top_bottom_10_pais['pais'].iloc[index]
-        valor2 = df_var2['fob'].iloc[index]
+        valor1 = df_var2['fob'].iloc[index]
         st.write(valor)
         st.write(pais)
         st.write(valor1)
