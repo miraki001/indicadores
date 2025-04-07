@@ -189,6 +189,8 @@ def exporta_destino():
     pais_list1 = sorted(top_bottom_10_pais["pais"].dropna().unique(), reverse=True)
     var_list1 = sorted(top_bottom_10_var["variedad1"].dropna().unique())
     df_var2= df_variedad[df_variedad['variedad1'].isin(var_list1)]
+    var_list1.append("Otras Variedades")
+
     df_var2= df_var2[df_var2['pais'].isin(pais_list1)]
     df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
     st.write(top_bottom_10_pais)
@@ -205,7 +207,6 @@ def exporta_destino():
     #st.write(top_bottom_11)
     pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
     var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
-    var_list1.append("Otras Variedades")
     st.write(var_list1)
     #result1 = top_bottom_10.to_json(orient="records")
     #result1 = json.loads(json.dumps(pais_list11+var_list11) )
