@@ -354,7 +354,7 @@ def exporta_destino():
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     result3 = df_var2.to_json(orient="records")
-    
+    st.write(result3)
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
     data1 = json.loads(pp)
 
