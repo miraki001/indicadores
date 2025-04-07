@@ -453,7 +453,7 @@ def exporta_destino():
     
     
     
-    st.write(df_varlts)
+
 
     df11 = pd.DataFrame({'name':var_listlts + pais_listlts})
     result11 = df11.to_json(orient="records")
