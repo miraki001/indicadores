@@ -189,7 +189,7 @@ def exporta_destino():
     var_list1 = sorted(top_bottom_10_var["variedad1"].dropna().unique())
     df_var2= df_variedad[df_variedad['variedad1'].isin(var_list1)]
     df_var2= df_var2[df_var2['pais'].isin(pais_list1)]
-    var_list1.append("Otras Variedades")
+    var_list1.append("OTRAS")
 
     df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
     #st.write(top_bottom_10_pais)
@@ -353,7 +353,7 @@ def exporta_destino():
         st.write(pais)
         st.write(valor)
         st.write(valor1.iloc[0])
-        new_row = pd.Series({'fob': dif, 'pais': pais, 'variedad1': 'Otras variedades','litros': 1, 'index' : len(df_var2)})
+        new_row = pd.Series({'fob': dif, 'pais': pais, 'variedad1': 'OTRAS','litros': 1, 'index' : len(df_var2)})
 
         df_var2 = append_row(df_var2, new_row)    
 
