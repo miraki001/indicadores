@@ -459,7 +459,7 @@ def exporta_color():
           values=['fob','litros'],
           aggfunc=np.sum,
           margins=True,
-          margins_name='Sum',
+          margins_name='Totales',
     )
     st.dataframe(producto1)
     st.write(pd.pivot_table(dv1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
