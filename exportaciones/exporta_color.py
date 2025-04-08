@@ -532,7 +532,7 @@ def exporta_color():
                 column_order=[
                   "tipo_envase",
                   "producto",
-                  "fob",
+                  "Fob",
                   "Part % Fob",
                   "Litros",
                   "Part. % Litro",
