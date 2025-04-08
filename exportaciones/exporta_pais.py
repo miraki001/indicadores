@@ -522,12 +522,12 @@ def exporta_destino():
                     },
                     {
                         "depth": 2,
-                        "itemStyle": {"color": "#ccebc5"},
+                        "itemStyle": {"color": "#A9F8FA"},
                         "lineStyle": {"color": "source", "opacity": 0.6},
                     },
                     {
                         "depth": 3,
-                        "itemStyle": {"color": "#decbe4"},
+                        "itemStyle": {"color": "#1E8DB6"},
                         "lineStyle": {"color": "source", "opacity": 0.6},
                     },
                 ],
