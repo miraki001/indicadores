@@ -467,7 +467,7 @@ def exporta_destino():
     st.write(tot)
 
 
-    df5 = df_var4[~df_var4['variedad1'].isin(var_listlts)]
+    df5 = df_variedad[~df_variedad['variedad1'].isin(var_listlts)]
     #df5 = df5[~df5['variedad'].isin(var_listlts)]
     st.write(df5)
     new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': 'OTROS','litros': tot, 'index' : len(df_varlts)})
