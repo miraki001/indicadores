@@ -323,7 +323,10 @@ def exporta_mosto_evo():
                     "show": 'False',
                   },              
                  "axisLabel": {
-                    "formatter":  '{value}'        
+                    #"formatter":  '{value}'        
+                    "formatter": JsCode(
+                        "function(value){return (value /1000) + ' K' };"
+                        ).js_code,                     
                  },  
                 },
                 {"type": "value" , "name" : "Fob",
@@ -350,7 +353,10 @@ def exporta_mosto_evo():
 
                   },             
                  "axisLabel": {
-                    "formatter": '{value} u$s '
+                    #"formatter": '{value} u$s '
+                    "formatter": JsCode(
+                        "function(value){return (value).toFixed(2) + ' u$s' };"
+                        ).js_code,                     
                       }
                 },            
             ],
