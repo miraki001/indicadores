@@ -500,7 +500,7 @@ def exporta_color():
         #if index > 0:
             total.append((  (producto1['litros'].loc[index] / totlitros ) *100 ))
             tot1.append((  (producto1['fob'].loc[index] / totfob *100 )))
-            tot2.append((  (producto1['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
+            tot2.append((  (producto1['fob'].loc[index] / producto1['litros'].loc[index]) )    )
     producto1 = producto1.sort_index(axis = 1)
     producto1 = df_anual.producto1(columns={'litros': "Litros", 'fob': "Fob",})
     producto1['Part. % Litros'] = total
