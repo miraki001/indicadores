@@ -463,10 +463,6 @@ def exporta_color():
     )
     producto1 = producto1.reset_index()
 
-    Total = df5['litros'].sum()
-    st.write(Total)
-    new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': 'OTROS','litros': tot+ Total, 'index' : len(df_varlts)})
-    df_varlts = append_row(df_varlts, new_row) 
     
     envase2 = producto1['tipo_envase'].unique()
     for envase in envase2:
