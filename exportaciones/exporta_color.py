@@ -461,7 +461,8 @@ def exporta_color():
           #margins=True,
           #margins_name='Totales',
     )
-
+    producto1 = producto1.reset_index()
+    
     categories = producto1['tipo_envase'].unique()
     for category in categories:
         data = producto1[df['tipo_envase'] == category]
