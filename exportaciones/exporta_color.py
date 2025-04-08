@@ -488,7 +488,7 @@ def exporta_color():
 
     producto1 = producto1.sort_values(by='tipo_envase', ascending=False)
     producto1 = producto1.reset_index()
-    st.dataframe(producto1)
+    #st.dataframe(producto1)
 
 
     total = []
@@ -524,7 +524,7 @@ def exporta_color():
                 'producto': st.column_config.Column('producto'),
                 'Litros': st.column_config.Column('Litros'),
                 'Fob': st.column_config.Column('Fob'),
-                'Part. % Litro': st.column_config.Column('Part. % Litro'),
+                'Part. % Litros: st.column_config.Column('Part. % Litro'),
                 'Part % Fob': st.column_config.Column('Part % Fob'),
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
@@ -535,7 +535,7 @@ def exporta_color():
                   "Fob",
                   "Part % Fob",
                   "Litros",
-                  "Part. % Litro",
+                  "Part. % Litros",
                   "Prec x Litro"
                 ],
                 width = 800,   
