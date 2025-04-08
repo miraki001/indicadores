@@ -355,7 +355,7 @@ def exporta_mosto_evo():
                  "axisLabel": {
                     #"formatter": '{value} u$s '
                     "formatter": JsCode(
-                        "function(value){return (value).toFixed(2) + ' u$s' };"
+                        "function(value){return (value).toFixed(-2) + ' u$s' };"
                         ).js_code,                     
                       }
                 },            
