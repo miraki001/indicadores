@@ -486,5 +486,6 @@ def exporta_color():
     #producto1.loc[len(producto1)] = ['Grand Total', '', producto1[producto1['tipo_envase'] != 'Subtotal']['fob'].sum()]
 
     producto1 = producto1.sort_values(by='tipo_envase', ascending=False)
+    producto1 = producto1.reset_index()
     st.dataframe(producto1)
     st.write(pd.pivot_table(dv1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
