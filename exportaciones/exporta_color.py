@@ -481,7 +481,7 @@ def exporta_color():
         #category_pivot = data.pivot_table(index=['tipo_envase', 'producto'], values=['fob','litros'], aggfunc='sum', margins=True, margins_name='Subtotal')
 
         #producto1 = pd.concat([producto1, category_pivot])
-
+    producto1.columns = producto1.columns.droplevel(0)
     producto1 = producto1.reset_index()
     #producto1.loc[len(producto1)] = ['Grand Total', '', producto1[producto1['tipo_envase'] != 'Subtotal']['fob'].sum()]
 
