@@ -539,6 +539,6 @@ def exporta_color():
                   "Prec x Litro"
                 ],
                 width = 800,   
-                height = 200,
+                height = 600,
                 hide_index=True)
     #st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
