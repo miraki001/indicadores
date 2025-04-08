@@ -524,7 +524,7 @@ def exporta_color():
                 'producto': st.column_config.Column('producto'),
                 'Litros': st.column_config.Column('Litros'),
                 'Fob': st.column_config.Column('Fob'),
-                'Part. % Litros: st.column_config.Column('Part. % Litro'),
+                'Part. % Litros': st.column_config.Column('Part. % Litros'),
                 'Part % Fob': st.column_config.Column('Part % Fob'),
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
