@@ -67,26 +67,7 @@ def exporta_destino():
     st.markdown(streamlit_style, unsafe_allow_html=True) 
 
 
-    st.markdown(
-        """
-        <style>
-                .stAppHeader {
-                    background-color: rgba(255, 255, 255, 0.0);  /* Transparent background */
-                    background-image: url(http://placekitten.com/200/200);
-                    background-position: 80px 80px;
-                    visibility: visible;  /* Ensure the header is visible */
-                }
 
-               .block-container {
-                    padding-top: 0rem;
-                    padding-bottom: 0rem;
-                    padding-left: 5rem;
-                    padding-right: 2rem;
-                }
-        </style>
-        """,
-    unsafe_allow_html=True,
-    )
     
     
     #st.write(dt.now().year)
