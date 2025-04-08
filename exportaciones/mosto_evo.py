@@ -353,10 +353,10 @@ def exporta_mosto_evo():
 
                   },             
                  "axisLabel": {
-                    #"formatter": '{value} u$s '
-                    "formatter": JsCode(
-                        "function(value){return (value).toFixed(1) + ' u$s' };"
-                        ).js_code,                     
+                    "formatter": '{value} u$s '
+                    #"formatter": JsCode(
+                    #    "function(value){return (value).toFixed(1) + ' u$s' };"
+                    #    ).js_code,                     
                       }
                 },            
             ],
