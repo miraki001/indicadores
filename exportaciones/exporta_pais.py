@@ -21,7 +21,30 @@ def exporta_destino():
     def bgcolor_positive_or_negative(value):
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
         return f"background-color: {bgcolor};"
+        
+    st.markdown(
+        """
+        <style>
+                .stAppHeader {
+                    background-color: rgba(255, 255, 255, 0.0);  /* Transparent background */
+                    background-image: url(http://placekitten.com/200/200);
+                    background-position: 80px 80px;
+                    visibility: visible;  /* Ensure the header is visible */
+                }
 
+               .block-container {
+                    padding-top: 0rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 2rem;
+                }
+        </style>
+        """,
+    unsafe_allow_html=True,
+    )
+
+
+    
     hide_streamlit_style = """
                 <style>
                 div[data-testid="stToolbar"] {
