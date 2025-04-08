@@ -507,7 +507,7 @@ def exporta_color():
     producto1['Part % Fob'] = tot1
     producto1['Prec x Litro'] = tot2
 
-     styled_df = df_sorted.style.format(
+     styled_df = producto1.style.format(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
             "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
