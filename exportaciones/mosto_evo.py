@@ -334,7 +334,10 @@ def exporta_mosto_evo():
                     "show": 'True',
                   },             
                  "axisLabel": {
-                    "formatter":   '{value}',         
+                    #"formatter":   '{value}',     
+                    "formatter": JsCode(
+                        "function(value){return (value /1000000) + 'M' };"
+                        ).js_code,                     
                     #"formatter": function (a) {a == +a;  return isFinite(a) ? echarts.format.addCommas(+a / 1000000) : ''; }, 
                  },
                 },
