@@ -344,7 +344,7 @@ def exporta_destino():
                       
                         {
                             "color": ['#942e38', '#aaa', '#269f3c'],
-                            "colorMappingBy": "value",
+                            "colorMappingBy": "name",
                             "colorSaturation": [0.35, 0.5],
                             "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
                         },
