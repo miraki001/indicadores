@@ -463,8 +463,8 @@ def exporta_color():
     )
     producto1 = producto1.reset_index()
     
-    categories = producto1['tipo_envase'].unique()
-    for category in categories:
+    envase2 = producto1['tipo_envase'].unique()
+    for envase in envase2:
         data = producto1[producto1['tipo_envase'] == category]
         category_pivot = data.pivot_table(index=['tipo_envase', 'producto'], values=['fob','litros'], aggfunc='sum', margins=True, margins_name='Subtotal')
 
