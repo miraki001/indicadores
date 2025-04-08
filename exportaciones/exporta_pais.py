@@ -512,7 +512,7 @@ def exporta_destino():
                 "levels": [
                     {
                         "depth": 0,
-                        "itemStyle": {"color": "#fbb4ae"},
+                        "itemStyle": {"color": "#604994"},
                         "lineStyle": {"color": "target", "opacity": 0.6},
                     },
                     {
