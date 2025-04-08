@@ -494,8 +494,8 @@ def exporta_color():
     total = []
     tot1 = []
     tot2 = []
-    totlitros = df_anual['litros'].sum()
-    totfob = df_anual['fob'].sum()
+    totlitros = producto1['litros'].sum()
+    totfob = producto1['fob'].sum()
     for index in range(len(producto1)):
         #if index > 0:
             total.append((  (producto1['litros'].loc[index] / totlitros ) *100 ))
