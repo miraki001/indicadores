@@ -466,7 +466,7 @@ def exporta_color():
     categories = producto1['tipo_envase'].unique()
     for category in categories:
         data = producto1[producto1['tipo_envase'] == category]
-        category_pivot = data.producto1(index=['tipo_envase', 'producto'], values=['fob','litros'], aggfunc='sum', margins=True, margins_name='Subtotal')
+        category_pivot = data.pivot_table(index=['tipo_envase', 'producto'], values=['fob','litros'], aggfunc='sum', margins=True, margins_name='Subtotal')
 
         producto1 = pd.concat([producto1, category_pivot])
 
