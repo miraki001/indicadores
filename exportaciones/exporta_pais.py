@@ -341,10 +341,17 @@ def exporta_destino():
                     "levels": [
                         {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
                         {"itemStyle": {"gapWidth": 1}},
-                        {
-                            "colorSaturation": [0.35, 0.5],
-                            "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
-                        },
+                      {
+                        "color": ['#942e38', '#aaa', '#269f3c'],
+                        "colorMappingBy": 'value',
+                        "itemStyle": {
+                          "gapWidth": 1
+                        }
+                      },                        
+                        #{
+                        #    "colorSaturation": [0.35, 0.5],
+                        #    "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
+                        #},
                     ],
                     "data": json_list,
                 }
