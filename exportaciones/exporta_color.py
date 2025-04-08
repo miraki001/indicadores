@@ -16,6 +16,12 @@ def exporta_color():
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
         return f"background-color: {bgcolor};"
 
+    def append_row(df, row):
+        return pd.concat([
+                df, 
+                pd.DataFrame([row], columns=row.index)]
+           ).reset_index(drop=True)
+        
     hide_streamlit_style = """
                 <style>
                 div[data-testid="stToolbar"] {
