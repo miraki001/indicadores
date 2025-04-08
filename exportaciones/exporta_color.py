@@ -489,4 +489,21 @@ def exporta_color():
     producto1 = producto1.sort_values(by='tipo_envase', ascending=False)
     producto1 = producto1.reset_index()
     st.dataframe(producto1)
+
+
+    total = []
+    tot1 = []
+    tot2 = []
+    totlitros = df_anual['litros'].sum()
+    totfob = df_anual['fob'].sum()
+    for index in range(len(producto1)):
+        #if index > 0:
+            total.append((  (producto1['litros'].loc[index] / totlitros ) *100 ))
+            tot1.append((  (producto1['fob'].loc[index] / totfob *100 )))
+            tot2.append((  (producto1['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
+    producto1 = producto1.sort_index(axis = 1)
+    producto1 = df_anual.producto1(columns={'litros': "Litros", 'fob': "Fob",})
+    producto1['Part. % Litros'] = total
+    producto1['Part % Fob'] = tot1
+    producto1['Prec x Litro'] = tot2
     st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
