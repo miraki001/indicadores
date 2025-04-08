@@ -342,11 +342,11 @@ def exporta_destino():
                         {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
                         {"itemStyle": {"gapWidth": 1}},
                       {
-                        "color": ['#942e38', '#aaa', '#269f3c'],
+                        "color": ['#1E8DB6', '#06C2CC', '#A9F8FA'],
                         "colorMappingBy": 'value',
                         "itemStyle": {
                           "gapWidth": 1
-                        }
+                        },
                       },                        
                         #{
                         #    "colorSaturation": [0.35, 0.5],
