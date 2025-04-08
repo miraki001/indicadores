@@ -340,11 +340,11 @@ def exporta_destino():
                     "itemStyle": {"borderColor": "#fff"},
                     "levels": [
                         {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
-                        #{"itemStyle": {"gapWidth": 1}},
+                        {"itemStyle": {"gapWidth": 1}},
                       
                         {
-                            "color": ["#942e38", '#aaa', "#269f3c", "#fbb4ae"],
-                            "color" :'#942e38',
+                            #"color": ["#942e38", '#aaa', "#269f3c", "#fbb4ae"],
+                            #"color" :'#942e38',
                             "colorMappingBy": "value",
                             "colorSaturation": [0.35, 0.5],
                             "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
