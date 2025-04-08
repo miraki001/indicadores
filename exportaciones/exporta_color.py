@@ -529,7 +529,7 @@ def exporta_color():
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
                 },
-                column_order={
+                column_order=[
                   "tipo_envase",
                   "producto",
                   "fob",
@@ -537,7 +537,7 @@ def exporta_color():
                   "Litros",
                   "Part. % Litro",
                   "Prec x Litro"
-                },
+                ],
                 width = 800,   
                 height = 200,
                 hide_index=True)
