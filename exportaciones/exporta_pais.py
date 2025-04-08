@@ -452,7 +452,7 @@ def exporta_destino():
         df_varlts = append_row(df_varlts, new_row) 
 
 
-    new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': pais,'OTRAS': tot, 'index' : len(df_varlts)})
+    new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': pais,'OTROS': tot, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row) 
     
     for index in range(len(top_litros_10_var)) :
