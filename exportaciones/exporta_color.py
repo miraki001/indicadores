@@ -506,7 +506,7 @@ def exporta_color():
     producto1['Part. % Litros'] = total
     producto1['Part % Fob'] = tot1
     producto1['Prec x Litro'] = tot2
-
+    producto1 = producto1.sort_values(by='tipo_envase', ascending=False)
     styled_df = producto1.style.format(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
@@ -529,7 +529,7 @@ def exporta_color():
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
                 },
-                width = 800,   
+                width = 1000,   
                 height = 200,
                 hide_index=True)
     #st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
