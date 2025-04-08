@@ -476,7 +476,7 @@ def exporta_color():
         totlts = data['litros'].sum()
         totfob = data['fob'].sum()
 
-        new_row = pd.Series({'fob': totfob, 'tipo_envase': envase, 'producto': 'Sub-Total','litros': totlts, 'index' : len(producto1)})
+        new_row = pd.Series({'fob': totfob, 'tipo_envase': envase, 'producto': ' Sub-Total','litros': totlts, 'index' : len(producto1)})
         producto1 = append_row(producto1, new_row)         
         #category_pivot = data.pivot_table(index=['tipo_envase', 'producto'], values=['fob','litros'], aggfunc='sum', margins=True, margins_name='Subtotal')
 
@@ -489,4 +489,4 @@ def exporta_color():
     producto1 = producto1.sort_values(by='tipo_envase', ascending=False)
     producto1 = producto1.reset_index()
     st.dataframe(producto1)
-    st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase"],observed=True,aggfunc="sum"))
+    st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
