@@ -508,7 +508,9 @@ def exporta_color():
     producto1['Prec x Litro'] = tot2
 
     styled_df = producto1.style.format(
-            {"Litros": lambda x : '{:,.0f}'.format(x), 
+            {"tipo_envase": lambda x : '{:,.0f}'.format(x), 
+            "producto": lambda x : '{:,.0f}'.format(x), 
+            "Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
             "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
             "Part % Fob": lambda x : '{:,.2f} %'.format(x),
@@ -521,6 +523,7 @@ def exporta_color():
     st.dataframe(styled_df,
               column_config={
                 'tipo_envase': st.column_config.Column('tipo_envase'),
+                'producto': st.column_config.Column('producto'),
                 'Litros': st.column_config.Column('Litros'),
                 'Fob': st.column_config.Column('Fob'),
                 'Part. % Litro': st.column_config.Column('Part. % Litro'),
