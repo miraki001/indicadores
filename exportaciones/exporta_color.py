@@ -471,7 +471,7 @@ def exporta_color():
         producto1 = pd.concat([producto1, category_pivot])
 
     producto1 = producto1.reset_index()
-    producto1.loc[len(producto1)] = ['Grand Total', '', producto1[producto1['tipo_envase'] != 'Subtotal']['fob','litros'].sum()]
+    producto1.loc[len(producto1)] = ['Grand Total', '', producto1[producto1['tipo_envase'] != 'Subtotal']['fob'].sum()]
 
     
     st.dataframe(producto1)
