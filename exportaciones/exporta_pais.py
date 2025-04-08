@@ -471,7 +471,7 @@ def exporta_destino():
     df5 = df5[~df5['pais'].isin(pais_listlts)]
     Total = df5['litros'].sum()
     st.write(Total)
-    new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': 'OTROS','litros': tot, 'index' : len(df_varlts)})
+    new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': 'OTROS','litros': tot+ Total, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row) 
     
     for index in range(len(top_litros_10_pais)) :
