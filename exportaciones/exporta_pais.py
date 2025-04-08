@@ -435,13 +435,13 @@ def exporta_destino():
     df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
     #st.write(top_litros_10_pais)
     #st.write(top_litros_10_var)
-    tot = 0
+    tot1 = 0
     for index in range(len(top_litros_10_pais)) :
         valor = top_litros_10_pais['litros'].iloc[index]
         pais = top_litros_10_pais['pais'].iloc[index]
         valor1 = df_var3.loc[df_var3["pais"] == pais, "litros"]
         dif = valor - int(valor1)
-        tot = tot + dif
+        tot1 = tot1 + dif
         new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif, 'index' : len(df_varlts)})
         df_varlts = append_row(df_varlts, new_row)    
 
@@ -480,7 +480,7 @@ def exporta_destino():
         new_row = pd.Series({'fob': 1, 'variedad1': 'TOTAL VARIEDAD', 'pais': var,'litros': valor, 'index' : len(df_varlts)})
         df_varlts = append_row(df_varlts, new_row)  
     
-    new_row = pd.Series({'fob': 1, 'variedad1': 'TOTAL VARIEDAD', 'pais': 'OTRAS','litros': tot+ Total, 'index' : len(df_varlts)})
+    new_row = pd.Series({'fob': 1, 'variedad1': 'TOTAL VARIEDAD', 'pais': 'OTRAS','litros': tot1+ Total, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row) 
    
 
