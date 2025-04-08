@@ -462,13 +462,23 @@ def exporta_color():
           #margins_name='Totales',
     )
     producto1 = producto1.reset_index()
+
+    Total = df5['litros'].sum()
+    st.write(Total)
+    new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': 'OTROS','litros': tot+ Total, 'index' : len(df_varlts)})
+    df_varlts = append_row(df_varlts, new_row) 
     
     envase2 = producto1['tipo_envase'].unique()
     for envase in envase2:
         data = producto1[producto1['tipo_envase'] == category]
-        category_pivot = data.pivot_table(index=['tipo_envase', 'producto'], values=['fob','litros'], aggfunc='sum', margins=True, margins_name='Subtotal')
+        totlts = data['litros'].sum()
+        totfob = data['fob'].sum()
 
-        producto1 = pd.concat([producto1, category_pivot])
+        new_row = pd.Series({'fob': totfob, 'tipo_envase': envase, 'producto': 'Sub-Total','litros': totlts, 'index' : len(producto1)})
+        producto1 = append_row(df_varlts, new_row)         
+        #category_pivot = data.pivot_table(index=['tipo_envase', 'producto'], values=['fob','litros'], aggfunc='sum', margins=True, margins_name='Subtotal')
+
+        #producto1 = pd.concat([producto1, category_pivot])
 
     producto1 = producto1.reset_index()
     #producto1.loc[len(producto1)] = ['Grand Total', '', producto1[producto1['tipo_envase'] != 'Subtotal']['fob'].sum()]
