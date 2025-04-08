@@ -466,7 +466,7 @@ def exporta_color():
     
     envase2 = producto1['tipo_envase'].unique()
     for envase in envase2:
-        data = producto1[producto1['tipo_envase'] == category]
+        data = producto1[producto1['tipo_envase'] == envase]
         totlts = data['litros'].sum()
         totfob = data['fob'].sum()
 
