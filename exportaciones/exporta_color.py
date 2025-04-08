@@ -458,8 +458,19 @@ def exporta_color():
           #columns='producto',  
           values=['fob','litros'],
           aggfunc=np.sum,
-          margins=True,
-          margins_name='Totales',
+          #margins=True,
+          #margins_name='Totales',
     )
+
+    categories = producto1['tipo_envase'].unique()
+    for category in categories:
+        data = producto1[df['tipo_envase'] == category]
+        category_pivot = data.pivot_table(index=['tipo_envase', 'producto'], values=['fob','litros'], aggfunc='sum', margins=True, margins_name='Subtotal')
+
+        producto1 = pd.concat([producto1, category_pivot])
+
+    producto1 = producto1.reset_index()
+
+    
     st.dataframe(producto1)
     st.write(pd.pivot_table(dv1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
