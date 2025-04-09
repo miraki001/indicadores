@@ -272,7 +272,45 @@ def exporta_evolucion():
     desc3 = litros.columns[8]
     desc4 = litros.columns[9]        
 
+    # ahora en Fob
 
+
+tot1 = []
+    tot2 = []
+    tot3 = []
+    tot4 = []
+    acu1 = 0
+    acu2 = 0
+    acu3 = 0
+    acu4 = 0
+    
+    for index in range(len(fob)):
+          if index == 0:
+              tot1.append((  (fob[anio1].loc[index])))
+              tot2.append((  (fob[anio2].loc[index])))
+              tot3.append((  (fob[anio3].loc[index])))
+              tot4.append((  (fob[anio4].loc[index])))
+              acu1 = fob[anio1].loc[index]
+              acu2 = fob[anio2].loc[index]
+              acu3 = fob[anio3].loc[index]
+              acu4 = fob[anio4].loc[index]
+          if index > 0:
+            tot1.append((  (fob[anio1].loc[index] + acu1 ) ))
+            tot2.append((  (fob[anio2].loc[index] + acu2 )))
+            tot3.append((  (fob[anio3].loc[index] + acu3 ) ))
+            tot4.append((  (fob[anio4].loc[index] + acu4 )))
+            acu1 = acu1 + fob[anio1].loc[index]
+            acu2 = acu2 + fob[anio2].loc[index]
+            acu3 = acu3 + fob[anio3].loc[index]
+            acu4 = acu4 + fob[anio4].loc[index]
+              
+        #st.write(total)
+    #dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
+    #dv1['Litros Var %'] = total
+    litros['Acum ' + str(anio1) ] = tot1
+    litros['Acum ' + str(anio2)] = tot2
+    litros['Acum ' + str(anio3) ] = tot3
+    litros['Acum ' + str(anio4)] = tot4    
     
     #st.write(litros)
 
@@ -454,9 +492,9 @@ def exporta_evolucion():
                 {"data": litros[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA',"yAxisIndex": 1, "color":'#F49F82'  },
                 {"data": litros[anio4].tolist(), "type": "bar", "name": anio4, "color":'#C92488',"yAxisIndex": 1,  "color":'#EC654A' },
                 {"data": litros[desc1].tolist(), "type": "line", "name": desc1, "yAxisIndex": 2,  "color":'#C92488'},
-                {"data": litros['Acum 2023'].tolist(), "type": "line", "name": desc2,"yAxisIndex": 2,  "color":'#C92488'},
-                {"data": litros['Acum 2024'].tolist(), "type": "line", "name": desc3, "color":'#07ECFA', "yAxisIndex": 2, },
-                {"data": litros['Acum 2025'].tolist(), "type": "line", "name": desc4, "color":'#604994', "yAxisIndex": 2,},
+                {"data": litros[desc2].tolist(), "type": "line", "name": desc2,"yAxisIndex": 2,  "color":'#C92488'},
+                {"data": litros[desc3].tolist(), "type": "line", "name": desc3, "color":'#07ECFA', "yAxisIndex": 2, },
+                {"data": litros[desc4].tolist(), "type": "line", "name": desc4, "color":'#604994', "yAxisIndex": 2,},
                 
             ],
         }
@@ -483,12 +521,50 @@ def exporta_evolucion():
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
-            "yAxis": {"type": "value"},
+            #"yAxis": {"type": "value"},
+            "yAxis": [
+                {"type": "value" ,"name" : "Fob" ,
+                 "axisLine": {
+                    "show": 'false',
+                  },              
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                } ,
+                {"type": "value" , "name" : "",
+                 "position" : 'left',
+                 "alignTicks": 'true',
+                 "offset": 0,
+                 "axisLine": {
+                    "show": 'false',
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value}  '
+                      }
+                },
+                {"type": "value" , "name" : "Fob Acum",
+                 "position" : 'rigth',
+                 "alignTicks": 'true',
+                 "offset": 10,
+                 "axisLine": {
+                    "show": 'true',
+
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                },            
+            ],            
+            
             "series": [
-                {"data": fob[anio1].tolist(), "type": "line", "name": anio1, },
-                {"data": fob[anio2].tolist(), "type": "line", "name": anio2,},
-                {"data": fob[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
-                {"data": fob[anio4].tolist(), "type": "line", "name": anio4, "color":'#C92488', },
+                {"data": fob[anio1].tolist(), "type": "bar", "name": anio1,"yAxisIndex": 1, "color":'#FCE2D6'  },
+                {"data": fob[anio2].tolist(), "type": "bar", "name": anio2,"yAxisIndex": 1,  "color":'#F9C8B4' },
+                {"data": fob[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA',"yAxisIndex": 1, "color":'#F49F82'  },
+                {"data": fob[anio4].tolist(), "type": "bar", "name": anio4, "color":'#C92488',"yAxisIndex": 1,  "color":'#EC654A' },
+                {"data": fob[desc1].tolist(), "type": "line", "name": desc1, "yAxisIndex": 2,  "color":'#C92488'},
+                {"data": fob[desc2].tolist(), "type": "line", "name": desc2,"yAxisIndex": 2,  "color":'#C92488'},
+                {"data": fob[desc3].tolist(), "type": "line", "name": desc3, "color":'#07ECFA', "yAxisIndex": 2, },
+                {"data": fob[desc4].tolist(), "type": "line", "name": desc4, "color":'#604994', "yAxisIndex": 2,},
             ],
         }
 
