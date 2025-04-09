@@ -341,6 +341,9 @@ def exporta_destino():
                     "levels": [
                         {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
                         {"itemStyle": {"gapWidth": 1}},
+                        "visualMin": 1,
+                        "visualMax": 40,
+                        "visualDimension": 3,
                       
                         {
                             "color": ['#942e3', '#aaa', '#269f3c', '#fbb4ae'],
