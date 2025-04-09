@@ -336,14 +336,15 @@ def exporta_destino():
                     "name": "Ventas Totales",
                     "type": "treemap",
                     "visibleMin": 100,
+                    "visualMin": 1,
+                    "visualMax": 40,
+                    "visualDimension": 3
                     "label": {"show": True, "formatter": "{b}"},
                     "itemStyle": {"borderColor": "#fff"},
                     "levels": [
                         {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
                         {"itemStyle": {"gapWidth": 1}},
-                        "visualMin": 1,
-                        "visualMax": 40,
-                        "visualDimension": 3,
+
                       
                         {
                             "color": ['#942e3', '#aaa', '#269f3c', '#fbb4ae'],
