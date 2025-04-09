@@ -338,7 +338,7 @@ def exporta_destino():
                     "visibleMin": 100,
                     "visualMin": 1,
                     "visualMax": 40,
-                    "visualDimension": 3
+                    "visualDimension": 3,
                     "label": {"show": True, "formatter": "{b}"},
                     "itemStyle": {"borderColor": "#fff"},
                     "levels": [
