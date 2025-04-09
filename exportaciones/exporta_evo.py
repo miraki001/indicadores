@@ -219,6 +219,22 @@ def exporta_evolucion():
     ppl  = ppl.fillna('')
     fob  = fob.fillna('')
     litros  = litros.fillna('')
+
+    tot1 = []
+    tot2 = []
+    for index in range(len(litros)):
+          if index > 0:
+            tot1.append((  (litros[1].loc[index] + litros[1].loc[index -1]) ))
+            tot2.append((  (litros[2].loc[index] / litros[2].loc[index -1])))
+        #st.write(total)
+    #dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
+    #dv1['Litros Var %'] = total
+    litros['Acum 1 '] = tot1
+    litros['Acum2 '] = tot2
+        
+
+
+    
     st.write(litros)
 
 
