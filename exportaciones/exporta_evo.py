@@ -570,10 +570,6 @@ def exporta_evolucion():
 
         if st.checkbox('Ver tabla Eolución mensual en litros'):
             st.dataframe(litros,
-              column_config={
-                'Mes': st.column_config.Column('Año'),
-        
-                },
                 width = 600,   
                 height = 800,
                 hide_index=True)
