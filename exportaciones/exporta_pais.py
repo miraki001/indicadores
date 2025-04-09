@@ -331,7 +331,7 @@ def exporta_destino():
             ).js_code,
         },
         "legend": {"data": ["litros","Pais"]},   
-        "series": [
+        "levels": [
                 {
                     "name": "Ventas Totales",
                     "type": "treemap",
