@@ -72,7 +72,7 @@ def exporta_variedades():
             return pd.DataFrame()
 
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m  where producto not in ('Mosto','Alcohol');"
+    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais  from exportaciones2_m  where producto not in ('Mosto','Alcohol');"
     df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
@@ -85,13 +85,15 @@ def exporta_variedades():
     envase_list = sorted(df_filtros["tipo_envase"].dropna().unique())
     color_list = sorted(df_filtros["color"].dropna().unique())
     producto_list = sorted(df_filtros["producto"].dropna().unique())
+    pais_list = sorted(df_filtros["pais"].dropna().unique())
     if "filtros" not in st.session_state:
         st.session_state.filtros = {
             "anio": "Todos",
             "var": "Todas",
             "envase": "Todos",
             "vcolor": "Todos",
-            "producto": "Todos"
+            "producto": "Todos",
+            "pais": "Todos",
         }
 
     st.html(
@@ -108,7 +110,7 @@ def exporta_variedades():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais,producto
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
     """
@@ -120,7 +122,7 @@ def exporta_variedades():
 
     
     with st.container(border=True):
-        col1, col2, col3 = st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
+        col1, col2, col3,col4 = st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
         with col1:
@@ -132,15 +134,19 @@ def exporta_variedades():
             
         # Columna 2: Filtro para Países
         with col2:
-            with st.popover("Variedad"):
-                st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedad1",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+            with st.popover("Producto"):
+                st.caption("Selecciona uno o más producto de la lista")
+                producto = st.multiselect("Producto1",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
                 envase = st.multiselect("Envase1",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+        with col4:
+            with st.popover("Paises"):
+                st.caption("Selecciona uno o más Paises de la lista")
+                pais = st.multiselect("Pais1",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")                
 
     df_filtered = dv1.copy()
 
@@ -155,7 +161,13 @@ def exporta_variedades():
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
-
+    if pais:
+        if pais[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['pais'].isin(pais)]
+    if producto:
+        if producto[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['producto'].isin(producto)]            
+    
     df_anual = df_filtered.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
     total = []
