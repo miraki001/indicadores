@@ -260,7 +260,9 @@ def exporta_destino():
             thousands='.',
             decimal=',',
     )
-    st.dataframe(styled_df,
+
+    if st.checkbox('Ver tabla Evolución mensual en litros'):
+        st.dataframe(styled_df,
               column_config={
                 'Pais': st.column_config.Column('Pais'),
                 'Litros': st.column_config.Column('Litros'),
