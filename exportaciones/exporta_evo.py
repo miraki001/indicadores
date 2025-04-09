@@ -455,9 +455,9 @@ def exporta_evolucion():
             #"yAxis": {"type": "value"},
             "series": [
                 {"data": litros[anio1].tolist(), "type": "bar", "name": anio1,"yAxisIndex": 1, "color":'#F49F82'  },
-                {"data": litros[anio2].tolist(), "type": "bar", "name": anio2,"yAxisIndex": 1, , "color":'#F9C8B4' },
-                {"data": litros[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA',"yAxisIndex": 1,, "color":'#FCE2D6'  },
-                {"data": litros[anio4].tolist(), "type": "bar", "name": anio4, "color":'#C92488',"yAxisIndex": 1, , "color":'#EC654A' },
+                {"data": litros[anio2].tolist(), "type": "bar", "name": anio2,"yAxisIndex": 1,  "color":'#F9C8B4' },
+                {"data": litros[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA',"yAxisIndex": 1, "color":'#FCE2D6'  },
+                {"data": litros[anio4].tolist(), "type": "bar", "name": anio4, "color":'#C92488',"yAxisIndex": 1,  "color":'#EC654A' },
                 {"data": litros['Acum 2022'].tolist(), "type": "line", "name": anio1, "yAxisIndex": 2,},
                 {"data": litros['Acum 2023'].tolist(), "type": "line", "name": anio2,"yAxisIndex": 2,},
                 {"data": litros['Acum 2024'].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', "yAxisIndex": 2, },
