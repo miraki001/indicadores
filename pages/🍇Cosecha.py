@@ -50,6 +50,8 @@ streamlit_style = """
        </style>
         """
 st.markdown(streamlit_style, unsafe_allow_html=True) 
+
+conn = st.connection("postgresql", type="sql")
 @st.cache_data
 def cargar_datos(consulta):
     try:
