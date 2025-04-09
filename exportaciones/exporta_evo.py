@@ -187,7 +187,7 @@ def exporta_evolucion():
 
 
     dv2 = dv2.astype({'fob' : int, 'litros': int} )
-    st.write(dv2)
+    st.write(dv2[1])
 
     litros = dv2.pivot_table(
           index='mes', 
@@ -198,7 +198,7 @@ def exporta_evolucion():
 
     litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)
-    st.write(litros.[1])
+    st.write(litros[1])
 
     fob = dv2.pivot_table(
           index='mes', 
