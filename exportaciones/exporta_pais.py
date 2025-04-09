@@ -95,7 +95,7 @@ def exporta_destino():
 
     
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais  from exportaciones2_m where producto not in ('Mosto','Alcohol');"
+    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais,grupoenvase  from exportaciones2_m where producto not in ('Mosto','Alcohol');"
     df_filtros = cargar_datos(QUERY_V0)
 
     if df_filtros.empty:
@@ -109,13 +109,15 @@ def exporta_destino():
     envase_list = sorted(df_filtros["tipo_envase"].dropna().unique())
     color_list = sorted(df_filtros["color"].dropna().unique())
     producto_list = sorted(df_filtros["producto"].dropna().unique())
+    grupoenvase_list = sorted(df_filtros["grupoenvase"].dropna().unique())
     if "filtros" not in st.session_state:
         st.session_state.filtros = {
             "anio": "Todos",
             "var": "Todas",
             "envase": "Todos",
             "vcolor": "Todos",
-            "producto": "Todos"
+            "producto": "Todos",
+            "grupoenvase": "Todos"
         }
 
     st.html(
@@ -145,7 +147,7 @@ def exporta_destino():
 
     
     with st.container(border=True):
-        col1, col2, col3,col4,col5 = st.columns([1, 1, 1,1,1])  # Ajusta los tamaños de las columnas
+        col1, col2, col3,col4,col5,col6 = st.columns([1, 1, 1,1,1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
         with col1:
@@ -175,6 +177,10 @@ def exporta_destino():
             with st.popover("Color"):
                 st.caption("Selecciona uno o más Colores de la lista")
                 color = st.multiselect("Color",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
+        with col6:
+            with st.popover("Grupo Envase"):
+                st.caption("Selecciona uno o más grupo de envases de la lista")
+                grupoenvase = st.multiselect("Gurpo Envase",  ["Todos"] + grupoenvase, default=["Todos"],label_visibility="collapsed")      
     
     df_filtered = dv1.copy()
 
@@ -189,7 +195,16 @@ def exporta_destino():
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
-
+    if color:
+        if color[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['color'].isin(color)]          
+    if grupoenvase:
+        if grupoenvase[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['grupoenvase'].isin(grupoenvase)]               
+    if producto:
+        if producto[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['producto'].isin(producto)]      
+    
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_variedad = df_filtered.groupby(['pais','variedad1'], as_index=False)[['fob', 'litros']].sum()
