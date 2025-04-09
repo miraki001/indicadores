@@ -228,6 +228,9 @@ def exporta_evolucion():
     anio3 = litros.columns[4]
     anio4 = litros.columns[5]
 
+    st.write(anio3)
+    st.write(anio4)
+
     tot1 = []
     tot2 = []
     tot3 = []
@@ -252,7 +255,7 @@ def exporta_evolucion():
             tot2.append((  (litros[anio2].loc[index] + acu2 )))
             tot3.append((  (litros[anio3].loc[index] + acu3 ) ))
             tot4.append((  (litros[anio4].loc[index] + acu4 )))
-            acu1 =  acu1+ litros[anio1].loc[index]
+            acu1 = acu1 + litros[anio1].loc[index]
             acu2 = acu2 + litros[anio2].loc[index]
             acu3 = acu3 + litros[anio3].loc[index]
             acu4 = acu4 + litros[anio4].loc[index]
