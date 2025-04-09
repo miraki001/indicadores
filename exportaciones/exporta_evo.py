@@ -452,7 +452,7 @@ def exporta_evolucion():
                       }
                 },            
             ],            
-            "yAxis": {"type": "value"},
+            #"yAxis": {"type": "value"},
             "series": [
                 {"data": litros[anio1].tolist(), "type": "bar", "name": anio1,"yAxisIndex": 1,   },
                 {"data": litros[anio2].tolist(), "type": "bar", "name": anio2,"yAxisIndex": 1,},
