@@ -221,7 +221,7 @@ def exporta_evolucion():
     ppl = ppl.reset_index().rename_axis(None, axis=1)
     ppl  = ppl.fillna('')
     fob  = fob.fillna('')
-    litros  = litros.fillna('')
+    litros  = litros.fillna(0)
     st.write(litros)
     anio1 = litros.columns[2]
     anio2 = litros.columns[3]
