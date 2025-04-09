@@ -342,8 +342,8 @@ def exporta_destino():
                     "label": {"show": True, "formatter": "{b}"},
                     "itemStyle": {"borderColor": "#fff"},
                     "levels": [
-                        {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
-                        {"itemStyle": {"gapWidth": 1}},
+                        #{"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
+                        #{"itemStyle": {"gapWidth": 1}},
 
                       
                         {
