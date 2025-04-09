@@ -194,7 +194,9 @@ def exporta_variedades():
             thousands='.',
             decimal=',',
     )
-    st.dataframe(styled_df,
+
+    if st.checkbox('Ver tabla Exportaciones según la Variedad'):
+        st.dataframe(styled_df,
               column_config={
                 'Variedad': st.column_config.Column('Variedad'),
                 'Litros': st.column_config.Column('Litros'),
