@@ -499,6 +499,12 @@ def exporta_evolucion():
 
         st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
 
+        if st.checkbox('Ver tabla Evolución mensual en litros'):
+            st.dataframe(litros,
+                width = 600,   
+                height = 800,
+                hide_index=True)
+
         st.subheader("Exportaciones evolución mensual en Fob")
    
         #fob["mes"] = fob["mes"].astype(str)
@@ -568,8 +574,8 @@ def exporta_evolucion():
 
         st_echarts(options=option,key="otro1" + str(dt.now()), height="400px")
 
-        if st.checkbox('Ver tabla Eolución mensual en litros'):
-            st.dataframe(litros,
+        if st.checkbox('Ver tabla Evolución mensual en Fob'):
+            st.dataframe(fob,
                 width = 600,   
                 height = 800,
                 hide_index=True)
@@ -604,3 +610,9 @@ def exporta_evolucion():
         }
 
         st_echarts(options=option,key="otro2" + str(dt.now()), height="400px")
+
+        if st.checkbox('Ver tabla Evolución mensual en precio por litro'):
+            st.dataframe(ppl,
+                width = 600,   
+                height = 800,
+                hide_index=True)
