@@ -109,7 +109,7 @@ with tab1:
         '''
     )
     QUERY_V1 = f"""
-        SELECT anio,sup,cnt ,variedad,provincia,departamento  from superficievariedad_m
+        SELECT anio,sup,cant ,variedad,provincia,departamento  from superficievariedad_m
         
         
 
