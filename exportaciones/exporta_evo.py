@@ -195,7 +195,7 @@ def exporta_evolucion():
           values=['litros'],
           aggfunc='sum'
     )
-    #st.write(litros)
+    st.write(litros[0])
 
     fob = dv2.pivot_table(
           index='mes', 
