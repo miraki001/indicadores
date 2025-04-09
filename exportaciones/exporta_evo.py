@@ -223,10 +223,10 @@ def exporta_evolucion():
     fob  = fob.fillna('')
     litros  = litros.fillna('')
 
-    anio1 = litros.columns[1]
-    anio2 = litros.columns[2]
-    anio3 = litros.columns[3]
-    anio4 = litros.columns[4]
+    anio1 = str(litros.columns[1])
+    anio2 = str(litros.columns[2])
+    anio3 = str(litros.columns[3])
+    anio4 = str(litros.columns[4])
 
     tot1 = []
     tot2 = []
