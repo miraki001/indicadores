@@ -352,7 +352,7 @@ def exporta_destino():
                         }
                       },
                       
-                        {
+                      {
                             "color": ['#942e38', '#aaa', '#269f3c'],
                             #"color" :'#942e38',
                             "colorMappingBy": 'value',
@@ -361,7 +361,7 @@ def exporta_destino():
                               "gapWidth": 1
                             },
                             #"itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
-                        },
+                      },
                     ],
                     "data": json_list,
                 }
