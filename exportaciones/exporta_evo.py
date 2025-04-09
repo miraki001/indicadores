@@ -376,7 +376,7 @@ def exporta_evolucion():
                 height = 800,
                 hide_index=True)
 
-            st.write(dv1.describe(include=[np.number]))
+            #st.write(dv1.describe(include=[np.number]))
 
             #st.write(dv3)
   
@@ -571,6 +571,17 @@ def exporta_evolucion():
         }
 
         st_echarts(options=option,key="otro1" + str(dt.now()), height="400px")
+
+        if st.checkbox('Ver tabla Eolución mensual en litros'):
+            st.dataframe(litros,
+              column_config={
+                'Mes': st.column_config.Column('Año'),
+                ),
+        
+                },
+                width = 600,   
+                height = 800,
+                hide_index=True)
 
         st.subheader("Exportaciones evolución precio promedio por litro ")
    
