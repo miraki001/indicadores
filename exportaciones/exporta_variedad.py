@@ -154,10 +154,10 @@ def exporta_variedades():
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)
 
-    if variedad:
-        if variedad[0] != 'Todas':
-            df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
-            st.write(variedad)
+    #if variedad:
+        #if variedad[0] != 'Todas':
+            #df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
+            #st.write(variedad)
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
