@@ -222,7 +222,7 @@ def exporta_evolucion():
     ppl  = ppl.fillna('')
     fob  = fob.fillna('')
     litros  = litros.fillna('')
-
+    st.write(litros)
     anio1 = str(litros.columns[1])
     anio2 = str(litros.columns[2])
     anio3 = str(litros.columns[3])
