@@ -398,7 +398,7 @@ def exporta_evolucion():
 
         st.subheader("Exportaciones evolución mensual en litros")
        
-        #litros["mes"] = litros["mes"].astype(str)
+        litros["mes"] = litros["mes"].astype(str)
         #anio1 = litros.columns[1]
         #st.write(litros.columns[1])
         #anio2 = litros.columns[2]
@@ -406,6 +406,7 @@ def exporta_evolucion():
         #anio4 = litros.columns[4]
         #st.write('año')
         #st.write(litros["mes"])
+        st.write(litros[anio3])
 
         # Crear gráfico de líneas y barras
         option = {
