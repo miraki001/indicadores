@@ -268,7 +268,7 @@ def exporta_evolucion():
 
 
     
-    st.write(litros)
+    #st.write(litros)
 
 
     actual = dt.now().year -4 
