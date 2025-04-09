@@ -419,16 +419,49 @@ def exporta_evolucion():
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
+            "yAxis": [
+                {"type": "value" ,"name" : "Litros" ,
+                 "axisLine": {
+                    "show": 'false',
+                  },              
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                } ,
+                {"type": "value" , "name" : "",
+                 "position" : 'left',
+                 "alignTicks": 'true',
+                 "offset": 0,
+                 "axisLine": {
+                    "show": 'false',
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value}  '
+                      }
+                },
+                {"type": "value" , "name" : "Litros Acum",
+                 "position" : 'rigth',
+                 "alignTicks": 'true',
+                 "offset": 10,
+                 "axisLine": {
+                    "show": 'true',
+
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                },            
+            ],            
             "yAxis": {"type": "value"},
             "series": [
-                {"data": litros[anio1].tolist(), "type": "bar", "name": anio1, },
-                {"data": litros[anio2].tolist(), "type": "bar", "name": anio2,},
-                {"data": litros[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA', },
-                {"data": litros[anio4].tolist(), "type": "bar", "name": anio4, "color":'#C92488', },
-                {"data": litros['Acum 2022'].tolist(), "type": "line", "name": anio1, },
-                {"data": litros['Acum 2023'].tolist(), "type": "line", "name": anio2,},
-                {"data": litros['Acum 2024'].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
-                {"data": litros['Acum 2025'].tolist(), "type": "line", "name": anio4, "color":'#C92488', },
+                {"data": litros[anio1].tolist(), "type": "bar", "name": anio1,"yAxisIndex": 1,   },
+                {"data": litros[anio2].tolist(), "type": "bar", "name": anio2,"yAxisIndex": 1,},
+                {"data": litros[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA',"yAxisIndex": 1, },
+                {"data": litros[anio4].tolist(), "type": "bar", "name": anio4, "color":'#C92488',"yAxisIndex": 1, },
+                {"data": litros['Acum 2022'].tolist(), "type": "line", "name": anio1, "yAxisIndex": 2,},
+                {"data": litros['Acum 2023'].tolist(), "type": "line", "name": anio2,"yAxisIndex": 2,},
+                {"data": litros['Acum 2024'].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', "yAxisIndex": 2, },
+                {"data": litros['Acum 2025'].tolist(), "type": "line", "name": anio4, "color":'#C92488', "yAxisIndex": 2,},
                 
             ],
         }
