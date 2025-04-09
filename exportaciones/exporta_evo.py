@@ -198,7 +198,6 @@ def exporta_evolucion():
 
     litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)
-    st.write(litros.iloc[:, 1])
 
     fob = dv2.pivot_table(
           index='mes', 
@@ -399,14 +398,7 @@ def exporta_evolucion():
         st.subheader("Exportaciones evolución mensual en litros")
        
         litros["mes"] = litros["mes"].astype(str)
-        #anio1 = litros.columns[1]
-        #st.write(litros.columns[1])
-        #anio2 = litros.columns[2]
-        #anio3 = litros.columns[3]
-        #anio4 = litros.columns[4]
-        #st.write('año')
-        #st.write(litros["mes"])
-        st.write(litros['Acum 2024'])
+
 
         # Crear gráfico de líneas y barras
         option = {
@@ -454,14 +446,14 @@ def exporta_evolucion():
             ],            
             #"yAxis": {"type": "value"},
             "series": [
-                {"data": litros[anio1].tolist(), "type": "bar", "name": anio1,"yAxisIndex": 1, "color":'#F49F82'  },
+                {"data": litros[anio1].tolist(), "type": "bar", "name": anio1,"yAxisIndex": 1, "color":'#FCE2D6'  },
                 {"data": litros[anio2].tolist(), "type": "bar", "name": anio2,"yAxisIndex": 1,  "color":'#F9C8B4' },
-                {"data": litros[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA',"yAxisIndex": 1, "color":'#FCE2D6'  },
+                {"data": litros[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA',"yAxisIndex": 1, "color":'#F49F82'  },
                 {"data": litros[anio4].tolist(), "type": "bar", "name": anio4, "color":'#C92488',"yAxisIndex": 1,  "color":'#EC654A' },
-                {"data": litros['Acum 2022'].tolist(), "type": "line", "name": anio1, "yAxisIndex": 2,},
-                {"data": litros['Acum 2023'].tolist(), "type": "line", "name": anio2,"yAxisIndex": 2,},
+                {"data": litros['Acum 2022'].tolist(), "type": "line", "name": anio1, "yAxisIndex": 2,  "color":'#C92488'},
+                {"data": litros['Acum 2023'].tolist(), "type": "line", "name": anio2,"yAxisIndex": 2,  "color":'#C92488'},
                 {"data": litros['Acum 2024'].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', "yAxisIndex": 2, },
-                {"data": litros['Acum 2025'].tolist(), "type": "line", "name": anio4, "color":'#C92488', "yAxisIndex": 2,},
+                {"data": litros['Acum 2025'].tolist(), "type": "line", "name": anio4, "color":'#604994', "yAxisIndex": 2,},
                 
             ],
         }
