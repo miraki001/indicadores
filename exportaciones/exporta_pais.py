@@ -87,7 +87,7 @@ def exporta_destino():
             st.error(f"Error al cargar datos: {e}")
             return pd.DataFrame()
     QUERY_V0 = f"""
-        SELECT distinct anio,variedad1 variedad,tipo_envase,color,producto,pais
+        SELECT distinct anio,variedad1 variedad,tipo_envase,color,producto,pais,grupoenvase
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
 
@@ -134,7 +134,7 @@ def exporta_destino():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais,color,grupoenvase,producto
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
 
