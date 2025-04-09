@@ -406,7 +406,7 @@ def exporta_evolucion():
         #anio4 = litros.columns[4]
         #st.write('año')
         #st.write(litros["mes"])
-        st.write(litros[anio3])
+        st.write(litros['Acum 2024'])
 
         # Crear gráfico de líneas y barras
         option = {
