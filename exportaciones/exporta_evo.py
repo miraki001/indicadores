@@ -198,7 +198,7 @@ def exporta_evolucion():
 
     litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)
-    st.write(litros[0])
+    st.write(litros.columns[1])
 
     fob = dv2.pivot_table(
           index='mes', 
