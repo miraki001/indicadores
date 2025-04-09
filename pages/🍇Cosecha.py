@@ -52,6 +52,7 @@ streamlit_style = """
 st.markdown(streamlit_style, unsafe_allow_html=True) 
 
 conn = st.connection("postgresql", type="sql")
+
 @st.cache_data
 def cargar_datos(consulta):
     try:
@@ -108,7 +109,7 @@ with tab1:
         '''
     )
     QUERY_V1 = f"""
-        SELECT anio, sum(sup) sup,count(*) cnt  from superficievariedad_m,variedad,provincia,departamento
+        SELECT anio, sup ,variedad,provincia,departamento  from superficievariedad_m
         FROM superficievariedad_m 
         
 
