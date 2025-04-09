@@ -159,6 +159,7 @@ with tab1:
     #st.write(sql)
     #dv1 = conn.query(sql)
     #dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = %1 or %1= '-1' group by anio order by anio ;', ttl="0")
+    df_anual = df_filtered.groupby(['anio'], as_index=False)[['sup', 'litros']].agg(["sum", "count"])  
     st.write(df_filtered)
     #dv1['anio'] = dv1['anio'].astype(str)
 
