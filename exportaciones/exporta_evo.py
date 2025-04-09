@@ -187,7 +187,7 @@ def exporta_evolucion():
 
 
     dv2 = dv2.astype({'fob' : int, 'litros': int} )
-    #st.write(dv2)
+    st.write(dv2)
 
     litros = dv2.pivot_table(
           index='mes', 
@@ -219,6 +219,7 @@ def exporta_evolucion():
     ppl  = ppl.fillna('')
     fob  = fob.fillna('')
     litros  = litros.fillna('')
+    st.write(litros)
 
 
     actual = dt.now().year -4 
