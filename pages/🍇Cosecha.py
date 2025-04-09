@@ -132,11 +132,11 @@ with tab1:
         with col2:
             with st.popover("Provincia"):
                 st.caption("Selecciona uno o más Provincias de la lista")
-                provincia = st.multiselect("Envase",  ["Todas"] + prov_list, default=["Todos"],label_visibility="collapsed")
+                provincia = st.multiselect("Provincia",  ["Todas"] + prov_list, default=["Todos"],label_visibility="collapsed")
         with col3:
             with st.popover("Departamento"):
                 st.caption("Selecciona uno o más Departamentos de la lista")
-                departamento = st.multiselect("Producto",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
+                departamento = st.multiselect("Departamento",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
 
    
     df_filtered = dv1.copy()
