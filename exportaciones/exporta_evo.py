@@ -233,6 +233,7 @@ def exporta_evolucion():
     for index in range(len(litros)):
           if index == 0:
               tot1.append((  (litros[2022].loc[index])))
+              tot2.append((  (litros[2023].loc[index])))
           if index > 0:
             tot1.append((  (litros[2022].loc[index] + litros[2022].loc[index -1]) ))
             tot2.append((  (litros[2023].loc[index] / litros[2023].loc[index -1])))
