@@ -312,7 +312,9 @@ def exporta_evolucion():
     litros['Acum ' + str(anio3) ] = tot3
     litros['Acum ' + str(anio4)] = tot4    
     
-    #st.write(litros)
+    st.write(litros)
+    st.write(fob)
+    st.write(ppl)
 
 
     actual = dt.now().year -4 
