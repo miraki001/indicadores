@@ -180,7 +180,7 @@ def exporta_destino():
         with col6:
             with st.popover("Grupo Envase"):
                 st.caption("Selecciona uno o más grupo de envases de la lista")
-                grupoenvase = st.multiselect("Gurpo Envase",  ["Todos"] + grupoenvase, default=["Todos"],label_visibility="collapsed")      
+                grupoenvase = st.multiselect("Gurpo Envase",  ["Todos"] + grupoenvase_list, default=["Todos"],label_visibility="collapsed")      
     
     df_filtered = dv1.copy()
 
