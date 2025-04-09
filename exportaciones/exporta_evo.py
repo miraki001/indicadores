@@ -275,7 +275,7 @@ def exporta_evolucion():
     # ahora en Fob
 
 
-tot1 = []
+    tot1 = []
     tot2 = []
     tot3 = []
     tot4 = []
