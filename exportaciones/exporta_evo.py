@@ -572,7 +572,6 @@ def exporta_evolucion():
             st.dataframe(litros,
               column_config={
                 'Mes': st.column_config.Column('Año'),
-                ),
         
                 },
                 width = 600,   
