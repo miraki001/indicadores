@@ -230,25 +230,40 @@ def exporta_evolucion():
 
     tot1 = []
     tot2 = []
+    tot3 = []
+    tot4 = []
     acu1 = 0
     acu2 = 0
+    acu3 = 0
+    acu4 = 0
+    
     for index in range(len(litros)):
           if index == 0:
               tot1.append((  (litros[anio1].loc[index])))
               tot2.append((  (litros[anio2].loc[index])))
+              tot3.append((  (litros[anio3].loc[index])))
+              tot4.append((  (litros[anio4].loc[index])))
               acu1 = litros[anio1].loc[index]
               acu2 = litros[anio2].loc[index]
+              acu3 = litros[anio3].loc[index]
+              acu4 = litros[anio4].loc[index]
           if index > 0:
             tot1.append((  (litros[anio1].loc[index] + acu1 ) ))
             tot2.append((  (litros[anio2].loc[index] + acu2 )))
+            tot3.append((  (litros[anio3].loc[index] + acu3 ) ))
+            tot4.append((  (litros[anio4].loc[index] + acu4 )))
             acu1 =  acu1+ litros[anio1].loc[index]
             acu2 = acu2 + litros[anio2].loc[index]
+            acu3 = acu3 + litros[anio3].loc[index]
+            acu4 = acu4 + litros[anio4].loc[index]
               
         #st.write(total)
     #dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
     #dv1['Litros Var %'] = total
     litros['Acum ' + str(anio1) ] = tot1
     litros['Acum' + str(anio2)] = tot2
+    litros['Acum ' + str(anio3) ] = tot3
+    litros['Acum' + str(anio4)] = tot4
         
 
 
@@ -401,10 +416,15 @@ def exporta_evolucion():
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
             "yAxis": {"type": "value"},
             "series": [
-                {"data": litros[anio1].tolist(), "type": "line", "name": anio1, },
-                {"data": litros[anio2].tolist(), "type": "line", "name": anio2,},
-                {"data": litros[anio3].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
-                {"data": litros[anio4].tolist(), "type": "line", "name": anio4, "color":'#C92488', },
+                {"data": litros[anio1].tolist(), "type": "bar", "name": anio1, },
+                {"data": litros[anio2].tolist(), "type": "bar", "name": anio2,},
+                {"data": litros[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA', },
+                {"data": litros[anio4].tolist(), "type": "bar", "name": anio4, "color":'#C92488', },
+                {"data": litros['Acum 2022'].tolist(), "type": "line", "name": anio1, },
+                {"data": litros['Acum 2023'].tolist(), "type": "line", "name": anio2,},
+                {"data": litros['Acum 2024'].tolist(), "type": "line", "name": anio3, "color":'#07ECFA', },
+                {"data": litros['Acum 2025'].tolist(), "type": "line", "name": anio4, "color":'#C92488', },
+                
             ],
         }
 
