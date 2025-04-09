@@ -145,7 +145,7 @@ def exporta_destino():
 
     
     with st.container(border=True):
-        col1, col2, col3 = st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
+        col1, col2, col3,col4,col5 = st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
         with col1:
@@ -166,7 +166,16 @@ def exporta_destino():
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
                 envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+        with col4:
+            with st.popover("Producto"):
+                st.caption("Selecciona uno o más Productos de la lista")
+                producto = st.multiselect("Producto",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
 
+        with col5:
+            with st.popover("Color"):
+                st.caption("Selecciona uno o más Colores de la lista")
+                color = st.multiselect("Color",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
+    
     df_filtered = dv1.copy()
 
     if año:
