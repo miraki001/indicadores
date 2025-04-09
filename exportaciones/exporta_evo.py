@@ -307,10 +307,10 @@ def exporta_evolucion():
         #st.write(total)
     #dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
     #dv1['Litros Var %'] = total
-    litros['Acum ' + str(anio1) ] = tot1
-    litros['Acum ' + str(anio2)] = tot2
-    litros['Acum ' + str(anio3) ] = tot3
-    litros['Acum ' + str(anio4)] = tot4    
+    fob['Acum ' + str(anio1) ] = tot1
+    fob['Acum ' + str(anio2)] = tot2
+    fob['Acum ' + str(anio3) ] = tot3
+    fob['Acum ' + str(anio4)] = tot4    
     
     st.write(litros)
     st.write(fob)
