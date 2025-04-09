@@ -11,40 +11,155 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 
 
-conn = st.connection("postgresql", type="sql")
-df = conn.query('select distinct anio from superficievariedad_m ;', ttl="0")
-year_list = list(df.anio.unique())[::-1]
+hide_streamlit_style = """
+                <style>
+                div[data-testid="stToolbar"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                div[data-testid="stDecoration"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                div[data-testid="stStatusWidget"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                #MainMenu {
+                visibility: hidden;
+                height: 0%;
+                }
+                header {
+                visibility: hidden;
+                height: 0%;
+                }
+                footer {
+                visibility: hidden;
+                height: 0%;
+                }
+                </style>
+                """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-dv = conn.query('select distinct variedad from superficievariedad_m ;', ttl="0")
-var_list = list(dv.variedad.unique())[::-1]
+streamlit_style = """
+        <style>
+        iframe[title="streamlit_echarts.st_echarts"]{ height: 500px;} 
+       </style>
+        """
+st.markdown(streamlit_style, unsafe_allow_html=True) 
+@st.cache_data
+def cargar_datos(consulta):
+    try:
+        df = conn.query(consulta, ttl="0")
+        return df
+    except Exception as e:
+        st.error(f"Error al cargar datos: {e}")
+        return pd.DataFrame()
 
-dp = conn.query('select distinct provincia from superficievariedad_m ;', ttl="0")
-prov_list = list(dp.provincia.unique())[::-1]
-color_list =  ("Tinta", "Blanca","Rosada","Sin Dato","Todas")
 
+QUERY_V0 = f"""
+        SELECT distinct anio,variedad,provincia,departamento
+        FROM superficievariedad_m 
+        
 
-with st.popover("Abrir Filtros"):
-    st.markdown("Filtros 🔎")
-    anio = st.selectbox( "Año :", year_list )
-    var = st.selectbox( "Variedad :", var_list )
-    prov = st.selectbox( "Provincia :", prov_list )
-    vcolor = st.selectbox( "Color :", color_list )
-    st.button("Ok", type="primary")
+"""
 
 
 
 tab1, tab2, tab3 = st.tabs(["Superficie", "Cosecha", "Rendimientos"])
 
 with tab1:
-    st.header("Cantidad de Viñedos")
-    sql = "select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = '" + vcolor + "' or  '" +vcolor + "'= 'Todas' ) group by anio order by anio"
-    st.write(sql)
-    dv1 = conn.query(sql)
-    #dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = %1 or %1= '-1' group by anio order by anio ;', ttl="0")
-    st.write(dv1)
+
+
+    df_filtros = cargar_datos(QUERY_V0)
+
+    if df_filtros.empty:
+        st.error("No se encontraron datos en la base de datos.")
+        st.stop()
+
+    # Listas de valores únicos para los filtros
+    year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
+    var_list = sorted(df_filtros["variedad"].dropna().unique())
+    prov_list = sorted(df_filtros["provincia"].dropna().unique())
+    depto_list = sorted(df_filtros["provincia"].dropna().unique())
+    if "filtros" not in st.session_state:
+        st.session_state.filtros = {
+            "anio": "Todos",
+            "var": "Todas",
+            "provincia": "Todas",
+            "departamento": "Todos"
+        }
+
+    st.html(
+        '''
+            <style>
+                div[data-testid="stPopover"]>div>button {
+                    min-height: 22.4px;
+                    height: 22.4px;
+                    background-color: #A9F8FA !important;
+                    color: black;
+                }
+            </style>
+        '''
+    )
+    QUERY_V1 = f"""
+        SELECT anio, sum(sup) sup,count(*) cnt  from superficievariedad_m,variedad,provincia,departamento
+        FROM superficievariedad_m 
+        
+
+    """
+
+
+    dv1 = cargar_datos(QUERY_V1)
+ 
     dv1['anio'] = dv1['anio'].astype(str)
 
-    newdf=dv1.set_index('anio',inplace=False).rename_axis(None)
+    with st.container(border=True):
+        col1, col2, col3= st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
+
+    # Columna 1: Filtro para Año
+        with col1:
+            with st.popover("Variedad"):
+                st.caption("Selecciona uno o más Variedades de la lista")
+                variedad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+    
+        with col2:
+            with st.popover("Provincia"):
+                st.caption("Selecciona uno o más Provincias de la lista")
+                provincia = st.multiselect("Envase",  ["Todas"] + prov_list, default=["Todos"],label_visibility="collapsed")
+        with col3:
+            with st.popover("Departamento"):
+                st.caption("Selecciona uno o más Departamentos de la lista")
+                departamento = st.multiselect("Producto",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
+
+   
+    df_filtered = dv1.copy()
+
+
+
+    if variedad:
+        if variedad[0] != 'Todas':
+            df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
+            #st.write(variedad)
+    if departamento:
+        if departamento[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['departamento'].isin(departamento)]
+    if provincia:
+        if provincia[0] != 'Todas':
+            df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
+    
+    st.header("Cantidad de Viñedos")
+    #sql = "select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = '" + vcolor + "' or  '" +vcolor + "'= 'Todas' ) group by anio order by anio"
+    #st.write(sql)
+    #dv1 = conn.query(sql)
+    #dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = %1 or %1= '-1' group by anio order by anio ;', ttl="0")
+    st.write(df_filtered)
+    #dv1['anio'] = dv1['anio'].astype(str)
+
+    newdf=df_filtered.set_index('anio',inplace=False).rename_axis(None)
     
     option = {
         "tooltip": {
@@ -67,8 +182,7 @@ with tab1:
     
     
 with tab2:
-    st.header("A dog")
+    st.header("En Construcción")
     
 with tab3:
-    st.header("An owl")
-    st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+    st.header("En Construcción"")
