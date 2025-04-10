@@ -216,8 +216,8 @@ with tab1:
                       }
                 },            
         ],
-        "series": [{"data": dv1['sup'].to_list(), "type": "line", "name": 'Hectareas'}
-                   ,{"data": dv1['cnt'].to_list(), "type": "bar","name":'Cnt Viñedos'}]
+        "series": [{"data": dv1['sup'].to_list(), "type": "line", "name": 'Hectareas', "yAxisIndex": 2, "color":'#07ECFA',}
+                   ,{"data": dv1['cnt'].to_list(), "type": "bar","name":'Cnt Viñedos', "yAxisIndex": 1, "color":'#07ECFF',}]
     }
     st_echarts(
         options=option, height="400px" ,
