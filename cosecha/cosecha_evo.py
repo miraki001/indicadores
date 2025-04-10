@@ -116,11 +116,10 @@ def cosecha_evo():
                 tipo = st.multiselect("Gurpo Envase",  ["Todos"] + tipo_list, default=["Todos"],label_visibility="collapsed")      
     
     
-    st.write(df_filtered)
+    #st.write(df_filtered)
     if provincia:
         if provincia[0] != 'Todas':        
             df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
-            #df_filtered["anio"] = df_filtered["anio"].astype(str)
 
     if variedad:
         if variedad[0] != 'Todas':
@@ -141,7 +140,7 @@ def cosecha_evo():
     
 
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['peso']].sum()
-    st.write(df_anual)
+    #st.write(df_anual)
     total = []
     total.append(0)
     for index in range(len(df_anual)):
@@ -153,7 +152,7 @@ def cosecha_evo():
     df_anual = df_anual.sort_index(axis = 1)
 
     
-    df_sorted = df_anual.sort_values(by='Año', ascending=False)
+    df_sorted = df_anual.sort_values(by='Año', ascending=True)
 
     styled_df = df_sorted.style.format(
             {"Quintales": lambda x : '{:,.0f}'.format(x), 
