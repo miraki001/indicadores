@@ -168,7 +168,53 @@ with tab1:
     #dv1 = conn.query(sql)
     #dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = %1 or %1= '-1' group by anio order by anio ;', ttl="0")
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['sup', 'cnt']].sum()
-    st.write(df_anual)
+
+
+    total = []
+    tot1 = []
+    total.append(0)
+    tot1.append(0)
+    for index in range(len(df_anual)):
+      if index > 0:
+        total.append((  (df_anual['sup'].loc[index] / df_anual['sup'].loc[index -1]) -1 ) *100 )
+        tot1.append((  (df_anual['cnt'].loc[index] / df_anual['cnt'].loc[index -1]) -1 ) *100 )
+    #st.write(total)
+    df_anual = df_anual.rename(columns={'sup': "Superficie", 'cnt': "Viñedos Cnt.",'anio': "Año"})
+    df_anual['Superficie Var %'] = total
+    df_anual['Viñedos Var. %'] = tot1
+
+    df_anual = df_anual.sort_index(axis = 1)
+
+    styled_df = df_anual.style.applymap(bgcolor_positive_or_negative, subset=['Superficie Var %','Viñedos Var. %']).format(
+        {"Superficie": lambda x : '{:,.0f}'.format(x), 
+        "Viñedos Cnt.": lambda x : '{:,.0f}'.format(x),
+        "Superficie Var %": lambda x : '{:,.2f} %'.format(x),
+        "Viñedos Var. %": lambda x : '{:,.2f} %'.format(x),
+                                        }
+        ,
+        thousands='.',
+        decimal=',',
+    )
+
+
+    #st.write(df2)
+
+    st.dataframe(styled_df,
+      column_config={
+        'Año': st.column_config.Column('Año'),
+        'Superficie': st.column_config.Column('Superficie'),
+        'Viñedos Cnt.': st.column_config.Column('Viñedos Cnt.'),
+        'Superficie Var %': st.column_config.Column('Superficie Var %'),
+        'Viñedos Var. %': st.column_config.Column('Viñedos Var. %'),
+        
+        },
+        width = 600,   
+        height = 800,
+        hide_index=True)
+
+
+  
+    ·st.write(df_anual)
     #dv1['anio'] = dv1['anio'].astype(str)
 
     newdf=df_filtered.set_index('anio',inplace=False).rename_axis(None)
