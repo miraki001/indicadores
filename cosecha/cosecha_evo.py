@@ -118,8 +118,9 @@ def cosecha_evo():
     
     st.write(df_filtered)
     if provincia:
-        df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
-        #df_filtered["anio"] = df_filtered["anio"].astype(str)
+        if provincia[0] != 'Todas':        
+            df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
+            #df_filtered["anio"] = df_filtered["anio"].astype(str)
 
     if variedad:
         if variedad[0] != 'Todas':
