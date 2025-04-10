@@ -9,7 +9,7 @@ from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
-
+from datetime import datetime as dt
 
 hide_streamlit_style = """
                 <style>
@@ -223,7 +223,7 @@ with tab1:
             ],
     }
 
-    st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+    st_echarts(options=option,key="supe" + str(dt.now()), height="400px")
 
 
     
