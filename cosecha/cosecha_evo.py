@@ -182,4 +182,29 @@ def cosecha_evo():
                 hide_index=True)
     
 
+     option = {
+          "color": [
+                '#332D75',
+                '#1E8DB6',
+                '#604994',
+                '#dd6b66',
+            ],
+            "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+            "legend": {},
+            "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
+            "yAxis": [
+                {"type": "value" ,"name" : "Quintales" ,
+                 "axisLine": {
+                    "show": 'false',
+                  },              
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                } ,           
+            ],
+            "series": [
+                {"data": styled_df["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros" },
+            ],
+        }
 
+        st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
