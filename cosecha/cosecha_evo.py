@@ -102,7 +102,7 @@ def cosecha_evo():
                 st.caption("Selecciona uno o más Colores de la lista")
                 color = st.multiselect("Color",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
         with col6:
-            with st.popover("Tipo de Uva):
+            with st.popover("Tipo de Uva"):
                 st.caption("Selecciona uno o más Tipos de la lista")
                 tipo = st.multiselect("Gurpo Envase",  ["Todos"] + tipo_list, default=["Todos"],label_visibility="collapsed")      
     
