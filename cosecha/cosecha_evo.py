@@ -123,7 +123,7 @@ def cosecha_evo():
 
     if variedad:
         if variedad[0] != 'Todas':
-            df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
+            df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
             #st.write(variedad)
     if depto:
         if depto[0] != 'Todos':
