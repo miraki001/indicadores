@@ -202,19 +202,19 @@ with tab1:
 
 
     #st.write(df2)
-
-    st.dataframe(styled_df,
-      column_config={
-        'Año': st.column_config.Column('Año'),
-        'Superficie': st.column_config.Column('Superficie'),
-        'Viñedos Cnt.': st.column_config.Column('Viñedos Cnt.'),
-        'Superficie Var %': st.column_config.Column('Superficie Var %'),
-        'Viñedos Var. %': st.column_config.Column('Viñedos Var. %'),
+    if st.checkbox('Ver Cantidad de Viñedos en forma de tabla'):
+      st.dataframe(styled_df,
+        column_config={
+          'Año': st.column_config.Column('Año'),
+          'Superficie': st.column_config.Column('Superficie'),
+          'Viñedos Cnt.': st.column_config.Column('Viñedos Cnt.'),
+          'Superficie Var %': st.column_config.Column('Superficie Var %'),
+          'Viñedos Var. %': st.column_config.Column('Viñedos Var. %'),
         
-        },
-        width = 600,   
-        height = 800,
-        hide_index=True)
+          },
+          width = 600,   
+          height = 800,
+          hide_index=True)
 
 
   
