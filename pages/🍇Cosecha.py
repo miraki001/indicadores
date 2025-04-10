@@ -184,7 +184,7 @@ with tab1:
             "legend": {},
             "xAxis": {"type": "category", "data": df_anual["anio"].tolist()},
             "yAxis": [
-                {"type": "value" ,"name" : "Hectareas" ,
+                {"type": "value" ,"name" : "Viñedos" ,
                  "axisLine": {
                     "show": 'false',
                   },              
@@ -203,7 +203,7 @@ with tab1:
                     "formatter": '{value}  '
                       }
                 },
-                {"type": "value" , "name" : "Cnt. Viñedos",
+                {"type": "value" , "name" : "Hectareas",
                  "position" : 'rigth',
                  "alignTicks": 'true',
                  "offset": 10,
