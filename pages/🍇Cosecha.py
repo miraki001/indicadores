@@ -212,7 +212,7 @@ with tab1:
 
                   },             
                  "axisLabel": {
-                    "formatter": '{value} u$s '
+                    "formatter": '{value}  '
                       }
                 },            
             ],
