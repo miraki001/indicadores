@@ -24,6 +24,10 @@ def cosecha_evo():
 
     conn = st.connection("postgresql", type="sql")
 
+    def bgcolor_positive_or_negative(value):
+        bgcolor = "#EC654A" if value < 0 else "lightgreen"
+        return f"background-color: {bgcolor};"
+            
 
     def cargar_datos(consulta):
         try:
@@ -154,7 +158,7 @@ def cosecha_evo():
     
     df_sorted = df_anual.sort_values(by='Año', ascending=True)
 
-    styled_df = df_sorted.style.format(
+    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['Var % Año Ant.']).format(
             {"Quintales": lambda x : '{:,.0f}'.format(x), 
             "Var % Año Ant.": lambda x : '{:,.2f} %'.format(x),                                        }
             ,
