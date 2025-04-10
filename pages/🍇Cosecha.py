@@ -52,6 +52,10 @@ streamlit_style = """
 st.markdown(streamlit_style, unsafe_allow_html=True) 
 
 conn = st.connection("postgresql", type="sql")
+def bgcolor_positive_or_negative(value):
+    bgcolor = "lightcoral" if value < 0 else "lightgreen"
+    return f"background-color: {bgcolor};"
+
 
 @st.cache_data
 def cargar_datos(consulta):
