@@ -191,7 +191,7 @@ def cosecha_evo():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
-            "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
+            "xAxis": {"type": "category", "data": styled_df["Año"].tolist()},
             "yAxis": [
                 {"type": "value" ,"name" : "Quintales" ,
                  "axisLine": {
