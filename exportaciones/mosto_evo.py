@@ -95,7 +95,7 @@ def exporta_mosto_evo():
             "anio": "Todos",
             "var": "Todas",
             "envase": "Todos",
-            "vcolor": "Todos",
+            "vcolor1": "Todos",
             "producto": "Todos"
         }
 
