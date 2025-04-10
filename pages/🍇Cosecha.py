@@ -173,7 +173,7 @@ with tab1:
 
     newdf=df_filtered.set_index('anio',inplace=False).rename_axis(None)
     
-        option = {
+    option = {
           "color": [
                 '#332D75',
                 '#1E8DB6',
@@ -221,9 +221,9 @@ with tab1:
                 {"data": df_anual["cnt"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
                 {"data": df_anual["sup"].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 2, "color":'#07ECFA', },
             ],
-        }
+    }
 
-        st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+    st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
 
 
     
