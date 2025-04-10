@@ -203,7 +203,7 @@ def cosecha_evo():
                 } ,           
             ],
             "series": [
-                {"data": df_anual["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros" },
+                {"data": df_anual["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Quintales" },
             ],
         }
 
