@@ -95,7 +95,7 @@ def exporta_mosto_evo():
             "anio": "Todos",
             "var": "Todas",
             "envase": "Todos",
-            "vcolor1": "Todos",
+            "color": "Todos",
             "producto": "Todos"
         }
 
@@ -119,11 +119,11 @@ def exporta_mosto_evo():
         anio = st.multiselect("Añom:", ["Todos"], default=["Todos"])
         var = st.multiselect("Variedadm:", ["Todas"] + var_list, default=["Todas"])
         envase = st.multiselect("Envasesm:", ["Todos"] + envase_list, default=["Todos"])
-        vcolor1 = st.multiselect("Colorm:", ["Todos"] +  color_list, default=["Todos"])
+        color = st.multiselect("Colorm:", ["Todos"] +  color_list, default=["Todos"])
         producto = st.multiselect("Productom:",   ["Todos"] +  producto_list, default=["Todos"])
 
         if st.button("Aplicar filtros1", type="primary"):
-            st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "vcolor1": vcolor1,"producto": producto}
+            st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "color": color,"producto": producto}
             st.rerun()  # Vuelve a ejecutar la app para aplicar los filtros
 
     # Obtener filtros aplicados
@@ -131,10 +131,10 @@ def exporta_mosto_evo():
     condiciones = []
 
     # Filtro por color
-    if "Todos" in filtros["vcolor1"]:
+    if "Todos" in filtros["color"]:
         condiciones.append("1=1")  # No se aplica filtro
     else:
-        colores = "', '".join(filtros["vcolor1"])  # Convierte lista a formato SQL
+        colores = "', '".join(filtros["color"])  # Convierte lista a formato SQL
         condiciones.append(f"color IN ('{colores}')")
 
     # Filtro por año
