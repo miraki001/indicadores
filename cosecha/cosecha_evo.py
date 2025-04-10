@@ -33,7 +33,7 @@ def cosecha_evo():
             st.error(f"Error al cargar datos: {e}")
             return pd.DataFrame()
     QUERY_V0 = f"""
-        SELECT distinct variedad,provincia_viñatero prov,departamento_viñatero depto,destino_uva destino,tipouva,color
+        SELECT distinct variedad,provincia_viñatero prov,departamento_viñatero depto,destinouva destino,tipouva,color
         FROM cosecha2 
         
 
@@ -59,7 +59,7 @@ def cosecha_evo():
 
 
     QUERY_V1 = f"""
-        SELECT anio, peso , variedad,provincia_viñatero prov,departamento_viñatero depto,destino_uva destino,tipouva,color
+        SELECT anio, peso , variedad,provincia_viñatero prov,departamento_viñatero depto,destinouva destino,tipouva,color
         FROM cosecha2 
 
     """
