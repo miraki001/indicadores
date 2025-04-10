@@ -130,7 +130,7 @@ def cosecha_evo():
             df_filtered = df_filtered[df_filtered['tipouva'].isin(tipo)]      
     
 
-    df_anual = df_filtered.groupby(['pais'], as_index=False)[['peso'].sum()
+    df_anual = df_filtered.groupby(['pais'], as_index=False)[['peso']].sum()
     
     total = []
     total.append(0)
