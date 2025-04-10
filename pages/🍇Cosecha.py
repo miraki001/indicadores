@@ -146,7 +146,7 @@ with tab1:
       dv1 = cargar_datos(QUERY_V1)
     else:
       dv1 = cargar_datos(QUERY_V2)
-    st.write(dv1)  
+
     dv1['anio'] = dv1['anio'].astype(str)
   
     df_filtered = dv1.copy()
@@ -172,7 +172,7 @@ with tab1:
     #dv1 = conn.query(sql)
     #dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = %1 or %1= '-1' group by anio order by anio ;', ttl="0")
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['sup', 'cnt']].sum()
-
+    st.write(df_anual)
 
     total = []
     tot1 = []
