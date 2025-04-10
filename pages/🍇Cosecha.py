@@ -173,18 +173,18 @@ with tab1:
 
     newdf=df_filtered.set_index('anio',inplace=False).rename_axis(None)
     
-    option = {
-        "tooltip": {
-            "trigger": 'axis',
-            "axisPointer": { "type": 'cross' }
-            },
-        "legend": {},    
-        "xAxis": {
-            "type": "category",
-            "data": dv1['anio'].to_list(),
-        },
-        "yAxis": [
-                {"type": "value" ,"name" : "Litros/Fob" ,
+        option = {
+          "color": [
+                '#332D75',
+                '#1E8DB6',
+                '#604994',
+                '#dd6b66',
+            ],
+            "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+            "legend": {},
+            "xAxis": {"type": "category", "data": df_anual["anio"].tolist()},
+            "yAxis": [
+                {"type": "value" ,"name" : "Hectareas" ,
                  "axisLine": {
                     "show": 'false',
                   },              
@@ -203,7 +203,7 @@ with tab1:
                     "formatter": '{value}  '
                       }
                 },
-                {"type": "value" , "name" : "Precio x Lts",
+                {"type": "value" , "name" : "Cnt. Viñedos",
                  "position" : 'rigth',
                  "alignTicks": 'true',
                  "offset": 10,
@@ -215,13 +215,16 @@ with tab1:
                     "formatter": '{value} u$s '
                       }
                 },            
-        ],
-        "series": [{"data": dv1['sup'].to_list(), "type": "line", "name": 'Hectareas', "yAxisIndex": 2, "color":'#07ECFA',}
-                   ,{"data": dv1['cnt'].to_list(), "type": "bar","name":'Cnt Viñedos', "yAxisIndex": 1, "color":'#07ECFF',}]
-    }
-    st_echarts(
-        options=option, height="400px" ,
-    )
+            ],
+            "series": [
+                
+                {"data": df_anual["cnt"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
+                {"data": df_anual["sup"].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 2, "color":'#07ECFA', },
+            ],
+        }
+
+        st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+
 
     
     
