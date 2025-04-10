@@ -34,7 +34,7 @@ def cosecha_evo():
             return pd.DataFrame()
     QUERY_V0 = f"""
         SELECT distinct variedad,provincia_viñatero prov,departamento_viñatero depto,destino_uva destino,tipouva,color
-        FROM cosecha2_m 
+        FROM cosecha2 
         
 
     """
