@@ -91,7 +91,7 @@ with tab1:
     year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
     var_list = sorted(df_filtros["variedad"].dropna().unique())
     prov_list = sorted(df_filtros["provincia"].dropna().unique())
-    depto_list = sorted(df_filtros["provincia"].dropna().unique())
+    depto_list = sorted(df_filtros["departamento"].dropna().unique())
     if "filtros" not in st.session_state:
         st.session_state.filtros = {
             "anio": "Todos",
@@ -155,17 +155,18 @@ with tab1:
 
     if variedad:
         if variedad[0] != 'Todas':
-            df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
+            df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
             #st.write(variedad)
     if departamento:
         if departamento[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['departamento'].isin(departamento)]
     if provincia:
-        st.write(provincia)
+        
         if provincia[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
 
-
+    st.write(provincia)
+    st.write(departamento)
   
     st.header("Cantidad de Viñedos")
     #sql = "select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = '" + vcolor + "' or  '" +vcolor + "'= 'Todas' ) group by anio order by anio"
