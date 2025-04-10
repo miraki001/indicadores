@@ -69,16 +69,104 @@ def cosecha_evo():
  
     dv1['anio'] = dv1['anio'].astype(str)
 
-    
-
     df_filtered = dv1.copy()
+    #df_anual = df_filtered.groupby(['anio'], as_index=False)[['peso']].sum()
 
 
+    with st.container(border=True):
+        col1, col2, col3,col4,col5,col6 = st.columns([1, 1, 1,1,1,1])  # Ajusta los tamaños de las columnas
 
+    # Columna 1: Filtro para Año
+        with col1:
+            with st.popover("Provincia"):
+                st.caption("Selecciona uno o más provincia de la lista")
+                provincia = st.multiselect("Provincia",  prov_list, default=["Todas"],label_visibility="collapsed",help="Selecciona uno o más años")           
+        # Columna 2: Filtro para Países
+        with col2:
+            with st.popover("Variedad"):
+                st.caption("Selecciona uno o más Variedades de la lista")
+                variedad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+    
+        # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
+        with col3:
+            with st.popover("Departamento"):
+                st.caption("Selecciona uno o más Departamentos de la lista")
+                depto = st.multiselect("Departamento",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")
+        with col4:
+            with st.popover("Destino"):
+                st.caption("Selecciona uno o más Destinos de la lista")
+                destino = st.multiselect("Destino",  ["Todos"] + destino_list, default=["Todos"],label_visibility="collapsed")                
 
-    df_anual = df_filtered.groupby(['pais'], as_index=False)[['peso']].sum()
+        with col5:
+            with st.popover("Color"):
+                st.caption("Selecciona uno o más Colores de la lista")
+                color = st.multiselect("Color",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
+        with col6:
+            with st.popover("Tipo de Uva):
+                st.caption("Selecciona uno o más Tipos de la lista")
+                tipo = st.multiselect("Gurpo Envase",  ["Todos"] + tipo_list, default=["Todos"],label_visibility="collapsed")      
+    
+    df_filtered = df_anual.copy()
+
+    if provincia:
+        df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
+        #df_filtered["anio"] = df_filtered["anio"].astype(str)
+
+    if variedad:
+        if variedad[0] != 'Todas':
+            df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
+            #st.write(variedad)
+    if depto:
+        if depto[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['depto'].isin(depto)]
+    if color:
+        if color[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['color'].isin(color)]          
+    if destino:
+        if grupoenvase[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['destino'].isin(destino)]               
+    if tipo:
+        if producto[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['tipouva'].isin(tipo)]      
     
 
+    df_anual = df_filtered.groupby(['pais'], as_index=False)[['peso'].sum()
+    
+    total = []
+    total.append(0)
+    for index in range(len(df_anual)):
+      if index > 0:
+        total.append((  (df_anual['peso'].loc[index] / df_anual['peso'].loc[index -1]) -1 ) *100 )
+    df_anual = df_anual.rename(columns={'peso': "Quintales",'anio': "Año"})
+    df_anual['Var % Año Ant.'] = total
 
+    df_anual = df_anual.sort_index(axis = 1)
+
+    
+    df_sorted = df_anual.sort_values(by='Año', ascending=False)
+
+    styled_df = df_sorted.style.format(
+            {"Quintales": lambda x : '{:,.0f}'.format(x), 
+            "Var % Año Ant.": lambda x : '{:,.2f} %'.format(x),                                        }
+            ,
+            thousands='.',
+            decimal=',',
+    )
+
+    if st.checkbox('Ver tabla Cosecha por Año'):
+        st.dataframe(styled_df,
+              column_config={
+                'Pais': st.column_config.Column('Pais'),
+                'Litros': st.column_config.Column('Litros'),
+                'Fob': st.column_config.Column('Fob'),
+                'Part. % Litro': st.column_config.Column('Part. % Litro'),
+                'Part % Fob': st.column_config.Column('Part % Fob'),
+                'Prec x Litro': st.column_config.Column('Prec x Litr'),
+        
+                },
+                width = 800,   
+                height = 400,
+                hide_index=True)
+    
 
 
