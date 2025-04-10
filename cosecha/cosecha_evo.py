@@ -191,7 +191,7 @@ def cosecha_evo():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
-            "xAxis": {"type": "category", "data": styled_df["Año"].tolist()},
+            "xAxis": {"type": "category", "data": df_anual["Año"].tolist()},
             "yAxis": [
                 {"type": "value" ,"name" : "Quintales" ,
                  "axisLine": {
@@ -203,7 +203,7 @@ def cosecha_evo():
                 } ,           
             ],
             "series": [
-                {"data": styled_df["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros" },
+                {"data": df_anual["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros" },
             ],
         }
 
