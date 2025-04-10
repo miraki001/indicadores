@@ -214,7 +214,7 @@ with tab1:
 
 
   
-    ·st.write(df_anual)
+    #st.write(df_anual)
     #dv1['anio'] = dv1['anio'].astype(str)
 
     newdf=df_filtered.set_index('anio',inplace=False).rename_axis(None)
