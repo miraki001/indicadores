@@ -161,6 +161,7 @@ with tab1:
         if departamento[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['departamento'].isin(departamento)]
     if provincia:
+        st.write(provincia)
         if provincia[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
 
