@@ -182,7 +182,7 @@ def cosecha_evo():
                 hide_index=True)
     
 
-     option = {
+    option = {
           "color": [
                 '#332D75',
                 '#1E8DB6',
