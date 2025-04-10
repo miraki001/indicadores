@@ -183,7 +183,39 @@ with tab1:
             "type": "category",
             "data": dv1['anio'].to_list(),
         },
-        "yAxis": {"type": "value"},
+        "yAxis": [
+                {"type": "value" ,"name" : "Litros/Fob" ,
+                 "axisLine": {
+                    "show": 'false',
+                  },              
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                } ,
+                {"type": "value" , "name" : "",
+                 "position" : 'left',
+                 "alignTicks": 'true',
+                 "offset": 0,
+                 "axisLine": {
+                    "show": 'false',
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value}  '
+                      }
+                },
+                {"type": "value" , "name" : "Precio x Lts",
+                 "position" : 'rigth',
+                 "alignTicks": 'true',
+                 "offset": 10,
+                 "axisLine": {
+                    "show": 'true',
+
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value} u$s '
+                      }
+                },            
+        ],
         "series": [{"data": dv1['sup'].to_list(), "type": "line", "name": 'Hectareas'}
                    ,{"data": dv1['cnt'].to_list(), "type": "bar","name":'Cnt Viñedos'}]
     }
