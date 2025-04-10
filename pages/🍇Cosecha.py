@@ -167,6 +167,7 @@ with tab1:
 
     st.write(provincia)
     st.write(departamento)
+    st.write(df_filtered)
   
     st.header("Cantidad de Viñedos")
     #sql = "select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = '" + vcolor + "' or  '" +vcolor + "'= 'Todas' ) group by anio order by anio"
