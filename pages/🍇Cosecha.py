@@ -291,7 +291,7 @@ with tab2:
 with tab3:
     st.header("En Construcción")
 with tab4:
-    st.header("En Construcción")
+    cosecha_evo.cosecha_evo()    
 with tab5:
     st.header("En Construcción")
 with tab6:
