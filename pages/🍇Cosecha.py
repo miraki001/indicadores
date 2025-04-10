@@ -117,12 +117,7 @@ with tab1:
       
 
     """
-    if variedad[0] != 'Todas':
-      dv1 = cargar_datos(QUERY_V1)
-    else:
-      dv1 = cargar_datos(QUERY_V2)
-      
-    dv1['anio'] = dv1['anio'].astype(str)
+
 
     with st.container(border=True):
         col1, col2, col3= st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
@@ -142,7 +137,14 @@ with tab1:
                 st.caption("Selecciona uno o más Departamentos de la lista")
                 departamento = st.multiselect("Departamento",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
 
-   
+
+    if variedad[0] != 'Todas':
+      dv1 = cargar_datos(QUERY_V1)
+    else:
+      dv1 = cargar_datos(QUERY_V2)
+      
+    dv1['anio'] = dv1['anio'].astype(str)
+  
     df_filtered = dv1.copy()
 
 
@@ -157,7 +159,9 @@ with tab1:
     if provincia:
         if provincia[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
-    
+
+
+  
     st.header("Cantidad de Viñedos")
     #sql = "select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = '" + vcolor + "' or  '" +vcolor + "'= 'Todas' ) group by anio order by anio"
     #st.write(sql)
