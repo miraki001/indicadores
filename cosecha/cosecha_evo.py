@@ -207,4 +207,5 @@ def cosecha_evo():
             ],
         }
 
-        st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+    
+    st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
