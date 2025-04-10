@@ -165,9 +165,9 @@ with tab1:
         if provincia[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
 
-    st.write(provincia)
-    st.write(departamento)
-    st.write(dv1)
+    #st.write(provincia)
+    #st.write(departamento)
+    #st.write(dv1)
   
     st.header("Cantidad de Viñedos")
     #sql = "select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = '" + vcolor + "' or  '" +vcolor + "'= 'Todas' ) group by anio order by anio"
@@ -175,7 +175,7 @@ with tab1:
     #dv1 = conn.query(sql)
     #dv1 = conn.query('select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = %1 or %1= '-1' group by anio order by anio ;', ttl="0")
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['sup', 'cnt']].sum()
-    st.write(df_anual)
+    #st.write(df_anual)
 
     total = []
     tot1 = []
