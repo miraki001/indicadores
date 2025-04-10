@@ -110,14 +110,18 @@ with tab1:
     )
     QUERY_V1 = f"""
         SELECT anio,sup,cnt ,variedad,provincia,departamento  from superficievariedad_m
-        
-        
 
     """
+    QUERY_V2 = f"""
+        SELECT anio,sup,cnt ,variedad,provincia,departamento  from superficie_m
+      
 
-
-    dv1 = cargar_datos(QUERY_V1)
- 
+    """
+    if variedad[0] != 'Todas':
+      dv1 = cargar_datos(QUERY_V1)
+    else:
+      dv1 = cargar_datos(QUERY_V2)
+      
     dv1['anio'] = dv1['anio'].astype(str)
 
     with st.container(border=True):
