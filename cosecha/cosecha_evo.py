@@ -79,7 +79,7 @@ def cosecha_evo():
     dv1['anio'] = dv1['anio'].astype(str)
 
     df_filtered = dv1.copy()
-    #df_anual = df_filtered.groupby(['anio'], as_index=False)[['peso']].sum()
+    
 
 
     with st.container(border=True):
@@ -115,7 +115,7 @@ def cosecha_evo():
                 st.caption("Selecciona uno o más Tipos de la lista")
                 tipo = st.multiselect("Gurpo Envase",  ["Todos"] + tipo_list, default=["Todos"],label_visibility="collapsed")      
     
-    df_filtered = df_anual.copy()
+    
 
     if provincia:
         df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
