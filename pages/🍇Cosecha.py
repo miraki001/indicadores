@@ -76,7 +76,7 @@ QUERY_V0 = f"""
 
 
 
-tab1, tab2, tab3 = st.tabs(["Superficie", "Cosecha", "Rendimientos"])
+tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Superficie Evolución","Superficie por Provincia","Superficie por Variedad", "Cosecha Evolución","Cosecha por Provincias","Cosecha por Variedad",  "Rendimientos"])
 
 with tab1:
 
@@ -285,4 +285,12 @@ with tab2:
     st.header("En Construcción")
     
 with tab3:
+    st.header("En Construcción")
+with tab4:
+    st.header("En Construcción")
+with tab5:
+    st.header("En Construcción")
+with tab6:
+    st.header("En Construcción")
+with tab7:
     st.header("En Construcción")
