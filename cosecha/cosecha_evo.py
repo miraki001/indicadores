@@ -55,6 +55,15 @@ def cosecha_evo():
     color_list = sorted(df_filtros["color"].dropna().unique())
     destino_list = sorted(df_filtros["destino"].dropna().unique())
     tipo_list = sorted(df_filtros["tipouva"].dropna().unique())
+    if "filtros" not in st.session_state:
+        st.session_state.filtros = {
+            "provincias": "Todas",
+            "var": "Todas",
+            "depto": "Todos",
+            "color": "Todos",
+            "destino": "Todos",
+            "tipo": "Todos"
+        }
 
 
 
@@ -80,7 +89,7 @@ def cosecha_evo():
         with col1:
             with st.popover("Provincia"):
                 st.caption("Selecciona uno o más provincia de la lista")
-                provincia = st.multiselect("Provincia",  prov_list, default=["Todas"],label_visibility="collapsed",help="Selecciona uno o más años")           
+                provincia = st.multiselect("Provincia",  ["Todas"] +   prov_list, default=["Todas"],label_visibility="collapsed",help="Selecciona uno o más años")           
         # Columna 2: Filtro para Países
         with col2:
             with st.popover("Variedad"):
