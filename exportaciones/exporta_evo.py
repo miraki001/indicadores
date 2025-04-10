@@ -95,7 +95,7 @@ def exporta_evolucion():
             "anio": "Todos",
             "var": "Todas",
             "envase": "Todos",
-            "vcolor": "Todos",
+            "color": "Todos",
             "producto": "Todos"
         }
 
@@ -119,11 +119,11 @@ def exporta_evolucion():
         anio = st.multiselect("Año:", ["Todos"], default=["Todos"])
         var = st.multiselect("Variedad:", ["Todas"] + var_list, default=["Todas"])
         envase = st.multiselect("Envases:", ["Todos"] + envase_list, default=["Todos"])
-        vcolor = st.multiselect("Color:", ["Todos"] +  color_list, default=["Todos"])
+        color = st.multiselect("Color:", ["Todos"] +  color_list, default=["Todos"])
         producto = st.multiselect("Producto:",   ["Todos"] +  producto_list, default=["Todos"])
 
         if st.button("Aplicar filtros", type="primary"):
-            st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "vcolor": vcolor,"producto": producto}
+            st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "color": color,"producto": producto}
             st.rerun()  # Vuelve a ejecutar la app para aplicar los filtros
 
     # Obtener filtros aplicados
@@ -131,7 +131,7 @@ def exporta_evolucion():
     condiciones = []
 
     # Filtro por color
-    if "Todos" in filtros["vcolor"]:
+    if "Todos" in filtros["color"]:
         condiciones.append("1=1")  # No se aplica filtro
     else:
         colores = "', '".join(filtros["vcolor"])  # Convierte lista a formato SQL
