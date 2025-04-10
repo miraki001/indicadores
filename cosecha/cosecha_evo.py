@@ -116,7 +116,7 @@ def cosecha_evo():
                 tipo = st.multiselect("Gurpo Envase",  ["Todos"] + tipo_list, default=["Todos"],label_visibility="collapsed")      
     
     
-
+    st.write(df_filtered)
     if provincia:
         df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
         #df_filtered["anio"] = df_filtered["anio"].astype(str)
@@ -140,7 +140,7 @@ def cosecha_evo():
     
 
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['peso']].sum()
-    
+    st.write(df_anual)
     total = []
     total.append(0)
     for index in range(len(df_anual)):
