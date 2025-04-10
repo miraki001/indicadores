@@ -177,7 +177,7 @@ def cosecha_evo():
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
                 },
-                width = 800,   
+                width = 400,   
                 height = 400,
                 hide_index=True)
     
