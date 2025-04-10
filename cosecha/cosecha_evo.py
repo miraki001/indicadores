@@ -132,10 +132,10 @@ def cosecha_evo():
         if color[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['color'].isin(color)]          
     if destino:
-        if grupoenvase[0] != 'Todos':
+        if destino[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['destino'].isin(destino)]               
     if tipo:
-        if producto[0] != 'Todos':
+        if tipo[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipouva'].isin(tipo)]      
     
 
