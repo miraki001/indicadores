@@ -232,7 +232,7 @@ with tab1:
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
-            "xAxis": {"type": "category", "data": df_anual["anio"].tolist()},
+            "xAxis": {"type": "category", "data": df_anual["Año"].tolist()},
             "yAxis": [
                 {"type": "value" ,"name" : "Viñedos" ,
                  "axisLine": {
@@ -268,8 +268,8 @@ with tab1:
             ],
             "series": [
                 
-                {"data": df_anual["cnt"].tolist(), "type": "bar", "name": "Viñedos", "yAxisIndex": 1, },
-                {"data": df_anual["sup"].tolist(), "type": "line", "name": "Hectareas", "yAxisIndex": 2, "color":'#07ECFA', },
+                {"data": df_anual["Viñedos Cnt."].tolist(), "type": "bar", "name": "Viñedos", "yAxisIndex": 1, },
+                {"data": df_anual["Superficie"].tolist(), "type": "line", "name": "Hectareas", "yAxisIndex": 2, "color":'#07ECFA', },
             ],
     }
 
