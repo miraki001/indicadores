@@ -137,7 +137,7 @@ def cosecha_prov():
     )
     st.write(df_anual)
 
-    df_anual.columns = otra.columns.droplevel(0)
+    df_anual.columns = df_anual.columns.droplevel(0)
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
 
     totelab = df_anual['Elaboracion'].sum()
