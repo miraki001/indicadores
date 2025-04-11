@@ -125,27 +125,25 @@ def cosecha_prov():
             df_filtered = df_filtered[df_filtered['tipouva'].isin(tipo)]      
     
 
-    df_anual = df_filtered.groupby(['anio','prov','depto'], as_index=False)[['peso']].sum()
-    df_anual = pd.pivot_table(df_filtered, values='peso', index=['prov'],
-                       columns=['destino'], aggfunc="sum")
+    #df_anual = df_filtered.groupby(['anio','prov','depto'], as_index=False)[['peso']].sum()
+    #df_anual = pd.pivot_table(df_filtered, values='peso', index=['prov'],
+    #                   columns=['destino'], aggfunc="sum")
 
-    otra = df_filtered.pivot_table(
+    df_anual = df_filtered.pivot_table(
           index='prov', 
           columns='destino',  
           values=['peso'],
           aggfunc='sum'
     )
     st.write(df_anual)
-    st.write(otra)
 
-    otra.columns = otra.columns.droplevel(0)
-    otra = otra.reset_index().rename_axis(None, axis=1)
+    df_anual.columns = otra.columns.droplevel(0)
+    df_anual = otra.reset_index().rename_axis(None, axis=1)
 
     totelab = df_anual['Elaboracion'].sum()
     totecon = df_anual['Consumo'].sum()
     totelab = df_anual['Secado'].sum()
     st.write(totelab)
-    st.write(otra['Consumo'])
     total = []
     #total.append(0)
     for index in range(len(df_anual)):
