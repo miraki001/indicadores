@@ -187,7 +187,7 @@ def cosecha_prov():
                 'Part. % Total Sec': st.column_config.Column('Part. % Total Sec'),                   
                 },
                 column_order = column_orders,
-                width = 600,   
+                width = 700,   
                 height = 400,
                 hide_index=True)
     
