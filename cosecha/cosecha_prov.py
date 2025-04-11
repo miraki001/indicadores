@@ -1,4 +1,4 @@
-import streamlit as st
+inimport streamlit as st
 import pandas as pd
 import numpy as np
 import json
@@ -67,7 +67,7 @@ def cosecha_prov():
 
 
     QUERY_V1 = f"""
-        SELECT anio, peso , variedad,provincia_viñatero prov,departamento_viñatero depto,tipouva,color
+        SELECT anio, peso , variedad,provincia_viñatero prov,departamento_viñatero depto,tipouva,destino,color
         FROM cosecha2 
 
     """
