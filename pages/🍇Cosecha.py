@@ -291,8 +291,8 @@ with tab1:
             ],
             "series": [
                 
-                {"data": df_anual["Viñedos Cnt."].tolist(), "type": "bar", "name": "Viñedos", "yAxisIndex": 1, },
-                {"data": df_anual["Superficie"].tolist(), "type": "line", "name": "Hectareas", "yAxisIndex": 2, "color":'#07ECFA', },
+                {"data": df_anual["Viñedos Cnt."].tolist(), "type": "bar", "name": "Viñedos", "yAxisIndex": 1,,"visible": false,  },
+                {"data": df_anual["Superficie"].tolist(), "type": "line", "name": "Hectareas", "yAxisIndex": 2, "color":'#07ECFA' },
             ],
     }
 
