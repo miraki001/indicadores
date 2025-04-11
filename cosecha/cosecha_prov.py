@@ -129,13 +129,17 @@ def cosecha_prov():
     df_anual = pd.pivot_table(df_filtered, values='peso', index=['prov'],
                        columns=['destino'], aggfunc="sum")
     st.write(df_anual)
+
+    totelab = df_anual['Elaboracion'].sum()
+    totecon = df_anual['Consumo'].sum()
+    totelab = df_anual['Secado'].sum()
     total = []
     total.append(0)
     for index in range(len(df_anual)):
       if index > 0:
-        total.append((  (df_anual['peso'].loc[index] / df_anual['peso'].loc[index -1]) -1 ) *100 )
-    df_anual = df_anual.rename(columns={'peso': "Quintales",'anio': "Año"})
-    df_anual['Var % Año Ant.'] = total
+        total.append((  (df_anual['Elaboracion'].loc[index] / totelab) *100 )
+    #df_anual = df_anual.rename(columns={'peso': "Quintales",'anio': "Año"})
+    df_anual['Part. % Total'] = total
 
     df_anual = df_anual.sort_index(axis = 1)
 
