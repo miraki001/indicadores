@@ -145,11 +145,11 @@ with tab1:
                 st.caption("Selecciona uno o más Departamentos de la lista")
                 departamento = st.multiselect("Departamento",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
 
-
-    if variedad[0] != 'Todas':
-      dv1 = cargar_datos(QUERY_V1)
-    else:
-      dv1 = cargar_datos(QUERY_V2)
+    if variedad:
+      if variedad[0] != 'Todas':
+        dv1 = cargar_datos(QUERY_V1)
+      else:
+        dv1 = cargar_datos(QUERY_V2)
 
     dv1['anio'] = dv1['anio'].astype(str)
   
