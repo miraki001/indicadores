@@ -59,8 +59,8 @@ def cosecha_evo():
     color_list = sorted(df_filtros["color"].dropna().unique())
     destino_list = sorted(df_filtros["destino"].dropna().unique())
     tipo_list = sorted(df_filtros["tipouva"].dropna().unique())
-    if "filtros" not in st.session_state:
-        st.session_state.filtros = {
+    if "filtros_cose" not in st.session_state:
+        st.session_state.filtros_cose = {
             "provincias": "Todas",
             "var": "Todas",
             "depto": "Todos",
