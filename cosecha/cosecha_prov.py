@@ -82,7 +82,7 @@ def cosecha_prov():
 
 
     with st.container(border=True):
-        col1, col2, col3,col4 st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
+        col1, col2, col3,col4 =  st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
         with col1:
