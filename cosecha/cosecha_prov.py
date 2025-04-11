@@ -133,8 +133,9 @@ def cosecha_prov():
     totelab = df_anual['Elaboracion'].sum()
     totecon = df_anual['Consumo'].sum()
     totelab = df_anual['Secado'].sum()
+    st.write(totelab)
     total = []
-    total.append(0)
+    #total.append(0)
     for index in range(len(df_anual)):
       if index > 0:
         total.append((  (df_anual['Elaboracion'].loc[index] / totelab) *100 ))
