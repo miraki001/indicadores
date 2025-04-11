@@ -145,14 +145,19 @@ def cosecha_prov():
     totesec = df_anual['Secado'].sum()
     st.write(totelab)
     total = []
+    totco = []
+    totse = []
     #total.append(0)
     for index in range(len(df_anual)):
         total.append((  (df_anual['Elaboracion'].loc[index] / totelab) *100 ))
-    #df_anual = df_anual.rename(columns={'peso': "Quintales",'anio': "Año"})
-    df_anual['Part. % Total'] = total
+        totco.append((  (df_anual['Consumo'].loc[index] / totecon) *100 ))
+        totse.append((  (df_anual['Secado'].loc[index] / totesec) *100 ))
+    df_anual['Part. % Total Elab'] = total
+    df_anual['Part. % Total Cons'] = total
+    df_anual['Part. % Total Sec'] = total
 
     df_anual = df_anual.sort_index(axis = 1)
-
+    df_anual = df_anual.rename(columns={'prov': "Provincia"})
     
     df_sorted = df_anual.sort_values(by='Elaboracion', ascending=True)
 
@@ -160,11 +165,15 @@ def cosecha_prov():
             {"Elaboracion": lambda x : '{:,.0f}'.format(x), 
             "Consumo": lambda x : '{:,.0f}'.format(x), 
             "Secado": lambda x : '{:,.0f}'.format(x),  
-            "Part. % Total": lambda x : '{:,.2f} %'.format(x),                                        }
+            "Part. % Total Elab": lambda x : '{:,.2f} %'.format(x),                                        }
+            "Part. % Total Cons": lambda x : '{:,.2f} %'.format(x),                                        }
+            "Part. % Total Sec": lambda x : '{:,.2f} %'.format(x),                                        }
             ,
             thousands='.',
             decimal=',',
     )
+
+    column_orders =("Provincia", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec")
 
     if st.checkbox('Ver tabla Cosecha por Provincias'):
         st.dataframe(styled_df,
@@ -172,8 +181,11 @@ def cosecha_prov():
                 'Elaboracion': st.column_config.Column('Elaboracion'),
                 'Consumo': st.column_config.Column('Consumo'),
                 'Secado': st.column_config.Column('Secado'),
-                'Part. % Total': st.column_config.Column('Part. % Total'),        
+                'Part. % Total Elab': st.column_config.Column('Part. % Total Elab'),        
+                'Part. % Total Cons': st.column_config.Column('Part. % Total Cons'),                          
+                'Part. % Total Sec': st.column_config.Column('Part. % Total Sec'),                   
                 },
+                column_order = column_orders,
                 width = 600,   
                 height = 400,
                 hide_index=True)
