@@ -67,7 +67,7 @@ def cosecha_prov():
 
 
     QUERY_V1 = f"""
-        SELECT anio, peso , variedad,provincia_viñatero prov,departamento_viñatero depto,tipouva,destino,color
+        SELECT anio, peso , variedad,provincia_viñatero prov,departamento_viñatero depto,tipouva,destinouva destino,color
         FROM cosecha2 
 
     """
