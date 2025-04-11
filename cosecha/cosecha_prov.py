@@ -142,7 +142,7 @@ def cosecha_prov():
 
     totelab = df_anual['Elaboracion'].sum()
     totecon = df_anual['Consumo'].sum()
-    totelab = df_anual['Secado'].sum()
+    totesec = df_anual['Secado'].sum()
     st.write(totelab)
     total = []
     #total.append(0)
