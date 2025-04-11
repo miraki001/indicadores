@@ -209,7 +209,7 @@ with tab1:
         decimal=',',
     )
 
-    if vercnt == 0:
+    if vercnt == 1:
         column_orders =("Año", "Superficie","Superficie Var %","Viñedos Cnt.","Viñedos Var. %")
     else:
         column_orders =("Año", "Superficie","Superficie Var %")
