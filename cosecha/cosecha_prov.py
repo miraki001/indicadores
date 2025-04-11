@@ -139,6 +139,7 @@ def cosecha_prov():
 
     df_anual.columns = df_anual.columns.droplevel(0)
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
+    df_anual  = df_anual.fillna(0)
 
     totelab = df_anual['Elaboracion'].sum()
     totecon = df_anual['Consumo'].sum()
@@ -197,3 +198,42 @@ def cosecha_prov():
                 hide_index=True)
     
 
+    dv = df_anual.groupby(['Provincia'], as_index=False)[['Total']].sum()
+    dv = dv.rename(columns={'Total': "value", 'Provincia': "name",})
+    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+    st.subheader('Cosecha por Provincias en Quintales')
+    #st.write(json_list)
+
+
+    option = {
+        "tooltip": {
+            #"trigger": 'axis',
+            #"axisPointer": { "type": 'cross' },
+            "formatter": JsCode(
+                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
+            ).js_code,
+        },
+        "legend": {"data": ["Qintales","Provincia"]},   
+        "series": [
+                {
+                    "name": "Cosecha",
+                    "type": "treemap",
+                    "visibleMin": 100,
+                    "label": {"show": True, "formatter": "{b}"},
+                    "itemStyle": {"borderColor": "#fff"},
+                    "levels": [
+                        {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
+                        {"itemStyle": {"gapWidth": 1}},
+                        {
+                            "colorSaturation": [0.35, 0.5],
+                            "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
+                        },
+                    ],
+                    "data": json_list,
+                }
+        ]
+    }
+    st_echarts(
+        options=option,key="gauge2" + str(dt.now()), height="600px",
+    )
+    
