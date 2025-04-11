@@ -150,8 +150,7 @@ with tab1:
         dv1 = cargar_datos(QUERY_V1)
       else:
         dv1 = cargar_datos(QUERY_V2)
-
-    dv1['anio'] = dv1['anio'].astype(str)
+      dv1['anio'] = dv1['anio'].astype(str)
   
     df_filtered = dv1.copy()
 
