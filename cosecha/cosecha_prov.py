@@ -128,13 +128,21 @@ def cosecha_prov():
     df_anual = df_filtered.groupby(['anio','prov','depto'], as_index=False)[['peso']].sum()
     df_anual = pd.pivot_table(df_filtered, values='peso', index=['prov'],
                        columns=['destino'], aggfunc="sum")
+
+    otra = df_filtered.pivot_table(
+          index='prov', 
+          columns='destino',  
+          values=['peso'],
+          aggfunc='sum'
+    )
     st.write(df_anual)
+    st.write(otra)
 
     totelab = df_anual['Elaboracion'].sum()
     totecon = df_anual['Consumo'].sum()
     totelab = df_anual['Secado'].sum()
     st.write(totelab)
-    st.write(df_anual['Consumo'])
+    st.write(otra['Consumo'])
     total = []
     #total.append(0)
     for index in range(len(df_anual)):
