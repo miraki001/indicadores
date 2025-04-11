@@ -165,9 +165,10 @@ def cosecha_prov():
             {"Elaboracion": lambda x : '{:,.0f}'.format(x), 
             "Consumo": lambda x : '{:,.0f}'.format(x), 
             "Secado": lambda x : '{:,.0f}'.format(x),  
-            "Part. % Total Elab": lambda x : '{:,.2f} %'.format(x),                                        }
-            "Part. % Total Cons": lambda x : '{:,.2f} %'.format(x),                                        }
-            "Part. % Total Sec": lambda x : '{:,.2f} %'.format(x),                                        }
+            "Part. % Total Elab": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Total Cons": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Total Sec": lambda x : '{:,.2f} %'.format(x), 
+            }
             ,
             thousands='.',
             decimal=',',
