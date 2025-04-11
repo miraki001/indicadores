@@ -153,7 +153,7 @@ def cosecha_prov():
         total.append((  (df_anual['Elaboracion'].loc[index] / totelab) *100 ))
         totco.append((  (df_anual['Consumo'].loc[index] / totecon) *100 ))
         totse.append((  (df_anual['Secado'].loc[index] / totesec) *100 ))
-        totto.append((  (df_anual['Secado'].loc[index]  +  df_anual['Consumo'].loc[index] + df_anual['Elaboracion'].loc[index]  ))
+        totto.append((  (df_anual['Secado'].loc[index]  +  df_anual['Consumo'].loc[index] + df_anual['Elaboracion'].loc[index] ) ))
     df_anual['Part. % Total Elab'] = total
     df_anual['Part. % Total Cons'] = totco
     df_anual['Part. % Total Sec'] = totse
