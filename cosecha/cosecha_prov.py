@@ -154,7 +154,7 @@ def cosecha_prov():
     df_anual = df_anual.sort_index(axis = 1)
 
     
-    df_sorted = df_anual.sort_values(by='Año', ascending=True)
+    df_sorted = df_anual.sort_values(by='Elaboracion', ascending=True)
 
     styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['Var % Año Ant.']).format(
             {"Quintales": lambda x : '{:,.0f}'.format(x), 
