@@ -225,7 +225,7 @@ with tab1:
           'Viñedos Var. %': st.column_config.Column('Viñedos Var. %'),
         
           },
-        column_order = column_ordes,
+        column_order = column_orders,
 #          column_order=[
 #                  "tipo_envase",
 #                  "producto",
