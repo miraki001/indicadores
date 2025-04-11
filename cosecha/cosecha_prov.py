@@ -164,7 +164,7 @@ def cosecha_prov():
             decimal=',',
     )
 
-    if st.checkbox('Ver tabla Cosecha por Año'):
+    if st.checkbox('Ver tabla Cosecha por Provincias'):
         st.dataframe(styled_df,
               column_config={
                 'Pais': st.column_config.Column('Pais'),
