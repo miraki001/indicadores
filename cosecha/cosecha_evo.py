@@ -28,7 +28,7 @@ def cosecha_evo():
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
         return f"background-color: {bgcolor};"
             
-
+    @st.cache_data
     def cargar_datos(consulta):
         try:
             df = conn.query(consulta, ttl="0")
