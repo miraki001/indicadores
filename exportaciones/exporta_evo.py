@@ -134,7 +134,7 @@ def exporta_evolucion():
     if "Todos" in filtros["color"]:
         condiciones.append("1=1")  # No se aplica filtro
     else:
-        colores = "', '".join(filtros["vcolor"])  # Convierte lista a formato SQL
+        colores = "', '".join(filtros["color"])  # Convierte lista a formato SQL
         condiciones.append(f"color IN ('{colores}')")
 
     # Filtro por año
