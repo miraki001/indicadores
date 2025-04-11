@@ -210,7 +210,7 @@ def cosecha_prov():
             #"trigger": 'axis',
             #"axisPointer": { "type": 'cross' },
             "formatter": JsCode(
-                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
+                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Cosecha: ' + value ].join('')};"
             ).js_code,
         },
         "legend": {"data": ["Qintales","Provincia"]},   
