@@ -156,9 +156,11 @@ def cosecha_prov():
     
     df_sorted = df_anual.sort_values(by='Elaboracion', ascending=True)
 
-    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['Var % Año Ant.']).format(
-            {"Quintales": lambda x : '{:,.0f}'.format(x), 
-            "Var % Año Ant.": lambda x : '{:,.2f} %'.format(x),                                        }
+    styled_df = df_sorted.style.format(
+            {"Elaboracion": lambda x : '{:,.0f}'.format(x), 
+            "Consumo": lambda x : '{:,.0f}'.format(x), 
+            "Secado": lambda x : '{:,.0f}'.format(x),  
+            "Part. % Total": lambda x : '{:,.2f} %'.format(x),                                        }
             ,
             thousands='.',
             decimal=',',
@@ -167,15 +169,12 @@ def cosecha_prov():
     if st.checkbox('Ver tabla Cosecha por Provincias'):
         st.dataframe(styled_df,
               column_config={
-                'Pais': st.column_config.Column('Pais'),
-                'Litros': st.column_config.Column('Litros'),
-                'Fob': st.column_config.Column('Fob'),
-                'Part. % Litro': st.column_config.Column('Part. % Litro'),
-                'Part % Fob': st.column_config.Column('Part % Fob'),
-                'Prec x Litro': st.column_config.Column('Prec x Litr'),
-        
+                'Elaboracion': st.column_config.Column('Elaboracion'),
+                'Consumo': st.column_config.Column('Consumo'),
+                'Secado': st.column_config.Column('Secado'),
+                'Part. % Total': st.column_config.Column('Part. % Total'),        
                 },
-                width = 400,   
+                width = 600,   
                 height = 400,
                 hide_index=True)
     
