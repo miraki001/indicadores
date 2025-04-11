@@ -11,6 +11,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
 from cosecha import cosecha_evo
+from cosecha import cosecha_prov
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -309,7 +310,7 @@ with tab3:
 with tab4:
     cosecha_evo.cosecha_evo()    
 with tab5:
-    st.header("En Construcción")
+    cosecha_prov.cosecha_prov() 
 with tab6:
     st.header("En Construcción")
 with tab7:
