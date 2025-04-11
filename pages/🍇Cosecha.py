@@ -148,8 +148,10 @@ with tab1:
     if variedad:
       if variedad[0] != 'Todas':
         dv1 = cargar_datos(QUERY_V1)
+        vercnt = 0
       else:
         dv1 = cargar_datos(QUERY_V2)
+        vercnt = 1
       dv1['anio'] = dv1['anio'].astype(str)
     else:
       dv1 = cargar_datos(QUERY_V2)  
@@ -207,7 +209,11 @@ with tab1:
         decimal=',',
     )
 
-
+    if vercnt == 0:
+        column_orders =("Año", "Superficie","Superficie Var %","Viñedos Cnt.","Viñedos Var. %")
+    else
+        column_orders =("Año", "Superficie","Superficie Var %")
+  
     #st.write(df2)
     if st.checkbox('Ver Cantidad de Viñedos en forma de tabla'):
       st.dataframe(styled_df,
@@ -219,6 +225,16 @@ with tab1:
           'Viñedos Var. %': st.column_config.Column('Viñedos Var. %'),
         
           },
+        column_order = column_ordes,
+#          column_order=[
+#                  "tipo_envase",
+#                  "producto",
+#                  "Fob",
+#                  "Part % Fob",
+#                  "Litros",
+#                  "Part. % Litros",
+#                  "Prec x Litro"
+#          ],                   
           width = 600,   
           height = 800,
           hide_index=True)
