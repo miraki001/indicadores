@@ -126,6 +126,8 @@ def cosecha_prov():
     
 
     df_anual = df_filtered.groupby(['anio','prov','depto'], as_index=False)[['peso']].sum()
+    df_anual = pd.pivot_table(df_filtered, values='peso', index=['prov', 'depto'],
+                       columns=['destino'], aggfunc="sum")
     st.write(df_anual)
     total = []
     total.append(0)
