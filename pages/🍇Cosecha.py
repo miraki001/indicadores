@@ -144,7 +144,7 @@ with tab1:
             with st.popover("Departamento"):
                 st.caption("Selecciona uno o más Departamentos de la lista")
                 departamento = st.multiselect("Departamento",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
-
+    vercnt = 0
     if variedad:
       if variedad[0] != 'Todas':
         dv1 = cargar_datos(QUERY_V1)
