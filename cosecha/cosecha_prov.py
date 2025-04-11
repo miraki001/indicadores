@@ -135,7 +135,7 @@ def cosecha_prov():
           values=['peso'],
           aggfunc='sum'
     )
-    st.write(df_anual)
+    #st.write(df_anual)
 
     df_anual.columns = df_anual.columns.droplevel(0)
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
