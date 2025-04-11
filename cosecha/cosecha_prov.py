@@ -147,7 +147,6 @@ def cosecha_prov():
     total = []
     #total.append(0)
     for index in range(len(df_anual)):
-      if index > 0:
         total.append((  (df_anual['Elaboracion'].loc[index] / totelab) *100 ))
     #df_anual = df_anual.rename(columns={'peso': "Quintales",'anio': "Año"})
     df_anual['Part. % Total'] = total
