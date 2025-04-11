@@ -159,7 +159,7 @@ def cosecha_prov():
     df_anual = df_anual.sort_index(axis = 1)
     df_anual = df_anual.rename(columns={'prov': "Provincia"})
     
-    df_sorted = df_anual.sort_values(by='Elaboracion', ascending=True)
+    df_sorted = df_anual.sort_values(by='Elaboracion', ascending=False)
 
     styled_df = df_sorted.style.format(
             {"Elaboracion": lambda x : '{:,.0f}'.format(x), 
