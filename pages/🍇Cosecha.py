@@ -211,7 +211,7 @@ with tab1:
 
     if vercnt == 0:
         column_orders =("Año", "Superficie","Superficie Var %","Viñedos Cnt.","Viñedos Var. %")
-    else
+    else:
         column_orders =("Año", "Superficie","Superficie Var %")
   
     #st.write(df2)
