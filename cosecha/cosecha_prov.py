@@ -277,4 +277,4 @@ def cosecha_prov():
     }
     st_echarts(
         options=option,key="gauge2" + str(dt.now()), height="600px",
-    
+    )    
