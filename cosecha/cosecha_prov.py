@@ -245,7 +245,7 @@ def cosecha_prov():
     )
     #st.write(df_anual)
 
-    df_anual1.columns = df_anual.1columns.droplevel(0)
+    df_anual1.columns = df_anual1.columns.droplevel(0)
     df_anual1 = df_anual1.reset_index().rename_axis(None, axis=1)
     df_anual1  = df_anual1.fillna(0)
     
