@@ -237,19 +237,9 @@ def cosecha_prov():
         options=option,key="gauge2" + str(dt.now()), height="600px",
     )
 
-    df_anual1 = df_filtered.pivot_table(
-          index='depto', 
-          columns='prov',  
-          values=['peso'],
-          aggfunc='sum'
-    )
-    #st.write(df_anual)
 
-    df_anual1.columns = df_anual1.columns.droplevel(0)
-    df_anual1 = df_anual1.reset_index().rename_axis(None, axis=1)
-    df_anual1  = df_anual1.fillna(0)
-    st.write(df_anual1)
-    dv = df_anual1.groupby(['prov'], as_index=False)[['peso']].sum()
+
+    dv = df_filtered.groupby(['prov','depto'], as_index=False)[['peso']].sum()
     #dv = df_anual1
     st.write(dv)
     dv = dv.rename(columns={'peso': "value", 'depto': "name",'prov': "id"})
