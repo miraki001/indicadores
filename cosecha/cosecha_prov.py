@@ -249,8 +249,9 @@ def cosecha_prov():
     df_anual1 = df_anual1.reset_index().rename_axis(None, axis=1)
     df_anual1  = df_anual1.fillna(0)
     
-    #dv = df_anual1.groupby(['depto','prov'], as_index=False)[['peso']].sum()
-    dv = df_anual1
+    dv = df_anual1.groupby(['prov'], as_index=False)[['peso']].sum()
+    #dv = df_anual1
+    st.write(dv)
     dv = dv.rename(columns={'peso': "value", 'depto': "name",'prov': "id"})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
     st.write(json_list)
