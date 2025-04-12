@@ -253,4 +253,4 @@ def cosecha_prov():
     dv = df_anual1
     dv = dv.rename(columns={'peso': "value", 'depto': "name",'prov': "id"})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
-    st.write(dv)
+    st.write(json_list)
