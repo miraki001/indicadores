@@ -248,7 +248,7 @@ def cosecha_prov():
     df_anual1.columns = df_anual1.columns.droplevel(0)
     df_anual1 = df_anual1.reset_index().rename_axis(None, axis=1)
     df_anual1  = df_anual1.fillna(0)
-    
+    st.write(df_anual1)
     dv = df_anual1.groupby(['prov'], as_index=False)[['peso']].sum()
     #dv = df_anual1
     st.write(dv)
