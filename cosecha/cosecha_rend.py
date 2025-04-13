@@ -153,7 +153,7 @@ def cosecha_rend():
 
         
                 },
-                column_order =column_orders
+                column_order =column_orders,
                 width = 600,   
                 height = 400,
                 hide_index=True)
