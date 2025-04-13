@@ -168,21 +168,59 @@ def cosecha_rend():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
-            "xAxis": {"type": "category", "data": df_anual["Año"].tolist()},
+            "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
             "yAxis": [
                 {"type": "value" ,"name" : "Quintales" ,
+                 "position" : 'left',
+                 "alignTicks": 'true',
+                 "offset": 0,                 
                  "axisLine": {
-                    "show": 'false',
+                    "show": 'False',
                   },              
                  "axisLabel": {
-                    "formatter": '{value} '
+                    #"formatter":  '{value}'        
+                    "formatter": JsCode(
+                        "function(value){return (value /1000) + ' K' };"
+                        ).js_code,                     
+                 },  
+                },
+                {"type": "value" , "name" : "Hectareas",
+                 "position" : 'left',
+                 "alignTicks": 'true',
+                 "offset": 60,
+                 "axisLine": {
+                    "show": 'True',
+                  },             
+                 "axisLabel": {
+                    #"formatter":   '{value}',     
+                    "formatter": JsCode(
+                        "function(value){return (value /1000000) + ' M' };"
+                        ).js_code,                     
+                    #"formatter": function (a) {a == +a;  return isFinite(a) ? echarts.format.addCommas(+a / 1000000) : ''; }, 
+                 },
+                },
+                {"type": "value" , "name" : "Rendimiento",
+                 "position" : 'rigth',
+                 "alignTicks": 'true',
+                 "offset": 10,
+                 "axisLine": {
+                    "show": 'true',
+
+                  },             
+                 "axisLabel": {
+                    #"formatter": '{value}  '
+                    "formatter": JsCode(
+                        "function(value){return (value).toFixed(0) + ' u$s' };"
+                        ).js_code,                     
                       }
-                } ,           
+                },            
             ],
             "series": [
-                {"data": df_anual["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Quintales" },
+                {"data": dv1["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Quintales", "yAxisIndex": 0, },
+                {"data": dv1["Hectareas"].tolist(), "type": "bar", "name": "Hectareas", "yAxisIndex": 1, "formatter": '{value} ' },
+                {"data": dv1["Rendimiento"].tolist(), "type": "line", "name": "Rendimiento", "yAxisIndex": 2, "color":'#07ECFA', },
             ],
         }
 
-    
-    st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+        st_echarts(options=option,key="gauge4434" + str(dt.now()), height="400px")
+
