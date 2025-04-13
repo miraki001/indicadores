@@ -136,11 +136,12 @@ def cosecha_rend():
     styled_df = df_sorted.style.format(
             {"Quintales": lambda x : '{:,.0f}'.format(x), 
              "Superficie": lambda x : '{:,.0f}'.format(x), 
-             "Rendimiento": lambda x : '{:,.2f} %'.format(x),                                        }
+             "Rendimiento": lambda x : '{:,.2f} '.format(x),                                        }
             ,
             thousands='.',
             decimal=',',
     )
+    column_orders =("Superficie", "Qintales","Rendimiento")
 
     if st.checkbox('Ver tabla Rendimientos por Año'):
         st.dataframe(styled_df,
@@ -152,6 +153,7 @@ def cosecha_rend():
 
         
                 },
+                column_order =column_orders
                 width = 600,   
                 height = 400,
                 hide_index=True)
