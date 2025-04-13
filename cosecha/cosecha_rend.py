@@ -141,7 +141,7 @@ def cosecha_rend():
             thousands='.',
             decimal=',',
     )
-    column_orders =("Año","Superficie", "Qintales","Rendimiento")
+    column_orders =("Año","Superficie", "Quintales","Rendimiento")
 
     if st.checkbox('Ver tabla Rendimientos por Año'):
         st.dataframe(styled_df,
