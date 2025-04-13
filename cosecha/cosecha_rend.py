@@ -154,7 +154,7 @@ def cosecha_rend():
         
                 },
                 column_order =column_orders,
-                width = 600,   
+                width = 800,   
                 height = 400,
                 hide_index=True)
     
@@ -180,7 +180,7 @@ def cosecha_rend():
                  "axisLabel": {
                     #"formatter":  '{value}'        
                     "formatter": JsCode(
-                        "function(value){return (value /1) + ' K' };"
+                        "function(value){return (value /1000000) + 'M' };"
                         ).js_code,                     
                  },  
                 },
@@ -194,7 +194,7 @@ def cosecha_rend():
                  "axisLabel": {
                     #"formatter":   '{value}',     
                     "formatter": JsCode(
-                        "function(value){return (value /1) + ' M' };"
+                        "function(value){return (value /1000) + ' K' };"
                         ).js_code,                     
                     #"formatter": function (a) {a == +a;  return isFinite(a) ? echarts.format.addCommas(+a / 1000000) : ''; }, 
                  },
@@ -210,7 +210,7 @@ def cosecha_rend():
                  "axisLabel": {
                     #"formatter": '{value}  '
                     "formatter": JsCode(
-                        "function(value){return (value).toFixed(0) + ' u$s' };"
+                        "function(value){return (value).toFixed(0) + '' };"
                         ).js_code,                     
                       }
                 },            
