@@ -217,7 +217,7 @@ def cosecha_rend():
             ],
             "series": [
                 {"data": df_anual["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Quintales", "yAxisIndex": 0, },
-                {"data": df_anual["Hectareas"].tolist(), "type": "bar", "name": "Hectareas", "yAxisIndex": 1, "formatter": '{value} ' },
+                {"data": df_anual["Superficie"].tolist(), "type": "bar", "name": "Hectareas", "yAxisIndex": 1, "formatter": '{value} ' },
                 {"data": df_anual["Rendimiento"].tolist(), "type": "line", "name": "Rendimiento", "yAxisIndex": 2, "color":'#07ECFA', },
             ],
         }
