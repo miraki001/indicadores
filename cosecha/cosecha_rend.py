@@ -141,7 +141,7 @@ def cosecha_rend():
             thousands='.',
             decimal=',',
     )
-    column_orders =("Superficie", "Qintales","Rendimiento")
+    column_orders =("Año","Superficie", "Qintales","Rendimiento")
 
     if st.checkbox('Ver tabla Rendimientos por Año'):
         st.dataframe(styled_df,
@@ -168,7 +168,7 @@ def cosecha_rend():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
-            "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
+            "xAxis": {"type": "category", "data": df_anual["Año"].tolist()},
             "yAxis": [
                 {"type": "value" ,"name" : "Quintales" ,
                  "position" : 'left',
@@ -180,7 +180,7 @@ def cosecha_rend():
                  "axisLabel": {
                     #"formatter":  '{value}'        
                     "formatter": JsCode(
-                        "function(value){return (value /1000) + ' K' };"
+                        "function(value){return (value /1) + ' K' };"
                         ).js_code,                     
                  },  
                 },
@@ -194,7 +194,7 @@ def cosecha_rend():
                  "axisLabel": {
                     #"formatter":   '{value}',     
                     "formatter": JsCode(
-                        "function(value){return (value /1000000) + ' M' };"
+                        "function(value){return (value /1) + ' M' };"
                         ).js_code,                     
                     #"formatter": function (a) {a == +a;  return isFinite(a) ? echarts.format.addCommas(+a / 1000000) : ''; }, 
                  },
@@ -216,9 +216,9 @@ def cosecha_rend():
                 },            
             ],
             "series": [
-                {"data": dv1["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Quintales", "yAxisIndex": 0, },
-                {"data": dv1["Hectareas"].tolist(), "type": "bar", "name": "Hectareas", "yAxisIndex": 1, "formatter": '{value} ' },
-                {"data": dv1["Rendimiento"].tolist(), "type": "line", "name": "Rendimiento", "yAxisIndex": 2, "color":'#07ECFA', },
+                {"data": df_anual["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Quintales", "yAxisIndex": 0, },
+                {"data": df_anual["Hectareas"].tolist(), "type": "bar", "name": "Hectareas", "yAxisIndex": 1, "formatter": '{value} ' },
+                {"data": df_anual["Rendimiento"].tolist(), "type": "line", "name": "Rendimiento", "yAxisIndex": 2, "color":'#07ECFA', },
             ],
         }
 
