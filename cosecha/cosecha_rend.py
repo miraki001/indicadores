@@ -133,7 +133,7 @@ def cosecha_rend():
     
     df_sorted = df_anual.sort_values(by='Año', ascending=True)
 
-    styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['Var % Año Ant.']).format(
+    styled_df = df_sorted.style.format(
             {"Quintales": lambda x : '{:,.0f}'.format(x), 
              "Superficie": lambda x : '{:,.0f}'.format(x), 
              "Rendimiento": lambda x : '{:,.2f} %'.format(x),                                        }
