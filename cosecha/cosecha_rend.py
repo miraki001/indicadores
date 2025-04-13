@@ -222,5 +222,5 @@ def cosecha_rend():
             ],
         }
 
-        st_echarts(options=option,key="gauge4434" + str(dt.now()), height="400px")
+    st_echarts(options=option,key="gauge4434" + str(dt.now()), height="400px")
 
