@@ -53,9 +53,9 @@ def cosecha_rend():
 
     # Listas de valores únicos para los filtros
     #year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
-    prov_list = sorted(df_filtros["prov"].dropna().unique(), reverse=True)
+    prov_list = sorted(df_filtros["provincia"].dropna().unique(), reverse=True)
     var_list = sorted(df_filtros["variedad"].dropna().unique())
-    depto_list = sorted(df_filtros["depto"].dropna().unique())
+    depto_list = sorted(df_filtros["departamento"].dropna().unique())
 
     if "filtros_cose" not in st.session_state:
         st.session_state.filtros_cose = {
@@ -107,7 +107,7 @@ def cosecha_rend():
     #st.write(df_filtered)
     if provincia:
         if provincia[0] != 'Todas':        
-            df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
+            df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]
 
     if variedad:
         if variedad[0] != 'Todas':
@@ -115,7 +115,7 @@ def cosecha_rend():
             #st.write(variedad)
     if depto:
         if depto[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['depto'].isin(depto)]
+            df_filtered = df_filtered[df_filtered['departamento'].isin(depto)]
  
 
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['peso','sup']].sum()
