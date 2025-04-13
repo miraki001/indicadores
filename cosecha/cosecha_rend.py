@@ -99,9 +99,9 @@ def cosecha_rend():
    
       
         with col3:
-            with st.popover("Variedad2"):
+            with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+                variedad = st.multiselect("Variedad2",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
 
     #st.write(df_filtered)
