@@ -7,7 +7,7 @@ from streamlit_echarts import JsCode
 
 from datetime import datetime as dt
 
-def cosecha_evo():
+def cosecha_rend():
 
 
 
