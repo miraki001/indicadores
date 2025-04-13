@@ -38,7 +38,7 @@ def cosecha_rend():
             return pd.DataFrame()
     QUERY_V0 = f"""
         SELECT distinct variedad,provincia,departamento
-        FROM rednimiento_m
+        FROM rendimiento_m
         
 
     """
