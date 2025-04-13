@@ -95,11 +95,11 @@ def cosecha_rend():
         with col2:
             with st.popover("Departamento"):
                 st.caption("Selecciona uno o más Departamentos de la lista")
-                depto = st.multiselect("Departamento",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")
+                depto = st.multiselect("Departamento1",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")
    
       
         with col3:
-            with st.popover("Variedad"):
+            with st.popover("Variedad2"):
                 st.caption("Selecciona uno o más Variedades de la lista")
                 variedad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
