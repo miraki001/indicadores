@@ -12,6 +12,7 @@ from pyecharts.charts import Line
 from datetime import datetime as dt
 from cosecha import cosecha_evo
 from cosecha import cosecha_prov
+from cosecha import cosecha_rend
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -314,4 +315,4 @@ with tab5:
 with tab6:
     st.header("En Construcción")
 with tab7:
-    st.header("En Construcción")
+    cosecha_rend.cosecha_rend()
