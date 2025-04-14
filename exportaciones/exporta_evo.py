@@ -77,7 +77,7 @@ def exporta_evolucion():
             return pd.DataFrame()
 
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m  where producto not in ('Mosto','Alcohol');"
+    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais  from exportaciones2_m  where producto not in ('Mosto','Alcohol');"
     df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
@@ -90,6 +90,7 @@ def exporta_evolucion():
     envase_list = sorted(df_filtros["tipo_envase"].dropna().unique())
     color_list = sorted(df_filtros["color"].dropna().unique())
     producto_list = sorted(df_filtros["producto"].dropna().unique())
+    pais_list = sorted(df_filtros["pais"].dropna().unique())
     if "filtrosee" not in st.session_state:
         st.session_state.filtrosee = {
             "anio": "Todos",
@@ -97,6 +98,7 @@ def exporta_evolucion():
             "envase": "Todos",
             "color": "Todos",
             "producto": "Todos"
+            "Pais": "Todos"
         }
 
     st.html(
@@ -112,73 +114,19 @@ def exporta_evolucion():
         '''
     )
 
-
-    # Interfaz de filtros
-    with st.popover("Abrir Filtros"):
-        st.markdown("Filtros ??")
-        anio = st.multiselect("Año:", ["Todos"], default=["Todos"])
-        var = st.multiselect("Variedad:", ["Todas"] + var_list, default=["Todas"])
-        envase = st.multiselect("Envases:", ["Todos"] + envase_list, default=["Todos"])
-        color = st.multiselect("Color:", ["Todos"] +  color_list, default=["Todos"])
-        producto = st.multiselect("Producto:",   ["Todos"] +  producto_list, default=["Todos"])
-
-        if st.button("Aplicar filtros", type="primary"):
-            st.session_state.filtros = {"anio": anio, "var": var, "envase": envase, "color": color,"producto": producto}
-            st.rerun()  # Vuelve a ejecutar la app para aplicar los filtros
-
-    # Obtener filtros aplicados
-    filtrosee = st.session_state.filtrosee
-    condiciones = []
-    st.write(filtrosee)
-
-    # Filtro por color
-    if "Todos" in filtrosee["color"]:
-        condiciones.append("1=1")  # No se aplica filtro
-    else:
-        colores = "', '".join(filtros["color"])  # Convierte lista a formato SQL
-        condiciones.append(f"color IN ('{colores}')")
-
-    # Filtro por año
-    if "Todos" not in filtrosee["anio"]:
-        años = ", ".join(map(str, filtros["anio"]))
-        condiciones.append(f"anio IN ({años})")
-
-    # Filtro por variedad
-    if "Todas" not in filtrosee["var"]:
-        variedades = "', '".join(filtros["var"])
-        condiciones.append(f"variedad1 IN ('{variedades}')")
-
-    # Filtro por envase
-    if "Todos" not in filtrosee["envase"]:
-        envase = "', '".join(filtros["envase"])
-        condiciones.append(f"tipo_envase IN ('{envase}')")
-
-    if "Todos" not in filtrosee["producto"]:
-        producto = "', '".join(filtros["producto"])
-        condiciones.append(f"producto IN ('{producto}')")
-
-
-    # Unir todas las condiciones con AND
-    where_clause = " AND ".join(condiciones)
-
-    QUERY_V1 = f"""
-        SELECT anio, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros) AS ppl
-        FROM exportaciones2_m 
-        WHERE {where_clause}
-        and producto not in ('Mosto','Alcohol')
-        GROUP BY anio 
-        ORDER BY anio 
-    """
     actual = dt.now().year -4 
 
-    QUERY_V2 = f"""
-        SELECT anio, mes, SUM(cantlitros) AS litros, sum(valorfobsolo) AS fob, sum(valorfobsolo) / sum(cantlitros) AS ppl
+    QUERY_V1 = f"""
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob, valorfobsolo / cantlitros AS ppl
         FROM exportaciones2_m 
-        WHERE {where_clause}
-        and producto not in ('Mosto','Alcohol')
+        WHERE producto not in ('Mosto','Alcohol')
+    """
+
+    QUERY_V2 = f"""
+        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob, valorfobsolo / cantlitros AS ppl
+        FROM exportaciones2_m 
+        WHERE producto not in ('Mosto','Alcohol')
         and anio > {actual}
-        GROUP BY anio,mes 
-        ORDER BY anio 
     """
 
     # Dataframe de datos filtrados
@@ -186,6 +134,81 @@ def exporta_evolucion():
     dv1 = cargar_datos(QUERY_V1)
     dv2 = cargar_datos(QUERY_V2)
 
+    df_filtered = dv1.copy() 
+
+
+    with st.container(border=True):
+        col1, col2, col3,col4,col5,col6 = st.columns([1, 1, 1,1,1,1])  # Ajusta los tamaños de las columnas
+
+    # Columna 1: Filtro para Año
+        with col1:
+            with st.popover("Año"):
+                st.caption("Selecciona uno o más años de la lista")
+                #año = st.multiselect("Año",  year_list, default=['Todos'],label_visibility="collapsed",help="Selecciona uno o más años")
+                anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
+                año = [str(a) for a in año]  # Asegura que la selección sea string también
+            
+        # Columna 2: Filtro para Países
+        with col2:
+            with st.popover("Variedad"):
+                st.caption("Selecciona uno o más Variedades de la lista")
+                variedad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+    
+        # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
+        with col3:
+            with st.popover("Envase"):
+                st.caption("Selecciona uno o más Envases de la lista")
+                envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+        with col4:
+            with st.popover("Producto"):
+                st.caption("Selecciona uno o más Productos de la lista")
+                producto = st.multiselect("Pais",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
+
+        with col5:
+            with st.popover("Color"):
+                st.caption("Selecciona uno o más Colores de la lista")
+                color = st.multiselect("Color",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
+        with col6:
+            with st.popover("Grupo Envase"):
+                st.caption("Selecciona uno o más grupo de envases de la lista")
+                grupoenvase = st.multiselect("Gurpo Envase",  ["Todos"] + grupoenvase_list, default=["Todos"],label_visibility="collapsed")      
+
+
+
+    
+    df_filtered = dv1.copy()    
+
+    if año:
+        if año[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['anio'].isin(año)]
+        df_filtered["anio"] = df_filtered["anio"].astype(str)
+        dv2 = dv2[dv2['anio'] > actual
+
+    if variedad:
+        if variedad[0] != 'Todas':
+            df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
+            dv2 = dv2[dv2['variedad1'].isin(variedad)]
+            #st.write(variedad)
+    if envase:
+        if envase[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
+            dv2 = dv2[dv2['tipo_envase'].isin(envase)]
+    if color:
+        if color[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['color'].isin(color)]          
+            dv2 = dv2[dv2['color'].isin(color)]          
+    if grupoenvase:
+        if grupoenvase[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['grupoenvase'].isin(grupoenvase)]               
+            dv2 = dv2[dv2['grupoenvase'].isin(grupoenvase)]
+    if producto:
+        if producto[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['producto'].isin(producto)]     
+            dv2 = dv2[dv2['producto'].isin(producto)]
+
+    
+
+   
 
     dv2 = dv2.astype({'fob' : int, 'litros': int} )
     #st.write(dv2.iloc[:, 0])
