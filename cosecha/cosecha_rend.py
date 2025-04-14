@@ -240,7 +240,36 @@ def cosecha_rend():
 
     
     df_sorted = df_anual.sort_values(by='Provincia', ascending=True)
+    #df_sorted = df_anual.sort_values(by='Año', ascending=True)
 
+    styled_df = df_sorted.style.format(
+            {"Quintales": lambda x : '{:,.0f}'.format(x), 
+             "Superficie": lambda x : '{:,.0f}'.format(x), 
+             "Rendimiento": lambda x : '{:,.2f} '.format(x),                                        }
+            ,
+            thousands='.',
+            decimal=',',
+    )
+    column_orders =("Año","Superficie", "Quintales","Rendimiento")
+
+    if st.checkbox('Ver tabla Rendimientos por Provincias'):
+        st.dataframe(styled_df,
+              column_config={
+                'Año': st.column_config.Column('Año'),
+                'Quintales': st.column_config.Column('Quintales'),
+                'Superficie': st.column_config.Column('Superficie'),
+                'Rendimientoo': st.column_config.Column('Rendimiento'),
+
+        
+                },
+                column_order =column_orders,
+                width = 800,   
+                height = 400,
+                hide_index=True)
+    
+    dv = dv.rename(columns={'litros': "value", 'pais': "name",})
+    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+    st.subheader('Exportaciones por Pais en Litros')
     option = {
         "tooltip": {
             #"trigger": 'axis',
