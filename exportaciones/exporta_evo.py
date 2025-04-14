@@ -127,9 +127,9 @@ def exporta_evolucion():
             st.rerun()  # Vuelve a ejecutar la app para aplicar los filtros
 
     # Obtener filtros aplicados
-    filtros = st.session_state.filtros
+    filtrosee = st.session_state.filtrosee
     condiciones = []
-    st.write(filtros)
+    st.write(filtrosee)
 
     # Filtro por color
     if "Todos" in filtrosee["color"]:
