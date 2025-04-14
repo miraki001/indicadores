@@ -319,7 +319,7 @@ def cosecha_rend():
     df_anual = df_anual.sort_index(axis = 1)
 
     
-    df_sorted = df_anual.sort_values(by='Rendiemiento', ascending=True)
+    df_sorted = df_anual.sort_values(by='Rendimiento', ascending=True)
     #df_sorted = df_anual.sort_values(by='Año', ascending=True)
 
     styled_df = df_sorted.style.format(
