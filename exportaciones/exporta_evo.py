@@ -233,7 +233,7 @@ def exporta_evolucion():
     ppl = dv2.pivot_table(
           index='mes', 
           columns='anio',  
-          values=['ppl'],
+          values=['litros'/'fob'],
           aggfunc='sum'
     )
 
