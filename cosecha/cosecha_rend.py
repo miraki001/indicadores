@@ -225,7 +225,7 @@ def cosecha_rend():
     st_echarts(options=option,key="gauge4434" + str(dt.now()), height="400px")
 
     dv1['anio'] = dv1['anio'].astype(str)
-    df_filtered1 = dv1[dv1['anio'] == '2024']
+    df_filtered1 = dv1[dv1['anio'] == '2023']
     #df_filtered1 = dv1[dv1['anio'].isin('2024')]
  
 
