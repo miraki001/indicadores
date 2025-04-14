@@ -242,7 +242,7 @@ def cosecha_rend():
     df_anual = df_anual.sort_index(axis = 1)
 
     
-    df_sorted = df_anual.sort_values(by='Provincia', ascending=True)
+    df_sorted = df_anual.sort_values(by='Rendimiento', ascending=True)
     #df_sorted = df_anual.sort_values(by='Año', ascending=True)
 
     styled_df = df_sorted.style.format(
@@ -278,7 +278,7 @@ def cosecha_rend():
             #"trigger": 'axis',
             #"axisPointer": { "type": 'cross' },
             "formatter": JsCode(
-                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
+                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Quintales: ' + value ].join('')};"
             ).js_code,
         },
         "legend": {"data": ["litros","Pais"]},   
@@ -319,7 +319,7 @@ def cosecha_rend():
     df_anual = df_anual.sort_index(axis = 1)
 
     
-    df_sorted = df_anual.sort_values(by='Variedad', ascending=True)
+    df_sorted = df_anual.sort_values(by='Rendiemiento', ascending=True)
     #df_sorted = df_anual.sort_values(by='Año', ascending=True)
 
     styled_df = df_sorted.style.format(
@@ -355,7 +355,7 @@ def cosecha_rend():
             #"trigger": 'axis',
             #"axisPointer": { "type": 'cross' },
             "formatter": JsCode(
-                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
+                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Quintales: ' + value ].join('')};"
             ).js_code,
         },
         "legend": {"data": ["litros","Pais"]},   
