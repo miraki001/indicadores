@@ -230,13 +230,15 @@ def exporta_evolucion():
           values=['fob'],
           aggfunc='sum'
     )
+    ppl = fob/litros
+    """
     ppl = dv2.pivot_table(
           index='mes', 
           columns='anio',  
           values=['litros'/'fob'],
           aggfunc='sum'
     )
-
+    """
     #litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)
     fob.columns = fob.columns.droplevel(0)
