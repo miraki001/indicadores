@@ -117,13 +117,13 @@ def exporta_evolucion():
     actual = dt.now().year -4 
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl,variedad1 as variedad
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
     """
 
     QUERY_V2 = f"""
-        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl 
+        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl ,variedad1 as variedad
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
         and anio > {actual}
