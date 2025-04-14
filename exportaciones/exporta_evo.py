@@ -357,7 +357,7 @@ def exporta_evolucion():
         tot1.append(0)
         tot2.append(0)
         for index in range(len(dv1)):
-          total.ppl((  (dv1['fob'].loc[index] / dv1['litros'].loc[index]) ) )
+          ppl.append((  (dv1['fob'].loc[index] / dv1['litros'].loc[index]) ) )
           if index > 0:
             total.append((  (dv1['litros'].loc[index] / dv1['litros'].loc[index -1]) -1 ) *100 )
             tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
