@@ -97,8 +97,8 @@ def exporta_evolucion():
             "var": "Todas",
             "envase": "Todos",
             "color": "Todos",
-            "producto": "Todos"
-            "Pais": "Todos"
+            "producto": "Todos",
+            "Pais": "Todos",
         }
 
     st.html(
