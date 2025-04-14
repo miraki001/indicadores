@@ -169,9 +169,9 @@ def exporta_evolucion():
                 st.caption("Selecciona uno o más Colores de la lista")
                 color = st.multiselect("Color",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
         with col6:
-            with st.popover("Grupo Envase"):
-                st.caption("Selecciona uno o más grupo de envases de la lista")
-                grupoenvase = st.multiselect("Gurpo Envase",  ["Todos"] + grupoenvase_list, default=["Todos"],label_visibility="collapsed")      
+            with st.popover("Pais"):
+                st.caption("Selecciona uno o más Paisesde la lista")
+                pais = st.multiselect("Pais",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")      
 
 
 
