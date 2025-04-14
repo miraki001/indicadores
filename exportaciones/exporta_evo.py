@@ -238,7 +238,7 @@ def exporta_evolucion():
           values=['ppl'],
           aggfunc='sum'
     )
-    st.write(ppl)
+    #st.write(ppl)
 
 
     # ppl['ppl'] =  ppl['fob']/ppl['litros']
@@ -264,7 +264,7 @@ def exporta_evolucion():
         ppl[anio3].loc[index] = fob[anio3].loc[index] / litros[anio3].loc[index]  
         ppl[anio4].loc[index] = fob[anio4].loc[index] / litros[anio4].loc[index]  
 
-    st.write(ppl)
+    #st.write(ppl)
     #st.write(anio3)
     #st.write(anio4)
 
@@ -375,7 +375,7 @@ def exporta_evolucion():
             tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100     )
             #tot2.append((  ( ppl.loc[index] / pp.loc[index -1]) -1 ) *100     )
         #st.write(total)
-        dv1['ppl'] = ppl
+        #dv1['ppl'] = ppl
         dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
         dv1['Litros Var %'] = total
         dv1['Fob Var. %'] = tot1
