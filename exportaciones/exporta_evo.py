@@ -117,13 +117,13 @@ def exporta_evolucion():
     actual = dt.now().year -4 
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
     """
 
     QUERY_V2 = f"""
-        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob 
+        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl 
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
         and anio > {actual}
@@ -232,13 +232,25 @@ def exporta_evolucion():
     )
     
     
-    #ppl = dv2.pivot_table(
-    #      index='mes', 
-    #      columns='anio',  
-    #      values=['litros','fob'],
-    #      aggfunc='sum'
-    #)
-    #st.write(ppl)
+    ppl = dv2.pivot_table(
+          index='mes', 
+          columns='anio',  
+          values=['ppl'],
+          aggfunc='sum'
+    )
+    st.write(ppl)
+
+    anio1 = litros.columns[2]
+    anio2 = litros.columns[3]
+    anio3 = litros.columns[4]
+    anio4 = litros.columns[5]    
+    for index in range(len(ppl)):
+        ppl[anio1].loc[index] = fob[anio1].loc[index] / litros[anio1].loc[index]  
+        ppl[anio2].loc[index] = fob[anio2].loc[index] / litros[anio2].loc[index]  
+        ppl[anio3].loc[index] = fob[anio3].loc[index] / litros[anio3].loc[index]  
+        ppl[anio4].loc[index] = fob[anio4].loc[index] / litros[anio4].loc[index]  
+        
+    st.write(ppl)
     # ppl['ppl'] =  ppl['fob']/ppl['litros']
     #litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)
