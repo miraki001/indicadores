@@ -229,14 +229,14 @@ def cosecha_rend():
     #df_filtered1 = dv1[dv1['anio'].isin('2024')]
  
 
-    df_anual = df_filtered1.groupby(['provincia'], as_index=False)[['peso','sup']].sum()
+    df_anual = df_filtered1.groupby(['prov'], as_index=False)[['peso','sup']].sum()
 
     total = []
     #total.append(0)
     for index in range(len(df_anual)):
       #if index > 0:
         total.append((  (df_anual['peso'].loc[index] / df_anual['sup'].loc[index])  )  )
-    df_anual = df_anual.rename(columns={'peso': "Quintales",'anio': "Año",'sup': "Superficie"})
+    df_anual = df_anual.rename(columns={'peso': "Quintales",'prov': "Provincia",'sup': "Superficie"})
     df_anual['Rendimiento'] = total
 
     df_anual = df_anual.sort_index(axis = 1)
