@@ -232,21 +232,21 @@ def exporta_evolucion():
     )
     
     
-    ppl = dv2.pivot_table(
-          index='mes', 
-          columns='anio',  
-          values=['litros','fob'],
-          aggfunc='sum'
-    )
-    st.write(ppl)
-    ppl['ppl'] =  ppl['fob']/ppl['litros']
+    #ppl = dv2.pivot_table(
+    #      index='mes', 
+    #      columns='anio',  
+    #      values=['litros','fob'],
+    #      aggfunc='sum'
+    #)
+    #st.write(ppl)
+    # ppl['ppl'] =  ppl['fob']/ppl['litros']
     #litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)
     fob.columns = fob.columns.droplevel(0)
     fob = fob.reset_index().rename_axis(None, axis=1)
-    ppl.columns = ppl.columns.droplevel(0)
-    ppl = ppl.reset_index().rename_axis(None, axis=1)
-    ppl  = ppl.fillna('')
+    #ppl.columns = ppl.columns.droplevel(0)
+    #ppl = ppl.reset_index().rename_axis(None, axis=1)
+    #ppl  = ppl.fillna('')
     fob  = fob.fillna(0)
     litros  = litros.fillna(0)
     #st.write(litros)
