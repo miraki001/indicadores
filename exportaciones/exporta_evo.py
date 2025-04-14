@@ -117,13 +117,13 @@ def exporta_evolucion():
     actual = dt.now().year -4 
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob, valorfobsolo / cantlitros AS ppl
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
     """
 
     QUERY_V2 = f"""
-        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob, valorfobsolo / cantlitros AS ppl
+        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob 
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
         and anio > {actual}
@@ -349,15 +349,19 @@ def exporta_evolucion():
         total = []
         tot1 = []
         tot2 = []
+        ppl = []
         total.append(0)
         tot1.append(0)
         tot2.append(0)
         for index in range(len(dv1)):
+          total.ppl((  (dv1['fob'].loc[index] / dv1['litros'].loc[index]) ) )
           if index > 0:
             total.append((  (dv1['litros'].loc[index] / dv1['litros'].loc[index -1]) -1 ) *100 )
             tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
-            tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100     )
+            #tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100     )
+            tot2.append((  ( ppl.loc[index] / pp.loc[index -1]) -1 ) *100     )
         #st.write(total)
+        dv1['ppl'] = ppl
         dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
         dv1['Litros Var %'] = total
         dv1['Fob Var. %'] = tot1
