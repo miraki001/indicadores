@@ -271,7 +271,7 @@ def cosecha_rend():
                 hide_index=True)
     
     df_anual = df_anual.rename(columns={'Rendimiento': "value", 'Provincia': "name",})
-    json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
+    json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
     st.subheader('Exportaciones por Pais en Litros')
     option = {
         "tooltip": {
