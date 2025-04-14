@@ -367,7 +367,7 @@ def exporta_evolucion():
              dv1['ppl'].loc[index] = dv1['fob'].loc[index] / dv1['litros'].loc[index]  
 
         
-        st.write(dv1)
+        #st.write(dv1)
         total = []
         tot1 = []
         tot2 = []
