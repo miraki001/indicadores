@@ -187,8 +187,8 @@ def exporta_evolucion():
 
     if variedad:
         if variedad[0] != 'Todas':
-            df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
-            dv2 = dv2[dv2['variedad1'].isin(variedad)]
+            df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
+            dv2 = dv2[dv2['variedad'].isin(variedad)]
             #st.write(variedad)
     if envase:
         if envase[0] != 'Todos':
