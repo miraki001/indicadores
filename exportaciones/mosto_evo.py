@@ -90,8 +90,8 @@ def exporta_mosto_evo():
     envase_list = sorted(df_filtros["tipo_envase"].dropna().unique())
     color_list = sorted(df_filtros["color"].dropna().unique())
     producto_list = sorted(df_filtros["producto"].dropna().unique())
-    if "filtros" not in st.session_state:
-        st.session_state.filtros = {
+    if "filtrosme" not in st.session_state:
+        st.session_state.filtrosme = {
             "anio": "Todos",
             "var": "Todas",
             "envase": "Todos",
@@ -127,32 +127,32 @@ def exporta_mosto_evo():
             st.rerun()  # Vuelve a ejecutar la app para aplicar los filtros
 
     # Obtener filtros aplicados
-    filtros = st.session_state.filtros
+    filtrosme = st.session_state.filtrosme
     condiciones = []
 
     # Filtro por color
-    if "Todos" in filtros["color"]:
+    if "Todos" in filtrosme["color"]:
         condiciones.append("1=1")  # No se aplica filtro
     else:
-        colores = "', '".join(filtros["color"])  # Convierte lista a formato SQL
+        colores = "', '".join(filtrosme["color"])  # Convierte lista a formato SQL
         condiciones.append(f"color IN ('{colores}')")
 
     # Filtro por año
-    if "Todos" not in filtros["anio"]:
+    if "Todos" not in filtrosme["anio"]:
         años = ", ".join(map(str, filtros["anio"]))
         condiciones.append(f"anio IN ({años})")
 
     # Filtro por variedad
-    if "Todas" not in filtros["var"]:
+    if "Todas" not in filtrosme["var"]:
         variedades = "', '".join(filtros["var"])
         condiciones.append(f"variedad1 IN ('{variedades}')")
 
     # Filtro por envase
-    if "Todos" not in filtros["envase"]:
+    if "Todos" not in filtrosme["envase"]:
         envase = "', '".join(filtros["envase"])
         condiciones.append(f"tipo_envase IN ('{envase}')")
 
-    if "Todos" not in filtros["producto"]:
+    if "Todos" not in filtrosme["producto"]:
         producto = "', '".join(filtros["producto"])
         condiciones.append(f"producto IN ('{producto}')")
 
