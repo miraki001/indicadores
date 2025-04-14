@@ -304,3 +304,80 @@ def cosecha_rend():
     st_echarts(
         options=option,key="gauge2" + str(dt.now()), height="600px",
     )
+
+
+    df_anual = df_filtered1.groupby(['variedad'], as_index=False)[['peso','sup']].sum()
+
+    total = []
+    #total.append(0)
+    for index in range(len(df_anual)):
+      #if index > 0:
+        total.append((  (df_anual['peso'].loc[index] / df_anual['sup'].loc[index])  )  )
+    df_anual = df_anual.rename(columns={'peso': "Quintales",'variedad': "Variedad",'sup': "Superficie"})
+    df_anual['Rendimiento'] = total
+
+    df_anual = df_anual.sort_index(axis = 1)
+
+    
+    df_sorted = df_anual.sort_values(by='Variedad', ascending=True)
+    #df_sorted = df_anual.sort_values(by='Año', ascending=True)
+
+    styled_df = df_sorted.style.format(
+            {"Quintales": lambda x : '{:,.0f}'.format(x), 
+             "Superficie": lambda x : '{:,.0f}'.format(x), 
+             "Rendimiento": lambda x : '{:,.2f} '.format(x),                                        }
+            ,
+            thousands='.',
+            decimal=',',
+    )
+    column_orders =("Variedad","Superficie", "Quintales","Rendimiento")
+
+    if st.checkbox('Ver tabla Rendimientos por Variedades'):
+        st.dataframe(styled_df,
+              column_config={
+                'Variedad': st.column_config.Column('Variedad'),
+                'Quintales': st.column_config.Column('Quintales'),
+                'Superficie': st.column_config.Column('Superficie'),
+                'Rendimientoo': st.column_config.Column('Rendimiento'),
+
+        
+                },
+                column_order =column_orders,
+                width = 800,   
+                height = 400,
+                hide_index=True)
+    
+    df_anual = df_anual.rename(columns={'Rendimiento': "value", 'Variedad': "name",})
+    json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
+    st.subheader('Rendimientos por Variedades en Quintales')
+    option = {
+        "tooltip": {
+            #"trigger": 'axis',
+            #"axisPointer": { "type": 'cross' },
+            "formatter": JsCode(
+                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
+            ).js_code,
+        },
+        "legend": {"data": ["litros","Pais"]},   
+        "series": [
+                {
+                    "name": "Quintales",
+                    "type": "treemap",
+                    "visibleMin": 100,
+                    "label": {"show": True, "formatter": "{b}"},
+                    "itemStyle": {"borderColor": "#fff"},
+                    "levels": [
+                        {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
+                        {"itemStyle": {"gapWidth": 1}},
+                        {
+                            "colorSaturation": [0.35, 0.5],
+                            "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
+                        },
+                    ],
+                    "data": json_list,
+                }
+        ]
+    }
+    st_echarts(
+        options=option,key="gauge2" + str(dt.now()), height="600px",
+    )
