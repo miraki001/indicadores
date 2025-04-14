@@ -350,7 +350,7 @@ def exporta_evolucion():
     fob['Acum ' + str(anio3) ] = tot3
     fob['Acum ' + str(anio4)] = tot4    
 
-    dv1 = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros']].sum()
+    dv1 = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros','ppl']].sum()
     actual = dt.now().year -4 
 
 
