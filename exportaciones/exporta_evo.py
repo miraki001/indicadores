@@ -361,7 +361,9 @@ def exporta_evolucion():
         st.subheader("Exportaciones")
         for index in range(len(dv1)):
              dv1['ppl'].loc[index] = dv1[fob].loc[index] / dv1[litros].loc[index]  
-       
+
+        
+        st.write(dv1)
         total = []
         tot1 = []
         tot2 = []
