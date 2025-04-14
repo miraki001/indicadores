@@ -118,14 +118,14 @@ def exporta_evolucion():
 
     QUERY_V1 = f"""
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl
-        ,variedad1 as variedad,tipo_envase as envase
+        ,variedad1 as variedad,tipo_envase as envase,color
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
     """
 
     QUERY_V2 = f"""
         SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl 
-        ,variedad1 as variedad,tipo_envase as envase
+        ,variedad1 as variedad,tipo_envase as envase,color
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
         and anio > {actual}
@@ -164,12 +164,12 @@ def exporta_evolucion():
         with col4:
             with st.popover("Producto"):
                 st.caption("Selecciona uno o más Productos de la lista")
-                producto = st.multiselect("Pais",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
+                producto = st.multiselect("Producto",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
 
         with col5:
             with st.popover("Color"):
                 st.caption("Selecciona uno o más Colores de la lista")
-                color = st.multiselect("Color",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
+                color = st.multiselect("Coloreo",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
         with col6:
             with st.popover("Pais"):
                 st.caption("Selecciona uno o más Paisesde la lista")
