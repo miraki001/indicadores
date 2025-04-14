@@ -129,6 +129,7 @@ def exporta_evolucion():
     # Obtener filtros aplicados
     filtros = st.session_state.filtros
     condiciones = []
+    st.write(filtros)
 
     # Filtro por color
     if "Todos" in filtros["color"]:
