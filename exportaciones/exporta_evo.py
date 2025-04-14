@@ -237,7 +237,7 @@ def exporta_evolucion():
     #      index='mes', 
     #      columns='anio',  
     #      values=['litros'/'fob'],
-    3      aggfunc='sum'
+    #      aggfunc='sum'
     #)
     
     #litros.columns = litros.columns.droplevel(0)
