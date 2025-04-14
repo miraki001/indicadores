@@ -117,13 +117,15 @@ def exporta_evolucion():
     actual = dt.now().year -4 
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl,variedad1 as variedad
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl
+        ,variedad1 as variedad,tipo_envase as envase
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
     """
 
     QUERY_V2 = f"""
-        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl ,variedad1 as variedad
+        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl 
+        ,variedad1 as variedad,tipo_envase as envase
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
         and anio > {actual}
@@ -158,7 +160,7 @@ def exporta_evolucion():
         with col3:
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
-                envase = st.multiselect("Envase",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+                envase = st.multiselect("Envaseee",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
         with col4:
             with st.popover("Producto"):
                 st.caption("Selecciona uno o más Productos de la lista")
