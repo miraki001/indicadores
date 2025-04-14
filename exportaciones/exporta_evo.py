@@ -238,7 +238,7 @@ def exporta_evolucion():
           values=['litros','fob'],
           aggfunc='sum'
     )
-
+    st.write(ppl)
     ppl['ppl'] =  ppl['fob']/ppl['litros']
     #litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)
