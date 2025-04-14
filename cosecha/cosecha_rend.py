@@ -253,7 +253,7 @@ def cosecha_rend():
             thousands='.',
             decimal=',',
     )
-    column_orders =("Año","Superficie", "Quintales","Rendimiento")
+    column_orders =("Provincia","Superficie", "Quintales","Rendimiento")
 
     if st.checkbox('Ver tabla Rendimientos por Provincias'):
         st.dataframe(styled_df,
@@ -272,7 +272,7 @@ def cosecha_rend():
     
     df_anual = df_anual.rename(columns={'Rendimiento': "value", 'Provincia': "name",})
     json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
-    st.subheader('Exportaciones por Pais en Litros')
+    st.subheader('Rendimientos por Provincias en Quintales')
     option = {
         "tooltip": {
             #"trigger": 'axis',
@@ -284,7 +284,7 @@ def cosecha_rend():
         "legend": {"data": ["litros","Pais"]},   
         "series": [
                 {
-                    "name": "Ventas Totales",
+                    "name": "Quintales",
                     "type": "treemap",
                     "visibleMin": 100,
                     "label": {"show": True, "formatter": "{b}"},
