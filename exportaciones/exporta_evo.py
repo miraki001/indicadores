@@ -269,6 +269,7 @@ def exporta_evolucion():
     #st.write(ppl)
     #st.write(anio3)
     #st.write(anio4)
+    ppl  = ppl.fillna('')
 
     tot1 = []
     tot2 = []
