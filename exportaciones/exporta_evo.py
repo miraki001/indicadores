@@ -182,7 +182,8 @@ def exporta_evolucion():
         if año[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)
-        dv2 = dv2[dv2['anio']] > actual
+        dv2 = dv2[dv2['anio'] > actual ]
+        #data = producto1[producto1['tipo_envase'] == envase]
 
     if variedad:
         if variedad[0] != 'Todas':
