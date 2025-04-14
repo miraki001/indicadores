@@ -351,7 +351,7 @@ def exporta_evolucion():
     fob['Acum ' + str(anio4)] = tot4    
 
     dv1 = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros','ppl']].sum()
-    st.write(dv1)
+    
     actual = dt.now().year -4 
 
 
@@ -361,7 +361,7 @@ def exporta_evolucion():
         # Tabla
         st.subheader("Exportaciones")
         for index in range(len(dv1)):
-             dv1['ppl'].loc[index] = dv1[fob].loc[index] / dv1[litros].loc[index]  
+             dv1['ppl'].loc[index] = dv1['fob'].loc[index] / dv1['litros'].loc[index]  
 
         
         st.write(dv1)
