@@ -177,7 +177,7 @@ def exporta_evolucion():
 
     
     df_filtered = dv1.copy()    
-
+    st.write(df_filtered)
     if año:
         if año[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['anio'].isin(año)]
