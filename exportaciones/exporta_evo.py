@@ -359,20 +359,21 @@ def exporta_evolucion():
     else:
         # Tabla
         st.subheader("Exportaciones")
+        for index in range(len(dv1)):
+             dv1['ppl'].loc[index] = dv1[fob].loc[index] / dv1[litros].loc[index]  
+       
         total = []
         tot1 = []
         tot2 = []
-        ppl = []
         total.append(0)
         tot1.append(0)
         tot2.append(0)
         for index in range(len(dv1)):
-          ppl.append((  (dv1['fob'].loc[index] / dv1['litros'].loc[index]) ) )
           if index > 0:
             total.append((  (dv1['litros'].loc[index] / dv1['litros'].loc[index -1]) -1 ) *100 )
             tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
-            #tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100     )
-            tot2.append((  ( ppl.loc[index] / pp.loc[index -1]) -1 ) *100     )
+            tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100     )
+            #tot2.append((  ( ppl.loc[index] / pp.loc[index -1]) -1 ) *100     )
         #st.write(total)
         dv1['ppl'] = ppl
         dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
