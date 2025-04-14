@@ -198,9 +198,9 @@ def exporta_evolucion():
         if color[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['color'].isin(color)]          
             dv2 = dv2[dv2['color'].isin(color)]          
-    if grupoenvase:
-        if grupoenvase[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['grupoenvase'].isin(grupoenvase)]               
+    if pais:
+        if pais[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['pais'].isin(grupoenvase)]               
             dv2 = dv2[dv2['grupoenvase'].isin(grupoenvase)]
     if producto:
         if producto[0] != 'Todos':
