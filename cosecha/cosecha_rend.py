@@ -223,6 +223,8 @@ def cosecha_rend():
         }
 
     st_echarts(options=option,key="gauge4434" + str(dt.now()), height="400px")
+
+    dv1['anio'] = dv1['anio'].astype(str)
     df_filtered1 = dv1[dv1['anio'].isin('2024')]
  
 
@@ -267,7 +269,7 @@ def cosecha_rend():
                 height = 400,
                 hide_index=True)
     
-    dv = dv.rename(columns={'litros': "value", 'pais': "name",})
+    df_anual = df_anual.rename(columns={'Rendimiento': "value", 'Provincia': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
     st.subheader('Exportaciones por Pais en Litros')
     option = {
