@@ -177,7 +177,7 @@ def exporta_evolucion():
 
     
     df_filtered = dv1.copy()    
-    st.write(df_filtered)
+    
     if año:
         if año[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['anio'].isin(año)]
@@ -351,6 +351,7 @@ def exporta_evolucion():
     fob['Acum ' + str(anio4)] = tot4    
 
     dv1 = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros','ppl']].sum()
+    st.write(dv1)
     actual = dt.now().year -4 
 
 
