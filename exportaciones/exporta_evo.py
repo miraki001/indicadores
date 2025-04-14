@@ -240,17 +240,7 @@ def exporta_evolucion():
     )
     st.write(ppl)
 
-    anio1 = litros.columns[2]
-    anio2 = litros.columns[3]
-    anio3 = litros.columns[4]
-    anio4 = litros.columns[5]    
-    for index in range(len(ppl)):
-        ppl[anio1].loc[index] = fob[anio1].loc[index] / litros[anio1].loc[index]  
-        ppl[anio2].loc[index] = fob[anio2].loc[index] / litros[anio2].loc[index]  
-        ppl[anio3].loc[index] = fob[anio3].loc[index] / litros[anio3].loc[index]  
-        ppl[anio4].loc[index] = fob[anio4].loc[index] / litros[anio4].loc[index]  
-        
-    st.write(ppl)
+
     # ppl['ppl'] =  ppl['fob']/ppl['litros']
     #litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)
@@ -267,6 +257,14 @@ def exporta_evolucion():
     anio3 = litros.columns[4]
     anio4 = litros.columns[5]
 
+
+    for index in range(len(ppl)):
+        ppl[anio1].loc[index] = fob[anio1].loc[index] / litros[anio1].loc[index]  
+        ppl[anio2].loc[index] = fob[anio2].loc[index] / litros[anio2].loc[index]  
+        ppl[anio3].loc[index] = fob[anio3].loc[index] / litros[anio3].loc[index]  
+        ppl[anio4].loc[index] = fob[anio4].loc[index] / litros[anio4].loc[index]  
+
+    st.write(ppl)
     #st.write(anio3)
     #st.write(anio4)
 
