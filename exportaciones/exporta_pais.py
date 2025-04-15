@@ -662,6 +662,7 @@ def exporta_destino():
     # --- ?? Luego generás los nodos con los labels en "name" ---
     nodes = [{"name": label} for label in name_to_label.values()]
     st.write(nodes)
+    
     # --- ?? Y también actualizás los links con esos labels ---
 
     
