@@ -246,10 +246,11 @@ def exporta_destino():
     #st.write(top_bottom_10_pais)
 
     df11 = pd.DataFrame({'name':var_list1 + pais_list1})
-    df41 = pd.DataFrame({'name': "TOTAL VARIEDAD" , 'level' : '4' })
-    df42 = pd.DataFrame({'name':var_list1 , 'level' : '3' })
-    df43 = pd.DataFrame({'name':pais_listlts , 'level' : '2' })
-    df44 = pd.DataFrame({'name': "TOTAL PAISES" , 'level' : '1' })
+
+    df41 = pd.DataFrame({'name': "TOTAL VARIEDAD"})
+    df42 = pd.DataFrame({'name':var_list1})
+    df43 = pd.DataFrame({'name':pais_listlts})
+    df44 = pd.DataFrame({'name': "TOTAL PAISES" })
     st.write(df43)
     
     result1 = df11.to_json(orient="records")
