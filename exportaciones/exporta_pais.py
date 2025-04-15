@@ -619,7 +619,7 @@ def exporta_destino():
     st_echarts(option,key="otro11", height="500px")
 
     raw_nodes = nodos
-    link = data12
+    links = data12
 
 
 
