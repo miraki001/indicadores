@@ -542,7 +542,7 @@ def exporta_evolucion():
                 height = 800,
                 hide_index=True)
 
-        "st.subheader("Exportaciones evolución mensual en Fob")
+        #st.subheader("Exportaciones evolución mensual en Fob")
    
         #fob["mes"] = fob["mes"].astype(str)
         anio1 = fob.columns[1]
