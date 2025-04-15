@@ -277,9 +277,9 @@ def exporta_destino():
 
     #df55 = df43.add(df42)
     df55 = pd.concat([df42, df43])
-    st.write(df55)
+    #st.write(df55)
     nodos = df55.to_json(orient="records")
-    st.write(nodos)
+    #st.write(nodos)
     
     result1 = df11.to_json(orient="records")
     
@@ -464,8 +464,8 @@ def exporta_destino():
     data1 = json.loads(pp)
 
 
-    with open("./data/producto.json", "r") as f:
-        data = json.loads(f.read())
+    #with open("./data/producto.json", "r") as f:
+    #    data = json.loads(f.read())
 
 
 
@@ -542,13 +542,13 @@ def exporta_destino():
         df_varlts = append_row(df_varlts, new_row)    
 
 
-    st.write(tot)
+    #st.write(tot)
 
 
     df5 = df_variedad[~df_variedad['variedad1'].isin(var_listlts)]
     df5 = df5[~df5['pais'].isin(pais_listlts)]
     Total = df5['litros'].sum()
-    st.write(Total)
+    #st.write(Total)
     new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': 'OTROS','litros': tot+ Total, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row) 
     
@@ -573,7 +573,7 @@ def exporta_destino():
     data11 = json.loads(pp11)
     pp12 =  lista + result32 
     data12 = json.loads(pp12)
-    st.write(data12)
+    #st.write(data12)
 
 
 
@@ -634,6 +634,7 @@ def exporta_destino():
     # --- Agrupar por nivel y calcular totales por nivel ---
     level_totals = defaultdict(int)
     node_values = {}
+    st.write(raw_nodes)
 
     for node in raw_nodes:
         name = node["name"]
