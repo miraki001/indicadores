@@ -279,7 +279,8 @@ def exporta_destino():
     df55 = pd.concat([df42, df43])
     #st.write(df55)
     nodos = df55.to_json(orient="records")
-    #st.write(nodos)
+    
+    st.write(nodos)
     
     result1 = df11.to_json(orient="records")
     
@@ -462,6 +463,7 @@ def exporta_destino():
     #st.write(result3)
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
     data1 = json.loads(pp)
+    st.write(result1)
 
 
     #with open("./data/producto.json", "r") as f:
