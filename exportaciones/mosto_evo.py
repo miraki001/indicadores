@@ -117,8 +117,7 @@ def exporta_mosto_evo():
         FROM exportaciones2_m 
         WHERE producto = 'Mosto'
         and codigoproducto like '%CONCENTRADO%' 
-        GROUP BY anio 
-        ORDER BY anio 
+
     """
     actual = dt.now().year -4 
 
@@ -128,8 +127,7 @@ def exporta_mosto_evo():
         WHERE  producto in ('Mosto')
         and codigoproducto like '%CONCENTRADO%' 
         and anio > {actual}
-        GROUP BY anio,mes 
-        ORDER BY anio 
+
     """
 
     # Dataframe de datos filtrados
