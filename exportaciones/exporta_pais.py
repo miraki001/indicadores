@@ -266,7 +266,7 @@ def exporta_destino():
     level = []
     for index in range(len(df43)):
          level.append('2')   
-    #df43['level'] = level                       
+    df43['level'] = level                       
     
     new_row = pd.Series({'name':'TOTAL PAISES','level': 1})
     df43 = append_row(df43, new_row)    
