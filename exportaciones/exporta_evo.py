@@ -411,6 +411,8 @@ def exporta_evolucion():
         dv1["Año"] = dv1["Año"].astype(str)
         placeholder = st.empty()
         # Crear gráfico de líneas y barras
+        st.caption(Filtro)
+
         option = {
           "color": [
                 '#332D75',
@@ -421,7 +423,7 @@ def exporta_evolucion():
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "title": {
                 "text": 'Exportaciones Evolución ',
-                "subtext": Filtro,
+                "subtext": '',
             },              
             "legend": {},
             "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
