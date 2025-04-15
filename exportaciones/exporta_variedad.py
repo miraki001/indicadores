@@ -153,23 +153,23 @@ def exporta_variedades():
     if año:
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)
-        Filtro = Filtro + año + ' '
+        Filtro = Filtro + str(año) + ' '
     #if variedad:
         #if variedad[0] != 'Todas':
             #df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
             #st.write(variedad)
-        Filtro = Filtro + ' Variedades = ' +  variedad + ' '
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
     if pais:
         if pais[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['pais'].isin(pais)]
-        Filtro = Filtro + ' Paises = ' +  pais + ' '            
+        Filtro = Filtro + ' Paises = ' +  str(pais) + ' '            
     if producto:
         if producto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['producto'].isin(producto)]        
-        Filtro = Filtro + ' Producto = ' +  producto  + ' '            
+        Filtro = Filtro + ' Producto = ' +  str(producto)  + ' '            
     
     df_anual = df_filtered.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
