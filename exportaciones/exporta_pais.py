@@ -580,7 +580,8 @@ def exporta_destino():
     
     option = {
         "title": {
-            "top": 1,
+            "top": 5,
+            "left": 'center',
             "text": "Top 10 en Litros",
             "subtext": Filtro,
         },
