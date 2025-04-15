@@ -563,13 +563,13 @@ def exporta_evolucion():
             "legend": {},
             "title": [
                 {
-                "text": 'Exportaciones evolución mensual en Fo',
-                "subtext": Filtro,
+                "text": 'Exportaciones evolución mensual en Fob',
+                "subtext": '',
                 }, 
                 {
                     "title": Filtro,
                     "textStyle": {
-                        "fontSize": 8
+                        "fontSize": 8,
                         },
                     "left": '10%',
                     "top": '90%',
