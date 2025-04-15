@@ -218,7 +218,6 @@ def exporta_evolucion():
    
 
     dv2 = dv2.astype({'fob' : int, 'litros': int} )
-    #st.write(dv2.iloc[:, 0])
 
     litros = dv2.pivot_table(
           index='mes', 
@@ -244,20 +243,14 @@ def exporta_evolucion():
           values=['ppl'],
           aggfunc='sum'
     )
-    #st.write(ppl)
 
-
-    # ppl['ppl'] =  ppl['fob']/ppl['litros']
-    #litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)
     fob.columns = fob.columns.droplevel(0)
     fob = fob.reset_index().rename_axis(None, axis=1)
     ppl.columns = ppl.columns.droplevel(0)
     ppl = ppl.reset_index().rename_axis(None, axis=1)
-    #ppl  = ppl.fillna('')
     fob  = fob.fillna(0)
     litros  = litros.fillna(0)
-    #st.write(litros)
     anio1 = litros.columns[2]
     anio2 = litros.columns[3]
     anio3 = litros.columns[4]
@@ -270,9 +263,6 @@ def exporta_evolucion():
         ppl[anio3].loc[index] = fob[anio3].loc[index] / litros[anio3].loc[index]  
         ppl[anio4].loc[index] = fob[anio4].loc[index] / litros[anio4].loc[index]  
 
-    #st.write(ppl)
-    #st.write(anio3)
-    #st.write(anio4)
     ppl  = ppl.fillna('')
 
     tot1 = []
@@ -304,14 +294,10 @@ def exporta_evolucion():
             acu3 = acu3 + litros[anio3].loc[index]
             acu4 = acu4 + litros[anio4].loc[index]
               
-        #st.write(total)
-    #dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
-    #dv1['Litros Var %'] = total
     litros['Acum ' + str(anio1) ] = tot1
     litros['Acum ' + str(anio2)] = tot2
     litros['Acum ' + str(anio3) ] = tot3
     litros['Acum ' + str(anio4)] = tot4
-    #st.write(tot3)
     desc1 = litros.columns[6]
     desc2 = litros.columns[7]
     desc3 = litros.columns[8]
@@ -349,9 +335,6 @@ def exporta_evolucion():
             acu3 = acu3 + fob[anio3].loc[index]
             acu4 = acu4 + fob[anio4].loc[index]
               
-        #st.write(total)
-    #dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
-    #dv1['Litros Var %'] = total
     fob['Acum ' + str(anio1) ] = tot1
     fob['Acum ' + str(anio2)] = tot2
     fob['Acum ' + str(anio3) ] = tot3
@@ -371,7 +354,6 @@ def exporta_evolucion():
              dv1['ppl'].loc[index] = dv1['fob'].loc[index] / dv1['litros'].loc[index]  
 
         
-        #st.write(dv1)
         total = []
         tot1 = []
         tot2 = []
@@ -384,8 +366,6 @@ def exporta_evolucion():
             tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
             tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100     )
             #tot2.append((  ( ppl.loc[index] / pp.loc[index -1]) -1 ) *100     )
-        #st.write(total)
-        #dv1['ppl'] = ppl
         dv1 = dv1.rename(columns={'litros': "Litros", 'fob': "Fob",'anio': "Año","ppl": 'ppl'})
         dv1['Litros Var %'] = total
         dv1['Fob Var. %'] = tot1
@@ -408,7 +388,6 @@ def exporta_evolucion():
         )
 
 
-        #st.write(df2)
         if st.checkbox('Ver datos en forma de tabla'):
             st.dataframe(styled_df,
               column_config={
@@ -425,11 +404,7 @@ def exporta_evolucion():
                 height = 800,
                 hide_index=True)
 
-            #st.write(dv1.describe(include=[np.number]))
-
-            #st.write(dv3)
   
-        #st.dataframe(dv1)
 
         # Convertir 'anio' a string para el gráfico
         dv1["Año"] = dv1["Año"].astype(str)
@@ -482,9 +457,9 @@ def exporta_evolucion():
                       }
                 },            
             ],
-            "series": [
-                "top": 55,
-                {"data": dv1["Litros"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
+            "series": [                
+                {"top": 55,
+                "data": dv1["Litros"].tolist(),"position" : 'rigth', "type": "line", "name": "Litros", "yAxisIndex": 1, },
                 {"data": dv1["Fob"].tolist(), "type": "bar", "name": "Fob", "yAxisIndex": 1, },
                 {"data": dv1["ppl"].tolist(), "type": "line", "name": "Precio x Lts", "yAxisIndex": 2, "color":'#07ECFA', },
             ],
