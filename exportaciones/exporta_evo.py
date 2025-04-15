@@ -572,7 +572,7 @@ def exporta_evolucion():
                         "fontSize": 10,
                         },
                     "left": '20%',
-                    "top": '90%',
+                    "top": '98%',
                 },
             ],
             "xAxis": {"type": "category", "data": litros["mes"].tolist(),
