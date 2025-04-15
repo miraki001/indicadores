@@ -684,6 +684,7 @@ def exporta_destino():
         .add(
             "Flujos",
             nodes=nodes,
+            links=links,
             linestyle_opt=opts.LineStyleOpts(curve=0.5, opacity=0.5),
             label_opts=opts.LabelOpts(position="right"),
         )
