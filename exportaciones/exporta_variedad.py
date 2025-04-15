@@ -158,10 +158,11 @@ def exporta_variedades():
         #if variedad[0] != 'Todas':
             #df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
             #st.write(variedad)
-        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
+        #Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
+        Filtro = Filtro + ' Envase = ' +  str(envase) + ' '            
     if pais:
         if pais[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['pais'].isin(pais)]
