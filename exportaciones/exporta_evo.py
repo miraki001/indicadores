@@ -571,8 +571,8 @@ def exporta_evolucion():
                     "textStyle": {
                         "fontSize": 8
                         },
-                    "left": 10%,
-                    "top": 95%,
+                    "left": '10%',
+                    "top": '95%',
                 }
             ].
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
