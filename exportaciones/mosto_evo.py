@@ -77,7 +77,7 @@ def exporta_mosto_evo():
             return pd.DataFrame()
 
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto  from exportaciones2_m  where producto = 'Mosto' and codigoproducto like '%CONCENTRADO%'  ;"
+    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais  from exportaciones2_m  where producto = 'Mosto' and codigoproducto like '%CONCENTRADO%'  ;"
     df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
@@ -90,6 +90,7 @@ def exporta_mosto_evo():
     envase_list = sorted(df_filtros["tipo_envase"].dropna().unique())
     color_list = sorted(df_filtros["color"].dropna().unique())
     producto_list = sorted(df_filtros["producto"].dropna().unique())
+    pais_list = sorted(df_filtros["pais"].dropna().unique())
     if "filtrosme" not in st.session_state:
         st.session_state.filtrosme = {
             "anio": "Todos",
