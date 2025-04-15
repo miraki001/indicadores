@@ -232,8 +232,8 @@ def exporta_variedades():
     #dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "value", 'variedad1': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
-    st.subheader('Exportaciones por Variedad en Litros')
-    st.write(Filtro)
+    #st.subheader('Exportaciones por Variedad en Litros')
+    #st.write(Filtro)
 
 
     option = {
@@ -272,7 +272,7 @@ def exporta_variedades():
     st_echarts(
         options=option,key="gauge22" + str(dt.now()), height="600px",
     )
-    st.subheader('Exportaciones por variedad en Fob')
+    #st.subheader('Exportaciones por variedad en Fob')
     
     dv = dv.rename(columns={'value': "litros", 'variedad1': "name",})
     dv = dv.rename(columns={'fob': "value", 'variedad1': "name",})
@@ -289,6 +289,10 @@ def exporta_variedades():
                 "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
             ).js_code,
         },
+        "title": {
+            "text": 'Exportaciones por Variedad en Fob',
+            "subtext": Filtro,
+        },        
         "legend": {"data": ["litros","Pais"]},   
         "series": [
                 {
