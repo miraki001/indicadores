@@ -624,6 +624,7 @@ def exporta_destino():
     raw_nodes = json.loads(nodos)
     st.write(raw_nodes)
     links = json.loads(pp12)
+    st.write(links)
 
 
 
@@ -638,12 +639,13 @@ def exporta_destino():
     # --- Agrupar por nivel y calcular totales por nivel ---
     level_totals = defaultdict(int)
     node_values = {}
-    st.write(raw_nodes)
+    #st.write(raw_nodes)
 
     for node in raw_nodes:
         name = node["name"]
         level = node["level"]
         if level == 1:
+            st.write('nivel 1')
             value = node_output.get(name, 0)  # nivel 1 usa salidas
         else:
             value = node_input.get(name, 0)   # los demás usan entradas
