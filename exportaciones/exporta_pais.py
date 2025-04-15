@@ -666,10 +666,10 @@ def exporta_destino():
     # --- ?? Y también actualizás los links con esos labels ---
 
     
-    #updated_links = [
-    #    {"source": name_to_label[link["source"]], "target": name_to_label[link["target"]], "value": link["value"]}
-    #    for link in links
-    #]
+    updated_links = [
+        {"source": name_to_label[link["source"]], "target": name_to_label[link["target"]], "value": link["value"]}
+        for link in links
+    ]
 
     # --- Agregar valores y porcentajes al label de cada nodo ---
     nodes = []
@@ -689,7 +689,7 @@ def exporta_destino():
         .add(
             "Flujos",
             nodes=nodes,
-            links=links,
+            links=updated_links,
             linestyle_opt=opts.LineStyleOpts(curve=0.5, opacity=0.5),
             label_opts=opts.LabelOpts(position="right"),
         )
