@@ -186,27 +186,33 @@ def exporta_destino():
                 grupoenvase = st.multiselect("Gurpo Envase",  ["Todos"] + grupoenvase_list, default=["Todos"],label_visibility="collapsed")      
     
     df_filtered = dv1.copy()
-
+    Filtro = 'Filtro = Año = '
     if año:
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)
-
+        Filtro = Filtro + str(año) + ' '
     if variedad:
         if variedad[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
             #st.write(variedad)
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
+    
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
+        Filtro = Filtro + ' Envase = ' +  str(envase) + ' '            
+            
     if color:
         if color[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['color'].isin(color)]          
     if grupoenvase:
         if grupoenvase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['grupoenvase'].isin(grupoenvase)]               
+        Filtro = Filtro + ' Grupo envase  = ' +  str(grupoenvase) + ' '            
     if producto:
         if producto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['producto'].isin(producto)]      
+        Filtro = Filtro + ' Producto  = ' +  str(producto) + ' '            
     
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
@@ -332,7 +338,7 @@ def exporta_destino():
     
     dv = dv.rename(columns={'litros': "value", 'pais': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
-    st.subheader('Exportaciones por Pais en Litros')
+    #st.subheader('Exportaciones por Pais en Litros')
 
 
     option = {
@@ -343,6 +349,11 @@ def exporta_destino():
                 "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
             ).js_code,
         },
+        "title": {
+            "text": 'Exportaciones por Pais en Litros',
+            "subtext": Filtro,
+        },        
+        #"        
         "legend": {"data": ["litros","Pais"]},   
         "series": [
                 {
@@ -366,7 +377,7 @@ def exporta_destino():
     st_echarts(
         options=option,key="gauge2" + str(dt.now()), height="600px",
     )
-    st.subheader('Exportaciones por Pais en Fob')
+    #st.subheader('Exportaciones por Pais en Fob')
     
     dv = dv.rename(columns={'value': "litros", 'pais': "name",})
     dv = dv.rename(columns={'fob': "value", 'pais': "name",})
@@ -382,6 +393,10 @@ def exporta_destino():
                 "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
             ).js_code,
         },
+        "title": {
+            "text": 'Exportaciones por  Pais en Fob',
+            "subtext": Filtro,
+        },         
         "legend": {"data": ["litros","Pais"]},   
         "series": [
                 {
@@ -453,7 +468,10 @@ def exporta_destino():
 
 
     option = {
-        "title": {"text": "Top 10 en Valor Fob"},
+        "title":{
+            "text": "Top 10 en Valor Fob",
+            "subtext": Filtro,
+        },
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
@@ -560,7 +578,10 @@ def exporta_destino():
 
     
     option = {
-        "title": {"text": "Top 10 en Litros"},
+        "title": {
+            "text": "Top 10 en Litros",
+            "subtext": Filtro,
+        },
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
