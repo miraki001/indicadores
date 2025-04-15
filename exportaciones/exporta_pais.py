@@ -272,7 +272,7 @@ def exporta_destino():
     df43 = append_row(df43, new_row)    
 
 
-    df55 = df43.add(df42, fill_value='')
+    df55 = df43.add(df42)
     #df55 = pd.concat([df42, df43], axis=1)
     st.write(df55)
     nodos = df55.to_json(orient="records")
