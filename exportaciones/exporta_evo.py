@@ -648,7 +648,7 @@ def exporta_evolucion():
                 height = 800,
                 hide_index=True)
 
-        st.subheader("Exportaciones evolución precio promedio por litro ")
+        #st.subheader("Exportaciones evolución precio promedio por litro ")
    
         #ppl["mes"] = ppl["mes"].astype(str)
         anio1 = ppl.columns[1]
@@ -663,7 +663,7 @@ def exporta_evolucion():
         option = {
             "title": [
                 {
-                "text": 'Exportaciones evolución mensual en Fob',
+                "text": 'Exportaciones evolución precio promedio por litro ',
                 "textStyle": {
                         "fontSize": 14,
                 },                    
