@@ -622,9 +622,9 @@ def exporta_destino():
 
     
     raw_nodes = json.loads(nodos)
-    st.write(raw_nodes)
+    #st.write(raw_nodes)
     links = json.loads(pp12)
-    st.write(links)
+    #st.write(links)
 
 
 
@@ -651,8 +651,8 @@ def exporta_destino():
             value = node_input.get(name, 0)   # los demás usan entradas
         node_values[name] = value
         level_totals[level] += value
-    st.write(node_values)
-    st.write(level_totals)
+    #st.write(node_values)
+    #st.write(level_totals)
     # --- ?? Acá colocás el mapa de nombres a etiquetas con valor y porcentaje ---
     name_to_label = {
         node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / level_totals[node["level"]] * 100):.0f}%)'
@@ -661,7 +661,7 @@ def exporta_destino():
 
     # --- ?? Luego generás los nodos con los labels en "name" ---
     nodes = [{"name": label} for label in name_to_label.values()]
-
+    st.write(nodes)
     # --- ?? Y también actualizás los links con esos labels ---
 
     
