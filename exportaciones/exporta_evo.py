@@ -471,6 +471,8 @@ def exporta_evolucion():
         #st.subheader("Exportaciones evolución mensual en litros")
        
         litros["mes"] = litros["mes"].astype(str)
+        st.caption(Filtro)
+
 
 
         # Crear gráfico de líneas y barras
@@ -485,7 +487,10 @@ def exporta_evolucion():
             "legend": {},
             "title": {
                 "text": 'Exportaciones evolución mensual en litro ',
-                "subtext": Filtro,
+                "textStyle": {
+                        "fontSize": 14,
+                },                  
+                "subtext": '',
             },            
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
             "yAxis": [
@@ -632,8 +637,7 @@ def exporta_evolucion():
             ],
         }
 
-        st_echarts(options=option,key="otro1" + str(dt.now()), height="300px")
-        st.caption("By Fanilo")
+        st_echarts(options=option,key="otro1" + str(dt.now()), height="400px")
 
         
         if st.checkbox('Ver tabla Evolución mensual en Fob'):
