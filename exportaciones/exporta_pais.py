@@ -238,7 +238,7 @@ def exporta_destino():
     var_listlts.append("TOTAL VARIEDAD")
     pais_listlts.append("OTROS")
     pais_listlts.append("TOTAL PAISES")
-
+    st.write(var_listlts)
 
     
 
