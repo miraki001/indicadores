@@ -656,9 +656,28 @@ def exporta_evolucion():
         anio2 = ppl.columns[2]
         anio3 = ppl.columns[3]
         anio4 = ppl.columns[4]
+        st.caption(Filtro)
+
 
         # Crear gráfico de líneas y barras
         option = {
+            "title": [
+                {
+                "text": 'Exportaciones evolución mensual en Fob',
+                "textStyle": {
+                        "fontSize": 14,
+                },                    
+                "subtext": '',
+                }, 
+                {
+                    "title": 'otro abajo',
+                    "textStyle": {
+                        "fontSize": 10,
+                        },
+                    "left": '20%',
+                    "top": '50%',
+                },
+            ],            
           "color": [
                 '#332D75',
                 '#1E8DB6',
