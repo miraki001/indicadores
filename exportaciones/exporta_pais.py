@@ -283,7 +283,7 @@ def exporta_destino():
     #st.write(nodos)
     
     result1 = df11.to_json(orient="records")
-    st.write(result1)
+    #st.write(result1)
     
     
     top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexes]
@@ -464,7 +464,7 @@ def exporta_destino():
     #st.write(result3)
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
     data1 = json.loads(pp)
-    st.write(result1)
+    #st.write(result1)
 
 
     #with open("./data/producto.json", "r") as f:
@@ -660,10 +660,12 @@ def exporta_destino():
     nodes = [{"name": label} for label in name_to_label.values()]
 
     # --- ?? Y también actualizás los links con esos labels ---
-    updated_links = [
-        {"source": name_to_label[link["source"]], "target": name_to_label[link["target"]], "value": link["value"]}
-        for link in links
-    ]
+
+    
+    #updated_links = [
+    #    {"source": name_to_label[link["source"]], "target": name_to_label[link["target"]], "value": link["value"]}
+    #    for link in links
+    #]
 
     # --- Agregar valores y porcentajes al label de cada nodo ---
     nodes = []
