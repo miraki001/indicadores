@@ -146,7 +146,7 @@ def exporta_variedades():
         with col4:
             with st.popover("Paises"):
                 st.caption("Selecciona uno o más Paises de la lista")
-                pais = st.multiselect("Pais1",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")                
+                pais = st.multiselect("Pais1",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")                
 
     df_filtered = dv1.copy()
 
