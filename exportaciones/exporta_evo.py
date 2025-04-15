@@ -567,11 +567,11 @@ def exporta_evolucion():
                 "subtext": '',
                 }, 
                 {
-                    "title": Filtro,
+                    "title": 'otro abajo',
                     "textStyle": {
-                        "fontSize": 8,
+                        "fontSize": 10,
                         },
-                    "left": '10%',
+                    "left": '20%',
                     "top": '90%',
                 },
             ],
