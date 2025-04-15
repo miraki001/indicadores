@@ -235,8 +235,10 @@ def exporta_destino():
     
     df_varlts= df_varlts[df_varlts['pais'].isin(pais_listlts)]
     var_listlts.append("OTRAS")
+    var_lisp = var_listlts
     var_listlts.append("TOTAL VARIEDAD")
     pais_listlts.append("OTROS")
+    pais_listp =pais_listlts
     pais_listlts.append("TOTAL PAISES")
     st.write(var_listlts)
 
@@ -247,15 +249,24 @@ def exporta_destino():
 
     df11 = pd.DataFrame({'name':var_list1 + pais_list1})
 
-    #df41 = pd.DataFrame({'name': "TOTAL VARIEDAD"})
-    #df42 = pd.DataFrame({'name':var_list1})
-    df43 = pd.DataFrame({'name': pais_listlts})
+    #df41 = pd.DataFrame({'name': "TOTAL PAISES"})
+    df42 = pd.DataFrame({'name':var_listp})
+    level = []
+    for index in range(len(df42)):
+         level.append('3')   
+    df42['level'] = level                       
+    new_row = pd.Series({'name':'TOTAL VARIEDAD','level': 4})
+    df42 = append_row(df42, new_row)    
+    st.write(df42)
+
+    
+    df43 = pd.DataFrame({'name': pais_listp})
     level = []
     for index in range(len(df43)):
-         level.append('3')   
+         level.append('2')   
     df43['level'] = level                       
     
-    new_row = pd.Series({'name':'TOTAL VARIEDAD','level': 4})
+    new_row = pd.Series({'name':'TOTAL PAISES','level': 1})
     df43 = append_row(df43, new_row)    
 
     st.write(df43)
