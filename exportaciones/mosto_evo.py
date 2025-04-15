@@ -217,8 +217,10 @@ def exporta_mosto_evo():
 
 
     actual = dt.now().year -4 
-
-
+    dv1 = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros','ppl']].sum()
+    for index in range(len(dv1)):
+        dv1['ppl'].loc[index] = dv1['fob'].loc[index] / dv1['litros'].loc[index]  
+        
     if dv1.empty:
         st.warning("No se encontraron resultados con los filtros seleccionados.")
     else:
