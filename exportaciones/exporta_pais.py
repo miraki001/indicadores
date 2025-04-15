@@ -573,7 +573,7 @@ def exporta_destino():
     data11 = json.loads(pp11)
     pp12 =  lista + result32 
     data12 = json.loads(pp12)
-    #st.write(data12)
+    st.write(data12)
 
 
 
