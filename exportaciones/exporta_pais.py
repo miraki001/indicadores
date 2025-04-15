@@ -651,7 +651,8 @@ def exporta_destino():
             value = node_input.get(name, 0)   # los demás usan entradas
         node_values[name] = value
         level_totals[level] += value
-
+    st.write(node_values)
+    st.write(level_totals)
     # --- ?? Acá colocás el mapa de nombres a etiquetas con valor y porcentaje ---
     name_to_label = {
         node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / level_totals[node["level"]] * 100):.0f}%)'
