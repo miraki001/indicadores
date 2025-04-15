@@ -280,9 +280,10 @@ def exporta_destino():
     #st.write(df55)
     nodos = df55.to_json(orient="records")
     
-    st.write(nodos)
+    #st.write(nodos)
     
     result1 = df11.to_json(orient="records")
+    st.write(result1)
     
     
     top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexes]
