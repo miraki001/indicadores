@@ -236,13 +236,13 @@ def exporta_destino():
     
     df_varlts= df_varlts[df_varlts['pais'].isin(pais_listlts)]
     var_listlts.append("OTRAS")
-    st.write(var_listlts)
+    #st.write(var_listlts)
     var_listp = var_list1
     var_listlts.append("TOTAL VARIEDAD")
     pais_listlts.append("OTROS")
     pais_listp =pais_list1
     pais_listlts.append("TOTAL PAISES")
-    st.write(var_listlts)
+    #st.write(var_listlts)
 
     
 
@@ -259,19 +259,23 @@ def exporta_destino():
     df42['level'] = level                       
     new_row = pd.Series({'name':'TOTAL VARIEDAD','level': 4})
     df42 = append_row(df42, new_row)    
-    st.write(df42)
+    #st.write(df42)
 
     
     df43 = pd.DataFrame({'name': pais_listp})
     level = []
     for index in range(len(df43)):
          level.append('2')   
-    df43['level'] = level                       
+    #df43['level'] = level                       
     
     new_row = pd.Series({'name':'TOTAL PAISES','level': 1})
     df43 = append_row(df43, new_row)    
 
-    st.write(df43)
+
+    df55 = pd.concat([df42, df43], axis=1)
+    st.write(df55)
+    nodos = df55.to_json(orient="records")
+    st.write(nodos)
     
     result1 = df11.to_json(orient="records")
     
