@@ -253,7 +253,7 @@ def exporta_destino():
     level = []
     for index in range(len(df43)):
          level.append('3')   
-    df43['level'] = total                       
+    df43['level'] = level                       
     
     new_row = pd.Series({'name':'TOTAL VARIEDAD','level': 4})
     df43 = append_row(df43, new_row)    
