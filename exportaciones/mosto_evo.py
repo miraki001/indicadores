@@ -122,7 +122,7 @@ def exporta_mosto_evo():
     actual = dt.now().year -4 
 
     QUERY_V2 = f"""
-        SELECT anio, mes, cantlitros/743.5 AS litros, valorfobsolo AS fob,1 AS ppl,pasi
+        SELECT anio, mes, cantlitros/743.5 AS litros, valorfobsolo AS fob,1 AS ppl,pais
         FROM exportaciones2_m 
         WHERE  producto in ('Mosto')
         and codigoproducto like '%CONCENTRADO%' 
