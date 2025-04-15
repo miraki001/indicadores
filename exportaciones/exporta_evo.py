@@ -567,7 +567,7 @@ def exporta_evolucion():
                 {
                 "text": 'Exportaciones evolución mensual en Fob',
                 "textStyle": {
-                        "fontSize": 10,
+                        "fontSize": 14,
                 },                    
                 "subtext": '',
                 }, 
@@ -577,7 +577,7 @@ def exporta_evolucion():
                         "fontSize": 10,
                         },
                     "left": '20%',
-                    "top": '98%',
+                    "top": '50%',
                 },
             ],
             "xAxis": {"type": "category", "data": litros["mes"].tolist(),
