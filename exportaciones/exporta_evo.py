@@ -467,7 +467,7 @@ def exporta_evolucion():
 
         st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
 
-        st.subheader("Exportaciones evolución mensual en litros")
+        #st.subheader("Exportaciones evolución mensual en litros")
        
         litros["mes"] = litros["mes"].astype(str)
 
@@ -482,6 +482,10 @@ def exporta_evolucion():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
+            "title": {
+                "text": 'Exportaciones evolución mensual en litro ',
+                "subtext": Filtro,
+            },            
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
             "yAxis": [
                 {"type": "value" ,"name" : "Litros" ,
@@ -538,7 +542,7 @@ def exporta_evolucion():
                 height = 800,
                 hide_index=True)
 
-        st.subheader("Exportaciones evolución mensual en Fob")
+        "st.subheader("Exportaciones evolución mensual en Fob")
    
         #fob["mes"] = fob["mes"].astype(str)
         anio1 = fob.columns[1]
@@ -557,6 +561,10 @@ def exporta_evolucion():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
+            "title": {
+                "text": 'Exportaciones evolución mensual en Fo',
+                "subtext": Filtro,
+            },            
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
             #"yAxis": {"type": "value"},
             "yAxis": [
