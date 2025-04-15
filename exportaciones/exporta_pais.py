@@ -245,16 +245,14 @@ def exporta_destino():
     pais_listlts.append("OTROS")
     pais_listp =pais_listlts
     pais_listlts.append("TOTAL PAISES")
-    #st.write(var_listlts)
+    
 
     
 
     df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
-    #st.write(top_bottom_10_pais)
 
     df11 = pd.DataFrame({'name':var_list1 + pais_list1})
 
-    #df41 = pd.DataFrame({'name': "TOTAL PAISES"})
     df42 = pd.DataFrame({'name':var_listp})
     level = []
     for index in range(len(df42)):
@@ -262,7 +260,6 @@ def exporta_destino():
     df42['level'] = level                       
     new_row = pd.Series({'name':'TOTAL VARIEDAD','level': 4})
     df42 = append_row(df42, new_row)    
-    #st.write(df42)
 
     
     df43 = pd.DataFrame({'name': pais_listp})
@@ -277,13 +274,10 @@ def exporta_destino():
 
     #df55 = df43.add(df42)
     df55 = pd.concat([df42, df43])
-    #st.write(df55)
     nodos = df55.to_json(orient="records")
     
-    #st.write(nodos)
     
     result1 = df11.to_json(orient="records")
-    #st.write(result1)
     
     
     top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexes]
@@ -337,12 +331,9 @@ def exporta_destino():
                 height = 400,
                 hide_index=True)
     
-    #st.dataframe(df_sorted)
-    #dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "value", 'pais': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
     st.subheader('Exportaciones por Pais en Litros')
-    #st.write(json_list)
 
 
     option = {
@@ -382,7 +373,6 @@ def exporta_destino():
     dv = dv.rename(columns={'fob': "value", 'pais': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
 
-    #st.write(json_list)
 
 
     option = {
@@ -438,7 +428,6 @@ def exporta_destino():
 
     df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_var4 = df_var2.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
-    #st.write(df_var3)
     lista = ''
     for index in range(len(top_bottom_10_pais)) :
         valor = top_bottom_10_pais['fob'].iloc[index]
@@ -457,19 +446,11 @@ def exporta_destino():
         df_var2 = append_row(df_var2, new_row)    
 
     
-    #t.write(df_var2)    
     df_var2.drop(['litros'], axis='columns', inplace=True)
     df_var2 = df_var2.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
     result3 = df_var2.to_json(orient="records")
-    #st.write(result3)
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
     data1 = json.loads(pp)
-    #st.write(result1)
-
-
-    #with open("./data/producto.json", "r") as f:
-    #    data = json.loads(f.read())
-
 
 
     option = {
@@ -511,7 +492,6 @@ def exporta_destino():
 
     
     #agregamos los litros del resto de los paises y el resto de las variedade
-    #st.write(df_varlts)
     df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
     #st.write(top_litros_10_pais)
@@ -545,13 +525,11 @@ def exporta_destino():
         df_varlts = append_row(df_varlts, new_row)    
 
 
-    #st.write(tot)
 
 
     df5 = df_variedad[~df_variedad['variedad1'].isin(var_listlts)]
     df5 = df5[~df5['pais'].isin(pais_listlts)]
     Total = df5['litros'].sum()
-    #st.write(Total)
     new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': 'OTROS','litros': tot+ Total, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row) 
     
@@ -576,7 +554,6 @@ def exporta_destino():
     data11 = json.loads(pp11)
     pp12 =  lista + result32 
     data12 = json.loads(pp12)
-    st.write(data12)
 
     
 
@@ -622,9 +599,7 @@ def exporta_destino():
 
     
     raw_nodes = json.loads(nodos)
-    #st.write(raw_nodes)
     links = json.loads(pp12)
-    #st.write(links)
 
 
 
@@ -639,7 +614,6 @@ def exporta_destino():
     # --- Agrupar por nivel y calcular totales por nivel ---
     level_totals = defaultdict(int)
     node_values = {}
-    #st.write(raw_nodes)
 
     for node in raw_nodes:
         name = node["name"]
@@ -651,8 +625,6 @@ def exporta_destino():
             value = node_input.get(name, 0)   # los demás usan entradas
         node_values[name] = value
         level_totals[level] += value
-    #st.write(node_values)
-    #st.write(level_totals)
     # --- ?? Acá colocás el mapa de nombres a etiquetas con valor y porcentaje ---
     name_to_label = {
         node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / level_totals[node["level"]] * 100):.0f}%)'
@@ -661,7 +633,6 @@ def exporta_destino():
 
     # --- ?? Luego generás los nodos con los labels en "name" ---
     nodes = [{"name": label} for label in name_to_label.values()]
-    #st.write(nodes)
     
     # --- ?? Y también actualizás los links con esos labels ---
 
@@ -683,8 +654,6 @@ def exporta_destino():
         nodes.append({"name": label})
 
     # --- Crear gráfico Sankey ---
-    st.write(nodes)
-    st.write(updated_links)
     chart = (
         Sankey()
         .add(
