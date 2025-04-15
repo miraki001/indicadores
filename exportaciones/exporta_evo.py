@@ -578,7 +578,7 @@ def exporta_evolucion():
             "xAxis": {"type": "category", "data": litros["mes"].tolist(),
                     "splitArea": {
                         "show": true,
-        
+                    },
                      },
             #"yAxis": {"type": "value"},
             "yAxis": [
