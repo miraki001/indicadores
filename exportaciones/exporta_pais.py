@@ -251,7 +251,7 @@ def exporta_destino():
     #df42 = pd.DataFrame({'name':var_list1})
     df43 = pd.DataFrame({'name': pais_listlts})
     level = []
-    for index in range(len(df43)
+    for index in range(len(df43))
          level.append('3')   
     df43['level'] = total                       
     
