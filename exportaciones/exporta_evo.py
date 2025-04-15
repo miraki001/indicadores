@@ -628,7 +628,9 @@ def exporta_evolucion():
         }
 
         st_echarts(options=option,key="otro1" + str(dt.now()), height="400px")
+        st.caption("By Fanilo")
 
+        
         if st.checkbox('Ver tabla Evolución mensual en Fob'):
             st.dataframe(fob,
                 width = 600,   
