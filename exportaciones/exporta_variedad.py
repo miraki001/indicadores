@@ -149,27 +149,31 @@ def exporta_variedades():
                 pais = st.multiselect("Pais1",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")                
 
     df_filtered = dv1.copy()
-
+    Filtro = 'Filtro = Año = '
     if año:
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)
-
+        Filtro = Filtro + año + ' '
     #if variedad:
         #if variedad[0] != 'Todas':
             #df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
             #st.write(variedad)
+        Filtro = Filtro + ' Variedades = ' +  variedad ' '
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
     if pais:
         if pais[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['pais'].isin(pais)]
+        Filtro = Filtro + ' Paises = ' +  pais ' '            
     if producto:
         if producto[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['producto'].isin(producto)]            
+            df_filtered = df_filtered[df_filtered['producto'].isin(producto)]        
+        Filtro = Filtro + ' Producto = ' +  producto ' '            
     
     df_anual = df_filtered.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
+    st.write(Filtro)
     total = []
     tot1 = []
     tot2 = []
