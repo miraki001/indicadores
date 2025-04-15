@@ -4,6 +4,10 @@ import numpy as np
 import json
 from streamlit_echarts import st_echarts
 from streamlit_echarts import JsCode
+from streamlit_echarts import st_pyecharts
+from pyecharts.charts import Sankey
+from pyecharts import options as opts
+from collections import defaultdict
 
 from datetime import datetime as dt
 
@@ -12,98 +16,87 @@ def exporta_destino():
 
 
 
-    streamlit_style = """
-        <style>
-        iframe[title="streamlit_echarts.st_echarts"]{ height: 500px;} 
-       </style>
-        """
-    st.markdown(streamlit_style, unsafe_allow_html=True)     
+    # --- Datos iniciales con niveles ---
+    raw_nodes = [
+        {"name": "Botella", "level": 1},
+        {"name": "Granel", "level": 1},
+        {"name": "Tinto", "level": 2},
+        {"name": "Blanco", "level": 2},
+        {"name": "Europa", "level": 3},
+        {"name": "America", "level": 3},
+    ]
 
-  
-    
-
-    conn = st.connection("postgresql", type="sql")
-
-
-    def cargar_datos(consulta):
-        try:
-            df = conn.query(consulta, ttl="0")
-            return df
-        except Exception as e:
-            st.error(f"Error al cargar datos: {e}")
-            return pd.DataFrame()
-    QUERY_V0 = f"""
-        SELECT distinct anio,variedad1 variedad,tipo_envase,color,producto,pais
-        FROM exportaciones2_m 
-        where producto not in ('Mosto','Alcohol')
-
-    """
-
-    
-    # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais  from exportaciones2_m where producto not in ('Mosto','Alcohol');"
-    df_filtros = cargar_datos(QUERY_INICIAL)
-
-    if df_filtros.empty:
-        st.error("No se encontraron datos en la base de datos.")
-        st.stop()
-
-    # Listas de valores únicos para los filtros
-    year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
-    pais_list = sorted(df_filtros["pais"].dropna().unique(), reverse=True)
-    var_list = sorted(df_filtros["variedad"].dropna().unique())
-    envase_list = sorted(df_filtros["tipo_envase"].dropna().unique())
-    color_list = sorted(df_filtros["color"].dropna().unique())
-    producto_list = sorted(df_filtros["producto"].dropna().unique())
+    links = [
+        {"source": "Botella", "target": "Tinto", "value": 10},
+        {"source": "Granel", "target": "Tinto", "value": 5},
+        {"source": "Granel", "target": "Blanco", "value": 7},
+        {"source": "Tinto", "target": "Europa", "value": 12},
+    {"source": "Blanco", "target": "America", "value": 7},
+    ]
 
 
+    # --- Calcular entradas y salidas por nodo ---
+    node_input = defaultdict(int)
+    node_output = defaultdict(int)
 
-    QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais
-        FROM exportaciones2_m 
-        where producto not in ('Mosto','Alcohol')
+    for link in links:
+        node_input[link["target"]] += link["value"]
+        node_output[link["source"]] += link["value"]
 
-    """
+    # --- Agrupar por nivel y calcular totales por nivel ---
+    level_totals = defaultdict(int)
+    node_values = {}
 
+    for node in raw_nodes:
+        name = node["name"]
+        level = node["level"]
+        if level == 1:
+            value = node_output.get(name, 0)  # nivel 1 usa salidas
+        else:
+            value = node_input.get(name, 0)   # los demás usan entradas
+        node_values[name] = value
+        level_totals[level] += value
 
-    dv1 = cargar_datos(QUERY_V1)
- 
-    dv1['anio'] = dv1['anio'].astype(str)
+    # --- ?? Acá colocás el mapa de nombres a etiquetas con valor y porcentaje ---
+    name_to_label = {
+        node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / level_totals[node["level"]] * 100):.0f}%)'
+        for node in raw_nodes
+    }
 
-    
+    # --- ?? Luego generás los nodos con los labels en "name" ---
+    nodes = [{"name": label} for label in name_to_label.values()]
 
-    df_filtered = dv1.copy()
+    # --- ?? Y también actualizás los links con esos labels ---
+    updated_links = [
+        {"source": name_to_label[link["source"]], "target": name_to_label[link["target"]], "value": link["value"]}
+        for link in links
+    ]
 
+    # --- Agregar valores y porcentajes al label de cada nodo ---
+    nodes = []
+    for node in raw_nodes:
+        name = node["name"]
+        level = node["level"]
+        value = node_values.get(name, 0)
+        total = level_totals[level]
+        percentage = (value / total * 100) if total > 0 else 0
+        label = f"{name}\n{value:.0f} ({percentage:.0f}%)"
+        nodes.append({"name": label})
 
+    # --- Crear gráfico Sankey ---
+    chart = (
+        Sankey()
+        .add(
+            "Flujos",
+            nodes=nodes,
+            links=updated_links,
+            linestyle_opt=opts.LineStyleOpts(curve=0.5, opacity=0.5),
+            label_opts=opts.LabelOpts(position="right"),
+        )
+        .set_global_opts(title_opts=opts.TitleOpts(title="Sankey con valores y porcentajes por nivel"))
+    )
 
-
-    df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
-    df_variedad = df_filtered.groupby(['pais','variedad1'], as_index=False)[['fob', 'litros']].sum()
-    indexes = np.r_[-100:0]
-    top_bottom_10 = df_variedad.sort_values("fob", ignore_index=True).iloc[indexes]
-    df_variedad = df_variedad.sort_values('fob').head(10)
-    st.write(top_bottom_10)
-    pais_list1 = sorted(top_bottom_10["pais"].dropna().unique(), reverse=True)
-    var_list1 = sorted(top_bottom_10["variedad1"].dropna().unique())
-    
-
-
-
-
-
-    df1 = pd.DataFrame({'name':var_list + pais_list})
-
-    result1 = df1.to_json(orient="records")
-
-
-    df_variedad.drop(['litros'], axis='columns', inplace=True)
-    #st.write(df_variedad)
-    df_variedad = df_variedad.rename(columns={'pais': "source",'variedad1': "target",'fob': "value"})
-
-    result3 = df_variedad.to_json(orient="records")
-
-    pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}' 
-
-    data = json.loads(pp)
-
+    # --- Mostrar en Streamlit ---
+    st.title("Sankey con valores y % por nivel")
+    st_pyecharts(chart)
 
