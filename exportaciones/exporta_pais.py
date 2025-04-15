@@ -222,7 +222,7 @@ def exporta_destino():
     df_var2= df_var2[df_var2['pais'].isin(pais_list1)]
     var_list1.append("OTRAS")
     pais_list1.append("OTROS")
-    st.write(var_list1)
+    
 
     df_pais = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
     df_var = df_filtered.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
@@ -237,10 +237,10 @@ def exporta_destino():
     df_varlts= df_varlts[df_varlts['pais'].isin(pais_listlts)]
     var_listlts.append("OTRAS")
     st.write(var_listlts)
-    var_listp = var_listlts
+    var_listp = var_list1
     var_listlts.append("TOTAL VARIEDAD")
     pais_listlts.append("OTROS")
-    pais_listp =pais_listlts
+    pais_listp =pais_list1
     pais_listlts.append("TOTAL PAISES")
     st.write(var_listlts)
 
