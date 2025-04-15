@@ -249,9 +249,9 @@ def exporta_destino():
 
     #df41 = pd.DataFrame({'name': "TOTAL VARIEDAD"})
     #df42 = pd.DataFrame({'name':var_list1})
-    #df43 = pd.DataFrame({'name':pais_listlts})
+    df43 = pd.DataFrame({'name': pais_listlts})
     #df44 = pd.DataFrame({'name': "TOTAL PAISES" })
-    #st.write(df43)
+    st.write(df43)
     
     result1 = df11.to_json(orient="records")
     
