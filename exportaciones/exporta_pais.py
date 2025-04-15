@@ -469,13 +469,14 @@ def exporta_destino():
 
     option = {
         "title":{
-            "top": 2,
+            "top": 0,
             "text": "Top 10 en Valor Fob",
             "subtext": Filtro,
         },
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
+                "top": 55,
                 "type": "sankey",
                 "data":  data1["nodes"],
                 "links": data1["links"],
