@@ -561,10 +561,20 @@ def exporta_evolucion():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
-            "title": {
+            "title": [
+                {
                 "text": 'Exportaciones evolución mensual en Fo',
                 "subtext": Filtro,
-            },            
+                }, 
+                {
+                    "title": Filtro,
+                    "textStyle": {
+                        "fontSize": 8
+                        },
+                    "left": 10%,
+                    "top": 95%,
+                }
+            ].
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
             #"yAxis": {"type": "value"},
             "yAxis": [
