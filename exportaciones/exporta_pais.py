@@ -239,7 +239,7 @@ def exporta_destino():
     
     df_varlts= df_varlts[df_varlts['pais'].isin(pais_listlts)]
     var_listlts.append("OTRAS")
-    #st.write(var_listlts)
+    st.write(var_listlts)
     var_listp = var_list1
     var_listlts.append("TOTAL VARIEDAD")
     pais_listlts.append("OTROS")
