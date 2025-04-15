@@ -578,8 +578,7 @@ def exporta_destino():
     data12 = json.loads(pp12)
     st.write(data12)
 
-
-
+    
 
 
 
@@ -621,8 +620,10 @@ def exporta_destino():
     }
     st_echarts(option,key="otro11", height="500px")
 
-    raw_nodes = nodos
-    links = data12
+    
+    raw_nodes = json.loads(nodos)
+    st.write(raw_nodes)
+    links = json.loads(pp12)
 
 
 
