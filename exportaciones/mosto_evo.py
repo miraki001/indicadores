@@ -174,12 +174,7 @@ def exporta_mosto_evo():
             df_filtered = df_filtered[df_filtered['pais'].isin(pais)]               
             dv2 = dv2[dv2['pais'].isin(pais)]
         Filtro = Filtro + ' Paises  = ' +  str(pais) + ' '                   
-    if producto:
-        if producto[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['producto'].isin(producto)]     
-            dv2 = dv2[dv2['producto'].isin(producto)]
-        Filtro = Filtro + ' Producto  = ' +  str(producto) + ' '       
- 
+
 
     
     dv2 = dv2.astype({'litros' : int, 'fob': int,'ppl' :int } )
