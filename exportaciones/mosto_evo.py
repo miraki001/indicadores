@@ -143,14 +143,14 @@ def exporta_mosto_evo():
             with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
                 año = st.multiselect("Año",   ["Todos"] + year_list, default=['Todos'],label_visibility="collapsed",help="Selecciona uno o más años")
-                #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
+                #anio = st.multiselect("Año22:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
         # Columna 2: Filtro para Países             
         with col2:
             with st.popover("Pais"):
                 st.caption("Selecciona uno o más Paisesde la lista")
-                pais = st.multiselect("Pais",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")      
+                pais = st.multiselect("Pais22",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")      
 
 
 
