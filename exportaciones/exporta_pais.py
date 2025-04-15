@@ -587,6 +587,7 @@ def exporta_destino():
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
             {
+                "top": 15,
                 "type": "sankey",
                 "data":  data11["nodes"],
                 "links": data11["links"],
