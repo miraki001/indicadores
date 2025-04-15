@@ -536,6 +536,7 @@ def exporta_destino():
     result32 = df_varlts.to_json(orient="records")
     pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}' 
     data11 = json.loads(pp11)
+    st.write(data11)
 
 
 
