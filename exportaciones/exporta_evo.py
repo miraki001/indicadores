@@ -575,7 +575,11 @@ def exporta_evolucion():
                     "top": '90%',
                 },
             ],
-            "xAxis": {"type": "category", "data": litros["mes"].tolist()},
+            "xAxis": {"type": "category", "data": litros["mes"].tolist(),
+                    "splitArea": {
+                        "show": true,
+        
+                     },
             #"yAxis": {"type": "value"},
             "yAxis": [
                 {"type": "value" ,"name" : "Fob" ,
