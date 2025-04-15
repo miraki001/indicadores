@@ -193,26 +193,27 @@ def exporta_evolucion():
         if variedad[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
             dv2 = dv2[dv2['variedad'].isin(variedad)]
-            Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
             dv2 = dv2[dv2['tipo_envase'].isin(envase)]
+        Filtro = Filtro + ' Envase = ' +  str(envase) + ' '              
     if color:
         if color[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['color'].isin(color)]          
             dv2 = dv2[dv2['color'].isin(color)]       
-            Filtro = Filtro + ' Envase = ' +  str(envase) + ' '              
+        Filtro = Filtro + ' Color = ' +  str(color) + ' '              
     if pais:
         if pais[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['pais'].isin(pais)]               
             dv2 = dv2[dv2['pais'].isin(pais)]
-            Filtro = Filtro + ' Paises  = ' +  str(pais) + ' '                   
+        Filtro = Filtro + ' Paises  = ' +  str(pais) + ' '                   
     if producto:
         if producto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['producto'].isin(producto)]     
             dv2 = dv2[dv2['producto'].isin(producto)]
-            Filtro = Filtro + ' Producto  = ' +  str(producto) + ' '       
+        Filtro = Filtro + ' Producto  = ' +  str(producto) + ' '       
     
 
    
