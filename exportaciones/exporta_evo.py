@@ -179,6 +179,7 @@ def exporta_evolucion():
 
     
     df_filtered = dv1.copy()    
+    Filtro = 'Filtro = Año = '
     
     if año:
         if año[0] != 'Todos':
@@ -186,12 +187,13 @@ def exporta_evolucion():
         df_filtered["anio"] = df_filtered["anio"].astype(str)
         dv2 = dv2[dv2['anio'] > actual ]
         #data = producto1[producto1['tipo_envase'] == envase]
+        Filtro = Filtro + str(año) + ' '
 
     if variedad:
         if variedad[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
             dv2 = dv2[dv2['variedad'].isin(variedad)]
-            #st.write(variedad)
+            Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
@@ -199,16 +201,18 @@ def exporta_evolucion():
     if color:
         if color[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['color'].isin(color)]          
-            dv2 = dv2[dv2['color'].isin(color)]          
+            dv2 = dv2[dv2['color'].isin(color)]       
+            Filtro = Filtro + ' Envase = ' +  str(envase) + ' '              
     if pais:
         if pais[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['pais'].isin(grupoenvase)]               
-            dv2 = dv2[dv2['grupoenvase'].isin(grupoenvase)]
+            df_filtered = df_filtered[df_filtered['pais'].isin(pais)]               
+            dv2 = dv2[dv2['pais'].isin(pais)]
+            Filtro = Filtro + ' Paises  = ' +  str(pais) + ' '                   
     if producto:
         if producto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['producto'].isin(producto)]     
             dv2 = dv2[dv2['producto'].isin(producto)]
-
+            Filtro = Filtro + ' Producto  = ' +  str(producto) + ' '       
     
 
    
@@ -439,6 +443,10 @@ def exporta_evolucion():
                 '#dd6b66',
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+            "title": {
+                "text": 'Exportaciones Evolución ',
+                "subtext": Filtro,
+            },              
             "legend": {},
             "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
             "yAxis": [
