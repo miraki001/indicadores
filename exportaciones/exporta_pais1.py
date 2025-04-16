@@ -70,7 +70,7 @@ st.markdown(streamlit_style, unsafe_allow_html=True)
 # Datos de conexión (modifica según tu entorno)
 DB_USER = "postgres"
 DB_PASSWORD = "postgres"
-DB_HOST = "172.16.1.76"
+DB_HOST = "119.8.155.25"
 DB_PORT = "5433"
 DB_NAME = "observa"
 
