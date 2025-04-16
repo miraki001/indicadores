@@ -285,17 +285,9 @@ def exporta_mosto_evo():
         # Convertir 'anio' a string para el gráfico
         dv1["Año"] = dv1["Año"].astype(str)
         dv1 = dv1.astype({'Fob' : int, 'Toneladas': int,'ppt' :int } )
-        #dv1['ppt'] = dv1['ppt'].apply(lambda x:'{:,.2f}'.format(x) )
-        #dv1["Toneladas"] = dv1["Toneladas"].map("{:.,0f}".format)
-        #dv1["ppt"] = dv1["ppt"].map("{:.,0f}".format)
-        #dv4 = dv1.style.format({
-        #    "Toneladas": "{:.0f}",
-        #    "Fob": "{:.0f}"
-        #    })
-        #dv4.columns = dv4.columns.droplevel(0)
-        #dv4.styler.hide(axis=0).highlight_max(axis=1) 
-        #st.write(dv1['ppt'])
+
         placeholder = st.empty()
+        st.caption(Filtro)
         # Crear gráfico de líneas y barras
         option = {
           "color": [
@@ -306,6 +298,13 @@ def exporta_mosto_evo():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
+            "title": {
+                "text": 'Exportaciones de Mosto evolución ',
+                "textStyle": {
+                        "fontSize": 12,
+                },                  
+                "subtext": '',
+            },             
             "xAxis": {"type": "category", "data": dv1["Año"].tolist()},
             "yAxis": [
                 {"type": "value" ,"name" : "Tn." ,
@@ -362,8 +361,8 @@ def exporta_mosto_evo():
 
         st_echarts(options=option,key="gauge444" + str(dt.now()), height="400px")
 
-        st.subheader("Exportaciones evolución mensual en Toneladas")
-       
+        #st.subheader("Exportaciones evolución mensual en Toneladas")
+        st.caption(Filtro)
         #litros["mes"] = litros["mes"].astype(str)
         anio1 = litros.columns[1]
         #st.write(litros.columns[1])
@@ -383,6 +382,13 @@ def exporta_mosto_evo():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
+            "title": {
+                "text": 'Evolución mensual en Toneladas" ',
+                "textStyle": {
+                        "fontSize": 12,
+                },                  
+                "subtext": '',
+            },              
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
             "yAxis": {"type": "value"},
             "series": [
@@ -395,7 +401,8 @@ def exporta_mosto_evo():
 
         st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
 
-        st.subheader("Exportaciones evolución mensual en Fob")
+        #st.subheader("Exportaciones evolución mensual en Fob")
+        st.caption(Filtro)
    
         #fob["mes"] = fob["mes"].astype(str)
         anio1 = fob.columns[1]
@@ -414,6 +421,14 @@ def exporta_mosto_evo():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
+            "title": {
+                "text": 'Evolución mensual en Fob" ',
+                "textStyle": {
+                        "fontSize": 12,
+                },                  
+                "subtext": '',
+            },              
+            
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
             "yAxis": {"type": "value"},
             "series": [
@@ -426,7 +441,8 @@ def exporta_mosto_evo():
 
         st_echarts(options=option,key="otro1" + str(dt.now()), height="400px")
 
-        st.subheader("Exportaciones evolución precio promedio por Tonelada ")
+        #st.subheader("Exportaciones evolución precio promedio por Tonelada ")
+        st.caption(Filtro)
    
         #ppl["mes"] = ppl["mes"].astype(str)
         anio1 = ppl.columns[1]
@@ -445,6 +461,14 @@ def exporta_mosto_evo():
             ],
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
+            "title": {
+                "text": 'Evolución mensual en Precio por Tn." ',
+                "textStyle": {
+                        "fontSize": 12,
+                },                  
+                "subtext": '',
+            },              
+            
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
             "yAxis": {"type": "value"},
             "series": [
