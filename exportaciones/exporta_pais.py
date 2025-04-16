@@ -543,7 +543,7 @@ def exporta_destino():
         new_row = pd.Series({'fob': 1, 'pais': 'OTROS', 'variedad1': var,'litros': dif, 'index' : len(df_varlts)})
         df_varlts = append_row(df_varlts, new_row)    
 
-    new_row = pd.Series({'fob': 1, 'pais': 'OTRAS', 'variedad1': 'OTROS','litros': 100, 'index' : len(df_varlts)})
+    new_row = pd.Series({'fob': 1, 'pais': 'OTROS', 'variedad1': 'OTRAS','litros': 100, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row)    
     #new_row = pd.Series({'fob': 1, 'pais': 'OTRAS', 'variedad1': 'OTROS','litros': 100, 'index' : len(df_varlts)})
     #df_varlts = append_row(df_varlts, new_row)    
