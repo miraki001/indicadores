@@ -365,7 +365,7 @@ df_var2['percentage'] = df_var2.apply(
 
 # Creamos un label por link (tooltip opcional)
 df_var2['label'] = df_var2.apply(
-    lambda row: f"{row['source']} ? {row['target']} ({row['percentage']}%)", axis=1
+    lambda row: f"{row['source']} ???? {row['target']} ({row['percentage']}%)", axis=1
 )
 
 # Calculamos totales por nivel
@@ -390,7 +390,7 @@ for node in nodes:
         node_total = df_var2[df_var2['target'] == node]['value'].sum()
         perc_total = round((node_total / total_target) * 100, 2) if total_target else 0
 
-    label = f"{node} ({node_total:,.0f} USD, {perc_total}%)"
+    label = f"{node} ({node_total:,.0f} UST, {perc_total}%)"
     #nodes_enriched.append({"name": label})
     nodes_enriched.append({"original": node, "name": label, "total": node_total})
 
