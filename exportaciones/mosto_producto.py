@@ -206,7 +206,7 @@ def exporta_mosto_producto():
                 height = 600,
                 hide_index=True)
     
-    dv = dv.rename(columns={'litros': "value", 'pais': "name",})
+    dv = dv.rename(columns={'litros': "value", 'producto': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
     #st.subheader('Exportaciones por Pais en Toneladas')
     #st.write(json_list)
@@ -227,10 +227,10 @@ def exporta_mosto_producto():
                 },                  
                 "subtext": '',
         },          
-        "legend": {"data": ["Toneladas","Pais"]},   
+        "legend": {"data": ["Toneladas","Producto"]},   
         "series": [
                 {
-                    "name": "Ventas Totales",
+                    "name": "Ventas en Tn.",
                     "type": "treemap",
                     "visibleMin": 100,
                     "label": {"show": True, "formatter": "{b}"},
@@ -253,8 +253,8 @@ def exporta_mosto_producto():
     st.subheader('Exportaciones por Pais en Fob')
     st.caption(Filtro)
     
-    dv = dv.rename(columns={'value': "litros", 'pais': "name",})
-    dv = dv.rename(columns={'fob': "value", 'pais': "name",})
+    dv = dv.rename(columns={'value': "litros", 'producto': "name",})
+    dv = dv.rename(columns={'fob': "value", 'producto': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
 
     #st.write(json_list)
@@ -275,10 +275,10 @@ def exporta_mosto_producto():
                 },                  
                 "subtext": '',
         },           
-        "legend": {"data": ["litros","Pais"]},   
+        "legend": {"data": ["litros","Producto"]},   
         "series": [
                 {
-                    "name": "Ventas Totales",
+                    "name": "Ventas en Fob",
                     "type": "treemap",
                     "visibleMin": 100,
                     "label": {"show": True, "formatter": "{b}"},
