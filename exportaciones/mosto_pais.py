@@ -126,7 +126,7 @@ def exporta_mosto_destino():
     dv1 = dv1.astype({'litros' : int, 'fob': int} )    
     
     with st.container(border=True):
-        col1, col2, col3 = st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
+        col1 = st.columns([1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
         with col1:
@@ -136,31 +136,14 @@ def exporta_mosto_destino():
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
-        # Columna 2: Filtro para Países
-        with col2:
-            with st.popover("Variedad"):
-                st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedad4",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
-    
-        # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
-        with col3:
-            with st.popover("Envase"):
-                st.caption("Selecciona uno o más Envases de la lista")
-                envase = st.multiselect("Envase4",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
     df_filtered = dv1.copy()
-
+    Filtro = 'Filtro = Año = '
+    
     if año:
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)
-
-    if variedad:
-        if variedad[0] != 'Todas':
-            df_filtered = df_filtered[df_filtered['variedad1'].isin(variedad)]
-            #st.write(variedad)
-    if envase:
-        if envase[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
+        Filtro = Filtro + str(año) + ' '
 
 
     df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
@@ -201,7 +184,9 @@ def exporta_mosto_destino():
             thousands='.',
             decimal=',',
     )
-    st.dataframe(styled_df,
+
+    if st.checkbox('Ver Exportaciones de Mosto por pais en forma de tabla'):    
+        st.dataframe(styled_df,
               column_config={
                 'Pais': st.column_config.Column('Pais'),
                 'Toneladas': st.column_config.Column('Toneladas'),
@@ -215,13 +200,11 @@ def exporta_mosto_destino():
                 height = 600,
                 hide_index=True)
     
-    #st.dataframe(df_sorted)
-    #dv.drop('fob', axis=1, inplace=True)
     dv = dv.rename(columns={'litros': "value", 'pais': "name",})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
-    st.subheader('Exportaciones por Pais en Toneladas')
+    #st.subheader('Exportaciones por Pais en Toneladas')
     #st.write(json_list)
-
+    st.caption(Filtro)
 
     option = {
         "tooltip": {
@@ -231,6 +214,13 @@ def exporta_mosto_destino():
                 "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
             ).js_code,
         },
+        "title": {
+                "text": 'Exportaciones de Mosto por pais en Tn. ',
+                "textStyle": {
+                        "fontSize": 12,
+                },                  
+                "subtext": '',
+        },          
         "legend": {"data": ["Toneladas","Pais"]},   
         "series": [
                 {
@@ -255,6 +245,7 @@ def exporta_mosto_destino():
         options=option,key="gauge2" + str(dt.now()), height="600px",
     )
     st.subheader('Exportaciones por Pais en Fob')
+    st.caption(Filtro)
     
     dv = dv.rename(columns={'value': "litros", 'pais': "name",})
     dv = dv.rename(columns={'fob': "value", 'pais': "name",})
@@ -271,6 +262,13 @@ def exporta_mosto_destino():
                 "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
             ).js_code,
         },
+        "title": {
+                "text": 'Exportaciones de Mosto por pais en Fob ',
+                "textStyle": {
+                        "fontSize": 12,
+                },                  
+                "subtext": '',
+        },           
         "legend": {"data": ["litros","Pais"]},   
         "series": [
                 {
