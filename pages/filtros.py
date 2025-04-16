@@ -426,19 +426,7 @@ data1 = json.loads(pp)
 option = {
     "tooltip": {
         "trigger": "item",
-        "formatter": {
-            "function": """
-                function (info) {
-                    return info.data.label,
-                    if (info.dataType === 'edge') {
-                        return info.data.label || 
-                            (info.data.source + " ? " + info.data.target + "<br/>FOB: USDr \n" + \n info.data.value.toLocaleString());
-                    } else {
-                        return info.name;
-                    }
-                }
-            """
-        }
+
     },
 
     "series": [
