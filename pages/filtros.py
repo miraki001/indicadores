@@ -433,7 +433,7 @@ option = {
                         return info.data.label || 
                             (info.data.source + " ? " + info.data.target + "<br/>FOB: USDr " + info.data.value.toLocaleString());
                     } else {
-                        return info.name;
+                        return info.data.label;
                     }
                 }
             """
