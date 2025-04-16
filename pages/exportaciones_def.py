@@ -15,7 +15,6 @@ from exportaciones import exporta_variedad
 from exportaciones import exporta_color
 from exportaciones import mosto_evo
 from exportaciones import mosto_pais
-from exportaciones import exporta_pais1
 from exportaciones import mosto_producto
 
 def bgcolor_positive_or_negative(value):
