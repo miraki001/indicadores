@@ -202,7 +202,7 @@ def exporta_mosto_producto():
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
                 },
-                width = 800,   
+                width = 1000,   
                 height = 600,
                 hide_index=True)
     
