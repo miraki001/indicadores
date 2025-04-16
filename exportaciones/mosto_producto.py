@@ -250,7 +250,7 @@ def exporta_mosto_producto():
     st_echarts(
         options=option,key="gauge2" + str(dt.now()), height="600px",
     )
-    st.subheader('Exportaciones por Pais en Fob')
+    #st.subheader('Exportaciones por Pais en Fob')
     st.caption(Filtro)
     
     dv = dv.rename(columns={'value': "litros", 'producto': "name",})
