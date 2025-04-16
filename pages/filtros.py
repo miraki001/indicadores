@@ -399,6 +399,7 @@ nodes_data_sorted = sorted(nodes_enriched, key=lambda x: x["total"], reverse=Tru
 
 # Creamos el mapping original ? enriquecido
 name_mapping = {item["original"]: item["name"] for item in nodes_data_sorted}
+st.write(name_mapping)
 
 # Aplicamos el mapping
 df_var2['source'] = df_var2['source'].map(name_mapping)
