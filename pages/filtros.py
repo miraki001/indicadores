@@ -413,7 +413,7 @@ nodes = list(set(df_var2['source']).union(set(df_var2['target'])))
 nodes = [n for n in nodes if pd.notna(n)]
 
 #nodes_enriched = [{"name": node} for node in nodes]
-
+st.write(nodes_enriched)
 # Convertimos a JSON
 result1 = json.dumps(nodes_enriched)
 result3 = df_var2.to_json(orient="records")
