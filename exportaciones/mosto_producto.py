@@ -75,7 +75,7 @@ def exporta_mosto_producto():
             return pd.DataFrame()
 
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,producto  from exportaciones2_m where producto = 'Mosto' and codigoproducto like '%CONCENTRADO%' ; "
+    QUERY_INICIAL = "select distinct anio,producto,pais  from exportaciones2_m where producto = 'Mosto' and codigoproducto like '%CONCENTRADO%' ; "
     df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
