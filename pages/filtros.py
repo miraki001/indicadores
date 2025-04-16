@@ -431,7 +431,7 @@ option = {
                 function (info) {
                     if (info.dataType === 'edge') {
                         return info.data.label || 
-                            (info.data.source + " ? " + info.data.label + "<br/>FOB: USD " + info.data.value.toLocaleString());
+                            (info.data.source + " ? " + info.data.target + "<br/>FOB: USDr " + info.data.value.toLocaleString());
                     } else {
                         return info.name;
                     }
