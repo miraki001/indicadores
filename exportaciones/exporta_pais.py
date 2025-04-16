@@ -568,6 +568,7 @@ def exporta_destino():
     
     df_varlts.drop(['fob'], axis='columns', inplace=True)
     df_varlts = df_varlts.rename(columns={'pais': "source",'variedad1': "target",'litros': "value"})
+    st.write(df_varlts)
     result32 = df_varlts.to_json(orient="records")
     pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}' 
     data11 = json.loads(pp11)
@@ -624,7 +625,7 @@ def exporta_destino():
     
     raw_nodes = json.loads(nodos)
     links = json.loads(pp12)
-    st.write(links)
+    #st.write(links)
 
 
 
