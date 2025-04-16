@@ -629,7 +629,7 @@ def exporta_destino():
     
     raw_nodes = json.loads(nodos)
     links = json.loads(pp12)
-    #st.write(links)
+    st.write(links)
 
 
 
