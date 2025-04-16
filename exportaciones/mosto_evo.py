@@ -178,7 +178,6 @@ def exporta_mosto_evo():
 
     
     dv2 = dv2.astype({'litros' : int, 'fob': int,'ppl' :int } )
-    #st.write(dv2)
 
     litros = dv2.pivot_table(
           index='mes', 
@@ -186,7 +185,6 @@ def exporta_mosto_evo():
           values=['litros'],
           aggfunc='sum'
     )
-    #st.write(litros)
 
     fob = dv2.pivot_table(
           index='mes', 
@@ -237,7 +235,6 @@ def exporta_mosto_evo():
             total.append((  (dv1['litros'].loc[index] / dv1['litros'].loc[index -1]) -1 ) *100 )
             tot1.append((  (dv1['fob'].loc[index] / dv1['fob'].loc[index -1]) -1 ) *100 )
             tot2.append((  (dv1['ppl'].loc[index] / dv1['ppl'].loc[index -1]) -1 ) *100     )
-        #st.write(total)
         dv1 = dv1.rename(columns={'litros': "Toneladas", 'fob': "Fob",'anio': "Año","ppl": 'ppt'})
         dv1['Tn Var %'] = total
         dv1['Fob Var. %'] = tot1
@@ -258,8 +255,6 @@ def exporta_mosto_evo():
             decimal=',',
         )
 
-        #styled_df = styled_df.reset_index().rename_axis(None, axis=1)
-        #st.write(styled_df)
         if st.checkbox('Ver datos en forma de tabla '):
             st.dataframe(styled_df,
               column_config={
@@ -276,11 +271,9 @@ def exporta_mosto_evo():
                 height = 800,
                 hide_index=True)
 
-            st.write(dv1.describe(include=[np.number]))
+            #st.write(dv1.describe(include=[np.number]))
 
-            #st.write(dv3)
   
-        #st.dataframe(dv1)
 
         # Convertir 'anio' a string para el gráfico
         dv1["Año"] = dv1["Año"].astype(str)
@@ -363,14 +356,10 @@ def exporta_mosto_evo():
 
         #st.subheader("Exportaciones evolución mensual en Toneladas")
         st.caption(Filtro)
-        #litros["mes"] = litros["mes"].astype(str)
         anio1 = litros.columns[1]
-        #st.write(litros.columns[1])
         anio2 = litros.columns[2]
         anio3 = litros.columns[3]
         anio4 = litros.columns[4]
-        st.write('año')
-        #st.write(litros["mes"])
 
         # Crear gráfico de líneas y barras
         option = {
@@ -404,9 +393,7 @@ def exporta_mosto_evo():
         #st.subheader("Exportaciones evolución mensual en Fob")
         st.caption(Filtro)
    
-        #fob["mes"] = fob["mes"].astype(str)
         anio1 = fob.columns[1]
-        #st.write(fob.columns[1])
         anio2 = fob.columns[2]
         anio3 = fob.columns[3]
         anio4 = fob.columns[4]
@@ -444,9 +431,7 @@ def exporta_mosto_evo():
         #st.subheader("Exportaciones evolución precio promedio por Tonelada ")
         st.caption(Filtro)
    
-        #ppl["mes"] = ppl["mes"].astype(str)
         anio1 = ppl.columns[1]
-        #st.write(fob.columns[1])
         anio2 = ppl.columns[2]
         anio3 = ppl.columns[3]
         anio4 = ppl.columns[4]
