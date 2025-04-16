@@ -191,7 +191,7 @@ def exporta_mosto_producto():
             decimal=',',
     )
 
-    if st.checkbox('Ver Exportaciones de Mosto por pais en forma de tabla'):    
+    if st.checkbox('Ver Exportaciones de Mosto por producto en forma de tabla'):    
         st.dataframe(styled_df,
               column_config={
                 'Producto': st.column_config.Column('Producto'),
