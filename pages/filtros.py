@@ -411,6 +411,7 @@ df_var2['target'] = df_var2['target'].map(name_mapping)
 # Recalculamos nodos únicos válidos
 nodes = list(set(df_var2['source']).union(set(df_var2['target'])))
 nodes = [n for n in nodes if pd.notna(n)]
+df_var2 = df_var2.rename(columns={'target': "target1", 'label': "target"})
 
 #nodes_enriched = [{"name": node} for node in nodes]
 st.write(df_var2)
