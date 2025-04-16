@@ -399,7 +399,7 @@ nodes_data_sorted = sorted(nodes_enriched, key=lambda x: x["total"], reverse=Tru
 
 # Creamos el mapping original ? enriquecido
 name_mapping = {item["original"]: item["name"] for item in nodes_data_sorted}
-st.write(name_mapping)
+#st.write(name_mapping)
 
 # Aplicamos el mapping
 df_var2['source'] = df_var2['source'].map(name_mapping)
@@ -411,10 +411,10 @@ df_var2['target'] = df_var2['target'].map(name_mapping)
 # Recalculamos nodos únicos válidos
 nodes = list(set(df_var2['source']).union(set(df_var2['target'])))
 nodes = [n for n in nodes if pd.notna(n)]
-df_var2 = df_var2.rename(columns={'target': "target1", 'label': "target"})
+#df_var2 = df_var2.rename(columns={'target': "target1", 'label': "target"})
 
 #nodes_enriched = [{"name": node} for node in nodes]
-st.write(df_var2)
+#st.write(df_var2)
 # Convertimos a JSON
 result1 = json.dumps(nodes_enriched)
 result3 = df_var2.to_json(orient="records")
@@ -422,7 +422,7 @@ result3 = df_var2.to_json(orient="records")
 # Armamos el paquete final
 pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}'
 data1 = json.loads(pp)
-st.write(data1)
+#st.write(data1)
 
 # Construimos la visualización
 option = {
