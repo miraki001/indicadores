@@ -126,11 +126,11 @@ def exporta_mosto_destino():
     dv1 = dv1.astype({'litros' : int, 'fob': int} )    
     
     with st.container(border=True):
-        col1 = st.columns([1])  # Ajusta los tamaños de las columnas
+        #col1 = st.columns([1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
-        with col1:
-            with st.popover("Año"):
+        #with col1:
+        with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
                 año = st.multiselect("Año4",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
