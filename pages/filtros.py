@@ -422,6 +422,7 @@ result3 = df_var2.to_json(orient="records")
 # Armamos el paquete final
 pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}'
 data1 = json.loads(pp)
+st.write(data1)
 
 # Construimos la visualización
 option = {
