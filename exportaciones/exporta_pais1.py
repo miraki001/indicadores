@@ -68,8 +68,8 @@ streamlit_style = """
 st.markdown(streamlit_style, unsafe_allow_html=True) 
 
 # Datos de conexión (modifica según tu entorno)
-DB_USER = "postgres"
-DB_PASSWORD = "postgres"
+DB_USER = "observa"
+DB_PASSWORD = "observa"
 DB_HOST = "119.8.155.25"
 DB_PORT = "5432"
 DB_NAME = "observa"
