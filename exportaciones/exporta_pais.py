@@ -726,10 +726,10 @@ def exporta_destino():
     #        pp = 1
     #else:
     #        pp = level_totals[node["level"]]
-    name_to_label = {
-            node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / level_totals[node["level"]] * 100):.0f}%)'
-        for node in raw_nodes
-    }
+    #name_to_label = {
+    #        node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / level_totals[node["level"]] * 100):.0f}%)'
+    #    for node in raw_nodes
+    #}
 
     # --- ?? Luego generás los nodos con los labels en "name" ---
     nodes = [{"name": label} for label in name_to_label.values()]
