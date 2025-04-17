@@ -633,7 +633,7 @@ def exporta_destino():
 
 
     result1 = json.dumps(nodes_enriched)
-    result3 = df_var2.to_json(orient="records")    
+    result3 = df_varlts.to_json(orient="records")    
     pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}'
     data1 = json.loads(pp)    
 
