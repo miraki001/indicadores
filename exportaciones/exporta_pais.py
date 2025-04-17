@@ -723,7 +723,10 @@ def exporta_destino():
         level_totals[level] += value
     # --- ?? Acá colocás el mapa de nombres a etiquetas con valor y porcentaje ---
     name_to_label = {
-        node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / level_totals[node["level"]] * 100):.0f}%)'
+        if  level_totals[node["level"]]== 0:
+            node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / 1 * 100):.0f}%)'
+        else:
+            node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / level_totals[node["level"]] * 100):.0f}%)'
         for node in raw_nodes
     }
 
