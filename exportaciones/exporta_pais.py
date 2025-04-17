@@ -591,6 +591,7 @@ def exporta_destino():
             "top": 0,
             "text": "Top 10 en Litros",
             "subtext": Filtro,
+            "formatter": "{b} :{c}"
         },
         "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
         "series": [
