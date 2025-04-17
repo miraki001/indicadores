@@ -694,9 +694,9 @@ def exporta_destino():
           color = "blue"
         ),
         link = dict(
-          source = raw_nodes['source'],
-          target = raw_nodes['target'],
-          value = raw_nodes['value'],
+          source = raw_nodes['source'].dropna(axis=0, how='any'),,
+          target = raw_nodes['target'].dropna(axis=0, how='any'),,
+          value = raw_nodes['value'].dropna(axis=0, how='any'),,
       ))])
 
     fig.update_layout(title_text="Basic Sankey Diagram", font_size=10)
