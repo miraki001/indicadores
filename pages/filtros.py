@@ -428,7 +428,8 @@ data1 = json.loads(pp)
 option = {
     "tooltip": {
         "trigger": "item",
-        "formatter": JsCode("function (info) { if (info.dataType === 'edge') { return info.data.label || (info.data.source + ' ? ' + info.data.target + '<br/>FOB: USD ' + info.data.value.toLocaleString()); } else {return info.name;}").js_code, 
+        "formatter": JsCode("function (info) { if (info.dataType === 'edge')
+        { return info.data.label || (info.data.source + ' ? ' + info.data.target + '<br/>FOB: USD ' + info.data.value.toLocaleString()); } else {return info.name};").js_code, 
                 
         },
 
