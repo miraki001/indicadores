@@ -632,12 +632,16 @@ def exporta_destino():
     st.write(df_varlts)
 
 
+    result1 = json.dumps(nodes_enriched)
+    result3 = df_var2.to_json(orient="records")    
+    pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}'
+    data1 = json.loads(pp)    
 
-    result32 = df_varlts.to_json(orient="records")
-    pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}' 
-    data11 = json.loads(pp11)
-    pp12 =  lista + result32 
-    data12 = json.loads(pp12)
+    #result32 = df_varlts.to_json(orient="records")
+    #pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}' 
+    #data11 = json.loads(pp11)
+    #pp12 =  lista + result32 
+    #data12 = json.loads(pp12)
 
     
 
@@ -661,8 +665,8 @@ def exporta_destino():
             {
                 "top": 55,
                 "type": "sankey",
-                "data":  data11["nodes"],
-                "links": data11["links"],
+                "data":  data1["nodes"],
+                "links": data1["links"],
                 "emphasis": {"focus": "adjacency"},
                 "levels": [
                     {
@@ -692,109 +696,6 @@ def exporta_destino():
     }
     st_echarts(option,key="otro11", height="500px")
 
-    
-    raw_nodes = json.loads(nodos)
-    links = json.loads(pp12)
-    #st.write(raw_nodes)
 
 
 
-    # --- Calcular entradas y salidas por nodo ---
-    node_input = defaultdict(int)
-    node_output = defaultdict(int)
-
-    for link in links:
-        node_input[link["target"]] += link["value"]
-        node_output[link["source"]] += link["value"]
-
-    # --- Agrupar por nivel y calcular totales por nivel ---
-    level_totals = defaultdict(int)
-    node_values = {}
-
-    for node in raw_nodes:
-        name = node["name"]
-        level = node["level"]
-        if level == 1:
-            st.write('nivel 1')
-            value = node_output.get(name, 0)  # nivel 1 usa salidas
-        else:
-            value = node_input.get(name, 0)   # los demás usan entradas
-        node_values[name] = value
-        level_totals[level] += value
-    # --- ?? Acá colocás el mapa de nombres a etiquetas con valor y porcentaje ---
-
-    st.write('aca')
-    
-    st.write(level_totals[node["level"]])
-
-    st.write('despues')
-
-
-    st.write(raw_nodes)
-
-    
-    #if  level_totals[node["level"]]== 0:
-    #        pp = 1
-    #else:
-    #        pp = level_totals[node["level"]]
-    #name_to_label = {
-    #        node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] / level_totals[node["level"]] * 100):.0f}%)'
-    #    for node in raw_nodes
-    #}
-
-    # --- ?? Luego generás los nodos con los labels en "name" ---
-    nodes = [{"name": label} for label in name_to_label.values()]
-    
-    # --- ?? Y también actualizás los links con esos labels ---
-
-    
-    updated_links = [
-        {"source": name_to_label[link["source"]], "target": name_to_label[link["target"]], "value": link["value"]}
-        for link in links
-    ]
-
-    # --- Agregar valores y porcentajes al label de cada nodo ---
-    nodes = []
-    for node in raw_nodes:
-        name = node["name"]
-        level = node["level"]
-        value = node_values.get(name, 0)
-        total = level_totals[level]
-        percentage = (value / total * 100) if total > 0 else 0
-        label = f"{name}\n{value:.0f} ({percentage:.0f}%)"
-        nodes.append({"name": label})
-
-    fig = go.Figure(data=[go.Sankey(
-        node = dict(
-          pad = 15,
-          thickness = 20,
-          line = dict(color = "black", width = 0.5),
-          label = df11['name'],
-          color = "blue"
-        ),
-        link = dict(
-          source = raw_nodes['source'].dropna(axis=0, how='any'),
-          target = raw_nodes['target'].dropna(axis=0, how='any'),
-          value = raw_nodes['value'].dropna(axis=0, how='any'),
-      ))])
-
-    fig.update_layout(title_text="Basic Sankey Diagram", font_size=10)
-    fig.show()
-
-    
-    # --- Crear gráfico Sankey ---
-    chart = (
-        Sankey()
-        .add(
-            "Flujos",
-            nodes=nodes,
-            links=updated_links,
-            linestyle_opt=opts.LineStyleOpts(curve=0.5, opacity=0.5),
-            label_opts=opts.LabelOpts(position="right"),
-        )
-        .set_global_opts(title_opts=opts.TitleOpts(title="Sankey con valores y porcentajes por nivel"))
-    )
-
-    # --- Mostrar en Streamlit ---
-    st.title("Sankey con valores y % por nivel")
-    st_pyecharts(chart)
