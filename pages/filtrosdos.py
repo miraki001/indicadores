@@ -115,9 +115,12 @@ dv1 = cargar_datos(QUERY_V1)
 dv1['anio'] = dv1['anio'].astype(str)
 
 year_list = sorted(dv1["anio"].dropna().unique(), reverse=True)
+año = st.multiselect("Año",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
+año = [str(a) for a in año]  # Asegura que la selección sea string también
+
 
 df_filtered = dv1.copy()
-df_filtered = df_filtered[df_filtered['anio'].isin(2024)]
+df_filtered = df_filtered[df_filtered['anio'].isin(año)]
 df_filtered["anio"] = df_filtered["anio"].astype(str)
 
 df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
