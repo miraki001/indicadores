@@ -725,7 +725,7 @@ def exporta_destino():
     if  level_totals[node["level"]]== 0:
             pp = 1
     else:
-            pp = level_totals[node["level"]]=
+            pp = level_totals[node["level"]]
     name_to_label = {
             node["name"]: f'{node["name"]}\n{node_values[node["name"]]:.0f} ({(node_values[node["name"]] /pp * 100):.0f}%)'
         for node in raw_nodes
