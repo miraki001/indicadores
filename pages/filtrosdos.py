@@ -115,7 +115,7 @@ dv1 = cargar_datos(QUERY_V1)
 dv1['anio'] = dv1['anio'].astype(str)
 
 df_filtered = dv1.copy()
-df_filtered = df_filtered[df_filtered['anio'].isin('2024')]
+df_filtered = df_filtered[df_filtered['anio'].isin(2024)]
 df_filtered["anio"] = df_filtered["anio"].astype(str)
 
 df_anual = df_filtered.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
