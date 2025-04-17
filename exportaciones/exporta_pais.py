@@ -626,7 +626,7 @@ def exporta_destino():
     # Aplicamos el mapping
     df_varlts['source'] = df_varlts['source'].map(name_mapping)
     df_varlts['target'] = df_varlts['target'].map(name_mapping)
-     nodes = list(set(df_var2['source']).union(set(df_var2['target'])))
+    nodes = list(set(df_varlts['source']).union(set(df_varlts['target'])))
     nodes = [n for n in nodes if pd.notna(n)]   
 
     st.write(df_varlts)
