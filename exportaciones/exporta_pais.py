@@ -631,7 +631,7 @@ def exporta_destino():
     
     raw_nodes = json.loads(nodos)
     links = json.loads(pp12)
-    st.write(links)
+    st.write(raw_nodes)
 
 
 
@@ -690,13 +690,13 @@ def exporta_destino():
           pad = 15,
           thickness = 20,
           line = dict(color = "black", width = 0.5),
-          label = nodes,
+          label = raw_nodes['target'],
           color = "blue"
         ),
         link = dict(
-          source = updated_links.source,
-          target = updated_links.target,
-          value = updated_links.value,
+          source = raw_nodes['source'],
+          target = raw_nodes['target'],
+          value = raw_nodes['value'],
       ))])
 
     fig.update_layout(title_text="Basic Sankey Diagram", font_size=10)
