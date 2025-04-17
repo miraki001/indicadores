@@ -728,6 +728,11 @@ def exporta_destino():
     st.write(level_totals[node["level"]])
 
     st.write('despues')
+
+
+    st.write(raw_nodes)
+
+    
     #if  level_totals[node["level"]]== 0:
     #        pp = 1
     #else:
