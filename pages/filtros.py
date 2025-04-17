@@ -365,7 +365,7 @@ df_var2['percentage'] = df_var2.apply(
 
 # Creamos un label por link (tooltip opcional)
 df_var2['label'] = df_var2.apply(
-    lambda row: f"{row['source']} >> {row['target']} ({row['percentage']}%)", axis=1
+    lambda row: f"{row['source']} <> {row['target']} ({row['percentage']}%)", axis=1
 )
 
 # Calculamos totales por nivel
