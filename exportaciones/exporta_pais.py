@@ -12,6 +12,7 @@ from datetime import datetime as dt
 from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Sankey
 from collections import defaultdict
+import plotly.graph_objects as go
 
 def exporta_destino():
 
@@ -684,6 +685,24 @@ def exporta_destino():
         label = f"{name}\n{value:.0f} ({percentage:.0f}%)"
         nodes.append({"name": label})
 
+    fig = go.Figure(data=[go.Sankey(
+        node = dict(
+          pad = 15,
+          thickness = 20,
+          line = dict(color = "black", width = 0.5),
+          label = nodes,
+          color = "blue"
+        ),
+        link = dict(
+          source = updated_links.source,
+          target = updated_links.target,
+          value = updated_links.value,
+      ))])
+
+    fig.update_layout(title_text="Basic Sankey Diagram", font_size=10)
+    fig.show()
+
+    
     # --- Crear gráfico Sankey ---
     chart = (
         Sankey()
