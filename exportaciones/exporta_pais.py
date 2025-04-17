@@ -621,7 +621,7 @@ def exporta_destino():
 
     # Creamos el mapping original ? enriquecido
     name_mapping = {item["original"]: item["name"] for item in nodes_data_sorted}
-    #st.write(name_mapping)
+    st.write(name_mapping)
 
     # Aplicamos el mapping
     df_varlts['source'] = df_varlts['source'].map(name_mapping)
@@ -629,7 +629,7 @@ def exporta_destino():
     nodes = list(set(df_varlts['source']).union(set(df_varlts['target'])))
     nodes = [n for n in nodes if pd.notna(n)]   
 
-    #st.write(df_varlts)
+    st.write(df_varlts)
 
 
 
