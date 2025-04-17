@@ -598,7 +598,7 @@ def exporta_destino():
             "triggerOn": "mousemove",
             "formatter": {
                 "function": """  
-                    function(e) { console.log(e)  return e.name +': ' +e.value +'%'  },
+                    function(e) { return e.name +' ? ' + e.value +'%'  },
                 """
                 },
                    
