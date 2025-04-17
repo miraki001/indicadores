@@ -629,7 +629,7 @@ def exporta_destino():
     nodes = list(set(df_varlts['source']).union(set(df_varlts['target'])))
     nodes = [n for n in nodes if pd.notna(n)]   
 
-    st.write(df_varlts)
+    #st.write(df_varlts)
 
 
 
@@ -695,7 +695,7 @@ def exporta_destino():
     
     raw_nodes = json.loads(nodos)
     links = json.loads(pp12)
-    st.write(raw_nodes)
+    #st.write(raw_nodes)
 
 
 
