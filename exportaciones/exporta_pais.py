@@ -722,6 +722,8 @@ def exporta_destino():
         node_values[name] = value
         level_totals[level] += value
     # --- ?? Acá colocás el mapa de nombres a etiquetas con valor y porcentaje ---
+
+    st.write('aca ')
     st.write(level_totals[node["level"]])
     #if  level_totals[node["level"]]== 0:
     #        pp = 1
