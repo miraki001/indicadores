@@ -690,7 +690,7 @@ def exporta_destino():
           pad = 15,
           thickness = 20,
           line = dict(color = "black", width = 0.5),
-          label = raw_nodes['target'],
+          label = df11['name'],
           color = "blue"
         ),
         link = dict(
