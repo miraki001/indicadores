@@ -251,7 +251,7 @@ def exporta_destino():
     pais_listlts.append("OTROS")
     pais_listp =pais_listlts
     pais_listlts.append("TOTAL PAISES")
-    st.write(df_varlts)
+    #st.write(df_varlts)
 
     
 
