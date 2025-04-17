@@ -593,7 +593,15 @@ def exporta_destino():
             "subtext": Filtro,
             "formatter": "{b} ::::{c}"
         },
-        "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
+        "tooltip": {
+            "trigger": "item",
+            "triggerOn": "mousemove"
+            "formatter":function(e) {
+                console.log(e)
+                return e.name +': ' +e.value +'%'
+        },
+                   
+                   },
         "series": [
             {
                 "top": 55,
