@@ -595,7 +595,7 @@ def exporta_destino():
         },
         "tooltip": {
             "trigger": "item",
-            "triggerOn": "mousemove"
+            "triggerOn": "mousemove",
             "formatter": JsCode("function(e) { console.log(e)  return e.name +': ' +e.value +'%'  };").js_code, 
                    
                    },
