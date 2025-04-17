@@ -547,9 +547,11 @@ def exporta_destino():
 
     new_row = pd.Series({'fob': 1, 'pais': 'OTROS', 'variedad1': 'OTRAS','litros': 100, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row)    
-    new_row = pd.Series({'fob': 1, 'pais': 'FRANCIA', 'variedad1': 'MERLOT','litros': 10, 'index' : len(df_varlts)})
-    df_varlts = append_row(df_varlts, new_row)    
+    #new_row = pd.Series({'fob': 1, 'pais': 'FRANCIA', 'variedad1': 'MERLOT','litros': 10, 'index' : len(df_varlts)})
+    #df_varlts = append_row(df_varlts, new_row)    
 
+   
+    
 
 
     df5 = df_variedad[~df_variedad['variedad1'].isin(var_listlts)]
@@ -574,7 +576,20 @@ def exporta_destino():
     
     df_varlts.drop(['fob'], axis='columns', inplace=True)
     df_varlts = df_varlts.rename(columns={'pais': "source",'variedad1': "target",'litros': "value"})
+
+    #parte para poner los porcentajes
+
+    source_totals = df_varlts.groupby('source')['value'].sum().to_dict()
+
+    # Calculamos porcentaje por fila
+    df_varlts['percentage'] = df_var2.apply(
+        lambda row: round((row['value'] / source_totals.get(row['source'], 1)) * 100, 2), axis=1
+    ) 
+
     st.write(df_varlts)
+
+
+
     result32 = df_varlts.to_json(orient="records")
     pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}' 
     data11 = json.loads(pp11)
