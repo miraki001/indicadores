@@ -658,7 +658,7 @@ def exporta_destino():
         "tooltip": {
             "trigger": "item",
             "triggerOn": "mousemove",
-            "formatter": JsCode("function(e) { return e.name +' > ' + e.value +'%'  };" ).js_code, 
+            "formatter": "formatter": JsCode("function (info) { if (info.dataType === 'edge')     { return info.data.label || (info.data.source + ' > ' + info.data.target + '<br/>FOB: USD ' + info.data.value.toLocaleString()); } else {return info.name}};").js_code,  
                    
                    },
         "series": [
