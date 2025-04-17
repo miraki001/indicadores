@@ -116,7 +116,7 @@ dv1['anio'] = dv1['anio'].astype(str)
 
 year_list = sorted(dv1["anio"].dropna().unique(), reverse=True)
 st.write(year_list)
-año = st.multiselect("Año",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
+año = st.multiselect("Año",  year_list, default=['2024'],label_visibility="collapsed",help="Selecciona uno o más años")
 año = [str(a) for a in año]  # Asegura que la selección sea string también
 
 
