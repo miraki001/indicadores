@@ -414,7 +414,7 @@ nodes = [n for n in nodes if pd.notna(n)]
 #df_var2 = df_var2.rename(columns={'target': "target1", 'label': "target"})
 
 #nodes_enriched = [{"name": node} for node in nodes]
-#st.write(df_var2)
+st.write(df_var2)
 # Convertimos a JSON
 result1 = json.dumps(nodes_enriched)
 result3 = df_var2.to_json(orient="records")
