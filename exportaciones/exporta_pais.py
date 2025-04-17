@@ -586,6 +586,48 @@ def exporta_destino():
         lambda row: round((row['value'] / source_totals.get(row['source'], 1)) * 100, 2), axis=1
     ) 
 
+    df_varlts['label'] = df_var2.apply(
+        lambda row: f"{row['source']} <> {row['target']} ({row['percentage']}%)", axis=1
+    )
+
+    # Calculamos totales por nivel
+    total_source = df_varlts.groupby('source')['value'].sum().sum()
+    total_target = df_varlts.groupby('target')['value'].sum().sum()
+
+    # Listado único de nodos
+    nodes = list(set(df_varlts['source']).union(set(df_varlts['target'])))
+
+    # Enriquecemos nodos con total y %
+    nodes_enriched = []
+    for node in nodes:
+        is_source = node in df_varlts['source'].values
+        is_target = node in df_varlts['target'].values
+
+        node_total = 0
+        perc_total = 0
+        if is_source:
+            node_total = df_varlts[df_varlts['source'] == node]['value'].sum()
+            perc_total = round((node_total / total_source) * 100, 2) if total_source else 0
+        elif is_target:
+            node_total = df_varlts[df_varlts['target'] == node]['value'].sum()
+            perc_total = round((node_total / total_target) * 100, 2) if total_target else 0
+
+        label = f"{node} ({node_total:,.0f} UST, {perc_total}%)"
+        #nodes_enriched.append({"name": label})
+        nodes_enriched.append({"original": node, "name": label, "total": node_total})
+
+    # Ordenamos los nodos por total (descendente)
+    nodes_data_sorted = sorted(nodes_enriched, key=lambda x: x["total"], reverse=True)
+
+    # Creamos el mapping original ? enriquecido
+    name_mapping = {item["original"]: item["name"] for item in nodes_data_sorted}
+    #st.write(name_mapping)
+
+    # Aplicamos el mapping
+    df_varlts['source'] = df_varlts['source'].map(name_mapping)
+    df_varlts['target'] = df_varlts['target'].map(name_mapping)
+    
+
     st.write(df_varlts)
 
 
