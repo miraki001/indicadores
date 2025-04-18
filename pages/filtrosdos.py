@@ -232,8 +232,8 @@ for index in range(len(top_litros_10_pais)) :
     valor1 = df_var3.loc[df_var3["pais"] == pais, "litros"]
     dif = valor - int(valor1)
     tot1 = tot1 + dif
-    por1 = (total_var/dif)* 100
-    new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif,'porVar':por1, 'index' : len(df_varlts)})
+    por1 = (dif/total_var)* 100
+    new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif,'porceVar':por1, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row)    
     
 st.write(df_varlts)
