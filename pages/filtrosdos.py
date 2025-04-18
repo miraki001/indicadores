@@ -191,14 +191,14 @@ nodos = df55.to_json(orient="records")
 result1 = df11.to_json(orient="records")
 
 top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexe1]
-st.write(top_bottom_11)
+#st.write(top_bottom_11)
 pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
 var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
 
 
 df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
 df_var4 = df_var2.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
-#st.write(df_var3)
+st.write(df_var3)
 lista = ''
 for index in range(len(top_bottom_10_pais)) :
     valor = top_bottom_10_pais['fob'].iloc[index]
