@@ -215,7 +215,7 @@ for index in range(len(df_varlts)):
 
 df_varlts['porceVar'] = por1
 df_varlts['porcePais'] = por2
-st.write(df_varlts)
+#st.write(df_varlts)
 
 df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
 df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
@@ -224,7 +224,7 @@ df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].su
 
 
 total_var = df_var['litros'].sum()
-st.write(total_var)
+#st.write(total_var)
 tot1 = 0
 for index in range(len(top_litros_10_pais)) :
     valor = top_litros_10_pais['litros'].iloc[index]
@@ -232,9 +232,11 @@ for index in range(len(top_litros_10_pais)) :
     valor1 = df_var3.loc[df_var3["pais"] == pais, "litros"]
     dif = valor - int(valor1)
     tot1 = tot1 + dif
-    new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif, 'index' : len(df_varlts)})
+    por1 = (total_var/dif)* 100
+    new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif,'porVar':por1, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row)    
-
+    
+st.write(df_varlts)
 for index in range(len(top_litros_10_pais)) :
     valor = top_litros_10_pais['litros'].iloc[index]
     pais = top_litros_10_pais['pais'].iloc[index]
