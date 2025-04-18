@@ -298,7 +298,7 @@ st.write(df_varlts)
 option = {
     "title": {"text": "Top 10 en Litros"},
     "tooltip": {"trigger": "item", "triggerOn": "mousemove",
-                "formatter": JsCode("function (info) { if (info.dataType === 'edge')  { return info.data.source + ' ' +  info.data.porceVar  +' % ' + (info.data.porceVar + ' > ' + info.data.target + '<br/>Lts ' + info.data.value.toLocaleString()); } else {return info.data.name + info.data.porcePais  }};").js_code,  
+                "formatter": JsCode("function (info) { if (info.dataType === 'edge')  { return info.data.source + ' ' +  info.data.porceVar:.0f  +' % ' + (info.data.porceVar + ' > ' + info.data.target + '<br/>Lts ' + info.data.value.toLocaleString()); } else {return info.data.name + info.data.porcePais  }};").js_code,  
             
                },
     "series": [
