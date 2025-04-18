@@ -207,17 +207,14 @@ for index in range(len(df_varlts)):
     var = df_varlts['variedad1'].iloc[index]
     valor = df_varlts['litros'].iloc[index]
     valor1 = df_var.loc[df_var["variedad1"] == var, "litros"]
-    st.write(var)
-    st.write(valor)
-    st.write(valor1)
     por1.append( (int(valor) / int(valor1) ) *100 )
     pais = df_varlts['pais'].iloc[index]
     valor = df_varlts['litros'].iloc[index]
     valor1 = df_pais.loc[df_pais["pais"] == pais, "litros"]    
     por2.append(  (int(valor) / int(valor1)) *100 )
 
-df_varlts['porce1'] = por1
-df_varlts['porce2'] = por2
+df_varlts['porceVar'] = por1
+df_varlts['porcePais'] = por2
 st.write(df_varlts)
 
 df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
