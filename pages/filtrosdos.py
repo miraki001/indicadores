@@ -310,17 +310,17 @@ option = {
                 {
                     "depth": 0,
                     "itemStyle": {"color": "#06C2CC"},
-                    "lineStyle": {"color": "variedad1", "opacity": 0.6},
+                    "lineStyle": {"color": "source", "opacity": 0.6},
                 },
                 {
                     "depth": 1,
                     "itemStyle": {"color": "#1E8DB6"},
-                    "lineStyle": {"color": "pais", "opacity": 0.6},
+                    "lineStyle": {"color": "source", "opacity": 0.6},
                 },
                 {
                     "depth": 2,
                     "itemStyle": {"color": "#A9F8FA"},
-                    "lineStyle": {"color": "pais", "opacity": 0.6},
+                    "lineStyle": {"color": "source", "opacity": 0.6},
                 },
                 {
                     "depth": 3,
