@@ -158,9 +158,7 @@ var_listlts.append("TOTAL VARIEDAD")
 pais_listlts.append("OTROS")
 pais_listp =pais_listlts
 pais_listlts.append("TOTAL PAISES")
-#st.write(var_listlts)
-#st.write(pais_listlts)
-#st.write(df_varlts)
+
 
 df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
 #st.write(top_bottom_10_pais)
@@ -196,31 +194,9 @@ pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
 var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
 
 
-df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
-df_var4 = df_var2.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
-st.write(df_var3)
-lista = ''
-for index in range(len(top_bottom_10_pais)) :
-    valor = top_bottom_10_pais['fob'].iloc[index]
-    pais = top_bottom_10_pais['pais'].iloc[index]
-    valor1 = df_var3.loc[df_var3["pais"] == pais, "fob"]
-    dif = valor - int(valor1)
-    new_row = pd.Series({'fob': dif, 'pais': pais, 'variedad1': 'OTRAS','litros': 1, 'index' : len(df_var2)})
-    df_var2 = append_row(df_var2, new_row)    
-
-for index in range(len(top_bottom_10_var)) :
-    valor = top_bottom_10_var['fob'].iloc[index]
-    var = top_bottom_10_var['variedad1'].iloc[index]
-    valor1 = df_var4.loc[df_var4["variedad1"] == var, "fob"]
-    dif = valor - int(valor1)
-    new_row = pd.Series({'fob': dif, 'pais': 'OTROS', 'variedad1': var,'litros': 1, 'index' : len(df_var2)})
-    df_var2 = append_row(df_var2, new_row)    
-
-
-
 
 #agregamos los litros del resto de los paises y el resto de las variedade
-#st.write(df_varlts)
+st.write(df_varlts)
 df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
 df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
 st.write(top_litros_10_pais)
