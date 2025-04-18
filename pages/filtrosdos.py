@@ -298,7 +298,7 @@ st.write(result32)
 option = {
     "title": {"text": "Top 10 en Litros"},
     "tooltip": {"trigger": "item", "triggerOn": "mousemove",
-                "formatter": JsCode("function (info) { if (info.dataType === 'edge')  { return info.data.porceVar || (info.data.porcePais + ' > ' + info.data.target + '<br/>FOB: USD ' + info.data.value.toLocaleString()); } else {return info.data.name}};").js_code,  
+                "formatter": JsCode("function (info) { if (info.dataType === 'edge')  { return info.porceVar || (info.data.porcePais + ' > ' + info.data.target + '<br/>FOB: USD ' + info.data.value.toLocaleString()); } else {return info.data.name}};").js_code,  
             
                },
     "series": [
