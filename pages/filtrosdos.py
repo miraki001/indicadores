@@ -293,6 +293,7 @@ pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}'
 data11 = json.loads(pp11)
 pp12 =  lista + result32 
 data12 = json.loads(pp12)
+st.write(result32)
 
 option = {
     "title": {"text": "Top 10 en Litros"},
