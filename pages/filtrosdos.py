@@ -210,7 +210,7 @@ for index in range(len(df_varlts)):
     por1.append((  (valor / valor1 ) *100 ))
     pais = df_varlts['pais'].iloc[index]
     valor = df_varlts['litros'].iloc[index]
-    valor1 = df_pais.loc[df_var["pais"] == pais, "litros"]    
+    valor1 = df_pais.loc[df_pais["pais"] == pais, "litros"]    
     por2.append((  (valor / valor1) *100 ))
 
 df_varlts['porce1'] = por1
