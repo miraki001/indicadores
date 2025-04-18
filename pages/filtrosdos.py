@@ -296,7 +296,10 @@ data12 = json.loads(pp12)
 
 option = {
     "title": {"text": "Top 10 en Litros"},
-    "tooltip": {"trigger": "item", "triggerOn": "mousemove"},
+    "tooltip": {"trigger": "item", "triggerOn": "mousemove",
+                "formatter": JsCode("function (info) { if (info.dataType === 'edge')     { return info.data.porceVar || (info.data.porcePais + ' > ' + info.data.target + '<br/>FOB: USD ' + info.data.value.toLocaleString()); } else {return info.name}};").js_code,  
+            
+               },
     "series": [
         {
             "type": "sankey",
