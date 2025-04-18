@@ -284,6 +284,7 @@ df_varlts = append_row(df_varlts, new_row)
 
 df11 = pd.DataFrame({'name':var_listlts + pais_listlts})
 result11 = df11.to_json(orient="records")
+lista = ''
 
 df_varlts.drop(['fob'], axis='columns', inplace=True)
 df_varlts = df_varlts.rename(columns={'pais': "source",'variedad1': "target",'litros': "value"})
