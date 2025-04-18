@@ -207,7 +207,7 @@ for index in range(len(df_varlts)):
     var = df_varlts['variedad1'].iloc[index]
     valor = df_varlts['litros'].iloc[index]
     valor1 = df_var.loc[df_var["variedad1"] == var, "litros"]
-    por1.append( (valor / valor1 ) *100 )
+    por1.append( (int(valor) / int(valor1) ) *100 )
     pais = df_varlts['pais'].iloc[index]
     valor = df_varlts['litros'].iloc[index]
     valor1 = df_pais.loc[df_pais["pais"] == pais, "litros"]    
