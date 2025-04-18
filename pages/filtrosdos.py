@@ -115,7 +115,7 @@ dv1 = cargar_datos(QUERY_V1)
 dv1['anio'] = dv1['anio'].astype(str)
 
 year_list = sorted(dv1["anio"].dropna().unique(), reverse=True)
-st.write(year_list)
+#st.write(year_list)
 año = st.multiselect("Año",  year_list, default=['2024'],label_visibility="collapsed",help="Selecciona uno o más años")
 año = [str(a) for a in año]  # Asegura que la selección sea string también
 
@@ -158,7 +158,9 @@ var_listlts.append("TOTAL VARIEDAD")
 pais_listlts.append("OTROS")
 pais_listp =pais_listlts
 pais_listlts.append("TOTAL PAISES")
-#st.write(var_listlts)
+st.write(var_listlts)
+st.write(pais_listlts)
+st.write(df_varlts)
 
 df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
 #st.write(top_bottom_10_pais)
