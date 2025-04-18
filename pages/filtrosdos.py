@@ -196,7 +196,7 @@ var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
 
 
 #agregamos los litros del resto de los paises y el resto de las variedade
-st.write(df_varlts)
+#st.write(df_varlts)
 
 
 por1 = []
@@ -233,14 +233,15 @@ for index in range(len(top_litros_10_pais)) :
     dif = valor - int(valor1)
     tot1 = tot1 + dif
     por1 = (dif/total_var)* 100
-    new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif,'porceVar':por1, 'index' : len(df_varlts)})
+    new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif,'porceVar':por1,'porcePais': por1, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row)    
     
 st.write(df_varlts)
 for index in range(len(top_litros_10_pais)) :
     valor = top_litros_10_pais['litros'].iloc[index]
     pais = top_litros_10_pais['pais'].iloc[index]
-    new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': pais,'litros': valor, 'index' : len(df_varlts)})
+    por1 =  100
+    new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': pais,'litros': valor,'porceVar':por1,'porcePais': por1, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row) 
 
 
@@ -252,7 +253,8 @@ for index in range(len(top_litros_10_var)) :
     valor1 = df_var4.loc[df_var4["variedad1"] == var, "litros"]
     dif = valor - int(valor1)
     tot = tot + dif
-    new_row = pd.Series({'fob': 1, 'pais': 'OTROS', 'variedad1': var,'litros': dif, 'index' : len(df_var2)})
+    por1 = (dif/total_var)* 100
+    new_row = pd.Series({'fob': 1, 'pais': 'OTROS', 'variedad1': var,'litros': dif,'porceVar':por1,'porcePais': por1, 'index' : len(df_var2)})
     df_varlts = append_row(df_varlts, new_row)    
 
 
@@ -263,16 +265,19 @@ df5 = df_variedad[~df_variedad['variedad1'].isin(var_listlts)]
 df5 = df5[~df5['pais'].isin(pais_listlts)]
 Total = df5['litros'].sum()
 #st.write(Total)
-new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': 'OTROS','litros': tot+ Total, 'index' : len(df_varlts)})
+por1 =  100
+new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': 'OTROS','litros': tot+ Total,'porceVar':por1,'porcePais': por1, 'index' : len(df_varlts)})
 df_varlts = append_row(df_varlts, new_row) 
 
 for index in range(len(top_litros_10_pais)) :
     valor = top_litros_10_var['litros'].iloc[index]
     var = top_litros_10_var['variedad1'].iloc[index]
-    new_row = pd.Series({'fob': 1, 'variedad1': 'TOTAL VARIEDAD', 'pais': var,'litros': valor, 'index' : len(df_varlts)})
+    por1 = 100
+    new_row = pd.Series({'fob': 1, 'variedad1': 'TOTAL VARIEDAD', 'pais': var,'litros': valor,'porceVar':por1,'porcePais': por1, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row)  
 
-new_row = pd.Series({'fob': 1, 'variedad1': 'TOTAL VARIEDAD', 'pais': 'OTRAS','litros': tot1+ Total, 'index' : len(df_varlts)})
+por1 =  100
+new_row = pd.Series({'fob': 1, 'variedad1': 'TOTAL VARIEDAD', 'pais': 'OTRAS','litros': tot1+ Total,'porceVar':por1,'porcePais': por1, 'index' : len(df_varlts)})
 df_varlts = append_row(df_varlts, new_row) 
 
 
