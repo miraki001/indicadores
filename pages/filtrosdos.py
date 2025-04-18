@@ -213,7 +213,9 @@ for index in range(len(df_varlts)):
     valor1 = df_pais.loc[df_var["pais"] == pais, "litros"]    
     por2.append((  (valor / valor1) *100 ))
 
-
+df_varlts['porce1'] = por1
+df_varlts['porce2'] = por2
+st.write(df_varlts)
 
 df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
 df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
