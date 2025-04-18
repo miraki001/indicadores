@@ -221,6 +221,10 @@ df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
 df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
 st.write(top_litros_10_pais)
 st.write(top_litros_10_var)
+
+
+total_var = df_varlts['litros'].sum()
+st.write(total_var)
 tot1 = 0
 for index in range(len(top_litros_10_pais)) :
     valor = top_litros_10_pais['litros'].iloc[index]
