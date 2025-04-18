@@ -293,12 +293,12 @@ pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}'
 data11 = json.loads(pp11)
 pp12 =  lista + result32 
 data12 = json.loads(pp12)
-st.write(result32)
+st.write(df_varlts)
 
 option = {
     "title": {"text": "Top 10 en Litros"},
     "tooltip": {"trigger": "item", "triggerOn": "mousemove",
-                "formatter": JsCode("function (info) { if (info.dataType === 'edge')  { return info.porceVar || (info.data.porcePais + ' > ' + info.target + '<br/>Lts ' + info.data.value.toLocaleString()); } else {return info.data.name}};").js_code,  
+                "formatter": JsCode("function (info) { if (info.dataType === 'edge')  { return info.porceVar || (info.data.porcePais + ' > ' + info.data.target + '<br/>Lts ' + info.data.value.toLocaleString()); } else {return info.data.name}};").js_code,  
             
                },
     "series": [
