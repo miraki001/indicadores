@@ -196,13 +196,6 @@ pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
 var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
 
 
-df_sorted = df_anual.sort_values(by='Fob', ascending=False)
-
-dv = dv.rename(columns={'litros': "value", 'pais': "name",})
-json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
-st.subheader('Exportaciones por Pais en Litros')
-#agregamos el fob del resto de los paises y el resto de las variedade
-
 df_var3 = df_var2.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
 df_var4 = df_var2.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
 #st.write(df_var3)
