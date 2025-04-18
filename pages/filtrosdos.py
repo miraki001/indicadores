@@ -158,9 +158,9 @@ var_listlts.append("TOTAL VARIEDAD")
 pais_listlts.append("OTROS")
 pais_listp =pais_listlts
 pais_listlts.append("TOTAL PAISES")
-st.write(var_listlts)
-st.write(pais_listlts)
-st.write(df_varlts)
+#st.write(var_listlts)
+#st.write(pais_listlts)
+#st.write(df_varlts)
 
 df_var2 = df_var2.reset_index().rename_axis(None, axis=1)
 #st.write(top_bottom_10_pais)
@@ -190,7 +190,8 @@ df55 = pd.concat([df42, df43])
 nodos = df55.to_json(orient="records")
 result1 = df11.to_json(orient="records")
 
-top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexes]
+top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexe1]
+st.write(top_bottom_11)
 pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
 var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
 dv = df_anual.copy()
