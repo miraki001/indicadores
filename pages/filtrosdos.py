@@ -194,23 +194,7 @@ top_bottom_11 = df_variedad.sort_values("litros", ignore_index=True).iloc[indexe
 st.write(top_bottom_11)
 pais_list11 = sorted(top_bottom_11["pais"].dropna().unique(), reverse=True)
 var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
-dv = df_anual.copy()
-total = []
-tot1 = []
-tot2 = []
-df_anual = df_anual.reset_index().rename_axis(None, axis=1)
-totlitros = df_anual['litros'].sum()
-totfob = df_anual['fob'].sum()
-for index in range(len(df_anual)):
-    #if index > 0:
-        total.append((  (df_anual['litros'].loc[index] / totlitros ) *100 ))
-        tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )))
-        tot2.append((  (df_anual['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
-    #st.write(total)
-df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
-df_anual['Part. % Litros'] = total
-df_anual['Part % Fob '] = tot1
-df_anual['Prec x Litro'] = tot2
+
 
 df_sorted = df_anual.sort_values(by='Fob', ascending=False)
 
@@ -240,131 +224,14 @@ for index in range(len(top_bottom_10_var)) :
     df_var2 = append_row(df_var2, new_row)    
 
 
-############# orden 
-# Totales por source (nivel 0)
-
-
-###############
-# Renombramos columnas
-df_var2 = df_var2.rename(columns={'pais': "source", 'variedad1': "target", 'fob': "value"})
-
-# Eliminamos columna innecesaria
-df_var2.drop(['litros'], axis='columns', inplace=True)
-
-# Totales por source (nivel 0)
-source_totals = df_var2.groupby('source')['value'].sum().to_dict()
-
-# Calculamos porcentaje por fila
-df_var2['percentage'] = df_var2.apply(
-    lambda row: round((row['value'] / source_totals.get(row['source'], 1)) * 100, 2), axis=1
-)
-
-# Creamos un label por link (tooltip opcional)
-df_var2['label'] = df_var2.apply(
-    lambda row: f"{row['source']} <> {row['target']} ({row['percentage']}%)", axis=1
-)
-
-# Calculamos totales por nivel
-total_source = df_var2.groupby('source')['value'].sum().sum()
-total_target = df_var2.groupby('target')['value'].sum().sum()
-
-# Listado único de nodos
-nodes = list(set(df_var2['source']).union(set(df_var2['target'])))
-
-# Enriquecemos nodos con total y %
-nodes_enriched = []
-for node in nodes:
-    is_source = node in df_var2['source'].values
-    is_target = node in df_var2['target'].values
-
-    node_total = 0
-    perc_total = 0
-    if is_source:
-        node_total = df_var2[df_var2['source'] == node]['value'].sum()
-        perc_total = round((node_total / total_source) * 100, 2) if total_source else 0
-    elif is_target:
-        node_total = df_var2[df_var2['target'] == node]['value'].sum()
-        perc_total = round((node_total / total_target) * 100, 2) if total_target else 0
-
-    label = f"{node} ({node_total:,.0f} UST, {perc_total}%)"
-    #nodes_enriched.append({"name": label})
-    nodes_enriched.append({"original": node, "name": label, "total": node_total})
-
-# Ordenamos los nodos por total (descendente)
-nodes_data_sorted = sorted(nodes_enriched, key=lambda x: x["total"], reverse=True)
-
-# Creamos el mapping original ? enriquecido
-name_mapping = {item["original"]: item["name"] for item in nodes_data_sorted}
-#st.write(name_mapping)
-
-# Aplicamos el mapping
-df_var2['source'] = df_var2['source'].map(name_mapping)
-df_var2['target'] = df_var2['target'].map(name_mapping)
-
-# Creamos lista final de nodos enriquecidos, ordenada
-#nodes_enriched = [{"name": item["name"]} for item in nodes_data_sorted]
-
-# Recalculamos nodos únicos válidos
-nodes = list(set(df_var2['source']).union(set(df_var2['target'])))
-nodes = [n for n in nodes if pd.notna(n)]
-#df_var2 = df_var2.rename(columns={'target': "target1", 'label': "target"})
-
-#nodes_enriched = [{"name": node} for node in nodes]
-st.write(df_var2)
-# Convertimos a JSON
-result1 = json.dumps(nodes_enriched)
-result3 = df_var2.to_json(orient="records")
-
-# Armamos el paquete final
-pp = '{ "nodes": ' + result1 + ' , "links": ' + result3 + '}'
-data1 = json.loads(pp)
-#st.write(data1)
-
-# Construimos la visualización
-option = {
-    "tooltip": {
-        "trigger": "item",
-        "formatter": JsCode("function (info) { if (info.dataType === 'edge')     { return info.data.label || (info.data.source + ' > ' + info.data.target + '<br/>FOB: USD ' + info.data.value.toLocaleString()); } else {return info.name}};").js_code, 
-                
-        },
-
-
-    "series": [
-        {
-            "type": "sankey",
-            "data": data1["nodes"],
-            "links": data1["links"],
-            "emphasis": {"focus": "adjacency"},
-            "levels": [
-                {
-                    "depth": 0,
-                    "itemStyle": {"color": "#fbb4ae"},
-                    "lineStyle": {"color": "target", "opacity": 0.6},
-                },
-                {
-                    "depth": 1,
-                    "itemStyle": {"color": "#b3cde3"},
-                    "lineStyle": {"color": "source", "opacity": 0.6},
-                },
-            ],
-            "lineStyle": {"curveness": 0.5},
-            "label": {
-                "show": True,
-                "position": "right",
-                "formatter": "{b}"
-            }
-        }
-    ],
-}
-st_echarts(option,key="otro", height="500px")
 
 
 #agregamos los litros del resto de los paises y el resto de las variedade
 #st.write(df_varlts)
 df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
 df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
-#st.write(top_litros_10_pais)
-#st.write(top_litros_10_var)
+st.write(top_litros_10_pais)
+st.write(top_litros_10_var)
 tot1 = 0
 for index in range(len(top_litros_10_pais)) :
     valor = top_litros_10_pais['litros'].iloc[index]
