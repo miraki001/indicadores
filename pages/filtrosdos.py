@@ -240,7 +240,7 @@ st.write(df_varlts)
 for index in range(len(top_litros_10_pais)) :
     valor = top_litros_10_pais['litros'].iloc[index]
     pais = top_litros_10_pais['pais'].iloc[index]
-    por1 =  100
+    por1 =  (valor/total_var)* 100
     new_row = pd.Series({'fob': 1, 'pais': 'TOTAL PAISES', 'variedad1': pais,'litros': valor,'porceVar':por1,'porcePais': por1, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row) 
 
@@ -272,7 +272,7 @@ df_varlts = append_row(df_varlts, new_row)
 for index in range(len(top_litros_10_pais)) :
     valor = top_litros_10_var['litros'].iloc[index]
     var = top_litros_10_var['variedad1'].iloc[index]
-    por1 = 100
+    por1 = (valor/total_var)* 100
     new_row = pd.Series({'fob': 1, 'variedad1': 'TOTAL VARIEDAD', 'pais': var,'litros': valor,'porceVar':por1,'porcePais': por1, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row)  
 
