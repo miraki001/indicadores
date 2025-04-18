@@ -197,6 +197,24 @@ var_list11 = sorted(top_bottom_11["variedad1"].dropna().unique())
 
 #agregamos los litros del resto de los paises y el resto de las variedade
 st.write(df_varlts)
+
+
+por1 = []
+por2 = []
+
+
+for index in range(len(df_varlts)):
+    var = df_varlts['variedad1'].iloc[index]
+    valor = df_varlts['litros'].iloc[index]
+    valor1 = df_var.loc[df_var["variedad1"] == var, "litros"]
+    por1.append((  (valor / valor1 ) *100 ))
+    pais = df_varlts['pais'].iloc[index]
+    valor = df_varlts['litros'].iloc[index]
+    valor1 = df_pais.loc[df_var["pais"] == pais, "litros"]    
+    por2.append((  (valor / valor1) *100 ))
+
+
+
 df_var3 = df_varlts.groupby(['pais'], as_index=False)[['fob', 'litros']].sum()
 df_var4 = df_varlts.groupby(['variedad1'], as_index=False)[['fob', 'litros']].sum()
 st.write(top_litros_10_pais)
