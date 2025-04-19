@@ -121,26 +121,34 @@ def cosecha_evo():
     
     
     #st.write(df_filtered)
+    Filtro = 'Filtro = Provincia = '    
     if provincia:
         if provincia[0] != 'Todas':        
             df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
-
+        Filtro = Filtro +  ' ' + provincia + ' '
     if variedad:
         if variedad[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
             #st.write(variedad)
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
     if depto:
         if depto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['depto'].isin(depto)]
+        Filtro = Filtro + ' Departamento = ' +  str(departamento) + ' '
+            
     if color:
         if color[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['color'].isin(color)]          
+        Filtro = Filtro + ' Color = ' +  str(color) + ' '
+            
     if destino:
         if destino[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['destino'].isin(destino)]               
+        Filtro = Filtro + ' Destino = ' +  str(destino) + ' '
     if tipo:
         if tipo[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipouva'].isin(tipo)]      
+        Filtro = Filtro + ' Tipo = ' +  str(tipo) + ' '
     
 
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['peso']].sum()
@@ -181,6 +189,7 @@ def cosecha_evo():
                 height = 400,
                 hide_index=True)
     
+    st.caption(Filtro)
 
     option = {
           "color": [
