@@ -125,7 +125,7 @@ def cosecha_evo():
     if provincia:
         if provincia[0] != 'Todas':        
             df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
-        Filtro = Filtro +  ' ' + provincia + ' '
+        Filtro = Filtro +  ' ' + str(provincia) + ' '
     if variedad:
         if variedad[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
