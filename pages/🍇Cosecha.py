@@ -160,7 +160,7 @@ with tab1:
     df_filtered = dv1.copy()
 
     Filtro = 'Filtro = Año = '
-    Filtro = Filtro + str(anio) + ' '
+    Filtro = Filtro +  ' Todos '
   
     if variedad:
         if variedad[0] != 'Todas':
