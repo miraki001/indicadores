@@ -134,7 +134,7 @@ def cosecha_evo():
     if depto:
         if depto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['depto'].isin(depto)]
-        Filtro = Filtro + ' Departamento = ' +  str(departamento) + ' '
+        Filtro = Filtro + ' Departamento = ' +  str(depto) + ' '
             
     if color:
         if color[0] != 'Todos':
