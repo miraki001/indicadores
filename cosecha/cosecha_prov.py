@@ -110,19 +110,27 @@ def cosecha_prov():
     
     
     #st.write(df_filtered)
+    Filtro = 'Filtro = Año = '    
     if año:
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)  
+        Filtro = Filtro +  ' ' +str(año) + ' '
+        
     if variedad:
         if variedad[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
             #st.write(variedad)
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
+    
     if color:
         if color[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['color'].isin(color)]          
+        Filtro = Filtro + ' Color = ' +  str(color) + ' '
+            
     if tipo:
         if tipo[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipouva'].isin(tipo)]      
+        Filtro = Filtro + ' Tipo = ' +  str(tipo) + ' '
     
 
     #df_anual = df_filtered.groupby(['anio','prov','depto'], as_index=False)[['peso']].sum()
@@ -203,7 +211,7 @@ def cosecha_prov():
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
     st.subheader('Cosecha por Provincias en Quintales')
     #st.write(json_list)
-
+    st.caption(Filtro)
 
     option = {
         "tooltip": {
