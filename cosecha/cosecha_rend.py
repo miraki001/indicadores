@@ -105,18 +105,22 @@ def cosecha_rend():
     
 
     #st.write(df_filtered)
+    Filtro = ''    
     if provincia:
         if provincia[0] != 'Todas':        
             df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]
+        Filtro = Filtro + ' Provincia = ' +  str(provincia) + ' '
 
     if variedad:
         if variedad[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
             #st.write(variedad)
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
+    
     if depto:
         if depto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['departamento'].isin(depto)]
- 
+        Filtro = Filtro + ' Departamento = ' +  str(depto) + ' '
 
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['peso','sup']].sum()
     #st.write(df_anual)
@@ -157,6 +161,7 @@ def cosecha_rend():
                 width = 800,   
                 height = 400,
                 hide_index=True)
+    st.caption(Filtro)
     
 
     option = {
