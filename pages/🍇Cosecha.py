@@ -159,19 +159,25 @@ with tab1:
       dv1 = cargar_datos(QUERY_V2)  
     df_filtered = dv1.copy()
 
-
-
+    Filtro = 'Filtro = Año = '
+    Filtro = Filtro + str(anio) + ' '
+  
     if variedad:
         if variedad[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
             #st.write(variedad)
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
+  
     if departamento:
         if departamento[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['departamento'].isin(departamento)]
+        Filtro = Filtro + ' Departamento = ' +  str(departamento) + ' '
+          
     if provincia:
         
         if provincia[0] != 'Todas':
             df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
+        Filtro = Filtro + ' Provincia = ' +  str(provincia) + ' '
 
     #st.write(provincia)
     #st.write(departamento)
@@ -247,6 +253,7 @@ with tab1:
     #dv1['anio'] = dv1['anio'].astype(str)
 
     newdf=df_filtered.set_index('anio',inplace=False).rename_axis(None)
+    st.caption(Filtro)
     
     option = {
           "color": [
