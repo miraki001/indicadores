@@ -110,7 +110,6 @@ if "filtrosee" not in st.session_state:
 
 dv1 = cargar_datos(QUERY_V1)
 df_filtered = dv1.copy() 
-st.write(df_filtered)
 
 
 with st.container(border=True):
@@ -168,6 +167,7 @@ tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por 
 
 with tab1:
                             
+  st.write(df_filtered)
  
   st.subheader('Evolución de los despachos por año')
 
