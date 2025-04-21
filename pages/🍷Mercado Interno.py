@@ -108,29 +108,29 @@ tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por 
 dv1 = cargar_datos(QUERY_V1)
 df_filtered = dv1.copy() 
 
-    with st.container(border=True):
-        col1, col2, col3,col4= st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
+with st.container(border=True):
+    col1, col2, col3,col4= st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
-        with col1:
-            with st.popover("Variedad"):
-                st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedad343",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+    with col1:
+        with st.popover("Variedad"):
+            st.caption("Selecciona uno o más Variedades de la lista")
+            variedad = st.multiselect("Variedad343",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
-        with col2:
-            with st.popover("Provincia"):
-                st.caption("Selecciona uno o más Provincias de la lista")
-                envase = st.multiselect("Proncias33",  ["Todos"] + prov_list, default=["Todos"],label_visibility="collapsed")
-        with col3:
-            with st.popover("Departamento"):
-                st.caption("Selecciona uno o más Departamentos de la lista")
-                producto = st.multiselect("Productoeo",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
+    with col2:
+        with st.popover("Provincia"):
+            st.caption("Selecciona uno o más Provincias de la lista")
+            envase = st.multiselect("Proncias33",  ["Todos"] + prov_list, default=["Todos"],label_visibility="collapsed")
+    with col3:
+        with st.popover("Departamento"):
+            st.caption("Selecciona uno o más Departamentos de la lista")
+            producto = st.multiselect("Productoeo",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
 
-        with col4:
-            with st.popover("Producto"):
-                st.caption("Selecciona uno o más Productos de la lista")
-                color = st.multiselect("Coloreo",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
+    with col4:
+        with st.popover("Producto"):
+            st.caption("Selecciona uno o más Productos de la lista")
+            color = st.multiselect("Coloreo",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
 
 
 
