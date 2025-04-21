@@ -111,6 +111,7 @@ tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por 
 dv1 = cargar_datos(QUERY_V1)
 df_filtered = dv1.copy() 
 
+
 with st.container(border=True):
     col1, col2, col3,col4= st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
 
@@ -136,7 +137,30 @@ with st.container(border=True):
             color = st.multiselect("Coloreo",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
 
 
+Filtro = 'Filtro = Año = '
+Filtro = Filtro +  ' Todos '
+  
+if variedad:
+    if variedad[0] != 'Todas':
+        df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
+        #st.write(variedad)
+    Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
+  
+if departamento:
+    if departamento[0] != 'Todos':
+        df_filtered = df_filtered[df_filtered['departamento'].isin(departamento)]
+    Filtro = Filtro + ' Departamento = ' +  str(departamento) + ' '
+          
+if provincia:
+        
+    if provincia[0] != 'Todas':
+        df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
+    Filtro = Filtro + ' Provincia = ' +  str(provincia) + ' '
 
+if producto:
+    if producto[0] != 'Todos':
+        df_filtered = df_filtered[df_filtered['producto'].isin(producto)]
+    Filtro = Filtro + ' Producto = ' +  str(producto) + ' '
 
 with tab1:
                             
@@ -159,10 +183,10 @@ with tab1:
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": dv1['anio'].to_list(),
+        "data": df_filtered['anio'].to_list(),
     },
     "yAxis": {"type": "value"},
-    "series": [{"data": dv1['litros'].to_list(), "type": "line", "name": 'Litros'},
+    "series": [{"data": df_filtered['litros'].to_list(), "type": "line", "name": 'Litros'},
 #               {"data": df['blancos'].to_list(), "type": "line", "name": 'Blancos'},
 #               {"data": df['rosados'].to_list(), "type": "line", "name": 'Rosados'},
                ]
