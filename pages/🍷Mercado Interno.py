@@ -110,6 +110,7 @@ if "filtrosee" not in st.session_state:
 
 dv1 = cargar_datos(QUERY_V1)
 df_filtered = dv1.copy() 
+st.write(df_filtered)
 
 
 with st.container(border=True):
