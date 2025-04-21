@@ -12,6 +12,9 @@ from streamlit_echarts import Map
 from st_keyup import st_keyup
 from util import desp_prov
 
+
+conn = st.connection("postgresql", type="sql")
+
 def bgcolor_positive_or_negative(value):
     bgcolor = "lightcoral" if value < 0 else "lightgreen"
     return f"background-color: {bgcolor};"
