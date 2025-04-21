@@ -100,7 +100,7 @@ if "filtroseee" not in st.session_state:
         st.session_state.filtrosee = {
             "anio": "Todos",
             "var": "Todas",
-            "prov": "Todos",
+            "prov": "Todas",
             "depto": "Todos",
             "producto": "Todos",
             "Pais": "Todos",
@@ -165,7 +165,9 @@ if producto:
 tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por Color/Tipo","Por Envase","Por Variedades","Consumo Interno"])
 
 with tab1:
-                            
+
+  df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
+    
   st.write(df_filtered)
  
   st.subheader('Evolución de los despachos por año')
