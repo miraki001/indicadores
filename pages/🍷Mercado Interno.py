@@ -168,7 +168,7 @@ with tab1:
 
   df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
     
-  st.write(df_filtered)
+  #st.write(df_filtered)
  
   st.subheader('Evolución de los despachos por año')
 
