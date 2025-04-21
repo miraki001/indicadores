@@ -22,6 +22,24 @@ def _format_with_thousands_commas(val):
 def _format_as_percentage(val, prec=0): 
   return f'{val:.{prec}%}' 
 
+@st.cache_data
+def cargar_datos(consulta):
+    try:
+        df = conn.query(consulta, ttl="0")
+        return df
+    except Exception as e:
+        st.error(f"Error al cargar datos: {e}")
+        return pd.DataFrame()
+
+
+QUERY_V0 = f"""
+        SELECT distinct anio,variedad,provincia,departamento,producto
+        FROM despachos_m 
+        where producto not in ('Mosto','Alcohol')
+        
+
+"""
+
 hide_streamlit_style = """
                 <style>
                 div[data-testid="stToolbar"] {
@@ -55,19 +73,80 @@ hide_streamlit_style = """
                 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-tab1, tab2, tab3,tab4 = st.tabs(["Evolución", "Totales", "Filtros","Por Provincias"])
+
+df_filtros = cargar_datos(QUERY_INICIAL)
+
+if df_filtros.empty:
+    st.error("No se encontraron datos en la base de datos.")
+    st.stop()
+
+QUERY_V1 = f"""
+        SELECT anio, cantlitros AS litros,variedad1 as variedad,provincia,departamento,producto
+        FROM despachos_m 
+        WHERE producto not in ('Mosto','Alcohol')
+"""
+
+    # Listas de valores únicos para los filtros
+year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
+var_list = sorted(df_filtros["variedad"].dropna().unique())
+prov_list = sorted(df_filtros["tipo_envase"].dropna().unique())
+depto_list = sorted(df_filtros["color"].dropna().unique())
+producto_list = sorted(df_filtros["producto"].dropna().unique())
+pais_list = sorted(df_filtros["pais"].dropna().unique())
+if "filtrosee" not in st.session_state:
+        st.session_state.filtrosee = {
+            "anio": "Todos",
+            "var": "Todas",
+            "prov": "Todos",
+            "depto": "Todos",
+            "producto": "Todos",
+            "Pais": "Todos",
+        }
+
+
+tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por Color/Tipo","Por Envase","Por Variedades","Consumo Interno"])
+dv1 = cargar_datos(QUERY_V1)
+df_filtered = dv1.copy() 
+
+    with st.container(border=True):
+        col1, col2, col3,col4= st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
+
+    # Columna 1: Filtro para Año
+        with col1:
+            with st.popover("Variedad"):
+                st.caption("Selecciona uno o más Variedades de la lista")
+                variedad = st.multiselect("Variedad343",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+    
+        # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
+        with col2:
+            with st.popover("Provincia"):
+                st.caption("Selecciona uno o más Provincias de la lista")
+                envase = st.multiselect("Proncias33",  ["Todos"] + prov_list, default=["Todos"],label_visibility="collapsed")
+        with col3:
+            with st.popover("Departamento"):
+                st.caption("Selecciona uno o más Departamentos de la lista")
+                producto = st.multiselect("Productoeo",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
+
+        with col4:
+            with st.popover("Producto"):
+                st.caption("Selecciona uno o más Productos de la lista")
+                color = st.multiselect("Coloreo",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
+
+
+
 
 with tab1:
                             
-  conn = st.connection("postgresql", type="sql")
-  dfd = conn.query('select anio,tintos,blancos,rosados from info_desp_anio_v1;', ttl="0"),
+  #conn = st.connection("postgresql", type="sql")
+  #dfd = conn.query('select anio,tintos,blancos,rosados from info_desp_anio_v1;', ttl="0"),
 
-  df = dfd[0]
+  
+  #df = dfd[0]
  
   st.subheader('Evolución de los despachos por año')
 
   if st.checkbox('Ver datos en forma de tabla'):
-      st.write(df)
+      st.write(df_filtered)
 
   option = {
     "tooltip": {
