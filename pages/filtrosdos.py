@@ -236,7 +236,7 @@ for index in range(len(top_litros_10_pais)) :
     new_row = pd.Series({'fob': 1, 'pais': pais, 'variedad1': 'OTRAS','litros': dif,'porceVar':por1,'porcePais': por1, 'index' : len(df_varlts)})
     df_varlts = append_row(df_varlts, new_row)    
     
-st.write(df_varlts)
+#st.write(df_varlts)
 for index in range(len(top_litros_10_pais)) :
     valor = top_litros_10_pais['litros'].iloc[index]
     pais = top_litros_10_pais['pais'].iloc[index]
@@ -280,57 +280,87 @@ por1 =  100
 new_row = pd.Series({'fob': 1, 'variedad1': 'TOTAL VARIEDAD', 'pais': 'OTRAS','litros': tot1+ Total,'porceVar':por1,'porcePais': por1, 'index' : len(df_varlts)})
 df_varlts = append_row(df_varlts, new_row) 
 
-
-
-df11 = pd.DataFrame({'name':var_listlts + pais_listlts})
-result11 = df11.to_json(orient="records")
-lista = ''
-
+#***********************************************************************************************
 df_varlts.drop(['fob'], axis='columns', inplace=True)
 df_varlts = df_varlts.rename(columns={'pais': "source",'variedad1': "target",'litros': "value"})
-result32 = df_varlts.to_json(orient="records")
-pp11 = '{ "nodes": ' + result11 + ' , "links": ' + lista + result32   + '}' 
-data11 = json.loads(pp11)
-pp12 =  lista + result32 
-data12 = json.loads(pp12)
-st.write(df_varlts)
 
+# Creamos mapeos con porcentajes para renombrar nodos con %
+mapa_pais = df_varlts.groupby("source")["value"].sum().reset_index()
+mapa_var = df_varlts.groupby("target")["value"].sum().reset_index()
+
+total_litros = df_varlts["value"].sum()
+
+# Agregamos % al nombre
+mapa_pais["etiqueta"] = mapa_pais.apply(lambda x: f'{x["source"]} ({(x["value"] / total_litros * 100):.1f}%)', axis=1)
+mapa_var["etiqueta"] = mapa_var.apply(lambda x: f'{x["target"]} ({(x["value"] / total_litros * 100):.1f}%)', axis=1)
+
+# Creamos diccionarios para reemplazo
+etiquetas_pais = dict(zip(mapa_pais["source"], mapa_pais["etiqueta"]))
+etiquetas_var = dict(zip(mapa_var["target"], mapa_var["etiqueta"]))
+
+# Reemplazamos en df_varlts
+df_varlts["source"] = df_varlts["source"].replace(etiquetas_pais)
+df_varlts["target"] = df_varlts["target"].replace(etiquetas_var)
+
+# Creamos nodos únicos desde los nuevos nombres
+nombres_nodos = list(set(df_varlts["source"]).union(set(df_varlts["target"])))
+
+df11 = pd.DataFrame({'name': nombres_nodos})
+
+result11 = df11.to_json(orient="records")
+result32 = df_varlts.to_json(orient="records")
+
+pp11 = '{ "nodes": ' + result11 + ' , "links": ' + result32 + '}'
+data11 = json.loads(pp11)
+
+#********************************************************************************************
+
+st.write(data11)
+
+# Construimos la visualización
 option = {
     "title": {"text": "Top 10 en Litros"},
-    "tooltip": {"trigger": "item", "triggerOn": "mousemove",
-                "formatter": JsCode("function (info) { if (info.dataType === 'edge')  { return info.data.source + ' ' +  info.data.porceVar  +' % ' + (info.data.porcePais + ' > ' + info.data.target + '<br/>Lts ' + info.data.value.toLocaleString()); } else {return info.data.name + info.data.target  }};").js_code,  
-            
-               },
+    "tooltip": {
+        "trigger": "item",
+        "formatter": {
+            "function": """
+                function (info) {
+                    if (info.dataType === 'edge') {
+                        return info.data.source + ' ' +  info.data.porceVar  +' % ' + (info.data.porcePais + ' > ' + info.data.target + '<br/>Lts ' + info.data.value.toLocaleString()); 
+                    } else {
+                        return info.name;
+                    }
+                }
+            """
+        }
+    },
+
     "series": [
         {
             "type": "sankey",
-            "data":  data11["nodes"],
+            "data": data11["nodes"],
             "links": data11["links"],
             "emphasis": {"focus": "adjacency"},
             "levels": [
                 {
                     "depth": 0,
-                    "itemStyle": {"color": "#06C2CC"},
-                    "lineStyle": {"color": "source", "opacity": 0.6},
+                    "itemStyle": {"color": "#fbb4ae"},
+                    "lineStyle": {"color": "target", "opacity": 0.6},
                 },
                 {
                     "depth": 1,
-                    "itemStyle": {"color": "#1E8DB6"},
-                    "lineStyle": {"color": "source", "opacity": 0.6},
-                },
-                {
-                    "depth": 2,
-                    "itemStyle": {"color": "#A9F8FA"},
-                    "lineStyle": {"color": "source", "opacity": 0.6},
-                },
-                {
-                    "depth": 3,
-                    "itemStyle": {"color": "#1E8DB6"},
+                    "itemStyle": {"color": "#b3cde3"},
                     "lineStyle": {"color": "source", "opacity": 0.6},
                 },
             ],
             "lineStyle": {"curveness": 0.5},
+            "label": {
+                "show": True,
+                "position": "right",
+                "formatter": "{b}"
+            }
         }
     ],
 }
 st_echarts(option,key="otro11", height="500px")
+
