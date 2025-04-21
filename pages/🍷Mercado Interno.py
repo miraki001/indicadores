@@ -109,8 +109,6 @@ if "filtrosee" not in st.session_state:
 
 
 dv1 = cargar_datos(QUERY_V1)
-st.write('aca')
-st.write(dv1)
 df_filtered = dv1.copy() 
 
 
@@ -169,11 +167,6 @@ tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por 
 
 with tab1:
                             
-  #conn = st.connection("postgresql", type="sql")
-  #dfd = conn.query('select anio,tintos,blancos,rosados from info_desp_anio_v1;', ttl="0"),
-
-  
-  #df = dfd[0]
  
   st.subheader('Evolución de los despachos por año')
 
