@@ -108,7 +108,9 @@ if "filtrosee" not in st.session_state:
 
 
 tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por Color/Tipo","Por Envase","Por Variedades","Consumo Interno"])
+
 dv1 = cargar_datos(QUERY_V1)
+st.write('aca')
 st.write(dv1)
 df_filtered = dv1.copy() 
 
