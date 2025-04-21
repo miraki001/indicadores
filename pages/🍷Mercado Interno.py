@@ -74,7 +74,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
-df_filtros = cargar_datos(QUERY_INICIAL)
+df_filtros = cargar_datos(QUERY_V0)
 
 if df_filtros.empty:
     st.error("No se encontraron datos en la base de datos.")
