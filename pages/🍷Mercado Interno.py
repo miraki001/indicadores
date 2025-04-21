@@ -92,10 +92,10 @@ QUERY_V1 = f"""
     # Listas de valores únicos para los filtros
 year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
 var_list = sorted(df_filtros["variedad"].dropna().unique())
-prov_list = sorted(df_filtros["tipo_envase"].dropna().unique())
-depto_list = sorted(df_filtros["color"].dropna().unique())
+prov_list = sorted(df_filtros["provincia"].dropna().unique())
+depto_list = sorted(df_filtros["departamento"].dropna().unique())
 producto_list = sorted(df_filtros["producto"].dropna().unique())
-pais_list = sorted(df_filtros["pais"].dropna().unique())
+#pais_list = sorted(df_filtros["pais"].dropna().unique())
 if "filtrosee" not in st.session_state:
         st.session_state.filtrosee = {
             "anio": "Todos",
