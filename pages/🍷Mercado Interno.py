@@ -96,7 +96,7 @@ prov_list = sorted(df_filtros["provincia"].dropna().unique())
 depto_list = sorted(df_filtros["departamento"].dropna().unique())
 producto_list = sorted(df_filtros["producto"].dropna().unique())
 #pais_list = sorted(df_filtros["pais"].dropna().unique())
-if "filtrosee" not in st.session_state:
+if "filtroseee" not in st.session_state:
         st.session_state.filtrosee = {
             "anio": "Todos",
             "var": "Todas",
@@ -151,8 +151,7 @@ if departamento:
         df_filtered = df_filtered[df_filtered['departamento'].isin(departamento)]
     Filtro = Filtro + ' Departamento = ' +  str(departamento) + ' '
           
-if provincia:
-        
+if provincia:        
     if provincia[0] != 'Todas':
         df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
     Filtro = Filtro + ' Provincia = ' +  str(provincia) + ' '
@@ -186,15 +185,14 @@ with tab1:
     },
     "yAxis": {"type": "value"},
     "series": [{"data": df_filtered['litros'].to_list(), "type": "line", "name": 'Litros'},
-#               {"data": df['blancos'].to_list(), "type": "line", "name": 'Blancos'},
-#               {"data": df['rosados'].to_list(), "type": "line", "name": 'Rosados'},
                ]
   }
   st_echarts(
     options=option, height="400px" ,
   )
 
-
+with tab2:
+    
   conn = st.connection("postgresql", type="sql")
   df1 = conn.query('select anio||mes anio,tintos,blancos,rosados from info_desp_anio_mes_v1;', ttl="0"),
 
@@ -244,6 +242,7 @@ with tab1:
     options=option, height="400px" ,
   )
 
+    
   st.subheader('Evolución de los despachos por Provincias')
  
   conn = st.connection("postgresql", type="sql")
