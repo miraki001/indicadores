@@ -125,11 +125,11 @@ with st.container(border=True):
     with col2:
         with st.popover("Provincia"):
             st.caption("Selecciona uno o más Provincias de la lista")
-            provincia = st.multiselect("Proncias33",  ["Todas"] + prov_list, default=["Todos"],label_visibility="collapsed")
+            provincia = st.multiselect("Proncias33",  ["Todas"] + prov_list, default=["Todas"],label_visibility="collapsed")
     with col3:
         with st.popover("Departamento"):
             st.caption("Selecciona uno o más Departamentos de la lista")
-            departamento = st.multiselect("Productoeo",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
+            departamento = st.multiselect("dpto",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
 
     with col4:
         with st.popover("Producto"):
