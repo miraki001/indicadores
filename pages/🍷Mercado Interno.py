@@ -159,12 +159,12 @@ with tab1:
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": df['anio'].to_list(),
+        "data": dv1['anio'].to_list(),
     },
     "yAxis": {"type": "value"},
-    "series": [{"data": df['tintos'].to_list(), "type": "line", "name": 'Tintos'},
-               {"data": df['blancos'].to_list(), "type": "line", "name": 'Blancos'},
-               {"data": df['rosados'].to_list(), "type": "line", "name": 'Rosados'},
+    "series": [{"data": dv1['litros'].to_list(), "type": "line", "name": 'Litros'},
+#               {"data": df['blancos'].to_list(), "type": "line", "name": 'Blancos'},
+#               {"data": df['rosados'].to_list(), "type": "line", "name": 'Rosados'},
                ]
   }
   st_echarts(
