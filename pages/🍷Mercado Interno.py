@@ -107,7 +107,6 @@ if "filtrosee" not in st.session_state:
         }
 
 
-tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por Color/Tipo","Por Envase","Por Variedades","Consumo Interno"])
 
 dv1 = cargar_datos(QUERY_V1)
 st.write('aca')
@@ -164,6 +163,9 @@ if producto:
     if producto[0] != 'Todos':
         df_filtered = df_filtered[df_filtered['producto'].isin(producto)]
     Filtro = Filtro + ' Producto = ' +  str(producto) + ' '
+
+
+tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por Color/Tipo","Por Envase","Por Variedades","Consumo Interno"])
 
 with tab1:
                             
