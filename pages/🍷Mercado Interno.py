@@ -223,7 +223,7 @@ with tab1:
         "data": df_filtered['anio'].to_list(),
     },
     "yAxis": {"type": "value"},
-    "series": [{"data": df_filtered['litros'].to_list(), "type": "line", "name": 'Litros'},
+    "series": [{"data": df_filtered['Litros'].to_list(), "type": "line", "name": 'Litros'},
                ]
   }
   st_echarts(
