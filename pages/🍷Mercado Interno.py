@@ -243,7 +243,6 @@ with tab1:
   )  
   litros.columns = litros.columns.droplevel(0)
   litros = litros.reset_index().rename_axis(None, axis=1)    
-  st.write(litros)    
   litros  = litros.fillna(0)
   anio1 = litros.columns[1]
   anio2 = litros.columns[2]
