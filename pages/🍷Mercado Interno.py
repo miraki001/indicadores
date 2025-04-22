@@ -173,7 +173,44 @@ with tab1:
   st.subheader('Evolución de los despachos por año')
 
   if st.checkbox('Ver datos en forma de tabla'):
-      st.write(df_filtered)
+
+        total = []
+        total.append(0)
+        for index in range(len(df_filtered)):
+          if index > 0:
+            total.append((  (df_filtered['litros'].loc[index] / df_filtered['litros'].loc[index -1]) -1 ) *100 )
+        df_filtered = df_filtered.rename(columns={'litros': "Litros"})
+        df_filtered['Litros Var %'] = total
+        df_filtered = df_filtered.astype({'Litros': int} )
+
+
+        df_filtered = df_filtered.sort_index(axis = 1)
+
+        styled_df = df_filtered.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %']).format(
+            {"Litros": lambda x : '{:,.0f}'.format(x), 
+            "Litros Var %": lambda x : '{:,.2f} %'.format(x),
+                                        }
+            ,
+            thousands='.',
+            decimal=',',
+        )
+        st.dataframe(styled_df,
+              column_config={
+                'Año': st.column_config.Column('Año'),
+                'Litros': st.column_config.Column('Litros'),
+                'Fob': st.column_config.Column('Fob'),
+                'Litros Var %': st.column_config.Column('Litros Var %'),
+                'Fob Var. %': st.column_config.Column('Fob Var. %'),
+                'ppl': st.column_config.Column('ppl'),
+                'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
+        
+                },
+                width = 600,   
+                height = 800,
+                hide_index=True)
+
+    
+      #st.write(df_filtered)
 
   option = {
     "tooltip": {
