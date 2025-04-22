@@ -243,9 +243,112 @@ with tab1:
   litros = litros.reset_index().rename_axis(None, axis=1)    
   st.write(litros)    
   litros  = litros.fillna(0)
-  anio1 = litros.columns[2]
-  st.write(anio1)  
-  anio2 = litros.columns[3]
-  anio3 = litros.columns[4]
-  anio4 = litros.columns[5]
-  st.write(litros)
+  anio1 = litros.columns[1]
+  anio2 = litros.columns[2]
+  anio3 = litros.columns[3]
+  anio4 = litros.columns[4]
+
+  tot1 = []
+  tot2 = []
+  tot3 = []
+  tot4 = []
+  acu1 = 0
+  acu2 = 0
+  acu3 = 0
+  acu4 = 0
+    
+  for index in range(len(litros)):
+          if index == 0:
+              tot1.append((  (litros[anio1].loc[index])))
+              tot2.append((  (litros[anio2].loc[index])))
+              tot3.append((  (litros[anio3].loc[index])))
+              tot4.append((  (litros[anio4].loc[index])))
+              acu1 = litros[anio1].loc[index]
+              acu2 = litros[anio2].loc[index]
+              acu3 = litros[anio3].loc[index]
+              acu4 = litros[anio4].loc[index]
+          if index > 0:
+            tot1.append((  (litros[anio1].loc[index] + acu1 ) ))
+            tot2.append((  (litros[anio2].loc[index] + acu2 )))
+            tot3.append((  (litros[anio3].loc[index] + acu3 ) ))
+            tot4.append((  (litros[anio4].loc[index] + acu4 )))
+            acu1 = acu1 + litros[anio1].loc[index]
+            acu2 = acu2 + litros[anio2].loc[index]
+            acu3 = acu3 + litros[anio3].loc[index]
+            acu4 = acu4 + litros[anio4].loc[index]
+              
+  litros['Acum ' + str(anio1) ] = tot1
+  litros['Acum ' + str(anio2)] = tot2
+  litros['Acum ' + str(anio3) ] = tot3
+  litros['Acum ' + str(anio4)] = tot4
+  desc1 = litros.columns[5]
+  desc2 = litros.columns[6]
+  desc3 = litros.columns[7]
+  desc4 = litros.columns[8]
+  option = {
+          "color": [
+                '#332D75',
+                '#1E8DB6',
+                '#604994',
+                '#dd6b66',
+            ],
+            "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+            "legend": {},
+            "title": {
+                "text": 'Exportaciones evolución mensual en litro ',
+                "textStyle": {
+                        "fontSize": 14,
+                },                  
+                "subtext": '',
+            },            
+            "xAxis": {"type": "category", "data": litros["mes"].tolist()},
+            "yAxis": [
+                {"type": "value" ,"name" : "Litros" ,
+                 "axisLine": {
+                    "show": 'false',
+                  },              
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                } ,
+                {"type": "value" , "name" : "",
+                 "position" : 'left',
+                 "alignTicks": 'true',
+                 "offset": 0,
+                 "axisLine": {
+                    "show": 'false',
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value}  '
+                      }
+                },
+                {"type": "value" , "name" : "Litros Acum",
+                 "position" : 'rigth',
+                 "alignTicks": 'true',
+                 "offset": 10,
+                 "axisLine": {
+                    "show": 'true',
+
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                },            
+            ],            
+            #"yAxis": {"type": "value"},
+            "series": [
+                {"data": litros[anio1].tolist(), "type": "bar", "name": anio1,"yAxisIndex": 1, "color":'#FCE2D6'  },
+                {"data": litros[anio2].tolist(), "type": "bar", "name": anio2,"yAxisIndex": 1,  "color":'#F9C8B4' },
+                {"data": litros[anio3].tolist(), "type": "bar", "name": anio3, "color":'#07ECFA',"yAxisIndex": 1, "color":'#F49F82'  },
+                {"data": litros[anio4].tolist(), "type": "bar", "name": anio4, "color":'#C92488',"yAxisIndex": 1,  "color":'#EC654A' },
+                {"data": litros[desc1].tolist(), "type": "line", "name": desc1, "yAxisIndex": 2,  "color":'#C92488'},
+                {"data": litros[desc2].tolist(), "type": "line", "name": desc2,"yAxisIndex": 2,  "color":'#C92488'},
+                {"data": litros[desc3].tolist(), "type": "line", "name": desc3, "color":'#07ECFA', "yAxisIndex": 2, },
+                {"data": litros[desc4].tolist(), "type": "line", "name": desc4, "color":'#604994', "yAxisIndex": 2,},
+                
+            ],
+  }
+
+  st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
+
+    
