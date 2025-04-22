@@ -11,6 +11,7 @@ from pyecharts.charts import Line
 from streamlit_echarts import Map
 from st_keyup import st_keyup
 from util import desp_prov
+from datetime import datetime as dt
 
 
 conn = st.connection("postgresql", type="sql")
@@ -110,6 +111,7 @@ if "filtroseee" not in st.session_state:
 
 dv1 = cargar_datos(QUERY_V1)
 df_filtered = dv1.copy() 
+actual = dt.now().year -4 
 
 
 with st.container(border=True):
@@ -229,5 +231,19 @@ with tab1:
   st_echarts(
     options=option, height="400px" ,
   )
-
-    
+  dv2 := dv1  
+  dv2 = dv2[dv2['anio'] > actual ]    
+  litros = dv2.pivot_table(
+          index='mes', 
+          columns='anio',  
+          values=['litros'],
+          aggfunc='sum'
+  )  
+  litros.columns = litros.columns.droplevel(0)
+  litros = litros.reset_index().rename_axis(None, axis=1)    
+  litros  = litros.fillna(0)
+  anio1 = litros.columns[2]
+  anio2 = litros.columns[3]
+  anio3 = litros.columns[4]
+  anio4 = litros.columns[5]
+  st.write(litros)
