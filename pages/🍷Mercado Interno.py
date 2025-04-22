@@ -169,6 +169,16 @@ tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por 
 with tab1:
 
   df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
+
+  total = []
+  total.append(0)
+  for index in range(len(df_filtered)):
+      if index > 0:
+            total.append((  (df_filtered['litros'].loc[index] / df_filtered['litros'].loc[index -1]) -1 ) *100 )
+  df_filtered = df_filtered.rename(columns={'litros': "Litros"})
+  df_filtered['Litros Var %'] = total
+  df_filtered = df_filtered.astype({'Litros': int} )
+    
     
   #st.write(df_filtered)
  
@@ -176,14 +186,6 @@ with tab1:
 
   if st.checkbox('Ver datos en forma de tabla'):
         st.caption(Filtro)
-        total = []
-        total.append(0)
-        for index in range(len(df_filtered)):
-          if index > 0:
-            total.append((  (df_filtered['litros'].loc[index] / df_filtered['litros'].loc[index -1]) -1 ) *100 )
-        df_filtered = df_filtered.rename(columns={'litros': "Litros"})
-        df_filtered['Litros Var %'] = total
-        df_filtered = df_filtered.astype({'Litros': int} )
 
 
         df_filtered = df_filtered.sort_index(axis = 1)
