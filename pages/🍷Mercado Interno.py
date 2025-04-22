@@ -175,7 +175,7 @@ with tab1:
   st.subheader('Evolución de los despachos por año')
 
   if st.checkbox('Ver datos en forma de tabla'):
-
+        st.caption(Filtro)
         total = []
         total.append(0)
         for index in range(len(df_filtered)):
@@ -213,7 +213,7 @@ with tab1:
 
     
       #st.write(df_filtered)
-
+  st.caption(Filtro)
   option = {
     "tooltip": {
         "trigger": 'axis',
@@ -287,7 +287,7 @@ with tab1:
   desc4 = litros.columns[8]
 
   st.subheader('Evolución de los despachos por Mes')
-    
+  st.caption(Filtro)  
   option = {
           "color": [
                 '#332D75',
