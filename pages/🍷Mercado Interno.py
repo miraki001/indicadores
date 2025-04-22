@@ -285,6 +285,9 @@ with tab1:
   desc2 = litros.columns[6]
   desc3 = litros.columns[7]
   desc4 = litros.columns[8]
+
+  st.subheader('Evolución de los despachos por Mes')
+    
   option = {
           "color": [
                 '#332D75',
@@ -295,7 +298,7 @@ with tab1:
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "title": {
-                "text": 'Exportaciones evolución mensual en litro ',
+                "text": '',
                 "textStyle": {
                         "fontSize": 14,
                 },                  
