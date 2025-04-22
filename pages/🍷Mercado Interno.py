@@ -231,7 +231,7 @@ with tab1:
   st_echarts(
     options=option, height="400px" ,
   )
-  dv2 := dv1  
+  dv2 = dv1  
   dv2 = dv2[dv2['anio'] > actual ]    
   litros = dv2.pivot_table(
           index='mes', 
