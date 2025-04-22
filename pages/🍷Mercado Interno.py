@@ -244,6 +244,7 @@ with tab1:
   st.write(litros)    
   litros  = litros.fillna(0)
   anio1 = litros.columns[2]
+  st.write(anio1)  
   anio2 = litros.columns[3]
   anio3 = litros.columns[4]
   anio4 = litros.columns[5]
