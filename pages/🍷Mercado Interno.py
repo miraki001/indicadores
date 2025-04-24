@@ -12,6 +12,7 @@ from streamlit_echarts import Map
 from st_keyup import st_keyup
 from util import desp_prov
 from datetime import datetime as dt
+from despachos import desp_prov
 
 
 conn = st.connection("postgresql", type="sql")
