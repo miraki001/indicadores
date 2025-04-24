@@ -109,7 +109,7 @@ def despachos_prov(df_filtros,df):
     totlitros4 = litros[anio4].sum()
     st.write(totlitros1)
     anio11 = str(anio1)
-    st.write(str(anio1))
+    st.write(int(anio1))
 
     tot1 = []
     tot2 = []
