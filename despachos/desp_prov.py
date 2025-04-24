@@ -166,10 +166,10 @@ def despachos_prov(df_filtros,df):
             tot2.append((  (df_anual[int(anio2)].loc[index] / totlitros2 *100 )))
             tot3.append((  (df_anual[anio3].loc[index] / totlitros3 *100 )))
             tot4.append((  (df_anual[anio4].loc[index] / totlitros4 *100 )))
-    df_anual['Part. % '] = tot1
-    df_anual['Part. % '] = tot2
-    df_anual['Part. % '] = tot3
-    df_anual['Part. % '] = tot4
+    df_anual['Part. %' + str(anio1)  ] = tot1
+    df_anual['Part. % '+ str(anio2)  ] = tot2
+    df_anual['Part. % ' + str(anio3) ] = tot3
+    df_anual['Part. % ' + str(anio4) ] = tot4
         
         #st.write(total)
 
