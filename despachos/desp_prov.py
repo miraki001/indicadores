@@ -73,7 +73,6 @@ def despachos_prov(df_filtros,df):
     
     Filtro = 'Filtro = '    
     df_filtered = df.copy()    
-    st.write(df_filtered)
         
     if producto:
         if producto[0] != 'Todos':
@@ -97,6 +96,14 @@ def despachos_prov(df_filtros,df):
           values=['litros'],
           aggfunc='sum'
     )  
+
+    litros  = litros.fillna(0)
+    anio1 = litros.columns[1]
+    anio2 = litros.columns[2]
+    anio3 = litros.columns[3]
+    anio4 = litros.columns[4]
+    totlitros1 = df_anual[anio1].sum()
+    st.write(totlitros1)
     st.write(litros)
 
 
