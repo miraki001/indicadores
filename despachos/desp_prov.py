@@ -40,29 +40,17 @@ def despacho_prov(df_filtros,df):
   
   
   # Listas de valores únicos para los filtros
-    year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
-    var_list = sorted(df_filtros["variedad"].dropna().unique())
-    color_list = sorted(df_filtros["color"].dropna().unique())
-    tipo_list = sorted(df_filtros["tipouva"].dropna().unique())
-    if "filtros_cose1" not in st.session_state:
-        st.session_state.filtros_cose = {
-            "anio": "Todos",          
-            "var": "Todas",
-            "color": "Todos",
-            "tipo": "Todos"
+    #prov_list = sorted(df_filtros["provincia"].dropna().unique())
+    envase_list = sorted(df_filtros["subgrupoenvase"].dropna().unique())
+    producto_list = sorted(df_filtros["producto"].dropna().unique())
+    #pais_list = sorted(df_filtros["pais"].dropna().unique())
+    if "filtroseem" not in st.session_state:
+        st.session_state.filtrosee = {
+            "envase": "Todos",
+            "producto": "Todos",
         }
 
-
-
-    QUERY_V1 = f"""
-        SELECT anio, peso , variedad,provincia_viñatero prov,departamento_viñatero depto,tipouva,destinouva destino,color
-        FROM cosecha2 
-
-    """
-
-
-    dv1 = cargar_datos(QUERY_V1)
- 
+    
     dv1['anio'] = dv1['anio'].astype(str)
 
     df_filtered = dv1.copy()
@@ -70,56 +58,34 @@ def despacho_prov(df_filtros,df):
 
 
     with st.container(border=True):
-        col1, col2, col3,col4 =  st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
+        col1, col2 =  st.columns([1, 1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
         with col1:
-            with st.popover("Año"):
-                st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
-                #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
-                año = [str(a) for a in año]  # Asegura que la selección sea string también
+            with st.popover("Producto"):
+                st.caption("Selecciona uno o más Productos de la lista")
+                producto = st.multiselect("Producto",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
             
       
         with col2:
-            with st.popover("Variedad"):
-                st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedadv",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+            with st.popover("Envase"):
+                st.caption("Selecciona uno o más Envases de la lista")
+                variedad = st.multiselect("Envasev",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
     
-        # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
-        with col3:
-            with st.popover("Color"):
-                st.caption("Selecciona uno o más Colores de la lista")
-                color = st.multiselect("Colorv",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
-        with col4:
-            with st.popover("Tipo de Uva"):
-                st.caption("Selecciona uno o más Tipos de la lista")
-                tipo = st.multiselect("tipouva",  ["Todos"] + tipo_list, default=["Todos"],label_visibility="collapsed")      
-    
-    
-    #st.write(df_filtered)
-    Filtro = 'Filtro = Año = '    
-    if año:
-        df_filtered = df_filtered[df_filtered['anio'].isin(año)]
-        df_filtered["anio"] = df_filtered["anio"].astype(str)  
-        Filtro = Filtro +  ' ' +str(año) + ' '
+    Filtro = 'Filtro = '    
         
-    if variedad:
-        if variedad[0] != 'Todas':
-            df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
+    if producto:
+        if producto[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['producto'].isin(variedad)]
             #st.write(variedad)
-        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
+        Filtro = Filtro + ' Productos = ' +  str(producto) + ' '
     
-    if color:
-        if color[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['color'].isin(color)]          
-        Filtro = Filtro + ' Color = ' +  str(color) + ' '
+    if envase:
+        if envase[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(color)]          
+        Filtro = Filtro + ' Envases = ' +  str(envase) + ' '
             
-    if tipo:
-        if tipo[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['tipouva'].isin(tipo)]      
-        Filtro = Filtro + ' Tipo = ' +  str(tipo) + ' '
-    
+
 
     #df_anual = df_filtered.groupby(['anio','prov','depto'], as_index=False)[['peso']].sum()
     #df_anual = pd.pivot_table(df_filtered, values='peso', index=['prov'],
