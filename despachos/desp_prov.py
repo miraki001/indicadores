@@ -118,10 +118,14 @@ def despachos_prov(df_filtros,df):
     df_anual = litros
     df_anual.columns = df_anual.columns.droplevel(0)
     anio1 = df_anual.columns[0]
-    st.write(anio1)
+    anio2 = df_anual.columns[1]
+    anio3 = df_anual.columns[2]
+    anio4 = df_anual.columns[3]
+
+    #st.write(anio1)
 
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
-    st.write(df_anual[2022])
+    #st.write(df_anual[2022])
     #totlitros = df_anual['litros'].sum()
     #totfob = df_anual['fob'].sum()
     for index in range(len(df_anual)):
