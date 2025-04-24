@@ -310,11 +310,11 @@ with c1:
                 showarrow=False,
                 font=dict(size=12, color="white"),
                 bgcolor="#333",
-                borderpad=4,
+                borderpad=5,
                 align="left",
                 width=200,  # Valor fijo para el ancho del fondo de la etiqueta
                 bordercolor="white",  # Borde blanco para la etiqueta
-                borderwidth=1  # Ancho del borde (puedes ajustarlo si es necesario)
+                borderwidth=2  # Ancho del borde (puedes ajustarlo si es necesario)
             )
 
             # Valor del filtro
