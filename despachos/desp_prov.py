@@ -7,7 +7,7 @@ from streamlit_echarts import JsCode
 
 from datetime import datetime as dt
 
-def despacho_prov(df_filtros,df):
+def despachos_prov(df_filtros,df):
 
 
 
