@@ -102,7 +102,7 @@ def despachos_prov(df_filtros,df):
     anio2 = litros.columns[1]
     anio3 = litros.columns[2]
     anio4 = litros.columns[3]
-    totlitros1 = litros[int(anio1)].sum()
+    totlitros1 = litros[anio1].sum()
     totlitros2 = litros[anio2].sum()
     totlitros3 = litros[anio3].sum()
     totlitros4 = litros[anio4].sum()
