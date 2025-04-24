@@ -200,12 +200,6 @@ def despachos_prov(df_filtros,df):
         st.dataframe(styled_df,
               column_config={
                 'Provincia': st.column_config.Column('Provincia'),
-                'Litros': st.column_config.Column('Litros'),
-                'Fob': st.column_config.Column('Fob'),
-                'Litros Var %': st.column_config.Column('Litros Var %'),
-                'Fob Var. %': st.column_config.Column('Fob Var. %'),
-                'ppl': st.column_config.Column('ppl'),
-                'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
         
                 },
                 column_order = column_orders,
