@@ -51,7 +51,7 @@ def despachos_prov(df_filtros,df):
         }
 
     
-    dv1['anio'] = dv1['anio'].astype(str)
+    #dv1['anio'] = dv1['anio'].astype(str)
 
 
 
