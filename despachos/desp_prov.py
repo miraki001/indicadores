@@ -109,7 +109,7 @@ def despachos_prov(df_filtros,df):
     totlitros4 = litros[anio4].sum()
     st.write(totlitros1)
     anio11 = str(anio1)
-    st.write(int(anio1))
+    #st.write(int(anio1))
 
     tot1 = []
     tot2 = []
@@ -117,6 +117,9 @@ def despachos_prov(df_filtros,df):
     tot4 = []
     df_anual = litros
     df_anual.columns = df_anual.columns.droplevel(0)
+    anio1 = df_anual.columns[0]
+    st.write(anio1)
+
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     st.write(df_anual[2022])
     #totlitros = df_anual['litros'].sum()
