@@ -185,17 +185,17 @@ def despachos_prov(df_filtros,df):
               anio2: lambda x : '{:,.0f}'.format(x), 
               anio3: lambda x : '{:,.0f}'.format(x), 
               anio4: lambda x : '{:,.0f}'.format(x), 
-             'Part. %' + str(anio1) : lambda x : '{:,.2f} %'.format(x),
-             'Part. %' + str(anio2) : lambda x : '{:,.2f} %'.format(x),
-             'Part. %' + str(anio3) : lambda x : '{:,.2f} %'.format(x),
-             'Part. %' + str(anio4) : lambda x : '{:,.2f} %'.format(x),
+             'Part. % ' + str(anio1) : lambda x : '{:,.2f} %'.format(x),
+             'Part. % ' + str(anio2) : lambda x : '{:,.2f} %'.format(x),
+             'Part. % ' + str(anio3) : lambda x : '{:,.2f} %'.format(x),
+             'Part. % ' + str(anio4) : lambda x : '{:,.2f} %'.format(x),
                                         }
             ,
             thousands='.',
             decimal=',',
         )
 
-        #column_orders =("Provincia", anio1, "Part. %" + str(anio1),  anio2, "Part. %" + str(anio2), anio3, "Part. %" + str(anio3), anio4, "Part. %" + str(anio4) )
+        column_orders =("Provincia", "2022", "Part. % 2022", anio2, "Part. % 2023" , anio3, "Part. % 2024", anio4, "Part. % 2025" )
 
         st.dataframe(styled_df,
               column_config={
