@@ -356,4 +356,5 @@ with tab1:
 
   st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
 
-    
+with tab2:    
+    despachos_prov(df_filtros,dv1)
