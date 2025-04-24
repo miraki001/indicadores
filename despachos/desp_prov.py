@@ -99,7 +99,7 @@ def despachos_prov(df_filtros,df):
     st.write(litros)
     litros  = litros.fillna(0)
     anio1 = litros.columns[0]
-    st.write(in(anio1))
+    st.write(int(anio1))
     anio2 = litros.columns[1]
     anio3 = litros.columns[2]
     anio4 = litros.columns[3]
