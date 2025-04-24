@@ -202,7 +202,7 @@ def despachos_prov(df_filtros,df):
                 'Provincia': st.column_config.Column('Provincia'),
         
                 },
-                c#olumn_order = column_orders,
+                #column_order = column_orders,
                 width = 600,   
                 height = 800,
                 hide_index=True)
