@@ -195,7 +195,7 @@ def despachos_prov(df_filtros,df):
             decimal=',',
         )
 
-        column_orders =("Provincia", "2022", "Part. % 2022", anio2, "Part. % 2023" , anio3, "Part. % 2024", anio4, "Part. % 2025" )
+        column_orders =("Provincia", "2022", "Part. % 2022", "2023", "Part. % 2023" , "2024", "Part. % 2024", "2025", "Part. % 2025" )
 
         st.dataframe(styled_df,
               column_config={
