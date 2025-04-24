@@ -170,10 +170,9 @@ def despachos_prov(df_filtros,df):
     df_anual['Part. % ' + str(anio3) ] = tot3
     df_anual['Part. % ' + str(anio4) ] = tot4
         
-        #st.write(total)
 
     
-    st.checkbox('Ver Despachos por Provincias en forma de tabla'):
+    if st.checkbox('Ver Despachos por Provincias en forma de tabla'):
         st.caption(Filtro)
 
 
