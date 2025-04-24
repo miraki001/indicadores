@@ -72,7 +72,7 @@ def despachos_prov(df_filtros,df):
                 variedad = st.multiselect("Envasev",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
     
     Filtro = 'Filtro = '    
-    df_filtered = dv1.copy()    
+    df_filtered = df.copy()    
         
     if producto:
         if producto[0] != 'Todos':
