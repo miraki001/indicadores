@@ -90,7 +90,7 @@ def despachos_prov(df_filtros,df):
     #df_filtered = dv1.copy()
     actual = dt.now().year -4 
     df_filtered = df_filtered[df_filtered['anio'] > actual ]   
-    df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
+    #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
     litros = df_filtered.pivot_table(
           index='provincia', 
           columns='anio',  
