@@ -203,7 +203,7 @@ def despachos_prov(df_filtros,df):
         
                 },
                 column_order = column_orders,
-                width = 600,   
+                width = 1000,   
                 height = 800,
                 hide_index=True)
 
