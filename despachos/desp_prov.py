@@ -69,7 +69,7 @@ def despachos_prov(df_filtros,df):
         with col2:
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
-                variedad = st.multiselect("Envasev",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+                envase = st.multiselect("Envasev",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
     
     Filtro = 'Filtro = '    
     df_filtered = df.copy()    
