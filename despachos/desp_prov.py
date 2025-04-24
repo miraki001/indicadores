@@ -176,7 +176,7 @@ def despachos_prov(df_filtros,df):
         st.caption(Filtro)
 
 
-        df_anual = df_anual.sort_index(axis = 1)
+        #df_anual = df_anual.sort_index(axis = 1)
 
         styled_df = df_anual.style.format(
             { anio1: lambda x : '{:,.0f}'.format(x), 
