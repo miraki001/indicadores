@@ -118,7 +118,13 @@ df_filtered = dv1.copy()
 actual = dt.now().year -4 
 
 
-with st.container(border=True):
+
+
+tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por Color/Tipo","Por Envase","Por Variedades","Consumo Interno"])
+
+with tab1:
+
+  with st.container(border=True):
     col1, col2, col3,col4= st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
@@ -143,34 +149,32 @@ with st.container(border=True):
             producto = st.multiselect("Coloreo",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
 
 
-Filtro = 'Filtro = Año = '
-Filtro = Filtro +  ' Todos '
+  Filtro = 'Filtro = Año = '
+  Filtro = Filtro +  ' Todos '
   
-if variedad:
+  if variedad:
     if variedad[0] != 'Todas':
         df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
         #st.write(variedad)
     Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
   
-if departamento:
+  if departamento:
     if departamento[0] != 'Todos':
         df_filtered = df_filtered[df_filtered['departamento'].isin(departamento)]
     Filtro = Filtro + ' Departamento = ' +  str(departamento) + ' '
           
-if provincia:        
+  if provincia:        
     if provincia[0] != 'Todas':
         df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
     Filtro = Filtro + ' Provincia = ' +  str(provincia) + ' '
 
-if producto:
+  if producto:
     if producto[0] != 'Todos':
         df_filtered = df_filtered[df_filtered['producto'].isin(producto)]
     Filtro = Filtro + ' Producto = ' +  str(producto) + ' '
 
 
-tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por Color/Tipo","Por Envase","Por Variedades","Consumo Interno"])
-
-with tab1:
+  
 
   df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
 
