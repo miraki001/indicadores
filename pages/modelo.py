@@ -314,7 +314,7 @@ with c1:
                 align="left",
                 width=200,  # Valor fijo para el ancho del fondo de la etiqueta
                 bordercolor="white",  # Borde blanco para la etiqueta
-                borderwidth=2  # Ancho del borde (puedes ajustarlo si es necesario)
+                borderwidth=1  # Ancho del borde (puedes ajustarlo si es necesario)
             )
 
             # Valor del filtro
