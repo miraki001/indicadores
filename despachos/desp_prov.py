@@ -127,7 +127,6 @@ def despachos_prov(df_filtros,df):
           values=['litros'],
           aggfunc='sum'
     )  
-    st.write(litros)
     litros  = litros.fillna(0)
     anio1 = litros.columns[0]
     anio2 = litros.columns[1]
@@ -138,9 +137,6 @@ def despachos_prov(df_filtros,df):
     totlitros2 = litros[anio2].sum()
     totlitros3 = litros[anio3].sum()
     totlitros4 = litros[anio4].sum()
-    st.write(totlitros1)
-    anio11 = str(anio1)
-    #st.write(int(anio1))
 
     tot1 = []
     tot2 = []
@@ -153,12 +149,8 @@ def despachos_prov(df_filtros,df):
     anio3 = df_anual.columns[2]
     anio4 = df_anual.columns[3]
 
-    #st.write(anio1)
 
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
-    #st.write(df_anual[2022])
-    #totlitros = df_anual['litros'].sum()
-    #totfob = df_anual['fob'].sum()
     for index in range(len(df_anual)):
         #if index > 0:
             tot1.append((  (df_anual[int(anio1)].loc[index] / totlitros1 *100 )))
@@ -194,6 +186,7 @@ def despachos_prov(df_filtros,df):
             thousands='.',
             decimal=',',
         )
+        st.write(styled_df)
 
         column_orders =("Provincia", "2022", "Part. % 2022", "2023", "Part. % 2023" , "2024", "Part. % 2024", "2025", "Part. % 2025" )
 
