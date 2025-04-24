@@ -176,16 +176,27 @@ def despachos_prov(df_filtros,df):
         st.caption(Filtro)
 
 
+        df_anual = df_anual.rename(columns={'provincia': "Provincia"})
+
         #df_anual = df_anual.sort_index(axis = 1)
 
         styled_df = df_anual.style.format(
             { anio1: lambda x : '{:,.0f}'.format(x), 
+              anio2: lambda x : '{:,.0f}'.format(x), 
+              anio3: lambda x : '{:,.0f}'.format(x), 
+              anio4: lambda x : '{:,.0f}'.format(x), 
              'Part. %' + str(anio1) : lambda x : '{:,.2f} %'.format(x),
+             'Part. %' + str(anio2) : lambda x : '{:,.2f} %'.format(x),
+             'Part. %' + str(anio3) : lambda x : '{:,.2f} %'.format(x),
+             'Part. %' + str(anio4) : lambda x : '{:,.2f} %'.format(x),
                                         }
             ,
             thousands='.',
             decimal=',',
         )
+
+        column_orders =("Provincia", anio1, 'Part. %' + str(anio1),  anio2, 'Part. %' + str(anio2), anio3, 'Part. %' + str(anio3), anio4, 'Part. %' + str(anio4) )
+
         st.dataframe(styled_df,
               column_config={
                 'Año': st.column_config.Column('Año'),
@@ -197,6 +208,7 @@ def despachos_prov(df_filtros,df):
                 'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
         
                 },
+                column_order = column_orders,
                 width = 600,   
                 height = 800,
                 hide_index=True)
