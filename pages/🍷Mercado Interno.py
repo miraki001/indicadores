@@ -14,6 +14,9 @@ from util import desp_prov
 from datetime import datetime as dt
 from despachos import desp_prov
 
+st.set_page_config(initial_sidebar_state="collapsed",
+                  layout="wide",menu_items=None)
+
 
 conn = st.connection("postgresql", type="sql")
 
