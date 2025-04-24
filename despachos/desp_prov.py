@@ -195,14 +195,14 @@ def despachos_prov(df_filtros,df):
             decimal=',',
         )
 
-        column_orders =("Provincia", anio1, "Part. %" + str(anio1),  anio2, "Part. %" + str(anio2), anio3, "Part. %" + str(anio3), anio4, "Part. %" + str(anio4) )
+        #column_orders =("Provincia", anio1, "Part. %" + str(anio1),  anio2, "Part. %" + str(anio2), anio3, "Part. %" + str(anio3), anio4, "Part. %" + str(anio4) )
 
         st.dataframe(styled_df,
               column_config={
                 'Provincia': st.column_config.Column('Provincia'),
         
                 },
-                column_order = column_orders,
+                c#olumn_order = column_orders,
                 width = 600,   
                 height = 800,
                 hide_index=True)
