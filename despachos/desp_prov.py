@@ -123,8 +123,8 @@ def despachos_prov(df_filtros,df):
     #totfob = df_anual['fob'].sum()
     for index in range(len(df_anual)):
         #if index > 0:
-            tot1.append((  (df_anual[str(anio1)].loc[index] / totlitros1 *100 )))
-            tot2.append((  (df_anual[str(anio2)].loc[index] / totlitros2 *100 )))
+            tot1.append((  (df_anual[int(anio1)].loc[index] / totlitros1 *100 )))
+            tot2.append((  (df_anual[int(anio2)].loc[index] / totlitros2 *100 )))
             tot3.append((  (df_anual[anio3].loc[index] / totlitros3 *100 )))
             tot4.append((  (df_anual[anio4].loc[index] / totlitros4 *100 )))
     df_anual['Part. % '] = tot1
