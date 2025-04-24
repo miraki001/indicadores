@@ -72,6 +72,7 @@ def despachos_prov(df_filtros,df):
                 variedad = st.multiselect("Envasev",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
     
     Filtro = 'Filtro = '    
+    df_filtered = dv1.copy()    
         
     if producto:
         if producto[0] != 'Todos':
@@ -85,7 +86,7 @@ def despachos_prov(df_filtros,df):
         Filtro = Filtro + ' Envases = ' +  str(envase) + ' '
             
 
-    df_filtered = dv1.copy()
+    #df_filtered = dv1.copy()
     actual = dt.now().year -4 
     df_filtered = df_filtered[df_filtered['anio'] > actual ]   
     df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
