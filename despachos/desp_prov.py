@@ -9,8 +9,6 @@ from datetime import datetime as dt
 
 def despachos_prov(df_filtros,df):
 
-    st.set_page_config(initial_sidebar_state="collapsed",
-                  layout="wide",menu_items=None)
 
     hide_streamlit_style = """
                 <style>
