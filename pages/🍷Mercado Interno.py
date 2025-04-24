@@ -38,7 +38,7 @@ def cargar_datos(consulta):
 
 
 QUERY_V0 = f"""
-        SELECT distinct anio,variedad1 as variedad,provincia,departamento,producto
+        SELECT distinct anio,variedad1 as variedad,provincia,departamento,producto,subgrupoenvase
         FROM despachos_m 
         where producto not in ('Mosto','Alcohol')
         
