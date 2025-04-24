@@ -98,10 +98,10 @@ def despachos_prov(df_filtros,df):
     )  
 
     litros  = litros.fillna(0)
-    anio1 = litros.columns[1]
-    anio2 = litros.columns[2]
-    anio3 = litros.columns[3]
-    anio4 = litros.columns[4]
+    anio1 = litros.columns[0]
+    anio2 = litros.columns[1]
+    anio3 = litros.columns[2]
+    anio4 = litros.columns[3]
     totlitros1 = df_anual[anio1].sum()
     st.write(totlitros1)
     st.write(litros)
