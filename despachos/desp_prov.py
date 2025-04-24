@@ -118,20 +118,20 @@ def despachos_prov(df_filtros,df):
     st.write(df_anual)
     #totlitros = df_anual['litros'].sum()
     #totfob = df_anual['fob'].sum()
-    for index in range(len(litros)):
+    for index in range(len(df_anual)):
         #if index > 0:
-            tot1.append((  (litros[anio1].loc[index] / totlitros1 *100 )))
-            tot2.append((  (litros[anio2].loc[index] / totlitros2 *100 )))
-            tot3.append((  (litros[anio3].loc[index] / totlitros3 *100 )))
-            tot4.append((  (litros[anio4].loc[index] / totlitros4 *100 )))
-    litros['Part. % '] = tot1
-    litros['Part. % '] = tot2
-    litros['Part. % '] = tot3
-    litros['Part. % '] = tot4
+            tot1.append((  (df_anual[anio1].loc[index] / totlitros1 *100 )))
+            tot2.append((  (df_anual[anio2].loc[index] / totlitros2 *100 )))
+            tot3.append((  (df_anual[anio3].loc[index] / totlitros3 *100 )))
+            tot4.append((  (df_anual[anio4].loc[index] / totlitros4 *100 )))
+    df_anual['Part. % '] = tot1
+    df_anual['Part. % '] = tot2
+    df_anual['Part. % '] = tot3
+    df_anual['Part. % '] = tot4
         
         #st.write(total)
 
     
-    st.write(litros)
+    st.write(df_anual)
 
 
