@@ -73,6 +73,7 @@ def despachos_prov(df_filtros,df):
     
     Filtro = 'Filtro = '    
     df_filtered = df.copy()    
+    st.write(df_filtered)
         
     if producto:
         if producto[0] != 'Todos':
