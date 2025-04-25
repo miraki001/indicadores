@@ -207,6 +207,7 @@ with tab1:
             thousands='.',
             decimal=',',
         )
+        column_orders =("Año", "Litros", "Litros Var %" )
         st.dataframe(styled_df,
               column_config={
                 'Año': st.column_config.Column('Año'),
@@ -218,6 +219,7 @@ with tab1:
                 'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
         
                 },
+                column_order = column_orders,                     
                 width = 600,   
                 height = 800,
                 hide_index=True)
