@@ -226,7 +226,7 @@ def despachos_prov(df_filtros,df):
             "subtext": Filtro,
         },        
         #"subtitle": Filtro,
-        "legend": {"data": ["litros","Provincia"]},   
+        "legend": {"data": ["litros","provincia"]},   
         "series": [
                 {
                     "name": "Despachos Totales",
