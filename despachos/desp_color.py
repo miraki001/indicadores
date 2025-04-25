@@ -216,7 +216,10 @@ def despachos_color(df_filtros,df):
     actual1 = dt.now().year -1
     #st.write(actual1)
     litros = litros[litros['Año'] == actual1 ]  
-    st.write(int(litros['Blanco']))
+    blanco = int(litros['Blanco'])
+    tinto = int(litros['Tinto'])
+    blanco = int(litros['Rosado'])
+    st.write(blanco)
 
     options = {
             "title": {"text": "", "left": "center"},
@@ -229,9 +232,9 @@ def despachos_color(df_filtros,df):
                 "type": "pie",
                 "radius": "50%",
                 "data": [
-                    {"value": int(litros['Blanco'], "name": "Blanco"},
-                    {"value": int(litros['Tinto'], "name": "Tinto"},
-                    {"value": int(litros['Rosado'], "name": "Rosado"},
+                    {"value": blanco, "name": "Blanco"},
+                    {"value": tinto , "name": "Tinto"},
+                    {"value": rosado , "name": "Rosado"},
                 ],
                 "emphasis": {
                     "itemStyle": {
