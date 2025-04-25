@@ -13,6 +13,7 @@ from st_keyup import st_keyup
 from util import desp_prov
 from datetime import datetime as dt
 from despachos import desp_prov
+from despachos import desp_color
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -365,3 +366,5 @@ with tab1:
 
 with tab2:    
     desp_prov.despachos_prov(df_filtros,dv1)
+with tab3:    
+    desp_color.despachos_color(df_filtros,dv1)  
