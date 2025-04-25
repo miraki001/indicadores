@@ -149,3 +149,15 @@ def despachos_color(df_filtros,df):
         tot1.append((  (litros['Rosado'].loc[index]  +  litros['Blanco'].loc[index] + litros['Tinto'].loc[index]  )))
     litros['Total'] = tot1        
     st.write(litros)
+    tot1 = []
+    tot2 = []
+    tot3 = []
+    for index in range(len(litros)):
+        #if index > 0:
+            tot1.append((  (litros['Rosado'].loc[index] / producto1['Total'].loc[index]  ) *100 ))
+            tot2.append((  (litros['Blanco'].loc[index] / producto1['Total'].loc[index]  *100 )))
+            tot3.append((  (litros['Tinto'].loc[index] / producto1['Total'].loc[index]  * 100 ) ) )
+    litros['Part. % Rosado'] = tot1
+    litros['Part. % Blanco'] = tot2
+    litros['Part. % Tinto'] = tot3    
+    st.write(litros)
