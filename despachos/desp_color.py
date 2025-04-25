@@ -207,7 +207,7 @@ def despachos_color(df_filtros,df):
         "yAxis": {"type": "value"},
         "series": [{"data": litros['Rosado'].to_list(), "type": "line", "name": 'Rosado'},
                    {"data": litros['Blanco'].to_list(), "type": "line", "name": 'Blanco'},
-                   {"data": litros['tinto'].to_list(), "type": "line", "name": 'tinto'},
+                   {"data": litros['Tinto'].to_list(), "type": "line", "name": 'tinto'},
                ]
       }
     st_echarts(
