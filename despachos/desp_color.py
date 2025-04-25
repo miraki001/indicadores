@@ -140,7 +140,7 @@ def despachos_color(df_filtros,df):
     litros  = litros.fillna(0)
     litros.columns = litros.columns.droplevel(0)   
     litros = litros.reset_index()
-    st.write(litros['Rosado'])
+    #st.write(litros['Rosado'])
     for index in range(len(litros)):
         litros['Rosado'].loc[index] = litros['Rosado'].loc[index] +litros['Sin Dato'].loc[index]  
     tot1 = []
@@ -158,7 +158,7 @@ def despachos_color(df_filtros,df):
     litros['Part. % Rosado'] = tot1
     litros['Part. % Blanco'] = tot2
     litros['Part. % Tinto'] = tot3    
-    st.write(litros)
+    #st.write(litros)
 
     styled_df = litros.style.format(
             {"Rosado": lambda x : '{:,.0f}'.format(x), 
@@ -179,13 +179,13 @@ def despachos_color(df_filtros,df):
        
         st.dataframe(styled_df,
               column_config={
-                'Rosado': st.column_config.Column('Año'),
-                'Blanco': st.column_config.Column('Litros'),
-                'Tinto': st.column_config.Column('Fob'),
-                'Total': st.column_config.Column('Fob'),
-                'Part. % Rosado': st.column_config.Column('Litros Var %'),
-                'Part. % Blanco': st.column_config.Column('Fob Var. %'),
-                'Part. % Tinto': st.column_config.Column('Prec x Litro Var. %'),
+                'Rosado': st.column_config.Column('Rosado'),
+                'Blanco': st.column_config.Column('Blanco'),
+                'Tinto': st.column_config.Column('Tinto'),
+                'Total': st.column_config.Column('Total'),
+                'Part. % Rosado': st.column_config.Column('Part. % Rosado'),
+                'Part. % Blanco': st.column_config.Column('Part. % Blanco'),
+                'Part. % Tinto': st.column_config.Column('Part. % Tinto'),
         
                 },
                 column_order = column_orders,     
