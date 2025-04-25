@@ -230,7 +230,7 @@ def despachos_color(df_filtros,df):
             {
                 "name": "Hl",
                 "type": "pie",
-                "radius": "80%",
+                "radius": "100%",
                 "data": [
                     {"value": blanco, "name": "Blanco"},
                     {"value": tinto , "name": "Tinto"},
