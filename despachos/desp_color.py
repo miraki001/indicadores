@@ -213,3 +213,36 @@ def despachos_color(df_filtros,df):
     st_echarts(
          options=option, height="400px" ,
     )
+    actual1 = dt.now().year -1
+    #st.write(actual1)
+    litros = litros[litros['anio'] == actual1 ]  
+    st.write(litros)
+
+    options = {
+            "title": {"text": "", "left": "center"},
+            "subtitle":{"text": ""},
+            "tooltip": {"trigger": "item"},
+            "legend": {"orient": "vertical", "left": "left",},
+            "series": [
+            {
+                "name": "Hl",
+                "type": "pie",
+                "radius": "50%",
+                "data": [
+                    {"value": 62.17, "name": "Tintos"},
+                    {"value": 30.12, "name": "Blancos"},
+                    {"value": 7.71, "name": "Rosados"},
+                ],
+                "emphasis": {
+                    "itemStyle": {
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(10, 0, 0, 0.5)",
+                    }
+                },
+            }
+            ],
+    }
+    st_echarts(
+        options=options, height="200px",
+    )
