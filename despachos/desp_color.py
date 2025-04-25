@@ -222,6 +222,12 @@ def despachos_color(df_filtros,df):
     st.write(blanco)
 
     options = {
+            "color": [
+            '#C92488',
+            '#F49F82',
+            '#604994',
+
+            ],        
             "title": {"text": "", "left": "center"},
             "subtitle":{"text": ""},
             "tooltip": {"trigger": "item"},
@@ -232,9 +238,9 @@ def despachos_color(df_filtros,df):
                 "type": "pie",
                 "radius": "100%",
                 "data": [
-                    {"value": blanco, "name": "Blanco"},
+                    {"value": rosado, "name": "Rosado"},
+                    {"value": blanco , "name": "Blanco"},
                     {"value": tinto , "name": "Tinto"},
-                    {"value": rosado , "name": "Rosado"},
                 ],
                 "emphasis": {
                     "itemStyle": {
