@@ -201,15 +201,18 @@ def despachos_prov(df_filtros,df):
                 hide_index=True)
 
     actual1 = dt.now().year -1
-    st.write(actual1)
+    #st.write(actual1)
     df_filtered = df_filtered[df_filtered['anio'] == actual1 ]  
-    st.write(df_filtered)
+    #st.write(df_filtered)
     df_filtered['anio'] = df_filtered['anio'].astype(str)
     #df_filtered = df_filtered[df_filtered['anio'].isin(2024)]
     df_anual = df_filtered.groupby(['provincia'], as_index=False)[['litros']].sum()
-    st.write(df_anual)
+    #st.write(df_anual)
     
     json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
+    
+    st.write(json_list)
+    
     option = {
         "tooltip": {
             #"trigger": 'axis',
