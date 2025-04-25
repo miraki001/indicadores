@@ -159,6 +159,7 @@ def despachos_color(df_filtros,df):
     litros['Part. % Blanco'] = tot2
     litros['Part. % Tinto'] = tot3    
     #st.write(litros)
+    litros = litros.rename(columns={'anio': "Año"})
 
     styled_df = litros.style.format(
             {"Rosado": lambda x : '{:,.0f}'.format(x), 
