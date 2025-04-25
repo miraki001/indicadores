@@ -218,7 +218,7 @@ def despachos_prov(df_filtros,df):
             #"trigger": 'axis',
             #"axisPointer": { "type": 'cross' },
             "formatter": JsCode(
-                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
+                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Depachos Acumulados: ' + value ].join('')};"
             ).js_code,
         },
         "title": {
@@ -247,5 +247,5 @@ def despachos_prov(df_filtros,df):
         ]
     }
     st_echarts(
-        options=option,key="gauge22" + str(dt.now()), height="600px",
+        options=option,key="gauge3322" + str(dt.now()), height="600px",
     )
