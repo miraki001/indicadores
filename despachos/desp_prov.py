@@ -212,7 +212,7 @@ def despachos_prov(df_filtros,df):
 
     json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
     
-    st.write(json_list)
+    #st.write(json_list)
     
     option = {
         "tooltip": {
