@@ -208,7 +208,8 @@ def despachos_prov(df_filtros,df):
     #df_filtered = df_filtered[df_filtered['anio'].isin(2024)]
     df_anual = df_filtered.groupby(['provincia'], as_index=False)[['litros']].sum()
     #st.write(df_anual)
-    
+    df_anual = df_anual.rename(columns={'litros': "value", 'provincia': "name",})
+
     json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
     
     st.write(json_list)
