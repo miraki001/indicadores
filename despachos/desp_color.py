@@ -94,13 +94,13 @@ def despachos_color(df_filtros,df):
         with col1:
             with st.popover("Producto"):
                 st.caption("Selecciona uno o más Productos de la lista")
-                producto = st.multiselect("Producto",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
+                producto = st.multiselect("Productorr",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
             
       
         with col2:
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
-                envase = st.multiselect("Envasev",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+                envase = st.multiselect("Envasevr",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
         with col3:
             with st.popover("Provincia"):
