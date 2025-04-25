@@ -218,7 +218,7 @@ def despachos_color(df_filtros,df):
     litros = litros[litros['Año'] == actual1 ]  
     blanco = int(litros['Blanco'])
     tinto = int(litros['Tinto'])
-    blanco = int(litros['Rosado'])
+    rosado = int(litros['Rosado'])
     st.write(blanco)
 
     options = {
