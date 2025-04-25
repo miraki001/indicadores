@@ -235,7 +235,7 @@ with tab1:
     "legend": {},    
     "xAxis": {
         "type": "category",
-        "data": df_filtered['anio'].to_list(),
+        "data": df_filtered['Año'].to_list(),
     },
     "yAxis": {"type": "value"},
     "series": [{"data": df_filtered['Litros'].to_list(), "type": "line", "name": 'Litros'},
