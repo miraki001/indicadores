@@ -229,9 +229,9 @@ def despachos_color(df_filtros,df):
                 "type": "pie",
                 "radius": "50%",
                 "data": [
-                    {"value": 62.17, "name": "Tintos"},
-                    {"value": 30.12, "name": "Blancos"},
-                    {"value": 7.71, "name": "Rosados"},
+                    {"value": int(litros['Blanco'], "name": "Blanco"},
+                    {"value": int(litros['Tinto'], "name": "Tinto"},
+                    {"value": int(litros['Rosado'], "name": "Rosado"},
                 ],
                 "emphasis": {
                     "itemStyle": {
