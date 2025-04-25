@@ -184,7 +184,7 @@ with tab1:
   for index in range(len(df_filtered)):
       if index > 0:
             total.append((  (df_filtered['litros'].loc[index] / df_filtered['litros'].loc[index -1]) -1 ) *100 )
-  df_filtered = df_filtered.rename(columns={'litros': "Litros"})
+  df_filtered = df_filtered.rename(columns={'litros': "Litros",'anio': "Año"})
   df_filtered['Litros Var %'] = total
   df_filtered = df_filtered.astype({'Litros': int} )
     
