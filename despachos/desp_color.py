@@ -175,7 +175,7 @@ def despachos_color(df_filtros,df):
             decimal=',',
     )
 
-    if st.checkbox('Ver Depachos por Color 1en forma de tabla'):
+    if st.checkbox('Ver Depachos por Color en forma de tabla'):
         column_orders =("Año", "Blanco", "Part. % Blanco", "Rosado", "Part. % Rosado", "Tinto" , "Part. % Tinto", "Total" )
        
         st.dataframe(styled_df,
