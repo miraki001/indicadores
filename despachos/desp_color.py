@@ -206,7 +206,7 @@ def despachos_color(df_filtros,df):
         },
         "yAxis": {"type": "value"},
         "series": [{"data": litros['Rosado'].to_list(), "type": "line", "name": 'Rosado',"color":'#C92488', },
-                   {"data": litros['Blanco'].to_list(), "type": "line", "name": 'Blanco',"color":'#FCE2D6',},
+                   {"data": litros['Blanco'].to_list(), "type": "line", "name": 'Blanco',"color":'#F49F82',},
                    {"data": litros['Tinto'].to_list(), "type": "line", "name": 'tinto',"color":'#604994',},
                ]
       }
