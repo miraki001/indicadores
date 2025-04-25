@@ -132,7 +132,7 @@ def despachos_prov(df_filtros,df):
     anio2 = litros.columns[1]
     anio3 = litros.columns[2]
     anio4 = litros.columns[3]
-    st.write(anio1)
+    #st.write(anio1)
     totlitros1 = litros[anio1].sum()
     totlitros2 = litros[anio2].sum()
     totlitros3 = litros[anio3].sum()
@@ -186,7 +186,7 @@ def despachos_prov(df_filtros,df):
             thousands='.',
             decimal=',',
         )
-        st.write(styled_df)
+        #st.write(styled_df)
 
         column_orders =("Provincia", "2022", "Part. % 2022", "2023", "Part. % 2023" , "2024", "Part. % 2024", "2025", "Part. % 2025" )
 
