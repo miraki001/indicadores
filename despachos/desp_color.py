@@ -175,10 +175,11 @@ def despachos_color(df_filtros,df):
     )
 
     if st.checkbox('Ver Depachos por Color 1en forma de tabla'):
-        column_orders =("Blanco", "Part. % Blanco", "Rosado", "Part. % Rosado", "Tinto" , "Part. % Tinto", "Total" )
+        column_orders =("Año", "Blanco", "Part. % Blanco", "Rosado", "Part. % Rosado", "Tinto" , "Part. % Tinto", "Total" )
        
         st.dataframe(styled_df,
               column_config={
+                'Año': st.column_config.Column('Año'),                  
                 'Rosado': st.column_config.Column('Rosado'),
                 'Blanco': st.column_config.Column('Blanco'),
                 'Tinto': st.column_config.Column('Tinto'),
