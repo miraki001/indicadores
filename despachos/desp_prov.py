@@ -200,8 +200,9 @@ def despachos_prov(df_filtros,df):
                 height = 800,
                 hide_index=True)
 
-    st.write(actual)
-    df_filtered = df_filtered[df_filtered['anio'] == actual ]  
+    actual1 = dt.now().year 
+    st.write(actual1)
+    df_filtered = df_filtered[df_filtered['anio'] == actual1 ]  
     st.write(df_filtered)
     df_filtered['anio'] = df_filtered['anio'].astype(str)
     df_filtered = df_filtered[df_filtered['anio'].isin(2024)]
