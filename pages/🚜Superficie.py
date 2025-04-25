@@ -52,8 +52,8 @@ with tab1:
     df2['Viñedos Var. %'] = tot1
 
     df2 = df2.sort_index(axis = 1)
-
-    styled_df = df2.style.applymap(bgcolor_positive_or_negative, subset=['Superficie Var %','Viñedos Var. %']).format(
+    #applymap
+    styled_df = df2.style.map(bgcolor_positive_or_negative, subset=['Superficie Var %','Viñedos Var. %']).format(
         {"Superficie": lambda x : '{:,.0f}'.format(x), 
         "Viñedos Cnt.": lambda x : '{:,.0f}'.format(x),
         "Superficie Var %": lambda x : '{:,.2f} %'.format(x),
