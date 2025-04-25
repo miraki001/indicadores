@@ -216,7 +216,7 @@ def despachos_color(df_filtros,df):
     actual1 = dt.now().year -1
     #st.write(actual1)
     litros = litros[litros['Año'] == actual1 ]  
-    st.write(litros)
+    st.write(litros['Blanco'])
 
     options = {
             "title": {"text": "", "left": "center"},
