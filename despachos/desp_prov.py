@@ -208,3 +208,41 @@ def despachos_prov(df_filtros,df):
     #df_filtered = df_filtered[df_filtered['anio'].isin(2024)]
     df_anual = df_filtered.groupby(['provincia'], as_index=False)[['litros']].sum()
     st.write(df_anual)
+    
+    json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
+    option = {
+        "tooltip": {
+            #"trigger": 'axis',
+            #"axisPointer": { "type": 'cross' },
+            "formatter": JsCode(
+                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Ventas Acumuladas: ' + value ].join('')};"
+            ).js_code,
+        },
+        "title": {
+            "text": 'Despachos por Provincias en Litros',
+            "subtext": Filtro,
+        },        
+        #"subtitle": Filtro,
+        "legend": {"data": ["litros","Provincia"]},   
+        "series": [
+                {
+                    "name": "Despachos Totales",
+                    "type": "treemap",
+                    "visibleMin": 100,
+                    "label": {"show": True, "formatter": "{b}"},
+                    "itemStyle": {"borderColor": "#fff"},
+                    "levels": [
+                        {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
+                        {"itemStyle": {"gapWidth": 1}},
+                        {
+                            "colorSaturation": [0.35, 0.5],
+                            "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
+                        },
+                    ],
+                    "data": json_list,
+                }
+        ]
+    }
+    st_echarts(
+        options=option,key="gauge22" + str(dt.now()), height="600px",
+    )
