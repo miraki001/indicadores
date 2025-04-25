@@ -138,4 +138,11 @@ def despachos_color(df_filtros,df):
           aggfunc='sum'
     )  
     st.write(litros)
-    
+    litros.columns = litros.columns.droplevel(0)    
+    for index in range(len(litros)):
+        litros['Rosado'].loc[index] = litros['Rosado'].loc[index] +litros['Sin Dato'].loc[index]  
+    tot1 = []
+    for index in range(len(litros)):
+        tot1.append((  (litros['Rosado'].loc[index]  +  litros['Blanco'].loc[index] + litros['Tinto'].loc[index]  )))
+    litros['Total'] = tot1        
+    st.write(litros)
