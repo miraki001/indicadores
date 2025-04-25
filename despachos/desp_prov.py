@@ -203,6 +203,6 @@ def despachos_prov(df_filtros,df):
         #df_filtered = df_filtered[df_filtered['anio'] > actual- ]  
         st.write(df_filtered)
         df_filtered['anio'] = df_filtered['anio'].astype(str)
-        df_filtered = df_filtered[df_filtered['anio'].isin('2024')]
+        df_filtered = df_filtered[df_filtered['anio'].isin(2024)]
         df_anual = df_filtered.groupby(['provincia'], as_index=False)[['litros']].sum()
         st.write(df_anual)
