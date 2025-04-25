@@ -194,3 +194,22 @@ def despachos_color(df_filtros,df):
                 width = 1000,   
                 height = 800,
                 hide_index=True)
+    option = {
+        "tooltip": {
+        "trigger": 'axis',
+        "axisPointer": { "type": 'cross' }
+        },
+        "legend": {},    
+        "xAxis": {
+            "type": "category",
+            "data": litros['Año'].to_list(),
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": litros['Rosado'].to_list(), "type": "line", "name": 'Rosado'},
+                   {"data": litros['Blanco'].to_list(), "type": "line", "name": 'Blanco'},
+                   {"data": litros['tinto'].to_list(), "type": "line", "name": 'tinto'},
+               ]
+      }
+    st_echarts(
+         options=option, height="400px" ,
+    )
