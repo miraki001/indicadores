@@ -161,3 +161,36 @@ def despachos_color(df_filtros,df):
     litros['Part. % Blanco'] = tot2
     litros['Part. % Tinto'] = tot3    
     st.write(litros)
+
+    styled_df = litros.style.format(
+            {"Rosado": lambda x : '{:,.0f}'.format(x), 
+            "Blanco": lambda x : '{:,.0f}'.format(x),
+            "Tinto": lambda x : '{:,.0f}'.format(x),
+            "Total": lambda x : '{:,.0f}'.format(x),
+            "Part. % Rosado": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Blanco": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Tinto": lambda x : '{:,.2f} %'.format(x),
+                                        }
+            ,
+            thousands='.',
+            decimal=',',
+    )
+
+    if st.checkbox('Ver datos en forma de tabla'):
+        column_orders =("Blanco", "Part. % Blanco", "Rosado", "Part. % Rosado", "Tinto" , "Part. % Tinto", "Total" )
+       
+        st.dataframe(styled_df,
+              column_config={
+                'Rosado': st.column_config.Column('Año'),
+                'Blanco': st.column_config.Column('Litros'),
+                'Tinto': st.column_config.Column('Fob'),
+                'Total': st.column_config.Column('Fob'),
+                'Part. % Rosado': st.column_config.Column('Litros Var %'),
+                'Part. % Blanco': st.column_config.Column('Fob Var. %'),
+                'Part. % Tinto': st.column_config.Column('Prec x Litro Var. %'),
+        
+                },
+                column_order = column_orders,     
+                width = 600,   
+                height = 800,
+                hide_index=True)
