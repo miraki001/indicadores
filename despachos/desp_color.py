@@ -313,7 +313,7 @@ def despachos_color(df_filtros,df):
             decimal=',',
     )
     if st.checkbox('Ver Depachos por Producto en forma de tabla'):
-        column_orders =("Año", "Espumantes", "Part. % Esp.", "Gasificados", "Part. % Gas.", "Otros Vinos" , "Part. % Otros", "Vino Varietal","Part. % Var.","Vinos sin Mencion","Part. % Sin")
+        column_orders =("Año", "Espumantes", "Part. % Esp.", "Gasificados", "Part. % Gas.", "Otros Vinos" , "Part. % Otros", "Vino Varietal","Part. % Var.","Vinos sin Mencion","Part. % Sin","Total")
        
         st.dataframe(styled_df,
               column_config={
