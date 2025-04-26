@@ -255,3 +255,47 @@ def despachos_color(df_filtros,df):
     st_echarts(
         options=options, height="200px",
     )
+
+    
+    tipo = df_filtered.pivot_table(
+          index='anio', 
+          columns='producto',  
+          values=['litros'],
+          aggfunc='sum'
+    )  
+    tipo  = tipo.fillna(0)
+    tipo.columns = tipo.columns.droplevel(0)   
+    tipo = tipo.reset_index()
+    st.write(tipo)
+ 
+    tot1 = []
+    for index in range(len(tipo)):
+        tot1.append((  (litros['Rosado'].loc[index]  +  litros['Blanco'].loc[index] + litros['Tinto'].loc[index]  )))
+    litros['Total'] = tot1        
+    tot1 = []
+    tot2 = []
+    tot3 = []
+    for index in range(len(litros)):
+        #if index > 0:
+            tot1.append((  (litros['Rosado'].loc[index] / litros['Total'].loc[index]  ) *100 ))
+            tot2.append((  (litros['Blanco'].loc[index] / litros['Total'].loc[index]  *100 )))
+            tot3.append((  (litros['Tinto'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
+    litros['Part. % Rosado'] = tot1
+    litros['Part. % Blanco'] = tot2
+    litros['Part. % Tinto'] = tot3    
+    #st.write(litros)
+    litros = litros.rename(columns={'anio': "Año"})
+
+    styled_df = litros.style.format(
+            {"Rosado": lambda x : '{:,.0f}'.format(x), 
+            "Blanco": lambda x : '{:,.0f}'.format(x),
+            "Tinto": lambda x : '{:,.0f}'.format(x),
+            "Total": lambda x : '{:,.0f}'.format(x),
+            "Part. % Rosado": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Blanco": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Tinto": lambda x : '{:,.2f} %'.format(x),
+                                        }
+            ,
+            thousands='.',
+            decimal=',',
+    )
