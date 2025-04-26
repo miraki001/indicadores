@@ -358,7 +358,7 @@ def despachos_color(df_filtros,df):
     )
     actual1 = dt.now().year -1
     #st.write(actual1)
-    tipo = tipo[litros['Año'] == actual1 ]  
+    tipo = tipo[tipo['Año'] == actual1 ]  
     espumantes = int(tipo['Espumantes'])
     gasificados = int(tipo['Gasificados'])
     otros = int(tipo['Otros Vinos'])
