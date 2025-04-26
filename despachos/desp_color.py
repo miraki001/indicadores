@@ -267,7 +267,7 @@ def despachos_color(df_filtros,df):
     tipo  = tipo.fillna(0)
     tipo.columns = tipo.columns.droplevel(0)   
     tipo = tipo.reset_index()
-    st.write(tipo)
+    #st.write(tipo)
     for index in range(len(tipo)):
         tipo['Otros Vinos'].loc[index] = tipo['Otros Vinos'].loc[index] +tipo['Otros'].loc[index]  
  
@@ -292,10 +292,10 @@ def despachos_color(df_filtros,df):
     tipo['Part. % Otros'] = tot3    
     tipo['Part. % Var.'] = tot4    
     tipo['Part. % Sin'] = tot5    
-    st.write(tipo)
+    #st.write(tipo)
     tipo = tipo.rename(columns={'anio': "Año"})
 
-    styled_df = litros.style.format(
+    styled_df = tipo.style.format(
             {"Espumantes": lambda x : '{:,.0f}'.format(x), 
             "Gasificados": lambda x : '{:,.0f}'.format(x),
             "Otros Vinos": lambda x : '{:,.0f}'.format(x),
