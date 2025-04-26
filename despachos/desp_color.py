@@ -349,8 +349,8 @@ def despachos_color(df_filtros,df):
         "series": [{"data": tipo['Espumantes'].to_list(), "type": "line", "name": 'Espumantes',"color":'#C92488', },
                    {"data": tipo['Gasificados'].to_list(), "type": "line", "name": 'Gasificados',"color":'#F49F82',},
                    {"data": tipo['Otros Vinos'].to_list(), "type": "line", "name": 'Otros Vinos',"color":'#604994',},
-                   {"data": tipo['Vino Varietal'].to_list(), "type": "line", "name": 'Vino Varietal',"color":'#604994',},
-                   {"data": tipo['Vinos sin Mencion'].to_list(), "type": "line", "name": 'Vinos sin Mencion',"color":'#604994',},
+                   {"data": tipo['Vino Varietal'].to_list(), "type": "line", "name": 'Vino Varietal',"color":'#07ECFA',},
+                   {"data": tipo['Vinos sin Mencion'].to_list(), "type": "line", "name": 'Vinos sin Mencion',"color":'#1E8DB6',},
                ]
       }
     st_echarts(
@@ -371,6 +371,8 @@ def despachos_color(df_filtros,df):
             '#C92488',
             '#F49F82',
             '#604994',
+            '#07ECFA',
+            '#1E8DB6',
 
             ],        
             "title": {"text": "", "left": "center"},
