@@ -15,6 +15,7 @@ from datetime import datetime as dt
 from despachos import desp_prov
 from despachos import desp_color
 from despachos import desp_envase
+from despachos import desp_variedad
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -373,3 +374,6 @@ with tab3:
     desp_color.despachos_color(df_filtros,dv1)  
 with tab4:    
     desp_envase.despachos_envase(df_filtros,dv1)  
+
+with tab5:    
+    desp_variedad.despachos_variedad(df_filtros,dv1)  
