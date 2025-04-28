@@ -244,10 +244,10 @@ def despachos_envase(df_filtros,df):
         "series": [{"data": litros['Bidon'].to_list(), "type": "line", "name": 'Bidon',"color":'#C92488', },
                    {"data": litros['Botella'].to_list(), "type": "line", "name": 'Botella',"color":'#F49F82',},
                    {"data": litros['Damajuana'].to_list(), "type": "line", "name": 'Damajuana',"color":'#604994',},
-                   {"data": litros['Bag in Box'].to_list(), "type": "line", "name": 'Bag in Box',"color":'#604994',},
-                   {"data": litros['Granel'].to_list(), "type": "line", "name": 'Granel',"color":'#604994',},
-                   {"data": litros['Lata'].to_list(), "type": "line", "name": 'Lata',"color":'#604994',},
-                   {"data": litros['Multilaminado'].to_list(), "type": "line", "name": 'Multilaminado',"color":'#604994',},
+                   {"data": litros['Bag in Box'].to_list(), "type": "line", "name": 'Bag in Box',"color":'#07ECFA',},
+                   {"data": litros['Granel'].to_list(), "type": "line", "name": 'Granel',"color":'#1E8DB6',},
+                   {"data": litros['Lata'].to_list(), "type": "line", "name": 'Lata',"color":'#C5C6C6',},
+                   {"data": litros['Multilaminado'].to_list(), "type": "line", "name": 'Multilaminado',"color":'#A9F8FA',},
                ]
       }
     st_echarts(
@@ -270,7 +270,10 @@ def despachos_envase(df_filtros,df):
             '#C92488',
             '#F49F82',
             '#604994',
-
+            '#07ECFA',
+            '#1E8DB6',
+            '#C5C6C6',
+            '#A9F8FA',
             ],        
             "title": {"text": "", "left": "center"},
             "subtitle":{"text": ""},
