@@ -94,18 +94,18 @@ def despachos_envase(df_filtros,df):
         with col1:
             with st.popover("Producto"):
                 st.caption("Selecciona uno o más Productos de la lista")
-                producto = st.multiselect("Productorr",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
+                producto = st.multiselect("Productoren",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
             
       
         with col2:
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
-                envase = st.multiselect("Envasevr",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+                envase = st.multiselect("Envasever",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
         with col3:
             with st.popover("Provincia"):
                 st.caption("Selecciona uno o más Provincias de la lista")
-                provincia = st.multiselect("Provincias12",  ["Todas"] + envase_list, default=["Todas"],label_visibility="collapsed")
+                provincia = st.multiselect("Provincias12e",  ["Todas"] + envase_list, default=["Todas"],label_visibility="collapsed")
     
     Filtro = 'Filtro = '    
     df_filtered = df.copy()    
@@ -133,14 +133,14 @@ def despachos_envase(df_filtros,df):
     #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
     litros = df_filtered.pivot_table(
           index='anio', 
-          columns='color',  
+          columns='subgrupoenvase',  
           values=['litros'],
           aggfunc='sum'
     )  
     litros  = litros.fillna(0)
     litros.columns = litros.columns.droplevel(0)   
     litros = litros.reset_index()
-    #st.write(litros['Rosado'])
+    st.write(litros)
     for index in range(len(litros)):
         litros['Rosado'].loc[index] = litros['Rosado'].loc[index] +litros['Sin Dato'].loc[index]  
     tot1 = []
