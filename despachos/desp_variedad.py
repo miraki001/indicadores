@@ -7,7 +7,7 @@ from streamlit_echarts import JsCode
 
 from datetime import datetime as dt
 
-def despachos_envase(df_filtros,df):
+def despachos_variedad(df_filtros,df):
 
 
     hide_streamlit_style = """
