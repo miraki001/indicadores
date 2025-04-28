@@ -244,6 +244,10 @@ def despachos_envase(df_filtros,df):
         "series": [{"data": litros['Bidon'].to_list(), "type": "line", "name": 'Bidon',"color":'#C92488', },
                    {"data": litros['Botella'].to_list(), "type": "line", "name": 'Botella',"color":'#F49F82',},
                    {"data": litros['Damajuana'].to_list(), "type": "line", "name": 'Damajuana',"color":'#604994',},
+                   {"data": litros['Bag in Box'].to_list(), "type": "line", "name": 'Bag in Box',"color":'#604994',},
+                   {"data": litros['Granel'].to_list(), "type": "line", "name": 'Granel',"color":'#604994',},
+                   {"data": litros['Lata'].to_list(), "type": "line", "name": 'Lata',"color":'#604994',},
+                   {"data": litros['Multilaminado'].to_list(), "type": "line", "name": 'Multilaminado',"color":'#604994',},
                ]
       }
     st_echarts(
@@ -252,9 +256,9 @@ def despachos_envase(df_filtros,df):
     actual1 = dt.now().year -1
     #st.write(actual1)
     litros = litros[litros['Año'] == actual1 ]  
-    blanco = int(litros['Blanco'])
-    tinto = int(litros['Tinto'])
-    rosado = int(litros['Rosado'])
+    Bidon = int(litros['Bidon'])
+    Botella = int(litros['Botella'])
+    Damajuana = int(litros['Damajuana'])
     st.write(blanco)
 
     options = {
@@ -274,9 +278,9 @@ def despachos_envase(df_filtros,df):
                 "type": "pie",
                 "radius": "90%",
                 "data": [
-                    {"value": rosado, "name": "Rosado"},
-                    {"value": blanco , "name": "Blanco"},
-                    {"value": tinto , "name": "Tinto"},
+                    {"value": Bidon, "name": "Bidon"},
+                    {"value": Botella , "name": "Botella"},
+                    {"value": Damajuana , "name": "Damajuana"},
                 ],
                 "emphasis": {
                     "itemStyle": {
