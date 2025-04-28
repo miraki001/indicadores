@@ -140,7 +140,7 @@ def despachos_variedad(df_filtros,df):
     litros  = litros.fillna(0)
     #litros.columns = litros.columns.droplevel(0)   
     #litros = litros.reset_index()
-    st.write(litros)
+    #st.write(litros)
 
     anio1 = litros.columns[0]
     #st.write(anio1)
@@ -230,11 +230,11 @@ def despachos_variedad(df_filtros,df):
             ).js_code,
         },
         "title": {
-            "text": 'Despachos por Provincias en Litros',
+            "text": 'Despachos por Variedad en Litros',
             "subtext": Filtro,
         },        
         #"subtitle": Filtro,
-        "legend": {"data": ["litros","provincia"]},   
+        "legend": {"data": ["litros","variedad"]},   
         "series": [
                 {
                     "name": "Despachos Totales",
