@@ -178,7 +178,7 @@ def despachos_envase(df_filtros,df):
     litros['Part. % Gra'] = tot5    
     litros['Part. % Lat'] = tot6    
     litros['Part. % Mul'] = tot7    
-    st.write(litros)
+    #st.write(litros)
     litros = litros.rename(columns={'anio': "Año"})
 
     styled_df = litros.style.format(
@@ -241,9 +241,9 @@ def despachos_envase(df_filtros,df):
             "data": litros['Año'].to_list(),
         },
         "yAxis": {"type": "value"},
-        "series": [{"data": litros['Rosado'].to_list(), "type": "line", "name": 'Rosado',"color":'#C92488', },
-                   {"data": litros['Blanco'].to_list(), "type": "line", "name": 'Blanco',"color":'#F49F82',},
-                   {"data": litros['Tinto'].to_list(), "type": "line", "name": 'tinto',"color":'#604994',},
+        "series": [{"data": litros['Bidon'].to_list(), "type": "line", "name": 'Bidon',"color":'#C92488', },
+                   {"data": litros['Botella'].to_list(), "type": "line", "name": 'Botella',"color":'#F49F82',},
+                   {"data": litros['Damajuana'].to_list(), "type": "line", "name": 'Damajuana',"color":'#604994',},
                ]
       }
     st_echarts(
