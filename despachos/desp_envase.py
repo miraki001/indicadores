@@ -259,7 +259,7 @@ def despachos_envase(df_filtros,df):
     Bidon = int(litros['Bidon'])
     Botella = int(litros['Botella'])
     Damajuana = int(litros['Damajuana'])
-    Bag = int(litros['Bag'])
+    Bag = int(litros['Bag in Box'])
     Granel = int(litros['Granel'])
     Lata = int(litros['Lata'])
     Multilaminado = int(litros['Multilaminado'])
