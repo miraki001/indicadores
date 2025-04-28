@@ -129,18 +129,18 @@ def despachos_envase(df_filtros,df):
 
     #df_filtered = dv1.copy()
     actual = dt.now().year -4 
-    #df_filtered = df_filtered[df_filtered['anio'] > actual ]   
+    df_filtered = df_filtered[df_filtered['anio'] > actual ]   
     #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
     litros = df_filtered.pivot_table(
-          index='anio', 
-          columns='subgrupoenvase',  
+          index='variedad1', 
+          columns='anio',  
           values=['litros'],
           aggfunc='sum'
     )  
     litros  = litros.fillna(0)
     litros.columns = litros.columns.droplevel(0)   
     litros = litros.reset_index()
-    #st.write(litros)
+    st.write(litros)
     
     #for index in range(len(litros)):
     #    litros['Rosado'].loc[index] = litros['Rosado'].loc[index] +litros['Sin Dato'].loc[index]  
