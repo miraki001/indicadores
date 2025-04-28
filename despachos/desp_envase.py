@@ -227,7 +227,7 @@ def despachos_envase(df_filtros,df):
         
                 },
                 column_order = column_orders,     
-                width = 1000,   
+                width = 1200,   
                 height = 800,
                 hide_index=True)
     option = {
