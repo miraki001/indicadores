@@ -91,7 +91,7 @@ if df_filtros.empty:
     st.stop()
 
 QUERY_V1 = f"""
-        SELECT anio,mes, cantidadlitros AS litros,variedad1 as variedad,provincia,departamento,producto,color
+        SELECT anio,mes, cantidadlitros AS litros,variedad1 as variedad,provincia,departamento,producto,color,subgrupoenvase
         FROM despachos_m 
         WHERE producto not in ('Mosto','Alcohol')
 """
