@@ -151,6 +151,11 @@ def despachos_variedad(df_filtros,df):
     totlitros2 = litros[anio2].sum()
     totlitros3 = litros[anio3].sum()
     totlitros4 = litros[anio4].sum()
+    tot1 = []
+    tot2 = []
+    tot3 = []
+    tot4 = []
+
     
     df_anual = litros
     df_anual.columns = df_anual.columns.droplevel(0)
