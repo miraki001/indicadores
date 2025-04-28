@@ -140,7 +140,7 @@ def despachos_envase(df_filtros,df):
     litros  = litros.fillna(0)
     litros.columns = litros.columns.droplevel(0)   
     litros = litros.reset_index()
-    st.write(litros)
+    #st.write(litros)
     
     #for index in range(len(litros)):
     #    litros['Rosado'].loc[index] = litros['Rosado'].loc[index] +litros['Sin Dato'].loc[index]  
@@ -148,6 +148,13 @@ def despachos_envase(df_filtros,df):
     for index in range(len(litros)):
         tot1.append((  (litros['Sachet'].loc[index]  +  litros['Fraccionamiento sin Sub Grupo'].loc[index]   )))
     litros['Otros'] = tot1        
+
+    tot1 = []
+    for index in range(len(litros)):
+        tot1.append((  (litros['Bidon'].loc[index]  +  litros['Botella'].loc[index]  +  litros['Damajuana'].loc[index]  +  litros['Bag in Box'].loc[index]  +  litros['Granel'].loc[index]  +  litros['Lata'].loc[index]  +  litros['Multilaminado'].loc[index] )))
+    litros['Total'] = tot1  
+    st.write(litros)
+    
     tot1 = []
     tot2 = []
     tot3 = []
