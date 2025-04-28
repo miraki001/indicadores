@@ -94,18 +94,18 @@ def despachos_variedad(df_filtros,df):
         with col1:
             with st.popover("Producto"):
                 st.caption("Selecciona uno o más Productos de la lista")
-                producto = st.multiselect("Productoren",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
+                producto = st.multiselect("Productorenv",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
             
       
         with col2:
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
-                envase = st.multiselect("Envasever",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+                envase = st.multiselect("Envaseverv",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
 
         with col3:
             with st.popover("Provincia"):
                 st.caption("Selecciona uno o más Provincias de la lista")
-                provincia = st.multiselect("Provincias12e",  ["Todas"] + envase_list, default=["Todas"],label_visibility="collapsed")
+                provincia = st.multiselect("Provincias12ev",  ["Todas"] + envase_list, default=["Todas"],label_visibility="collapsed")
     
     Filtro = 'Filtro = '    
     df_filtered = df.copy()    
