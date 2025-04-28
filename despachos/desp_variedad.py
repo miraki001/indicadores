@@ -177,11 +177,11 @@ def despachos_variedad(df_filtros,df):
     
     litros = litros.rename(columns={'anio': "Año"})
 
-    styled_df = litros.style.format(
-            {anio1: lambda x : '{:,.0f}'.format(x), 
-             anio2:  lambda x : '{:,.0f}'.format(x),
-             anio3: lambda x : '{:,.0f}'.format(x),
-             anio4: lambda x : '{:,.0f}'.format(x),
+    styled_df = df_anual.style.format(
+            { anio1: lambda x : '{:,.0f}'.format(x), 
+              anio2:  lambda x : '{:,.0f}'.format(x),
+              anio3: lambda x : '{:,.0f}'.format(x),
+              anio4: lambda x : '{:,.0f}'.format(x),
              'Part. % ' + str(anio1) : lambda x : '{:,.2f} %'.format(x),
              'Part. % ' + str(anio2) : lambda x : '{:,.2f} %'.format(x),
              'Part. % ' + str(anio3) : lambda x : '{:,.2f} %'.format(x),
