@@ -178,21 +178,14 @@ def despachos_variedad(df_filtros,df):
     litros = litros.rename(columns={'anio': "Año"})
 
     styled_df = litros.style.format(
-            {"Bidon": lambda x : '{:,.0f}'.format(x), 
-            "Botella": lambda x : '{:,.0f}'.format(x),
-            "Damajuana": lambda x : '{:,.0f}'.format(x),
-            "Bag in Box": lambda x : '{:,.0f}'.format(x),
-            "Granel": lambda x : '{:,.0f}'.format(x),
-            "Lata": lambda x : '{:,.0f}'.format(x),
-            "Multilaminado": lambda x : '{:,.0f}'.format(x),
-            "Total": lambda x : '{:,.0f}'.format(x),
-            "Part. % Bid": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Bot": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Dam": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Bag": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Gra": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Lat": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Mul": lambda x : '{:,.2f} %'.format(x),
+            {anio1: lambda x : '{:,.0f}'.format(x), 
+             anio2:  lambda x : '{:,.0f}'.format(x),
+             anio3: lambda x : '{:,.0f}'.format(x),
+             anio4: lambda x : '{:,.0f}'.format(x),
+             'Part. % ' + str(anio1) : lambda x : '{:,.2f} %'.format(x),
+             'Part. % ' + str(anio2) : lambda x : '{:,.2f} %'.format(x),
+             'Part. % ' + str(anio3) : lambda x : '{:,.2f} %'.format(x),
+             'Part. % ' + str(anio4) : lambda x : '{:,.2f} %'.format(x),
                                         }
             ,
             thousands='.',
@@ -200,29 +193,15 @@ def despachos_variedad(df_filtros,df):
     )
 
     if st.checkbox('Ver Depachos por Variedad en forma de tabla'):
-        column_orders =("Año", "Bidon", "Part. % Bid", "Botella", "Part. % Bot", "Damajuana" , "Part. % Dam","Bag in Box","Part. % Bag","Granel","Part. % Gra","Lata","Part. % Lat","Multilaminado","Part. % Mul", "Total" )
+        column_orders =("Variedad", "2022", "Part. % 2022", "2023", "Part. % 2023" , "2024", "Part. % 2024", "2025", "Part. % 2025" )
+
        
         st.dataframe(styled_df,
               column_config={
-                'Año': st.column_config.Column('Año'),                  
-                'Bidon': st.column_config.Column('Bidon'),
-                'Botella': st.column_config.Column('Botella'),
-                'Damajuana': st.column_config.Column('Damajuana'),
-                'Bag in Box"': st.column_config.Column('Bag in Box'),
-                'Granel': st.column_config.Column('Granel'),
-                'Lata': st.column_config.Column('Lata'),
-                'Multilaminado': st.column_config.Column('Multilaminado'),
-                'Total': st.column_config.Column('Total'),
-                'Part. % Bid': st.column_config.Column('Part. % Bid'),
-                'Part. % Bot': st.column_config.Column('Part. % Bot'),
-                'Part. % Dam': st.column_config.Column('Part. % Dam'),
-                'Part. % Bag': st.column_config.Column('Part. % Bag'),
-                'Part. % Gra': st.column_config.Column('Part. % Gra'),
-                'Part. % Lat': st.column_config.Column('Part. % Lat'),
-                'Part. % Mul': st.column_config.Column('Part. % Mul'),
+                'Variedad': st.column_config.Column('Variedad'),
         
                 },
-                column_order = column_orders,     
-                width = 1200,   
+                column_order = column_orders,
+                width = 1000,   
                 height = 800,
                 hide_index=True)
