@@ -143,7 +143,7 @@ def despachos_variedad(df_filtros,df):
     st.write(litros)
 
     anio1 = litros.columns[0]
-    st.write(anio1)
+    #st.write(anio1)
     anio2 = litros.columns[1]
     anio3 = litros.columns[2]
     anio4 = litros.columns[3]
@@ -153,6 +153,11 @@ def despachos_variedad(df_filtros,df):
     totlitros4 = litros[anio4].sum()
     
     df_anual = litros
+    df_anual.columns = df_anual.columns.droplevel(0)
+    anio1 = df_anual.columns[0]
+    anio2 = df_anual.columns[1]
+    anio3 = df_anual.columns[2]
+    anio4 = df_anual.columns[3]    
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     for index in range(len(df_anual)):
         #if index > 0:
