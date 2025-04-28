@@ -259,7 +259,11 @@ def despachos_envase(df_filtros,df):
     Bidon = int(litros['Bidon'])
     Botella = int(litros['Botella'])
     Damajuana = int(litros['Damajuana'])
-    st.write(blanco)
+    Bag = int(litros['Bag'])
+    Granel = int(litros['Granel'])
+    Lata = int(litros['Lata'])
+    Multilaminado = int(litros['Multilaminado'])
+    #st.write(blanco)
 
     options = {
             "color": [
@@ -281,6 +285,10 @@ def despachos_envase(df_filtros,df):
                     {"value": Bidon, "name": "Bidon"},
                     {"value": Botella , "name": "Botella"},
                     {"value": Damajuana , "name": "Damajuana"},
+                    {"value": Bag , "name": "Bag in Box"},
+                    {"value": Granel , "name": "Granel"},
+                    {"value": Lata , "name": "Lata"},
+                    {"value": Multilaminado , "name": "Multilaminado"},
                 ],
                 "emphasis": {
                     "itemStyle": {
