@@ -213,9 +213,9 @@ def despachos_variedad(df_filtros,df):
     #st.write(df_filtered)
     df_filtered['anio'] = df_filtered['anio'].astype(str)
     #df_filtered = df_filtered[df_filtered['anio'].isin(2024)]
-    df_anual = df_filtered.groupby(['variedad1'], as_index=False)[['litros']].sum()
+    df_anual = df_filtered.groupby(['variedad'], as_index=False)[['litros']].sum()
     #st.write(df_anual)
-    df_anual = df_anual.rename(columns={'litros': "value", 'variedad1': "name",})
+    df_anual = df_anual.rename(columns={'litros': "value", 'variedad': "name",})
 
     json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
     
