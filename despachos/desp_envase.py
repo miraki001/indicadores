@@ -153,20 +153,32 @@ def despachos_envase(df_filtros,df):
     for index in range(len(litros)):
         tot1.append((  (litros['Bidon'].loc[index]  +  litros['Botella'].loc[index]  +  litros['Damajuana'].loc[index]  +  litros['Bag in Box'].loc[index]  +  litros['Granel'].loc[index]  +  litros['Lata'].loc[index]  +  litros['Multilaminado'].loc[index] )))
     litros['Total'] = tot1  
-    st.write(litros)
+    #st.write(litros)
     
     tot1 = []
     tot2 = []
     tot3 = []
+    tot4 = []
+    tot5 = []
+    tot6 = []
+    tot7 = []
     for index in range(len(litros)):
         #if index > 0:
-            tot1.append((  (litros['Rosado'].loc[index] / litros['Total'].loc[index]  ) *100 ))
-            tot2.append((  (litros['Blanco'].loc[index] / litros['Total'].loc[index]  *100 )))
-            tot3.append((  (litros['Tinto'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
-    litros['Part. % Rosado'] = tot1
-    litros['Part. % Blanco'] = tot2
-    litros['Part. % Tinto'] = tot3    
-    #st.write(litros)
+            tot1.append((  (litros['Bidon'].loc[index] / litros['Total'].loc[index]  ) *100 ))
+            tot2.append((  (litros['Botella'].loc[index] / litros['Total'].loc[index]  *100 )))
+            tot3.append((  (litros['Damajuana'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
+            tot4.append((  (litros['Bag in Box'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
+            tot5.append((  (litros['Granel'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
+            tot6.append((  (litros['Lata'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
+            tot7.append((  (litros['Multilaminado'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
+    litros['Part. % Bid'] = tot1
+    litros['Part. % Bot'] = tot2
+    litros['Part. % Dam'] = tot3    
+    litros['Part. % Bag'] = tot4    
+    litros['Part. % Gra'] = tot5    
+    litros['Part. % Lat'] = tot6    
+    litros['Part. % Mul'] = tot7    
+    st.write(litros)
     litros = litros.rename(columns={'anio': "Año"})
 
     styled_df = litros.style.format(
