@@ -182,32 +182,48 @@ def despachos_envase(df_filtros,df):
     litros = litros.rename(columns={'anio': "Año"})
 
     styled_df = litros.style.format(
-            {"Rosado": lambda x : '{:,.0f}'.format(x), 
-            "Blanco": lambda x : '{:,.0f}'.format(x),
-            "Tinto": lambda x : '{:,.0f}'.format(x),
+            {"Bidon": lambda x : '{:,.0f}'.format(x), 
+            "Botella": lambda x : '{:,.0f}'.format(x),
+            "Damajuana": lambda x : '{:,.0f}'.format(x),
+            "Bag in Box": lambda x : '{:,.0f}'.format(x),
+            "Granel": lambda x : '{:,.0f}'.format(x),
+            "Lata": lambda x : '{:,.0f}'.format(x),
+            "Multilaminado": lambda x : '{:,.0f}'.format(x),
             "Total": lambda x : '{:,.0f}'.format(x),
-            "Part. % Rosado": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Blanco": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Tinto": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Bid": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Bot": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Dam": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Bag": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Gra": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Lat": lambda x : '{:,.2f} %'.format(x),
+            "Part. % Mul": lambda x : '{:,.2f} %'.format(x),
                                         }
             ,
             thousands='.',
             decimal=',',
     )
 
-    if st.checkbox('Ver Depachos por Color en forma de tabla'):
-        column_orders =("Año", "Blanco", "Part. % Blanco", "Rosado", "Part. % Rosado", "Tinto" , "Part. % Tinto", "Total" )
+    if st.checkbox('Ver Depachos por Envase en forma de tabla'):
+        column_orders =("Año", "Bidon", "Part. % Bid", "Botella", "Part. % Bot", "Damajuana" , "Part. % Dam","Bag in Box","Part. % Bag","Granel","Part. % Gra","Lata","Part. % Lat","Multilaminado","Part. % Mul", "Total" )
        
         st.dataframe(styled_df,
               column_config={
                 'Año': st.column_config.Column('Año'),                  
-                'Rosado': st.column_config.Column('Rosado'),
-                'Blanco': st.column_config.Column('Blanco'),
-                'Tinto': st.column_config.Column('Tinto'),
+                'Bidon': st.column_config.Column('Bidon'),
+                'Botella': st.column_config.Column('Botella'),
+                'Damajuana': st.column_config.Column('Damajuana'),
+                'Bag in Box"': st.column_config.Column('Bag in Box'),
+                'Granel': st.column_config.Column('Granel'),
+                'Lata': st.column_config.Column('Lata'),
+                'Multilaminado': st.column_config.Column('Multilaminado'),
                 'Total': st.column_config.Column('Total'),
-                'Part. % Rosado': st.column_config.Column('Part. % Rosado'),
-                'Part. % Blanco': st.column_config.Column('Part. % Blanco'),
-                'Part. % Tinto': st.column_config.Column('Part. % Tinto'),
+                'Part. % Bid': st.column_config.Column('Part. % Bid'),
+                'Part. % Bot': st.column_config.Column('Part. % Bot'),
+                'Part. % Dam': st.column_config.Column('Part. % Dam'),
+                'Part. % Bag': st.column_config.Column('Part. % Bag'),
+                'Part. % Gra': st.column_config.Column('Part. % Gra'),
+                'Part. % Lat': st.column_config.Column('Part. % Lat'),
+                'Part. % Mul': st.column_config.Column('Part. % Mul'),
         
                 },
                 column_order = column_orders,     
