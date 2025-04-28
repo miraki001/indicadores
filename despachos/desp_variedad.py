@@ -138,47 +138,33 @@ def despachos_variedad(df_filtros,df):
           aggfunc='sum'
     )  
     litros  = litros.fillna(0)
-    litros.columns = litros.columns.droplevel(0)   
-    litros = litros.reset_index()
+    #litros.columns = litros.columns.droplevel(0)   
+    #litros = litros.reset_index()
     st.write(litros)
-    
-    #for index in range(len(litros)):
-    #    litros['Rosado'].loc[index] = litros['Rosado'].loc[index] +litros['Sin Dato'].loc[index]  
-    tot1 = []
-    for index in range(len(litros)):
-        tot1.append((  (litros['Sachet'].loc[index]  +  litros['Fraccionamiento sin Sub Grupo'].loc[index]   )))
-    litros['Otros'] = tot1        
 
-    tot1 = []
-    for index in range(len(litros)):
-        tot1.append((  (litros['Bidon'].loc[index]  +  litros['Botella'].loc[index]  +  litros['Damajuana'].loc[index]  +  litros['Bag in Box'].loc[index]  +  litros['Granel'].loc[index]  +  litros['Lata'].loc[index]  +  litros['Multilaminado'].loc[index] )))
-    litros['Total'] = tot1  
-    #st.write(litros)
+    anio1 = litros.columns[0]
+    st.write(anio1)
+    anio2 = litros.columns[1]
+    anio3 = litros.columns[2]
+    anio4 = litros.columns[3]
+    totlitros1 = litros[anio1].sum()
+    totlitros2 = litros[anio2].sum()
+    totlitros3 = litros[anio3].sum()
+    totlitros4 = litros[anio4].sum()
     
-    tot1 = []
-    tot2 = []
-    tot3 = []
-    tot4 = []
-    tot5 = []
-    tot6 = []
-    tot7 = []
-    for index in range(len(litros)):
+    df_anual = litros
+    df_anual = df_anual.reset_index().rename_axis(None, axis=1)
+    for index in range(len(df_anual)):
         #if index > 0:
-            tot1.append((  (litros['Bidon'].loc[index] / litros['Total'].loc[index]  ) *100 ))
-            tot2.append((  (litros['Botella'].loc[index] / litros['Total'].loc[index]  *100 )))
-            tot3.append((  (litros['Damajuana'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
-            tot4.append((  (litros['Bag in Box'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
-            tot5.append((  (litros['Granel'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
-            tot6.append((  (litros['Lata'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
-            tot7.append((  (litros['Multilaminado'].loc[index] / litros['Total'].loc[index]  * 100 ) ) )
-    litros['Part. % Bid'] = tot1
-    litros['Part. % Bot'] = tot2
-    litros['Part. % Dam'] = tot3    
-    litros['Part. % Bag'] = tot4    
-    litros['Part. % Gra'] = tot5    
-    litros['Part. % Lat'] = tot6    
-    litros['Part. % Mul'] = tot7    
-    #st.write(litros)
+            tot1.append((  (df_anual[int(anio1)].loc[index] / totlitros1 *100 )))
+            tot2.append((  (df_anual[int(anio2)].loc[index] / totlitros2 *100 )))
+            tot3.append((  (df_anual[anio3].loc[index] / totlitros3 *100 )))
+            tot4.append((  (df_anual[anio4].loc[index] / totlitros4 *100 )))
+    df_anual['Part. %' + str(anio1)  ] = tot1
+    df_anual['Part. % '+ str(anio2)  ] = tot2
+    df_anual['Part. % ' + str(anio3) ] = tot3
+    df_anual['Part. % ' + str(anio4) ] = tot4
+    
     litros = litros.rename(columns={'anio': "Año"})
 
     styled_df = litros.style.format(
