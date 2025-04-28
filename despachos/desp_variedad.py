@@ -199,7 +199,7 @@ def despachos_variedad(df_filtros,df):
             decimal=',',
     )
 
-    if st.checkbox('Ver Depachos por Envase en forma de tabla'):
+    if st.checkbox('Ver Depachos por Variedad en forma de tabla'):
         column_orders =("Año", "Bidon", "Part. % Bid", "Botella", "Part. % Bot", "Damajuana" , "Part. % Dam","Bag in Box","Part. % Bag","Granel","Part. % Gra","Lata","Part. % Lat","Multilaminado","Part. % Mul", "Total" )
        
         st.dataframe(styled_df,
