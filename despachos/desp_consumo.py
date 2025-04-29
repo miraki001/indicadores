@@ -86,12 +86,17 @@ def despachos_consumo():
         SELECT periodo,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" 
         FROM scentia_res
     """    
-
+    QUERY_V2 = f"""
+        SELECT periodo,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" 
+        FROM scentia_valores
+    """    
 
     dv1 = cargar_datos(QUERY_V1)
     df_filtered = dv1.copy() 
     #dv1['anio'] = dv1['anio'].astype(str)
 
+    dv2 = cargar_datos(QUERY_V2)
+    
 
 
 
@@ -110,6 +115,7 @@ def despachos_consumo():
     if canal:
         if canal[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['canal'].isin(canal)]
+            dv2 = dv2[dv2['canal'].isin(canal)]
         Filtro = Filtro + ' Canal = ' +  str(canal) 
     
     #df_filtered = dv1.copy()
@@ -122,13 +128,15 @@ def despachos_consumo():
           values=["CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS"],
           aggfunc='sum'
     )  
-    if st.checkbox('Ver datos en forma de tabla Valores'):
+    if st.checkbox('Ver Consumo en litros en forma de tabla'):
         st.write(litros)
 
     #litros.columns = litros.columns.droplevel(0)
     litros = litros.reset_index().rename_axis(None, axis=1)  
     #st.write(litros['periodo'])
     litros['periodo'] = litros['periodo'].astype(str)    
+    
+    st.caption(Filtro)
     option = {
         "tooltip": {
             "trigger": 'axis',
@@ -152,3 +160,42 @@ def despachos_consumo():
     st_echarts(
         options=option, height="400px",
     )
+
+    litros2 = dv2.pivot_table(
+          index='periodo', 
+          values=["CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS"],
+          aggfunc='sum'
+    )  
+    if st.checkbox('Ver Consumo en Valores en forma de tabla'):
+        st.write(litros2)
+
+    #litros.columns = litros.columns.droplevel(0)
+    litros2 = litros2.reset_index().rename_axis(None, axis=1)  
+    #st.write(litros['periodo'])
+    litros2['periodo'] = litros2['periodo'].astype(str)    
+    
+    st.caption(Filtro)
+    option = {
+        "tooltip": {
+            "trigger": 'axis',
+            "axisPointer": { "type": 'cross' }
+        },
+        "legend": {},    
+        "xAxis": {
+            "type": "category",
+            "data": litros2['periodo'].to_list(),
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": litros2['VINOS_COMUNES'].to_list(), "type": "line", "name": 'Vinos Comunes'}
+                   ,{"data": litros2['VINOS_FINOS'].to_list(), "type": "line","name":'Vinos Finos'}
+                   ,{"data": litros2['CERVEZAS'].to_list(), "type": "line","name":'Cervezas'} 
+                   ,{"data": litros2['APERITIVOS_RTD'].to_list(), "type": "line","name":'Ape. RTD'} 
+                   ,{"data": litros2['ESPUMANTES'].to_list(), "type": "line","name":'Espumantes'} 
+                   ,{"data": litros2['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
+                   ,{"data": litros2['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
+                   ,{"data": litros2['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
+    }
+    st_echarts(
+        options=option, height="400px",
+    )
+    
