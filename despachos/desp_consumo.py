@@ -110,7 +110,7 @@ def despachos_consumo():
     if canal:
         if canal[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['canal'].isin(canal)]
-        Filtro = Filtro + ' Canal = ' +  str(Canal) 
+        Filtro = Filtro + ' Canal = ' +  str(canal) 
     
     #df_filtered = dv1.copy()
     actual = dt.now().year -4 
