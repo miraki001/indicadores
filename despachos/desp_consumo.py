@@ -126,6 +126,7 @@ def despachos_consumo():
         st.write(litros)
 
     #litros.columns = litros.columns.droplevel(0)
+    litros = litros.reset_index().rename_axis(None, axis=1)  
     st.write(litros['periodo'])
     litros['periodo'] = litros['periodo'].astype(str)    
     option = {
