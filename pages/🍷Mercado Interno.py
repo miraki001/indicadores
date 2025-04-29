@@ -16,6 +16,7 @@ from despachos import desp_prov
 from despachos import desp_color
 from despachos import desp_envase
 from despachos import desp_variedad
+from despachos import desp_consumo
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -377,3 +378,5 @@ with tab4:
 
 with tab5:    
     desp_variedad.despachos_variedad(df_filtros,dv1)  
+with tab6:    
+    desp_consumo.despachos_consumo()  
