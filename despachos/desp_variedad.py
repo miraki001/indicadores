@@ -193,6 +193,7 @@ def despachos_variedad(df_filtros,df):
     )
 
     if st.checkbox('Ver Depachos por Variedad en forma de tabla'):
+        st.caption(Filtro)        
         column_orders =("Variedad", "2022", "Part. % 2022", "2023", "Part. % 2023" , "2024", "Part. % 2024", "2025", "Part. % 2025" )
 
        
