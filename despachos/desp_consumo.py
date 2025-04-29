@@ -68,19 +68,25 @@ def despachos_consumo():
             st.error(f"Error al cargar datos: {e}")
             return pd.DataFrame()
 
-  
-  
+    QUERY_V0 = f"""
+        SELECT distinct canal
+        FROM scentia_res       
+
+    """
+    df_filtros = cargar_datos(QUERY_V0)
+    
   # Listas de valores únicos para los filtros
-    prov_list = sorted(df_filtros["provincia"].dropna().unique())
-    envase_list = sorted(df_filtros["subgrupoenvase"].dropna().unique())
-    producto_list = sorted(df_filtros["producto"].dropna().unique())
-    #pais_list = sorted(df_filtros["pais"].dropna().unique())
-    if "filtroseem" not in st.session_state:
+    canal_list = sorted(df_filtros["canal"].dropna().unique())
+    if "filtroseemv" not in st.session_state:
         st.session_state.filtrosee = {
-            "envase": "Todos",
-            "producto": "Todos",
+            "canal": "Todos",
         }
 
+    QUERY_V1 = f"""
+        SELECT anio,mes, cantidadlitros AS litros,variedad1 as variedad,provincia,departamento,producto,color,subgrupoenvase
+        FROM despachos_m 
+        WHERE producto not in ('Mosto','Alcohol')
+    """    
     
     #dv1['anio'] = dv1['anio'].astype(str)
 
