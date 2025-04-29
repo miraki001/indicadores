@@ -96,7 +96,7 @@ def despachos_consumo():
 
 
     with st.container(border=True):
-        col1=  st.columns([1)  # Ajusta los tamaños de las columnas
+        col1=  st.columns([1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
         with col1:
