@@ -176,6 +176,7 @@ def despachos_color(df_filtros,df):
     )
 
     if st.checkbox('Ver Depachos por Color en forma de tabla'):
+        st.caption(Filtro)        
         column_orders =("Año", "Blanco", "Part. % Blanco", "Rosado", "Part. % Rosado", "Tinto" , "Part. % Tinto", "Total" )
        
         st.dataframe(styled_df,
@@ -194,6 +195,8 @@ def despachos_color(df_filtros,df):
                 width = 1000,   
                 height = 800,
                 hide_index=True)
+
+    st.caption(Filtro)    
     option = {
         "tooltip": {
         "trigger": 'axis',
@@ -219,7 +222,8 @@ def despachos_color(df_filtros,df):
     blanco = int(litros['Blanco'])
     tinto = int(litros['Tinto'])
     rosado = int(litros['Rosado'])
-    st.write(blanco)
+    #st.write(blanco)
+    st.caption(Filtro)    
 
     options = {
             "color": [
@@ -313,6 +317,8 @@ def despachos_color(df_filtros,df):
             decimal=',',
     )
     if st.checkbox('Ver Depachos por Producto en forma de tabla'):
+        st.caption(Filtro)    
+        
         column_orders =("Año", "Espumantes", "Part. % Esp.", "Gasificados", "Part. % Gas.", "Otros Vinos" , "Part. % Otros", "Vino Varietal","Part. % Var.","Vinos sin Mencion","Part. % Sin","Total")
        
         st.dataframe(styled_df,
@@ -335,6 +341,8 @@ def despachos_color(df_filtros,df):
                 width = 1200,   
                 height = 800,
                 hide_index=True)
+    st.caption(Filtro)    
+        
     option = {
         "tooltip": {
         "trigger": 'axis',
@@ -364,7 +372,8 @@ def despachos_color(df_filtros,df):
     otros = int(tipo['Otros Vinos'])
     varietal = int(tipo['Vino Varietal'])
     comunes = int(tipo['Vinos sin Mencion'])
-    st.write(blanco)
+    #st.write(blanco)
+    st.caption(Filtro)    
 
     options = {
             "color": [
