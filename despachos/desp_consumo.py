@@ -115,5 +115,12 @@ def despachos_consumo():
     #df_filtered = dv1.copy()
     actual = dt.now().year -4 
     #df_filtered = df_filtered[df_filtered['anio'] > actual ]   
-    df_filtered = df_filtered.groupby(['periodo'], as_index=False).sum()
+    #df_filtered = df_filtered.groupby(['periodo'], as_index=False).sum()
     st.write(df_filtered)
+
+    litros = df_filtered.pivot_table(
+          index='periodo', 
+          values=["CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS"],
+          aggfunc='sum'
+    )  
+    st.write(litros)
