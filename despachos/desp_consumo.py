@@ -125,7 +125,8 @@ def despachos_consumo():
     if st.checkbox('Ver datos en forma de tabla Valores'):
         st.write(litros)
 
-    litros.columns = litros.columns.droplevel(0)
+    #litros.columns = litros.columns.droplevel(0)
+    st.write(litros['periodo'])
     litros['periodo'] = litros['periodo'].astype(str)    
     option = {
         "tooltip": {
