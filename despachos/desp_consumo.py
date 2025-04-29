@@ -106,7 +106,6 @@ def despachos_consumo():
                  
     
     Filtro = 'Filtro = '    
-    df_filtered = df.copy()    
         
     if canal:
         if canal[0] != 'Todos':
@@ -116,7 +115,8 @@ def despachos_consumo():
     #df_filtered = dv1.copy()
     actual = dt.now().year -4 
     #df_filtered = df_filtered[df_filtered['anio'] > actual ]   
-    #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
+    df_filtered = df_filtered.groupby(['periodo], as_index=False)[['litros']].sum()
+    st.write(df_filtered)
     litros = df_filtered.pivot_table(
           index='anio', 
           columns='color',  
