@@ -116,11 +116,35 @@ def despachos_consumo():
     actual = dt.now().year -4 
     #df_filtered = df_filtered[df_filtered['anio'] > actual ]   
     #df_filtered = df_filtered.groupby(['periodo'], as_index=False).sum()
-    st.write(df_filtered)
 
     litros = df_filtered.pivot_table(
           index='periodo', 
           values=["CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS"],
           aggfunc='sum'
     )  
-    st.write(litros)
+    if st.checkbox('Ver datos en forma de tabla Valores'):
+        st.write(litros)
+
+    option = {
+        "tooltip": {
+            "trigger": 'axis',
+            "axisPointer": { "type": 'cross' }
+        },
+        "legend": {},    
+        "xAxis": {
+            "type": "category",
+            "data": litros['periodo'].to_list(),
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": litros['VINOS_COMUNES'].to_list(), "type": "line", "name": 'Vinos Comunes'}
+                   ,{"data": litros['VINOS_FINOS'].to_list(), "type": "line","name":'Vinos Finos'}
+                   ,{"data": litros['CERVEZAS'].to_list(), "type": "line","name":'Cervezas'} 
+                   ,{"data": litros['APERITIVOS_RTD'].to_list(), "type": "line","name":'Ape. RTD'} 
+                   ,{"data": litros['ESPUMANTES'].to_list(), "type": "line","name":'Espumantes'} 
+                   ,{"data": litros['APERITIVOS_ALC'].to_list(), "type": "line","name":'Ape. Alc'} 
+                   ,{"data": litros['VINOS_FORTIFICADOS'].to_list(), "type": "line","name":'Vinos Fort.'} 
+                   ,{"data": litros['SIDRAS_Y_SABORES'].to_list(), "type": "line","name":'Sidras'} ],
+    }
+    st_echarts(
+        options=option, height="400px",
+    )
