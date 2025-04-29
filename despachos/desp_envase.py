@@ -204,6 +204,8 @@ def despachos_envase(df_filtros,df):
     )
 
     if st.checkbox('Ver Depachos por Envase en forma de tabla'):
+        st.caption(Filtro)    
+        
         column_orders =("Año", "Bidon", "Part. % Bid", "Botella", "Part. % Bot", "Damajuana" , "Part. % Dam","Bag in Box","Part. % Bag","Granel","Part. % Gra","Lata","Part. % Lat","Multilaminado","Part. % Mul", "Total" )
        
         st.dataframe(styled_df,
@@ -230,6 +232,8 @@ def despachos_envase(df_filtros,df):
                 width = 1200,   
                 height = 800,
                 hide_index=True)
+    st.caption(Filtro)    
+        
     option = {
         "tooltip": {
         "trigger": 'axis',
@@ -264,6 +268,7 @@ def despachos_envase(df_filtros,df):
     Lata = int(litros['Lata'])
     Multilaminado = int(litros['Multilaminado'])
     #st.write(blanco)
+    st.caption(Filtro)    
 
     options = {
             "color": [
