@@ -83,56 +83,36 @@ def despachos_consumo():
         }
 
     QUERY_V1 = f"""
-        SELECT anio,mes, cantidadlitros AS litros,variedad1 as variedad,provincia,departamento,producto,color,subgrupoenvase
-        FROM despachos_m 
-        WHERE producto not in ('Mosto','Alcohol')
+        SELECT periodo,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" 
+        FROM scentia_res
     """    
-    
+
+
+    dv1 = cargar_datos(QUERY_V1)
+    df_filtered = dv1.copy() 
     #dv1['anio'] = dv1['anio'].astype(str)
 
 
 
 
     with st.container(border=True):
-        col1, col2,col3 =  st.columns([1, 1,1])  # Ajusta los tamaños de las columnas
+        col1=  st.columns([1)  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
         with col1:
-            with st.popover("Producto"):
-                st.caption("Selecciona uno o más Productos de la lista")
-                producto = st.multiselect("Productorr",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más años")
-            
-      
-        with col2:
-            with st.popover("Envase"):
-                st.caption("Selecciona uno o más Envases de la lista")
-                envase = st.multiselect("Envasevr",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
-
-        with col3:
-            with st.popover("Provincia"):
-                st.caption("Selecciona uno o más Provincias de la lista")
-                provincia = st.multiselect("Provincias12",  ["Todas"] + envase_list, default=["Todas"],label_visibility="collapsed")
+            with st.popover("Canal"):
+                st.caption("Selecciona uno o más Canales de la lista")
+                canal = st.multiselect("Canal",  ["Todos"] + canal_list, default=["Todos"],label_visibility="collapsed",help="Selecciona uno o más Canales")
+                 
     
     Filtro = 'Filtro = '    
     df_filtered = df.copy()    
         
-    if producto:
-        if producto[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['producto'].isin(variedad)]
-            #st.write(variedad)
-        Filtro = Filtro + ' Productos = ' +  str(producto) + ' '
+    if canal:
+        if canal[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['canal'].isin(canal)]
+        Filtro = Filtro + ' Canal = ' +  str(Canal) 
     
-    if envase:
-        if envase[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(color)]          
-        Filtro = Filtro + ' Envases = ' +  str(envase) + ' '
-        
-    if provincia:
-        if provincia[0] != 'Todas':
-            df_filtered = df_filtered[df_filtered['provincia'].isin(provincia)]          
-        Filtro = Filtro + ' Provincias = ' +  str(provincia) + ' '
-            
-
     #df_filtered = dv1.copy()
     actual = dt.now().year -4 
     #df_filtered = df_filtered[df_filtered['anio'] > actual ]   
