@@ -117,10 +117,10 @@ if "filtroseee" not in st.session_state:
 
 
 
-dv1 = cargar_datos(QUERY_V1)
-df_filtered = dv1.copy() 
+#dv1 = cargar_datos(QUERY_V1)
+#df_filtered = dv1.copy() 
 actual = dt.now().year -4 
-dv1.to_parquet("data/processed/despachos.zip", engine="pyarrow", index=False)
+#dv1.to_parquet("data/processed/despachos.zip", engine="pyarrow", index=False)
 df_nuevo = pd.read_parquet("data/processed/despachos.zip", engine="pyarrow")
 st.write(df_nuevo)
 
