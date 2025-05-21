@@ -120,7 +120,7 @@ if "filtroseee" not in st.session_state:
 dv1 = cargar_datos(QUERY_V1)
 df_filtered = dv1.copy() 
 actual = dt.now().year -4 
-dv1.to_parquet("data/despachos.parquet", engine="pyarrow", index=False)
+dv1.to_parquet("data/processed/despachos.parquet", engine="pyarrow", index=False)
 
 
 
