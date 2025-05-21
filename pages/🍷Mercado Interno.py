@@ -123,6 +123,7 @@ actual = dt.now().year -4
 #dv1.to_parquet("data/processed/despachos.zip", engine="pyarrow", index=False)
 df_nuevo = pd.read_parquet("data/processed/despachos.zip", engine="pyarrow")
 st.write(df_nuevo)
+df_filtered = df_nuevo.copy() 
 
 
 
