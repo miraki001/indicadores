@@ -17,9 +17,9 @@ def bgcolor_positive_or_negative(value):
     return f"background-color: {bgcolor};"
 
 
-def prov_color(df):
+def prov_color():
 
-  st.write(df)
+  df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
     
   pivot_table_basic = df.pivot_table(
       index='provincia', 
