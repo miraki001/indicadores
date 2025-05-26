@@ -13,6 +13,7 @@ from datetime import datetime as dt
 from cosecha import cosecha_evo
 from cosecha import cosecha_prov
 from cosecha import cosecha_rend
+from superficie import cosecha_rend
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
