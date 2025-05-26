@@ -19,6 +19,24 @@ def bgcolor_positive_or_negative(value):
 
 def prov_color():
 
+    with st.container(border=True):
+        col1, col2  =  st.columns([1, 1)  # Ajusta los tamaños de las columnas
+
+    # Columna 1: Filtro para Año
+        with col1:
+            with st.popover("Año"):
+                st.caption("Selecciona uno o más años de la lista")
+                año = st.multiselect("Año",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
+                #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
+                año = [str(a) for a in año]  # Asegura que la selección sea string también
+            
+      
+        with col2:
+            with st.popover("Variedad"):
+                st.caption("Selecciona uno o más Variedades de la lista")
+                variedad = st.multiselect("Variedadv",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+    
+
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
     
   pivot_table_basic = df.pivot_table(
