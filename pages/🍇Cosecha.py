@@ -149,14 +149,19 @@ with tab1:
     vercnt = 0
     if variedad:
       if variedad[0] != 'Todas':
-        dv1 = cargar_datos(QUERY_V1)
+        #dv1 = cargar_datos(QUERY_V1)
+        dv1 = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
+
         vercnt = 0
       else:
-        dv1 = cargar_datos(QUERY_V2)
+        dv1 = pd.read_parquet("data/processed/superficie_datos.parquet", engine="pyarrow")
+        #dv1 = cargar_datos(QUERY_V2)
         vercnt = 1
       dv1['anio'] = dv1['anio'].astype(str)
     else:
-      dv1 = cargar_datos(QUERY_V2)  
+      dv1 = pd.read_parquet("data/processed/superficie_datos.parquet", engine="pyarrow")
+      
+      #dv1 = cargar_datos(QUERY_V2)  
     df_filtered = dv1.copy()
 
     Filtro = 'Filtro = Año = '
