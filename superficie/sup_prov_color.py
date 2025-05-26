@@ -23,7 +23,7 @@ def prov_color():
   year_list = df_anios["anio"].to_numpy()
   year_list = np.append(year_list, "Todos")    
 
-  df_variedades = pd.read_parquet("data/processed/cosecha_variedades.parquet", engine="pyarrow")
+  df_variedades = pd.read_parquet("data/processed/superficievariedad_variedades.parquet", engine="pyarrow")
   var_list = df_variedades["variedad"].to_numpy()
   var_list = np.append(var_list, "Todas")
     
