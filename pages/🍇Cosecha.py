@@ -164,7 +164,6 @@ with tab1:
       
       #dv1 = cargar_datos(QUERY_V2)  
     df_filtered = dv1.copy()
-    st.write(dv1)
 
     Filtro = 'Filtro = Año = '
     Filtro = Filtro +  ' Todos '
