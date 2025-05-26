@@ -19,7 +19,7 @@ def bgcolor_positive_or_negative(value):
 
 def prov_color():
 
-    with st.container(border=True):
+  with st.container(border=True):
         col1, col2  =  st.columns([1, 1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
