@@ -21,7 +21,7 @@ def prov_color():
 
   df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
   year_list = df_anios["anio"].to_numpy()
-  year_list = np.append(year_list, "Todos")    
+  #year_list = np.append(year_list, "Todos")    
 
   df_variedades = pd.read_parquet("data/processed/superficievariedad_variedades.parquet", engine="pyarrow")
   var_list = df_variedades["variedad"].to_numpy()
@@ -43,7 +43,7 @@ def prov_color():
         with col2:
             with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedadv",  ["Todas"] + var_list, default=['Todas'],label_visibility="collapsed")
+                variedad = st.multiselect("Variedadv",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
 
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
