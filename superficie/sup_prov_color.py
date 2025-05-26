@@ -19,6 +19,15 @@ def bgcolor_positive_or_negative(value):
 
 def prov_color():
 
+  df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
+  year_list = df_anios["anio"].to_numpy()
+  year_list = np.append(year_list, "Todos")    
+
+  df_variedades = pd.read_parquet("data/processed/cosecha_variedades.parquet", engine="pyarrow")
+  var_list = df_variedades["variedad"].to_numpy()
+  var_list = np.append(var_list, "Todas")
+    
+
   with st.container(border=True):
         col1, col2  =  st.columns([1, 1])  # Ajusta los tamaños de las columnas
 
