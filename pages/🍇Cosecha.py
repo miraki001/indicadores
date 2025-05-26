@@ -13,7 +13,7 @@ from datetime import datetime as dt
 from cosecha import cosecha_evo
 from cosecha import cosecha_prov
 from cosecha import cosecha_rend
-from superficie import cosecha_rend
+from superficie import sup_prov_color
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -317,7 +317,7 @@ with tab1:
     
     
 with tab2:
-    st.header("En Construcción")
+    sup_prov_color.sup_prov_color()
     
 with tab3:
     st.header("En Construcción")
