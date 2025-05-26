@@ -16,7 +16,11 @@ def bgcolor_positive_or_negative(value):
     bgcolor = "lightcoral" if value < 0 else "lightgreen"
     return f"background-color: {bgcolor};"
 
+
 def prov_color(df):
+
+  st.write(df)
+    
   pivot_table_basic = df.pivot_table(
       index='provincia', 
       columns='color',  
