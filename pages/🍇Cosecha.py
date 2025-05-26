@@ -317,7 +317,7 @@ with tab1:
     
     
 with tab2:
-    sup_prov_color.sup_prov_color()
+    sup_prov_color.prov_color(dv1)
     
 with tab3:
     st.header("En Construcción")
