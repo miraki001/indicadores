@@ -155,7 +155,7 @@ def prov_map(df):
   with open(boundary_file, 'r') as f:
     zipcode_boundary = json.load(f)
 
-  center = get_center_latlong(df)
+  center = get_center_latlong(df1)
 
 
   # Initialize Folium Map again (same as before)
