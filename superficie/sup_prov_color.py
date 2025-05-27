@@ -58,7 +58,7 @@ def prov_color():
   Filtro = 'Filtro = Año = '  
   if año:
         st.write(año)
-        df = df[df['anio'].isin(año[0])]
+        df = df[df['anio'].isin(año)]
         df["anio"] = df["anio"].astype(str)  
         Filtro = Filtro +  ' ' +str(año) + ' '
   st.write(df)      
