@@ -112,6 +112,7 @@ def cosecha_prov():
     #st.write(df_filtered)
     Filtro = 'Filtro = Año = '    
     if año:
+        st.write(año)
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)  
         Filtro = Filtro +  ' ' +str(año) + ' '
