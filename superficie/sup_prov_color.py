@@ -55,13 +55,13 @@ def prov_color():
 
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
 
-  Filtro = ''
+  Filtro = 'Filtro = Año = '  
   if año:
         st.write(año)
         df = df[df['anio'].isin(año)]
         df["anio"] = df["anio"].astype(str)  
         Filtro = Filtro +  ' ' +str(año) + ' '
-        
+  st.write(df)      
   if variedad:
         st.write(variedad)  
         if variedad[0] != 'Todas':
