@@ -14,6 +14,7 @@ from streamlit_echarts import Map
 from pyecharts.charts import Line
 import geopandas as gpd
 import plotly.express as px
+import folium
 
 
 def make_choropleth(input_df, input_id, input_column, input_color_theme):
