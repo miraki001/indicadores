@@ -65,7 +65,7 @@ def prov_color():
         if variedad[0] != 'Todas':
             df = df[df['variedad'].isin(variedad)]
             #st.write(variedad)
-        Filtro = Filtro + ' Variedades = ' +  str(variedad) + '     
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '     
     
   pivot_table_basic = df.pivot_table(
       index='provincia', 
