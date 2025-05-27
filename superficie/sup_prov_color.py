@@ -22,7 +22,7 @@ def prov_color():
   df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
   year_list = df_anios["anio"].to_numpy()
   #year_list = np.append(year_list, "Todos")    
-
+  st.write(year_list)
   df_variedades = pd.read_parquet("data/processed/superficievariedad_variedades.parquet", engine="pyarrow")
   var_list = df_variedades["variedad"].to_numpy()
   var_list = np.append(var_list, "Todas")
@@ -42,7 +42,7 @@ def prov_color():
         with col1:
             with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año1",  year_list, default=["2024"],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Año1",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
