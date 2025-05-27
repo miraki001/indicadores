@@ -186,7 +186,7 @@ def prov_map(df):
     geo_data=zipcode_boundary,
     name='choropleth',
     data=zipcode_data,
-    columns=['iso_lo', 'sup'],
+    columns=['iso_loc', 'sup'],
     key_on='feature.properties.ZIPCODE',
     fill_color='Spectral',
     fill_opacity=0.6,
