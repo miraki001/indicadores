@@ -54,6 +54,18 @@ def prov_color():
     
 
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
+
+
+  if año:
+        df = df[df['anio'].isin(año)]
+        df["anio"] = df["anio"].astype(str)  
+        Filtro = Filtro +  ' ' +str(año) + ' '
+        
+  if variedad:
+        if variedad[0] != 'Todas':
+            df = df[df['variedad'].isin(variedad)]
+            #st.write(variedad)
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + '     
     
   pivot_table_basic = df.pivot_table(
       index='provincia', 
