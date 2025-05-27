@@ -25,7 +25,7 @@ def prov_color():
 
   df_variedades = pd.read_parquet("data/processed/superficievariedad_variedades.parquet", engine="pyarrow")
   var_list = df_variedades["variedad"].to_numpy()
-  var_list = np.append(var_list, "Todas")
+  #var_list = np.append(var_list, "Todas")
     
 
   with st.container(border=True):
