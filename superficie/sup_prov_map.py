@@ -193,4 +193,4 @@ def prov_map(df):
     line_opacity=1,
     legend_name='Mean Price'
   ).add_to(m)
-  m.save('zipcode_choropleth.html')
+  m.save('c:\tmp\zipcode_choropleth.html')
