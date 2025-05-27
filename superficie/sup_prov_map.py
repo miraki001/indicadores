@@ -16,6 +16,11 @@ import geopandas as gpd
 import plotly.express as px
 import folium
 
+def get_center_latlong(df):
+    # get the center of my map for plotting
+    centerlat = (df['lat'].max() + df['lat'].min()) / 2
+    centerlong = (df['long'].max() + df['long'].min()) / 2
+    return centerlat, centerlong
 
 def make_choropleth(input_df, input_id, input_column, input_color_theme):
     choropleth = px.choropleth(input_df, locations=input_id, color=input_column,
