@@ -164,8 +164,7 @@ def prov_map(df):
 
 
   # Initialize Folium Map again (same as before)
-  m = folium.Map(location=center, 
-               zoom_start=10,
+  m = folium.Map(zoom_start=10,
                tiles='Stamen Toner')
 
 
