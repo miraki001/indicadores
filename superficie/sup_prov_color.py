@@ -57,11 +57,13 @@ def prov_color():
 
   Filtro = ''
   if año:
+        st.write(año)
         df = df[df['anio'].isin(año)]
         df["anio"] = df["anio"].astype(str)  
         Filtro = Filtro +  ' ' +str(año) + ' '
         
   if variedad:
+        st.write(variedad)  
         if variedad[0] != 'Todas':
             df = df[df['variedad'].isin(variedad)]
             #st.write(variedad)
