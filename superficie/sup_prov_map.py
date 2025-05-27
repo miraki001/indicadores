@@ -15,6 +15,7 @@ from pyecharts.charts import Line
 import geopandas as gpd
 import plotly.express as px
 import folium
+from streamlit_folium import folium_static
 
 def get_center_latlong(df):
     # get the center of my map for plotting
