@@ -165,8 +165,8 @@ def prov_map(df):
 
   # Initialize Folium Map again (same as before)
   m = folium.Map(location=[40.965, -5.664], 
-               zoom_start=10,
-               tiles='Stamen Toner')
+                 zoom_start=10,
+                 tiles='Stamen Toner')
 
 
   # Use the groupby method to 
