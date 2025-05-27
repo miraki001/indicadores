@@ -54,7 +54,7 @@ def prov_color():
     
 
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
-
+  st.write(df) 
   Filtro = 'Filtro = Año = '  
   if año:
         st.write(año)
