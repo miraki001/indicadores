@@ -118,5 +118,5 @@ with tab1:
 
 with tab2:
     
-    sup_prov_color.prov_color(df1)
+    #sup_prov_color.prov_color(df1)
     sup_prov_map.prov_map(df1)
