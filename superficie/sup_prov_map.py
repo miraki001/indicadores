@@ -160,7 +160,7 @@ def prov_map(df):
   with open(boundary_file, 'r') as f:
     zipcode_boundary = json.load(f)
 
-  center = get_center_latlong(df1)
+  #center = get_center_latlong(df1)
 
 
   # Initialize Folium Map again (same as before)
@@ -170,7 +170,7 @@ def prov_map(df):
 
 
   # Use the groupby method to 
-  zipcode_data = df1.groupby('zipcode').aggregate(np.mean)
+  zipcode_data = df1.groupby('iso_loc').aggregate(np.mean)
   zipcode_data.reset_index(inplace = True)
 
 
@@ -179,7 +179,7 @@ def prov_map(df):
     geo_data=zipcode_boundary,
     name='choropleth',
     data=zipcode_data,
-    columns=['zipcode', 'price'],
+    columns=['iso_lo', 'sup'],
     key_on='feature.properties.ZIPCODE',
     fill_color='Spectral',
     fill_opacity=0.6,
