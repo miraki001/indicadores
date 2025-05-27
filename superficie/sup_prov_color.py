@@ -22,7 +22,7 @@ def prov_color():
   df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
   year_list = df_anios["anio"].to_numpy()
   #year_list = np.append(year_list, "Todos")    
-  st.write(year_list)
+  #st.write(year_list)
   df_variedades = pd.read_parquet("data/processed/superficievariedad_variedades.parquet", engine="pyarrow")
   var_list = df_variedades["variedad"].to_numpy()
   var_list = np.append(var_list, "Todas")
@@ -55,6 +55,8 @@ def prov_color():
 
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
   st.write(df) 
+  df['anio'] = df['anio'].astype(str)
+    
   Filtro = 'Filtro = Año = '  
   if año:
         st.write(año)
