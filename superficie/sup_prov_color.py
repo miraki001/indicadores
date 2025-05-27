@@ -118,7 +118,7 @@ def prov_color():
         'Tinta %': st.column_config.Column('Tinta %'),
         'Total Prov.': st.column_config.Column('Total Prov.')  
       },
-      width = 600,   
+      width = 900,   
       height = 500,
       hide_index=False
   )
