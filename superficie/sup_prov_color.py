@@ -55,7 +55,7 @@ def prov_color():
 
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
 
-
+  Filtro = ''
   if año:
         df = df[df['anio'].isin(año)]
         df["anio"] = df["anio"].astype(str)  
