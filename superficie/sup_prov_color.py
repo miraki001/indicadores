@@ -27,6 +27,13 @@ def prov_color():
   var_list = df_variedades["variedad"].to_numpy()
   var_list = np.append(var_list, "Todas")
     
+  if "filtros_cose2" not in st.session_state:
+        st.session_state.filtros_cose2 = {
+            "anio": "2024",          
+            "var": "Todas"
+        }
+    
+    
 
   with st.container(border=True):
         col1, col2  =  st.columns([1, 1])  # Ajusta los tamaños de las columnas
