@@ -150,3 +150,36 @@ def prov_map(df):
 
   choropleth = make_choropleth(df1, 'iso_loc', 'sup', 'blues')  
   st.plotly_chart(choropleth, use_container_width=True)
+
+  boundary_file = "./data/argentina.json"
+  with open(boundary_file, 'r') as f:
+    zipcode_boundary = json.load(f)
+
+  center = get_center_latlong(df)
+
+
+  # Initialize Folium Map again (same as before)
+  m = folium.Map(location=center, 
+               zoom_start=10,
+               tiles='Stamen Toner')
+
+
+  # Use the groupby method to 
+  zipcode_data = df1.groupby('zipcode').aggregate(np.mean)
+  zipcode_data.reset_index(inplace = True)
+
+
+  # Create choropleth map  
+  folium.Choropleth(
+    geo_data=zipcode_boundary,
+    name='choropleth',
+    data=zipcode_data,
+    columns=['zipcode', 'price'],
+    key_on='feature.properties.ZIPCODE',
+    fill_color='Spectral',
+    fill_opacity=0.6,
+    nan_fill_opacity=0,
+    line_opacity=1,
+    legend_name='Mean Price'
+  ).add_to(m)
+  m.save('zipcode_choropleth.html')
