@@ -175,6 +175,12 @@ def prov_map(df):
   zipcode_data.reset_index(inplace = True)
 
 
+  m_1 = folium.Map(location=[42.32,-71.0589], tiles='openstreetmap', zoom_start=10)
+
+  # Display the map
+  m_1    
+
+
   # Create choropleth map  
   folium.Choropleth(
     geo_data=zipcode_boundary,
