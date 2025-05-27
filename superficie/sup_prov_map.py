@@ -142,8 +142,8 @@ def prov_map(df):
   st.write('otro')
   st.write(df1)
 
-  #fig = px.choropleth(df1, locations='iso_loc',locationmode="ISO-3", color='sup')
-  fig = px.choropleth(df1, locations='iso_loc',color='sup')
+  fig = px.choropleth(df1, locations='iso_loc',locationmode="ISO-3", color='sup')
+  #fig = px.choropleth(df1, locations='iso_loc',color='sup')
  
   fig.show()
 
