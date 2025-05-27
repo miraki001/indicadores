@@ -8,3 +8,4 @@ streamlit-aggrid
 streamlit-keyup
 geopandas
 folium
+streamlit_folium
