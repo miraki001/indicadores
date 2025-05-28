@@ -113,8 +113,9 @@ def prov_map(df):
   df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
   st.write(df1)
 
-  filtered_df = df1.loc[df1['provincia'] == 'Salta']    
-  pp = filtered_df['sup']
+  filtered_df = df1.loc[df1['provincia'] == 'Salta']  
+  filtered_df = filtered_df.sort_index(axis = 1)    
+  pp = filtered_df['sup'][0]
   #pp = df1.loc["Salta", 'sup']
   st.write(pp)    
   choropleth.geojson.add_to(map)  
