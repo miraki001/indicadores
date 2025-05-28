@@ -175,6 +175,8 @@ def prov_map(df):
   zipcode_data = df1.groupby('iso_loc').aggregate(np.mean)
   zipcode_data.reset_index(inplace = True)
   st.write(df)
+
+  df = df.set_index('prov')  
   map = folium.Map(location= [38,-96.5],zoom_start= 4,tiles='CartoDB positron')
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
@@ -185,6 +187,9 @@ def prov_map(df):
       highlight=True,
   )
   choropleth.geojson.add_to(map)  
+  for feature in choroplet.geojson.data['features']:
+      prov = feature['properties']['name']
+      feature['properties']['superficie'] = 'Superficie: ' + str(df.loc[prov])
   choropleth.geojson.add_child(
       folium.features.GeoJsonTooltip(['name'],labels=False)
   )
