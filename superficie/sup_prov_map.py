@@ -103,9 +103,9 @@ def prov_map(df):
       highlight=True,
   )
   choropleth.geojson.add_to(map)  
-  #for feature in choroplet.geojson.data['features']:
-  #    prov1 = feature['properties']['name']
-  #    feature['properties']['superficie'] = 'Superficie: ' + str(df.loc[prov1,'sup'][0])
+  for feature in choroplet.geojson.data['features']:
+      prov1 = feature['properties']['name']
+      feature['properties']['superficie'] = 'Superficie: ' + str(df.loc[prov1,'sup'][0] if prov1 list(df.index) else 'N/A')
   choropleth.geojson.add_child(
       folium.features.GeoJsonTooltip(['name',],labels=False)
   )
