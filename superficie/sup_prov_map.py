@@ -128,11 +128,13 @@ def prov_map(df):
       st.write(len(df.columns) )
       filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
       st.write(prov1)
+      pp = =
       if not filtered_df.empty: 
           pp = filtered_df['sup'][0]
           st.write(pp)
       if not filtered_df.empty: 
-          feature['properties']['superficie'] = 'Superficie: ' +  '{:,}'.format(df_indexed.loc[prov1, 'sup'][0]) if prov1 in list(df_indexed.index) else ''
+          #feature['properties']['superficie'] = 'Superficie: ' +  '{:,}'.format(df_indexed.loc[prov1, 'sup'][0]) if prov1 in list(df_indexed.index) else ''
+          feature['properties']['superficie'] = 'Superficie: ' +  str(pp)
       if  filtered_df.empty: 
           feature['properties']['superficie'] = 'Superficie:  0'
   
