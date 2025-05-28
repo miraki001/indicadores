@@ -93,7 +93,7 @@ def prov_map(df):
       
 
 
-  df = df.groupby(['provincia',], as_index=False)[['provincia']].sum()    
+  df = df.groupby(['provincia',], as_index=False)[['sup']].sum()    
     
   df_indexed = df.set_index('provincia')    
     
