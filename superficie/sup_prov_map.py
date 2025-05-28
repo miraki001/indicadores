@@ -188,7 +188,8 @@ def prov_map(df):
   m_1 = folium.Map(location=[42.32,-71.0589], tiles='openstreetmap', zoom_start=10)
 
   # Display the map
-  m_1.save('c:\tmp\zipcode_choropleth.html')    
+  m_1.save('c:\tmp\zipcode_choropleth.html')  
+  st.write(zipcode_data)
 
 
   # Create choropleth map  
