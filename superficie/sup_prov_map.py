@@ -97,8 +97,8 @@ def prov_map(df):
       values=['sup'],
       aggfunc='sum'
   )
-  df.columns = dfg.columns.droplevel(0)
-  df = dfg.reset_index().rename_axis(None, axis=1)    
+  df.columns = df.columns.droplevel(0)
+  df = df.reset_index().rename_axis(None, axis=1)    
     
   df_indexed = df.set_index('provincia')    
     
