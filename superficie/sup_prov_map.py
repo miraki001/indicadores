@@ -89,7 +89,7 @@ def prov_map(df):
         Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '      
       
   
-  #df = df.set_index('provincia')  
+  df = df.set_index('provincia')  
     
   st.write(df)
 
