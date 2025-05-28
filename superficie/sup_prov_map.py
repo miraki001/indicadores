@@ -174,7 +174,7 @@ def prov_map(df):
   # Use the groupby method to 
   zipcode_data = df1.groupby('iso_loc').aggregate(np.mean)
   zipcode_data.reset_index(inplace = True)
-  df = df.set_index('prov')  
+  df = df.set_index('provincia')  
   año = 2024  
     
   st.write(df)
