@@ -197,7 +197,7 @@ def prov_map(df):
     name='choropleth',
     data=zipcode_data,
     columns=['provincia', 'sup'],
-    key_on='feature.property.name'  
+    key_on='Feature.properties.name'  
     fill_color='Spectral',
     fill_opacity=0.6,
     nan_fill_opacity=0,
