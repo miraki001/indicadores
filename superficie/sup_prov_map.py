@@ -113,7 +113,7 @@ def prov_map(df):
   df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
   st.write(df1)
 
-  filtered_df = df1.loc[df1['provincia'] == 'Entre Ríos']  
+  filtered_df = df1.loc[df1['provincia'] == 'Entre Rios']  
   filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
   #df1 = df1.reset_index().rename_axis(None, axis=1)    
   df_indexed = df1.set_index('provincia')     
