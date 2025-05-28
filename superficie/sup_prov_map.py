@@ -16,6 +16,7 @@ import geopandas as gpd
 import plotly.express as px
 import folium
 from streamlit_folium import st_folium
+import branca.colormap as cm
 
 def get_center_latlong(df):
     # get the center of my map for plotting
@@ -99,6 +100,10 @@ def prov_map(df):
   #df = df.reset_index().rename_axis(None, axis=1)    
     
   df_indexed = df.set_index('provincia')    
+
+  max_value = df[sup].max()
+  hex_codes = ['#0b0405', '#28192e', '#3b2e5d', '#40498e', '#366a9f', '#348ba6', '#38aaac', '#55caad', '#a1dfb9', '#def5e5']  
+  custom_colour_map = cm.StepColormap(colors = hex_codes, vmin = 0, vmax = max_value, tick_labels=[1, 100, 1000, 10000, max_value])    
     
   #st.write(df)
   #st.write(df_indexed)  
@@ -110,7 +115,7 @@ def prov_map(df):
       key_on='feature.properties.name',
       line_opacity=0.8,
       #fill_color="YlGn",
-      fill_color = df['sup'],
+      fill_color = custom_colour_map(df['sup']),
       nan_fill_color="purple",
       legend_name="Hectareas por provincia",
       bins=[1,10000, 150000],
