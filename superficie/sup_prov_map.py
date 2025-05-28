@@ -185,15 +185,10 @@ def prov_map(df):
       highlight=True,
   )
   choropleth.geojson.add_to(map)  
+  choropleth.geojson.add_child(
+      folium.features.GeoJsonTooltip(['name'],labes=False)
+  )
   st.map = st_folium(map, width=700, height= 450)
 
 
-  # Create choropleth map  
-  folium.Choropleth(
-    geo_data='./data/argentina.json',
-    name='choropleth',
-    data=df,
-    columns=['sup'],
-    key_on='Feature.properties.name',  
-  ).add_to(m)
-  m.save('c:\tmp\zipcode_choropleth.html')
+  
