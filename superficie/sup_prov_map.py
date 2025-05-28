@@ -103,7 +103,7 @@ def prov_map(df):
 
   max_value = df['sup'].max()
   hex_codes = ['#0b0405', '#28192e', '#3b2e5d', '#40498e', '#366a9f', '#348ba6', '#38aaac', '#55caad', '#a1dfb9', '#def5e5']  
-  custom_colour_map = cm.StepColormap(colors = hex_codes, vmin = 0, vmax = max_value)    
+  custom_colour_map = cm.StepColormap(colors = hex_codes, vmin = 0, vmax = max_value, tick_labels=[1, 100, 1000, 10000, 150000])    
     
   #st.write(df)
   #st.write(df_indexed)  
