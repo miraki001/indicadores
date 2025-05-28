@@ -87,8 +87,8 @@ def prov_map(df):
   #st.write(df)      
   if variedad:
         if variedad[0] != 'Todas':
-            #df = df[df['variedad'].isin(variedad)]
-            st.write(variedad)
+            df = df[df['variedad'].isin(variedad)]
+            #st.write(variedad)
         Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '      
       
 
