@@ -43,6 +43,13 @@ def make_choropleth(input_df, input_id, input_column, input_color_theme):
 def prov_map(df):
 
 
+  step = cmp.StepColormap(
+     ['yellow', 'green', 'purple'],
+     vmin=1, vmax=150000,
+     index=[1, 1000, 10000, 150000],  #for change in the colors, not used fr linear
+     caption='Color Scale for Map'    #Caption for Color scale or Legend
+)    
+
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
 
   df['anio'] = df['anio'].astype(str)
@@ -108,6 +115,7 @@ def prov_map(df):
       key_on='feature.properties.name',
       line_opacity=0.8,
       fill_color="YlGn",
+      fillColor = step(df['sup']]),
       nan_fill_color="purple",
       legend_name="Hectareas por provincia",
       bins=[1,10000, 150000],
