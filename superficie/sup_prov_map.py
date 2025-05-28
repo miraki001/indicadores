@@ -128,7 +128,7 @@ def prov_map(df):
       st.write(len(df.columns) )
       filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
       st.write(prov1)
-      pp = =
+      pp = 0
       if not filtered_df.empty: 
           pp = filtered_df['sup'][0]
           st.write(pp)
