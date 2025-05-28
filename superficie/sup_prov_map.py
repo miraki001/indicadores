@@ -42,6 +42,12 @@ def make_choropleth(input_df, input_id, input_column, input_color_theme):
 
 def prov_map(df):
 
+
+
+  df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
+  year_list = df_anios["anio"].to_numpy()    
+
+    
   formatter = JsCode(
     "function (params) {"
     + "var value = (params.value + '').split('.');"
