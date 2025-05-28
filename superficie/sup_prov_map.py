@@ -133,6 +133,9 @@ def prov_map(df):
           st.write(pp)
       if not filtered_df.empty: 
           feature['properties']['superficie'] = 'Superficie: ' +  '{:,}'.format(df_indexed.loc[prov1, 'sup'][0]) if prov1 in list(df_indexed.index) else ''
+      if  filtered_df.empty: 
+          feature['properties']['superficie'] = 'Superficie:  0'
+  
   choropleth.geojson.add_child(
       folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
   )
