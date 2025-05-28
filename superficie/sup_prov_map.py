@@ -199,10 +199,5 @@ def prov_map(df):
     data=df,
     columns=['sup'],
     key_on='Feature.properties.name',  
-    fill_color='Spectral',
-    fill_opacity=0.6,
-    nan_fill_opacity=0,
-    line_opacity=1,
-    legend_name='Mean Price'
   ).add_to(m)
   m.save('c:\tmp\zipcode_choropleth.html')
