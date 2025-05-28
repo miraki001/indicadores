@@ -104,7 +104,7 @@ def prov_map(df):
     
   #st.write(df)
   #st.write(df_indexed)  
-  map = folium.Map(location= [-32,-68.5],zoom_start= 5,tiles='CartoDB positron')
+  map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='CartoDB positron')
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
       data = df,
@@ -120,27 +120,17 @@ def prov_map(df):
   df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
   #st.write(df1)
 
-  #filtered_df = df1.loc[df1['provincia'] == 'Entre Rios']  
-  #filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
-  #df1 = df1.reset_index().rename_axis(None, axis=1)    
   df_indexed = df1.set_index('provincia')     
   df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)        
-  #pp = filtered_df['sup'][0]
-  #pp = df1.loc["Salta", 'sup']
-  #st.write(pp)    
   choropleth.geojson.add_to(map)  
   for feature in choropleth.geojson.data['features']:
       prov1 = feature['properties']['name']
       filtered_df = df1.loc[df1['provincia'] == prov1]
-      #st.write(len(df.columns) )
       filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
-      #st.write(prov1)
       pp = 0
       if not filtered_df.empty: 
           pp = round(filtered_df['sup'][0])
-          #st.write(pp)
       if not filtered_df.empty: 
-          #feature['properties']['superficie'] = 'Superficie: ' +  '{:,}'.format(df_indexed.loc[prov1, 'sup'][0]) if prov1 in list(df_indexed.index) else ''
           feature['properties']['superficie'] = 'Superficie: ' +  str(pp)
       if  filtered_df.empty: 
           feature['properties']['superficie'] = 'Superficie:  0'
