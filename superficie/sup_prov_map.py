@@ -115,7 +115,7 @@ def prov_map(df):
       key_on='feature.properties.name',
       line_opacity=0.8,
       #fill_color="YlGn",
-      fill_color = step(df['sup']),
+      fill_color = df['sup'],
       nan_fill_color="purple",
       legend_name="Hectareas por provincia",
       bins=[1,10000, 150000],
