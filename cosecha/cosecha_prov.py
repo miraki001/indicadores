@@ -19,7 +19,24 @@ def cosecha_prov():
         """
     st.markdown(streamlit_style, unsafe_allow_html=True)     
 
-  
+
+
+    df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
+    year_list = df_anios["anio"].to_numpy()
+    
+    df_variedades = pd.read_parquet("data/processed/rendimiento_variedades.parquet", engine="pyarrow")
+    var_list = df_variedades["variedad"].to_numpy()
+    var_list = np.append(var_list, "Todas")
+
+    df_colores = pd.read_parquet("data/processed/cosecha_colores.parquet", engine="pyarrow")
+    color_list = df_colores["variedad"].to_numpy()
+    color_list = np.append(color_list, "Todas")
+
+    df_tipo = pd.read_parquet("data/processed/cosecha_tipouvas.parquet", engine="pyarrow")
+    tipo_list = df_tipo["variedad"].to_numpy()
+    tipo_list = np.append(tipo_list, "Todas")
+    
+
     
 
     conn = st.connection("postgresql", type="sql")
@@ -28,35 +45,11 @@ def cosecha_prov():
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
         return f"background-color: {bgcolor};"
             
-    @st.cache_data
-    def cargar_datos(consulta):
-        try:
-            df = conn.query(consulta, ttl="0")
-            return df
-        except Exception as e:
-            st.error(f"Error al cargar datos: {e}")
-            return pd.DataFrame()
-    QUERY_V0 = f"""
-        SELECT distinct anio,variedad,tipouva,color
-        FROM cosecha2 
-        
 
-    """
 
     
-    # Cargar datos iniciales para llenar los filtros
-    df_filtros = cargar_datos(QUERY_V0)
 
-    if df_filtros.empty:
-        st.error("No se encontraron datos en la base de datos.")
-        st.stop()
-
-    # Listas de valores únicos para los filtros
-    year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
-    var_list = sorted(df_filtros["variedad"].dropna().unique())
-    color_list = sorted(df_filtros["color"].dropna().unique())
-    tipo_list = sorted(df_filtros["tipouva"].dropna().unique())
-    if "filtros_cose1" not in st.session_state:
+    if "filtros_cose12" not in st.session_state:
         st.session_state.filtros_cose = {
             "anio": "Todos",          
             "var": "Todas",
@@ -66,14 +59,9 @@ def cosecha_prov():
 
 
 
-    QUERY_V1 = f"""
-        SELECT anio, peso , variedad,provincia_viñatero prov,departamento_viñatero depto,tipouva,destinouva destino,color
-        FROM cosecha2 
 
-    """
+    dv1 = pd.read_parquet("data/processed/cosecha_datos.parquet", engine="pyarrow")
 
-
-    dv1 = cargar_datos(QUERY_V1)
  
     dv1['anio'] = dv1['anio'].astype(str)
 
