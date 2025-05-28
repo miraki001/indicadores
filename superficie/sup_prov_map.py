@@ -101,9 +101,6 @@ def prov_map(df):
     
   df_indexed = df.set_index('provincia')    
 
-  max_value = df['sup'].max()
-  hex_codes = ['#0b0405', '#28192e', '#3b2e5d', '#40498e', '#366a9f', '#348ba6', '#38aaac', '#55caad', '#a1dfb9', '#def5e5']  
-  custom_colour_map = cm.StepColormap(colors = hex_codes, vmin = 0, vmax = max_value, tick_labels=[0, 100, 1000, 10000, 150000])    
     
   #st.write(df)
   #st.write(df_indexed)  
@@ -114,8 +111,7 @@ def prov_map(df):
       columns=["provincia","sup"],
       key_on='feature.properties.name',
       line_opacity=0.8,
-      #fill_color="YlGn",
-      fill_color = custom_colour_map(df['sup']),
+      fill_color="YlGn",
       nan_fill_color="purple",
       legend_name="Hectareas por provincia",
       bins=[1,10000, 150000],
