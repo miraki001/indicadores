@@ -94,6 +94,7 @@ def prov_map(df):
 
 
   df = df.groupby(['provincia',], as_index=False)[['sup']].sum()    
+  df = df.reset_index().rename_axis(None, axis=1)    
     
   df_indexed = df.set_index('provincia')    
     
