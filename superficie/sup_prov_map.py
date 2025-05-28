@@ -112,7 +112,7 @@ def prov_map(df):
 
   df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
   st.write(df1)
-  pp = df1.loc['Salta', 'sup'][0]
+  pp = df1.loc["Salta", 'sup'][0]
   st.write(pp)    
   choropleth.geojson.add_to(map)  
   for feature in choropleth.geojson.data['features']:
