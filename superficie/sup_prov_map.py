@@ -181,6 +181,8 @@ def prov_map(df):
       data = df,
       columns=('provincia','sup'),
       key_on='feature.properties.name',
+      line_opacity=0.8,
+      highlight=True,
   )
   choropleth.geojson.add_to(map)  
   st.map = st_folium(map, width=700, height= 450)
