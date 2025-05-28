@@ -103,7 +103,7 @@ def prov_map(df):
       highlight=True,
   )
   choropleth.geojson.add_to(map)  
-  for feature in choroplet.geojson.data['features']:
+  for feature in choropleth.geojson.data['features']:
       prov1 = feature['properties']['name']
       feature['properties']['superficie'] = 'Superficie: ' +  '{:,}'.format(df_indexed.loc[prov1, 'sup'][0]) if prov1 in list(df_indexed.index) else ''
   choropleth.geojson.add_child(
