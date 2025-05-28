@@ -69,7 +69,7 @@ def prov_map(df):
         with col1:
             with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año1",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Año11",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
@@ -77,7 +77,7 @@ def prov_map(df):
         with col2:
             with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedad",  var_list, default=["Todas"],label_visibility="collapsed")        
+                variedad = st.multiselect("Variedad11",  var_list, default=["Todas"],label_visibility="collapsed")        
 
 
   df['anio'] = df['anio'].astype(str)
