@@ -180,6 +180,7 @@ def prov_map(df):
       geo_data='./data/argentina.json',
       data = df,
       columns=('provincia','sup')
+      key_on='feature.properties.name',
   )
   choropleth.geojson.add_to(map)  
   st.map = st_folium(map, width=700, height= 450)
