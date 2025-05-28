@@ -141,7 +141,7 @@ def prov_map(df):
   choropleth.geojson.add_child(
       folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
   )
-  st.map = st_folium(map, width=700, height= 450)
+  st.map = st_folium(map, width=800, height= 650)
 
 
   
