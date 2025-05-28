@@ -100,7 +100,7 @@ def prov_map(df):
     
   st.write(df)
   st.write(df_indexed)  
-  map = folium.Map(location= [38,-96.5],zoom_start= 4,tiles='CartoDB positron')
+  map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='CartoDB positron')
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
       data = df,
