@@ -43,6 +43,9 @@ def make_choropleth(input_df, input_id, input_column, input_color_theme):
 def prov_map(df):
 
 
+  df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
+
+  df['anio'] = df['anio'].astype(str)
 
   df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
   year_list = df_anios["anio"].to_numpy()    
@@ -88,7 +91,13 @@ def prov_map(df):
             st.write(variedad)
         Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '      
       
-  
+
+  df = df.pivot_table(
+      index='provincia', 
+      values=['sup'],
+      aggfunc='sum'
+  )
+    
   df_indexed = df.set_index('provincia')    
     
   st.write(df)
