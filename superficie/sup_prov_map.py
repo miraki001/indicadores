@@ -126,8 +126,9 @@ def prov_map(df):
       prov1 = feature['properties']['name']
       filtered_df = df1.loc[df1['provincia'] == prov1]
       filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
-      pp = filtered_df['sup'][0]
       st.write(prov1)
+      pp = filtered_df['sup'][0]
+      #st.write(prov1)
       #pp = df_indexed.loc[prov1, 'sup'][0]
       st.write(pp)
       feature['properties']['superficie'] = 'Superficie: ' +  '{:,}'.format(df_indexed.loc[prov1, 'sup'][0]) if prov1 in list(df_indexed.index) else ''
