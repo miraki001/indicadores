@@ -176,6 +176,10 @@ def prov_map(df):
   zipcode_data.reset_index(inplace = True)
   st.write(df)
   map = folium.Map(location= [38,-96.5],zoom_start= 4,tiles='CartoDB positron')
+  choropleth = folium.chropleth(
+      geo_data='./data/argentina.json',
+  )
+  choropleth.geojson.add_to(map)  
   st.map = st_folium(map, width=700, height= 450)
 
 
