@@ -115,7 +115,7 @@ def prov_map(df):
 
   filtered_df = df1.loc[df1['provincia'] == 'Salta']  
   filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
-  df1 = df1.reset_index().rename_axis(None, axis=1)    
+  #df1 = df1.reset_index().rename_axis(None, axis=1)    
   df_indexed = df1.set_index('provincia')     
   pp = filtered_df['sup'][0]
   #pp = df1.loc["Salta", 'sup']
