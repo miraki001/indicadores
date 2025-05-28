@@ -75,7 +75,7 @@ def prov_map(df):
   json_obj = json.loads(f)
 
 
-  st.write(json_obj)  
+  #st.write(json_obj)  
   raw_data = json_obj
 
 
@@ -147,7 +147,7 @@ def prov_map(df):
   st_echarts(options, map=map)
   #st.map(pivot_table_basic)
   st.write('otro')
-  st.write(df1)
+  st.write(df)
 
   fig = px.choropleth(df1, locations='iso_loc',locationmode="ISO-3", color='sup')
   #fig = px.choropleth(df1, locations='iso_loc',color='sup')
