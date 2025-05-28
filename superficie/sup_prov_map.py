@@ -178,6 +178,8 @@ def prov_map(df):
   map = folium.Map(location= [38,-96.5],zoom_start= 4,tiles='CartoDB positron')
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
+      data = df,
+      columns=('provincia',sup')
   )
   choropleth.geojson.add_to(map)  
   st.map = st_folium(map, width=700, height= 450)
