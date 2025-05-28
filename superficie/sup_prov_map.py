@@ -89,7 +89,7 @@ def prov_map(df):
         Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '      
       
   
-  df = df.set_index('provincia')  
+  df_indexed = df.set_index('provincia')    
     
   st.write(df)
 
@@ -105,7 +105,7 @@ def prov_map(df):
   choropleth.geojson.add_to(map)  
   for feature in choroplet.geojson.data['features']:
       prov1 = feature['properties']['name']
-      feature['properties']['superficie'] = 'Superficie: ' + str('{:,}'.format(df.loc[prov1,'sup'][0]) if prov1 list(df.index) else 'N/A')
+      feature['properties']['superficie'] = 'Superficie: ' +  '{:,}'.format(df_indexed.loc[prov1, 'sup'][0]) if prov1 in list(df_indexed.index) else ''
   choropleth.geojson.add_child(
       folium.features.GeoJsonTooltip(['name',],labels=False)
   )
