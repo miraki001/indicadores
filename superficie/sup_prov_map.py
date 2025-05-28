@@ -179,7 +179,7 @@ def prov_map(df):
     
   st.write(df)
 
-  df = df[df['anio'].isin('2024')]  
+  df = df[df['anio'].isin("2024")]  
   map = folium.Map(location= [38,-96.5],zoom_start= 4,tiles='CartoDB positron')
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
