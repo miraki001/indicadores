@@ -107,6 +107,7 @@ def prov_map(df):
       columns=('provincia','sup'),
       key_on='feature.properties.name',
       line_opacity=0.8,
+      fill_color="YlGn",
       highlight=True,
   )
 
