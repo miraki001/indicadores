@@ -125,6 +125,7 @@ def prov_map(df):
   for feature in choropleth.geojson.data['features']:
       prov1 = feature['properties']['name']
       filtered_df = df1.loc[df1['provincia'] == prov1]
+      st.write(filtered_df)
       filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
       st.write(prov1)
       pp = filtered_df['sup'][0]
