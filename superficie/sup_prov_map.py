@@ -194,7 +194,7 @@ def prov_map(df):
 
   # Create choropleth map  
   folium.Choropleth(
-    geo_data=zipcode_boundary,
+    geo_data='./data/argentina.json',
     name='choropleth',
     data=df,
     columns=['provincia', 'sup'],
