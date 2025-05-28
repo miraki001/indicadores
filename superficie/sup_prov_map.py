@@ -93,8 +93,8 @@ def prov_map(df):
       
 
 
-  df = df.groupby(['provincia',], as_index=False)[['sup']].sum()    
-  df = df.reset_index().rename_axis(None, axis=1)    
+  #df = df.groupby(['provincia',], as_index=False)[['sup']].sum()    
+  #df = df.reset_index().rename_axis(None, axis=1)    
     
   df_indexed = df.set_index('provincia')    
     
@@ -113,8 +113,8 @@ def prov_map(df):
   for feature in choropleth.geojson.data['features']:
       prov1 = feature['properties']['name']
       st.write(prov1)
-      #pp = df_indexed.loc[prov1, 'sup'][0]
-      #st.write(pp)
+      pp = df_indexed.loc[prov1, 'sup'][0]
+      st.write(pp)
       feature['properties']['superficie'] = 'Superficie: ' +  '{:,}'.format(df_indexed.loc[prov1, 'sup'][0]) if prov1 in list(df_indexed.index) else ''
   choropleth.geojson.add_child(
       folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
