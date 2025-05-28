@@ -114,7 +114,6 @@ def prov_map(df):
       fill_color="YlGn",
       nan_fill_color="purple",
       legend_name="Hectareas por provincia",
-      bins=[1,10000, 150000],
       highlight=True,
   ).add_to(map)
 
