@@ -176,7 +176,7 @@ def prov_map(df):
   zipcode_data.reset_index(inplace = True)
   st.write(df)
   map = folium.Map()
-  st.map = st_folium(map, width=700, heigth= 450)
+  st.map = st_folium(map, width=700, height= 450)
 
 
   # Create choropleth map  
