@@ -107,7 +107,7 @@ def prov_map(df):
       prov1 = feature['properties']['name']
       feature['properties']['superficie'] = 'Superficie: ' +  '{:,}'.format(df_indexed.loc[prov1, 'sup'][0]) if prov1 in list(df_indexed.index) else ''
   choropleth.geojson.add_child(
-      folium.features.GeoJsonTooltip(['name',],labels=False)
+      folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
   )
   st.map = st_folium(map, width=700, height= 450)
 
