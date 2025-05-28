@@ -104,7 +104,7 @@ def prov_map(df):
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
       data = df,
-      columns=['provincia','sup'],
+      columns=["provincia","sup"],
       key_on='feature.properties.name',
       line_opacity=0.8,
       fill_color="YlGn",
