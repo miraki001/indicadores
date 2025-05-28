@@ -108,6 +108,7 @@ def prov_map(df):
       key_on='feature.properties.name',
       line_opacity=0.8,
       fill_color="YlGn",
+      nan_fill_color="purple",
       legend_name="Hectareas por provincia",
       highlight=True,
   ).add_to(map)
