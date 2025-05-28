@@ -174,22 +174,9 @@ def prov_map(df):
   # Use the groupby method to 
   zipcode_data = df1.groupby('iso_loc').aggregate(np.mean)
   zipcode_data.reset_index(inplace = True)
-  m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
-
-  # add marker for Liberty Bell
-  tooltip = "Liberty Bell"
-  folium.Marker(
-        [39.949610, -75.150282], popup="Liberty Bell", tooltip=tooltip
-  ).add_to(m)
-
-  # call to render Folium map in Streamlit
-  folium_static(m)
-
-  m_1 = folium.Map(location=[42.32,-71.0589], tiles='openstreetmap', zoom_start=10)
-
-  # Display the map
-  m_1.save('c:\tmp\zipcode_choropleth.html')  
   st.write(df)
+  map = folium.map()
+  st.map = st_folium(map,width=700,heigth= 450)
 
 
   # Create choropleth map  
