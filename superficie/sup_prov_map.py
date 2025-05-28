@@ -114,7 +114,7 @@ def prov_map(df):
   st.write(df1)
 
   filtered_df = df1.loc[df1['provincia'] == 'Salta']    
-  pp = filtered_df['sup'][0]
+  pp = filtered_df['sup']
   #pp = df1.loc["Salta", 'sup']
   st.write(pp)    
   choropleth.geojson.add_to(map)  
