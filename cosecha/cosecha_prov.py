@@ -39,7 +39,6 @@ def cosecha_prov():
 
     
 
-    conn = st.connection("postgresql", type="sql")
 
     def bgcolor_positive_or_negative(value):
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
