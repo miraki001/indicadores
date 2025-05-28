@@ -110,7 +110,7 @@ def prov_map(df):
       fill_color="YlGn",
       legend_name="Hectareas por provincia",
       highlight=True,
-  )
+  ).add_to(map)
 
   df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
   #st.write(df1)
