@@ -175,7 +175,7 @@ def prov_map(df):
   zipcode_data = df1.groupby('iso_loc').aggregate(np.mean)
   zipcode_data.reset_index(inplace = True)
   st.write(df)
-  map = folium.Map(location= 38,-96.5,zoom_start= 4)
+  map = folium.Map(location= [38,-96.5],zoom_start= 4)
   st.map = st_folium(map, width=700, height= 450)
 
 
