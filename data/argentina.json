@@ -1401,7 +1401,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "ARE", 
-        "name": "Entre Ríos"
+        "name": "Entre Rios"
       }, 
       "id": 1
     }, 
@@ -40265,7 +40265,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "ARG", 
-        "name": "Santiago del Estero"
+        "name": "S del Estero"
       }, 
       "id": 21
     }, 
