@@ -118,7 +118,7 @@ def prov_map(df):
   #df1 = df1.reset_index().rename_axis(None, axis=1)    
   df_indexed = df1.set_index('provincia')     
   df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)        
-  pp = filtered_df['sup'][0]
+  #pp = filtered_df['sup'][0]
   #pp = df1.loc["Salta", 'sup']
   #st.write(pp)    
   choropleth.geojson.add_to(map)  
