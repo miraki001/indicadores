@@ -47,7 +47,47 @@ def prov_map(df):
   df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
   year_list = df_anios["anio"].to_numpy()    
 
-    
+  df_variedades = pd.read_parquet("data/processed/superficievariedad_variedades.parquet", engine="pyarrow")
+  var_list = df_variedades["variedad"].to_numpy()
+  var_list = np.append(var_list, "Todas")
+
+  if "filtros_cose3" not in st.session_state:
+        st.session_state.filtros_cose2 = {
+            "anio": "2024",          
+            "var": "Todas"
+        }
+
+  with st.container(border=True):
+        col1, col2  =  st.columns([1, 1])  # Ajusta los tamaños de las columnas
+      
+        with col1:
+            with st.popover("Año"):
+                st.caption("Selecciona uno o más años de la lista")
+                año = st.multiselect("Año1",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
+                #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
+                año = [str(a) for a in año]  # Asegura que la selección sea string también
+            
+      
+        with col2:
+            with st.popover("Variedad"):
+                st.caption("Selecciona uno o más Variedades de la lista")
+                variedad = st.multiselect("Variedad",  var_list, default=["Todas"],label_visibility="collapsed")        
+
+
+  df['anio'] = df['anio'].astype(str)
+
+  Filtro = 'Filtro = Año = '  
+  if año:
+        df = df[df['anio'].isin(año)]
+        df["anio"] = df["anio"].astype(str)  
+        Filtro = Filtro +  ' ' +str(año) + ' '
+  st.write(df)      
+  if variedad:
+        if variedad[0] != 'Todas':
+            #df = df[df['variedad'].isin(variedad)]
+            st.write(variedad)
+        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '      
+      
   formatter = JsCode(
     "function (params) {"
     + "var value = (params.value + '').split('.');"
@@ -181,11 +221,9 @@ def prov_map(df):
   zipcode_data = df1.groupby('iso_loc').aggregate(np.mean)
   zipcode_data.reset_index(inplace = True)
   df = df.set_index('provincia')  
-  año = 2024  
     
   st.write(df)
 
-  df = df[df['anio'].isin("2024")]  
   map = folium.Map(location= [38,-96.5],zoom_start= 4,tiles='CartoDB positron')
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
