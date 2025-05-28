@@ -49,7 +49,7 @@ def prov_map(df):
     + "return params.seriesName + '<br/>' + params.name + ': ' + value;}"
   ).js_code
 
-  st.write(df)
+  #st.write(df)
   f = df.to_json(orient="records")
 
   pivot_table_basic = df.pivot_table(
@@ -66,7 +66,7 @@ def prov_map(df):
       aggfunc='sum'
   )  
   df1 = df1.reset_index().rename_axis(None, axis=1)
-  st.write(df1)  
+  #st.write(df1)  
   dftt = pivot_table_basic
   pivot_table_basic = pivot_table_basic.reset_index().rename_axis(None, axis=1)
   pivot_table_basic = pivot_table_basic.rename(columns={'provincia': "name", 'sup': "value"})    
@@ -196,7 +196,7 @@ def prov_map(df):
   folium.Choropleth(
     geo_data=boundary_file,
     name='choropleth',
-    data=df1,
+    data=df,
     columns=['provincia', 'sup'],
     key_on='Feature.properties.name',  
     fill_color='Spectral',
