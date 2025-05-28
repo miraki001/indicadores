@@ -193,10 +193,11 @@ def prov_map(df):
 
   # Create choropleth map  
   folium.Choropleth(
-    geo_data=zipcode_boundary,
+    geo_data=boundary_file,
     name='choropleth',
     data=zipcode_data,
-    columns=['iso_loc', 'sup'],
+    columns=['provincia', 'sup'],
+    key_on='feature.property.name'  
     fill_color='Spectral',
     fill_opacity=0.6,
     nan_fill_opacity=0,
