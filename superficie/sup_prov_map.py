@@ -197,7 +197,7 @@ def prov_map(df):
     geo_data='./data/argentina.json',
     name='choropleth',
     data=df,
-    columns=['provincia', 'sup'],
+    columns=('sup'),
     key_on='Feature.properties.name',  
     fill_color='Spectral',
     fill_opacity=0.6,
