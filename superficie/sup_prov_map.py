@@ -109,6 +109,9 @@ def prov_map(df):
       line_opacity=0.8,
       highlight=True,
   )
+
+  pp = df_indexed.loc['Entre Rios', 'sup'][0]
+  st.write(pp)    
   choropleth.geojson.add_to(map)  
   for feature in choropleth.geojson.data['features']:
       prov1 = feature['properties']['name']
