@@ -16,7 +16,7 @@ import geopandas as gpd
 import plotly.express as px
 import folium
 from streamlit_folium import st_folium
-import branca.colormap as cm
+import branca.colormap as LinearColormap
 
 def get_center_latlong(df):
     # get the center of my map for plotting
@@ -96,18 +96,23 @@ def prov_map(df):
       
 
 
-  #df = df.groupby(['provincia',], as_index=False)[['sup']].sum()    
-  #df = df.reset_index().rename_axis(None, axis=1)    
+  df = df.groupby(['provincia',], as_index=False)[['sup']].sum()    
+  df = df.reset_index().rename_axis(None, axis=1)    
     
   df_indexed = df.set_index('provincia')    
 
     
-  #st.write(df)
+  st.write(df)
   #st.write(df_indexed)  
+
+  df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()
+  #map_dict = map_data.set_index('A3')['value'].to_dict()
+  #color_scale = LinearColormap(['yellow','red'], vmin = min(map_dict.values()), vmax = max(map_dict.values()))
+    
   map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='CartoDB positron')
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
-      data = df,
+      data = df1,
       columns=["provincia","sup"],
       key_on='feature.properties.name',
       line_opacity=0.8,
@@ -117,7 +122,7 @@ def prov_map(df):
       highlight=True,
   ).add_to(map)
 
-  df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
+  #df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
   #st.write(df1)
 
   df_indexed = df1.set_index('provincia')     
