@@ -189,7 +189,7 @@ def prov_map(df):
 
   # Display the map
   m_1.save('c:\tmp\zipcode_choropleth.html')  
-  st.write(zipcode_data)
+  st.write(df1)
 
 
   # Create choropleth map  
