@@ -92,13 +92,8 @@ def prov_map(df):
         Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '      
       
 
-  df = df.pivot_table(
-      index='provincia', 
-      values=['sup'],
-      aggfunc='sum'
-  )
-  df.columns = df.columns.droplevel(0)
-  df = df.reset_index().rename_axis(None, axis=1)    
+
+  df = df.groupby(['provincia',], as_index=False)[['peso']].sum()    
     
   df_indexed = df.set_index('provincia')    
     
