@@ -319,7 +319,7 @@ with tab1:
     
 with tab2:
     sup_prov_color.prov_color()
-    sup_prov_map.prov_map(df_anual)
+    #sup_prov_map.prov_map(df_anual)
     
 with tab3:
     st.header("En Construcción")
