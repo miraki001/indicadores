@@ -11,6 +11,8 @@ from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
+import folium
+from streamlit_folium import st_folium
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "lightcoral" if value < 0 else "lightgreen"
@@ -171,3 +173,61 @@ def prov_color():
         options=option, height="400px" ,
   )
     
+  df = df.groupby(['provincia',], as_index=False)[['sup']].sum()    
+  df = df.reset_index().rename_axis(None, axis=1)    
+    
+  df_indexed = df.set_index('provincia')    
+
+    
+
+  df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()
+  #map_dict = df.set_index('provincia')['sup'].to_dict()
+  #color_scale = LinearColormap(['yellow','red'], vmin = min(map_dict.values()), vmax = max(map_dict.values()))
+    
+  #map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='CartoDB positron')
+  map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='OpenStreetMap')
+
+  def get_color(feature):
+      value = map_dict.get(feature['properties']['provincia'])
+      if value is None:
+          return '#8c8c8c' # MISSING -> gray
+      else:
+          return color_scale(value)
+
+
+  #stamenterrain
+  choropleth = folium.Choropleth(
+        geo_data='./data/argentina.json',
+        data = df1,
+        columns=["provincia","sup"],
+        key_on='feature.properties.name',
+        line_opacity=0.8,
+        fill_color="YlGn",
+        #fill_color=
+        nan_fill_color="grey",
+        legend_name="Hectareas por provincia",
+        highlight=True,
+  ).add_to(map)
+
+  #df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
+  #st.write(df1)
+
+  df_indexed = df1.set_index('provincia')     
+  df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)        
+  choropleth.geojson.add_to(map)  
+  for feature in choropleth.geojson.data['features']:
+        prov1 = feature['properties']['name']
+        filtered_df = df1.loc[df1['provincia'] == prov1]
+        filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
+        pp = 0
+        if not filtered_df.empty: 
+            pp = round(filtered_df['sup'][0])
+        if not filtered_df.empty: 
+            feature['properties']['superficie'] = 'Superficie: ' +  str(pp)
+        if  filtered_df.empty: 
+            feature['properties']['superficie'] = 'Superficie:  0'
+  
+  choropleth.geojson.add_child(
+        folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
+  )
+  st.map = st_folium(map, width=800, height= 650)
