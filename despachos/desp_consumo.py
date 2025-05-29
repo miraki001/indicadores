@@ -97,7 +97,11 @@ def despachos_consumo():
 
     dv2 = cargar_datos(QUERY_V2)
     
-
+    QUERY_V3 = f"""
+        SELECT anio,mes,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" 
+        FROM scentia_resumen
+    """  
+    dv3 = cargar_datos(QUERY_V3)
 
 
     with st.container(border=True):
@@ -198,4 +202,5 @@ def despachos_consumo():
     st_echarts(
         options=option, height="400px",
     )
+    st.write(dv3)
     
