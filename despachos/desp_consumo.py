@@ -203,12 +203,11 @@ def despachos_consumo():
         options=option, height="400px",
     )
 
-    dv3 = dv3.set_index(['anio','mes','canal'])
-    dv4 = dv3
+    dv3 = dv3.set_index(['anio','mes','canal'], inplace=True, append=True, drop=False)
     #dv3 = dv3.reset_index().rename_axis(None, axis=1)  
     #dv3 = dv3.assign(row_number=range(len(dv3)))
     #dv3 = dv3.set_index(['anio','mes','canal']) 
-    st.write(dv4)
+    st.write(dv3)
 
     acu1 = 0
     acu2 = 0
