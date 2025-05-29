@@ -203,9 +203,9 @@ def despachos_consumo():
         options=option, height="400px",
     )
 
-    dv3 = dv3.set_index(['anio','mes','canal'])   
-    dv3 = dv3.reset_index().rename_axis(None, axis=1)  
-    dv3 = dv3.set_index(['anio','mes','canal']) 
+    dv3 = dv3.set_index([pd.Index([1, 2, 3, 4]),'anio','mes','canal'])   
+    #dv3 = dv3.reset_index().rename_axis(None, axis=1)  
+    #dv3 = dv3.set_index(['anio','mes','canal']) 
     st.write(dv3)
 
     acu1 = 0
