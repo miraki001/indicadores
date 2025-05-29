@@ -30,11 +30,11 @@ def cosecha_prov():
 
     df_colores = pd.read_parquet("data/processed/cosecha_colores.parquet", engine="pyarrow")
     color_list = df_colores["color"].to_numpy()
-    color_list = np.append(color_list, "Todas")
+    color_list = np.append(color_list, "Todos")
 
     df_tipo = pd.read_parquet("data/processed/cosecha_tipouvas.parquet", engine="pyarrow")
     tipo_list = df_tipo["tipouva"].to_numpy()
-    tipo_list = np.append(tipo_list, "Todas")
+    tipo_list = np.append(tipo_list, "Todos")
     
 
     
@@ -83,17 +83,17 @@ def cosecha_prov():
         with col2:
             with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedadv",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+                variedad = st.multiselect("Variedadv",   var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
             with st.popover("Color"):
                 st.caption("Selecciona uno o más Colores de la lista")
-                color = st.multiselect("Colorv",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
+                color = st.multiselect("Colorv",  color_list, default=["Todos"],label_visibility="collapsed")                
         with col4:
             with st.popover("Tipo de Uva"):
                 st.caption("Selecciona uno o más Tipos de la lista")
-                tipo = st.multiselect("tipouva",  ["Todos"] + tipo_list, default=["Todos"],label_visibility="collapsed")      
+                tipo = st.multiselect("tipouva",  tipo_list, default=["Todos"],label_visibility="collapsed")      
     
     
     #st.write(df_filtered)
