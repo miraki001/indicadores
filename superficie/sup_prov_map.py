@@ -18,52 +18,29 @@ import folium
 from streamlit_folium import st_folium
 import branca.colormap as LinearColormap
 
-def get_center_latlong(df):
-    # get the center of my map for plotting
-    centerlat = (df['lat'].max() + df['lat'].min()) / 2
-    centerlong = (df['long'].max() + df['long'].min()) / 2
-    return centerlat, centerlong
-
-def make_choropleth(input_df, input_id, input_column, input_color_theme):
-    choropleth = px.choropleth(input_df, locations=input_id, color=input_column,
-                               #, locationmode="ISO-3",
-                               color_continuous_scale=input_color_theme,
-                               range_color=(0, max(input_df['sup'])),
-                               #scope="south america",
-                               labels={'sup':'sup'}
-                              )
-    choropleth.update_layout(
-        template='plotly_dark',
-        plot_bgcolor='rgba(0, 0, 0, 0)',
-        paper_bgcolor='rgba(0, 0, 0, 0)',
-        margin=dict(l=0, r=0, t=0, b=0),
-        height=350
-    )
-    return choropleth
-
 def prov_map(df):
 
 
    
 
-  df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
+    df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
 
-  df['anio'] = df['anio'].astype(str)
+    df['anio'] = df['anio'].astype(str)
 
-  df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
-  year_list = df_anios["anio"].to_numpy()    
+    df_anios = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
+    year_list = df_anios["anio"].to_numpy()    
 
-  df_variedades = pd.read_parquet("data/processed/superficievariedad_variedades.parquet", engine="pyarrow")
-  var_list = df_variedades["variedad"].to_numpy()
-  var_list = np.append(var_list, "Todas")
+    df_variedades = pd.read_parquet("data/processed/superficievariedad_variedades.parquet", engine="pyarrow")
+    var_list = df_variedades["variedad"].to_numpy()
+    var_list = np.append(var_list, "Todas")
 
-  if "filtros_cose3" not in st.session_state:
-        st.session_state.filtros_cose2 = {
-            "anio": "2024",          
-            "var": "Todas"
-        }
+    if "filtros_cose3" not in st.session_state:
+          st.session_state.filtros_cose2 = {
+                "anio": "2024",          
+                "var": "Todas"
+            }
 
-  with st.container(border=True):
+    with st.container(border=True):
         col1, col2  =  st.columns([1, 1])  # Ajusta los tamaños de las columnas
       
         with col1:
@@ -80,15 +57,14 @@ def prov_map(df):
                 variedad = st.multiselect("Variedad11",  var_list, default=["Todas"],label_visibility="collapsed")        
 
 
-  df['anio'] = df['anio'].astype(str)
+    df['anio'] = df['anio'].astype(str)
 
-  Filtro = 'Filtro = Año = '  
-  if año:
+    Filtro = 'Filtro = Año = '  
+    if año:
         df = df[df['anio'].isin(año)]
         df["anio"] = df["anio"].astype(str)  
         Filtro = Filtro +  ' ' +str(año) + ' '
-  #st.write(df)      
-  if variedad:
+    if variedad:
         if variedad[0] != 'Todas':
             df = df[df['variedad'].isin(variedad)]
             #st.write(variedad)
@@ -96,66 +72,62 @@ def prov_map(df):
       
 
 
-  df = df.groupby(['provincia',], as_index=False)[['sup']].sum()    
-  df = df.reset_index().rename_axis(None, axis=1)    
+    df = df.groupby(['provincia',], as_index=False)[['sup']].sum()    
+    df = df.reset_index().rename_axis(None, axis=1)    
     
-  df_indexed = df.set_index('provincia')    
+    df_indexed = df.set_index('provincia')    
 
     
-  st.write(df)
-  #st.write(df_indexed)  
+    st.write(df)
 
-  df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()
-  #map_dict = df.set_index('provincia')['sup'].to_dict()
-  #color_scale = LinearColormap(['yellow','red'], vmin = min(map_dict.values()), vmax = max(map_dict.values()))
+    df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()
+    #map_dict = df.set_index('provincia')['sup'].to_dict()
+    #color_scale = LinearColormap(['yellow','red'], vmin = min(map_dict.values()), vmax = max(map_dict.values()))
     
-  #map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='CartoDB positron')
-  map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='OpenStreetMap')
+    #map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='CartoDB positron')
+    map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='OpenStreetMap')
 
-  def get_color(feature):
-    value = map_dict.get(feature['properties']['provincia'])
-    if value is None:
-        return '#8c8c8c' # MISSING -> gray
-    else:
-        return color_scale(value)
+    def get_color(feature):
+        value = map_dict.get(feature['properties']['provincia'])
+        if value is None:
+            return '#8c8c8c' # MISSING -> gray
+        else:
+            return color_scale(value)
 
 
     #stamenterrain
-  choropleth = folium.Choropleth(
-      geo_data='./data/argentina.json',
-      data = df1,
-      columns=["provincia","sup"],
-      key_on='feature.properties.name',
-      line_opacity=0.8,
-      fill_color="YlGn",
-      #fill_color=
-      nan_fill_color="grey",
-      legend_name="Hectareas por provincia",
-      highlight=True,
-  ).add_to(map)
+    choropleth = folium.Choropleth(
+        geo_data='./data/argentina.json',
+        data = df1,
+        columns=["provincia","sup"],
+        key_on='feature.properties.name',
+        line_opacity=0.8,
+        fill_color="YlGn",
+        #fill_color=
+        nan_fill_color="grey",
+        legend_name="Hectareas por provincia",
+        highlight=True,
+    ).add_to(map)
 
-  #df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
-  #st.write(df1)
+    #df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
+    #st.write(df1)
 
-  df_indexed = df1.set_index('provincia')     
-  df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)        
-  choropleth.geojson.add_to(map)  
-  for feature in choropleth.geojson.data['features']:
-      prov1 = feature['properties']['name']
-      filtered_df = df1.loc[df1['provincia'] == prov1]
-      filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
-      pp = 0
-      if not filtered_df.empty: 
-          pp = round(filtered_df['sup'][0])
-      if not filtered_df.empty: 
-          feature['properties']['superficie'] = 'Superficie: ' +  str(pp)
-      if  filtered_df.empty: 
-          feature['properties']['superficie'] = 'Superficie:  0'
+    df_indexed = df1.set_index('provincia')     
+    df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)        
+    choropleth.geojson.add_to(map)  
+    for feature in choropleth.geojson.data['features']:
+        prov1 = feature['properties']['name']
+        filtered_df = df1.loc[df1['provincia'] == prov1]
+        filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
+        pp = 0
+        if not filtered_df.empty: 
+            pp = round(filtered_df['sup'][0])
+        if not filtered_df.empty: 
+            feature['properties']['superficie'] = 'Superficie: ' +  str(pp)
+        if  filtered_df.empty: 
+            feature['properties']['superficie'] = 'Superficie:  0'
   
-  choropleth.geojson.add_child(
-      folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
-  )
-  st.map = st_folium(map, width=800, height= 650)
-
-
-  
+    choropleth.geojson.add_child(
+        folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
+    )
+    st.map = st_folium(map, width=800, height= 650)
