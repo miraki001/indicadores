@@ -203,7 +203,7 @@ def despachos_consumo():
         options=option, height="400px",
     )
 
-    dv3 = dv3.set_index('anio','mes','canal')   
+    dv3 = dv3.set_index(['anio','mes','canal'])   
     st.write(dv3)
 
     acu1 = 0
