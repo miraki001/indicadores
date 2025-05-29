@@ -29,11 +29,11 @@ def cosecha_prov():
     var_list = np.append(var_list, "Todas")
 
     df_colores = pd.read_parquet("data/processed/cosecha_colores.parquet", engine="pyarrow")
-    color_list = df_colores["variedad"].to_numpy()
+    color_list = df_colores["color"].to_numpy()
     color_list = np.append(color_list, "Todas")
 
     df_tipo = pd.read_parquet("data/processed/cosecha_tipouvas.parquet", engine="pyarrow")
-    tipo_list = df_tipo["variedad"].to_numpy()
+    tipo_list = df_tipo["tipo"].to_numpy()
     tipo_list = np.append(tipo_list, "Todas")
     
 
