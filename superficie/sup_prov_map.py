@@ -106,11 +106,20 @@ def prov_map(df):
   #st.write(df_indexed)  
 
   df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()
-  #map_dict = map_data.set_index('A3')['value'].to_dict()
+  #map_dict = df.set_index('provincia')['sup'].to_dict()
   #color_scale = LinearColormap(['yellow','red'], vmin = min(map_dict.values()), vmax = max(map_dict.values()))
     
   #map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='CartoDB positron')
   map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='OpenStreetMap')
+
+  def get_color(feature):
+    value = map_dict.get(feature['properties']['provincia'])
+    if value is None:
+        return '#8c8c8c' # MISSING -> gray
+    else:
+        return color_scale(value)
+
+
     #stamenterrain
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
@@ -119,6 +128,7 @@ def prov_map(df):
       key_on='feature.properties.name',
       line_opacity=0.8,
       fill_color="YlGn",
+      #fill_color=
       nan_fill_color="grey",
       legend_name="Hectareas por provincia",
       highlight=True,
