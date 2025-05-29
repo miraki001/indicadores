@@ -109,7 +109,9 @@ def prov_map(df):
   #map_dict = map_data.set_index('A3')['value'].to_dict()
   #color_scale = LinearColormap(['yellow','red'], vmin = min(map_dict.values()), vmax = max(map_dict.values()))
     
-  map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='CartoDB positron')
+  #map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='CartoDB positron')
+  map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='stamenterrain')
+    #stamenterrain
   choropleth = folium.Choropleth(
       geo_data='./data/argentina.json',
       data = df1,
