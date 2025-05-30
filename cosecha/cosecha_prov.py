@@ -293,7 +293,8 @@ def cosecha_prov():
     #df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
     #st.write(df1)
 
-    df_indexed = dv1.set_index('depto')     
+    df_indexed = dv1.set_index('depto')    
+    dv1 = dv1.set_index('depto')  
     df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)   
     dv1 = dv1.reset_index().rename_axis(None, axis=1)  
     st.write(dv1)
