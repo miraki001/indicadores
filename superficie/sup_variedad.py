@@ -74,7 +74,7 @@ def sup_variedad():
         with col1:
             with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Año444",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
@@ -162,7 +162,7 @@ def sup_variedad():
 
     column_orders =("Variedad", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec","Total")
 
-    if st.checkbox('Ver tabla Cosecha por Variedades'):
+    if st.checkbox('Ver tabla Superficie por Variedades'):
         st.dataframe(styled_df,
               column_config={
                 'Elaboracion': st.column_config.Column('Elaboracion'),
