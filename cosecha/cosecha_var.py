@@ -162,7 +162,7 @@ def cosecha_var():
 
     column_orders =("Variedad", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec","Total")
 
-    if st.checkbox('Ver tabla Superficie por Variedades'):
+    if st.checkbox('Ver tabla Cosecha por Variedades'):
         st.dataframe(styled_df,
               column_config={
                 'Variedad': st.column_config.Column('Variedad'),
