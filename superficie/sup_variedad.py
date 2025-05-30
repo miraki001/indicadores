@@ -88,7 +88,7 @@ def sup_variedad():
         with col3:
             with st.popover("Departamento"):
                 st.caption("Selecciona uno o más Departamento de la lista")
-                depto = st.multiselect("Colorv",  depto_list, default=["Todos"],label_visibility="collapsed")                
+                depto = st.multiselect("deptov",  depto_list, default=["Todos"],label_visibility="collapsed")                
     
     
     #st.write(df_filtered)
@@ -108,7 +108,7 @@ def sup_variedad():
     if depto:
         if depto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['depto'].isin(depto)]          
-        Filtro = Filtro + ' Color = ' +  str(color) + ' '
+        Filtro = Filtro + ' Departamento = ' +  str(depto) + ' '
 
     df_anual = df_filtered.pivot_table(
           index='variedad', 
