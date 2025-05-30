@@ -181,9 +181,9 @@ def cosecha_var():
                 hide_index=True)
 
 
-    df_anual = df_sorted.groupby(['variedad'], as_index=False)[['Total']].sum()
+    df_anual = df_sorted.groupby(['Variedad'], as_index=False)[['Total']].sum()
     #st.write(df_anual)
-    df_anual = df_anual.rename(columns={'Total': "value", 'variedad': "name",})
+    df_anual = df_anual.rename(columns={'Total': "value", 'Variedad': "name",})
 
     json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
     option = {
