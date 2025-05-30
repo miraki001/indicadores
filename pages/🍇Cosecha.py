@@ -16,6 +16,7 @@ from cosecha import cosecha_rend
 from superficie import sup_prov_color
 from superficie import sup_prov_map
 from superficie import sup_variedad
+from cosecha import cosecha_var
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -329,6 +330,6 @@ with tab4:
 with tab5:
     cosecha_prov.cosecha_prov() 
 with tab6:
-    st.header("En Construcción")
+    cosecha_var.cosecha_var()
 with tab7:
     cosecha_rend.cosecha_rend()
