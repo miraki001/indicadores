@@ -83,13 +83,13 @@ def prov_color():
   st.write(dfg)  
   if 'Blanca'  in dfg:
       dfg['Blanca'] = dfg['Blanca'].fillna(0)  
+      pivot_table_basic['Blanca'] = pivot_table_basic['Blanca'].fillna(0)  
   if 'Rosada' in dfg:
       dfg['Rosada'] = dfg['Rosada'].fillna(0)   
+      pivot_table_basic['Rosada'] = pivot_table_basic['Rosada'].fillna(0)   
   if 'Tinta' in dfg:
       dfg['Tinta'] = dfg['Tinta'].fillna(0)    
-  pivot_table_basic['Blanca'] = pivot_table_basic['Blanca'].fillna(0)  
-  pivot_table_basic['Rosada'] = pivot_table_basic['Rosada'].fillna(0)   
-  pivot_table_basic['Tinta'] = pivot_table_basic['Tinta'].fillna(0)    
+      pivot_table_basic['Tinta'] = pivot_table_basic['Tinta'].fillna(0)    
     
   #st.write(dfg) 
 
