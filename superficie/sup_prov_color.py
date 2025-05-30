@@ -68,7 +68,6 @@ def prov_color():
   if variedad:
         if variedad[0] != 'Todas':
             df = df[df['variedad'].isin(variedad)]
-            st.write(variedad)
         Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '     
   pivot_table_basic = df.pivot_table(
       index='provincia', 
@@ -80,7 +79,7 @@ def prov_color():
   dfg = pivot_table_basic
   dfg.columns = dfg.columns.droplevel(0)
   dfg = dfg.reset_index().rename_axis(None, axis=1)
-  st.write(dfg)  
+  #st.write(dfg)  
   if not 'Blanca'  in dfg:
       dfg['Blanca'] = 0 
       pivot_table_basic['Blanca'] = 0 
