@@ -9,7 +9,7 @@ from streamlit_folium import st_folium
 
 from datetime import datetime as dt
 
-def sup_variedad():
+def cosecha_var():
 
 
 
