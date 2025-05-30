@@ -165,7 +165,7 @@ def sup_variedad():
     if st.checkbox('Ver tabla Superficie por Variedades'):
         st.dataframe(styled_df,
               column_config={
-                'Variedad' st.column_config.Column('Variedad'),
+                'Variedad': st.column_config.Column('Variedad'),
                 'Elaboracion': st.column_config.Column('Elaboracion'),
                 'Consumo': st.column_config.Column('Consumo'),
                 'Secado': st.column_config.Column('Secado'),
