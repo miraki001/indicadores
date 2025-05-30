@@ -238,7 +238,7 @@ def cosecha_prov():
 
 
     dv = df_filtered.groupby(['prov','depto'], as_index=False)[['peso']].sum()
-    dv1 = dv
+    dv1 = df_filtered.groupby(['depto'], as_index=False)[['peso']].sum()
     #st.write(dv)
     dv = dv.rename(columns={'peso': "value", 'depto': "name",'prov': "id"})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
