@@ -81,6 +81,13 @@ def prov_color():
   dfg.columns = dfg.columns.droplevel(0)
   dfg = dfg.reset_index().rename_axis(None, axis=1)
   st.write(dfg)  
+  if not 'Blanca'  in dfg:
+      dfg['Blanca'] = 0 
+  if not 'Rosada'  in dfg:
+      dfg['Rosada'] = 0 
+  if not 'Tinta'  in dfg:
+      dfg['Tinta'] = 0 
+    
   if 'Blanca'  in dfg:
       dfg['Blanca'] = dfg['Blanca'].fillna(0)  
       pivot_table_basic['Blanca'] = pivot_table_basic['Blanca'].fillna(0)  
