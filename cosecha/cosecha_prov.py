@@ -297,7 +297,7 @@ def cosecha_prov():
     #dv1 = dv1.set_index('depto')  
     df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)   
     #dv1 = dv1.reset_index().rename_axis(None, axis=1)  
-    dv1['dpto'] = dv1['dpto'].str.capitalize()
+    dv1['depto'] = dv1['depto'].str.capitalize()
     st.write(dv1)
     choropleth.geojson.add_to(map)  
     for feature in choropleth.geojson.data['features']:
