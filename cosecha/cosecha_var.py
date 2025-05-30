@@ -121,7 +121,7 @@ def cosecha_var():
     df_anual.columns = df_anual.columns.droplevel(0)
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     df_anual  = df_anual.fillna(0)
-    st.write(df_anual)
+    #st.write(df_anual)
 
     totelab = df_anual['Elaboracion'].sum()
     totecon = df_anual['Consumo'].sum()
@@ -143,7 +143,7 @@ def cosecha_var():
     df_anual['Total'] = totto
 
     df_anual = df_anual.sort_index(axis = 1)
-    #df_anual = df_anual.rename(columns={'prov': "Provincia"})
+    df_anual = df_anual.rename(columns={'variedad': "Variedad"})
     
     df_sorted = df_anual.sort_values(by='Elaboracion', ascending=False)
 
@@ -161,12 +161,12 @@ def cosecha_var():
             decimal=',',
     )
 
-    column_orders =("variedad", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec","Total")
+    column_orders =("Variedad", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec","Total")
 
     if st.checkbox('Ver tabla Cosecha por Variedades'):
         st.dataframe(styled_df,
               column_config={
-                'variedad': st.column_config.Column('variedad'),
+                'Variedad': st.column_config.Column('Variedad'),
                 'Elaboracion': st.column_config.Column('Elaboracion'),
                 'Consumo': st.column_config.Column('Consumo'),
                 'Secado': st.column_config.Column('Secado'),
