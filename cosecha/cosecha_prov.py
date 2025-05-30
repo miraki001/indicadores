@@ -238,7 +238,7 @@ def cosecha_prov():
 
 
     dv = df_filtered.groupby(['prov','depto'], as_index=False)[['peso']].sum()
-    #dv = df_anual1
+    dv1 = dv
     #st.write(dv)
     dv = dv.rename(columns={'peso': "value", 'depto': "name",'prov': "id"})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
@@ -279,7 +279,7 @@ def cosecha_prov():
     map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='OpenStreetMap')
     choropleth = folium.Choropleth(
         geo_data='./data/departamentos.json',
-        data = dv,
+        data = dv1,
         columns=["depto","peso"],
         key_on='feature.properties.name',
         line_opacity=0.8,
@@ -293,12 +293,12 @@ def cosecha_prov():
     #df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
     #st.write(df1)
 
-    df_indexed = dv.set_index('depto')     
+    df_indexed = dv1.set_index('depto')     
     df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)        
     choropleth.geojson.add_to(map)  
     for feature in choropleth.geojson.data['features']:
         prov1 = feature['properties']['name']
-        filtered_df = dv.loc[dv['depto'] == prov1]
+        filtered_df = dv1.loc[dv['depto'] == prov1]
         filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
         pp = 0
         if not filtered_df.empty: 
