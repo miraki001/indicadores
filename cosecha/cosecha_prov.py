@@ -4,6 +4,8 @@ import numpy as np
 import json
 from streamlit_echarts import st_echarts
 from streamlit_echarts import JsCode
+import folium
+from streamlit_folium import st_folium
 
 from datetime import datetime as dt
 
@@ -274,3 +276,39 @@ def cosecha_prov():
     st_echarts(
         options=option,key="gauge2" + str(dt.now()), height="600px",
     )    
+    map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='OpenStreetMap')
+    choropleth = folium.Choropleth(
+        geo_data='./data/departamentos.json',
+        data = dv,
+        columns=["depto","peso"],
+        key_on='feature.properties.name',
+        line_opacity=0.8,
+        fill_color="YlGn",
+        #fill_color=
+        nan_fill_color="grey",
+        legend_name="Cosecha por departamentos",
+        highlight=True,
+    ).add_to(map)
+
+    #df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
+    #st.write(df1)
+
+    df_indexed = dv.set_index('depto')     
+    df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)        
+    choropleth.geojson.add_to(map)  
+    for feature in choropleth.geojson.data['features']:
+        prov1 = feature['properties']['name']
+        filtered_df = dv.loc[dv['depto'] == prov1]
+        filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
+        pp = 0
+        if not filtered_df.empty: 
+            pp = round(filtered_df['sup'][0])
+        if not filtered_df.empty: 
+            feature['properties']['superficie'] = 'Superficie: ' +  str(pp)
+        if  filtered_df.empty: 
+            feature['properties']['superficie'] = 'Superficie:  0'
+  
+    choropleth.geojson.add_child(
+        folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
+    )
+    st.map = st_folium(map, width=800, height= 650)
