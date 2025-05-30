@@ -281,7 +281,7 @@ def cosecha_prov():
         geo_data='./data/departamentos.geojson',
         data = dv1,
         columns=["depto","peso"],
-        key_on='feature.properties.name',
+        key_on='feature.properties.nombre',
         line_opacity=0.8,
         fill_color="YlGn",
         #fill_color=
@@ -297,7 +297,7 @@ def cosecha_prov():
     df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)        
     choropleth.geojson.add_to(map)  
     for feature in choropleth.geojson.data['features']:
-        prov1 = feature['properties']['name']
+        prov1 = feature['properties']['nombre']
         filtered_df = dv1.loc[dv['depto'] == prov1]
         filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
         pp = 0
