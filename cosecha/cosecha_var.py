@@ -161,7 +161,7 @@ def cosecha_var():
             decimal=',',
     )
 
-    column_orders =("Variedad", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec","Total")
+    column_orders =("variedad", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec","Total")
 
     if st.checkbox('Ver tabla Cosecha por Variedades'):
         st.dataframe(styled_df,
