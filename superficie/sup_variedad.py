@@ -142,7 +142,7 @@ def sup_variedad():
     df_anual['Total'] = totto
 
     df_anual = df_anual.sort_index(axis = 1)
-    df_anual = df_anual.rename(columns={'prov': "Provincia"})
+    #df_anual = df_anual.rename(columns={'prov': "Provincia"})
     
     df_sorted = df_anual.sort_values(by='Elaboracion', ascending=False)
 
@@ -160,9 +160,9 @@ def sup_variedad():
             decimal=',',
     )
 
-    column_orders =("Provincia", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec","Total")
+    column_orders =("Variedad", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec","Total")
 
-    if st.checkbox('Ver tabla Cosecha por Provincias'):
+    if st.checkbox('Ver tabla Cosecha por Variedades'):
         st.dataframe(styled_df,
               column_config={
                 'Elaboracion': st.column_config.Column('Elaboracion'),
