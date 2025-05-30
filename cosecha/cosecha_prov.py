@@ -306,7 +306,7 @@ def cosecha_prov():
         filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
         pp = 0
         if not filtered_df.empty: 
-            pp = round(filtered_df['sup'][0])
+            pp = round(filtered_df['peso'][0])
         if not filtered_df.empty: 
             feature['properties']['superficie'] = 'Superficie: ' +  str(pp)
         if  filtered_df.empty: 
