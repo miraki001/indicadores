@@ -15,6 +15,7 @@ from cosecha import cosecha_prov
 from cosecha import cosecha_rend
 from superficie import sup_prov_color
 from superficie import sup_prov_map
+from superficie import sup_variedad
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -322,7 +323,7 @@ with tab2:
     #sup_prov_map.prov_map(df_anual)
     
 with tab3:
-    st.header("En Construcción")
+    sup_variedad.sup_variedad()
 with tab4:
     cosecha_evo.cosecha_evo()    
 with tab5:
