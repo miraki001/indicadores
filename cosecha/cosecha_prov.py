@@ -238,8 +238,8 @@ def cosecha_prov():
 
 
     dv = df_filtered.groupby(['prov','depto'], as_index=False)[['peso']].sum()
-    dv1 = df_filtered.groupby(['depto'], as_index=False)[['peso']].sum()
-    dv1['depto'] = dv1['depto'].str.capitalize()
+    dv1 = df_filtered.groupby(['prov'], as_index=False)[['peso']].sum()
+    dv1['prov'] = dv1['prov'].str.capitalize()
     #st.write(dv1)
     dv = dv.rename(columns={'peso': "value", 'depto': "name",'prov': "id"})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
@@ -279,31 +279,30 @@ def cosecha_prov():
     )    
     map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='OpenStreetMap')
     choropleth = folium.Choropleth(
-        geo_data='./data/departamentos.geojson',
+        geo_data='./data/argentina.json',
         data = dv1,
-        columns=["depto","peso"],
-        key_on='feature.properties.nombre',
+        columns=["prov","peso"],
+        key_on='feature.properties.name',
         line_opacity=0.8,
         fill_color="YlGn",
         #fill_color=
         nan_fill_color="grey",
-        legend_name="Cosecha por departamentos",
+        legend_name="Cosecha por Provincias",
         highlight=True,
     ).add_to(map)
 
     #df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
     #st.write(df1)
 
-    df_indexed = dv1.set_index('depto')    
+    df_indexed = dv1.set_index('prov')    
     #dv1 = dv1.set_index('depto')  
     df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)   
     #dv1 = dv1.reset_index().rename_axis(None, axis=1)  
-    dv1['depto'] = dv1['depto'].str.capitalize()
     st.write(dv1)
     choropleth.geojson.add_to(map)  
     for feature in choropleth.geojson.data['features']:
-        prov1 = feature['properties']['nombre']
-        filtered_df = dv1.loc[dv1['depto'] == prov1]
+        prov1 = feature['properties']['name']
+        filtered_df = dv1.loc[dv1['prov'] == prov1]
         filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
         pp = 0
         if not filtered_df.empty: 
@@ -314,6 +313,6 @@ def cosecha_prov():
             feature['properties']['superficie'] = 'Superficie:  0'
   
     choropleth.geojson.add_child(
-        folium.features.GeoJsonTooltip(['nombre','superficie'],labels=False)
+        folium.features.GeoJsonTooltip(['prov','superficie'],labels=False)
     )
     st.map = st_folium(map, width=800, height= 650)
