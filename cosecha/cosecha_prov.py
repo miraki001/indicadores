@@ -278,7 +278,7 @@ def cosecha_prov():
     )    
     map = folium.Map(location= [-32,-68.5],zoom_start= 4,tiles='OpenStreetMap')
     choropleth = folium.Choropleth(
-        geo_data='./data/processed/departamentos.geojson',
+        geo_data='./data/departamentos.geojson',
         data = dv1,
         columns=["depto","peso"],
         key_on='feature.properties.name',
