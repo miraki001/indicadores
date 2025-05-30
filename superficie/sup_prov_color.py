@@ -145,21 +145,24 @@ def prov_color():
     thousands='.',
     decimal=',',
   )
-  st.dataframe(styled_df,
-      column_config={
-        'provincia': st.column_config.Column('provincia'),
-        'Blanca': st.column_config.Column('Blanca'),
-        'Rosada': st.column_config.Column('Rosada'),
-        'Tinta': st.column_config.Column('Tinta'),
-        'Blanca %': st.column_config.Column('Blanca %'),
-        'Rosada %': st.column_config.Column('Rosada %'),
-        'Tinta %': st.column_config.Column('Tinta %'),
-        'Total Prov.': st.column_config.Column('Total Prov.')  
-      },
-      width = 900,   
-      height = 500,
-      hide_index=False
-  )
+  if st.checkbox('Ver tabla Cosecha por Año'):
+    
+      st.dataframe(styled_df,
+          column_config={
+            'provincia': st.column_config.Column('provincia'),
+            'Blanca': st.column_config.Column('Blanca'),
+            'Rosada': st.column_config.Column('Rosada'),
+            'Tinta': st.column_config.Column('Tinta'),
+            'Blanca %': st.column_config.Column('Blanca %'),
+            'Rosada %': st.column_config.Column('Rosada %'),
+            'Tinta %': st.column_config.Column('Tinta %'),
+            'Total Prov.': st.column_config.Column('Total Prov.')  
+          },
+          width = 900,   
+          height = 500,
+          hide_index=False
+      )
+  st.caption(Filtro)      
   option = {
         "dataZoom": [
         {
@@ -253,4 +256,5 @@ def prov_color():
   choropleth.geojson.add_child(
         folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
   )
+  st.caption(Filtro)
   st.map = st_folium(map, width=800, height= 650)
