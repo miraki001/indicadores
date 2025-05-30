@@ -28,7 +28,7 @@ def cosecha_prov():
     
     df_variedades = pd.read_parquet("data/processed/rendimiento_variedades.parquet", engine="pyarrow")
     var_list = df_variedades["variedad"].to_numpy()
-    var_list = np.appendleft(var_list, "Todas")
+    var_list = np.append(-1,var_list, "Todas")
 
     df_colores = pd.read_parquet("data/processed/cosecha_colores.parquet", engine="pyarrow")
     color_list = df_colores["color"].to_numpy()
