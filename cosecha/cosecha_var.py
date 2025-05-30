@@ -116,11 +116,12 @@ def cosecha_var():
           values=['peso'],
           aggfunc='sum'
     )
-    st.write(df_anual)
+    #st.write(df_anual)
 
     df_anual.columns = df_anual.columns.droplevel(0)
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     df_anual  = df_anual.fillna(0)
+    st.write(df_anual)
 
     totelab = df_anual['Elaboracion'].sum()
     totecon = df_anual['Consumo'].sum()
@@ -165,7 +166,7 @@ def cosecha_var():
     if st.checkbox('Ver tabla Cosecha por Variedades'):
         st.dataframe(styled_df,
               column_config={
-                'Variedad': st.column_config.Column('Variedad'),
+                'variedad': st.column_config.Column('variedad'),
                 'Elaboracion': st.column_config.Column('Elaboracion'),
                 'Consumo': st.column_config.Column('Consumo'),
                 'Secado': st.column_config.Column('Secado'),
