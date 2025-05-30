@@ -96,6 +96,7 @@ def prov_map(df):
 
 
     #stamenterrain
+    st.write(df1)
     choropleth = folium.Choropleth(
         geo_data='./data/argentina.json',
         data = df1,
