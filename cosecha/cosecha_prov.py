@@ -312,6 +312,6 @@ def cosecha_prov():
             feature['properties']['superficie'] = 'Superficie:  0'
   
     choropleth.geojson.add_child(
-        folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
+        folium.features.GeoJsonTooltip(['nombre','superficie'],labels=False)
     )
     st.map = st_folium(map, width=800, height= 650)
