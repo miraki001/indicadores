@@ -110,7 +110,7 @@ def prov_map(df):
     ).add_to(map)
 
     #df1 = df.groupby(['provincia'], as_index=False)[['sup']].sum()    
-    #st.write(df1)
+    st.write(df1)
 
     df_indexed = df1.set_index('provincia')     
     df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)        
