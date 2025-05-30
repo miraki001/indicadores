@@ -239,7 +239,7 @@ def cosecha_prov():
 
     dv = df_filtered.groupby(['prov','depto'], as_index=False)[['peso']].sum()
     dv1 = df_filtered.groupby(['depto'], as_index=False)[['peso']].sum()
-    st.write(dv1)
+    #st.write(dv1)
     dv = dv.rename(columns={'peso': "value", 'depto': "name",'prov': "id"})
     json_list = json.loads(json.dumps(list(dv.T.to_dict().values()))) 
     #st.write(json_list)
@@ -296,6 +296,7 @@ def cosecha_prov():
     df_indexed = dv1.set_index('depto')     
     df_indexed = df_indexed.reset_index().rename_axis(None, axis=1)   
     dv1 = dv1.reset_index().rename_axis(None, axis=1)  
+    st.write(dv1)
     choropleth.geojson.add_to(map)  
     for feature in choropleth.geojson.data['features']:
         prov1 = feature['properties']['nombre']
