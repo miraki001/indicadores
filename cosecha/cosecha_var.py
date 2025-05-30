@@ -74,7 +74,7 @@ def cosecha_var():
         with col1:
             with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año444",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Añocv",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
@@ -82,13 +82,13 @@ def cosecha_var():
         with col2:
             with st.popover("Provincia"):
                 st.caption("Selecciona uno o más Provincia de la lista")
-                prov = st.multiselect("Provv1",   prov_list, default=["Todas"],label_visibility="collapsed")
+                prov = st.multiselect("Provcv",   prov_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
             with st.popover("Departamento"):
                 st.caption("Selecciona uno o más Departamento de la lista")
-                depto = st.multiselect("deptov",  depto_list, default=["Todos"],label_visibility="collapsed")                
+                depto = st.multiselect("deptocv",  depto_list, default=["Todos"],label_visibility="collapsed")                
     
     
     #st.write(df_filtered)
