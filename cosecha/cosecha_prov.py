@@ -301,7 +301,7 @@ def cosecha_prov():
     choropleth.geojson.add_to(map)  
     for feature in choropleth.geojson.data['features']:
         prov1 = feature['properties']['nombre']
-        filtered_df = dv1.loc[dv['depto'] == prov1]
+        filtered_df = dv1.loc[dv1['depto'] == prov1]
         filtered_df = filtered_df.reset_index().rename_axis(None, axis=1)
         pp = 0
         if not filtered_df.empty: 
