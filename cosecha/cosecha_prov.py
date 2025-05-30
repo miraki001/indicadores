@@ -308,12 +308,12 @@ def cosecha_prov():
         if not filtered_df.empty: 
             pp = round(filtered_df['peso'][0])
         if not filtered_df.empty: 
-            feature['properties']['superficie'] = 'Superficie: ' +  str(pp)
+            feature['properties']['Quintales'] = 'Quintales: ' +  str(pp)
         if  filtered_df.empty: 
-            feature['properties']['superficie'] = 'Superficie:  0'
+            feature['properties']['Quintales'] = 'Quintales:  0'
   
     choropleth.geojson.add_child(
-        folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
+        folium.features.GeoJsonTooltip(['name','Quintales'],labels=False)
     )
     st.caption(Filtro)
     st.map = st_folium(map, width=800, height= 650)
