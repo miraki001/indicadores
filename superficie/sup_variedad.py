@@ -119,12 +119,12 @@ def sup_variedad():
 
     df_anual = df_filtered.groupby(['variedad',], as_index=False)[['sup']].sum()  
 
-    df_anual.columns = df_anual.columns.droplevel(0)
-    df_anual = df_anual.reset_index().rename_axis(None, axis=1)
+    #df_anual.columns = df_anual.columns.droplevel(0)
+    #df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     df_anual  = df_anual.fillna(0)
 
     df_anual = df_anual.sort_index(axis = 1)
-    #df_anual = df_anual.rename(columns={'sup': "Superficie"})
+    df_anual = df_anual.rename(columns={'sup': "Superficie"})
     
     df_sorted = df_anual.sort_values(by='Superficie', ascending=False)
 
