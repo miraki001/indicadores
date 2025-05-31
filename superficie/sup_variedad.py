@@ -58,7 +58,7 @@ def sup_variedad():
 
 
 
-    dv1 = pd.read_parquet("data/processed/cosecha_datos.parquet", engine="pyarrow")
+    dv1 = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
 
  
     dv1['anio'] = dv1['anio'].astype(str)
@@ -112,67 +112,37 @@ def sup_variedad():
 
     df_anual = df_filtered.pivot_table(
           index='variedad', 
-          columns='destino',  
-          values=['peso'],
+          columns='color',  
+          values=['sup'],
           aggfunc='sum'
     )
     st.write(df_anual)
+
+    df_anual = df_anual.groupby(['variedad',], as_index=False)[['sup']].sum()  
 
     df_anual.columns = df_anual.columns.droplevel(0)
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     df_anual  = df_anual.fillna(0)
 
-    totelab = df_anual['Elaboracion'].sum()
-    totecon = df_anual['Consumo'].sum()
-    totesec = df_anual['Secado'].sum()
-    #st.write(totelab)
-    total = []
-    totco = []
-    totse = []
-    totto = []
-    #total.append(0)
-    for index in range(len(df_anual)):
-        total.append((  (df_anual['Elaboracion'].loc[index] / totelab) *100 ))
-        totco.append((  (df_anual['Consumo'].loc[index] / totecon) *100 ))
-        totse.append((  (df_anual['Secado'].loc[index] / totesec) *100 ))
-        totto.append((  (df_anual['Secado'].loc[index]  +  df_anual['Consumo'].loc[index] + df_anual['Elaboracion'].loc[index] ) ))
-    df_anual['Part. % Total Elab'] = total
-    df_anual['Part. % Total Cons'] = totco
-    df_anual['Part. % Total Sec'] = totse
-    df_anual['Total'] = totto
-
     df_anual = df_anual.sort_index(axis = 1)
-    #df_anual = df_anual.rename(columns={'prov': "Provincia"})
+    #df_anual = df_anual.rename(columns={'sup': "Superficie"})
     
-    df_sorted = df_anual.sort_values(by='Elaboracion', ascending=False)
+    df_sorted = df_anual.sort_values(by='Superficie', ascending=False)
 
     styled_df = df_sorted.style.format(
-            {"Elaboracion": lambda x : '{:,.0f}'.format(x), 
-            "Consumo": lambda x : '{:,.0f}'.format(x), 
-            "Secado": lambda x : '{:,.0f}'.format(x),  
-            "Total": lambda x : '{:,.0f}'.format(x),  
-            "Part. % Total Elab": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Total Cons": lambda x : '{:,.2f} %'.format(x),
-            "Part. % Total Sec": lambda x : '{:,.2f} %'.format(x), 
+            {"Superficie": lambda x : '{:,.0f}'.format(x), 
             }
             ,
             thousands='.',
             decimal=',',
     )
 
-    column_orders =("Variedad", "Elaboracion","Part. % Total Elab","Consumo","Part. % Total Cons","Secado","Part. % Total Sec","Total")
+    column_orders =("Variedad", "Superficie")
 
     if st.checkbox('Ver tabla Superficie por Variedades'):
         st.dataframe(styled_df,
               column_config={
-                'Variedad': st.column_config.Column('Variedad'),
-                'Elaboracion': st.column_config.Column('Elaboracion'),
-                'Consumo': st.column_config.Column('Consumo'),
-                'Secado': st.column_config.Column('Secado'),
-                'Total': st.column_config.Column('Total'),
-                'Part. % Total Elab': st.column_config.Column('Part. % Total Elab'),        
-                'Part. % Total Cons': st.column_config.Column('Part. % Total Cons'),                          
-                'Part. % Total Sec': st.column_config.Column('Part. % Total Sec'),                   
+                'Superficie': st.column_config.Column('Superficie'),
                 },
                 column_order = column_orders,
                 width = 800,   
