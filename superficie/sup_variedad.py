@@ -205,7 +205,7 @@ def sup_variedad():
             "stack": "总量",
             "areaStyle": {},
             "emphasis": {"focus": "series"},
-            "data": df[''sup],
+            "data": df['sup'],
         },
         {
             "name": "联盟广告",
@@ -213,7 +213,7 @@ def sup_variedad():
             "stack": "总量",
             "areaStyle": {},
             "emphasis": {"focus": "series"},
-            "data": [220, 182, 191, 234, 290, 330, 310],
+            "data": df['provincia'],
         },
         {
             "name": "视频广告",
