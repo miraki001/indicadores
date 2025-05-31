@@ -187,7 +187,7 @@ def sup_variedad():
             "trigger": "axis",
             "axisPointer": {"type": "cross", "label": {"backgroundColor": "#6a7985"}},
         },
-        "legend": {"data": ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"]},
+        "legend": {"data": df['provincia'].tolist()},
         "toolbox": {"feature": {"saveAsImage": {}}},
         "grid": {"left": "3%", "right": "4%", "bottom": "3%", "containLabel": True},
         "xAxis": [
