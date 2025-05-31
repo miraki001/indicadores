@@ -27,7 +27,7 @@ def sup_variedad():
     year_list = df_anios["anio"].to_numpy()
 
     df_provincias = pd.read_parquet("data/processed/superficievariedad_provincias.parquet", engine="pyarrow")
-    prov_list = df_provincias["prov"].to_numpy()
+    prov_list = df_provincias["provincia"].to_numpy()
     prov_list = np.append("Todas",prov_list )
 
     df_departamentos = pd.read_parquet("data/processed/cosecha_departamentos.parquet", engine="pyarrow")
