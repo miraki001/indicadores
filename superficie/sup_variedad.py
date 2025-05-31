@@ -182,65 +182,65 @@ def sup_variedad():
     df = df.reset_index().rename_axis(None, axis=1) 
     
     options = {
-    "title": {"text": "堆叠区域图"},
-    "tooltip": {
-        "trigger": "axis",
-        "axisPointer": {"type": "cross", "label": {"backgroundColor": "#6a7985"}},
-    },
-    "legend": {"data": ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"]},
-    "toolbox": {"feature": {"saveAsImage": {}}},
-    "grid": {"left": "3%", "right": "4%", "bottom": "3%", "containLabel": True},
-    "xAxis": [
-        {
-            "type": "category",
-            "boundaryGap": False,
-            "data": df['variedad'],
-        }
-    ],
-    "yAxis": [{"type": "value"}],
-    "series": [
-        {
-            "name": "邮件营销",
-            "type": "line",
-            "stack": "总量",
-            "areaStyle": {},
-            "emphasis": {"focus": "series"},
-            "data": df['sup'],
+        "title": {"text": "堆叠区域图"},
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {"type": "cross", "label": {"backgroundColor": "#6a7985"}},
         },
-        {
-            "name": "联盟广告",
-            "type": "line",
-            "stack": "总量",
-            "areaStyle": {},
-            "emphasis": {"focus": "series"},
-            "data": df['provincia'],
-        },
-        {
-            "name": "视频广告",
-            "type": "line",
-            "stack": "总量",
-            "areaStyle": {},
-            "emphasis": {"focus": "series"},
-            "data": [150, 232, 201, 154, 190, 330, 410],
-        },
-        {
-            "name": "直接访问",
-            "type": "line",
-            "stack": "总量",
-            "areaStyle": {},
-            "emphasis": {"focus": "series"},
-            "data": [320, 332, 301, 334, 390, 330, 320],
-        },
-        {
-            "name": "搜索引擎",
-            "type": "line",
-            "stack": "总量",
-            "label": {"show": True, "position": "top"},
-            "areaStyle": {},
-            "emphasis": {"focus": "series"},
-            "data": [820, 932, 901, 934, 1290, 1330, 1320],
-        },
-    ],
-}
-st_echarts(options=options, height="400px")
+        "legend": {"data": ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"]},
+        "toolbox": {"feature": {"saveAsImage": {}}},
+        "grid": {"left": "3%", "right": "4%", "bottom": "3%", "containLabel": True},
+        "xAxis": [
+            {
+                "type": "category",
+                "boundaryGap": False,
+                "data": df['variedad'],
+            }
+        ],
+        "yAxis": [{"type": "value"}],
+        "series": [
+            {
+                "name": "邮件营销",
+                "type": "line",
+                "stack": "总量",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": df['sup'],
+            },
+            {
+                "name": "联盟广告",
+                "type": "line",
+                "stack": "总量",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": df['provincia'],
+            },
+            {
+                "name": "视频广告",
+                "type": "line",
+                "stack": "总量",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": [150, 232, 201, 154, 190, 330, 410],
+            },
+            {
+                "name": "直接访问",
+                "type": "line",
+                "stack": "总量",
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": [320, 332, 301, 334, 390, 330, 320],
+            },
+            {
+                "name": "搜索引擎",
+                "type": "line",
+                "stack": "总量",
+                "label": {"show": True, "position": "top"},
+                "areaStyle": {},
+                "emphasis": {"focus": "series"},
+                "data": [820, 932, 901, 934, 1290, 1330, 1320],
+            },
+     ],
+    }
+    st_echarts(options=options, height="400px")
 
