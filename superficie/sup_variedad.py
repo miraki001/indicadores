@@ -136,7 +136,7 @@ def sup_variedad():
             decimal=',',
     )
 
-    column_orders =("Variedad", "Superficie")
+    column_orders =("variedad", "Superficie")
 
     if st.checkbox('Ver tabla Superficie por Variedades'):
         st.dataframe(styled_df,
