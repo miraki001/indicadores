@@ -110,17 +110,9 @@ def sup_variedad():
             df_filtered = df_filtered[df_filtered['depto'].isin(depto)]          
         Filtro = Filtro + ' Departamento = ' +  str(depto) + ' '
         
-    df_anual = df_filtered.pivot_table(
-          index='variedad', 
-          columns='color',  
-          values=['sup'],
-          aggfunc='sum'
-    )
 
     df_anual = df_filtered.groupby(['variedad',], as_index=False)[['sup']].sum()  
 
-    #df_anual.columns = df_anual.columns.droplevel(0)
-    #df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     df_anual  = df_anual.fillna(0)
 
     df_anual = df_anual.sort_index(axis = 1)
@@ -148,3 +140,42 @@ def sup_variedad():
                 height = 400,
                 hide_index=True)
 
+    df_anual = df_anual.rename(columns={'Superficie': "value", 'variedad': "name",})
+
+    json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
+    option = {
+        "tooltip": {
+            #"trigger": 'axis',
+            #"axisPointer": { "type": 'cross' },
+            "formatter": JsCode(
+                "function(info){var value=info.value;var treePathInfo=info.treePathInfo;var treePath=[];for(var i=1;i<treePathInfo.length;i+=1){treePath.push(treePathInfo[i].name)}return['<div class=\"tooltip-title\">'+treePath.join('/')+'</div>','Depachos Acumulados: ' + value ].join('')};"
+            ).js_code,
+        },
+        "title": {
+            "text": 'Cosecha por Variedad en Quintales',
+            "subtext": Filtro,
+        },        
+        #"subtitle": Filtro,
+        "legend": {"data": ["Quintales","variedad"]},   
+        "series": [
+                {
+                    "name": "Cosecha Totales",
+                    "type": "treemap",
+                    "visibleMin": 100,
+                    "label": {"show": True, "formatter": "{b}"},
+                    "itemStyle": {"borderColor": "#fff"},
+                    "levels": [
+                        {"itemStyle": {"borderWidth": 0, "gapWidth": 5}},
+                        {"itemStyle": {"gapWidth": 1}},
+                        {
+                            "colorSaturation": [0.35, 0.5],
+                            "itemStyle": {"gapWidth": 1, "borderColorSaturation": 0.6},
+                        },
+                    ],
+                    "data": json_list,
+                }
+        ]
+    }
+    st_echarts(
+        options=option,key="gauge3322" + str(dt.now()), height="600px",
+    )
