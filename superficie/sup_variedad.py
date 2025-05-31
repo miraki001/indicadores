@@ -64,7 +64,6 @@ def sup_variedad():
     dv1['anio'] = dv1['anio'].astype(str)
 
     df_filtered = dv1.copy()
-    st.write(df_filtered)
     
 
 
@@ -110,14 +109,13 @@ def sup_variedad():
         if depto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['depto'].isin(depto)]          
         Filtro = Filtro + ' Departamento = ' +  str(depto) + ' '
-    st.write(df_filtered)
+        
     df_anual = df_filtered.pivot_table(
           index='variedad', 
           columns='color',  
           values=['sup'],
           aggfunc='sum'
     )
-    st.write(df_anual)
 
     df_anual = df_anual.groupby(['variedad',], as_index=False)[['sup']].sum()  
 
