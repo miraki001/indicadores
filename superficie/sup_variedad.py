@@ -101,13 +101,13 @@ def sup_variedad():
         
     if prov:
         if prov[0] != 'Todas':
-            df_filtered = df_filtered[df_filtered['prov'].isin(prov)]
+            df_filtered = df_filtered[df_filtered['provincia'].isin(prov)]
             #st.write(variedad)
         Filtro = Filtro + ' Provincia = ' +  str(prov) + ' '
     
     if depto:
         if depto[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['depto'].isin(depto)]          
+            df_filtered = df_filtered[df_filtered['departamento'].isin(depto)]          
         Filtro = Filtro + ' Departamento = ' +  str(depto) + ' '
         
 
