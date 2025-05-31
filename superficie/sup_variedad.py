@@ -180,7 +180,7 @@ def sup_variedad():
     )
 
     hours = df_filtered['variedad']
-    days  = df_filtered['provincias']
+    days  = df_filtered['provincia']
     data  = df_filtered
 
     
