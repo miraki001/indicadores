@@ -117,7 +117,7 @@ def sup_variedad():
           aggfunc='sum'
     )
 
-    df_anual = df_anual.groupby(['variedad',], as_index=False)[['sup']].sum()  
+    df_anual = df_filtered.groupby(['variedad',], as_index=False)[['sup']].sum()  
 
     df_anual.columns = df_anual.columns.droplevel(0)
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
