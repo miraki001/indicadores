@@ -145,7 +145,7 @@ def prov_color():
     thousands='.',
     decimal=',',
   )
-  if st.checkbox('Ver tabla Cosecha por Provincia'):
+  if st.checkbox('Ver tabla Superficie por Provincia'):
     
       st.dataframe(styled_df,
           column_config={
