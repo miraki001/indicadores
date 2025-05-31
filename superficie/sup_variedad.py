@@ -91,7 +91,6 @@ def sup_variedad():
                 depto = st.multiselect("deptov",  depto_list, default=["Todos"],label_visibility="collapsed")                
     
     
-    st.write(df_filtered)
     Filtro = 'Filtro = Año = '    
     if año:
         #st.write(año)
