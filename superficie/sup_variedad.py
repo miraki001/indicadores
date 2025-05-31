@@ -194,7 +194,7 @@ def sup_variedad():
             {
                 "type": "category",
                 "boundaryGap": False,
-                "data": df['variedad'],
+                "data": df['variedad'].tolist(),
             }
         ],
         "yAxis": [{"type": "value"}],
@@ -205,7 +205,7 @@ def sup_variedad():
                 "stack": "总量",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": df['sup'],
+                "data": df['sup'].tolist(),
             },
             {
                 "name": "联盟广告",
@@ -213,7 +213,7 @@ def sup_variedad():
                 "stack": "总量",
                 "areaStyle": {},
                 "emphasis": {"focus": "series"},
-                "data": df['provincia'],
+                "data": df['provincia'].tolist(),
             },
             {
                 "name": "视频广告",
