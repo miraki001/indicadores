@@ -152,14 +152,14 @@ def sup_variedad():
             ).js_code,
         },
         "title": {
-            "text": 'Cosecha por Variedad en Quintales',
+            "text": 'Superficie por Variedad en Hectares',
             "subtext": Filtro,
         },        
         #"subtitle": Filtro,
-        "legend": {"data": ["Quintales","variedad"]},   
+        "legend": {"data": ["Hectareas","variedad"]},   
         "series": [
                 {
-                    "name": "Cosecha Totales",
+                    "name": "Superficie Totales",
                     "type": "treemap",
                     "visibleMin": 100,
                     "label": {"show": True, "formatter": "{b}"},
