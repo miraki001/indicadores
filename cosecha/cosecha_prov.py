@@ -135,9 +135,19 @@ def cosecha_prov():
     )
     #st.write(df_anual)
 
+
+
     df_anual.columns = df_anual.columns.droplevel(0)
     df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     df_anual  = df_anual.fillna(0)
+
+    if not 'Elaboracion'  in df_anual:
+      df_anual['Elaboracion'] = 0 
+    if not 'Consumo'  in df_anual:
+      df_anual['Consumo'] = 0 
+    if not 'Secado'  in df_anual:
+      df_anual['Secado'] = 0 
+
 
     totelab = df_anual['Elaboracion'].sum()
     totecon = df_anual['Consumo'].sum()
