@@ -123,6 +123,13 @@ def cosecha_var():
     df_anual  = df_anual.fillna(0)
     #st.write(df_anual)
 
+    if not 'Elaboracion'  in df_anual:
+      df_anual['Elaboracion'] = 0 
+    if not 'Consumo'  in df_anual:
+      df_anual['Consumo'] = 0 
+    if not 'Secado'  in df_anual:
+      df_anual['Secado'] = 0 
+    
     totelab = df_anual['Elaboracion'].sum()
     totecon = df_anual['Consumo'].sum()
     totesec = df_anual['Secado'].sum()
