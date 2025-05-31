@@ -58,7 +58,7 @@ def sup_variedad():
 
 
 
-    dv1 = pd.read_parquet("data/processed/superficievariedad_anios.parquet", engine="pyarrow")
+    dv1 = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
 
  
     dv1['anio'] = dv1['anio'].astype(str)
