@@ -109,7 +109,7 @@ def sup_variedad():
         if depto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['depto'].isin(depto)]          
         Filtro = Filtro + ' Departamento = ' +  str(depto) + ' '
-
+    st.write(df_filtered)
     df_anual = df_filtered.pivot_table(
           index='variedad', 
           columns='color',  
