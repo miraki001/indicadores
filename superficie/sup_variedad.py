@@ -178,3 +178,43 @@ def sup_variedad():
     st_echarts(
         options=option,key="gauge3322" + str(dt.now()), height="600px",
     )
+
+    hours = df_filtered['variedad']
+    days  = df_filtered['provincias']
+    data  = df_filtered
+
+    
+    option = {
+        "tooltip": {"position": "top"},
+        "title": [
+            {"textBaseline": "middle", "top": f"{(idx + 0.5) * 100 / 7}%", "text": day}
+            for idx, day in enumerate(days)
+        ],
+        "singleAxis": [
+            {
+                "left": 150,
+                "type": "category",
+                "boundaryGap": False,
+                "data": hours,
+                "top": f"{(idx * 100 / 7 + 5)}%",
+                "height": f"{(100 / 7 - 10)}%",
+                "axisLabel": {"interval": 2},
+            }
+            for idx, _ in enumerate(days)
+        ],
+        "series": [
+            {
+                "singleAxisIndex": idx,
+                "coordinateSystem": "singleAxis",
+                "type": "scatter",
+                "data": [],
+                "symbolSize": JsCode(
+                    "function(dataItem){return dataItem[1]*4}"
+                ).js_code,
+            }
+            for idx, _ in enumerate(days)
+        ],
+    }
+    for dataItem in data:
+        option["series"][dataItem[0]]["data"].append([dataItem[1], dataItem[2]])
+    st_echarts(options=option, height="600px")
