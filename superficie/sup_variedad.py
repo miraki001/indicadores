@@ -244,7 +244,7 @@ def sup_variedad():
     }
     st_echarts(options=options, height="400px")
     st.write(df)
-    dfm = df[df['provincia'].isin('Mendoza')]
-    dfs = df[df['provincia'].isin('San Juan')]
+    dfm = df[df['provincia'] =='Mendoza']
+    dfs = df[df['provincia'] =='San Juan']
     st.write(dfm)
 
