@@ -6,6 +6,7 @@ from streamlit_echarts import st_echarts
 from streamlit_echarts import JsCode
 import folium
 from streamlit_folium import st_folium
+import altair as alt
 
 from datetime import datetime as dt
 
@@ -254,4 +255,12 @@ def sup_variedad():
         color="variedad",
         size="sup",
     )
+    source = df
 
+    chart = alt.Chart(source).mark_circle().encode(
+        alt.X('provincia', scale=alt.Scale(zero=False)),
+        alt.Y('sup', scale=alt.Scale(zero=False, padding=1)),
+        color='variedad',
+        size='sup'
+    )
+    st.altair_chart(chart, theme="streamlit", use_container_width= True)
