@@ -246,5 +246,6 @@ def sup_variedad():
  
     dfm = df[df['provincia'] =='Mendoza']
     dfs = df[df['provincia'] =='San Juan']
-    chart_data = df
+    chart_data = df, columns=["provincia", "variedad", "sup"])
+    st.scatter_chart(chart_data)
 
