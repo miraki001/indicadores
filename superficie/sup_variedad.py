@@ -243,4 +243,5 @@ def sup_variedad():
      ],
     }
     st_echarts(options=options, height="400px")
+    st.write(df)
 
