@@ -243,8 +243,116 @@ def sup_variedad():
      ],
     }
     st_echarts(options=options, height="400px")
-    st.write(df)
+ 
     dfm = df[df['provincia'] =='Mendoza']
     dfs = df[df['provincia'] =='San Juan']
-    st.write(dfm)
+    option = {
+      "backgroundColor": new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [
+        {
+          "offset": 0,
+          "color": '#f7f8fa'
+        },
+        {
+          "offset": 1,
+          "color": '#cdd0d5'
+        }
+      ]),
+      "title": {
+        "text": 'superficie',
+        "left": '5%',
+        "top": '3%'
+      },
+      "legend": {
+        "right": '10%',
+        "top": '3%',
+        "data": ['Mendoza', 'San Juan']
+      },
+      "grid": {
+        "left": '8%',
+        "top": '10%'
+      },
+      "xAxis": {
+        "splitLine": {
+          "lineStyle": {
+            "type": 'dashed'
+          }
+        }
+      },
+      "yAxis": {
+        "splitLine": {
+          "lineStyle": {
+            "type": 'dashed'
+          }
+        },
+        "scale": true
+      },
+      "series": [
+        {
+          "name": 'Mendoza',
+          "data": dfm[4],
+          "type": 'scatter',
+          "symbolSize": function (data) {
+            return Math.sqrt(data[4]) / 5e2;
+          },
+          "emphasis": {
+            "focus": 'series',
+            "label": {
+              "show": true,
+              "formatter": function (param) {
+                return param.data[3];
+              },
+              "position": 'top'
+            }
+          },
+          "itemStyle": {
+            "shadowBlur": 10,
+            "shadowColor": 'rgba(120, 36, 50, 0.5)',
+            "shadowOffsetY": 5,
+            "color": new echarts.graphic.RadialGradient(0.4, 0.3, 1, [
+              {
+                "offset": 0,
+                "color": 'rgb(251, 118, 123)'
+              },
+              {
+                "offset": 1,
+                "color": 'rgb(204, 46, 72)'
+              }
+            ])
+          }
+        },
+        {
+          "name": 'San Juan',
+          "data": dfs[4],
+          "type": 'scatter',
+          "symbolSize": function (data) {
+            return Math.sqrt(data[4]) / 5e2;
+          },
+          "emphasis": {
+            "focus": 'series',
+            "label": {
+              "show": true,
+              "formatter": function (param) {
+                return param.data[3];
+              },
+              "position": 'top'
+            }
+          },
+          "itemStyle": {
+            "shadowBlur": 10,
+            "shadowColor": 'rgba(25, 100, 150, 0.5)',
+            "shadowOffsetY": 5,
+            "color": new echarts.graphic.RadialGradient(0.4, 0.3, 1, [
+              {
+                "offset": 0,
+                "color": 'rgb(129, 227, 238)'
+              },
+              {
+                "offset": 1,
+                "color": 'rgb(25, 183, 207)'
+              }
+            ])
+          }
+        }
+      ]
+    }
 
