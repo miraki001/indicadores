@@ -247,7 +247,7 @@ def sup_variedad():
     dfm = df[df['provincia'] =='Mendoza']
     dfs = df[df['provincia'] =='San Juan']
     option = {
-      "backgroundColor": new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [
+      "backgroundColor": "#EC654A", [
         {
           "offset": 0,
           "color": '#f7f8fa'
@@ -308,16 +308,7 @@ def sup_variedad():
             "shadowBlur": 10,
             "shadowColor": 'rgba(120, 36, 50, 0.5)',
             "shadowOffsetY": 5,
-            "color": new echarts.graphic.RadialGradient(0.4, 0.3, 1, [
-              {
-                "offset": 0,
-                "color": 'rgb(251, 118, 123)'
-              },
-              {
-                "offset": 1,
-                "color": 'rgb(204, 46, 72)'
-              }
-            ])
+            "color": "#EC654A"
           }
         },
         {
@@ -341,16 +332,7 @@ def sup_variedad():
             "shadowBlur": 10,
             "shadowColor": 'rgba(25, 100, 150, 0.5)',
             "shadowOffsetY": 5,
-            "color": new echarts.graphic.RadialGradient(0.4, 0.3, 1, [
-              {
-                "offset": 0,
-                "color": 'rgb(129, 227, 238)'
-              },
-              {
-                "offset": 1,
-                "color": 'rgb(25, 183, 207)'
-              }
-            ])
+            "color": "#EC654A"
           }
         }
       ]
