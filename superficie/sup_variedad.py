@@ -247,16 +247,7 @@ def sup_variedad():
     dfm = df[df['provincia'] =='Mendoza']
     dfs = df[df['provincia'] =='San Juan']
     option = {
-      "backgroundColor": "#EC654A", [
-        {
-          "offset": 0,
-          "color": '#f7f8fa'
-        },
-        {
-          "offset": 1,
-          "color": '#cdd0d5'
-        }
-      ]),
+      "backgroundColor": "#EC654A",
       "title": {
         "text": 'superficie',
         "left": '5%',
