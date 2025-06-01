@@ -274,6 +274,6 @@ def sup_variedad():
     st.altair_chart(chart, theme="streamlit", use_container_width= True)
     fig = px.scatter(df, x="sup", y="provincia",
 	         size="sup", color="variedad",
-                 hover_name="variedad", log_x=True, size_max=200)
+                 hover_name="provincia", log_x=True, size_max=200)
     #fig.show()
     event = st.plotly_chart(fig, key="iris")
