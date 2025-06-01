@@ -276,4 +276,4 @@ def sup_variedad():
 	         size="sup", color="variedad",
                  hover_name="variedad", log_x=True, size_max=100)
     #fig.show()
-    event = st.plotly_chart(fig, key="iris", on_select="rerun")
+    event = st.plotly_chart(fig, key="iris")
