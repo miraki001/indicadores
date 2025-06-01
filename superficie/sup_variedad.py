@@ -264,3 +264,9 @@ def sup_variedad():
         size='sup'
     )
     st.altair_chart(chart, theme="streamlit", use_container_width= True)
+    chart = alt.Chart(source).mark_circle().encode(
+        x='variedad',
+        y='provincia',
+        size='sup'
+    )
+    st.altair_chart(chart, theme="streamlit", use_container_width= True)
