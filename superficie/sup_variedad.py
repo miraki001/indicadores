@@ -246,6 +246,9 @@ def sup_variedad():
  
     dfm = df[df['provincia'] =='Mendoza']
     dfs = df[df['provincia'] =='San Juan']
+    chart_data = df
+
+    st.scatter_chart(chart_data)
     option = {
       "backgroundColor": "#EC654A",
       "title": {
