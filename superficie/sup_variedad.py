@@ -7,6 +7,7 @@ from streamlit_echarts import JsCode
 import folium
 from streamlit_folium import st_folium
 import altair as alt
+import plotly.express as px
 
 from datetime import datetime as dt
 
@@ -271,3 +272,7 @@ def sup_variedad():
         size='sup'
     )
     st.altair_chart(chart, theme="streamlit", use_container_width= True)
+    fig = px.scatter(df.query("anio==2024"), x="provincia", y="variedad",
+	         size="sup", color="variedad",
+                 hover_name="provincia", log_x=True, size_max=60)
+    fig.show()
