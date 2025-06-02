@@ -330,7 +330,7 @@ def sup_variedad():
 
     for prov_name, prov in prov_data.items():
         fig.add_trace(go.Scatter(
-            x=continent['sup'], y=prov['provincia'],
+            x=prov['sup'], y=prov['provincia'],
             name=prov_name, text=prov['text'],
             marker_size=provt['size'],
             ))
