@@ -299,40 +299,40 @@ def sup_variedad():
 
     data = px.data.gapminder()
     df_2007 = data[data['year']==2007]
-    df_2007 = df_2007.sort_values(['continent', 'country'])
+    df = df.sort_values(['provincia', 'variedad'])
 
     hover_text = []
     bubble_size = []
 
-    for index, row in df_2007.iterrows():
-        hover_text.append(('Country: {country}<br>'+
-                          'Life Expectancy: {lifeExp}<br>'+
-                          'GDP per capita: {gdp}<br>'+
-                          'Population: {pop}<br>'+
-                          'Year: {year}').format(country=row['country'],
-                                                lifeExp=row['lifeExp'],
-                                                gdp=row['gdpPercap'],
-                                                pop=row['pop'],
-                                                year=row['year']))
-        bubble_size.append(math.sqrt(row['pop']))
+    for index, row in df.iterrows():
+        hover_text.append(('Provincia: {provincia}<br>'+
+                          'Variedad: {variedad}<br>'+
+                          'superficie: {sup}<br>').format(provincia=row['provincia'],
+                                                variedad=row['variedad'],
+                                                sup=row['sup'],
+	))
+        bubble_size.append(math.sqrt(row['sup']))
 
-    df_2007['text'] = hover_text
-    df_2007['size'] = bubble_size
-    sizeref = 2.*max(df_2007['size'])/(100**2)
+    df['text'] = hover_text
+    df['size'] = bubble_size
+    sizeref = 2.*max(df['size'])/(100**2)
 
     # Dictionary with dataframes for each continent
-    continent_names = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
-    continent_data = {continent:df_2007.query("continent == '%s'" %continent)
-                                  for continent in continent_names}
+    prov_names = sorted(df["provincia"].dropna().unique())	
+    #continent_names = df['provincias'].tolist()
+    prov_data = {prov:df_2007.query("provincia == '%s'" %prov)
+                                  for prov in prov_names}
+    #continent_data = {continent:df_2007.query("continent == '%s'" %continent)
+    #                              for continent in continent_names}
 
     # Create figure
     fig = go.Figure()
 
-    for continent_name, continent in continent_data.items():
+    for prov_name, prov in prov_data.items():
         fig.add_trace(go.Scatter(
-            x=continent['gdpPercap'], y=continent['lifeExp'],
-            name=continent_name, text=continent['text'],
-            marker_size=continent['size'],
+            x=continent['sup'], y=prov['provincia'],
+            name=prov_name, text=prov['text'],
+            marker_size=provt['size'],
             ))
 
     # Tune marker appearance and layout
