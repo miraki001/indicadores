@@ -332,7 +332,7 @@ def sup_variedad():
         fig.add_trace(go.Scatter(
             x=prov['sup'], y=prov['provincia'],
             name=prov_name, text=prov['text'],
-            marker_size=provt['size'],
+            marker_size=prov['size'],
             ))
 
     # Tune marker appearance and layout
