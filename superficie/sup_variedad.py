@@ -285,4 +285,5 @@ def sup_variedad():
     #st.write(df)
 
     fig = px.scatter(df, x="sup", y="provincia", color="variedad", facet_col="provincia", facet_row="provincia")
-    fig.show()
+    event = st.plotly_chart(fig, key="iris")
+    #fig.show()
