@@ -277,10 +277,10 @@ def sup_variedad():
     st.altair_chart(chart, theme="streamlit", use_container_width= True)
     fig = px.scatter(df, x="sup", y="provincia",
 	         size="sup", color="variedad",
-                 hover_name="provincia", log_x=True, size_max=200)
-    #fig.show()
+                 hover_name="provincia", log_x=True, size_max=400)
+    fig.show()
     #fig.update_traces(marker_size=20)	
     #fig.update_layout(scattermode="group")
-    event = st.plotly_chart(fig, key="iris")
-    st.write(df)
+    #event = st.plotly_chart(fig, key="iris")
+    #st.write(df)
 
