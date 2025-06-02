@@ -320,7 +320,7 @@ def sup_variedad():
     # Dictionary with dataframes for each continent
     prov_names = sorted(df["provincia"].dropna().unique())	
     #continent_names = df['provincias'].tolist()
-    prov_data = {prov:df_2007.query("provincia == '%s'" %prov)
+    prov_data = {prov:df.query("provincia == '%s'" %prov)
                                   for prov in prov_names}
     #continent_data = {continent:df_2007.query("continent == '%s'" %continent)
     #                              for continent in continent_names}
