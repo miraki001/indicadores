@@ -276,4 +276,5 @@ def sup_variedad():
 	         size="sup", color="variedad",
                  hover_name="provincia", log_x=True, size_max=200)
     #fig.show()
+    fig.update_traces(marker_size=10)	
     event = st.plotly_chart(fig, key="iris")
