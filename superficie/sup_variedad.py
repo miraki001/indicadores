@@ -290,3 +290,7 @@ def sup_variedad():
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(df['index'], weights=df['sup']))
     st.plotly_chart(fig, theme="streamlit")	
+    fig = px.treemap(df, path=[px.Constant("T"), 'provincia', 'variedad'], values='sup')
+    fig.update_traces(root_color="lightgrey")
+    fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+    st.plotly_chart(fig, theme="streamlit")
