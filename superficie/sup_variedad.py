@@ -284,11 +284,9 @@ def sup_variedad():
     event = st.plotly_chart(fig, key="iris")
     #st.write(df)
 
-    fig = px.scatter(df, x="sup", y="provincia", color="variedad", facet_col="provincia", facet_row="provincia")
-    event = st.plotly_chart(fig, key="iris33")
-    #fig.show()
+
     fig = px.sunburst(df, path=['provincia', 'variedad'], values='sup',
-                      color='lifeExp', hover_data=['iso_alpha'],
+                      color='lifeExp', hover_data=['variedad'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(df['sup'], weights=df['sup']))
     st.plotly_chart(fig, theme="streamlit")	
