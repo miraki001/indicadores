@@ -278,4 +278,6 @@ def sup_variedad():
     #fig.show()
     #fig.update_traces(marker_size=40)	
     fig.update_layout(scattermode="group")
-    event = st.plotly_chart(fig, key="iris")
+    event = st.plotly_chart(fig, key="provincia")
+    st.wirte(df)
+
