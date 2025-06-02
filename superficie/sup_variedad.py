@@ -110,7 +110,10 @@ def sup_variedad():
         if depto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['departamento'].isin(depto)]          
         Filtro = Filtro + ' Departamento = ' +  str(depto) + ' '
-        
+
+
+    df = df_filtered.groupby(['provincia','variedad'], as_index=False)[['sup']].sum()    
+    df = df.reset_index().rename_axis(None, axis=1)	
 
     df_anual = df_filtered.groupby(['variedad',], as_index=False)[['sup']].sum()  
 
@@ -180,8 +183,8 @@ def sup_variedad():
     st_echarts(
         options=option,key="gauge3322" + str(dt.now()), height="600px",
     )
-    df = dv1.groupby(['provincia','variedad'], as_index=False)[['sup']].sum()    
-    df = df.reset_index().rename_axis(None, axis=1) 
+    #df = dv1.groupby(['provincia','variedad'], as_index=False)[['sup']].sum()    
+    #df = df.reset_index().rename_axis(None, axis=1) 
     
     options = {
         "title": {"text": "堆叠区域图"},
