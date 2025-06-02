@@ -340,15 +340,15 @@ def sup_variedad():
                                                   sizeref=sizeref, line_width=2))
 
     fig.update_layout(
-        title='Life Expectancy v. Per Capita GDP, 2007',
+        title='Superficie por Variedad y Provincia',
         xaxis=dict(
-            title='GDP per capita (2000 dollars)',
+            title='Hectareas',
             gridcolor='white',
             type='log',
             gridwidth=2,
         ),
         yaxis=dict(
-            title='Life Expectancy (years)',
+            title='Superficie',
             gridcolor='white',
             gridwidth=2,
         ),
