@@ -266,7 +266,7 @@ def prov_color():
         folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
   )
   st.caption(Filtro)
-  st.write(dfd)  
+  #st.write(dfd)  
   st.map = st_folium(map, width=800, height= 650)
   #df2 = dfd.pivot_table(
   #    index='provincia', 
@@ -278,7 +278,6 @@ def prov_color():
   #df2 = df2.reset_index().rename_axis(None, axis=1)    
 
   df2 = dfd.groupby(['provincia','departamento'], as_index=False)[['sup']].sum()     
-  st.write(df2)
   fig = px.sunburst(df2, path=['provincia', 'departamento'], values='sup',
                       color='departamento', hover_data=['provincia'],
                       color_continuous_scale='RdBu',
