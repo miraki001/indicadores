@@ -56,25 +56,24 @@ def prov_color():
     
 
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
-  df1 = pd.read_parquet("data/processed/superficie_datos.parquet", engine="pyarrow")   
-  st.write(df1)  
-
+  dfd = pd.read_parquet("data/processed/superficie_datos.parquet", engine="pyarrow")   
+  
   df['anio'] = df['anio'].astype(str)
-  df1['anio'] = df1['anio'].astype(str)
+  dfd['anio'] = dfd['anio'].astype(str)
     
   Filtro = 'Filtro = Año = '  
   if año:
         df = df[df['anio'].isin(año)]
         df["anio"] = df["anio"].astype(str)  
-        df1 = df1[df1['anio'].isin(año)]
-        df1["anio"] = df1["anio"].astype(str)  
+        dfd = dfd[dfd['anio'].isin(año)]
+        dfd["anio"] = dfd["anio"].astype(str)  
       
         Filtro = Filtro +  ' ' +str(año) + ' '
   #st.write(df)      
   if variedad:
         if variedad[0] != 'Todas':
             df = df[df['variedad'].isin(variedad)]
-            df1 = df1[df1['variedad'].isin(variedad)]
+            dfd = dfd[dfd['variedad'].isin(variedad)]
         Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '     
   pivot_table_basic = df.pivot_table(
       index='provincia', 
@@ -264,12 +263,12 @@ def prov_color():
         folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
   )
   st.caption(Filtro)
-  st.write(df1)  
+  st.write(dfd)  
   st.map = st_folium(map, width=800, height= 650)
-  df2 = df1.pivot_table(
+  df2 = dfd.pivot_table(
       index='provincia', 
       columns='departamento',  
       values=['sup'],
       aggfunc='sum'
   )
-  st.write(df)
+  st.write(df2)
