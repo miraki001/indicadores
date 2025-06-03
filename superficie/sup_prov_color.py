@@ -280,11 +280,11 @@ def prov_color():
   df2 = dfd.groupby(['provincia','departamento'], as_index=False)[['sup']].sum()     
   st.write(df2)
   fig = px.sunburst(df2, path=['provincia', 'departamento'], values='sup',
-                      color='provincia', hover_data=['departamento'],
+                      color='departamento', hover_data=['provincia'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(df2['sup'], weights=df2['sup']))
   st.plotly_chart(fig, theme="streamlit")	
-  fig = px.treemap(df2, path=[px.Constant("Todas"), 'provincia', 'variedad'], values='sup')
+  fig = px.treemap(df2, path=[px.Constant("Todas"), 'provincia', 'departamento'], values='sup')
   fig.update_traces(root_color="lightgrey")
   fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
   st.plotly_chart(fig, theme="streamlit")
