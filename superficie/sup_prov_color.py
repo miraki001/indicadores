@@ -271,9 +271,9 @@ def prov_color():
       values=['sup'],
       aggfunc='sum'
   )
-  st.write(df2)
   df2.columns = df2.columns.droplevel(0)
   df2 = df2.reset_index().rename_axis(None, axis=1)    
+  st.write(df2)
   fig = px.sunburst(df2, path=['provincia', 'departamento'], values='sup',
                       color='departmento', hover_data=['provincia'],
                       color_continuous_scale='RdBu',
