@@ -272,3 +272,14 @@ def prov_color():
       aggfunc='sum'
   )
   st.write(df2)
+  df2.columns = df2.columns.droplevel(0)
+  df2 = df2.reset_index().rename_axis(None, axis=1)    
+  fig = px.sunburst(df2, path=['provincia', 'departamento'], values='sup',
+                      color='departmento', hover_data=['provincia'],
+                      color_continuous_scale='RdBu',
+                      color_continuous_midpoint=np.average(df2['index'], weights=df2['sup']))
+  st.plotly_chart(fig, theme="streamlit")	
+  fig = px.treemap(df2, path=[px.Constant("Todas"), 'provincia', 'variedad'], values='sup')
+  fig.update_traces(root_color="lightgrey")
+  fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+  st.plotly_chart(fig, theme="streamlit")
