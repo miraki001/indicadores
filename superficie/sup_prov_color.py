@@ -263,8 +263,9 @@ def prov_color():
         folium.features.GeoJsonTooltip(['name','superficie'],labels=False)
   )
   st.caption(Filtro)
+  st.write(df1)  
   st.map = st_folium(map, width=800, height= 650)
-  df = df1.pivot_table(
+  df2 = df1.pivot_table(
       index='provincia', 
       columns='departamento',  
       values=['sup'],
