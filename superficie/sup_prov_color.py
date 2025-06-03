@@ -258,3 +258,10 @@ def prov_color():
   )
   st.caption(Filtro)
   st.map = st_folium(map, width=800, height= 650)
+  df = df.pivot_table(
+      index='provincia', 
+      columns='depto',  
+      values=['sup'],
+      aggfunc='sum'
+  )
+  st.write(df)
