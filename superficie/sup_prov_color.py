@@ -56,7 +56,8 @@ def prov_color():
     
 
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
-  df1 = pd.read_parquet("data/processed/superficie_datos.parquet", engine="pyarrow")    
+  df1 = pd.read_parquet("data/processed/superficie_datos.parquet", engine="pyarrow")   
+  st.write(df1)  
 
   df['anio'] = df['anio'].astype(str)
   df1['anio'] = df1['anio'].astype(str)
