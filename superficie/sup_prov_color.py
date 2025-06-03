@@ -265,14 +265,16 @@ def prov_color():
   st.caption(Filtro)
   st.write(dfd)  
   st.map = st_folium(map, width=800, height= 650)
-  df2 = dfd.pivot_table(
-      index='provincia', 
-      columns='departamento',  
-      values=['sup'],
-      aggfunc='sum'
-  )
-  df2.columns = df2.columns.droplevel(0)
-  df2 = df2.reset_index().rename_axis(None, axis=1)    
+  #df2 = dfd.pivot_table(
+  #    index='provincia', 
+  #    columns='departamento',  
+  #    values=['sup'],
+  #    aggfunc='sum'
+  #)
+  #df2.columns = df2.columns.droplevel(0)
+  #df2 = df2.reset_index().rename_axis(None, axis=1)    
+
+  df2 = dfd.groupby(['provincia','departamento'], as_index=False)[['sup']].sum()     
   st.write(df2)
   fig = px.sunburst(df2, path=['provincia', 'departamento'], values='sup',
                       color='departmento', hover_data=['provincia'],
