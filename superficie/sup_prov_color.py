@@ -260,7 +260,7 @@ def prov_color():
   st.map = st_folium(map, width=800, height= 650)
   df = df.pivot_table(
       index='provincia', 
-      columns='depto',  
+      columns='departamento',  
       values=['sup'],
       aggfunc='sum'
   )
