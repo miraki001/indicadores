@@ -282,7 +282,7 @@ def prov_color():
   fig = px.sunburst(df2, path=['provincia', 'departamento'], values='sup',
                       color='departmento', hover_data=['provincia'],
                       color_continuous_scale='RdBu',
-                      color_continuous_midpoint=np.average(df2['provincia'], weights=df2['sup']))
+                      color_continuous_midpoint=np.average(df2['sup'], weights=df2['sup']))
   st.plotly_chart(fig, theme="streamlit")	
   fig = px.treemap(df2, path=[px.Constant("Todas"), 'provincia', 'variedad'], values='sup')
   fig.update_traces(root_color="lightgrey")
