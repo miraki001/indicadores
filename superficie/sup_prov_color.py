@@ -30,7 +30,7 @@ def prov_color():
   #year_list = np.append(year_list, "Todos")    
   df_variedades = pd.read_parquet("data/processed/superficievariedad_variedades.parquet", engine="pyarrow")
   var_list = df_variedades["variedad"].to_numpy()
-  var_list = np.append(var_list, "Todas")
+  var_list = np.append("Todas",var_list) 
     
   if "filtros_cose2" not in st.session_state:
         st.session_state.filtros_cose2 = {
@@ -76,7 +76,7 @@ def prov_color():
   if variedad:
         if variedad[0] != 'Todas':
             df = df[df['variedad'].isin(variedad)]
-            dfd = dfd[dfd['variedad'].isin(variedad)]
+            #dfd = dfd[dfd['variedad'].isin(variedad)]
         Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '     
   pivot_table_basic = df.pivot_table(
       index='provincia', 
