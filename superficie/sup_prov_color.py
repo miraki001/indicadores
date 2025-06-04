@@ -55,7 +55,7 @@ def prov_color():
         with col2:
             with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedad",  var_list, default=["Todas"],label_visibility="collapsed")
+                variedad = st.multiselect("Variedadss",  var_list, default=["Todas"],label_visibility="collapsed")
     
 
   df = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
