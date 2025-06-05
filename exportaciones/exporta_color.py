@@ -81,7 +81,7 @@ def exporta_color():
             return pd.DataFrame()
 
     # Cargar datos iniciales para llenar los filtros
-    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,subgrupoenvase  from exportaciones2_m  where producto not in ('Mosto','Alcohol');"
+    QUERY_INICIAL = "select distinct anio,variedad1 variedad,tipo_envase,color,producto,subgrupoenvase,grupoenvase  from exportaciones2_m  where producto not in ('Mosto','Alcohol');"
     df_filtros = cargar_datos(QUERY_INICIAL)
 
     if df_filtros.empty:
@@ -117,7 +117,7 @@ def exporta_color():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,color,pais,producto,subgrupoenvase,tipo_envase
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,color,pais,producto,subgrupoenvase,tipo_envase,grupoenvase
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
     """
@@ -164,7 +164,7 @@ def exporta_color():
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
-    df = df_filtered.groupby(['tipo_envase','subgrupoenvase'], as_index=False)[['litros']].sum()
+    df = df_filtered.groupby(['tipo_envase','grupoenvase'], as_index=False)[['litros']].sum()
     df_anual = df_filtered.groupby(['color'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
     total = []
@@ -549,15 +549,15 @@ def exporta_color():
     source = df
 
     chart = alt.Chart(source).mark_circle().encode(
-        x='subgrupoenvase',
+        x='grupoenvase',
         y='tipo_envase',
-        color='subgrupoenvase',
+        color='grupoenvase',
         size='litros'
     )
     st.altair_chart(chart, theme="streamlit", use_container_width= True)
     fig = px.scatter(df, x="litros", y="tipo_envase",
-	         size="litros", color="subgrupoenvase",
-                 hover_name="subgrupoenvase", log_x=True, size_max=100)
+	         size="litros", color="grupoenvase",
+                 hover_name="grupoenvase", log_x=True, size_max=100)
     #fig.show()
     #fig.update_traces(marker_size=20)	
     #fig.update_layout(scattermode="group")
