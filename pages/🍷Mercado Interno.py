@@ -278,6 +278,12 @@ with tab1:
   st_echarts(
     options=option, height="400px" ,
   )
+
+
+  st.write('nuevo')
+
+  #fig = px.bar(long_df, x="nation", y="count", color="medal", title="Long-Form Input")  
+  #t.plotly_chart(fig, theme="streamlit")
   dv2 = dv1  
   dv2 = dv2[dv2['anio'] > actual ]    
   litros = dv2.pivot_table(
@@ -289,6 +295,10 @@ with tab1:
   litros.columns = litros.columns.droplevel(0)
   litros = litros.reset_index().rename_axis(None, axis=1)    
   litros  = litros.fillna(0)
+
+  fig = px.bar(litros, x="mes", y="litros", color="mes", title="Long-Form Input")  
+  st.plotly_chart(fig, theme="streamlit")
+  
   anio1 = litros.columns[1]
   anio2 = litros.columns[2]
   anio3 = litros.columns[3]
