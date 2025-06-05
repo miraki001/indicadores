@@ -164,7 +164,7 @@ def exporta_color():
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
-    df = df_filtered.groupby(['tipo_envase','grupoenvase'], as_index=False)[['litros']].sum()
+    df = df_filtered.groupby(['color','tipo_envase','grupoenvase'], as_index=False)[['litros']].sum()
     df_anual = df_filtered.groupby(['color'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
     total = []
@@ -547,13 +547,14 @@ def exporta_color():
                 hide_index=True)
     #st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
     source = df
-
+    st.write('1')	
     chart = alt.Chart(source).mark_circle().encode(
         x='grupoenvase',
         y='tipo_envase',
         color='grupoenvase',
         size='litros'
     )
+    st.write('2')	
     st.altair_chart(chart, theme="streamlit", use_container_width= True)
     fig = px.scatter(df, x="litros", y="tipo_envase",
 	         size="litros", color="grupoenvase",
@@ -561,9 +562,11 @@ def exporta_color():
     #fig.show()
     #fig.update_traces(marker_size=20)	
     #fig.update_layout(scattermode="group")
+    st.write('3')	
+	
     event = st.plotly_chart(fig, key="iris22")
 	
-    fig = px.sunburst(df, path=['tipo_envase', 'grupoenvase'], values='litros',
+    fig = px.sunburst(df, path=['Color','tipo_envase', 'grupoenvase'], values='litros',
                       color='grupoenvase', hover_data=['grupoenvase'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(df['litros'], weights=df['litros']))
