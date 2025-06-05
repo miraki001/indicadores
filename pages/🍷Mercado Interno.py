@@ -133,6 +133,7 @@ actual = dt.now().year -4
 #df_nuevo = pd.read_parquet("data/processed/despachos.zip", engine="pyarrow")
 #st.write(df_nuevo)
 #df_filtered = df_nuevo.copy() 
+df_filtered['anio'] = df_filtered['anio'].astype(str)
 
 
 
