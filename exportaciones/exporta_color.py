@@ -546,6 +546,8 @@ def exporta_color():
                 height = 600,
                 hide_index=True)
     #st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
+    source = df
+
     chart = alt.Chart(source).mark_circle().encode(
         x='subgrupoenvase',
         y='tipo_envase',
