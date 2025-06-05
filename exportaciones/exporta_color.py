@@ -9,6 +9,10 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
+import altair as alt
+import plotly.express as px
+import plotly.graph_objects as go
+import math
 
 def exporta_color():
 
