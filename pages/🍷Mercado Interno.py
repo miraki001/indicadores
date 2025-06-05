@@ -183,7 +183,7 @@ with tab1:
         df_filtered["anio"] = df_filtered["anio"].astype(str)  
         Filtro = Filtro +  ' ' +str(año) + ' '
           
-  
+  st.write(df_filtered)
   if variedad:
     if variedad[0] != 'Todas':
         df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
