@@ -545,24 +545,7 @@ def exporta_color():
                 width = 800,   
                 height = 600,
                 hide_index=True)
-    #st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
-    source = df
-    st.write('1')	
-    chart = alt.Chart(source).mark_circle().encode(
-        x='grupoenvase',
-        y='tipo_envase',
-        color='grupoenvase',
-        size='litros'
-    )
-    st.write('2')	
-    st.altair_chart(chart, theme="streamlit", use_container_width= True)
-    fig = px.scatter(df, x="litros", y="tipo_envase",
-	         size="litros", color="grupoenvase",
-                 hover_name="grupoenvase", log_x=True, size_max=100)
-    #fig.show()
-    #fig.update_traces(marker_size=20)	
-    #fig.update_layout(scattermode="group")
-    st.write('31')	
+	
 	
     event = st.plotly_chart(fig, key="iris22")
     st.write('3')	
