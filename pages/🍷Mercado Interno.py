@@ -17,6 +17,7 @@ from despachos import desp_color
 from despachos import desp_envase
 from despachos import desp_variedad
 from despachos import desp_consumo
+import plotly.express as px
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
