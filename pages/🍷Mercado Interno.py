@@ -297,7 +297,7 @@ with tab1:
   litros = litros.reset_index().rename_axis(None, axis=1)    
   litros  = litros.fillna(0)
   df2 = dv2.groupby(['anio','mes'], as_index=False)[['litros']].sum()
-
+  df2["anio"] = df2["anio"].astype(str)
   fig = px.histogram(df2, x="mes", y="litros", color="anio", barmode='group', title="despachos")  
   st.plotly_chart(fig, theme="streamlit")
   
