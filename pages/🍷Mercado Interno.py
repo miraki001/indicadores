@@ -312,6 +312,7 @@ with tab1:
   # Here we modify the tickangle of the xaxis, resulting in rotated labels.
   fig.update_layout(barmode='group', xaxis_tickangle=-45)
   fig.show()
+  st.plotly_chart(fig, theme="streamlit")
 
 
 
