@@ -145,7 +145,9 @@ with tab1:
     col1, col2, col3,col4,col5= st.columns([1, 1, 1,1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
-    with st.popover("Año"):
+    with col2:
+    
+        with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
                 año = st.multiselect("Año",  year_list, default=['Todos'],label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
