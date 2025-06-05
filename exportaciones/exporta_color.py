@@ -562,7 +562,7 @@ def exporta_color():
     #fig.show()
     #fig.update_traces(marker_size=20)	
     #fig.update_layout(scattermode="group")
-    #st.write('3')	
+    st.write('31')	
 	
     event = st.plotly_chart(fig, key="iris22")
     st.write('3')	
