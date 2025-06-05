@@ -105,6 +105,12 @@ prov_list = sorted(df_filtros["provincia"].dropna().unique())
 depto_list = sorted(df_filtros["departamento"].dropna().unique())
 producto_list = sorted(df_filtros["producto"].dropna().unique())
 #pais_list = sorted(df_filtros["pais"].dropna().unique())
+
+df_anios = pd.read_parquet("data/processed/despachos_anios.parquet", engine="pyarrow")
+year_list = df_anios["anio"].to_numpy()
+year_list = np.append("Todos",year_list)
+
+
 if "filtroseee" not in st.session_state:
         st.session_state.filtrosee = {
             "anio": "Todos",
@@ -136,20 +142,26 @@ tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por 
 with tab1:
 
   with st.container(border=True):
-    col1, col2, col3,col4= st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
+    col1, col2, col3,col4,col5= st.columns([1, 1, 1,1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
-    with col1:
+    with st.popover("Año"):
+                st.caption("Selecciona uno o más años de la lista")
+                año = st.multiselect("Año",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
+                #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
+                año = [str(a) for a in año]  # Asegura que la selección sea string también
+    
+    with col2:
         with st.popover("Variedad"):
             st.caption("Selecciona uno o más Variedades de la lista")
             variedad = st.multiselect("Variedad343",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
-    with col2:
+    with col3:
         with st.popover("Provincia"):
             st.caption("Selecciona uno o más Provincias de la lista")
             provincia = st.multiselect("Proncias33",  ["Todas"] + prov_list, default=["Todas"],label_visibility="collapsed")
-    with col3:
+    with col4:
         with st.popover("Departamento"):
             st.caption("Selecciona uno o más Departamentos de la lista")
             departamento = st.multiselect("dpto",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
@@ -184,7 +196,9 @@ with tab1:
         df_filtered = df_filtered[df_filtered['producto'].isin(producto)]
     Filtro = Filtro + ' Producto = ' +  str(producto) + ' '
 
-
+  if df_filtered.empty:
+    st.error("No se encontraron datos en la base de datos.")
+    st.stop()
   
 
   df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
@@ -382,8 +396,8 @@ with tab3:
     desp_color.despachos_color(df_filtros,dv1)  
 with tab4:    
     desp_envase.despachos_envase(df_filtros,dv1)  
-
 with tab5:    
     desp_variedad.despachos_variedad(df_filtros,dv1)  
 with tab6:    
     desp_consumo.despachos_consumo()  
+  
