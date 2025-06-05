@@ -300,6 +300,24 @@ with tab1:
   df2["anio"] = df2["anio"].astype(str)
   fig = px.bar(df2, x="mes", y="litros", color="anio", title="despachos")  
   st.plotly_chart(fig, theme="streamlit")
+  fig = go.Figure()
+  fig.add_trace(go.Bar(
+    x=df2['mes'],
+    y=df2['litros'],
+    name=df2['anio'],
+    marker_color='indianred'
+  ))
+
+  # Here we modify the tickangle of the xaxis, resulting in rotated labels.
+  fig.update_layout(barmode='group', xaxis_tickangle=-45)
+  fig.show()
+
+
+
+
+
+
+  
   
   anio1 = litros.columns[1]
   anio2 = litros.columns[2]
