@@ -218,22 +218,4 @@ def despachos_consumo():
     acu3 = 0
     acu4 = 0
     
-    for index in range(len(dv3)):
-          if index == 0:
-              acu1 = dv3["CERVEZAS"].loc[index]
-              acu2 = dv3['VINOS_COMUNES'].loc[index]
-              acu3 = dv3['VINOS_FINOS'].loc[index]
-              acu4 = dv3['ESPUMANTES'].loc[index]
-          if index > 0:
-            acu1 = acu1 + dv3[anio1].loc[index]
-            acu2 = acu2 + dv3[anio2].loc[index]
-            acu3 = acu3 + dv3[anio3].loc[index]
-            acu4 = acu4 + dv3[anio4].loc[index]
-              
-    dv3['Acum ' + 'Cervezas' ] = tot1
-    dv3['Acum ' + 'vinos'] = tot2
-    dv3['Acum ' + 'Vinos Finos' ] = tot3
-    dv3['Acum ' + 'Esp'] = tot4
-    st.write(dv3)
-
     
