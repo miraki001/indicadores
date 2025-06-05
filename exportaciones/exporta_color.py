@@ -122,7 +122,7 @@ def exporta_color():
     dv1 = cargar_datos(QUERY_V1)
  
     dv1['anio'] = dv1['anio'].astype(str)
-
+    df = dv1.groupby(['tipoenvase','subgrupoenvase'], as_index=False)[['litros']].sum()
     
     with st.container(border=True):
         col1, col2, col3 = st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
@@ -542,3 +542,11 @@ def exporta_color():
                 height = 600,
                 hide_index=True)
     #st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
+    st.altair_chart(chart, theme="streamlit", use_container_width= True)
+    fig = px.scatter(df, x="litros", y="envase",
+	         size="litros", color="variedad",
+                 hover_name="subgrupoenvase", log_x=True, size_max=100)
+    #fig.show()
+    #fig.update_traces(marker_size=20)	
+    #fig.update_layout(scattermode="group")
+    event = st.plotly_chart(fig, key="iris22")
