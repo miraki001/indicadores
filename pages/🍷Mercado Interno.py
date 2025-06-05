@@ -305,7 +305,7 @@ with tab1:
 
   fig = go.Figure()
   for y in df2.anio.unique():
-    dfy = df2[df2.year == y]
+    dfy = df2[df2.anio == y]
     fig.add_bar(x = df2.mes, y = dfy.value, name = str(y))
 
   fig.show()
