@@ -113,7 +113,7 @@ def exporta_color():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,,color,pais,producto,subgrupoenvase
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,color,pais,producto,subgrupoenvase
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
     """
@@ -122,7 +122,7 @@ def exporta_color():
     dv1 = cargar_datos(QUERY_V1)
  
     dv1['anio'] = dv1['anio'].astype(str)
-    df = dv1.groupby(['tipoenvase','subgrupoenvase'], as_index=False)[['litros']].sum()
+    #df = dv1.groupby(['tipoenvase','subgrupoenvase'], as_index=False)[['litros']].sum()
     
     with st.container(border=True):
         col1, col2, col3 = st.columns([1, 1, 1])  # Ajusta los tamaños de las columnas
@@ -160,7 +160,7 @@ def exporta_color():
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
-
+    df = df_filtered.groupby(['tipoenvase','subgrupoenvase'], as_index=False)[['litros']].sum()
     df_anual = df_filtered.groupby(['color'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
     total = []
