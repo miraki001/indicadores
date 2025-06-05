@@ -546,6 +546,12 @@ def exporta_color():
                 height = 600,
                 hide_index=True)
     #st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
+    chart = alt.Chart(source).mark_circle().encode(
+        x='subgrupoenvase',
+        y='tipo_envase',
+        color='subgrupoenvase',
+        size='litros'
+    )
     st.altair_chart(chart, theme="streamlit", use_container_width= True)
     fig = px.scatter(df, x="litros", y="tipo_envase",
 	         size="litros", color="subgrupoenvase",
