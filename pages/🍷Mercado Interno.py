@@ -298,7 +298,7 @@ with tab1:
   litros  = litros.fillna(0)
   df2 = dv2.groupby(['anio','mes'], as_index=False)[['litros']].sum()
 
-  fig = px.bar(df2, x="mes", y="litros", color="mes", title="Long-Form Input")  
+  fig = px.bar(df2, x="mes", y="litros", color="anio", title="Long-Form Input")  
   st.plotly_chart(fig, theme="streamlit")
   
   anio1 = litros.columns[1]
