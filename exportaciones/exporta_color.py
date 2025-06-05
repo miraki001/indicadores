@@ -547,7 +547,7 @@ def exporta_color():
                 hide_index=True)
 	
 	
-    event = st.plotly_chart(fig, key="iris22")
+    #event = st.plotly_chart(fig, key="iris22")
     st.write('3')	
     fig = px.sunburst(df, path=['color','tipo_envase', 'grupoenvase'], values='litros',
                       #color=['color','tipo_envase']
