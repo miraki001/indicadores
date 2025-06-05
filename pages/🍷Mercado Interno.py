@@ -293,11 +293,11 @@ with tab1:
           values=['litros'],
           aggfunc='sum'
   )  
-  litros.columns = litros.columns.droplevel(0)
+  #litros.columns = litros.columns.droplevel(0)
   litros = litros.reset_index().rename_axis(None, axis=1)    
   litros  = litros.fillna(0)
 
-  fig = px.bar(litros, x="mes", y="litros", color="mes", title="Long-Form Input")  
+  fig = px.bar(litros, x="mes", y="anio", color="mes", title="Long-Form Input")  
   st.plotly_chart(fig, theme="streamlit")
   
   anio1 = litros.columns[1]
