@@ -166,7 +166,7 @@ with tab1:
             st.caption("Selecciona uno o más Departamentos de la lista")
             departamento = st.multiselect("dpto",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")                
 
-    with col4:
+    with col5:
         with st.popover("Producto"):
             st.caption("Selecciona uno o más Productos de la lista")
             producto = st.multiselect("Coloreo",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
@@ -174,6 +174,14 @@ with tab1:
 
   Filtro = 'Filtro = Año = '
   Filtro = Filtro +  ' Todos '
+
+  if año:
+        #st.write(año)
+    if año[0] != 'Todos':
+        df_filtered = df_filtered[df_filtered['anio'].isin(año)]
+        df_filtered["anio"] = df_filtered["anio"].astype(str)  
+        Filtro = Filtro +  ' ' +str(año) + ' '
+          
   
   if variedad:
     if variedad[0] != 'Todas':
