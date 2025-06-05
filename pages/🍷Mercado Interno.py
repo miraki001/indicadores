@@ -306,7 +306,7 @@ with tab1:
     x=df2['mes'],
     y=df2['litros'],
     name=str(df2['anio']),
-    marker_color='indianred'
+    marker_color=df2['anio']
   ))
 
   # Here we modify the tickangle of the xaxis, resulting in rotated labels.
