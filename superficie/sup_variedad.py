@@ -286,7 +286,7 @@ def sup_variedad():
     event = st.plotly_chart(fig, key="iris")
     #st.write(df)
 
-
+    st.write('sunburst')
     fig = px.sunburst(df, path=['provincia', 'variedad'], values='sup',
                       color='variedad', hover_data=['provincia'],
                       color_continuous_scale='RdBu',
