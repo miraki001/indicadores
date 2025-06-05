@@ -145,8 +145,7 @@ with tab1:
     col1, col2, col3,col4,col5= st.columns([1, 1, 1,1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
-    with col2:
-    
+    with col1:    
         with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
                 año = st.multiselect("Año",  year_list, default=['Todos'],label_visibility="collapsed",help="Selecciona uno o más años")
@@ -178,7 +177,7 @@ with tab1:
   Filtro = Filtro +  ' Todos '
 
   if año:
-        #st.write(año)
+    st.write(año)
     if año[0] != 'Todos':
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)  
