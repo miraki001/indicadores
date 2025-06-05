@@ -113,7 +113,7 @@ def exporta_color():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,color,pais,producto,subgrupoenvase
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,,color,pais,producto,subgrupoenvase
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
     """
@@ -543,8 +543,8 @@ def exporta_color():
                 hide_index=True)
     #st.write(pd.pivot_table(producto1, values=['fob','litros'], index=["tipo_envase","producto"],observed=True,aggfunc="sum"))
     st.altair_chart(chart, theme="streamlit", use_container_width= True)
-    fig = px.scatter(df, x="litros", y="envase",
-	         size="litros", color="variedad",
+    fig = px.scatter(df, x="litros", y="tipo_envase",
+	         size="litros", color="subgrupoenvase",
                  hover_name="subgrupoenvase", log_x=True, size_max=100)
     #fig.show()
     #fig.update_traces(marker_size=20)	
