@@ -562,12 +562,12 @@ def exporta_color():
     #fig.show()
     #fig.update_traces(marker_size=20)	
     #fig.update_layout(scattermode="group")
-    st.write('3')	
+    #st.write('3')	
 	
     event = st.plotly_chart(fig, key="iris22")
-	
+    st.write('3')	
     fig = px.sunburst(df, path=['color','tipo_envase', 'grupoenvase'], values='litros',
-                      color='grupoenvase', hover_data=['grupoenvase'],
+                      color='color', hover_data=['grupoenvase'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(df['litros'], weights=df['litros']))
     st.plotly_chart(fig, theme="streamlit")
