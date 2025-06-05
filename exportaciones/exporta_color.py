@@ -113,7 +113,7 @@ def exporta_color():
     )
 
     QUERY_V1 = f"""
-        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,color,pais,producto,subgrupoenvase
+        SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,color,pais,producto,subgrupoenvase,tipo_envase
         FROM exportaciones2_m 
         where producto not in ('Mosto','Alcohol')
     """
