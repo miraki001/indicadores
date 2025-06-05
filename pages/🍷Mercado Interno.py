@@ -305,7 +305,7 @@ with tab1:
   fig.add_trace(go.Bar(
     x=df2['mes'],
     y=df2['litros'],
-    name=df2['anio'],
+    name=str(df2['anio']),
     marker_color='indianred'
   ))
 
