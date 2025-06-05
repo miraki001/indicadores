@@ -160,7 +160,7 @@ def exporta_color():
     if envase:
         if envase[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipo_envase'].isin(envase)]
-    df = df_filtered.groupby(['tipoenvase','subgrupoenvase'], as_index=False)[['litros']].sum()
+    df = df_filtered.groupby(['tipo_envase','subgrupoenvase'], as_index=False)[['litros']].sum()
     df_anual = df_filtered.groupby(['color'], as_index=False)[['fob', 'litros']].sum()
     dv = df_anual.copy()
     total = []
