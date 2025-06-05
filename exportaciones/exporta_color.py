@@ -568,7 +568,7 @@ def exporta_color():
     st.write('3')	
     fig = px.sunburst(df, path=['color','tipo_envase', 'grupoenvase'], values='litros',
                       #color=['color','tipo_envase']
-		      , hover_data=['grupoenvase'],
+		      hover_data=['grupoenvase'],
                       color_continuous_scale='RdBu',
                       #color_continuous_midpoint=np.average(df['litros'], weights=df['litros'])
 		      )
