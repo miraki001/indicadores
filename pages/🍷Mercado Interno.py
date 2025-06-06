@@ -311,9 +311,10 @@ with tab1:
   fig = make_subplots(specs=[[{"secondary_y": True}]])  
   for y in df2.anio.unique():
     dfy = df2[df2.anio == y]
-    st.write(dfy)
-    st.write(len(dfy['mes']))
+    #st.write(dfy)
+    #st.write(len(dfy['mes']))
     for indx in range(len(dfy['mes'])):
+      st.write(indx)
       hovertexts.append('({x},{y})'.format(x='Mes : ' +  dfy['mes'][indx], y= 'Hl : ' +  str(dfy['litros'][indx])))
 
     dfy["litro"] = dfy["litros"].astype(str)
