@@ -308,15 +308,14 @@ with tab1:
     dfy = df2[df2.anio == y]
     dfy["litro"] = dfy["litros"].astype(str)
 
-    fig.add_hline(
-        y=dfy.litros,
-    )    
     fig.add_bar(x = dfy.mes, y = dfy.litros,name = str(y))
 
   fig.show()
   st.plotly_chart(fig, theme="streamlit")
 
-
+  fig = go.Figure(data=[go.Histogram(y=df2['litros'],cumulative_enabled=True)])
+  fig.show()
+  st.plotly_chart(fig, theme="streamlit")
 
 
 
