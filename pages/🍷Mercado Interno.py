@@ -313,6 +313,7 @@ with tab1:
     dfy = df2[df2.anio == y]
     st.write(dfy)
     #st.write(len(dfy['mes']))
+    dfy = dfy.reset_index().rename_axis(None, axis=1)    
     for indx in range(len(dfy['mes'])):
       st.write(indx)
       hovertexts.append('({x},{y})'.format(x='Mes : ' +  dfy['mes'][indx], y= 'Hl : ' +  str(dfy['litros'][indx])))
