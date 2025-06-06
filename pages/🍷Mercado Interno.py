@@ -211,8 +211,8 @@ with tab1:
   if df_filtered.empty:
     st.error("No se encontraron datos en la base de datos.")
     st.stop()
+  df2 = df_filtered.groupby(['anio','mes'], as_index=False)[['litros']].sum()
   
-
   df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
 
   total = []
@@ -297,10 +297,10 @@ with tab1:
   litros.columns = litros.columns.droplevel(0)
   litros = litros.reset_index().rename_axis(None, axis=1)    
   litros  = litros.fillna(0)
-  df2 = dv2.groupby(['anio','mes'], as_index=False)[['litros']].sum()
+  #df2 = dv2.groupby(['anio','mes'], as_index=False)[['litros']].sum()
   df2["anio"] = df2["anio"].astype(str)
-  #fig = px.bar(df2, x="mes", y="litros", color="anio", title="despachos")  
-  #st.plotly_chart(fig, theme="streamlit")
+
+  
   colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A']
 
   fig = go.Figure()
