@@ -320,9 +320,9 @@ with tab1:
   fig.show()
   st.plotly_chart(fig, theme="streamlit")
 
-  fig = go.Figure(data=[go.Histogram(y=df2['litros'],cumulative_enabled=True)])
-  fig.show()
-  st.plotly_chart(fig, theme="streamlit")
+  #fig = go.Figure(data=[go.Histogram(y=df2['litros'],cumulative_enabled=True)])
+  #fig.show()
+  #st.plotly_chart(fig, theme="streamlit")
 
 
 
