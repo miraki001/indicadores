@@ -311,7 +311,7 @@ with tab1:
     dfy["litro"] = dfy["litros"].astype(str)
 
     fig.add_trace(
-      go.Scatter(x=df2['mes'], y=df2['litros'], name="Price", mode="lines"),
+      go.Scatter(x=dfy.mes, y=dfy.litros, name=str(y), mode="lines"),
       secondary_y=True
   )    
 
