@@ -299,31 +299,19 @@ with tab1:
   litros  = litros.fillna(0)
   df2 = dv2.groupby(['anio','mes'], as_index=False)[['litros']].sum()
   df2["anio"] = df2["anio"].astype(str)
-  fig = px.bar(df2, x="mes", y="litros", color="anio", title="despachos")  
-  st.plotly_chart(fig, theme="streamlit")
-
+  #fig = px.bar(df2, x="mes", y="litros", color="anio", title="despachos")  
+  #st.plotly_chart(fig, theme="streamlit")
+  colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A']
 
   fig = go.Figure()
   for y in df2.anio.unique():
     dfy = df2[df2.anio == y]
-    fig.add_bar(x = dfy.mes, y = dfy.litros, name = str(y))
+    fig.add_bar(x = dfy.mes, y = dfy.litros,marker=dict(color=colors) ,name = str(y))
 
   fig.show()
   st.plotly_chart(fig, theme="streamlit")
 
-  fig = go.Figure()
-  fig.add_trace(go.Bar(
-    x=df2['mes'],
-    y=df2['litros'],
-    name=str(df2['anio']),
-    marker_color=str(df2['anio'])
-  ))
 
-  
-  # Here we modify the tickangle of the xaxis, resulting in rotated labels.
-  fig.update_layout(barmode='group', xaxis_tickangle=-45)
-  fig.show()
-  st.plotly_chart(fig, theme="streamlit")
 
 
 
