@@ -308,12 +308,11 @@ with tab1:
     dfy = df2[df2.anio == y]
     dfy["litro"] = dfy["litros"].astype(str)
 
-    fig.add_trace(
-    go.Scatter(
+    fig.line(
         x=dfy.mes,
         y=dfy.litros,
        cumulative_enabled=True
-    ))    
+    )    
     fig.add_bar(x = dfy.mes, y = dfy.litros,name = str(y))
 
   fig.show()
