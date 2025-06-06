@@ -304,7 +304,7 @@ with tab1:
   
   colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A']
   hovertexts = []
-  for indx in range(len(df2['x'])):
+  for indx in range(len(df2['mes'])):
       hovertexts.append('({x},{y})'.format(x=data['mes'][indx], y=data['litros'][indx]))
 
   fig = go.Figure()
