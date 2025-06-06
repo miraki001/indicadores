@@ -310,7 +310,6 @@ with tab1:
 
     fig.add_hline(
         y=dfy.litros,
-       cumulative_enabled=True
     )    
     fig.add_bar(x = dfy.mes, y = dfy.litros,name = str(y))
 
