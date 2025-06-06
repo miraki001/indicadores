@@ -306,7 +306,8 @@ with tab1:
   fig = go.Figure()
   for y in df2.anio.unique():
     dfy = df2[df2.anio == y]
-    fig.add_bar(x = dfy.mes, y = dfy.litros,marker=dict(color=colors) ,name = str(y))
+    dfy["litro"] = dfy["litros"].astype(str)
+    fig.add_bar(x = dfy.mes, y = dfy.litros,name = str(y))
 
   fig.show()
   st.plotly_chart(fig, theme="streamlit")
