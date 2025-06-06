@@ -315,7 +315,7 @@ with tab1:
       secondary_y=True
     )    
 
-    fig.add_bar(x = dfy.mes, y = dfy.litros,name = str(y))
+    fig.add_bar(x = dfy.mes,text= 'Mes',  y = dfy.litros,name = str(y))
 
   fig.show()
   st.plotly_chart(fig, theme="streamlit")
