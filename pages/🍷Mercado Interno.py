@@ -304,14 +304,15 @@ with tab1:
   
   colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A']
   hovertexts = []
-  for indx in range(len(df2['mes'])):
-      hovertexts.append('({x},{y})'.format(x='Mes : ' +  df2['mes'][indx], y= 'Hl : ' +  str(df2['litros'][indx])))
+  #for indx in range(len(df2['mes'])):
+  #    hovertexts.append('({x},{y})'.format(x='Mes : ' +  df2['mes'][indx], y= 'Hl : ' +  str(df2['litros'][indx])))
 
   fig = go.Figure()
   fig = make_subplots(specs=[[{"secondary_y": True}]])  
   for y in df2.anio.unique():
     dfy = df2[df2.anio == y]
     st.write(dfy)
+    st.write(len(dfy['mes'])
     for indx in range(len(dfy['mes'])):
       hovertexts.append('({x},{y})'.format(x='Mes : ' +  dfy['mes'][indx], y= 'Hl : ' +  str(dfy['litros'][indx])))
 
