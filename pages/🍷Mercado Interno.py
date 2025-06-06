@@ -304,6 +304,7 @@ with tab1:
   colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A']
 
   fig = go.Figure()
+  fig = make_subplots(specs=[[{"secondary_y": True}]])  
   for y in df2.anio.unique():
     dfy = df2[df2.anio == y]
     dfy["litro"] = dfy["litros"].astype(str)
