@@ -303,6 +303,9 @@ with tab1:
 
   
   colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A']
+  hovertexts = []
+    for indx in range(len(df2['x'])):
+      hovertexts.append('({x},{y})'.format(x=data['mes'][indx], y=data['litros'][indx]))
 
   fig = go.Figure()
   fig = make_subplots(specs=[[{"secondary_y": True}]])  
@@ -315,7 +318,7 @@ with tab1:
       secondary_y=True
     )    
 
-    fig.add_bar(x = dfy.mes,text= 'Mes',  y = dfy.litros,name = str(y))
+    fig.add_bar(x = dfy.mes,  y = dfy.litros,name = str(y) ,hovertext = hovertexts,)
 
   fig.show()
   st.plotly_chart(fig, theme="streamlit")
