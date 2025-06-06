@@ -309,7 +309,6 @@ with tab1:
     dfy["litro"] = dfy["litros"].astype(str)
 
     fig.add_hline(
-        x=dfy.mes,
         y=dfy.litros,
        cumulative_enabled=True
     )    
