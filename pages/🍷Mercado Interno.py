@@ -308,7 +308,7 @@ with tab1:
     dfy = df2[df2.anio == y]
     dfy["litro"] = dfy["litros"].astype(str)
 
-    fig.add_line(
+    fig.add_hline(
         x=dfy.mes,
         y=dfy.litros,
        cumulative_enabled=True
