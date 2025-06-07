@@ -99,12 +99,14 @@ def exporta_evolucion():
 
     actual = dt.now().year -10 
     df_anios = pd.read_parquet("data/processed/expo_anios.parquet", engine="pyarrow")
+    st.write(df_anios)
     year_list = df_anios["anio"].to_numpy()
     dv22 = df_anios[df_anios['anio'] > actual ]
     year_filter = dv22["anio"].to_numpy()
+    st.write(dv22)
 
-    year_list = np.append("Todos",year_list)
-    year_list = df_anios["anio"].to_numpy()
+    #year_list = np.append("Todos",year_list)
+    #year_list = df_anios["anio"].to_numpy()
     if "filtrosee" not in st.session_state:
         st.session_state.filtrosee = {
             "anio": "Todos",
