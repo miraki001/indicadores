@@ -321,11 +321,11 @@ with tab1:
     dfy["litro"] = dfy["litros"].astype(str)
 
     fig.add_trace(
-      go.Scatter(x=dfy.mes, y=dfy.litros.cumsum(), name=str(y), mode="lines",text='Acumulados'),
+      go.Scatter(x=dfy.mes1, y=dfy.litros.cumsum(), name=str(y), mode="lines",text='Acumulados'),
       secondary_y=True
     )    
 
-    fig.add_bar(x = dfy.mes,  y = dfy.litros,name = str(y) ,hovertext = hovertexts,)
+    fig.add_bar(x = dfy.mes1,  y = dfy.litros,name = str(y) ,hovertext = hovertexts,)
 
   fig.show()
   st.plotly_chart(fig, theme="streamlit")
