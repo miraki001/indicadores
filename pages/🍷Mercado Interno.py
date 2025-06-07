@@ -236,6 +236,7 @@ with tab1:
   if df_filtered.empty:
     st.error("No se encontraron datos en la base de datos.")
     st.stop()
+  dv3= df_filtered
   df2 = df_filtered.groupby(['anio','mes1'], as_index=False)[['litros']].sum()
   
   df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
@@ -311,7 +312,7 @@ with tab1:
 
   #fig = px.bar(long_df, x="nation", y="count", color="medal", title="Long-Form Input")  
   #t.plotly_chart(fig, theme="streamlit")
-  dv2 = df_filtered   
+  dv2 = dv3   
   dv2 = dv2[dv2['anio'] > actual ]    
   litros = dv2.pivot_table(
           index='mes', 
