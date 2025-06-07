@@ -181,13 +181,14 @@ with tab1:
   Filtro = Filtro +  ' Todos '
 
   if año:
-    st.write(año)
+    #st.write(año)
     if año[0] != 'Todos':
         df_filtered = df_filtered[df_filtered['anio'].isin(año)]
         df_filtered["anio"] = df_filtered["anio"].astype(str)  
         Filtro = Filtro +  ' ' +str(año) + ' '
           
-  st.write(df_filtered)
+  
+  #st.write(df_filtered)
   if variedad:
     if variedad[0] != 'Todas':
         df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
@@ -303,21 +304,11 @@ with tab1:
 
   
   colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A']
-  hovertexts = []
-  #for indx in range(len(df2['mes1'])):
-  #    hovertexts.append('({x},{y})'.format(x='Mes : ' +  df2['mes'][indx], y= 'Hl : ' +  str(df2['litros'][indx])))
 
   fig = go.Figure()
   fig = make_subplots(specs=[[{"secondary_y": True}]])  
   for y in df2.anio.unique():
     dfy = df2[df2.anio == y]
-    st.write(dfy)
-    #st.write(len(dfy['mes']))
-    dfy = dfy.reset_index().rename_axis(None, axis=1)    
-    for indx in range(len(dfy['mes1'])):
-      st.write(indx)
-      hovertexts.append('({x},{y})'.format(x='Mes : ' +  dfy['mes1'][indx], y= 'Hl : ' +  str(dfy['litros'][indx])))
-    st.write(hovertexts)
     dfy["litro"] = dfy["litros"].astype(str)
 
     fig.add_trace(
@@ -325,7 +316,7 @@ with tab1:
       secondary_y=True
     )    
 
-    fig.add_bar(x = dfy.mes1,  y = dfy.litros,name = str(y) ,hovertext = hovertexts,)
+    fig.add_bar(x = dfy.mes1,  y = dfy.litros,name = str(y) )
 
   fig.show()
   st.plotly_chart(fig, theme="streamlit")
