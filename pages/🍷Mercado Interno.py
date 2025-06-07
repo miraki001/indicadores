@@ -136,6 +136,7 @@ if "filtroseee" not in st.session_state:
             "depto": "Todos",
             "producto": "Todos",
             "Pais": "Todos",
+            "Envase": 'Todos'
         }
 
 
