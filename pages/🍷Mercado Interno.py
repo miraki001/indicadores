@@ -194,7 +194,7 @@ with tab1:
     with col6:
         with st.popover("Envase"):
             st.caption("Selecciona uno o más Envases de la lista")
-            envase = st.multiselect("Envased",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")                
+            envase = st.multiselect("Envased",  envase_list, default=["Todos"],label_visibility="collapsed")                
 
 
   Filtro = 'Filtro = Año = '
