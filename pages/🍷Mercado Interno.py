@@ -304,7 +304,7 @@ with tab1:
   
   colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A']
   hovertexts = []
-  #for indx in range(len(df2['mes'])):
+  #for indx in range(len(df2['mes1'])):
   #    hovertexts.append('({x},{y})'.format(x='Mes : ' +  df2['mes'][indx], y= 'Hl : ' +  str(df2['litros'][indx])))
 
   fig = go.Figure()
@@ -314,9 +314,9 @@ with tab1:
     st.write(dfy)
     #st.write(len(dfy['mes']))
     dfy = dfy.reset_index().rename_axis(None, axis=1)    
-    for indx in range(len(dfy['mes'])):
+    for indx in range(len(dfy['mes1'])):
       st.write(indx)
-      hovertexts.append('({x},{y})'.format(x='Mes : ' +  dfy['mes'][indx], y= 'Hl : ' +  str(dfy['litros'][indx])))
+      hovertexts.append('({x},{y})'.format(x='Mes : ' +  dfy['mes1'][indx], y= 'Hl : ' +  str(dfy['litros'][indx])))
     st.write(hovertexts)
     dfy["litro"] = dfy["litros"].astype(str)
 
