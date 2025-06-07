@@ -12,6 +12,7 @@ from datetime import datetime as dt
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from datetime import datetime as dt
 
 
 
@@ -94,6 +95,16 @@ def exporta_evolucion():
     color_list = sorted(df_filtros["color"].dropna().unique())
     producto_list = sorted(df_filtros["producto"].dropna().unique())
     pais_list = sorted(df_filtros["pais"].dropna().unique())
+
+
+    actual = dt.now().year -10 
+    df_anios = pd.read_parquet("data/processed/expo_anios.parquet", engine="pyarrow")
+    year_list = df_anios["anio"].to_numpy()
+    dv22 = df_anios[df_anios['anio'] > actual ]
+    year_filter = dv22["anio"].to_numpy()
+
+    year_list = np.append("Todos",year_list)
+    year_list = df_anios["anio"].to_numpy()
     if "filtrosee" not in st.session_state:
         st.session_state.filtrosee = {
             "anio": "Todos",
@@ -127,7 +138,7 @@ def exporta_evolucion():
     """
 
     QUERY_V2 = f"""
-        SELECT anio, mes, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl 
+        SELECT anio, mes,mes ||' '|| mess as mes1, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl 
         ,variedad1 as variedad,tipo_envase as envase,color,producto
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
@@ -149,7 +160,7 @@ def exporta_evolucion():
         with col1:
             with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año",   ["Todos"] + year_list, default=['Todos'],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Año",    year_list, default=year_filter,label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
