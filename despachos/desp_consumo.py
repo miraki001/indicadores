@@ -154,9 +154,14 @@ def despachos_consumo():
         fig.add_trace(
           go.Scatter(x=dfy.mes, y=dfy.CERVEZAS.cumsum(), name=str(y), mode="lines",text='Acumulados'),
           secondary_y=True
-        )    
+        )   
+        fig.add_trace(
+          go.Scatter(x=dfy.mes, y=dfy.VINOS_COMUNES.cumsum(), name=str(y), mode="lines",text='Acumulados'),
+          secondary_y=True
+        ) 
 
         fig.add_bar(x = dfy.mes,  y = dfy.CERVEZAS,name = str(y) )
+        fig.add_bar(x = dfy.mes,  y = dfy.VINOS_COMUNES,name = str(y) )
 
     fig.show()
     st.plotly_chart(fig, theme="streamlit")
