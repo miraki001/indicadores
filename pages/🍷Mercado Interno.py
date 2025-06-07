@@ -300,7 +300,7 @@ with tab1:
         "data": df_filtered['Año'].to_list(),
     },
     "yAxis": {"type": "value"},
-    "series": [{"data": df_filtered['Litros'].to_list(), "type": "line", "name": 'Litros'},
+    "series": [{"data": df_filtered['Litros'].to_list(), "type": "line", "name": 'Hl'},
                ]
   }
   st_echarts(
@@ -420,7 +420,7 @@ with tab1:
             },            
             "xAxis": {"type": "category", "data": litros["mes"].tolist()},
             "yAxis": [
-                {"type": "value" ,"name" : "Litros" ,
+                {"type": "value" ,"name" : "Hl" ,
                  "axisLine": {
                     "show": 'false',
                   },              
@@ -439,7 +439,7 @@ with tab1:
                     "formatter": '{value}  '
                       }
                 },
-                {"type": "value" , "name" : "Litros Acum",
+                {"type": "value" , "name" : "Hl Acum",
                  "position" : 'rigth',
                  "alignTicks": 'true',
                  "offset": 10,
