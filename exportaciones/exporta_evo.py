@@ -195,6 +195,7 @@ def exporta_evolucion():
 
     
     df_filtered = dv1.copy()    
+    df_filtered['anio'] = df_filtered['anio'].astype(str)
     Filtro = 'Filtro = Año = '
     
     if año:
