@@ -487,6 +487,8 @@ def exporta_evolucion():
 
 
         st.write('nuevo')
+        df2 = dv2.groupby(['anio','mes1'], as_index=False)[['litros']].sum()
+        #dv2 = dv2[dv2['anio'] > actual ] 
         fig = go.Figure()
         fig = make_subplots(specs=[[{"secondary_y": True}]])  
         for y in df2.anio.unique():
