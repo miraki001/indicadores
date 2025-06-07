@@ -123,6 +123,9 @@ year_filter = dv22["anio"].to_numpy()
 
 year_list = np.append("Todos",year_list)
 year_list = df_anios["anio"].to_numpy()
+df_envases = pd.read_parquet("data/processed/despachos_envases.parquet", engine="pyarrow")
+envase_list = df_envases["subgrupoenvase"].to_numpy()
+envase_list = np.append(envase_list, "Todos"
 
 
 if "filtroseee" not in st.session_state:
@@ -157,7 +160,7 @@ tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por 
 with tab1:
 
   with st.container(border=True):
-    col1, col2, col3,col4,col5= st.columns([1, 1, 1,1,1])  # Ajusta los tamaños de las columnas
+    col1, col2, col3,col4,col5,col6= st.columns([1, 1, 1,1,1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
     with col1:    
@@ -187,6 +190,10 @@ with tab1:
         with st.popover("Producto"):
             st.caption("Selecciona uno o más Productos de la lista")
             producto = st.multiselect("Coloreo",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
+    with col6:
+        with st.popover("Envase"):
+            st.caption("Selecciona uno o más Envases de la lista")
+            envase = st.multiselect("Envased",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")                
 
 
   Filtro = 'Filtro = Año = '
@@ -221,7 +228,10 @@ with tab1:
     if producto[0] != 'Todos':
         df_filtered = df_filtered[df_filtered['producto'].isin(producto)]
     Filtro = Filtro + ' Producto = ' +  str(producto) + ' '
-
+  if envase:
+    if envase[0] != 'Todos':
+        df_filtered = df_filtered[df_filtered['envase'].isin(envase)]
+    Filtro = Filtro + ' Envase = ' +  str(envase) + ' '
   if df_filtered.empty:
     st.error("No se encontraron datos en la base de datos.")
     st.stop()
