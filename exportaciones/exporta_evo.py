@@ -9,6 +9,9 @@ from pyecharts.charts import Bar
 from pyecharts import options as opts
 from pyecharts.charts import Line
 from datetime import datetime as dt
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 
 
@@ -469,6 +472,25 @@ def exporta_evolucion():
         }
 
         st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+
+
+
+        st.write('nuevo')
+        fig = go.Figure()
+        fig = make_subplots(specs=[[{"secondary_y": True}]])  
+        for y in df2.anio.unique():
+            dfy = df2[df2.anio == y]
+            dfy["litro"] = dfy["litros"].astype(str)
+
+            fig.add_trace(
+              go.Scatter(x=dfy.mes1, y=dfy.litros.cumsum(), name=str(y), mode="lines",text='Acumulados'),
+              secondary_y=True
+            )    
+
+            fig.add_bar(x = dfy.mes1,  y = dfy.litros,name = str(y) )
+
+        fig.show()
+        st.plotly_chart(fig, theme="streamlit")
 
         #st.subheader("Exportaciones evolución mensual en litros")
        
