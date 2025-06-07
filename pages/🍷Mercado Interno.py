@@ -109,6 +109,10 @@ depto_list = sorted(df_filtros["departamento"].dropna().unique())
 producto_list = sorted(df_filtros["producto"].dropna().unique())
 #pais_list = sorted(df_filtros["pais"].dropna().unique())
 
+actual = dt.now().year -10 
+year_filter = [a for a in year_list if a > actual ]
+st.write(year_filter)
+
 df_anios = pd.read_parquet("data/processed/despachos_anios.parquet", engine="pyarrow")
 year_list = df_anios["anio"].to_numpy()
 year_list = np.append("Todos",year_list)
@@ -152,7 +156,8 @@ with tab1:
     with col1:    
         with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año",  year_list, default=['Todos'],label_visibility="collapsed",help="Selecciona uno o más años")
+                #año = st.multiselect("Año",  year_list, default= ['Todos'],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Año",  year_list, default= year_filter,label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
     
