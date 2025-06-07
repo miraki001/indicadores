@@ -48,7 +48,7 @@ def cargar_datos(consulta):
 
 
 QUERY_V0 = f"""
-        SELECT distinct anio,variedad1 as variedad,provincia,departamento,producto,subgrupoenvase
+        SELECT distinct anio,variedad1 as variedad,provincia,departamento,producto,subgrupoenvase,mes1
         FROM despachos_m 
         where producto not in ('Mosto','Alcohol')
         
@@ -103,6 +103,7 @@ QUERY_V1 = f"""
 
     # Listas de valores únicos para los filtros
 year_list = sorted(df_filtros["anio"].dropna().unique(), reverse=True)
+
 var_list = sorted(df_filtros["variedad"].dropna().unique())
 prov_list = sorted(df_filtros["provincia"].dropna().unique())
 depto_list = sorted(df_filtros["departamento"].dropna().unique())
@@ -110,7 +111,10 @@ producto_list = sorted(df_filtros["producto"].dropna().unique())
 #pais_list = sorted(df_filtros["pais"].dropna().unique())
 
 actual = dt.now().year -10 
-year_filter = str([a for a in year_list if a > actual ])
+dv22 = df_filtros[df_filtros['anio'] > actual ]
+year_filter = sorted(dv22["anio"].dropna().unique(), reverse=True)
+
+#year_filter = str([a for a in year_list if a > actual ])
 #year_filter = year_filter.to_numpy()
 st.write(year_filter)
 
