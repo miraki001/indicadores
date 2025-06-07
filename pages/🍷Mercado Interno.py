@@ -313,6 +313,7 @@ with tab1:
   #fig = px.bar(long_df, x="nation", y="count", color="medal", title="Long-Form Input")  
   #t.plotly_chart(fig, theme="streamlit")
   dv2 = dv3   
+  dv3["anio"] = dv3["anio"].astype(int)
   dv2 = dv2[dv2['anio'] > actual ]    
   litros = dv2.pivot_table(
           index='mes', 
