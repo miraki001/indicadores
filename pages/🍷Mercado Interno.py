@@ -311,7 +311,7 @@ with tab1:
 
   #fig = px.bar(long_df, x="nation", y="count", color="medal", title="Long-Form Input")  
   #t.plotly_chart(fig, theme="streamlit")
-  dv2 = dv1  
+  dv2 = df_filtered   
   dv2 = dv2[dv2['anio'] > actual ]    
   litros = dv2.pivot_table(
           index='mes', 
