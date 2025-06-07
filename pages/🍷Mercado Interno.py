@@ -212,7 +212,7 @@ with tab1:
   if df_filtered.empty:
     st.error("No se encontraron datos en la base de datos.")
     st.stop()
-  df2 = df_filtered.groupby(['anio','mes'], as_index=False)[['litros']].sum()
+  df2 = df_filtered.groupby(['anio','mes1'], as_index=False)[['litros']].sum()
   
   df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
 
