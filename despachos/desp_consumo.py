@@ -4,6 +4,9 @@ import numpy as np
 import json
 from streamlit_echarts import st_echarts
 from streamlit_echarts import JsCode
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 from datetime import datetime as dt
 
@@ -139,6 +142,24 @@ def despachos_consumo():
     litros = litros.reset_index().rename_axis(None, axis=1)  
     #st.write(litros['periodo'])
     litros['periodo'] = litros['periodo'].astype(str)    
+
+
+
+    fig = go.Figure()
+    fig = make_subplots(specs=[[{"secondary_y": True}]])  
+    for y in df_filtered.anio.unique():
+        dfy = df_filtered[df_filtered.anio == y]
+        #dfy["litro"] = dfy["litros"].astype(str)
+
+        fig.add_trace(
+          go.Scatter(x=dfy.mes, y=dfy.CERVEZAS.cumsum(), name=str(y), mode="lines",text='Acumulados'),
+          secondary_y=True
+        )    
+
+        fig.add_bar(x = dfy.mes,  y = dfy.CERVEZAS,name = str(y) )
+
+    fig.show()
+    st.plotly_chart(fig, theme="streamlit")
     
     st.caption(Filtro)
     option = {
