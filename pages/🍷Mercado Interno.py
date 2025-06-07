@@ -110,7 +110,7 @@ producto_list = sorted(df_filtros["producto"].dropna().unique())
 #pais_list = sorted(df_filtros["pais"].dropna().unique())
 
 actual = dt.now().year -10 
-year_filter = [a for a in year_list if a > actual ]
+year_filter = [a for a in year_list if a > actual ].to_numpy()
 st.write(year_filter)
 
 df_anios = pd.read_parquet("data/processed/despachos_anios.parquet", engine="pyarrow")
