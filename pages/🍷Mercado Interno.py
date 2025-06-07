@@ -125,7 +125,7 @@ year_list = np.append("Todos",year_list)
 year_list = df_anios["anio"].to_numpy()
 df_envases = pd.read_parquet("data/processed/despachos_envases.parquet", engine="pyarrow")
 envase_list = df_envases["subgrupoenvase"].to_numpy()
-envase_list = np.append(envase_list, "Todos")
+envase_list = np.append("Todos",envase_list)
 
 
 if "filtroseee" not in st.session_state:
