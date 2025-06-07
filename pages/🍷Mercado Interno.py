@@ -231,7 +231,7 @@ with tab1:
     Filtro = Filtro + ' Producto = ' +  str(producto) + ' '
   if envase:
     if envase[0] != 'Todos':
-        df_filtered = df_filtered[df_filtered['envase'].isin(envase)]
+        df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(envase)]
     Filtro = Filtro + ' Envase = ' +  str(envase) + ' '
   if df_filtered.empty:
     st.error("No se encontraron datos en la base de datos.")
