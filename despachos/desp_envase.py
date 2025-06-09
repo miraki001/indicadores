@@ -112,13 +112,13 @@ def despachos_envase(df_filtros,df):
         
     if producto:
         if producto[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['producto'].isin(variedad)]
+            df_filtered = df_filtered[df_filtered['producto'].isin(producto)]
             #st.write(variedad)
         Filtro = Filtro + ' Productos = ' +  str(producto) + ' '
     
     if envase:
         if envase[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(color)]          
+            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(envase)]          
         Filtro = Filtro + ' Envases = ' +  str(envase) + ' '
         
     if provincia:
@@ -131,6 +131,12 @@ def despachos_envase(df_filtros,df):
     actual = dt.now().year -4 
     #df_filtered = df_filtered[df_filtered['anio'] > actual ]   
     #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
+
+
+    if df_filtered.empty:
+        st.error("No se encontraron datos en la base de datos.")
+        st.stop()
+    
     litros = df_filtered.pivot_table(
           index='anio', 
           columns='subgrupoenvase',  
@@ -141,6 +147,25 @@ def despachos_envase(df_filtros,df):
     litros.columns = litros.columns.droplevel(0)   
     litros = litros.reset_index()
     #st.write(litros)
+
+    if not 'Sachet'  in litros:
+      litros['Sachet'] = 0 
+    if not 'Bidon'  in litros:
+      litros['Bidon'] = 0 
+    if not 'Botella'  in litros:
+      litros['Botella'] = 0     
+    if not 'Damajuana'  in litros:
+      litros['Damajuana'] = 0     
+    if not 'Fraccionamiento sin Sub Grupo'  in litros:
+      litros['Fraccionamiento sin Sub Grupo'] = 0     
+    if not 'Bag in Box'  in litros:
+      litros['Bag in Box'] = 0     
+    if not 'Granel'  in litros:
+      litros['Granel'] = 0     
+    if not 'Lata'  in litros:
+      litros['Lata'] = 0     
+    if not 'Multilaminado'  in litros:
+      litros['Multilaminado'] = 0     
     
     #for index in range(len(litros)):
     #    litros['Rosado'].loc[index] = litros['Rosado'].loc[index] +litros['Sin Dato'].loc[index]  
