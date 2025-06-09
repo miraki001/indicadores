@@ -238,6 +238,7 @@ def despachos_color(df_filtros,df):
     actual1 = dt.now().year -1
     #st.write(actual1)
     litros = litros[litros['Año'] == actual1 ]  
+    st.write(litros)
     blanco = int(litros['Blanco'])
     tinto = int(litros['Tinto'])
     rosado = int(litros['Rosado'])
