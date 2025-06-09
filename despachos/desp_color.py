@@ -136,6 +136,11 @@ def despachos_color(df_filtros,df):
     
     #df_filtered = df_filtered[df_filtered['anio'] > actual ]   
     #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
+
+    if df_filtered.empty:
+        st.error("No se encontraron datos en la base de datos.")
+        st.stop()
+    
     litros = df_filtered.pivot_table(
           index='anio', 
           columns='color',  
