@@ -285,6 +285,11 @@ def despachos_envase(df_filtros,df):
     actual1 = dt.now().year -1
     #st.write(actual1)
     litros = litros[litros['Año'] == actual1 ]  
+
+    if litros.empty:
+        st.error("No se encontraron datos en la base de datos.")
+        st.stop() 
+        
     Bidon = int(litros['Bidon'])
     Botella = int(litros['Botella'])
     Damajuana = int(litros['Damajuana'])
