@@ -118,6 +118,7 @@ def despachos_prov(df_filtros,df):
             
 
     #df_filtered = dv1.copy()
+    st.write(df_filtered)
 
     if df_filtered.empty:
         st.error("No se encontraron datos en la base de datos.")
