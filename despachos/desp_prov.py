@@ -107,7 +107,7 @@ def despachos_prov(df_filtros,df):
         
     if producto:
         if producto[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['producto'].isin(variedad)]
+            df_filtered = df_filtered[df_filtered['producto'].isin(producto )]
             #st.write(variedad)
         Filtro = Filtro + ' Productos = ' +  str(producto) + ' '
     
