@@ -138,7 +138,6 @@ def despachos_color(df_filtros,df):
         st.error("No se encontraron datos en la base de datos.")
         st.stop()
 
-    st.write(df_filtered)
     litros = df_filtered.pivot_table(
           index='anio', 
           columns='color',  
