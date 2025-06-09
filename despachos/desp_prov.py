@@ -126,6 +126,11 @@ def despachos_prov(df_filtros,df):
     
     actual = dt.now().year -4 
     df_filtered = df_filtered[df_filtered['anio'] > actual ]   
+
+    if df_filtered.empty:
+        st.error("No se encontraron datos en la base de datos.")
+        st.stop()
+    
     #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
     litros = df_filtered.pivot_table(
           index='provincia', 
