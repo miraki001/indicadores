@@ -112,13 +112,13 @@ def despachos_color(df_filtros,df):
         
     if producto:
         if producto[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['producto'].isin(variedad)]
+            df_filtered = df_filtered[df_filtered['producto'].isin(producto)]
             #st.write(variedad)
         Filtro = Filtro + ' Productos = ' +  str(producto) + ' '
     
     if envase:
         if envase[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(color)]          
+            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(envase)]          
         Filtro = Filtro + ' Envases = ' +  str(envase) + ' '
         
     if provincia:
