@@ -113,11 +113,16 @@ def despachos_prov(df_filtros,df):
     
     if envase:
         if envase[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(color)]          
+            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(envase)]          
         Filtro = Filtro + ' Envases = ' +  str(envase) + ' '
             
 
     #df_filtered = dv1.copy()
+
+    if df_filtered.empty:
+        st.error("No se encontraron datos en la base de datos.")
+        st.stop()
+    
     actual = dt.now().year -4 
     df_filtered = df_filtered[df_filtered['anio'] > actual ]   
     #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
