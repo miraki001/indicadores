@@ -149,6 +149,17 @@ def despachos_color(df_filtros,df):
     litros.columns = litros.columns.droplevel(0)   
     litros = litros.reset_index()
     #st.write(litros['Rosado'])
+
+
+    if not 'Rosado'  in litros:
+      litros['Rosado'] = 0 
+    if not 'Blanco'  in litros:
+      litros['Blanco'] = 0 
+    if not 'Tinto'  in litros:
+      litros['Tinto'] = 0     
+    if not 'Sin Dato'  in litros:
+      litros['Sin Dato'] = 0     
+        
     for index in range(len(litros)):
         litros['Rosado'].loc[index] = litros['Rosado'].loc[index] +litros['Sin Dato'].loc[index]  
     tot1 = []
