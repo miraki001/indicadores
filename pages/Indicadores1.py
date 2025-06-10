@@ -68,6 +68,47 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 dv1 = pd.read_parquet("data/processed/despachos_datos.parquet", engine="pyarrow")
 
+
+def gauge(value):
+  option = {
+    "tooltip": {
+      "formatter": '{a} <br/>{b} : {c}%'
+      },
+    "series": [
+      {
+        "name": 'Current',
+        "type": 'gauge',
+        "progress": {
+          "show": False
+          },
+        "axisLine": {
+          "lineStyle": {
+            "width": 6,
+            "color": [
+              [0.2, 'rgb(235, 34, 14)'],
+              [0.4, 'rgb(242, 99, 9)'],
+              [0.6, 'rgb(250, 197, 21)'],
+              [0.8, 'rgb(117, 198, 5)'],
+              [1, 'rgb(56, 182, 14)']
+              ]
+            }
+          },
+        "detail": {
+          "valueAnimation": True,
+          "formatter": f'{value}%',
+          "color": 'auto'
+          },
+        "data": [
+          {
+            "value": value,
+            "name": '%'
+            },
+          ]
+        }
+      ]
+    }
+  st_echarts(option, height="400px", key="echarts-1")
+
 df_filtered = dv1.copy() 
 actual = dt.now().year -4 
 tab1, tab2, tab3,tab4 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie"])
@@ -89,10 +130,11 @@ with tab1:
       
       mes2 = max(dva['mes1'])
       #st.write(mes2)
-      st.write('Perido : 01 Enero/' + mes2)
+      st.write('Periodo : 01 Enero/' + mes2)
    with col[1]:
       st.write(dvo)
       st.write(max(dvo['mes']))
+      echarts_module.gauge(1500)
                
 with tab2:
   st.write('vacio')
