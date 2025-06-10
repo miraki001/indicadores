@@ -101,7 +101,7 @@ def gauge(value):
         "data": [
           {
             "value": value,
-            "name": '%'
+            "name": 'Hl'
             },
           ]
         }
