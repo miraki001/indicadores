@@ -127,6 +127,11 @@ df_envases = pd.read_parquet("data/processed/despachos_envases.parquet", engine=
 envase_list = df_envases["subgrupoenvase"].to_numpy()
 envase_list = np.append("Todos",envase_list)
 
+df_color = pd.read_parquet("data/processed/despachos_color.parquet", engine="pyarrow")
+color_list = df_color["color"].to_numpy()
+color_list = np.append("Todos",color_list)
+
+
 
 if "filtroseee" not in st.session_state:
         st.session_state.filtrosee = {
@@ -161,7 +166,7 @@ tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por 
 with tab1:
 
   with st.container(border=True):
-    col1, col2, col3,col4,col5,col6= st.columns([1, 1, 1,1,1,1])  # Ajusta los tamaños de las columnas
+    col1, col2, col3,col4,col5,col6,col7= st.columns([1, 1, 1,1,1,1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
     with col1:    
@@ -196,6 +201,10 @@ with tab1:
             st.caption("Selecciona uno o más Envases de la lista")
             envase = st.multiselect("Envased",  envase_list, default=["Todos"],label_visibility="collapsed")                
 
+    with col7:
+        with st.popover("Color"):
+            st.caption("Selecciona uno o más Colores de la lista")
+            color = st.multiselect("colord",  color_list, default=["Todos"],label_visibility="collapsed")                
 
   Filtro = 'Filtro = Año = '
   Filtro = Filtro +  ' Todos '
