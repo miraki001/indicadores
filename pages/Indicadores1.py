@@ -85,4 +85,9 @@ with tab1:
       st.write(dva)
       
     with col[1]:
+with tab2:
+  
+with tab3:
+with tab4:
+  
 
