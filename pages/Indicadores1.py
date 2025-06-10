@@ -70,4 +70,18 @@ dv1 = pd.read_parquet("data/processed/despachos_datos.parquet", engine="pyarrow"
 
 df_filtered = dv1.copy() 
 actual = dt.now().year -4 
+tab1, tab2, tab3,tab4 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie"])
+
+with tab1:
+    st.header("Indicadores")
+
+    col = st.columns((1.5, 4.5, 2), gap='medium')
+
+    with col[0]:
+      actual = dt.now().year  
+      anterior = dt.now().year -1  
+      dva = dv1[dv1['anio'] == actual ]
+      dvo = dv1[dv1['anio'] == anterior ]
+      st.write(dva)
+    with col[1]:
 
