@@ -242,6 +242,13 @@ with tab1:
     if envase[0] != 'Todos':
         df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(envase)]
     Filtro = Filtro + ' Envase = ' +  str(envase) + ' '
+  if color:
+    if color[0] != 'Todos':
+        df_filtered = df_filtered[df_filtered['color'].isin(color)]
+    Filtro = Filtro + ' Color = ' +  str(color) + ' '
+
+
+  
   if df_filtered.empty:
     st.error("No se encontraron datos en la base de datos.")
     st.stop()
