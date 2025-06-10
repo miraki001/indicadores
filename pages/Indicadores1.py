@@ -84,7 +84,9 @@ with tab1:
       dvo = dv1[dv1['anio'] == anterior ]
       st.write(dva)
       
+     
    with col[1]:
+      st.write(dvo)
 with tab2:
   
 with tab3:
