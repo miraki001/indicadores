@@ -112,13 +112,13 @@ def despachos_variedad(df_filtros,df):
         
     if producto:
         if producto[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['producto'].isin(variedad)]
+            df_filtered = df_filtered[df_filtered['producto'].isin(producto)]
             #st.write(variedad)
         Filtro = Filtro + ' Productos = ' +  str(producto) + ' '
     
     if envase:
         if envase[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(color)]          
+            df_filtered = df_filtered[df_filtered['subgrupoenvase'].isin(envase)]          
         Filtro = Filtro + ' Envases = ' +  str(envase) + ' '
         
     if provincia:
@@ -130,6 +130,11 @@ def despachos_variedad(df_filtros,df):
     #df_filtered = dv1.copy()
     actual = dt.now().year -4 
     df_filtered = df_filtered[df_filtered['anio'] > actual ]   
+
+    if df_filtered.empty:
+        st.error("No se encontraron datos en la base de datos.")
+        st.stop()
+    
     #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
     litros = df_filtered.pivot_table(
           index='variedad', 
