@@ -88,8 +88,12 @@ with tab1:
    with col[1]:
       st.write(dvo)
 with tab2:
+  st.write('vacio')
   
 with tab3:
+  st.write('vacio')  
 with tab4:
+  st.write('vacio')
+  
   
 
