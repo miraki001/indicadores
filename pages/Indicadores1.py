@@ -82,13 +82,14 @@ with tab1:
       anterior = dt.now().year -1  
       dva = dv1[dv1['anio'] == actual ]
       dvo = dv1[dv1['anio'] == anterior ]
-      st.write(dva)
-      st.write(max(dva['mes']))
+      #st.write(dva)
+      #st.write(max(dva['mes']))
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
       
       mes2 = max(dva['mes1'])
-      st.write(mes2)
+      #st.write(mes2)
+      st.write('Perido : 01 Enero/' + mes2)
    with col[1]:
       st.write(dvo)
       st.write(max(dvo['mes']))
