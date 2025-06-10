@@ -131,7 +131,7 @@ with tab1:
       mes2 = max(dva['mes1'])
       #st.write(mes2)
       st.write('Periodo : 01 Enero/' + mes2)
-      gauge(1500
+      gauge(1500)
    with col[1]:
       st.write(dvo)
       st.write(max(dvo['mes']))
