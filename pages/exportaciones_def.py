@@ -32,7 +32,7 @@ st.set_page_config(initial_sidebar_state="collapsed",
 #st.set_page_config(layout="wide")
 
 
-tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Evolución", "Destinos", "Variedades","Color/Envase","Mosto Evolución","Mosto Destinos", "Mosto Productos"])
+tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Evolución", "Destinos", "Variedades","Color/Envase","Mosto ","Espumantes", "Mercado Mundial"])
 
 #tab1, tab2, tab3,tab4 = st.tabs(["Evolución", "Totales", "Filtros","Por Provincias"])
 #tabs = st.tabs([s.center(whitespace,"-") for s in listTabs])
@@ -59,6 +59,8 @@ with tab4:
 with tab5:
     #st.session_state['vEstado'] = '0'
     mosto_evo.exporta_mosto_evo()    
+    mosto_pais.exporta_mosto_destino()    
+    mosto_producto.exporta_mosto_producto()    
     
 with tab6:
     #st.session_state['vEstado'] = '0'
