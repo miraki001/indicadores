@@ -87,7 +87,7 @@ with tab1:
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
       
-      mes2 =  = max(dva['mes1'])
+      mes2 = max(dva['mes1'])
       st.write(mes2)
    with col[1]:
       st.write(dvo)
