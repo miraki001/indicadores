@@ -83,10 +83,12 @@ with tab1:
       dva = dv1[dv1['anio'] == actual ]
       dvo = dv1[dv1['anio'] == anterior ]
       st.write(dva)
+      st.write(max(dva['mes'])
       
      
    with col[1]:
       st.write(dvo)
+      st.write(max(dvo['mes'])
 with tab2:
   st.write('vacio')
   
