@@ -75,7 +75,7 @@ tab1, tab2, tab3,tab4 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno
 with tab1:
    st.header("Indicadores")
 
-   col = st.columns((1.5, 4.5, 2), gap='medium')
+   col = st.columns((4.5, 4.5, 2), gap='medium')
 
    with col[0]:
       actual = dt.now().year  
