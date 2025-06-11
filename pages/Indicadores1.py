@@ -341,6 +341,7 @@ with tab3:
   dva.loc[dva["subgrupoenvase"] == "Vasija", "subgrupoenvase"] = "Otros"
   dva.loc[dva["subgrupoenvase"] == "Fraccionamiento sin Sub Grupo", "subgrupoenvase"] = "Otros"
   dva.loc[dva["subgrupoenvase"] == "Granel", "subgrupoenvase"] = "Otros"
+  st.write(dva)
   df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
   df_filtered = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
   #st.write(df_anual)
