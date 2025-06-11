@@ -255,6 +255,11 @@ with tab1:
                
 with tab2:
   st.write('vacio')
+  dva = dv1[dv1['anio'] == actual ]
+
+  df_filtered = df_filtered.groupby(['color'], as_index=False)[['litros']].sum()
+  st.write(df_filtered)
+
   
 with tab3:
   st.write('vacio')  
