@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
-from .database import get_connection
+#from .database import get_connection
+
+conn = st.connection("postgresql", type="sql"
 
 @st.cache_data
 def exportaciones_filtros():
-    conn = get_connection()
+    #conn = get_connection()
     query =  "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais,grupoenvase from exportaciones2_m where producto not in ('Mosto','Alcohol')"
     try:
         df = conn.query(query, ttl="0")
