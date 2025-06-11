@@ -191,7 +191,11 @@ with tab1:
       vala = dva['litros'].sum()
       valo = dvo['litros'].sum()
       deltao = valo/vala
+      if deltao < 1:
+        deltao = (1- deltado) * -1
       deltaa = vala/valo
+      if deltaa < 1:
+        deltaa = (1- deltada) * -1
       #st.write(_format_with_thousands_commas(vala))
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
@@ -200,8 +204,8 @@ with tab1:
       mes2 = max(dva['mes1'])
       #st.write(mes2)
       st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Despachos ' + str(anterior), value=valoro, delta=_format_as_percentage(deltao,2))
-      st.metric(label='Despachos ' + str(actual), value=valora, delta=_format_as_percentage(deltao,2))
+      st.metric(label='Despachos ' + str(anterior), value=valoro, delta=_format_as_percentage(deltao,2) +'%' )
+      st.metric(label='Despachos ' + str(actual), value=valora, delta=_format_as_percentage(deltada,2) +'%')
       #gauge(1500)
    with col[1]:
       st.write(dvo)
