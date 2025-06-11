@@ -338,10 +338,10 @@ with tab3:
   df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
   df_anual = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
   #st.write(df_anual)
-  df_anual.loc[df["subgrupoenvase"] == "Sachet", "subgrupoenvase"] = "Otros"
-  df_anual.loc[df["subgrupoenvase"] == "Bidon", "subgrupoenvase"] = "Otros"
-  df_anual.loc[df["subgrupoenvase"] == "Vasija", "subgrupoenvase"] = "Otros"
-  df_anual.loc[df["subgrupoenvase"] == "Fraccionamiento sin Sub Grupo", "subgrupoenvase"] = "Otros"
+  df_anual.loc[df_anual["subgrupoenvase"] == "Sachet", "subgrupoenvase"] = "Otros"
+  df_anual.loc[df_anual["subgrupoenvase"] == "Bidon", "subgrupoenvase"] = "Otros"
+  df_anual.loc[df_anual["subgrupoenvase"] == "Vasija", "subgrupoenvase"] = "Otros"
+  df_anual.loc[df_anual["subgrupoenvase"] == "Fraccionamiento sin Sub Grupo", "subgrupoenvase"] = "Otros"
 
   json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
   option = {           
