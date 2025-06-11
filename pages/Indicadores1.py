@@ -187,7 +187,7 @@ with tab1:
       dvo = dvo[dvo['mes']  <= mes]
       vala = dva['litros'].sum()
       valo = dvo['litros'].sum()
-      valor = str(anterior) + ' : ' + str(valo) + ' '  +str(actual) + ' : ' + str(vala)
+      valor = str(anterior) + ' : ' + str(valo.astype(int)) + ' '  +str(actual) + ' : ' + str(vala)
       st.write(vala)
       mes2 = max(dva['mes1'])
       #st.write(mes2)
