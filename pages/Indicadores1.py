@@ -335,13 +335,14 @@ with tab3:
             options=option, height="250px",
   )
 
+  #df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
+  dva.loc[dva["subgrupoenvase"] == "Sachet", "subgrupoenvase"] = "Otros"
+  dva.loc[dva["subgrupoenvase"] == "Bidon", "subgrupoenvase"] = "Otros"
+  dva.loc[dva["subgrupoenvase"] == "Vasija", "subgrupoenvase"] = "Otros"
+  dva.loc[dva["subgrupoenvase"] == "Fraccionamiento sin Sub Grupo", "subgrupoenvase"] = "Otros"
+  dva.loc[dva["subgrupoenvase"] == "Granel", "subgrupoenvase"] = "Otros"
   df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
-  df_filtered.loc[df_filtered["subgrupoenvase"] == "Sachet", "subgrupoenvase"] = "Otros"
-  df_filtered.loc[df_filtered["subgrupoenvase"] == "Bidon", "subgrupoenvase"] = "Otros"
-  df_filtered.loc[df_filtered["subgrupoenvase"] == "Vasija", "subgrupoenvase"] = "Otros"
-  df_filtered.loc[df_filtered["subgrupoenvase"] == "Fraccionamiento sin Sub Grupo", "subgrupoenvase"] = "Otros"
-  df_filtered.loc[df_filtered["subgrupoenvase"] == "Granel", "subgrupoenvase"] = "Otros"
-  df_anual = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
+  df_filtered = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
   #st.write(df_anual)
 
 
