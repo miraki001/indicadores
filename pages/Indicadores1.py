@@ -281,7 +281,8 @@ with tab3:
   df_anual = df_filtered.rename(columns={'litros': "value", 'color': "name",})
 
   json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
-  st.write(json_list)
+  
+  #st.write(json_list)
   option = {           
         "color": [
             '#dd6b66',
@@ -336,7 +337,11 @@ with tab3:
 
   df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
   df_anual = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
-  st.write(df_anual)
+  #st.write(df_anual)
+  df_anual.loc[df["subgrupoenvase"] == "Sachet", "subgrupoenvase"] = "Otros"
+  df_anual.loc[df["subgrupoenvase"] == "Bidon", "subgrupoenvase"] = "Otros"
+  df_anual.loc[df["subgrupoenvase"] == "Vasija", "subgrupoenvase"] = "Otros"
+  df_anual.loc[df["subgrupoenvase"] == "Fraccionamiento sin Sub Grupo", "subgrupoenvase"] = "Otros"
 
   json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
   option = {           
