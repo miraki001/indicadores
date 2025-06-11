@@ -77,7 +77,7 @@ st.markdown("""
 locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
 
 def _format_with_thousands_commas(val): 
-  val = round(val,0)
+  #val = round(val,0)
   return f'{val:12n}' 
 
 def _format_as_percentage(val, prec=0): 
