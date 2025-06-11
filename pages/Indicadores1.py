@@ -74,7 +74,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 #locale.setlocale(category=locale.LC_ALL, locale="France", "fr_FR.UTF-8")
-locale.setlocale(locale.LC_ALL, "fr_FR.UTF-8")
+locale.setlocale(locale.LC_ALL, "es_ES")
 
 def _format_with_thousands_commas(val): 
   return f'{val:,.0f}' 
