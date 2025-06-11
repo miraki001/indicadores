@@ -80,6 +80,13 @@ def _format_with_thousands_commas(val):
 def _format_as_percentage(val, prec=0): 
   return f'{val:.{prec}%}' 
 
+def format_number(num):
+    if num > 1000000:
+        if not num % 1000000:
+            return f'{num // 1000000} M'
+        return f'{round(num / 1000000, 1)} M'
+    return f'{num // 1000} K'
+
 
 hide_streamlit_style = """
                 <style>
@@ -178,12 +185,14 @@ with tab1:
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
       dvo = dvo[dvo['mes']  <= mes]
-      vala = dva['litros'].sum()
-      valo = dvo['litros'].sum()
+      vala = format_number(dva['litros'].sum())
+      valo = format_numberdvo['litros'].sum())
+      valor = str(anterior) + ' ' + valo + ' '  +str(actual) + ' ' + vala
       st.write(vala)
       mes2 = max(dva['mes1'])
       #st.write(mes2)
       st.write('Periodo : 01 Enero/' + mes2)
+      st.metric(label='Despachos', value=valor, delta=9)
       gauge(1500)
    with col[1]:
       st.write(dvo)
