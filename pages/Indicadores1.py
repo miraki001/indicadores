@@ -263,13 +263,13 @@ with tab2:
 
   
 with tab3:
-  st.write('vacio')  
+  #st.write('vacio')  
   dva = dv1[dv1['anio'] == actual ]
   st.write('Participación y evolución de los despachos por color, en HL')
   st.write('Periodo : 01 Enero/' + mes2)
 
   df_filtered = dva.groupby(['color'], as_index=False)[['litros']].sum()
-  #st.write(df_filtered)
+  st.write(df_filtered)
   df_anual = df_filtered.rename(columns={'litros': "value", 'color': "name",})
 
   json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
