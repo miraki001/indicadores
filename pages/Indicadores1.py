@@ -81,7 +81,7 @@ locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
 
 streamlit_style = """
     <style>
-    iframe[title="streamlit_echarts.st_echarts"]{ height: 400px;} 
+    iframe[title="streamlit_echarts.st_echarts"]{ height: 200px;} 
    </style>
     """
 st.markdown(streamlit_style, unsafe_allow_html=True) 
