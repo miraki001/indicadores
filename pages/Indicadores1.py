@@ -328,6 +328,7 @@ with tab3:
 
   df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
   df_anual = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
+  st.write(df_anual)
 
   json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
   option = {           
