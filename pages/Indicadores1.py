@@ -78,6 +78,14 @@ st.markdown("""
 #locale.setlocale(category=locale.LC_ALL, locale="France", "fr_FR.UTF-8")
 locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
 
+
+streamlit_style = """
+    <style>
+    iframe[title="streamlit_echarts.st_echarts"]{ height: 1000px;} 
+   </style>
+    """
+st.markdown(streamlit_style, unsafe_allow_html=True) 
+
 def _format_with_thousands_commas(val): 
   val = round(val,0)
   return f'{val:.12n}' 
