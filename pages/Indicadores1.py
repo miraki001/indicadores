@@ -21,6 +21,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import locale
+from script.exportaciones import registro_mensual
+
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -125,7 +127,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 dv1 = pd.read_parquet("data/processed/despachos_datos.parquet", engine="pyarrow")
-dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
+#dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
 
 def gauge(value):
   option = {
@@ -175,10 +177,10 @@ with tab1:
    st.header("Indicadores")
 
    col = st.columns((4.5, 4.5, 2), gap='medium')
+   actual = dt.now().year  
+   anterior = dt.now().year -1  
 
    with col[0]:
-      actual = dt.now().year  
-      anterior = dt.now().year -1  
       dva = dv1[dv1['anio'] == actual ]
       dvo = dv1[dv1['anio'] == anterior ]
       mes = max(dva['mes'])
@@ -200,6 +202,7 @@ with tab1:
       st.metric(label='Despachos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
       #gauge(1500)
    with col[1]:
+      dv2 = registro_mensual(actual)
       st.write(dv2)
       st.write(max(dvo['mes']))
       #echarts_module.gauge(1500)
