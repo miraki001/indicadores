@@ -269,10 +269,11 @@ with tab3:
   st.write('Periodo : 01 Enero/' + mes2)
 
   df_filtered = dva.groupby(['color'], as_index=False)[['litros']].sum()
-  st.write(df_filtered)
+  #st.write(df_filtered)
   df_anual = df_filtered.rename(columns={'litros': "value", 'color': "name",})
 
   json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
+  st.write(json_list)
   option = {           
         "color": [
             '#dd6b66',
