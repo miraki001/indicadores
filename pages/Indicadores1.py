@@ -176,7 +176,7 @@ tab1, tab2, tab3,tab4 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno
 with tab1:
    st.header("Indicadores")
 
-   col = st.columns((4.5, 4.5, 2), gap='medium')
+   col = st.columns((4.5, 4.5, 4.5,4.5), gap='medium')
    actual = dt.now().year  
    anterior = dt.now().year -1  
 
@@ -225,6 +225,31 @@ with tab1:
       st.write('Periodo : 01 Enero/' + mes2)
       st.metric(label='Exportaciones ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltao,2) +'%' )
       st.metric(label='Exportaciones ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
+
+   with col[3]:
+      dv2 = registro_mensual(anterior -1)
+      #st.write(dv2)
+      #st.write(max(dvo['mes']))
+      #echarts_module.gauge(1500)
+      dva = dv2[dv2['anio'] == actual ]
+      dvo = dv2[dv2['anio'] == anterior ]
+      mes = max(dva['mes'])
+      dvam = dva[dv1['mes'] == mes ]
+      dvo = dvo[dvo['mes']  <= mes]
+      vala = dva['fob'].sum()/100
+      valo = dvo['fob'].sum()/100
+      deltao = valo/vala
+      if deltao < 1:
+        deltao = (1- deltao) * -1
+      deltaa = vala/valo
+      if deltaa < 1:
+        deltaa = (1- deltaa) * -1
+      valoro = str(_format_with_thousands_commas(valo)) 
+      valora = str(_format_with_thousands_commas(vala)) 
+      mes2 = max(dva['mes1'])
+      st.write('Periodo : 01 Enero/' + mes2)
+      st.metric(label='Exportaciones ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltao,2) +'%' )
+      st.metric(label='Exportaciones ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
                
 with tab2:
