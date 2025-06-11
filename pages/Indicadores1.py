@@ -177,14 +177,10 @@ with tab1:
    col = st.columns((4.5, 4.5, 2), gap='medium')
 
    with col[0]:
-      #st.metric(label='Despachos', value=100, delta=9)
       actual = dt.now().year  
       anterior = dt.now().year -1  
       dva = dv1[dv1['anio'] == actual ]
       dvo = dv1[dv1['anio'] == anterior ]
-     
-      #st.write(dva)
-      #st.write(max(dva['mes']))
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
       dvo = dvo[dvo['mes']  <= mes]
@@ -196,15 +192,11 @@ with tab1:
       deltaa = vala/valo
       if deltaa < 1:
         deltaa = (1- deltaa) * -1
-      #st.write(_format_with_thousands_commas(vala))
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
-      st.write(deltao)
-      st.write(deltaa)
       mes2 = max(dva['mes1'])
-      #st.write(mes2)
       st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Despachos ' + str(anterior), value=valoro, delta=_format_as_percentage(deltao,2) +'%' )
+      st.metric(label='Despachos ' + str(anterior), value=valoro + 'Hl', delta=_format_as_percentage(deltao,2) +'%' )
       st.metric(label='Despachos ' + str(actual), value=valora, delta=_format_as_percentage(deltaa,2) +'%')
       #gauge(1500)
    with col[1]:
