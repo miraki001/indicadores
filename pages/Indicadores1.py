@@ -24,8 +24,8 @@ import locale
 from script.exportaciones import registro_mensual
 
 
-st.set_page_config(initial_sidebar_state="collapsed",
-                  layout="wide",menu_items=None)
+#st.set_page_config(initial_sidebar_state="collapsed",
+#                  layout="wide",menu_items=None)
 
 
 
