@@ -81,7 +81,7 @@ def _format_with_thousands_commas(val):
   return f'{val:.12n}' 
 
 def _format_as_percentage(val, prec=0): 
-  return f'{val:.{prec}%}' 
+  return f'{val:.{prec}f}' 
 
 def format_number(num):
     if num > 1000000:
