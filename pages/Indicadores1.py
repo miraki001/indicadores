@@ -185,8 +185,8 @@ with tab1:
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
       dvo = dvo[dvo['mes']  <= mes]
-      vala = _format_with_thousands_commas(dva['litros'].sum())
-      valo = _format_with_thousands_commas(dvo['litros'].sum())
+      vala = dva['litros'].sum()
+      valo = dvo['litros'].sum()
       valor = str(anterior) + ' : ' + valo + ' '  +str(actual) + ' : ' + vala
       st.write(vala)
       mes2 = max(dva['mes1'])
