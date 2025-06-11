@@ -255,7 +255,13 @@ with tab1:
                
 with tab2:
   st.write('vacio')
+  
+
+  
+with tab3:
+  st.write('vacio')  
   dva = dv1[dv1['anio'] == actual ]
+  st.write('Participación y evolución de los despachos por color, en HL')
 
   df_filtered = df_filtered.groupby(['color'], as_index=False)[['litros']].sum()
   st.write(df_filtered)
@@ -314,10 +320,6 @@ with tab2:
             options=option, height="350px",
   )
   
-
-  
-with tab3:
-  st.write('vacio')  
 with tab4:
   st.write('vacio')
   
