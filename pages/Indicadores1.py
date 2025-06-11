@@ -191,10 +191,12 @@ with tab1:
       vala = dva['litros'].sum()
       valo = dvo['litros'].sum()
       deltao = valo/vala
+      deltaa = vala/valo
       #st.write(_format_with_thousands_commas(vala))
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       st.write(deltao)
+      st.write(deltaa)
       mes2 = max(dva['mes1'])
       #st.write(mes2)
       st.write('Periodo : 01 Enero/' + mes2)
