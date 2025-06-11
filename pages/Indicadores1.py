@@ -127,6 +127,10 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 dv1 = pd.read_parquet("data/processed/despachos_datos.parquet", engine="pyarrow")
+actual = dt.now().year  
+anterior = dt.now().year -1  
+dv2 = registro_mensual(anterior -1)
+
 #dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
 
 def gauge(value):
@@ -170,15 +174,13 @@ def gauge(value):
   st_echarts(option, height="400px", key="echarts-1")
 
 df_filtered = dv1.copy() 
-actual = dt.now().year -4 
+#actual = dt.now().year -4 
 tab1, tab2, tab3,tab4 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie"])
 
 with tab1:
    st.header("Indicadores")
 
    col = st.columns((4.5, 4.5, 4.5,4.5), gap='medium')
-   actual = dt.now().year  
-   anterior = dt.now().year -1  
 
    with col[0]:
       dva = dv1[dv1['anio'] == actual ]
@@ -202,7 +204,6 @@ with tab1:
       st.metric(label='Despachos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
       #gauge(1500)
    with col[1]:
-      dv2 = registro_mensual(anterior -1)
       #st.write(dv2)
       #st.write(max(dvo['mes']))
       #echarts_module.gauge(1500)
