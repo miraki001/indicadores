@@ -167,16 +167,20 @@ with tab1:
    col = st.columns((4.5, 4.5, 2), gap='medium')
 
    with col[0]:
-      st.metric(label='pp', value=100, delta=9)
+      st.metric(label='Despachos', value=100, delta=9)
       actual = dt.now().year  
       anterior = dt.now().year -1  
       dva = dv1[dv1['anio'] == actual ]
       dvo = dv1[dv1['anio'] == anterior ]
+     
       #st.write(dva)
       #st.write(max(dva['mes']))
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
-      
+      dvo = dvo[dvo['mes']  <= mes]
+      vala = dva['litros'].sum()
+      valo = dvo['litros'].sum()
+      st.write(vala)
       mes2 = max(dva['mes1'])
       #st.write(mes2)
       st.write('Periodo : 01 Enero/' + mes2)
