@@ -7,6 +7,7 @@ conn = st.connection("postgresql", type="sql")
 @st.cache_data
 def exportaciones_filtros():
     #conn = get_connection()
+    conn = st.connection("postgresql", type="sql")
     query =  "select distinct anio,variedad1 variedad,tipo_envase,color,producto,pais,grupoenvase from exportaciones2_m where producto not in ('Mosto','Alcohol')"
     try:
         df = conn.query(query, ttl="0")
@@ -121,7 +122,7 @@ def filtro_mensual(condiciones, anio):
 
 @st.cache_data           
 def registro_mensual(anio):     
-    conn = get_connection()
+    #conn = get_connection()
     query =  f"""
         SELECT anio, mes,mes ||' '|| mess as mes1, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl, variedad1 as variedad, tipo_envase as envase, color, producto
         FROM exportaciones2_m 
