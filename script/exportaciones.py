@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 #from .database import get_connection
 
-conn = st.connection("postgresql", type="sql"
+conn = st.connection("postgresql", type="sql")
 
 @st.cache_data
 def exportaciones_filtros():
