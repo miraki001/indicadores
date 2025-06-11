@@ -325,8 +325,8 @@ with tab3:
             options=option, height="350px",
   )
 
-  df_filtered = dva.groupby(['grupoenvase'], as_index=False)[['litros']].sum()
-  df_anual = df_filtered.rename(columns={'litros': "value", 'grupoenvase': "name",})
+  df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
+  df_anual = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
 
   json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
   option = {           
