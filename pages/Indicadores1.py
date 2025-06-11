@@ -67,7 +67,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 dv1 = pd.read_parquet("data/processed/despachos_datos.parquet", engine="pyarrow")
-
+st.metric(label='pp', value=100, delta=9)
 
 def gauge(value):
   option = {
