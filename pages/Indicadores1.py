@@ -20,6 +20,7 @@ from despachos import desp_consumo
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import locale
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -72,10 +73,11 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
-
+#locale.setlocale(category=locale.LC_ALL, locale="France", "fr_FR.UTF-8")
+locale.setlocale(locale.LC_ALL, "fr_FR.UTF-8")
 
 def _format_with_thousands_commas(val): 
-  return f'{val:.,02f}' 
+  return f'{val:,.0f}' 
 
 def _format_as_percentage(val, prec=0): 
   return f'{val:.{prec}%}' 
