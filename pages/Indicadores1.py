@@ -125,7 +125,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 dv1 = pd.read_parquet("data/processed/despachos_datos.parquet", engine="pyarrow")
-#st.metric(label='pp', value=100, delta=9)
+dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
 
 def gauge(value):
   option = {
@@ -196,11 +196,11 @@ with tab1:
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
       st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Despachos ' + str(anterior), value=valoro + 'Hl', delta=_format_as_percentage(deltao,2) +'%' )
-      st.metric(label='Despachos ' + str(actual), value=valora, delta=_format_as_percentage(deltaa,2) +'%')
+      st.metric(label='Despachos ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltao,2) +'%' )
+      st.metric(label='Despachos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
       #gauge(1500)
    with col[1]:
-      st.write(dvo)
+      st.write(dv2)
       st.write(max(dvo['mes']))
       #echarts_module.gauge(1500)
                
