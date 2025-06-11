@@ -130,6 +130,10 @@ dv1 = pd.read_parquet("data/processed/despachos_datos.parquet", engine="pyarrow"
 actual = dt.now().year  
 anterior = dt.now().year -1  
 dv2 = registro_mensual(anterior -1)
+dva = dv2[dv2['anio'] == actual ]
+mes = max(dva['mes'])
+mes2 = max(dva['mes1'])
+
 
 #dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
 
@@ -262,9 +266,10 @@ with tab3:
   st.write('vacio')  
   dva = dv1[dv1['anio'] == actual ]
   st.write('Participación y evolución de los despachos por color, en HL')
+  st.write('Periodo : 01 Enero/' + mes2)
 
-  df_filtered = df_filtered.groupby(['color'], as_index=False)[['litros']].sum()
-  st.write(df_filtered)
+  df_filtered = dva.groupby(['color'], as_index=False)[['litros']].sum()
+  #st.write(df_filtered)
   df_anual = df_filtered.rename(columns={'litros': "value", 'color': "name",})
 
   json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
@@ -319,7 +324,64 @@ with tab3:
   st_echarts(
             options=option, height="350px",
   )
-  
+
+  df_filtered = dva.groupby(['grupoenvase'], as_index=False)[['litros']].sum()
+  df_anual = df_filtered.rename(columns={'litros': "value", 'grupoenvase': "name",})
+
+  json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
+  option = {           
+        "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],            
+        "tooltip": {
+            "trigger": "item"
+        },    
+        "legend": {
+            "top": "1%",
+            "left": "center" 
+            },
+        "label": {
+            "alignTo": 'edge',
+#            "formatter": '{name|{b}}\n{time|{c} }',
+            "formatter": '{name|{b}}\n  ({d}%)  ',
+            "minMargin": 5,
+            "edgeDistance": 10,
+            "lineHeight": 15,
+            "rich": {
+              "time": {
+              "fontSize": 8,
+               "color": '#999'
+              }
+            }
+          },    
+
+        "series": [
+            {
+                "name": "año 2024",
+                "type": "pie",
+                "radius": ["30%", "50%"],
+                "center": ["50%", "50%"],
+                "startAngle": 180,
+                "endAngle": 360,
+                "data":json_list ,
+            }
+            ],
+  }
+  st_echarts(
+            options=option, height="350px",
+  )
+
+
 with tab4:
   st.write('vacio')
   
