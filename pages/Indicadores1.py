@@ -174,7 +174,7 @@ with tab1:
    col = st.columns((4.5, 4.5, 2), gap='medium')
 
    with col[0]:
-      st.metric(label='Despachos', value=100, delta=9)
+      #st.metric(label='Despachos', value=100, delta=9)
       actual = dt.now().year  
       anterior = dt.now().year -1  
       dva = dv1[dv1['anio'] == actual ]
@@ -185,9 +185,9 @@ with tab1:
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
       dvo = dvo[dvo['mes']  <= mes]
-      vala = format_number(dva['litros'].sum())
-      valo = format_number(dvo['litros'].sum())
-      valor = str(anterior) + ' ' + valo + ' '  +str(actual) + ' ' + vala
+      vala = _format_with_thousands_commas(dva['litros'].sum())
+      valo = _format_with_thousands_commas(dvo['litros'].sum())
+      valor = str(anterior) + ' : ' + valo + ' '  +str(actual) + ' : ' + vala
       st.write(vala)
       mes2 = max(dva['mes1'])
       #st.write(mes2)
