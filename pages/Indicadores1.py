@@ -43,9 +43,9 @@ st.markdown("""
 }
 
 [data-testid="stMetric"] {
-    background-color: #393939;
+    background-color: #d5b7be;
     text-align: center;
-    padding: 15px 0;
+    padding: 10px 0;
 }
 
 [data-testid="stMetricLabel"] {
@@ -115,7 +115,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 dv1 = pd.read_parquet("data/processed/despachos_datos.parquet", engine="pyarrow")
-st.metric(label='pp', value=100, delta=9)
+#st.metric(label='pp', value=100, delta=9)
 
 def gauge(value):
   option = {
@@ -167,6 +167,7 @@ with tab1:
    col = st.columns((4.5, 4.5, 2), gap='medium')
 
    with col[0]:
+      st.metric(label='pp', value=100, delta=9)
       actual = dt.now().year  
       anterior = dt.now().year -1  
       dva = dv1[dv1['anio'] == actual ]
