@@ -203,9 +203,29 @@ with tab1:
       #gauge(1500)
    with col[1]:
       dv2 = registro_mensual(anterior -1)
-      st.write(dv2)
-      st.write(max(dvo['mes']))
+      #st.write(dv2)
+      #st.write(max(dvo['mes']))
       #echarts_module.gauge(1500)
+      dva = dv2[dv2['anio'] == actual ]
+      dvo = dv2[dv2['anio'] == anterior ]
+      mes = max(dva['mes'])
+      dvam = dva[dv1['mes'] == mes ]
+      dvo = dvo[dvo['mes']  <= mes]
+      vala = dva['litros'].sum()
+      valo = dvo['litros'].sum()
+      deltao = valo/vala
+      if deltao < 1:
+        deltao = (1- deltao) * -1
+      deltaa = vala/valo
+      if deltaa < 1:
+        deltaa = (1- deltaa) * -1
+      valoro = str(_format_with_thousands_commas(valo)) 
+      valora = str(_format_with_thousands_commas(vala)) 
+      mes2 = max(dva['mes1'])
+      st.write('Periodo : 01 Enero/' + mes2)
+      st.metric(label='Exportaciones ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltao,2) +'%' )
+      st.metric(label='Exportaciones ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
+
                
 with tab2:
   st.write('vacio')
