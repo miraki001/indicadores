@@ -259,6 +259,9 @@ with tab2:
 
   df_filtered = df_filtered.groupby(['color'], as_index=False)[['litros']].sum()
   st.write(df_filtered)
+  df_anual = df_filtered.rename(columns={'litros': "value", 'color': "name",})
+
+  json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
   option = {           
         "color": [
             '#dd6b66',
@@ -303,7 +306,7 @@ with tab2:
                 "center": ["50%", "50%"],
                 "startAngle": 180,
                 "endAngle": 360,
-                "data":df_filtered ,
+                "data":json_list ,
             }
             ],
   }
