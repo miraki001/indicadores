@@ -259,6 +259,58 @@ with tab2:
 
   df_filtered = df_filtered.groupby(['color'], as_index=False)[['litros']].sum()
   st.write(df_filtered)
+  option = {           
+        "color": [
+            '#dd6b66',
+            '#759aa0',
+            '#e69d87',
+            '#8dc1a9',
+            '#ea7e53',
+            '#eedd78',
+            '#73a373',
+            '#73b9bc',
+            '#7289ab',
+            '#91ca8c',
+            '#f49f42'
+        ],            
+        "tooltip": {
+            "trigger": "item"
+        },    
+        "legend": {
+            "top": "1%",
+            "left": "center" 
+            },
+        "label": {
+            "alignTo": 'edge',
+#            "formatter": '{name|{b}}\n{time|{c} }',
+            "formatter": '{name|{b}}\n  ({d}%)  ',
+            "minMargin": 5,
+            "edgeDistance": 10,
+            "lineHeight": 15,
+            "rich": {
+              "time": {
+              "fontSize": 8,
+               "color": '#999'
+              }
+            }
+          },    
+
+        "series": [
+            {
+                "name": "año 2024",
+                "type": "pie",
+                "radius": ["30%", "50%"],
+                "center": ["50%", "50%"],
+                "startAngle": 180,
+                "endAngle": 360,
+                "data":df_filtered ,
+            }
+            ],
+  }
+  st_echarts(
+            options=option, height="350px",
+  )
+  
 
   
 with tab3:
