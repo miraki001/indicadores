@@ -202,7 +202,7 @@ with tab1:
       st.metric(label='Despachos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
       #gauge(1500)
    with col[1]:
-      dv2 = registro_mensual(actual)
+      dv2 = registro_mensual(anterior -1)
       st.write(dv2)
       st.write(max(dvo['mes']))
       #echarts_module.gauge(1500)
