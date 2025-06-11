@@ -75,7 +75,7 @@ st.markdown("""
 
 
 def _format_with_thousands_commas(val,prec=0): 
-  return f'{val:.,{prec}f%}' 
+  return f'{val:.,{prec}%}' 
 
 def _format_as_percentage(val, prec=0): 
   return f'{val:.{prec}%}' 
