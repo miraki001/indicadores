@@ -197,7 +197,7 @@ with tab1:
       mes2 = max(dva['mes1'])
       #st.write(mes2)
       st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Despachos ' + str(anterio), value=valoro, delta=deltao)
+      st.metric(label='Despachos ' + str(anterior), value=valoro, delta=deltao)
       gauge(1500)
    with col[1]:
       st.write(dvo)
