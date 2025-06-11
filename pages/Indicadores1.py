@@ -75,7 +75,7 @@ st.markdown("""
 
 
 def _format_with_thousands_commas(val): 
-  return f'{val:.,2f}' 
+  return f'{val:%.,0f}' 
 
 def _format_as_percentage(val, prec=0): 
   return f'{val:.{prec}%}' 
@@ -187,6 +187,7 @@ with tab1:
       dvo = dvo[dvo['mes']  <= mes]
       vala = dva['litros'].sum()
       valo = dvo['litros'].sum()
+      st.write(_format_with_thousands_commas(vala))
       valor = str(anterior) + ' : ' + str(valo.astype(int)) + ' '  +str(actual) + ' : ' + str(vala)
       st.write(vala)
       mes2 = max(dva['mes1'])
