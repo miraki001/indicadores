@@ -332,7 +332,7 @@ with tab3:
             ],
   }
   st_echarts(
-            options=option, height="350px",
+            options=option, height="250px",
   )
 
   df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
@@ -395,7 +395,7 @@ with tab3:
             ],
   }
   st_echarts(
-            options=option, height="350px",
+            options=option, height="250px",
   )
 
 
