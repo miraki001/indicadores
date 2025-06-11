@@ -211,8 +211,8 @@ with tab1:
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
       dvo = dvo[dvo['mes']  <= mes]
-      vala = dva['litros'].sum()
-      valo = dvo['litros'].sum()
+      vala = dva['litros'].sum()/100
+      valo = dvo['litros'].sum()/100
       deltao = valo/vala
       if deltao < 1:
         deltao = (1- deltao) * -1
