@@ -226,7 +226,7 @@ with tab1:
       st.metric(label='Exportaciones ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltao,2) +'%' )
       st.metric(label='Exportaciones ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
 
-   with col[3]:
+   with col[2]:
       dv2 = registro_mensual(anterior -1)
       #st.write(dv2)
       #st.write(max(dvo['mes']))
