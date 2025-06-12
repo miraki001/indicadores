@@ -277,11 +277,18 @@ with tab1:
       deltaa = vala/valo
       if deltaa < 1:
         deltaa = (1- deltaa) * -1
+
+      dvoa = dv1[dv1['anio'] == anterior-1 ]
+      dvoa = dvoa[dvoa['mes']  <= mes]
+      valoa = dvoa['litros'].sum()
+      deltaoa = valo/valoa
+      if deltaoa < 1:
+        deltaoa = (1- deltaoa) * -1     
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
       st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltao,2) +'%' )
+      st.metric(label='Exportaciones ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
       st.metric(label='Exportaciones ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
 
    with col[2]:
@@ -302,11 +309,17 @@ with tab1:
       deltaa = vala/valo
       if deltaa < 1:
         deltaa = (1- deltaa) * -1
+      dvoa = dv1[dv1['anio'] == anterior-1 ]
+      dvoa = dvoa[dvoa['mes']  <= mes]
+      valoa = dvoa['litros'].sum()
+      deltaoa = valo/valoa
+      if deltaoa < 1:
+        deltaoa = (1- deltaoa) * -1           
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
       st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones de Vinos' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltao,2) +'%' )
+      st.metric(label='Exportaciones de Vinos' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
       st.metric(label='Exportaciones de Vinos' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
    with col[3]:
@@ -327,11 +340,18 @@ with tab1:
       deltaa = vala/valo
       if deltaa < 1:
         deltaa = (1- deltaa) * -1
+
+      dvoa = dv1[dv1['anio'] == anterior-1 ]
+      dvoa = dvoa[dvoa['mes']  <= mes]
+      valoa = dvoa['litros'].sum()
+      deltaoa = valo/valoa
+      if deltaoa < 1:
+        deltaoa = (1- deltaoa) * -1        
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
       st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones de Mostos' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltao,2) +'%' )
+      st.metric(label='Exportaciones de Mostos' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
       st.metric(label='Exportaciones de Mostos' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
                
