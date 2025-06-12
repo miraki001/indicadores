@@ -171,4 +171,4 @@ def ind_mercado_interno(dva):
                       color='Envase', hover_data=['color'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(df['index'], weights=df['Hl']))
-  st.plotly_chart(fig, theme="streamlit")	
+  st.plotly_chart(fig,key="indica5", theme="streamlit")	
