@@ -18,12 +18,12 @@ from plotly.subplots import make_subplots
 import locale
 
 
-#streamlit_style = """
-#    <style>
-#    iframe[title="streamlit_echarts.st_echarts"]{ height: 300px;} 
-#   </style>
-#    """
-#st.markdown(streamlit_style, unsafe_allow_html=True) 
+streamlit_style = """
+    <style>
+    iframe[title="streamlit_echarts.st_echarts"]{ height: 300px;} 
+   </style>
+    """
+st.markdown(streamlit_style, unsafe_allow_html=True) 
 
 def ind_exportaciones(dva):
 
