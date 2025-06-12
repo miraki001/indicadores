@@ -23,6 +23,7 @@ from plotly.subplots import make_subplots
 import locale
 from script.exportaciones import registro_mensual
 from script.exportaciones import mosto_registro_mensual
+from indicadores import indica_mercado_interno
 
 
 
@@ -357,7 +358,7 @@ with tab1:
                
 with tab2:
   st.write('vacio')
-  
+  indica_mercado_interno(dva)
 
   
 with tab3:
