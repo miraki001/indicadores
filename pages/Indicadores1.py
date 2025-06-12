@@ -27,8 +27,6 @@ from indicadores import ind_mercado_interno
 
 
 
-#st.set_page_config(initial_sidebar_state="collapsed",
-#                  layout="wide",menu_items=None)
 
 hide_streamlit_style = """
                 <style>
@@ -358,7 +356,7 @@ with tab1:
                
 with tab2:
   st.write('vacio')
-  indica_mercado_interno(dva)
+  ind_mercado_interno.ind_mercado_interno(dva)
 
   
 with tab3:
