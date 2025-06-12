@@ -192,6 +192,7 @@ def exporta_evolucion():
                 st.caption("Selecciona uno o más Paisesde la lista")
                 pais = st.multiselect("Pais",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")  
                 pais = [str(a) for a in pais]
+                st.write(pais)
 
 
 
