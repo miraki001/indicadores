@@ -190,7 +190,8 @@ def exporta_evolucion():
         with col6:
             with st.popover("Pais"):
                 st.caption("Selecciona uno o más Paisesde la lista")
-                pais = st.multiselect("Pais",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")      
+                pais = st.multiselect("Pais",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")  
+                pais = [str(a) for a in pais]
 
 
 
