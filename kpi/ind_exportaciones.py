@@ -20,7 +20,7 @@ import locale
 
 streamlit_style = """
     <style>
-    iframe[title="streamlit_echarts.st_echarts"]{ height: 300px;} 
+    iframe[title="streamlit_echarts.st_echarts"]{ height: 600px;} 
    </style>
     """
 st.markdown(streamlit_style, unsafe_allow_html=True) 
