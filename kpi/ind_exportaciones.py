@@ -107,7 +107,7 @@ def ind_exportaciones(dva):
             ],
     }
 
-    st_echarts(options=option,key="otro33" + str(dt.now()), height="400px")
+    st_echarts(options=option,key="otro33" + str(dt.now()), height="300px")
 
   
     
