@@ -43,7 +43,8 @@ def ind_exportaciones(dva):
     dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
 
     #dv1 = dv1.style.format({"litros": "{:.2f}".format})
-    dv1, column_config={ format=",", ) }
+    #dv1, column_config={ format=",", ) }
+    dv1.style.format(thousands='.')
     st.write(dv1)
     option = {
           "color": [
