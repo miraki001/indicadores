@@ -227,7 +227,7 @@ df_filtered = dv1.copy()
 tab1, tab2, tab3,tab4 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie"])
 
 with tab1:
-   st.header('Periodo : 01 Enero/' + mes2)
+   st.write('Periodo : 01 Enero/' + mes2)
 
    col = st.columns((4.5, 4.5, 4.5,4.5), gap='medium')
 
@@ -256,7 +256,7 @@ with tab1:
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
-      st.write('Periodo : 01 Enero/' + mes2)
+      #st.write('Periodo : 01 Enero/' + mes2)
       st.metric(label='Despachos ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
       st.metric(label='Despachos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
       #gauge(1500)
