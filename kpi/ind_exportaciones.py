@@ -37,8 +37,70 @@ def ind_exportaciones(dva):
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
     st.write('1')
-    dv1 = dva.groupby(['anio','mes'], as_index=False)[['fob', 'litros']].sum()
+    dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
     st.write(dv1)
+
+    option = {
+          "color": [
+                '#332D75',
+                '#1E8DB6',
+                '#604994',
+                '#dd6b66',
+            ],
+            "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+            "legend": {},
+            "title": {
+                "text": 'Exportaciones evolución mensual en litro ',
+                "textStyle": {
+                        "fontSize": 14,
+                },                  
+                "subtext": '',
+            },            
+            "xAxis": {"type": "category", "data": dv1["mes1"].tolist()},
+            "yAxis": [
+                {"type": "value" ,"name" : "Litros" ,
+                 "axisLine": {
+                    "show": 'false',
+                  },              
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                } ,
+                {"type": "value" , "name" : "",
+                 "position" : 'left',
+                 "alignTicks": 'true',
+                 "offset": 0,
+                 "axisLine": {
+                    "show": 'false',
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value}  '
+                      }
+                },
+                {"type": "value" , "name" : "Litros Acum",
+                 "position" : 'rigth',
+                 "alignTicks": 'true',
+                 "offset": 10,
+                 "axisLine": {
+                    "show": 'true',
+
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                },            
+            ],            
+            #"yAxis": {"type": "value"},
+            "series": [
+                {"data": dv1[litros].tolist(), "type": "bar", "name": anio1,"yAxisIndex": 1, "color":'#FCE2D6'  },
+                {"data": dv1[fob].tolist(), "type": "line", "name": desc1, "yAxisIndex": 2,  "color":'#C92488'},
+                
+            ],
+    }
+
+    st_echarts(options=option,key="otro33" + str(dt.now()), height="400px")
+
+  
     
   with col[1]:
     st.write('2')
