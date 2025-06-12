@@ -170,7 +170,7 @@ actual = dt.now().year
 anterior = dt.now().year -1  
 dv2 = registro_mensual(anterior -1)
 dva = dv2[dv2['anio'] == actual ]
-dvex = dva
+dvex = dv2
 mes = max(dva['mes'])
 mes2 = max(dva['mes1'])
 #dvm = mosto_registro_mensual(actual)
