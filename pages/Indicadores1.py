@@ -342,7 +342,7 @@ with tab3:
   dva.loc[dva["subgrupoenvase"] == "Fraccionamiento sin Sub Grupo", "subgrupoenvase"] = "Otros"
   dva.loc[dva["subgrupoenvase"] == "Granel", "subgrupoenvase"] = "Otros"
   df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
-  st.write(df_filtered)
+  #st.write(df_filtered)
   df_filtered = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
   #st.write(df_anual)
 
