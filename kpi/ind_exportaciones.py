@@ -96,10 +96,10 @@ def ind_exportaciones(dva):
             ],            
             #"yAxis": {"type": "value"},
             "series": [
-                {"data": dv1['litros'].tolist(), "type": "bar", "name": 'Litros',"yAxisIndex": 1, "color":'#FCE2D6'  },
+                {"data": dv1['litros'].tolist(), "type": "bar", "name": 'Litros',"yAxisIndex": 1, "color":'#F9C8B4'  },
                 {"data": dv2['litros'].tolist(), "type": "bar", "name": 'Litros',"yAxisIndex": 1, "color":'#FCE2D6'  },
                 {"data": dv1['fob'].tolist(), "type": "line", "name": 'u$s', "yAxisIndex": 2,  "color":'#C92488'},
-                {"data": dv2['fob'].tolist(), "type": "line", "name": 'u$s', "yAxisIndex": 2,  "color":'#C92488'},
+                {"data": dv2['fob'].tolist(), "type": "line", "name": 'u$s', "yAxisIndex": 2,  "color":'#604994'},
                 
             ],
     }
