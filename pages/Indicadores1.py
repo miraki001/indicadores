@@ -341,6 +341,7 @@ with tab3:
   dva.loc[dva["subgrupoenvase"] == "Vasija", "subgrupoenvase"] = "Otros"
   dva.loc[dva["subgrupoenvase"] == "Fraccionamiento sin Sub Grupo", "subgrupoenvase"] = "Otros"
   dva.loc[dva["subgrupoenvase"] == "Granel", "subgrupoenvase"] = "Otros"
+  df  = dva.groupby(['color','subgrupoenvase'], as_index=False)[['litros']].sum() 
   df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
   #st.write(df_filtered)
   df_filtered = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
@@ -402,6 +403,16 @@ with tab3:
             options=option, height="250px",
   )
 
+
+  fig = px.sunburst(df, path=['color', 'subgrupoenvase'], values='sup',
+                      color='subgrupoenvase', hover_data=['color'],
+                      color_continuous_scale='RdBu',
+                      color_continuous_midpoint=np.average(df['index'], weights=df['sup']))
+  st.plotly_chart(fig, theme="streamlit")	
+  #fig = px.treemap(df, path=[px.Constant("Todas"), 'provincia', 'variedad'], values='sup')
+  #fig.update_traces(root_color="lightgrey")
+  #fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+  #st.plotly_chart(fig, theme="streamlit")
 
 with tab4:
   st.write('vacio')
