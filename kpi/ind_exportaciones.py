@@ -31,7 +31,6 @@ def ind_exportaciones(dva):
   anterior = dt.now().year -1  
   dva = dva[dva['anio'] == actual ]
   dvb = dvb[dvb['anio'] == actual-1 ]
-  dvb = dvb[dvb['mes'] <=  ]
   #st.write(dva)
   mes = max(dva['mes'])
   mes2 = max(dva['mes1'])  
