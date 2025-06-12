@@ -37,5 +37,8 @@ def ind_exportaciones(dva):
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
     st.write('1')
+    dv1 = dva.groupby(['anio','mes'], as_index=False)[['fob', 'litros']].sum()
+    st.write(dv1)
+    
   with col[1]:
     st.write('2')
