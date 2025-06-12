@@ -407,7 +407,7 @@ with tab3:
   fig = px.sunburst(df, path=['color', 'subgrupoenvase'], values='sup',
                       color='subgrupoenvase', hover_data=['color'],
                       color_continuous_scale='RdBu',
-                      color_continuous_midpoint=np.average(df['index'], weights=df['sup']))
+                      color_continuous_midpoint=np.average(df['index'], weights=df['litros']))
   st.plotly_chart(fig, theme="streamlit")	
   #fig = px.treemap(df, path=[px.Constant("Todas"), 'provincia', 'variedad'], values='sup')
   #fig.update_traces(root_color="lightgrey")
