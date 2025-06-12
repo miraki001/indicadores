@@ -165,3 +165,10 @@ def ind_mercado_interno(dva):
             options=option,key="indica4", height="250px",
     )
     
+  df = df.reset_index().rename_axis(None, axis=1)
+  df = df.rename(columns={'litros': "Hl", 'subgrupoenvase': "Envase",'color': "color"})  
+  fig = px.sunburst(df, path=['color', 'Envase'], values='Hl',
+                      color='Envase', hover_data=['color'],
+                      color_continuous_scale='RdBu',
+                      color_continuous_midpoint=np.average(df['index'], weights=df['Hl']))
+  st.plotly_chart(fig, theme="streamlit")	
