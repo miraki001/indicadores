@@ -20,7 +20,7 @@ import locale
 
 streamlit_style = """
     <style>
-    iframe[title="streamlit_echarts.st_echarts"]{ height: 600px;} 
+    iframe[title="streamlit_echarts.st_echarts"]{ height: 800px;} 
    </style>
     """
 st.markdown(streamlit_style, unsafe_allow_html=True) 
@@ -107,7 +107,7 @@ def ind_exportaciones(dva):
             ],
     }
 
-    st_echarts(options=option,key="otro33" + str(dt.now()), height="300px")
+    st_echarts(options=option,key="otro33" + str(dt.now()), height="600px")
 
   
     
