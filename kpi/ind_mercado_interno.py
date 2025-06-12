@@ -26,14 +26,20 @@ import locale
 #st.markdown(streamlit_style, unsafe_allow_html=True) 
 
 def ind_mercado_interno(dva):
+
+  actual = dt.now().year  
+  anterior = dt.now().year -1  
+  dva = dva[dva['anio'] == actual ]
+  mes = max(dva['mes'])
+  mes2 = max(dva['mes1'])  
   st.write('Periodo : 01 Enero/' + mes2)
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
-      dva = dv1[dv1['anio'] == actual ]
+      dva1 = dva[dva['anio'] == actual ]
       st.write('Participación y evolución de los despachos por color, en HL')
       st.write('Periodo : 01 Enero/' + mes2)
 
-      df_filtered = dva.groupby(['color'], as_index=False)[['litros']].sum()
+      df_filtered = dva1.groupby(['color'], as_index=False)[['litros']].sum()
       df_anual = df_filtered.rename(columns={'litros': "value", 'color': "name",})
 
       json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
