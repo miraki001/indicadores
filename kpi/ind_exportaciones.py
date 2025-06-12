@@ -25,12 +25,12 @@ import locale
 #    """
 #st.markdown(streamlit_style, unsafe_allow_html=True) 
 
-def ind_mercado_interno(dva):
+def ind_exportaciones(dva):
 
   actual = dt.now().year  
   anterior = dt.now().year -1  
   dva = dva[dva['anio'] == actual ]
-  #st.write(dva)
+  st.write(dva)
   mes = max(dva['mes'])
   mes2 = max(dva['mes1'])  
   st.write('Periodo : 01 Enero/' + mes2)
