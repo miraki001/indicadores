@@ -135,14 +135,14 @@ def exporta_evolucion():
 
     QUERY_V1 = f"""
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl
-        ,variedad1 as variedad,tipo_envase as envase,color,producto
+        ,variedad1 as variedad,tipo_envase as envase,color,producto,pais
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
     """
 
     QUERY_V2 = f"""
         SELECT anio, mes,mes ||' '|| mess as mes1, cantlitros AS litros, valorfobsolo AS fob, 1 as ppl 
-        ,variedad1 as variedad,tipo_envase as envase,color,producto
+        ,variedad1 as variedad,tipo_envase as envase,color,producto,pais
         FROM exportaciones2_m 
         WHERE producto not in ('Mosto','Alcohol')
         and anio > {actual}
