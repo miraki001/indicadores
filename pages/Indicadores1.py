@@ -367,7 +367,7 @@ with tab3:
   json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
   
   #st.write(json_list)
-  option31 = {           
+  option = {           
         "color": [
             '#dd6b66',
             '#759aa0',
@@ -416,7 +416,7 @@ with tab3:
             ],
   }
   st_echarts(
-            options=option31, height="250px",
+            options=option,key="indica1" , height="250px",
   )
 
   #df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
@@ -435,7 +435,7 @@ with tab3:
   st.write('Periodo : 01 Enero/' + mes2)
 
   json_list = json.loads(json.dumps(list(df_filtered.T.to_dict().values()))) 
-  option32 = {           
+  option = {           
         "color": [
             '#dd6b66',
             '#759aa0',
@@ -484,7 +484,7 @@ with tab3:
             ],
   }
   st_echarts(
-            options=option32, height="250px",
+            options=option,key="indica2", height="250px",
   )
 
   df = df.reset_index().rename_axis(None, axis=1)
