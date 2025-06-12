@@ -30,7 +30,7 @@ def ind_mercado_interno(dva):
   actual = dt.now().year  
   anterior = dt.now().year -1  
   dva = dva[dva['anio'] == actual ]
-  st.write(dva)
+  #st.write(dva)
   mes = max(dva['mes'])
   mes2 = max(dva['mes1'])  
   st.write('Periodo : 01 Enero/' + mes2)
@@ -113,7 +113,7 @@ def ind_mercado_interno(dva):
     st.write('Periodo : 01 Enero/' + mes2)
 
     json_list = json.loads(json.dumps(list(df_filtered.T.to_dict().values()))) 
-    option = {           
+    option1 = {           
         "color": [
             '#dd6b66',
             '#759aa0',
@@ -162,6 +162,6 @@ def ind_mercado_interno(dva):
             ],
     }
     st_echarts(
-            options=option, height="250px",
+            options=option1, height="250px",
     )
     
