@@ -242,7 +242,7 @@ with tab1:
       vala = dva['litros'].sum()
       valo = dvo['litros'].sum()
       valoa = dvoa['litros'].sum()
-      st.write(valoa)
+      #st.write(valoa)
       deltaoa = valo/valoa
       if deltaoa < 1:
         deltaoa = (1- deltaoa) * -1
