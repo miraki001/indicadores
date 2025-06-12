@@ -99,7 +99,7 @@ def ind_exportaciones(dva):
                 {"data": dv1['litros'].tolist(), "type": "bar", "name": actual,"yAxisIndex": 1, "color":'#F9C8B4'  },
                 {"data": dv2['litros'].tolist(), "type": "bar", "name": anterior,"yAxisIndex": 1, "color":'#FCE2D6'  },
                 {"data": dv1['fob'].tolist(), "type": "line", "name": actual, "yAxisIndex": 2,  "color":'#C92488'},
-                {"data": dv2['fob'].tolist(), "type": "line", "name": 'u$s' + anterior, "yAxisIndex": 2,  "color":'#604994'},
+                {"data": dv2['fob'].tolist(), "type": "line", "name": 'u$s ' + str(anterior), "yAxisIndex": 2,  "color":'#604994'},
                 
             ],
     }
