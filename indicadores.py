@@ -15,7 +15,7 @@ import altair as alt
 colorPalette = ['#332D75', '#604994', '#06C2CC']
 
 st.set_page_config(
-    page_title="Indicadores",
+    page_title="Indicadores Observatorio",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded")
