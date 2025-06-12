@@ -404,10 +404,11 @@ with tab3:
   )
 
   df = df.reset_index().rename_axis(None, axis=1)
-  fig = px.sunburst(df, path=['color', 'subgrupoenvase'], values='litros',
+  df = df.rename(columns={'litros': "Hl.", 'subgrupoenvase': "Envase",})  
+  fig = px.sunburst(df, path=['color', 'Envase'], values='Hl.',
                       color='subgrupoenvase', hover_data=['color'],
                       color_continuous_scale='RdBu',
-                      color_continuous_midpoint=np.average(df['index'], weights=df['litros']))
+                      color_continuous_midpoint=np.average(df['index'], weights=df['Hl.']))
   st.plotly_chart(fig, theme="streamlit")	
   #fig = px.treemap(df, path=[px.Constant("Todas"), 'provincia', 'variedad'], values='sup')
   #fig.update_traces(root_color="lightgrey")
