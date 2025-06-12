@@ -19,6 +19,7 @@ import locale
 from script.exportaciones import registro_mensual
 from script.exportaciones import mosto_registro_mensual
 from kpi import ind_mercado_interno
+from kpi import ind_exportaciones
 
 
 
@@ -351,7 +352,7 @@ with tab1:
                
 with tab2:
   st.write('vacio')
-  #ind_mercado_interno.ind_mercado_interno(dv1)
+  ind_exportaciones.ind_exportaciones(dv2)
 
   
 with tab3:
