@@ -347,7 +347,7 @@ with tab3:
   #st.write(df_anual)
 
 
-  json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
+  json_list = json.loads(json.dumps(list(df_filtered.T.to_dict().values()))) 
   option = {           
         "color": [
             '#dd6b66',
