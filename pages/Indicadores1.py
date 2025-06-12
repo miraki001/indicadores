@@ -404,7 +404,7 @@ with tab3:
   )
 
   df = df.reset_index().rename_axis(None, axis=1)
-  fig = px.sunburst(df, path=['color', 'subgrupoenvase'], values='sup',
+  fig = px.sunburst(df, path=['color', 'subgrupoenvase'], values='litros',
                       color='subgrupoenvase', hover_data=['color'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(df['index'], weights=df['litros']))
