@@ -351,7 +351,7 @@ with tab1:
                
 with tab2:
   st.write('vacio')
-  ind_mercado_interno.ind_mercado_interno(dva)
+  ind_mercado_interno.ind_mercado_interno(dv1)
 
   
 with tab3:
