@@ -170,6 +170,7 @@ actual = dt.now().year
 anterior = dt.now().year -1  
 dv2 = registro_mensual(anterior -1)
 dva = dv2[dv2['anio'] == actual ]
+dvex = dva
 mes = max(dva['mes'])
 mes2 = max(dva['mes1'])
 #dvm = mosto_registro_mensual(actual)
@@ -352,7 +353,7 @@ with tab1:
                
 with tab2:
   st.write('vacio')
-  ind_exportaciones.ind_exportaciones(dv2)
+  ind_exportaciones.ind_exportaciones(dvex)
 
   
 with tab3:
