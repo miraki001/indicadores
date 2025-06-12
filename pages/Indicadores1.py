@@ -346,6 +346,8 @@ with tab3:
   df_filtered = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
   #st.write(df_anual)
 
+  st.write('Participación de los despachos por tipo de envase , en HL')
+  st.write('Periodo : 01 Enero/' + mes2)
 
   json_list = json.loads(json.dumps(list(df_filtered.T.to_dict().values()))) 
   option = {           
