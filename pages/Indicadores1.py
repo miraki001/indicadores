@@ -23,7 +23,7 @@ from plotly.subplots import make_subplots
 import locale
 from script.exportaciones import registro_mensual
 from script.exportaciones import mosto_registro_mensual
-from indicadores import ind_mercado_interno
+from indicadores import indica_mercado_interno
 
 
 
