@@ -403,7 +403,7 @@ with tab3:
             options=option, height="250px",
   )
 
-
+  df = df.reset_index().rename_axis(None, axis=1)
   fig = px.sunburst(df, path=['color', 'subgrupoenvase'], values='sup',
                       color='subgrupoenvase', hover_data=['color'],
                       color_continuous_scale='RdBu',
