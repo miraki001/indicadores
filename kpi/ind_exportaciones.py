@@ -42,6 +42,7 @@ def ind_exportaciones(dva):
     dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
     dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
 
+    st.write(dv1)
     option = {
           "color": [
                 '#332D75',
