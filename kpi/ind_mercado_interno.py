@@ -38,7 +38,6 @@ def ind_mercado_interno(dva):
   with col[0]:
       dva1 = dva[dva['anio'] == actual ]
       st.write('Participación y evolución de los despachos por color, en HL')
-      st.write('Periodo : 01 Enero/' + mes2)
 
       df_filtered = dva1.groupby(['color'], as_index=False)[['litros']].sum()
       df_anual = df_filtered.rename(columns={'litros': "value", 'color': "name",})
@@ -110,7 +109,6 @@ def ind_mercado_interno(dva):
     #st.write(df_anual)
 
     st.write('Participación de los despachos por tipo de envase , en HL')
-    st.write('Periodo : 01 Enero/' + mes2)
 
     json_list = json.loads(json.dumps(list(df_filtered.T.to_dict().values()))) 
     option = {           
