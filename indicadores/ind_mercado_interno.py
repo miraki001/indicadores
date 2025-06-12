@@ -30,7 +30,7 @@ import locale
 #    """
 #st.markdown(streamlit_style, unsafe_allow_html=True) 
 
-def indica_mercado_interno(dva):
+def ind_mercado_interno(dva):
   st.write('Periodo : 01 Enero/' + mes2)
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
