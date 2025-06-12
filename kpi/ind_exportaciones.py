@@ -39,10 +39,8 @@ def ind_exportaciones(dva):
   st.write('Periodo : 01 Enero/' + mes2)
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
-    st.write('1')
     dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
     dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
-    st.write(dv1)
 
     option = {
           "color": [
@@ -54,7 +52,7 @@ def ind_exportaciones(dva):
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "title": {
-                "text": 'Exportaciones ',
+                "text": ' ',
                 "textStyle": {
                         "fontSize": 14,
                 },                  
