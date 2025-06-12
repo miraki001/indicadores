@@ -42,12 +42,7 @@ def ind_exportaciones(dva):
     dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
     dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
 
-    dv1 = dv1.style.format({
-      'litros': '${:,.2f}',  # Format as dollar amount with two decimal places
-      }).format({
-      'anio': lambda x: f"{x:.0f}"  # Remove commas from years (treated as float/int)
-    })
-
+    dv1 = dv1.style.format({"litros": "{:.2f}".format})
     st.write(dv1)
     option = {
           "color": [
