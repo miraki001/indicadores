@@ -45,7 +45,7 @@ def ind_mercado_interno(dva):
 
       json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
   
-      option = {           
+      option2 = {           
         "color": [
             '#dd6b66',
             '#759aa0',
@@ -94,7 +94,7 @@ def ind_mercado_interno(dva):
             ],
       }
       st_echarts(
-            options=option, height="250px",
+            options=option2, height="250px",
       )
 
   with col[1]:
