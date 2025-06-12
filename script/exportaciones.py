@@ -193,7 +193,7 @@ def mosto_registro_anual():
 
 @st.cache_data           
 def mosto_registro_mensual(anio):     
-    conn = get_connection()
+    #conn = get_connection()
     query =  f"""
         SELECT anio, mes,mes ||' '|| mess as mes1, cantlitros/743.5 AS litros, valorfobsolo AS fob,1 AS ppl,pais
         FROM exportaciones2_m 
