@@ -30,14 +30,18 @@ def ind_exportaciones(dva):
   actual = dt.now().year  
   anterior = dt.now().year -1  
   dva = dva[dva['anio'] == actual ]
+  dvb = dvb[dvb['anio'] == actual-1 ]
+  dvb = dvb[dvb['mes'] <=  ]
   #st.write(dva)
   mes = max(dva['mes'])
   mes2 = max(dva['mes1'])  
+  dvb = dvb[dvb['mes'] <= mes ]
   st.write('Periodo : 01 Enero/' + mes2)
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
     st.write('1')
     dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
+    dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
     st.write(dv1)
 
     option = {
@@ -93,7 +97,9 @@ def ind_exportaciones(dva):
             #"yAxis": {"type": "value"},
             "series": [
                 {"data": dv1['litros'].tolist(), "type": "bar", "name": 'Litros',"yAxisIndex": 1, "color":'#FCE2D6'  },
+                {"data": dv2['litros'].tolist(), "type": "bar", "name": 'Litros',"yAxisIndex": 1, "color":'#FCE2D6'  },
                 {"data": dv1['fob'].tolist(), "type": "line", "name": 'u$s', "yAxisIndex": 2,  "color":'#C92488'},
+                {"data": dv2['fob'].tolist(), "type": "line", "name": 'u$s', "yAxisIndex": 2,  "color":'#C92488'},
                 
             ],
     }
