@@ -45,7 +45,7 @@ def ind_mercado_interno(dva):
 
       json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
   
-      option2 = {           
+      option = {           
         "color": [
             '#dd6b66',
             '#759aa0',
@@ -94,7 +94,7 @@ def ind_mercado_interno(dva):
             ],
       }
       st_echarts(
-            options=option2, height="250px",
+            options=option,key="indica3", height="250px",
       )
 
   with col[1]:
@@ -113,7 +113,7 @@ def ind_mercado_interno(dva):
     st.write('Periodo : 01 Enero/' + mes2)
 
     json_list = json.loads(json.dumps(list(df_filtered.T.to_dict().values()))) 
-    option1 = {           
+    option = {           
         "color": [
             '#dd6b66',
             '#759aa0',
@@ -162,6 +162,6 @@ def ind_mercado_interno(dva):
             ],
     }
     st_echarts(
-            options=option1, height="250px",
+            options=option,key="indica4", height="250px",
     )
     
