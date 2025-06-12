@@ -404,7 +404,7 @@ with tab3:
   )
 
   df = df.reset_index().rename_axis(None, axis=1)
-  df = df.rename(columns={'litros': "Hl", 'subgrupoenvase': "Envase",})  
+  df = df.rename(columns={'litros': "Hl", 'subgrupoenvase': "Envase",'color': 'color'})  
   fig = px.sunburst(df, path=['color', 'Envase'], values='Hl',
                       color='subgrupoenvase', hover_data=['color'],
                       color_continuous_scale='RdBu',
