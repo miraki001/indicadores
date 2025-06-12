@@ -22,6 +22,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import locale
 from script.exportaciones import registro_mensual
+from script.exportaciones import mosto_registro_mensual
+
 
 
 #st.set_page_config(initial_sidebar_state="collapsed",
