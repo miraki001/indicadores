@@ -45,6 +45,7 @@ def ind_exportaciones(dva):
     #dv1 = dv1.style.format({"litros": "{:.2f}".format})
     #dv1, column_config={ format=",", ) }
     dv1.style.format(thousands='.')
+    dv1.style.format(precision=0, thousands='.')
     st.write(dv1)
     option = {
           "color": [
