@@ -54,7 +54,7 @@ def ind_exportaciones(dva):
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "title": {
-                "text": 'Exportaciones evolución mensual en litro ',
+                "text": 'Exportaciones ',
                 "textStyle": {
                         "fontSize": 14,
                 },                  
@@ -64,7 +64,7 @@ def ind_exportaciones(dva):
             "yAxis": [
                 {"type": "value" ,"name" : "Litros" ,
                  "axisLine": {
-                    "show": 'false',
+                    "show": 'true',
                   },              
                  "axisLabel": {
                     "formatter": '{value} '
@@ -81,7 +81,7 @@ def ind_exportaciones(dva):
                     "formatter": '{value}  '
                       }
                 },
-                {"type": "value" , "name" : "Litros Acum",
+                {"type": "value" , "name" : "u$s",
                  "position" : 'rigth',
                  "alignTicks": 'true',
                  "offset": 10,
@@ -104,7 +104,7 @@ def ind_exportaciones(dva):
             ],
     }
 
-    st_echarts(options=option,key="otro33" + str(dt.now()), height="400px")
+    st_echarts(options=option,key="otro33" + str(dt.now()), height="600px")
 
   
     
