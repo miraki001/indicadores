@@ -36,3 +36,6 @@ def ind_exportaciones(dva):
   st.write('Periodo : 01 Enero/' + mes2)
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
+    st.write('1')
+  with col[1]:
+    st.write('2')
