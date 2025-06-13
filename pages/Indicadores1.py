@@ -434,7 +434,8 @@ with tab4:
   
   col1, col2, col3 = st.columns(3)
 
-  col1.metric(label="Gain", value=5000, delta=1000,background_color="#A9F8FA")
+  col1.metric(label="Gain", value=5000, delta=1000)
+  style_metric_cards(background_color="#A9F8FA")  
   col2.metric(label="Loss", value=5000, delta=-1000)
   col3.metric(label="No Change", value=5000, delta=0)
 
