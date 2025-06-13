@@ -395,8 +395,8 @@ with tab1:
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
       dvo = dvo[dvo['mes']  <= mes]
-      vala = dva['fob'].sum()/100
-      valo = dvo['fob'].sum()/100
+      vala = dva['fob'].sum()
+      valo = dvo['fob'].sum()
       deltao = valo/vala
       if deltao < 1:
         deltao = (1- deltao) * -1
@@ -404,7 +404,7 @@ with tab1:
       if deltaa < 1:
         deltaa = (1- deltaa) * -1
 
-      dvoa = dv1[dv1['anio'] == anterior-1 ]
+      dvoa = dv2[dv2['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
       valoa = dvoa['litros'].sum()
       deltaoa = valo/valoa
