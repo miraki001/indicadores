@@ -284,8 +284,8 @@ with tab1:
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Exportaciones ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
+      st.metric(label='Exportaciones de Vinos ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
+      st.metric(label='Exportaciones de Vinos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
 
    with col[2]:
       dv2 = registro_mensual(anterior -1)
@@ -315,8 +315,8 @@ with tab1:
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones de Vinos' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Exportaciones de Vinos' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
+      st.metric(label='Exportaciones de Vinos ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
+      st.metric(label='Exportaciones de Vinos ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
 
    colm = st.columns((4.5, 4.5), gap='medium')
@@ -351,8 +351,8 @@ with tab1:
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones de Mostos' + str(anterior), value=valoro + ' Tn. ', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Exportaciones de Mostos' + str(actual), value=valora + ' Tn. ', delta=_format_as_percentage(deltaa,2) +'%')
+      st.metric(label='Exportaciones de Mostos ' + str(anterior), value=valoro + ' Tn. ', delta=_format_as_percentage(deltaoa,2) +'%' )
+      st.metric(label='Exportaciones de Mostos ' + str(actual), value=valora + ' Tn. ', delta=_format_as_percentage(deltaa,2) +'%')
    
    with colm[1]:
       dv2 = mosto_registro_mensual(anterior -1)
@@ -383,17 +383,17 @@ with tab1:
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones de Mostos' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Exportaciones de Mostos' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
+      st.metric(label='Exportaciones de Mostos ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
+      st.metric(label='Exportaciones de Mostos ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
    colo = st.columns((4.5, 4.5), gap='medium')
 
    with colo[0]:
-     st.metric(label='Superficie' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
-     st.metric(label='Superficie' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
+     st.metric(label='Superficie ' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
+     st.metric(label='Superficie ' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
    with colo[1]:
-     st.metric(label='Cosecha' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
-     st.metric(label='Cosecha' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
+     st.metric(label='Cosecha ' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
+     st.metric(label='Cosecha ' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
             
 with tab2:
   st.write('vacio')
