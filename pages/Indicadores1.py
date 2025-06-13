@@ -387,10 +387,10 @@ with tab1:
       st.metric(label='Exportaciones de Mostos' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
    colo = st.columns((4.5, 4.5), gap='medium')
-   with col[0]:
+   with colo[0]:
      st.metric(label='Superficie' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
      st.metric(label='Superficie' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
-   with col[1]:
+   with colo[1]:
      st.metric(label='Cosecha' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
      st.metric(label='Cosecha' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
             
