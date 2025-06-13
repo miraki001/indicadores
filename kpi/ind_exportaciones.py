@@ -40,7 +40,7 @@ def ind_exportaciones(dva):
   dvb = dva
   dva = dva[dva['anio'] == actual ]
   dvb = dvb[dvb['anio'] == actual-1 ]
-  #st.write(dva)
+  st.write(dva)
   mes = max(dva['mes'])
   mes2 = max(dva['mes1'])  
   dvb = dvb[dvb['mes'] <= mes ]
