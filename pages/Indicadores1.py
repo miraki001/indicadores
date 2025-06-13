@@ -356,7 +356,7 @@ with tab1:
    
    with colm[1]:
       dv2 = mosto_registro_mensual(anterior -1)
-      #st.write(dv2)
+      st.write(dv2)
       #st.write(max(dvo['mes']))
       #echarts_module.gauge(1500)
       dva = dv2[dv2['anio'] == actual ]
