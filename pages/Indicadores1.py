@@ -352,6 +352,7 @@ with tab1:
 
    colm = st.columns((4.5, 4.5), gap='medium')
    with colm[0]:
+      # mosto en toneladas
       dv2 = mosto_registro_mensual(anterior -1)
       #st.write(dv2)
       #st.write(max(dvo['mes']))
@@ -370,7 +371,7 @@ with tab1:
       if deltaa < 1:
         deltaa = (1- deltaa) * -1
 
-      dvoa = dv1[dv1['anio'] == anterior-1 ]
+      dvoa = dv2[dv2['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
       valoa = dvoa['litros'].sum()
       deltaoa = valo/valoa
