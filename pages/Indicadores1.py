@@ -382,12 +382,13 @@ with tab1:
       dvoa = dvoa[dvoa['mes']  <= mes]
       #st.write(dvoa)
       valoa = dvoa['fob'].sum()
-      st.write(valo)
-      st.write(valoa)
+      #st.write(valo)
+      #st.write(valoa)
       deltaoa = valo/valoa
-      st.write(deltaoa)
-      if deltaoa < 1:
-        deltaoa = (1- deltaoa) * -1        
+      #st.write(deltaoa)
+      deltaoa = (deltaoa -1)*100
+      #if deltaoa < 1:
+      #  deltaoa = (1- deltaoa) * -1        
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
