@@ -387,6 +387,16 @@ with tab1:
       st.metric(label='Exportaciones de Mostos' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
    colo = st.columns((4.5, 4.5), gap='medium')
+
+   st.markdown("""
+   <style>
+   [data-testid="stMetric"] {
+     background-color: #332D75;
+     text-align: center;
+     padding: 10px 0;
+   }
+   </style>
+   """, unsafe_allow_html=True)  
    with colo[0]:
      st.metric(label='Superficie' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
      st.metric(label='Superficie' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
