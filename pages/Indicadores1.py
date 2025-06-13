@@ -280,7 +280,7 @@ with tab1:
 
       dvoa = dv1[dv1['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
-      valoa = dvoa['litros'].sum()
+      valoa = dvoa['litros'].sum()/100
       deltaoa = valo/valoa
       st.write(valoa)
       st.write(valo)
