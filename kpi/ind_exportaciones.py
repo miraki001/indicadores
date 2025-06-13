@@ -38,6 +38,7 @@ def ind_exportaciones(dva):
   actual = dt.now().year  
   anterior = dt.now().year -1  
   dva = dva[dva['envase'] == 'FRACCIONADOS']  
+  st.write(dva)  
   dvb = dva
   dva = dva[dva['anio'] == actual ]
   dvb = dvb[dvb['anio'] == actual-1 ]
