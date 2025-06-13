@@ -376,6 +376,7 @@ with tab1:
       dvoa = dv2[dv2['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
       valoa = dvoa['litros'].sum()
+      st.write(valoa)
       deltaoa = valo/valoa
       if deltaoa < 1:
         deltaoa = (1- deltaoa) * -1        
