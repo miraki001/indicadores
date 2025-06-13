@@ -38,17 +38,17 @@ def ind_exportaciones(dva):
   actual = dt.now().year  
   anterior = dt.now().year -1  
   dbg = dva  
-  dva1 = dva[dva['envase'] == 'FRACCIONADO']  
-  dvb = dva1
-  dva = dva1[dva1['anio'] == actual ]
+  dva = dva[dva['envase'] == 'FRACCIONADO']  
+  dvb = dva
+  dva = dva[dva['anio'] == actual ]
   dvb = dvb[dvb['anio'] == actual-1 ]
-  mes = max(dva1['mes'])
-  mes2 = max(dva1['mes1'])  
+  mes = max(dva['mes'])
+  mes2 = max(dva['mes1'])  
   dvb = dvb[dvb['mes'] <= mes ]
   st.write('Periodo : 01 Enero/' + mes2)
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
-    dv1 = dva1.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
+    dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
     dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
 
     #dv1 = dv1.style.format({"litros": "{:.2f}".format})
