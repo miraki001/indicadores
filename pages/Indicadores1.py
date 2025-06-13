@@ -340,6 +340,7 @@ with tab1:
       deltaa = vala/valo
       if deltaa < 1:
         deltaa = (1- deltaa) * -1
+        
 
       dvoa = dv2[dv2['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
