@@ -388,11 +388,11 @@ with tab1:
 
    colo = st.columns((4.5, 4.5), gap='medium')
    with col[0]:
-     st.metric(label='Superficie' + str(anterior), value=1 + '', delta=_format_as_percentage(1,2) +'%' )
-     st.metric(label='Superficie' + str(actual), value=1 + ' ', delta=_format_as_percentage(1,2) +'%')
+     st.metric(label='Superficie' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
+     st.metric(label='Superficie' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
    with col[1]:
-     st.metric(label='Cosecha' + str(anterior), value=1 + '', delta=_format_as_percentage(1,2) +'%' )
-     st.metric(label='Cosecha' + str(actual), value=1 + ' ', delta=_format_as_percentage(1,2) +'%')
+     st.metric(label='Cosecha' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
+     st.metric(label='Cosecha' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
             
 with tab2:
   st.write('vacio')
