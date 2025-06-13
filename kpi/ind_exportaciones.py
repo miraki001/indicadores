@@ -204,7 +204,8 @@ def ind_exportaciones(dva):
     }
 
     st_echarts(options=option,key="otro33" + str(dt.now()), height="400px")
-col1 = st.columns((4.5, 4.5), gap='medium')
+      
+  col1 = st.columns((4.5, 4.5), gap='medium')
   with col1[0]:
 
     dv2 = mosto_registro_mensual(anterior -1)
