@@ -381,7 +381,7 @@ with tab1:
       dvoa = dv2[dv2['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
       #st.write(dvoa)
-      valoa = dvoa['litros'].sum()
+      valoa = dvoa['fob'].sum()
       st.write(valo)
       st.write(valoa)
       deltaoa = valo/valoa
