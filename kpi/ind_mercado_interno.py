@@ -41,6 +41,8 @@ def ind_mercado_interno(dva):
 
       df_filtered = dva1.groupby(['color'], as_index=False)[['litros']].sum()
       df_anual = df_filtered.rename(columns={'litros': "value", 'color': "name",})
+      df_anual = df_anual.astype({'litros': int } )      
+
 
       json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
   
@@ -106,6 +108,8 @@ def ind_mercado_interno(dva):
     df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
     #st.write(df_filtered)
     df_filtered = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
+    df_filtered = df_filtered.astype({'litros': int } )      
+
     #st.write(df_anual)
 
     st.write('Participación de los despachos por tipo de envase , en HL')
@@ -165,6 +169,8 @@ def ind_mercado_interno(dva):
     
   df = df.reset_index().rename_axis(None, axis=1)
   df = df.rename(columns={'litros': "Hl", 'subgrupoenvase': "Envase",'color': "color"})  
+  df = df.astype({'Hl': int } )      
+
   fig = px.sunburst(df, path=['color', 'Envase'], values='Hl',
                       color='Envase', hover_data=['color'],
                       color_continuous_scale='RdBu',
