@@ -20,7 +20,7 @@ from script.exportaciones import registro_mensual
 from script.exportaciones import mosto_registro_mensual
 from kpi import ind_mercado_interno
 from kpi import ind_exportaciones
-
+from streamlit_extras.metric_cards import style_metric_cards 
 
 
 
@@ -432,5 +432,11 @@ with tab4:
 
   st.markdown(lnk + htmlstr, unsafe_allow_html=True)
   
-  
+  col1, col2, col3 = st.columns(3)
+
+  col1.metric(label="Gain", value=5000, delta=1000)
+  col2.metric(label="Loss", value=5000, delta=-1000)
+  col3.metric(label="No Change", value=5000, delta=0)
+
+    style_metric_cards()  
 
