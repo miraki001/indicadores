@@ -207,7 +207,6 @@ def ind_exportaciones(dva):
       
   col1 = st.columns((4.5, 4.5), gap='medium')
   with col1[0]:
-
     dv2 = mosto_registro_mensual(anterior -1)
 
     dva = dv2[dv2['anio'] == actual ]
