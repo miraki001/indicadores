@@ -349,8 +349,9 @@ with tab1:
       st.write(valoa)
       deltaoa = valo/valoa
       st.write(deltaoa)
-      if deltaoa < 1:
-        deltaoa = (1- deltaoa) * -1        
+      deltaoa = (1 - deltaoa)/100
+      #if deltaoa < 1:
+      #  deltaoa = (1- deltaoa) * -1        
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
