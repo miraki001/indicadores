@@ -126,7 +126,7 @@ def ind_exportaciones(dva):
 
     dva1 = dbg[dbg['envase'] == 'GRANEL']  
     dvb = dva1
-    dva = dva1[dva1['anio'] == actual ]
+    dva1 = dva1[dva1['anio'] == actual ]
     dvb = dvb[dvb['anio'] == actual-1 ]
     mes = max(dva1['mes'])
     mes2 = max(dva1['mes1'])  
