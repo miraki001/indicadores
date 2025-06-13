@@ -345,10 +345,10 @@ with tab1:
       dvoa = dv2[dv2['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
       valoa = dvoa['litros'].sum()
-      st.write(valo)
-      st.write(valoa)
+      #st.write(valo)
+      #st.write(valoa)
       deltaoa = valo/valoa
-      st.write(deltaoa)
+      #st.write(deltaoa)
       deltaoa = (deltaoa -1)*100
       #if deltaoa < 1:
       #  deltaoa = (deltaoa) * -1        
@@ -382,8 +382,10 @@ with tab1:
       dvoa = dvoa[dvoa['mes']  <= mes]
       #st.write(dvoa)
       valoa = dvoa['litros'].sum()
-      #st.write(valoa)
+      st.write(valo)
+      st.write(valoa)
       deltaoa = valo/valoa
+      st.write(deltaoa)
       if deltaoa < 1:
         deltaoa = (1- deltaoa) * -1        
       valoro = str(_format_with_thousands_commas(valo)) 
