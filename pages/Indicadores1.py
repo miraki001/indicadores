@@ -438,10 +438,5 @@ with tab4:
   col2.metric(label="Loss", value=5000, delta=-1000)
   col3.metric(label="No Change", value=5000, delta=0)
 
-  style_metric_cards(
-       background_color="#6434eb",  # Example: set background color to a dark purple
-       border_color="#eb9234",      # Example: set border color to an orange hue
-       border_size_px=3,           # Example: set border size to 3 pixels
-       # Other options: border_radius_px, border_left_color, box_shadow
-  )  
+  style_metric_cards()  
 
