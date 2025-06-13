@@ -168,7 +168,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 dv1 = pd.read_parquet("data/processed/despachos_datos.parquet", engine="pyarrow")
 actual = dt.now().year  
 anterior = dt.now().year -1  
-dv2 = registro_mensual(anterior -1)
+dv2 = registro_mensual(anterior -2)
 dva = dv2[dv2['anio'] == actual ]
 dvex = dv2
 mes = max(dva['mes'])
