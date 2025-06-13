@@ -124,7 +124,7 @@ def ind_exportaciones(dva):
     
   with col[1]:
 
-    dva1 = dvg[dvg['envase'] == 'GRANEL']  
+    dva1 = dbg[dbg['envase'] == 'GRANEL']  
     dvb = dva1
     dva = dva1[dva1['anio'] == actual ]
     dvb = dvb[dvb['anio'] == actual-1 ]
