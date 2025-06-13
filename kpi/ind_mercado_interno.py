@@ -109,7 +109,7 @@ def ind_mercado_interno(dva):
     df_filtered = dva.groupby(['subgrupoenvase'], as_index=False)[['litros']].sum()
     #st.write(df_filtered)
     df_filtered = df_filtered.rename(columns={'litros': "value", 'subgrupoenvase': "name",})
-    df_filtered = df_filtered.astype({'litros': int } )      
+    df_filtered = df_filtered.astype({'value': int } )      
 
     #st.write(df_anual)
 
