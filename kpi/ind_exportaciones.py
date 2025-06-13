@@ -48,7 +48,7 @@ def ind_exportaciones(dva):
   st.write('Periodo : 01 Enero/' + mes2)
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
-    dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
+    dv1 = dva1.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
     dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
 
     #dv1 = dv1.style.format({"litros": "{:.2f}".format})
