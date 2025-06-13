@@ -19,18 +19,12 @@ import locale
 from script.exportaciones import mosto_registro_mensual
 
 
-streamlit_style = """
-    <style>
-    iframe[title="streamlit_echarts.st_echarts"]{ height: 1000px;} 
-   </style>
-    """
-st.markdown(streamlit_style, unsafe_allow_html=True) 
 
 def ind_exportaciones(dva):
 
   streamlit_style = """
     <style>
-    iframe[title="streamlit_echarts.st_echarts"]{ height: 1000px;} 
+    iframe[title="streamlit_echarts.st_echarts"]{ height: 400px;} 
    </style>
     """
   st.markdown(streamlit_style, unsafe_allow_html=True) 
