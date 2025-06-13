@@ -37,6 +37,7 @@ def ind_exportaciones(dva):
     
   actual = dt.now().year  
   anterior = dt.now().year -1  
+  dva = dva[dva['envase'] = 'FRACCIONADOS']  
   dvb = dva
   dva = dva[dva['anio'] == actual ]
   dvb = dvb[dvb['anio'] == actual-1 ]
@@ -67,7 +68,7 @@ def ind_exportaciones(dva):
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "title": {
-                "text": ' ',
+                "text": 'Fraccionado',
                 "textStyle": {
                         "fontSize": 14,
                 },                  
