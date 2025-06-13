@@ -351,7 +351,7 @@ with tab1:
       st.metric(label='Exportaciones de Mostos' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
    colm = st.columns((4.5, 4.5), gap='medium')
-   with colm[0]
+   with colm[0]:
       dv2 = mosto_registro_mensual(anterior -1)
       #st.write(dv2)
       #st.write(max(dvo['mes']))
@@ -383,7 +383,7 @@ with tab1:
       st.metric(label='Exportaciones de Mostos' + str(anterior), value=valoro + '  ', delta=_format_as_percentage(deltaoa,2) +'%' )
       st.metric(label='Exportaciones de Mostos' + str(actual), value=valora + '  ', delta=_format_as_percentage(deltaa,2) +'%')
    
-   with colm[1]
+   with colm[1]:
       dv2 = mosto_registro_mensual(anterior -1)
       #st.write(dv2)
       #st.write(max(dvo['mes']))
