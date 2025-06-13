@@ -37,12 +37,10 @@ def ind_exportaciones(dva):
     
   actual = dt.now().year  
   anterior = dt.now().year -1  
-  dva = dva[dva['envase'] == 'FRACCIONADO']  
-  st.write(dva)  
-  dvb = dva
+  dva1 = dva[dva['envase'] == 'FRACCIONADO']  
+  dvb = dva1
   dva = dva[dva['anio'] == actual ]
   dvb = dvb[dvb['anio'] == actual-1 ]
-  st.write(dva)
   mes = max(dva['mes'])
   mes2 = max(dva['mes1'])  
   dvb = dvb[dvb['mes'] <= mes ]
@@ -124,4 +122,83 @@ def ind_exportaciones(dva):
   
     
   with col[1]:
-    st.write('2')
+
+    dva1 = dva[dva['envase'] == 'GRANEL']  
+    dvb = dva1
+    dva = dva[dva['anio'] == actual ]
+    dvb = dvb[dvb['anio'] == actual-1 ]
+    mes = max(dva['mes'])
+    mes2 = max(dva['mes1'])  
+    dvb = dvb[dvb['mes'] <= mes ]
+      
+    dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
+    dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
+
+    #dv1 = dv1.style.format({"litros": "{:.2f}".format})
+    #dv1, column_config={ format=",", ) }
+    dv1.style.format(thousands='.')
+    dv1.style.format(precision=0, thousands='.')
+    dv1 = dv1.astype({'fob' : int, 'litros': int } )      
+    dv2 = dv2.astype({'fob' : int, 'litros': int } )      
+    #st.write(dv1)
+    option = {
+          "color": [
+                '#332D75',
+                '#1E8DB6',
+                '#604994',
+                '#dd6b66',
+            ],
+            "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
+            "legend": {},
+            "title": {
+                "text": 'Granel',
+                "textStyle": {
+                        "fontSize": 14,
+                },                  
+                "subtext": '',
+            },            
+            "xAxis": {"type": "category", "data": dv1["mes1"].tolist()},
+            "yAxis": [
+                {"type": "value" ,"name" : "Litros" ,
+                 "axisLine": {
+                    "show": 'true',
+                  },              
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                } ,
+                {"type": "value" , "name" : "",
+                 "position" : 'left',
+                 "alignTicks": 'true',
+                 "offset": 0,
+                 "axisLine": {
+                    "show": 'false',
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value}  '
+                      }
+                },
+                {"type": "value" , "name" : "u$s",
+                 "position" : 'rigth',
+                 "alignTicks": 'true',
+                 "offset": 10,
+                 "axisLine": {
+                    "show": 'true',
+
+                  },             
+                 "axisLabel": {
+                    "formatter": '{value} '
+                      }
+                },            
+            ],            
+            #"yAxis": {"type": "value"},
+            "series": [
+                {"data": dv1['litros'].tolist(), "type": "bar", "name": 'Lts. ' + str(actual),"yAxisIndex": 1, "color":'#1E8DB6'  },
+                {"data": dv2['litros'].tolist(), "type": "bar", "name": 'Lts. ' + str(anterior),"yAxisIndex": 1, "color":'#dd6b66'  },
+                {"data": dv1['fob'].tolist(), "type": "line", "name": 'u$s ' + str(actual), "yAxisIndex": 2,  "color":'#C92488'},
+                {"data": dv2['fob'].tolist(), "type": "line", "name": 'u$s ' + str(anterior), "yAxisIndex": 2,  "color":'#604994'},
+                
+            ],
+    }
+
+    st_echarts(options=option,key="otro33" + str(dt.now()), height="400px")
