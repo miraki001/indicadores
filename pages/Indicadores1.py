@@ -354,7 +354,7 @@ with tab1:
    with colm[0]:
       # mosto en toneladas
       dv2 = mosto_registro_mensual(anterior -1)
-      #st.write(dv2)
+      st.write(dv2)
       #st.write(max(dvo['mes']))
       #echarts_module.gauge(1500)
       dva = dv2[dv2['anio'] == actual ]
@@ -363,6 +363,7 @@ with tab1:
       dvam = dva[dv1['mes'] == mes ]
       dvo = dvo[dvo['mes']  <= mes]
       vala = dva['litros'].sum()
+      st.write(vala)
       valo = dvo['litros'].sum()
       deltao = valo/vala
       if deltao < 1:
