@@ -295,7 +295,7 @@ with tab1:
       st.metric(label='Exportaciones de Vinos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
 
    with col[2]:
-      dv2 = registro_mensual(anterior -1)
+      dv2 = registro_mensual(anterior -2)
       #st.write(dv2)
       #st.write(max(dvo['mes']))
       #echarts_module.gauge(1500)
