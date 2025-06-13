@@ -240,15 +240,17 @@ with tab1:
       valoa = dvoa['litros'].sum()
       #st.write(valoa)
       deltaoa = valo/valoa
-      if deltaoa < 1:
-        deltaoa = (1- deltaoa) * -1
+      deltaoa = (deltaoa -1)*100
+      #if deltaoa < 1:
+      #  deltaoa = (1- deltaoa) * -1
      
       deltao = valo/vala
       if deltao < 1:
         deltao = (1- deltao) * -1
       deltaa = vala/valo
-      if deltaa < 1:
-        deltaa = (1- deltaa) * -1
+      deltaa = (deltaa - 1)*100
+      #if deltaa < 1:
+      #  deltaa = (1- deltaa) * -1
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
@@ -271,15 +273,17 @@ with tab1:
       if deltao < 1:
         deltao = (1- deltao) * -1
       deltaa = vala/valo
-      if deltaa < 1:
-        deltaa = (1- deltaa) * -1
+      deltaa = (deltaa - 1)*100
+      #if deltaa < 1:
+      #  deltaa = (1- deltaa) * -1
 
       dvoa = dv1[dv1['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
       valoa = dvoa['litros'].sum()
       deltaoa = valo/valoa
-      if deltaoa < 1:
-        deltaoa = (1- deltaoa) * -1     
+      deltaoa = (deltaoa -1)*100
+      #if deltaoa < 1:
+      #  deltaoa = (1- deltaoa) * -1     
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
@@ -303,14 +307,16 @@ with tab1:
       if deltao < 1:
         deltao = (1- deltao) * -1
       deltaa = vala/valo
-      if deltaa < 1:
-        deltaa = (1- deltaa) * -1
+      deltaa = (deltaa - 1)*100
+      #if deltaa < 1:
+      #  deltaa = (1- deltaa) * -1
       dvoa = dv1[dv1['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
       valoa = dvoa['litros'].sum()
       deltaoa = valo/valoa
-      if deltaoa < 1:
-        deltaoa = (1- deltaoa) * -1           
+      deltaoa = (deltaoa -1)*100
+      #if deltaoa < 1:
+      #  deltaoa = (1- deltaoa) * -1           
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
