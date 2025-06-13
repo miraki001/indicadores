@@ -438,5 +438,5 @@ with tab4:
   col2.metric(label="Loss", value=5000, delta=-1000)
   col3.metric(label="No Change", value=5000, delta=0)
 
-    style_metric_cards()  
+  style_metric_cards()  
 
