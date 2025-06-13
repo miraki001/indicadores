@@ -41,7 +41,7 @@ def ind_mercado_interno(dva):
 
       df_filtered = dva1.groupby(['color'], as_index=False)[['litros']].sum()
       df_anual = df_filtered.rename(columns={'litros': "value", 'color': "name",})
-      df_anual = df_anual.astype({'litros': int } )      
+      df_anual = df_anual.astype({'value': int } )      
 
 
       json_list = json.loads(json.dumps(list(df_anual.T.to_dict().values()))) 
