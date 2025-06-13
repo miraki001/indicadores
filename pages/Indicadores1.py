@@ -225,7 +225,7 @@ tab1, tab2, tab3,tab4 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno
 with tab1:
    st.write('Periodo : 01 Enero/' + mes2)
 
-   col = st.columns((4.5, 4.5, 4.5,4.5), gap='medium')
+   col = st.columns((4.5, 4.5, 4.5), gap='medium')
 
    with col[0]:
       dva = dv1[dv1['anio'] == actual ]
@@ -318,7 +318,10 @@ with tab1:
       st.metric(label='Exportaciones de Vinos' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
       st.metric(label='Exportaciones de Vinos' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
-   with col[3]:
+
+   colm = st.columns((4.5, 4.5), gap='medium')
+   with colm[0]:
+      # mosto en toneladas
       dv2 = mosto_registro_mensual(anterior -1)
       #st.write(dv2)
       #st.write(max(dvo['mes']))
@@ -328,42 +331,8 @@ with tab1:
       mes = max(dva['mes'])
       dvam = dva[dv1['mes'] == mes ]
       dvo = dvo[dvo['mes']  <= mes]
-      vala = dva['fob'].sum()/100
-      valo = dvo['fob'].sum()/100
-      deltao = valo/vala
-      if deltao < 1:
-        deltao = (1- deltao) * -1
-      deltaa = vala/valo
-      if deltaa < 1:
-        deltaa = (1- deltaa) * -1
-
-      dvoa = dv1[dv1['anio'] == anterior-1 ]
-      dvoa = dvoa[dvoa['mes']  <= mes]
-      valoa = dvoa['litros'].sum()
-      deltaoa = valo/valoa
-      if deltaoa < 1:
-        deltaoa = (1- deltaoa) * -1        
-      valoro = str(_format_with_thousands_commas(valo)) 
-      valora = str(_format_with_thousands_commas(vala)) 
-      mes2 = max(dva['mes1'])
-      #st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones de Mostos' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Exportaciones de Mostos' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
-
-   colm = st.columns((4.5, 4.5), gap='medium')
-   with colm[0]:
-      # mosto en toneladas
-      dv2 = mosto_registro_mensual(anterior -1)
-      st.write(dv2)
-      #st.write(max(dvo['mes']))
-      #echarts_module.gauge(1500)
-      dva = dv2[dv2['anio'] == actual ]
-      dvo = dv2[dv2['anio'] == anterior ]
-      mes = max(dva['mes'])
-      dvam = dva[dv1['mes'] == mes ]
-      dvo = dvo[dvo['mes']  <= mes]
       vala = dva['litros'].sum()
-      st.write(vala)
+      #st.write(vala)
       valo = dvo['litros'].sum()
       deltao = valo/vala
       if deltao < 1:
