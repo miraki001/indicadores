@@ -238,8 +238,8 @@ with tab1:
       vala = dva['litros'].sum()
       valo = dvo['litros'].sum()
       valoa = dvoa['litros'].sum()
-      st.write(valoa)
-      st.write(valo)
+      #st.write(valoa)
+      #st.write(valo)
       deltaoa = valo/valoa
       deltaoa = (deltaoa -1)*100
       #if deltaoa < 1:
@@ -270,9 +270,9 @@ with tab1:
       dvo = dvo[dvo['mes']  <= mes]
       vala = dva['litros'].sum()/100
       valo = dvo['litros'].sum()/100
-      deltao = valo/vala
-      if deltao < 1:
-        deltao = (1- deltao) * -1
+      #deltao = valo/vala
+      #if deltao < 1:
+      #  deltao = (1- deltao) * -1
       deltaa = vala/valo
       deltaa = (deltaa - 1)*100
       #if deltaa < 1:
@@ -282,6 +282,8 @@ with tab1:
       dvoa = dvoa[dvoa['mes']  <= mes]
       valoa = dvoa['litros'].sum()
       deltaoa = valo/valoa
+      st.write(valoa)
+      st.write(valo)
       deltaoa = (deltaoa -1)*100
       #if deltaoa < 1:
       #  deltaoa = (1- deltaoa) * -1     
