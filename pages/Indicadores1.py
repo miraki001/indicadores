@@ -338,8 +338,9 @@ with tab1:
       if deltao < 1:
         deltao = (1- deltao) * -1
       deltaa = vala/valo
-      if deltaa < 1:
-        deltaa = (1- deltaa) * -1
+      deltaa = (deltaa - 1)*100
+      #if deltaa < 1:
+      #  deltaa = (1- deltaa) * -1
         
 
       dvoa = dv2[dv2['anio'] == anterior-1 ]
@@ -375,8 +376,9 @@ with tab1:
       if deltao < 1:
         deltao = (1- deltao) * -1
       deltaa = vala/valo
-      if deltaa < 1:
-        deltaa = (1- deltaa) * -1
+      deltaa = (deltaa - 1)*100
+      #if deltaa < 1:
+      #  deltaa = (1- deltaa) * -1
 
       dvoa = dv2[dv2['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
