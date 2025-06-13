@@ -197,7 +197,7 @@ def mosto_registro_mensual(anio):
     query =  f"""
         SELECT anio, mes,mes ||' '|| mess as mes1, cantlitros/743.5 AS litros, valorfobsolo AS fob,1 AS ppl,pais
         FROM exportaciones2_m 
-        WHERE producto not in ('Mosto','Alcohol')
+        WHERE producto = 'Mosto' and codigoproducto like '%CONCENTRADO%'
         and anio > {anio}
         ORDER BY anio, mes 
     """
