@@ -291,3 +291,4 @@ def ind_exportaciones(dva):
   
     
   with col1[1]:
+      st.write('')
