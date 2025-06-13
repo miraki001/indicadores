@@ -46,6 +46,8 @@ def ind_exportaciones(dva):
     #dv1, column_config={ format=",", ) }
     dv1.style.format(thousands='.')
     dv1.style.format(precision=0, thousands='.')
+    dv1 = dv1.astype({'fob' : int, 'litros': int } )      
+    dv2 = dv2.astype({'fob' : int, 'litros': int } )      
     #st.write(dv1)
     option = {
           "color": [
