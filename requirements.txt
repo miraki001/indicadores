@@ -9,3 +9,4 @@ streamlit-keyup
 geopandas
 folium
 streamlit_folium
+streamlit_extras
