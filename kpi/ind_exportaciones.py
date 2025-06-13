@@ -42,8 +42,8 @@ def ind_exportaciones(dva):
   dvb = dva1
   dva = dva1[dva1['anio'] == actual ]
   dvb = dvb[dvb['anio'] == actual-1 ]
-  mes = max(dva['mes'])
-  mes2 = max(dva['mes1'])  
+  mes = max(dva1['mes'])
+  mes2 = max(dva1['mes1'])  
   dvb = dvb[dvb['mes'] <= mes ]
   st.write('Periodo : 01 Enero/' + mes2)
   col = st.columns((4.5, 4.5), gap='medium')
