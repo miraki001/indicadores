@@ -282,8 +282,8 @@ with tab1:
       dvoa = dvoa[dvoa['mes']  <= mes]
       valoa = dvoa['litros'].sum()/100
       deltaoa = valo/valoa
-      st.write(valoa)
-      st.write(valo)
+      #st.write(valoa)
+      #st.write(valo)
       deltaoa = (deltaoa -1)*100
       #if deltaoa < 1:
       #  deltaoa = (1- deltaoa) * -1     
@@ -316,6 +316,8 @@ with tab1:
       dvoa = dv2[dv2['anio'] == anterior-1 ]
       dvoa = dvoa[dvoa['mes']  <= mes]
       valoa = dvoa['fob'].sum()
+      st.write(valoa)
+      st.write(valo)
       deltaoa = valo/valoa
       deltaoa = (deltaoa -1)*100
       #if deltaoa < 1:
