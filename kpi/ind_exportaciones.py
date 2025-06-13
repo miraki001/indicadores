@@ -27,6 +27,14 @@ st.markdown(streamlit_style, unsafe_allow_html=True)
 
 def ind_exportaciones(dva):
 
+  streamlit_style = """
+    <style>
+    iframe[title="streamlit_echarts.st_echarts"]{ height: 1000px;} 
+   </style>
+    """
+  st.markdown(streamlit_style, unsafe_allow_html=True) 
+
+    
   actual = dt.now().year  
   anterior = dt.now().year -1  
   dvb = dva
