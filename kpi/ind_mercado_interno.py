@@ -34,6 +34,7 @@ def ind_mercado_interno(dva):
   mes = max(dva['mes'])
   mes2 = max(dva['mes1'])  
   st.write('Periodo : 01 Enero/' + mes2)
+  locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
       dva1 = dva[dva['anio'] == actual ]
