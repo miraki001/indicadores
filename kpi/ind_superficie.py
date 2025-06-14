@@ -100,8 +100,8 @@ def ind_superficie(dva):
       },
       "yAxis": {"type": "value"},
       "series": [{"data": dv1['sup'].to_list(), "type": "bar", "name": 'Blanca', "color":'#dd6b66'},
-      "series": [{"data": dv2['sup'].to_list(), "type": "bar", "name": 'Tinta', "color":'#dd6b66'},
-      "series": [{"data": dv3['sup'].to_list(), "type": "bar", "name": 'Rosada', "color":'#dd6b66'},
+                 {"data": dv2['sup'].to_list(), "type": "bar", "name": 'Tinta', "color":'#dd6b66'},
+                 {"data": dv3['sup'].to_list(), "type": "bar", "name": 'Rosada', "color":'#dd6b66'},
                ]
     }
     #st_echarts(
