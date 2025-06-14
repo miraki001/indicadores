@@ -48,7 +48,7 @@ def ind_superficie(dva):
     dv1.style.format(precision=0, thousands='.')
     dv1 = dv1.astype({'sup' : int } )      
     dv2 = dv2.astype({'sup' : int} )      
-    st.write(dva)
+    #st.write(dva)
 
     option = {
       "tooltip": {
@@ -61,7 +61,7 @@ def ind_superficie(dva):
           "data": dva['anio'].to_list(),
       },
       "yAxis": {"type": "value"},
-      "series": [{"data": dva['sup'].to_list(), "type": "bar", "name": 'Ha', "color":'#1E8DB6'},
+      "series": [{"data": dva['sup'].to_list(), "type": "bar", "name": 'Ha', "color":'#dd6b66'},
                ]
     }
     st_echarts(
