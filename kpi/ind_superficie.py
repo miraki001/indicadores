@@ -55,7 +55,7 @@ def ind_superficie(dva,dvc):
       },
       "legend": {},  
       "title": {
-                "text": 'Total',
+                "text": 'Superficie Total',
                 "textStyle": {
                         "fontSize": 12,
                 },                  
@@ -103,7 +103,7 @@ def ind_superficie(dva,dvc):
       },
       "legend": {},    
       "title": {
-                "text": 'Por Color',
+                "text": 'Superficie Por Color',
                 "textStyle": {
                         "fontSize": 12,
                 },                  
@@ -141,7 +141,7 @@ def ind_superficie(dva,dvc):
         },
         "legend": {},  
         "title": {
-                  "text": 'Total',
+                  "text": 'Cosecha Total',
                   "textStyle": {
                           "fontSize": 12,
                   },                  
