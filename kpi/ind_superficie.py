@@ -20,7 +20,7 @@ from script.exportaciones import mosto_registro_mensual
 
 
 
-def ind_superficie(dva):
+def ind_superficie(dva,dvc):
 
   streamlit_style = """
     <style>
@@ -127,5 +127,39 @@ def ind_superficie(dva):
   col1 = st.columns((4.5, 4.5), gap='medium')
   with col1[0]:
       st.write('')
+      dva = dvc[dvc['anio'] > maxanio -5 ]
+      dv1 = dva.groupby(['anio'], as_index=False)[['peso']].sum()
+      dv1.style.format(thousands='.')
+      dv1.style.format(precision=0, thousands='.')
+      dv1 = dv1.astype({'sup' : int } )      
+      #st.write(dva)
+
+      option = {
+        "tooltip": {
+           "trigger": 'axis',
+            "axisPointer": { "type": 'cross' }
+        },
+        "legend": {},  
+        "title": {
+                  "text": 'Total',
+                  "textStyle": {
+                          "fontSize": 12,
+                  },                  
+                  "subtext": '',
+        },       
+        "xAxis": {
+            "type": "category",
+            "data": dv1['anio'].to_list(),
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": dv1['peso'].to_list(), "type": "bar", "name": 'Tn', "color":'#dd6b66'},
+               ]
+      }
+      #st_echarts(
+      #  options=option, height="400px" ,
+      #)
+      st_echarts(options=option,key="otro333" + str(dt.now()), height="400px")
+    
+  
   with col1[1]:
       st.write('')
