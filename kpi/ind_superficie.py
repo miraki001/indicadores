@@ -53,7 +53,14 @@ def ind_superficie(dva):
           "trigger": 'axis',
           "axisPointer": { "type": 'cross' }
       },
-      "legend": {},    
+      "legend": {},  
+      "title": {
+                "text": 'Total',
+                "textStyle": {
+                        "fontSize": 12,
+                },                  
+                "subtext": '',
+      },       
       "xAxis": {
           "type": "category",
           "data": dv1['anio'].to_list(),
