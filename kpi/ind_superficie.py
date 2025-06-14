@@ -35,19 +35,14 @@ def ind_superficie(dva):
   dbg = dva  
   dvb = dva
   dva = dva[dva['anio'] > maxanio -5 ]
-  dva = dva.groupby(['anio'], as_index=False)[['sup']].sum()
+  #dva = dva.groupby(['anio'], as_index=False)[['sup']].sum()
   dvb = dvb[dvb['anio'] == maxanio-1 ]
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
     dv1 = dva.groupby(['anio'], as_index=False)[['sup']].sum()
-    dv2 = dvb.groupby(['anio'], as_index=False)[['sup']].sum()
-
-    #dv1 = dv1.style.format({"litros": "{:.2f}".format})
-    #dv1, column_config={ format=",", ) }
     dv1.style.format(thousands='.')
     dv1.style.format(precision=0, thousands='.')
     dv1 = dv1.astype({'sup' : int } )      
-    dv2 = dv2.astype({'sup' : int} )      
     #st.write(dva)
 
     option = {
@@ -58,161 +53,45 @@ def ind_superficie(dva):
       "legend": {},    
       "xAxis": {
           "type": "category",
-          "data": dva['anio'].to_list(),
+          "data": dv1['anio'].to_list(),
       },
       "yAxis": {"type": "value"},
-      "series": [{"data": dva['sup'].to_list(), "type": "bar", "name": 'Ha', "color":'#dd6b66'},
+      "series": [{"data": dv1['sup'].to_list(), "type": "bar", "name": 'Ha', "color":'#dd6b66'},
                ]
     }
-    st_echarts(
-      options=option, height="400px" ,
-    )
-
-    
-    option = {
-          "color": [
-                '#332D75',
-                '#1E8DB6',
-                '#604994',
-                '#dd6b66',
-            ],
-            "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
-            "legend": {},
-            "title": {
-                "text": 'Hectareas',
-                "textStyle": {
-                        "fontSize": 14,
-                },                  
-                "subtext": '',
-            },            
-            "xAxis": {"type": "category", "data": dv1["anio"].tolist()},
-            "yAxis": [
-                {"type": "value" ,"name" : "Ha" ,
-                 "axisLine": {
-                    "show": 'true',
-                  },              
-                 "axisLabel": {
-                    "formatter": '{value} '
-                      }
-                } ,
-                {"type": "value" , "name" : "",
-                 "position" : 'left',
-                 "alignTicks": 'true',
-                 "offset": 0,
-                 "axisLine": {
-                    "show": 'false',
-                  },             
-                 "axisLabel": {
-                    "formatter": '{value}  '
-                      }
-                },
-                {"type": "value" , "name" : "u$s",
-                 "position" : 'rigth',
-                 "alignTicks": 'true',
-                 "offset": 10,
-                 "axisLine": {
-                    "show": 'true',
-
-                  },             
-                 "axisLabel": {
-                    "formatter": '{value} '
-                      }
-                },            
-            ],            
-            #"yAxis": {"type": "value"},
-            "series": [
-                {"data": dv1['sup'].tolist(), "type": "bar", "name": 'Ha. ' + str(maxanio),"yAxisIndex": 1, "color":'#1E8DB6'  },
-                {"data": dv2['sup'].tolist(), "type": "bar", "name": 'Ha. ' + str(anterior),"yAxisIndex": 1, "color":'#dd6b66'  },
-                
-            ],
-    }
-
+    #st_echarts(
+    #  options=option, height="400px" ,
+    #)
     st_echarts(options=option,key="otro333" + str(dt.now()), height="400px")
 
   
     
   with col[1]:
-
-    dva1 = dbg[dbg['envase'] == 'GRANEL']  
-    dvb = dva1
-    dva1 = dva1[dva1['anio'] == actual ]
-    dvb = dvb[dvb['anio'] == actual-1 ]
-    mes = max(dva1['mes'])
-    mes2 = max(dva1['mes1'])  
-    dvb = dvb[dvb['mes'] <= mes ]
-      
-    dv1 = dva1.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
-    dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
-
-    #dv1 = dv1.style.format({"litros": "{:.2f}".format})
-    #dv1, column_config={ format=",", ) }
+    dv1 = dva.groupby(['anio','color'], as_index=False)[['sup']].sum()
     dv1.style.format(thousands='.')
     dv1.style.format(precision=0, thousands='.')
-    dv1 = dv1.astype({'fob' : int, 'litros': int } )      
-    dv2 = dv2.astype({'fob' : int, 'litros': int } )      
-    #st.write(dv1)
+    dv1 = dv1.astype({'sup' : int } )      
+    #st.write(dva)
+
     option = {
-          "color": [
-                '#332D75',
-                '#1E8DB6',
-                '#604994',
-                '#dd6b66',
-            ],
-            "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
-            "legend": {},
-            "title": {
-                "text": 'Granel',
-                "textStyle": {
-                        "fontSize": 14,
-                },                  
-                "subtext": '',
-            },            
-            "xAxis": {"type": "category", "data": dv1["mes1"].tolist()},
-            "yAxis": [
-                {"type": "value" ,"name" : "Litros" ,
-                 "axisLine": {
-                    "show": 'true',
-                  },              
-                 "axisLabel": {
-                    "formatter": '{value} '
-                      }
-                } ,
-                {"type": "value" , "name" : "",
-                 "position" : 'left',
-                 "alignTicks": 'true',
-                 "offset": 0,
-                 "axisLine": {
-                    "show": 'false',
-                  },             
-                 "axisLabel": {
-                    "formatter": '{value}  '
-                      }
-                },
-                {"type": "value" , "name" : "u$s",
-                 "position" : 'rigth',
-                 "alignTicks": 'true',
-                 "offset": 10,
-                 "axisLine": {
-                    "show": 'true',
-
-                  },             
-                 "axisLabel": {
-                    "formatter": '{value} '
-                      }
-                },            
-            ],            
-            #"yAxis": {"type": "value"},
-            "series": [
-                {"data": dv1['litros'].tolist(), "type": "bar", "name": 'Lts. ' + str(actual),"yAxisIndex": 1, "color":'#1E8DB6'  },
-                {"data": dv2['litros'].tolist(), "type": "bar", "name": 'Lts. ' + str(anterior),"yAxisIndex": 1, "color":'#dd6b66'  },
-                {"data": dv1['fob'].tolist(), "type": "line", "name": 'u$s ' + str(actual), "yAxisIndex": 2,  "color":'#C92488'},
-                {"data": dv2['fob'].tolist(), "type": "line", "name": 'u$s ' + str(anterior), "yAxisIndex": 2,  "color":'#604994'},
-                
-            ],
+      "tooltip": {
+          "trigger": 'axis',
+          "axisPointer": { "type": 'cross' }
+      },
+      "legend": {},    
+      "xAxis": {
+          "type": "category",
+          "data": dv1['anio'].to_list(),
+      },
+      "yAxis": {"type": "value"},
+      "series": [{"data": dv1['sup'].to_list(), "type": "bar", "name": 'Ha', "color":'#dd6b66'},
+               ]
     }
+    #st_echarts(
+    #  options=option, height="400px" ,
+    #)
+    st_echarts(options=option,key="otro333" + str(dt.now()), height="400px")
 
-    st_echarts(options=option,key="otro33" + str(dt.now()), height="400px")
-      
   col1 = st.columns((4.5, 4.5), gap='medium')
   with col1[0]:
     dv2 = mosto_registro_mensual(anterior -1)
