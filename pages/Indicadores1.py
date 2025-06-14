@@ -424,10 +424,15 @@ with tab1:
      valoa = dvoa['sup'].sum()
      valoro = str(_format_with_thousands_commas(valo)) 
      valora = str(_format_with_thousands_commas(vala)) 
+     deltaoa = valo/valoa
+     #st.write(deltaoa)
+     deltaoa = (deltaoa -1)*100     
+     deltaa = vala/valo
+     deltaa = (deltaa - 1)*100     
      
      
-     st.metric(label='Superficie ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(1,2) +'%' )
-     st.metric(label='Superficie ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(1,2) +'%')
+     st.metric(label='Superficie ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(deltaoa,2) +'%' )
+     st.metric(label='Superficie ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(deltaa,2) +'%')
    with colo[1]:
      st.metric(label='Cosecha ' + str(maxanio -1), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
      st.metric(label='Cosecha ' + str(maxanio), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
