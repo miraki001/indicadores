@@ -35,6 +35,7 @@ def ind_superficie(dva):
   dbg = dva  
   dvb = dva
   dva = dva[dva['anio'] > maxanio -5 ]
+  st.write(dva)
   #dva = dva.groupby(['anio'], as_index=False)[['sup']].sum()
   dvb = dvb[dvb['anio'] == maxanio-1 ]
   col = st.columns((4.5, 4.5), gap='medium')
