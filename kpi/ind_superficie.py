@@ -163,3 +163,5 @@ def ind_superficie(dva,dvc):
   
   with col1[1]:
       st.write('')
+      dva = dvc[dvc['anio'] > maxanio -5 ]
+      st.write(dva)
