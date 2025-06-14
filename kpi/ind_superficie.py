@@ -102,6 +102,13 @@ def ind_superficie(dva):
           "axisPointer": { "type": 'cross' }
       },
       "legend": {},    
+      "title": {
+                "text": 'Por Color',
+                "textStyle": {
+                        "fontSize": 12,
+                },                  
+                "subtext": '',
+      },      
       "xAxis": {
           "type": "category",
           "data": dv1['anio'].to_list(),
