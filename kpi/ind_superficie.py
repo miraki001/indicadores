@@ -168,20 +168,20 @@ def ind_superficie(dva,dvc):
     dvb = dva[dva['color'] == 'Blanca' ]
     dvt = dva[dva['color'] == 'Tinta' ]
     dvr = dva[dva['color'] == 'Rosada' ]
-    dv1 = dvb.groupby(['anio'], as_index=False)[['sup']].sum()
-    dv2 = dvt.groupby(['anio'], as_index=False)[['sup']].sum()
-    dv3 = dvr.groupby(['anio'], as_index=False)[['sup']].sum()
+    dv1 = dvb.groupby(['anio'], as_index=False)[['peso']].sum()
+    dv2 = dvt.groupby(['anio'], as_index=False)[['peso']].sum()
+    dv3 = dvr.groupby(['anio'], as_index=False)[['peso']].sum()
     dv1.style.format(thousands='.')
     dv1.style.format(precision=0, thousands='.')
-    dv1 = dv1.astype({'sup' : int } )      
+    dv1 = dv1.astype({'peso' : int } )      
 
     dv2.style.format(thousands='.')
     dv2.style.format(precision=0, thousands='.')
-    dv2 = dv2.astype({'sup' : int } )      
+    dv2 = dv2.astype({'peso' : int } )      
 
     dv3.style.format(thousands='.')
     dv3.style.format(precision=0, thousands='.')
-    dv3 = dv3.astype({'sup' : int } )      
+    dv3 = dv3.astype({'peso' : int } )      
     
     option = {
       "tooltip": {
@@ -201,9 +201,9 @@ def ind_superficie(dva,dvc):
           "data": dv1['anio'].to_list(),
       },
       "yAxis": {"type": "value"},
-      "series": [{"data": dv1['sup'].to_list(), "type": "bar", "name": 'Blanca', "color":'#1E8DB6'},
-                 {"data": dv2['sup'].to_list(), "type": "bar", "name": 'Tinta', "color":'#dd6b66'},
-                 {"data": dv3['sup'].to_list(), "type": "bar", "name": 'Rosada', "color":'#C92488'},
+      "series": [{"data": dv1['peso'].to_list(), "type": "bar", "name": 'Blanca', "color":'#1E8DB6'},
+                 {"data": dv2['peso'].to_list(), "type": "bar", "name": 'Tinta', "color":'#dd6b66'},
+                 {"data": dv3['peso'].to_list(), "type": "bar", "name": 'Rosada', "color":'#C92488'},
                ]
     }
     #st_echarts(
