@@ -60,7 +60,7 @@ def ind_superficie(dva):
           "data": dva['anio'].to_list(),
       },
       "yAxis": {"type": "value"},
-      "series": [{"data": dva['sup'].to_list(), "type": "Bar", "name": 'Hl'},
+      "series": [{"data": dva['sup'].to_list(), "type": "bar", "name": 'Hl'},
                ]
     }
     st_echarts(
