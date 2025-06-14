@@ -175,7 +175,8 @@ mes = max(dva['mes'])
 mes2 = max(dva['mes1'])
 #dvm = mosto_registro_mensual(actual)
 dfsup = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
-st.write(dfsup)
+maxanio = max(dfsup['anio'])
+#st.write(dfsup)
 
 
 #dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
@@ -414,11 +415,22 @@ with tab1:
    colo = st.columns((4.5, 4.5), gap='medium')
 
    with colo[0]:
-     st.metric(label='Superficie ' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
-     st.metric(label='Superficie ' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
+
+     dva = dfsup[dfsup['anio'] == maxanio ]
+     dvo = dfsup[dfsup['anio'] == maxanio-1 ]  
+     vala = dva['sup'].sum()
+     valo = dvo['sup'].sum()     
+     dvoa = dfsup[dfsup['anio'] == maxanio-2 ]
+     valoa = dvoa['sup'].sum()
+     valoro = str(_format_with_thousands_commas(valo)) 
+     valora = str(_format_with_thousands_commas(vala)) 
+     
+     
+     st.metric(label='Superficie ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(1,2) +'%' )
+     st.metric(label='Superficie ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(1,2) +'%')
    with colo[1]:
-     st.metric(label='Cosecha ' + str(anterior), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
-     st.metric(label='Cosecha ' + str(actual), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
+     st.metric(label='Cosecha ' + str(maxanio -1), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
+     st.metric(label='Cosecha ' + str(maxanio), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
             
 with tab2:
   st.write('vacio')
