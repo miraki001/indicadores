@@ -70,12 +70,24 @@ def ind_superficie(dva):
   
     
   with col[1]:
-    dv1 = dsv.groupby(['anio','color'], as_index=False)[['sup']].sum()
+    dvb = dsv[dsv['color'] == 'Blanca' ]
+    dvt = dsv[dsv['color'] == 'Tinta' ]
+    dvr = dsv[dsv['color'] == 'Rosada' ]
+    dv1 = dvb.groupby(['anio'], as_index=False)[['sup']].sum()
+    dv2 = dvt.groupby(['anio'], as_index=False)[['sup']].sum()
+    dv3 = dvr.groupby(['anio'], as_index=False)[['sup']].sum()
     dv1.style.format(thousands='.')
     dv1.style.format(precision=0, thousands='.')
     dv1 = dv1.astype({'sup' : int } )      
-    #st.write(dva)
 
+    dv2.style.format(thousands='.')
+    dv2.style.format(precision=0, thousands='.')
+    dv2 = dv3.astype({'sup' : int } )      
+
+    dv3.style.format(thousands='.')
+    dv3.style.format(precision=0, thousands='.')
+    dv3 = dv3.astype({'sup' : int } )      
+    
     option = {
       "tooltip": {
           "trigger": 'axis',
@@ -87,7 +99,9 @@ def ind_superficie(dva):
           "data": dv1['anio'].to_list(),
       },
       "yAxis": {"type": "value"},
-      "series": [{"data": dv1['sup'].to_list(), "type": "bar", "name": 'Ha', "color":'#dd6b66'},
+      "series": [{"data": dv1['sup'].to_list(), "type": "bar", "name": 'Blanca', "color":'#dd6b66'},
+      "series": [{"data": dv2['sup'].to_list(), "type": "bar", "name": 'Tinta', "color":'#dd6b66'},
+      "series": [{"data": dv3['sup'].to_list(), "type": "bar", "name": 'Rosada', "color":'#dd6b66'},
                ]
     }
     #st_echarts(
