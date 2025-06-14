@@ -133,6 +133,7 @@ dfsup = pd.read_parquet("data/processed/superficie_datos.parquet", engine="pyarr
 maxanio = max(dfsup['anio'])
 #st.write(dfsup)
 dfcos = pd.read_parquet("data/processed/cosecha_datos.parquet", engine="pyarrow")
+style_metric_cards() 
 
 
 #dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
