@@ -33,6 +33,7 @@ def ind_superficie(dva):
   maxanio = max(dva['anio'])
   anterior = maxanio -1  
   dbg = dva  
+  dvb = dva
   dva = dva[dva['anio'] == maxanio ]
   dvb = dvb[dvb['anio'] == maxanio-1 ]
   col = st.columns((4.5, 4.5), gap='medium')
