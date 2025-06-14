@@ -67,7 +67,8 @@ def ind_superficie(dva):
     #)
     st_echarts(options=option,key="otro333" + str(dt.now()), height="400px")
 
-  
+
+
     
   with col[1]:
     dvb = dsv[dsv['color'] == 'Blanca' ]
