@@ -37,7 +37,7 @@ def ind_superficie(dva):
   dva = dva[dva['anio'] > maxanio -5 ]
   dsv = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")  
   dsv = dsv[dsv['anio'] > maxanio -5 ]
-  st.write(dsv)
+  #st.write(dsv)
   #dva = dva.groupby(['anio'], as_index=False)[['sup']].sum()
   dvb = dvb[dvb['anio'] == maxanio-1 ]
   col = st.columns((4.5, 4.5), gap='medium')
