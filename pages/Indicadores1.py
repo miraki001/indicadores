@@ -418,6 +418,6 @@ with tab3:
   ind_mercado_interno.ind_mercado_interno(dv1)
 
 with tab4:
-  ind_superficie.ind_superficie(dfsup)
+  ind_superficie.ind_superficie(dfsup,dfcos)
  
 
