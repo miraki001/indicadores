@@ -177,6 +177,7 @@ mes2 = max(dva['mes1'])
 dfsup = pd.read_parquet("data/processed/superficie_datos.parquet", engine="pyarrow")
 maxanio = max(dfsup['anio'])
 #st.write(dfsup)
+dfcos = pd.read_parquet("data/processed/cosecha_datos.parquet", engine="pyarrow")
 
 
 #dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
@@ -434,8 +435,23 @@ with tab1:
      st.metric(label='Superficie ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(deltaoa,2) +'%' )
      st.metric(label='Superficie ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(deltaa,2) +'%')
    with colo[1]:
-     st.metric(label='Cosecha ' + str(maxanio -1), value= str(1) + '', delta=_format_as_percentage(1,2) +'%' )
-     st.metric(label='Cosecha ' + str(maxanio), value= str(1) + ' ', delta=_format_as_percentage(1,2) +'%')
+
+     dva = dfcos[dfcos['anio'] == maxanio ]
+     dvo = dfcos[dfcos['anio'] == maxanio-1 ]  
+     vala = dva['peso'].sum()
+     valo = dvo['peso'].sum()     
+     dvoa = dfcos[dfcos['anio'] == maxanio-2 ]
+     valoa = dvoa['peso'].sum()
+     valoro = str(_format_with_thousands_commas(valo)) 
+     valora = str(_format_with_thousands_commas(vala)) 
+     deltaoa = valo/valoa
+     #st.write(deltaoa)
+     deltaoa = (deltaoa -1)*100     
+     deltaa = vala/valo
+     deltaa = (deltaa - 1)*100 
+     
+     st.metric(label='Cosecha ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(deltaoa,2) +'%' )
+     st.metric(label='Cosecha ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(deltaa,2) +'%')
             
 with tab2:
   st.write('vacio')
