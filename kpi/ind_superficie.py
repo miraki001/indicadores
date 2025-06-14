@@ -20,7 +20,7 @@ from script.exportaciones import mosto_registro_mensual
 
 
 
-def ind_exportaciones(dva):
+def ind_superficie(dva):
 
   streamlit_style = """
     <style>
@@ -30,28 +30,22 @@ def ind_exportaciones(dva):
   st.markdown(streamlit_style, unsafe_allow_html=True) 
 
     
-  actual = dt.now().year  
-  anterior = dt.now().year -1  
+  maxanio = max(dva['anio'])
+  anterior = maxanio -1  
   dbg = dva  
-  dva = dva[dva['envase'] == 'FRACCIONADO']  
-  dvb = dva
-  dva = dva[dva['anio'] == actual ]
-  dvb = dvb[dvb['anio'] == actual-1 ]
-  mes = max(dva['mes'])
-  mes2 = max(dva['mes1'])  
-  dvb = dvb[dvb['mes'] <= mes ]
-  st.write('Periodo : 01 Enero/' + mes2)
+  dva = dva[dva['anio'] == maxanio ]
+  dvb = dvb[dvb['anio'] == maxanio-1 ]
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
-    dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
-    dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
+    dv1 = dva.groupby(['anio'], as_index=False)[['sup']].sum()
+    dv2 = dvb.groupby(['anio'], as_index=False)[['sup']].sum()
 
     #dv1 = dv1.style.format({"litros": "{:.2f}".format})
     #dv1, column_config={ format=",", ) }
     dv1.style.format(thousands='.')
     dv1.style.format(precision=0, thousands='.')
-    dv1 = dv1.astype({'fob' : int, 'litros': int } )      
-    dv2 = dv2.astype({'fob' : int, 'litros': int } )      
+    dv1 = dv1.astype({'sup' : int } )      
+    dv2 = dv2.astype({'sup' : int} )      
     #st.write(dv1)
     option = {
           "color": [
@@ -63,15 +57,15 @@ def ind_exportaciones(dva):
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "title": {
-                "text": 'Fraccionado',
+                "text": 'Hectareas',
                 "textStyle": {
                         "fontSize": 14,
                 },                  
                 "subtext": '',
             },            
-            "xAxis": {"type": "category", "data": dv1["mes1"].tolist()},
+            "xAxis": {"type": "category", "data": dv1["anio"].tolist()},
             "yAxis": [
-                {"type": "value" ,"name" : "Litros" ,
+                {"type": "value" ,"name" : "Ha" ,
                  "axisLine": {
                     "show": 'true',
                   },              
@@ -105,15 +99,13 @@ def ind_exportaciones(dva):
             ],            
             #"yAxis": {"type": "value"},
             "series": [
-                {"data": dv1['litros'].tolist(), "type": "bar", "name": 'Lts. ' + str(actual),"yAxisIndex": 1, "color":'#1E8DB6'  },
-                {"data": dv2['litros'].tolist(), "type": "bar", "name": 'Lts. ' + str(anterior),"yAxisIndex": 1, "color":'#dd6b66'  },
-                {"data": dv1['fob'].tolist(), "type": "line", "name": 'u$s ' + str(actual), "yAxisIndex": 2,  "color":'#C92488'},
-                {"data": dv2['fob'].tolist(), "type": "line", "name": 'u$s ' + str(anterior), "yAxisIndex": 2,  "color":'#604994'},
+                {"data": dv1['sup'].tolist(), "type": "bar", "name": 'Ha. ' + str(maxanio),"yAxisIndex": 1, "color":'#1E8DB6'  },
+                {"data": dv2['sup'].tolist(), "type": "bar", "name": 'Ha. ' + str(anterior),"yAxisIndex": 1, "color":'#dd6b66'  },
                 
             ],
     }
 
-    st_echarts(options=option,key="otro33" + str(dt.now()), height="400px")
+    st_echarts(options=option,key="otro333" + str(dt.now()), height="400px")
 
   
     
