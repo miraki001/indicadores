@@ -47,7 +47,7 @@ def ind_superficie(dva):
     dv1.style.format(precision=0, thousands='.')
     dv1 = dv1.astype({'sup' : int } )      
     dv2 = dv2.astype({'sup' : int} )      
-    #st.write(dv1)
+    st.write(dva)
 
     option = {
       "tooltip": {
