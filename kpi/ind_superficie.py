@@ -131,7 +131,7 @@ def ind_superficie(dva,dvc):
       dv1 = dva.groupby(['anio'], as_index=False)[['peso']].sum()
       dv1.style.format(thousands='.')
       dv1.style.format(precision=0, thousands='.')
-      dv1 = dv1.astype({'sup' : int } )      
+      dv1 = dv1.astype({'peso' : int } )      
       #st.write(dva)
 
       option = {
