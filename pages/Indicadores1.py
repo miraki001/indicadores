@@ -411,7 +411,6 @@ with tab1:
      st.metric(label='Cosecha ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(deltaa,2) +'%')
             
 with tab2:
-  st.write('vacio')
   ind_exportaciones.ind_exportaciones(dvex)
 
   
@@ -419,7 +418,6 @@ with tab3:
   ind_mercado_interno.ind_mercado_interno(dv1)
 
 with tab4:
-  st.write('vacio')
   ind_superficie.ind_superficie(dfsup)
  
 
