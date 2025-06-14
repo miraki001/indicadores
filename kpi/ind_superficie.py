@@ -82,7 +82,7 @@ def ind_superficie(dva):
 
     dv2.style.format(thousands='.')
     dv2.style.format(precision=0, thousands='.')
-    dv2 = dv3.astype({'sup' : int } )      
+    dv2 = dv2.astype({'sup' : int } )      
 
     dv3.style.format(thousands='.')
     dv3.style.format(precision=0, thousands='.')
@@ -99,9 +99,9 @@ def ind_superficie(dva):
           "data": dv1['anio'].to_list(),
       },
       "yAxis": {"type": "value"},
-      "series": [{"data": dv1['sup'].to_list(), "type": "bar", "name": 'Blanca', "color":'#dd6b66'},
+      "series": [{"data": dv1['sup'].to_list(), "type": "bar", "name": 'Blanca', "color":'#1E8DB6'},
                  {"data": dv2['sup'].to_list(), "type": "bar", "name": 'Tinta', "color":'#dd6b66'},
-                 {"data": dv3['sup'].to_list(), "type": "bar", "name": 'Rosada', "color":'#dd6b66'},
+                 {"data": dv3['sup'].to_list(), "type": "bar", "name": 'Rosada', "color":'#C92488'},
                ]
     }
     #st_echarts(
