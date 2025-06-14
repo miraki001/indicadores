@@ -174,6 +174,8 @@ dvex = dv2
 mes = max(dva['mes'])
 mes2 = max(dva['mes1'])
 #dvm = mosto_registro_mensual(actual)
+dfsup = pd.read_parquet("data/processed/superficievariedad_datos.parquet", engine="pyarrow")
+st.write(dfsup)
 
 
 #dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
