@@ -34,7 +34,7 @@ def ind_superficie(dva):
   anterior = maxanio -1  
   dbg = dva  
   dvb = dva
-  dva = dva[dva['anio'] < maxanio -5 ]
+  dva = dva[dva['anio'] > maxanio -5 ]
   dvb = dvb[dvb['anio'] == maxanio-1 ]
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
