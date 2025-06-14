@@ -34,7 +34,7 @@ def ind_superficie(dva):
   anterior = maxanio -1  
   dbg = dva  
   dvb = dva
-  dva = dva[dva['anio'] == maxanio ]
+  dva = dva[dva['anio'] < maxanio -5 ]
   dvb = dvb[dvb['anio'] == maxanio-1 ]
   col = st.columns((4.5, 4.5), gap='medium')
   with col[0]:
@@ -48,6 +48,26 @@ def ind_superficie(dva):
     dv1 = dv1.astype({'sup' : int } )      
     dv2 = dv2.astype({'sup' : int} )      
     #st.write(dv1)
+
+    option = {
+      "tooltip": {
+          "trigger": 'axis',
+          "axisPointer": { "type": 'cross' }
+      },
+      "legend": {},    
+      "xAxis": {
+          "type": "category",
+          "data": dva['anio'].to_list(),
+      },
+      "yAxis": {"type": "value"},
+      "series": [{"data": dva['sup'].to_list(), "type": "Bar", "name": 'Hl'},
+               ]
+    }
+    st_echarts(
+      options=option, height="400px" ,
+    )
+
+    
     option = {
           "color": [
                 '#332D75',
