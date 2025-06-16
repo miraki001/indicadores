@@ -243,5 +243,7 @@ def despachos_consumo():
     acu2 = 0
     acu3 = 0
     acu4 = 0
+    dft = dv1.T
+    st.write(dft)
     
     
