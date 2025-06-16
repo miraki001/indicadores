@@ -196,9 +196,8 @@ with tab1:
 
         df_filtered.fillna(0)
         st.write(df_filtered.columns)
-        df_filtered.loc[0] = ['anio', 0]
-        df_filtered.loc[0] = ['sup', 0]
-        df_filtered.loc[0] = ['cnt', 0]
+        df_filtered.loc[0] = ['0', 0,0,0,0,0,0]
+
         df_filtered['anio'] = 0 
         df_filtered['sup'] = 0
         df_filtered['cnt'] = 0
