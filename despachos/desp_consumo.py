@@ -246,5 +246,9 @@ def despachos_consumo():
     st.write(dv1)
     dft = dv1.melt(id_vars=['anio','mes','periodo','canal'], var_name='producto', value_name='valor')
     st.write(dft)
-    
+    fig = px.sunburst(dft, path=['anio', 'producto'], values='valor',
+                      color='producto', hover_data=['anio'],
+                      color_continuous_scale='RdBu',
+                      color_continuous_midpoint=np.average(dft['valor'], weights=dft['valor']))
+    st.plotly_chart(fig, theme="streamlit")    
     
