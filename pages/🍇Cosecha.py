@@ -195,6 +195,7 @@ with tab1:
     if df_filtered.empty:
 
         df_filtered.fillna(0)
+        st.write(df_filtered.columns)
         df_filtered.loc[0] = ['anio', 0]
         df_filtered.loc[0] = ['sup', 0]
         df_filtered.loc[0] = ['cnt', 0]
