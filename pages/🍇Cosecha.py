@@ -193,6 +193,8 @@ with tab1:
     #st.write(dv1)
 
     if df_filtered.empty:
+
+        df_filtered.fillna(0)
         df_filtered['anio'] = 0 
         df_filtered['sup'] = 0
         df_filtered['cnt'] = 0
