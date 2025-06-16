@@ -119,9 +119,6 @@ def despachos_prov(df_filtros,df):
 
     #df_filtered = dv1.copy()
     
-    if df_filtered.empty:
-        st.error("No se encontraron datos en la base de datos.")
-        #st.stop()
     
     actual = dt.now().year -4 
     hoy = dt.now().year
@@ -138,7 +135,7 @@ def despachos_prov(df_filtros,df):
           values=['litros'],
           aggfunc='sum'
     )  
-    st.write(litros)
+    #st.write(litros)
     if litros.empty:
         litros[hoy] = 0 
         litros[hoy-1] = 0 
