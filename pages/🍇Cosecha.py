@@ -195,6 +195,9 @@ with tab1:
     if df_filtered.empty:
 
         df_filtered.fillna(0)
+        df_filtered.loc[0] = ['anio', 0]
+        df_filtered.loc[0] = ['sup', 0]
+        df_filtered.loc[0] = ['cnt', 0]
         df_filtered['anio'] = 0 
         df_filtered['sup'] = 0
         df_filtered['cnt'] = 0
