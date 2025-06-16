@@ -204,7 +204,7 @@ with tab1:
         st.write(df_filtered)
 
         st.error("No se encontraron datos en la base de datos.")
-        st.end()
+        #st.end()
         #st.stop()  
   
     st.header("Cantidad de Viñedos")
