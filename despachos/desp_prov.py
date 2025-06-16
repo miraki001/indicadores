@@ -124,6 +124,7 @@ def despachos_prov(df_filtros,df):
         #st.stop()
     
     actual = dt.now().year -4 
+    hoy = dt.now().year
     df_filtered = df_filtered[df_filtered['anio'] > actual ]   
 
     if df_filtered.empty:
@@ -138,6 +139,11 @@ def despachos_prov(df_filtros,df):
           aggfunc='sum'
     )  
     st.write(litros)
+    if litros.empty:
+        litros[hoy] = 0 
+        litros[hoy-1] = 0 
+        litros[hoy-2] = 0 
+        litros[hoy-3] = 0 
     litros  = litros.fillna(0)
     anio1 = litros.columns[0]
     anio2 = litros.columns[1]
