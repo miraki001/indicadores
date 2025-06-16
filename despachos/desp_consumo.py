@@ -244,7 +244,7 @@ def despachos_consumo():
     acu3 = 0
     acu4 = 0
     st.write(dv1)
-    dft = dv1.melt(id_vars=['anio','mes'], var_name='producto', value_name='valor')
+    dft = dv1.melt(id_vars=['anio','mes','periodo','canal'], var_name='producto', value_name='valor')
     st.write(dft)
     
     
