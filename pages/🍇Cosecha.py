@@ -193,8 +193,13 @@ with tab1:
     #st.write(dv1)
 
     if df_filtered.empty:
+        df_filtered['anio'] = 0 
+        df_filtered['sup'] = 0
+        df_filtered['cnt'] = 0
+        st.write(df_filtered)
+
         st.error("No se encontraron datos en la base de datos.")
-        st.stop()  
+        #st.stop()  
   
     st.header("Cantidad de Viñedos")
     #sql = "select anio,sum(sup) sup,count(*) cnt  from superficievariedad_m where (color = '" + vcolor + "' or  '" +vcolor + "'= 'Todas' ) group by anio order by anio"
