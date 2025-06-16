@@ -243,7 +243,7 @@ def despachos_consumo():
     acu2 = 0
     acu3 = 0
     acu4 = 0
-    dft = dv1.T
+    dft = dv1.pivot(index =['anio','mes'])
     st.write(dft)
     
     
