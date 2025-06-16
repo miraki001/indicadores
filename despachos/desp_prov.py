@@ -121,14 +121,14 @@ def despachos_prov(df_filtros,df):
     
     if df_filtered.empty:
         st.error("No se encontraron datos en la base de datos.")
-        st.stop()
+        #st.stop()
     
     actual = dt.now().year -4 
     df_filtered = df_filtered[df_filtered['anio'] > actual ]   
 
     if df_filtered.empty:
         st.error("No se encontraron datos en la base de datos.")
-        st.stop()
+        #st.stop()
     
     #df_filtered = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
     litros = df_filtered.pivot_table(
@@ -137,6 +137,7 @@ def despachos_prov(df_filtros,df):
           values=['litros'],
           aggfunc='sum'
     )  
+    st.write(litros)
     litros  = litros.fillna(0)
     anio1 = litros.columns[0]
     anio2 = litros.columns[1]
