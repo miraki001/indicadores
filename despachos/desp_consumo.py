@@ -231,9 +231,9 @@ def despachos_consumo():
 
     dv3 = dv3.set_index(["anio","mes","canal"])
     dv3 = dv3.reset_index().rename_axis(None, axis=1)  
-    st.write(dv3)
+    #st.write(dv3)
     dv3 = dv3[dv3['anio'] == 2023 ] 
-    st.write(dv3)
+    #st.write(dv3)
     #dv3 = dv3.reset_index().rename_axis(None, axis=1)  
     #dv3 = dv3.assign(row_number=range(len(dv3)))
     #dv3 = dv3.set_index(['anio','mes','canal']) 
@@ -243,6 +243,7 @@ def despachos_consumo():
     acu2 = 0
     acu3 = 0
     acu4 = 0
+    st.write(dv1)
     dft = dv1.melt(id_vars=['anio','mes'], var_name='producto', value_name='valor')
     st.write(dft)
     
