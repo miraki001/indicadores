@@ -145,9 +145,9 @@ meses_es = [
 dva['mes_int'] = dva['mes'].astype(int)
 dva['nombre_mes'] = dva['mes_int'].apply(lambda x: meses_es[x])
 mesfin = max(dva[dva['mes'] == mes]['nombre_mes'])
-st.write(dva)
+#st.write(dva)
 
-st.write(mesfin)
+#st.write(mesfin)
 
 
 
