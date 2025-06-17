@@ -700,7 +700,7 @@ def exporta_destino():
     dvt = dvt.groupby(['pais','anio'], as_index=False)[['litros']].sum()
     st.write(dvt)
     df_pivot = dvt.pivot(index='pais', columns='anio', values='litros').reset_index()
-    st.write(df_pivot)
+    #st.write(df_pivot)
     df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
     anios = sorted([col for col in df_pivot.columns if col != 'pais'])
     df_pct = df_pivot[anios].pct_change(axis=1)
@@ -722,6 +722,7 @@ def exporta_destino():
 
     # Obtener todos los valores de % en una sola serie plana, sin NaN
     valores_pct = df_resultado[cols_pct].values.flatten()
+    st.write(valores_pct)
     valores_pct = valores_pct[~np.isnan(valores_pct)]
 
     # Calcular el máximo valor absoluto para normalizar de -max_abs a max_abs
