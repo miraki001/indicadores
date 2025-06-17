@@ -288,7 +288,7 @@ def ind_exportaciones(dva):
   with col1[1]:
       st.write('')
       hasClicked = card(
-        title="Hello World!",
+        title="Despachos",
         text="Some description",
         image="http://placekitten.com/200/300",
         styles={
