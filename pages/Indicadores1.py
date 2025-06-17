@@ -141,7 +141,7 @@ meses_es = [
         "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
 ]
 
-mesfin = int(mes).apply(lambda x: meses_es[x])
+mesfin = lambda x: meses_es[mes])
 st.write(mesfin)
 
 
