@@ -708,6 +708,7 @@ def exporta_destino():
     st.write(df_pct)
     df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]  
     df_resultado = df_pivot[['pais']].copy()
+    columnas_ordenadas = ['pais']
     for año, col_delta in zip(anios, df_pct.columns):
         df_resultado[año] = df_pivot[año]
         df_resultado[col_delta] = df_pct[col_delta]  
