@@ -697,6 +697,12 @@ def exporta_destino():
     }
     st_echarts(option,key="otro11", height="500px")
     st.write(dvt)
+
+    liquidfill_option = {
+        "series": [{"type": "liquidFill", "data": [1455222, 0.5, 0.4, 0.3]}]
+    }
+    st_echarts(liquidfill_option)
+    
     dvt = dvt.groupby(['pais','anio'], as_index=False)[['litros']].sum()
     st.write(dvt)
     df_pivot = dvt.pivot(index='pais', columns='anio', values='litros').reset_index()
