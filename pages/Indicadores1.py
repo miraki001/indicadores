@@ -198,7 +198,7 @@ df_filtered = dv1.copy()
 tab1, tab2, tab3,tab4 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie"])
 
 with tab1:
-   st.write('Periodo : 01 Enero/' + mes2)
+   st.write('Datos acumulados de Enero a  ' + mesfin + ' de cada año' )
 
    col = st.columns((4.5, 4.5, 4.5), gap='medium')
 
