@@ -696,8 +696,9 @@ def exporta_destino():
         ],
     }
     st_echarts(option,key="otro11", height="500px")
-
+    st.write(dvt)
     df_pivot = dvt.pivot(index='pais', columns='anio', values='litros').reset_index()
+    st.write(df_pivot)
     df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
     anios = sorted([col for col in df_pivot.columns if col != 'pais'])
     df_pct = df_pivot[anios].pct_change(axis=1)
