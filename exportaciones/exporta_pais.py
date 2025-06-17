@@ -146,6 +146,7 @@ def exporta_destino():
 
 
     dv1 = cargar_datos(QUERY_V1)
+    dvt = dv1
  
     dv1['anio'] = dv1['anio'].astype(str)
 
@@ -696,6 +697,129 @@ def exporta_destino():
     }
     st_echarts(option,key="otro11", height="500px")
 
+    df_pivot = dvt.pivot(index='pais', columns='anio', values='litros').reset_index()
+    df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
+    anios = sorted([col for col in df_pivot.columns if col != 'pais'])
+    df_pct = df_pivot[anios].pct_change(axis=1)
+    df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
+    df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]  
+    df_resultado = df_pivot[['provincia']].copy()
+    for año, col_delta in zip(anios, df_pct.columns):
+        df_resultado[año] = df_pivot[año]
+        df_resultado[col_delta] = df_pct[col_delta]  
+    df_resultado = df_resultado[columnas_ordenadas]   
+    df_resultado = df_resultado.sort_values(by="provincia")    
+    cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]
+        
+    # Columnas normalizadas que se usarán solo para aplicar color
+    cols_norm = [f"{col}_norm" for col in cols_pct]
 
+    # Obtener todos los valores de % en una sola serie plana, sin NaN
+    valores_pct = df_resultado[cols_pct].values.flatten()
+    valores_pct = valores_pct[~np.isnan(valores_pct)]
 
+    # Calcular el máximo valor absoluto para normalizar de -max_abs a max_abs
+    max_abs = np.abs(valores_pct).max()
+
+    # Crear un valor de recorte más representativo
+    max_abs_visible = 10  # o 75, o 50 según el contraste deseado
+    vmax_visible = np.percentile(np.abs(df_resultado[cols_pct].values), 95)
+
+    # Recalcular normalización y colores
+    norma = TwoSlopeNorm(vmin=-vmax_visible, vcenter=0, vmax=vmax_visible)
+
+    # Crear columnas normalizadas con vmax_visible
+    for col in cols_pct:
+        col_norm = f"{col}_norm"
+        df_resultado[col_norm] = (
+            df_resultado[col]
+            .clip(-vmax_visible, vmax_visible)
+            .astype(float) / vmax_visible
+        )
+
+    # Crear colormap divergente: rojo - gris - verde
+    colors = ['#b2182b', '#e6e6e6', '#4d9221']
+    cmap = LinearSegmentedColormap.from_list("custom_red_gray_green", colors)
+    #st.write(df_resultado[cols_pct].describe())
+    #st.write(df_resultado)
+
+    #Convierte valor entre -1 y 1 en un color HEX
+    def valor_a_color(valor_norm):
+        try:
+            val = float(valor_norm)
+            if np.isnan(val):
+                return "#ffffff"
+            return to_hex(cmap(norma(val)))
+        except Exception:
+            return "#ffffff"
+
+    tabla_provincia = GT(data=df_resultado)
+
+    for row_idx in range(len(df_resultado)):
+        for col in cols_pct:
+            col_norm = f"{col}_norm"
+            valor_norm = df_resultado.loc[row_idx, col_norm]
+            #st.write("row_idx", row_idx,  "valor_norm", valor_norm, "col_norm", col_norm)
+            color_hex = valor_a_color(valor_norm)
+            tabla_provincia = tabla_provincia.tab_style(
+                style=style.fill(color=color_hex),
+                locations=gt_loc.body(columns=[col], rows=[row_idx])
+            )
+
+    # Configurar formato y estilos
+    gt_tbl = tabla_provincia \
+        .tab_header(
+            title="*Superficie por Provincia*",
+            subtitle="Evolución anual y variaciones porcentuales"
+        ) \
+        .cols_label(provincia="Provincia") \
+        .fmt_number(columns=anios, decimals=2) \
+        .fmt_percent(columns=cols_pct, decimals=2) \
+        .cols_hide(columns=cols_norm) \
+        .tab_source_note(
+            md(
+                '<br><div style="text-align: left;">'
+                "*Source*: Observatorio Vitinicola Argentino" 
+                " <br>All zones are publicly available on the Carbon intensity and emission factors tab via Google docs link<br>"
+                "</div>"
+                "<br>"
+                )
+            ) \
+        .tab_options(
+            source_notes_font_size='x-small',
+            source_notes_padding=3,
+            table_font_names=["Roboto", "sans-serif"],
+            data_row_padding='1px',
+            source_notes_background_color='#ea1c22',
+            column_labels_background_color='#666666',
+            data_row_padding_horizontal=3,
+            column_labels_padding_horizontal=58
+            ) \
+        .tab_style(
+            style=style.fill("#e6e6e6"),
+            locations=gt_loc.body(columns=[
+                '2024','2023','2022','2021','2020','2019','2018','2017','2016','2015','2014','2013','2012','2011',
+                                '2010','2009','2008','2007','2006','2005','2004','2003','2002'
+            ])
+        ) \
+        .cols_align(align='center') \
+        .cols_align(align='left', columns=['provincia']) \
+        .tab_style(
+            style=style.fill(color="#909090"),
+            locations=gt_loc.body(columns=["provincia"])
+        )
+    html_output = gt_tbl.repr_html()
+
+    html_wrapped = f"""
+        <div style="text-align: center; margin-bottom: 1em;">
+            <h2 style="margin-bottom: 0.2em;">Superficie por Provincia</h2>
+            <div style="width: 60px; height: 4px; background-color: red; margin: 0 auto 0.5em auto;"></div>
+            <p><em>Evolución anual y variaciones porcentuales</em></p>
+        </div>
+        <div style="overflow-x: auto; overflow-y: auto; width: 100%; white-space: nowrap;">
+            {html_output}
+        </div>
+    """
+
+    st.components.v1.html(html_wrapped, height=1000, scrolling=False)    
 
