@@ -707,12 +707,12 @@ def exporta_destino():
     df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
     st.write(df_pct)
     df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]  
-    df_resultado = df_pivot[['provincia']].copy()
+    df_resultado = df_pivot[['pais']].copy()
     for año, col_delta in zip(anios, df_pct.columns):
         df_resultado[año] = df_pivot[año]
         df_resultado[col_delta] = df_pct[col_delta]  
     df_resultado = df_resultado[columnas_ordenadas]   
-    df_resultado = df_resultado.sort_values(by="provincia")    
+    df_resultado = df_resultado.sort_values(by="pais")    
     cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]
         
     # Columnas normalizadas que se usarán solo para aplicar color
