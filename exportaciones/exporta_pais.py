@@ -709,32 +709,7 @@ def exporta_destino():
     df_pct = df_pivot[anios].pct_change(axis=1)
     df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
     st.write(df_pct)
-    option = {
-        "tooltip": {"position": "top"},
-        "grid": {"height": "50%", "top": "10%"},
-        "xAxis": {"type": "category", "data": anios, "splitArea": {"show": True}},
-        "yAxis": {"type": "category", "data": pais, "splitArea": {"show": True}},
-        "visualMap": {
-            "min": 0,
-            "max": 10,
-            "calculable": True,
-            "orient": "horizontal",
-            "left": "center",
-            "bottom": "15%",
-        },
-        "series": [
-            {
-                "name": "Punch Card",
-                "type": "heatmap",
-                "data": df_pct,
-                "label": {"show": True},
-                "emphasis": {
-                    "itemStyle": {"shadowBlur": 10, "shadowColor": "rgba(0, 0, 0, 0.5)"}
-                },
-            }
-        ],
-    }
-    st_echarts(option, height="500px")
+
     
     df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]  
     st.write(df_pct)
