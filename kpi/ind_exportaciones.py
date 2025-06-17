@@ -17,7 +17,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import locale
 from script.exportaciones import mosto_registro_mensual
-from st_card import st_card
+from streamlit_card import card
 
 
 
