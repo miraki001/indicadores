@@ -297,11 +297,9 @@ def ind_exportaciones(dva):
               "height": "50px",
               "border-radius": "60px",
               "box-shadow": "0 0 10px rgba(0,0,0,0.5)",
-              ...
           },
           "text": {
               "font-family": "serif",
-              ...
           }
       }        
       )
