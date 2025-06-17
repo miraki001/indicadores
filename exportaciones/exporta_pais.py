@@ -724,6 +724,7 @@ def exporta_destino():
     valores_pct = valores_pct[~np.isnan(valores_pct)]
 
     # Calcular el máximo valor absoluto para normalizar de -max_abs a max_abs
+    st.write(valores_pct)
     max_abs = np.abs(valores_pct).max()
 
     # Crear un valor de recorte más representativo
