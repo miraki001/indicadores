@@ -136,6 +136,14 @@ maxanio = max(dfsup['anio'])
 dfcos = pd.read_parquet("data/processed/cosecha_datos.parquet", engine="pyarrow")
 style_metric_cards() 
 
+meses_es = [
+        "", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+]
+
+mesfin = (lambda mes2: meses_es[mes2])
+
+
 
 #dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
 
