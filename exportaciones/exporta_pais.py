@@ -701,7 +701,9 @@ def exporta_destino():
     st.write(dvt)
     df_pivot = dvt.pivot(index='pais', columns='anio', values='litros').reset_index()
     st.write(df_pivot)
+    pais = df_pivot[['pais']].copy()    
     df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
+    st.write('aca')
     st.write(df_pivot)
     anios = sorted([col for col in df_pivot.columns if col != 'pais'])
     df_pct = df_pivot[anios].pct_change(axis=1)
@@ -711,7 +713,7 @@ def exporta_destino():
         "tooltip": {"position": "top"},
         "grid": {"height": "50%", "top": "10%"},
         "xAxis": {"type": "category", "data": anios, "splitArea": {"show": True}},
-        "yAxis": {"type": "category", "data": df_pct['pais'], "splitArea": {"show": True}},
+        "yAxis": {"type": "category", "data": pais, "splitArea": {"show": True}},
         "visualMap": {
             "min": 0,
             "max": 10,
