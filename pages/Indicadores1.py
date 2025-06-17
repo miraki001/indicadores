@@ -147,7 +147,7 @@ dva['nombre_mes'] = dva['mes_int'].apply(lambda x: meses_es[x])
 mesfin = dva[dva['mes'] == mes]['nombre_mes']
 st.write(dva)
 
-st.write(mesfin)
+st.write(mesfin[0])
 
 
 
