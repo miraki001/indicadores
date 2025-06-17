@@ -700,12 +700,40 @@ def exporta_destino():
     dvt = dvt.groupby(['pais','anio'], as_index=False)[['litros']].sum()
     st.write(dvt)
     df_pivot = dvt.pivot(index='pais', columns='anio', values='litros').reset_index()
-    #st.write(df_pivot)
+    st.write(df_pivot)
     df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
+    st.write(df_pivot)
     anios = sorted([col for col in df_pivot.columns if col != 'pais'])
     df_pct = df_pivot[anios].pct_change(axis=1)
     df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
     st.write(df_pct)
+    option = {
+        "tooltip": {"position": "top"},
+        "grid": {"height": "50%", "top": "10%"},
+        "xAxis": {"type": "category", "data": df_pct['anios'], "splitArea": {"show": True}},
+        "yAxis": {"type": "category", "data": df_pct['pais'], "splitArea": {"show": True}},
+        "visualMap": {
+            "min": 0,
+            "max": 10,
+            "calculable": True,
+            "orient": "horizontal",
+            "left": "center",
+            "bottom": "15%",
+        },
+        "series": [
+            {
+                "name": "Punch Card",
+                "type": "heatmap",
+                "data": df_pct,
+                "label": {"show": True},
+                "emphasis": {
+                    "itemStyle": {"shadowBlur": 10, "shadowColor": "rgba(0, 0, 0, 0.5)"}
+                },
+            }
+        ],
+    }
+    st_echarts(option, height="500px")
+    
     df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]  
     st.write(df_pct)
     df_resultado = df_pivot[['pais']].copy()
