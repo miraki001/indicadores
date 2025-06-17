@@ -17,6 +17,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import locale
 from script.exportaciones import mosto_registro_mensual
+from st_card import st_card
 
 
 
@@ -286,3 +287,4 @@ def ind_exportaciones(dva):
     
   with col1[1]:
       st.write('')
+      st_card('Completed Orders', value=76.4, show_progress=True)
