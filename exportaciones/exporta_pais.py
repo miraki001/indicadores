@@ -697,6 +697,8 @@ def exporta_destino():
     }
     st_echarts(option,key="otro11", height="500px")
     st.write(dvt)
+    dvt = dvt.groupby(['pais','anio'], as_index=False)[['litros']].sum()
+    st.write(dvt)
     df_pivot = dvt.pivot(index='pais', columns='anio', values='litros').reset_index()
     st.write(df_pivot)
     df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
