@@ -142,6 +142,7 @@ meses_es = [
 ]
 
 mesfin = (lambda mes2: meses_es[mes2])
+st.write(mesfin)
 
 
 
