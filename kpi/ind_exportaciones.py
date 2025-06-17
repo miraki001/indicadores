@@ -287,4 +287,8 @@ def ind_exportaciones(dva):
     
   with col1[1]:
       st.write('')
-      st_card('Completed Orders', value=76.4, show_progress=True)
+      hasClicked = card(
+        title="Hello World!",
+        text="Some description",
+        image="http://placekitten.com/200/300",
+      )
