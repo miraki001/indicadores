@@ -291,4 +291,17 @@ def ind_exportaciones(dva):
         title="Hello World!",
         text="Some description",
         image="http://placekitten.com/200/300",
+        styles={
+          "card": {
+              "width": "50px",
+              "height": "50px",
+              "border-radius": "60px",
+              "box-shadow": "0 0 10px rgba(0,0,0,0.5)",
+              ...
+          },
+          "text": {
+              "font-family": "serif",
+              ...
+          }
+      }        
       )
