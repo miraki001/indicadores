@@ -710,7 +710,7 @@ def exporta_destino():
     option = {
         "tooltip": {"position": "top"},
         "grid": {"height": "50%", "top": "10%"},
-        "xAxis": {"type": "category", "data": df_pct['anios'], "splitArea": {"show": True}},
+        "xAxis": {"type": "category", "data": df_pct['anio'], "splitArea": {"show": True}},
         "yAxis": {"type": "category", "data": df_pct['pais'], "splitArea": {"show": True}},
         "visualMap": {
             "min": 0,
