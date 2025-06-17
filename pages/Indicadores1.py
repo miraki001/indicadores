@@ -144,10 +144,10 @@ meses_es = [
 #mesfin = lambda x: meses_es[x](mes)
 dva['mes_int'] = dva['mes'].astype(int)
 dva['nombre_mes'] = dva['mes_int'].apply(lambda x: meses_es[x])
-mesfin = dva[dva['mes'] == mes]['nombre_mes']
+mesfin = max(dva[dva['mes'] == mes]['nombre_mes'])
 st.write(dva)
 
-st.write(mesfin[0])
+st.write(mesfin)
 
 
 
