@@ -10,4 +10,4 @@ geopandas
 folium
 streamlit_folium
 streamlit_extras
-st_card 
+
