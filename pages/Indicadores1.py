@@ -144,7 +144,7 @@ meses_es = [
 #mesfin = lambda x: meses_es[x](mes)
 dva['nombre_mes'] = dva['mes'].apply(lambda x: meses_es[x])
 mesfin = dva['mes'] == mes
-st.write(mesfin[0])
+st.write(dva)
 
 #st.write(mesfin)
 
