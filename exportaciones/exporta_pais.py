@@ -715,6 +715,7 @@ def exporta_destino():
     anios = sorted([col for col in df_pivot.columns if col != 'pais'])
     st.write(anios)
     df_pct = df_pivot[anios].pct_change(axis=1)
+    st.write(df_pct)
     df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
     df_resultado = df_pivot[['pais']].copy()
     st.write(df_pct)
