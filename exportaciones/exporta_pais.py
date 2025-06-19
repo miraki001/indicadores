@@ -715,7 +715,22 @@ def exporta_destino():
     df_pct = df_pivot[anios].pct_change(axis=1)
     df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
     st.write(df_pct)
-
+    color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
+    input_color = 'blue'
+    heatmap = alt.Chart(df_pct).mark_rect().encode(
+            y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
+            x=alt.X(f'{'pais'}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
+            color=alt.Color(f'max({input_color}):Q',
+                             legend=None,
+                             scale=alt.Scale(scheme=color_theme_list)),
+            stroke=alt.value('black'),
+            strokeWidth=alt.value(0.25),
+        ).properties(width=900
+        ).configure_axis(
+        labelFontSize=12,
+        titleFontSize=12
+        )    
+    st.altair_chart(heatmap, use_container_width=True)
     
     df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]  
     st.write(df_pct)
