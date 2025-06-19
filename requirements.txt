@@ -12,3 +12,4 @@ streamlit_folium
 streamlit_extras
 streamlit-card
 streamlit_kpi
+gcpanel
