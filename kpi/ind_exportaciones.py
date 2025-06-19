@@ -315,10 +315,10 @@ def ind_exportaciones(dva):
       #st.write(dv1)
       fig = go.Figure(go.Indicator(
       mode = "number+delta",
-      gauge = {'shape': "bullet"},
+      #gauge = {'shape': "bullet"},
       delta = {'reference': 300},
       value = 220,
-      domain = {'x': [0.1, 1], 'y': [0.2, 0.9]},
+      domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Exportaciones"}))
       #fig.add_trace(go.Scatter(
       #  x = dv1['anio'],
@@ -327,6 +327,6 @@ def ind_exportaciones(dva):
       #  go.add_bar(x=dv1.mes1, y=dv1.litros)
       #)    
       fig.add_bar(x = dv1.mes1,  y = dv1.litros)
-      fig.update_layout(paper_bgcolor = "lightgray")
+      #fig.update_layout(paper_bgcolor = "lightgray")
       fig.show()
       st.plotly_chart(fig, theme="streamlit")
