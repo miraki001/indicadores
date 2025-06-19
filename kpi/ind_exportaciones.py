@@ -45,6 +45,7 @@ def ind_exportaciones(dva):
   dvb = dvb[dvb['mes'] <= mes ]
   st.write('Periodo : 01 Enero/' + mes2)
   col = st.columns((4.5, 4.5), gap='medium')
+  dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
   with col[0]:
     dv1 = dva.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
     dv2 = dvb.groupby(['anio','mes1'], as_index=False)[['fob', 'litros']].sum()
