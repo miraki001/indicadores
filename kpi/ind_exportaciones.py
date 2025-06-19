@@ -312,6 +312,7 @@ def ind_exportaciones(dva):
                 backgroundColor='#f3f3f3',titleColor='black',valueColor='black',
                 progressColor='green',textAlign='left'
                 )
+      st.write(dv1)
       fig = go.Figure(go.Indicator(
       mode = "number+delta",
       gauge = {'shape': "bullet"},
