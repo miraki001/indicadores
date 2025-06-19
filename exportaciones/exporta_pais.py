@@ -722,7 +722,14 @@ def exporta_destino():
         df_resultado[año] = df_pivot[año]
         df_resultado[col_delta] = df_pct[col_delta]  
     df_resultado = df_resultado[columnas_ordenadas]   
-    df_resultado = df_resultado.sort_values(by="pais")      
+    df_resultado = df_resultado.sort_values(by="pais")    
+    cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]    
+
+    cols_norm = [f"{col}_norm" for col in cols_pct]
+
+    # Obtener todos los valores de % en una sola serie plana, sin NaN
+    valores_pct = df_resultado[cols_pct].values.flatten()
+    st.write(valores_pct)    
     st.write(df_resultado)
 
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
