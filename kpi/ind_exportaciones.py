@@ -18,6 +18,7 @@ from plotly.subplots import make_subplots
 import locale
 from script.exportaciones import mosto_registro_mensual
 from streamlit_card import card
+from streamlit_kpi import streamlit_kpi
 
 
 
