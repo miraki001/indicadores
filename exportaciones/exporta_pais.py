@@ -717,6 +717,12 @@ def exporta_destino():
     df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
     df_resultado = df_pivot[['pais']].copy()
     st.write(df_pct)
+    columnas_ordenadas = ['pais']
+    for año, col_delta in zip(anios, df_pct.columns):
+        df_resultado[año] = df_pivot[año]
+        df_resultado[col_delta] = df_pct[col_delta]  
+    df_resultado = df_resultado[columnas_ordenadas]   
+    df_resultado = df_resultado.sort_values(by="pais")      
     st.write(df_resultado)
 
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
