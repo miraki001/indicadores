@@ -320,3 +320,4 @@ def ind_exportaciones(dva):
       title = {'text': "Avg order size"}))
 
       fig.show()
+      st.plotly_chart(fig, theme="streamlit")
