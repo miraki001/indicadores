@@ -623,7 +623,7 @@ def exporta_destino():
 
     # Creamos el mapping original ? enriquecido
     name_mapping = {item["original"]: item["name"] for item in nodes_data_sorted}
-    st.write(name_mapping)
+    #st.write(name_mapping)
 
     # Aplicamos el mapping
     df_varlts['source'] = df_varlts['source'].map(name_mapping)
@@ -631,7 +631,7 @@ def exporta_destino():
     nodes = list(set(df_varlts['source']).union(set(df_varlts['target'])))
     nodes = [n for n in nodes if pd.notna(n)]   
 
-    st.write(df_varlts)
+    #st.write(df_varlts)
 
 
     result1 = json.dumps(nodes_enriched)
@@ -697,26 +697,27 @@ def exporta_destino():
         ],
     }
     st_echarts(option,key="otro11", height="500px")
-    st.write(dvt)
+    #st.write(dvt)
 
-    liquidfill_option = {
-        "series": [{"type": "liquidFill", "data": [1455222, 0.5, 0.4, 0.3]}]
-    }
-    st_echarts(liquidfill_option)
+    #liquidfill_option = {
+    #    "series": [{"type": "liquidFill", "data": [1455222, 0.5, 0.4, 0.3]}]
+    #}
+    #st_echarts(liquidfill_option)
     
     dvt = dvt.groupby(['pais','anio'], as_index=False)[['litros']].sum()
-    st.write(dvt)
+    #st.write(dvt)
     df_pivot = dvt.pivot(index='pais', columns='anio', values='litros').reset_index()
-    st.write(df_pivot)
+    #st.write(df_pivot)
     pais = df_pivot[['pais']].copy()    
     df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
-    st.write('aca')
-    st.write(df_pivot)
+    #st.write('aca')
+    #st.write(df_pivot)
     anios = sorted([col for col in df_pivot.columns if col != 'pais'])
     df_pct = df_pivot[anios].pct_change(axis=1)
     df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
-    st.write(df_pct)
-    color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
+    #st.write(df_pct)
+    #color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
+    color_theme_list = ['viridis']
     input_color = 'blue'
     heatmap = alt.Chart(df_pct).mark_rect().encode(
             y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
