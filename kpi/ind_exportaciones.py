@@ -321,6 +321,7 @@ def ind_exportaciones(dva):
       domain = {'x': [0.1, 1], 'y': [0.2, 0.9]},
       title = {'text': "Avg order size"}))
       fig.add_trace(go.Scatter(
+        x = dv1['anio'],
         y = dv1['litros']))
     
 
