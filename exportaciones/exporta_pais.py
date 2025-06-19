@@ -729,8 +729,22 @@ def exporta_destino():
 
     # Obtener todos los valores de % en una sola serie plana, sin NaN
     valores_pct = df_resultado[cols_pct].values.flatten()
-    st.write(valores_pct)    
+    df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]  
+    st.write(df_pct)
+    df_resultado = df_pivot[['pais']].copy()
+    columnas_ordenadas = ['pais']
+    for año, col_delta in zip(anios, df_pct.columns):
+        df_resultado[año] = df_pivot[año]
+        df_resultado[col_delta] = df_pct[col_delta]  
+    df_resultado = df_resultado[columnas_ordenadas]   
+    df_resultado = df_resultado.sort_values(by="pais")    
     st.write(df_resultado)
+    cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]
+    st.write(cols_pct)
+        
+    # Columnas normalizadas que se usarán solo para aplicar color
+    cols_norm = [f"{col}_norm" for col in cols_pct]
+    
 
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)    
