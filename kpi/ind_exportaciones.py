@@ -323,9 +323,9 @@ def ind_exportaciones(dva):
       #fig.add_trace(go.Scatter(
       #  x = dv1['anio'],
       #  y = dv1['litros']))
-      fig.add_trace(
-        go.add_bar(x=dv1.mes1, y=dv1.litros)
-      )    
-
+      #fig.add_trace(
+      #  go.add_bar(x=dv1.mes1, y=dv1.litros)
+      #)    
+      fig.add_bar(x = dv1.mes1,  y = dv1.litros)
       fig.show()
       st.plotly_chart(fig, theme="streamlit")
