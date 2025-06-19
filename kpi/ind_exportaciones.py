@@ -312,11 +312,11 @@ def ind_exportaciones(dva):
                 progressColor='green',textAlign='left'
                 )
       fig = go.Figure(go.Indicator(
-      mode = “number+gauge+delta”,
-      gauge = {‘shape’: “bullet”},
-      delta = {‘reference’: 300},
+      mode = "number+gauge+delta",
+      gauge = {'shape': "bullet"},
+      delta = {'reference': 300},
       value = 220,
-      domain = {‘x’: [0.1, 1], ‘y’: [0.2, 0.9]},
-      title = {‘text’: “Avg order size”}))
+      domain = {'x': [0.1, 1], 'y': [0.2, 0.9]},
+      title = {'text': "Avg order size"}))
 
       fig.show()
