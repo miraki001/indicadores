@@ -312,7 +312,7 @@ def ind_exportaciones(dva):
                 backgroundColor='#f3f3f3',titleColor='black',valueColor='black',
                 progressColor='green',textAlign='left'
                 )
-      st.write(dv1)
+      #st.write(dv1)
       fig = go.Figure(go.Indicator(
       mode = "number+delta",
       gauge = {'shape': "bullet"},
@@ -324,7 +324,7 @@ def ind_exportaciones(dva):
       #  x = dv1['anio'],
       #  y = dv1['litros']))
       fig.add_trace(
-        go.Scatter(x=dv1.mes1, y=dv1.litros, mode="lines")
+        go.Scatter(x=dv1.mes1, y=dv1.litros, mode="Bar")
       )    
 
       fig.show()
