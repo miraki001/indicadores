@@ -19,7 +19,7 @@ import locale
 from script.exportaciones import mosto_registro_mensual
 from streamlit_card import card
 from streamlit_kpi import streamlit_kpi
-import gcpanel as gcp
+
 
 
 
@@ -311,3 +311,12 @@ def ind_exportaciones(dva):
                 backgroundColor='#f3f3f3',titleColor='black',valueColor='black',
                 progressColor='green',textAlign='left'
                 )
+      fig = go.Figure(go.Indicator(
+      mode = “number+gauge+delta”,
+      gauge = {‘shape’: “bullet”},
+      delta = {‘reference’: 300},
+      value = 220,
+      domain = {‘x’: [0.1, 1], ‘y’: [0.2, 0.9]},
+      title = {‘text’: “Avg order size”}))
+
+      fig.show()
