@@ -304,7 +304,7 @@ def ind_exportaciones(dva):
           }
       }        
       )
-      streamlit_kpi(key="one",height=100,title='ver',value=100,icon='fa-globe',progressValue=100,unit=1000,animate=True,animateDuration=1000,
+      streamlit_kpi(key="one",height=100,title='ver',value=100,icon='fa-globe',progressValue=100,unit=1000,animate=True,animateDuration=100000,
                 showProgress=True,iconTop=1,showIcon=True,
                 iconLeft=0,iconOpacity=0,iconColor=0,
                 backgroundColor='#f3f3f3',titleColor='black',valueColor='black',
