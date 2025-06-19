@@ -312,7 +312,7 @@ def ind_exportaciones(dva):
                 progressColor='green',textAlign='left'
                 )
       fig = go.Figure(go.Indicator(
-      mode = "number+gauge+delta",
+      mode = "number+delta",
       gauge = {'shape': "bullet"},
       delta = {'reference': 300},
       value = 220,
