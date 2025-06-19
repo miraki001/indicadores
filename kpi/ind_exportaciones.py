@@ -318,6 +318,9 @@ def ind_exportaciones(dva):
       value = 220,
       domain = {'x': [0.1, 1], 'y': [0.2, 0.9]},
       title = {'text': "Avg order size"}))
+      fig.add_trace(go.Scatter(
+        y = dv1['litros']))
+    
 
       fig.show()
       st.plotly_chart(fig, theme="streamlit")
