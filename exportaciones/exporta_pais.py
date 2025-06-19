@@ -710,12 +710,14 @@ def exporta_destino():
     #st.write(df_pivot)
     pais = df_pivot[['pais']].copy()    
     df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
-    #st.write('aca')
-    #st.write(df_pivot)
+    st.write('aca')
+    st.write(df_pivot)
     anios = sorted([col for col in df_pivot.columns if col != 'pais'])
     df_pct = df_pivot[anios].pct_change(axis=1)
     df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
+    df_resultado = df_pivot[['pais']].copy()
     st.write(df_pct)
+    st.write(df_resultado)
 
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)    
