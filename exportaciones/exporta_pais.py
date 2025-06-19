@@ -713,7 +713,10 @@ def exporta_destino():
     st.write('aca')
     st.write(df_pivot)
     anios = sorted([col for col in df_pivot.columns if col != 'pais'])
-    st.write(anios)
+    #st.write(anios)
+    
+    df_pct = df_pivot[['anios','pais']].pct_change(axis=1)
+    st.write(df_pct)
     df_pct = df_pivot[anios].pct_change(axis=1)
     st.write('aca se pierden los años')
     st.write(df_pct)
