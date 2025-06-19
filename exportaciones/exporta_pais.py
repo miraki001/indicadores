@@ -717,7 +717,7 @@ def exporta_destino():
     df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
     #st.write(df_pct)
     #color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
-    color_theme_list = ['viridis']
+    color_theme_list = ['accent', 'category10', 'category20', 'category20b', 'category20c','dark2', 'paired', 'pastel1', 'pastel2', 'set1', 'set2', 'set3', 'tableau10','tableau20']
     input_color = 'blue'
     heatmap = alt.Chart(df_pct).mark_rect().encode(
             y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
