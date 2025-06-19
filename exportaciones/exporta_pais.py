@@ -13,6 +13,7 @@ from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Sankey
 from collections import defaultdict
 import plotly.graph_objects as go
+import altair as alt
 
 def exporta_destino():
 
