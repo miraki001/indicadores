@@ -324,7 +324,7 @@ def ind_exportaciones(dva):
       #  x = dv1['anio'],
       #  y = dv1['litros']))
       fig.add_trace(
-        go.Scatter(x=dv1.anio, y=dv1.mes1, mode="lines")
+        go.Scatter(x=dv1.mes1, y=dv1.litros, mode="lines")
       )    
 
       fig.show()
