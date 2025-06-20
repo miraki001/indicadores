@@ -66,8 +66,8 @@ def indica2(dv1):
       domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Despachos 2024"}))
       fig1.add_trace(go.Scatter(
-        x = dvoa['mes1'],
-        y = dvoa['litros']))
+        x = dvo['mes1'],
+        y = dvo['litros']))
       #fig.add_trace(
       #  go.add_bar(x=dv1.mes1, y=dv1.litros)
       #)    
