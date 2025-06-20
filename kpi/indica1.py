@@ -56,7 +56,7 @@ def indica1(dv1):
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
         
-        product_card(
+      product_card(
             product_name=deltao + "%",
             description='Despachos 2024', 
             price=valoro,       
@@ -66,4 +66,4 @@ def indica1(dv1):
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
             key="core_name_only"
-        )
+      )
