@@ -7,7 +7,13 @@ import locale
 from script.exportaciones import mosto_registro_mensual
 from streamlit_kpi import streamlit_kpi
 from streamlit_product_card import product_card 
+from despachos import desp_consumo
 
+
+def handle_card_click(card_name):
+    st.session_state.click_message = f"'{card_name}' was clicked!"
+    st.toast(f"Clicked: {card_name}")
+    desp_consumo.despachos_consumo() 
 
 
 
@@ -20,5 +26,6 @@ def indica1(dv1):
         picture_position="left",
         image_aspect_ratio="3/2",
         button_text=None,   
+        on_button_click=lambda: handle_card_click("Clickable Card Area"),
         key="core_name_only"
     )
