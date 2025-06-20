@@ -21,6 +21,7 @@ from script.exportaciones import mosto_registro_mensual
 from kpi import ind_mercado_interno
 from kpi import ind_exportaciones
 from kpi import ind_superficie
+from kpi import indica1
 from streamlit_extras.metric_cards import style_metric_cards 
 
 
@@ -195,7 +196,7 @@ def gauge(value):
 
 df_filtered = dv1.copy() 
 #actual = dt.now().year -4 
-tab1, tab2, tab3,tab4 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie"])
+tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie","Indica 1","Indica 2","Indica 3"])
 
 with tab1:
    st.write('Datos acumulados de Enero a  ' + mesfin + ' de cada año' )
