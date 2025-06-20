@@ -17,6 +17,7 @@ def handle_card_click(card_name):
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "lightcoral" if value < 0 else "lightgreen"
+    st.write(bgcolor)
     return f"color: {bgcolor};"
 
 def _format_with_thousands_commas(val): 
