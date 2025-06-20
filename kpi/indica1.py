@@ -13,7 +13,7 @@ from streamlit_kpi import streamlit_kpi
 
 def indica1(dv1):
 
-  hasClicked = card(
+  hasClicked1 = card(
         title="Despachos",
         text="Some description",
         image="http://placekitten.com/200/300",
