@@ -86,7 +86,7 @@ def indica2(dv1):
       #fig.add_trace(
       #  go.add_bar(x=dvoa.mes1, y=dvoa.litros)
       #)    
-      fig.add_bar(x = dvoa.mes1,  y = dvoa.litros)
+      fig2.add_bar(x = dvoa.mes1,  y = dvoa.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
       fig2.show()
       st.plotly_chart(fig2, theme="streamlit")
