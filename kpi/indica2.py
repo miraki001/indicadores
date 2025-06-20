@@ -59,7 +59,7 @@ def indica2(dv1):
       mode = "number+delta",
       #gauge = {'shape': "bullet"},
       delta = {'reference': valoa},
-      value = valoro,
+      value = int(valoro),
       domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Despachos 2024"}))
       fig.add_trace(go.Scatter(
