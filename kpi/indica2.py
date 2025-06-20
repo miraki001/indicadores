@@ -62,7 +62,7 @@ def indica2(dv1):
       value = valo,
       domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Despachos 2024"}))
-      fig.add_trace(go.Scatter(
+      fig1.add_trace(go.Scatter(
         x = dvoa['anio'],
         y = dvoa['litros']))
       #fig.add_trace(
