@@ -703,7 +703,7 @@ def exporta_destino():
     dv1 = dv1.groupby(['pais','anio'], as_index=False)[['litros']].sum()
     dv2 = dv1.groupby(['pais'], as_index=False)[['litros']].sum()
     pais_list11 = sorted(dv2["pais"].dropna().unique(), reverse=True)
-    dv1 = dv1[dv1['anio'] > 2014]
+    dv1 = dv1[dv1['anio'] > '2014']
     dv1 = dv1[dv1['pais']== pais_list11]
     indexe1 = np.r_[-20:0]
     dv1 = dv1.sort_values("litros", ignore_index=True).iloc[indexe1]
