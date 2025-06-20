@@ -18,7 +18,8 @@ def handle_card_click(card_name):
 def bgcolor_positive_or_negative(value):
     bgcolor = "lightcoral" if value < 0 else "lightgreen"
     st.write(bgcolor)
-    return f"color: {bgcolor};"
+    #return f"color: {bgcolor};"
+    return bgcolor
 
 def _format_with_thousands_commas(val): 
   val = round(val,0)
@@ -83,8 +84,8 @@ def indica1(dv1):
             styles={
                 "card": {"background-color": "#e5a294",}, 
                 #"title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": "#5d4037"},
-                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": "lightgreen"},
-                #"title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                #"title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": "lightgreen"},
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
                 "text": {"font-family": "'Roboto Slab', serif", "line-height": "1.6", "font-size": "0.9em", "color": "#5d4037"},
                 "price": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.9em", "color": "red"},
                 "button": {"font-family": "'Roboto Slab', serif", "font-weight": "400", "font-size": "0.8em", "background-color": "#53372E",}
