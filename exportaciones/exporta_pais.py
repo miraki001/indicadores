@@ -724,7 +724,7 @@ def exporta_destino():
     # Ordenar columnas: primero 'provincia', luego años descendentes intercaladas con %Δ
     columnas_ordenadas = ['pais']
     for año in sorted(anios, reverse=True):
-        columnas_ordenadas.append(año)
+        #columnas_ordenadas.append(año)
         columnas_ordenadas.append(f"{año}_Δ%")
 
     df_resultado = df_resultado[columnas_ordenadas]
