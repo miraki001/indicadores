@@ -59,16 +59,16 @@ def indica2(dv1):
       mode = "number+delta",
       #gauge = {'shape': "bullet"},
       delta = {'reference': valoa},
-      value = valo,
+      value = valoro,
       domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Despachos 2024"}))
-      #fig.add_trace(go.Scatter(
-      #  x = dv1['anio'],
-      #  y = dv1['litros']))
+      fig.add_trace(go.Scatter(
+        x = dvoa['anio'],
+        y = dvoa['litros']))
       #fig.add_trace(
       #  go.add_bar(x=dv1.mes1, y=dv1.litros)
       #)    
-      fig1.add_bar(x = dvoa.mes1,  y = dvoa.litros)
+      #fig1.add_bar(x = dvoa.mes1,  y = dvoa.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
       fig1.show()
       st.plotly_chart(fig1, theme="streamlit", key="desp1")
