@@ -79,7 +79,7 @@ def indica1(dv1):
                 "card": {"background-color": "#D7CDC6",}, 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": "#5d4037"},
                 "text": {"font-family": "'Roboto Slab', serif", "line-height": "1.6", "font-size": "0.9em", "color": "#5d4037"},
-                "price": {"font-family": "'Old Standard TT', serif", "font-weight": "400", "font-size": "1.1em", "color": "#5d4037"},
+                "price": {"font-family": "'Old Standard TT', serif", "font-weight": "400", "font-size": "1.1em", "color": "red"},
                 "button": {"font-family": "'Roboto Slab', serif", "font-weight": "400", "font-size": "0.9em", "background-color": "#53372E",}
             },
             button_text=None,   
