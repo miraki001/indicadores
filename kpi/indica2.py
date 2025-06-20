@@ -68,7 +68,7 @@ def indica2(dv1):
       #fig1.add_trace(go.Scatter(
       #  x = dvo['mes1'],
       #  y = dvo['litros']))
-      fig.add_trace(
+      fig1.add_trace(
         go.line(x=dvo.mes1, y=dvo.litros)
       )    
         
