@@ -17,6 +17,7 @@ def indica1(dv1):
         description='2024', 
         price=345.000,       
         product_image='https://enolife.com.ar/es/wp-content/uploads/2025/06/Imagen1-10-1024x440.jpg', 
+        picture_position="left",
         button_text=None,   
         key="core_name_only"
     )
