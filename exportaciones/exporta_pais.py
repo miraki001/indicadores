@@ -697,90 +697,42 @@ def exporta_destino():
         ],
     }
     st_echarts(option,key="otro11", height="500px")
-    #st.write(dvt)
+    # Pivotear el DataFrame para que cada fila sea una provincia y cada columna un año
+    df_pivot = dv1.pivot(index='pais', columns='anio', values='litros').reset_index()
 
-    #liquidfill_option = {
-    #    "series": [{"type": "liquidFill", "data": [1455222, 0.5, 0.4, 0.3]}]
-    #}
-    #st_echarts(liquidfill_option)
-    
-    dvt = dvt.groupby(['pais','anio'], as_index=False)[['litros']].sum()
-    #st.write(dvt)
-    df_pivot = dvt.pivot(index='pais', columns='anio', values='litros').reset_index()
-    #st.write(df_pivot)
-    pais = df_pivot[['pais']].copy()    
+    # Asegurar que los años estén ordenados correctamente
     df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
-    st.write('aca')
-    st.write(df_pivot)
+
+    # Identificar las columnas de año, ordenadas de mayor a menor
     anios = sorted([col for col in df_pivot.columns if col != 'pais'])
-    #st.write(anios)
-    
-    df_pct = df_pivot[anios, 'pais'].pct_change(axis=1)
-    st.write(df_pct)
+        
+    # Calcular el cambio porcentual entre años (sobre las columnas)
     df_pct = df_pivot[anios].pct_change(axis=1)
-    st.write('aca se pierden los años')
-    st.write(df_pct)
-    df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0    
+    df_pct = df_pct.round(4).fillna(0)  # Redondear y reemplazar NaN por 0
+
+    # Renombrar columnas de porcentaje
+    df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]
+
+    # Insertar las columnas de diferencia al lado de cada año
     df_resultado = df_pivot[['pais']].copy()
-    st.write(df_pct)
-    columnas_ordenadas = ['pais']
     for año, col_delta in zip(anios, df_pct.columns):
         df_resultado[año] = df_pivot[año]
-        df_resultado[col_delta] = df_pct[col_delta]  
-    df_resultado = df_resultado[columnas_ordenadas]  
-    st.write('aver')
-    st.write(df_resultado)
-    df_resultado = df_resultado.sort_values(by="pais")  
-    cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]    
+        df_resultado[col_delta] = df_pct[col_delta]
 
-    cols_norm = [f"{col}_norm" for col in cols_pct]
-
-    # Obtener todos los valores de % en una sola serie plana, sin NaN
-    valores_pct = df_resultado[cols_pct].values.flatten()
-    df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]  
-    st.write(df_pct)
-    df_resultado = df_pivot[['pais']].copy()
+    # Ordenar columnas: primero 'provincia', luego años descendentes intercaladas con %Δ
     columnas_ordenadas = ['pais']
-    for año, col_delta in zip(anios, df_pct.columns):
-        df_resultado[año] = df_pivot[año]
-        df_resultado[col_delta] = df_pct[col_delta]  
-    df_resultado = df_resultado[columnas_ordenadas]   
-    df_resultado = df_resultado.sort_values(by="pais")    
-    st.write(df_resultado)
-    cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]
-    st.write(cols_pct)
-        
-    # Columnas normalizadas que se usarán solo para aplicar color
-    cols_norm = [f"{col}_norm" for col in cols_pct]
-    
+    for año in sorted(anios, reverse=True):
+        columnas_ordenadas.append(año)
+        columnas_ordenadas.append(f"{año}_Δ%")
 
-    color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
-    selected_color_theme = st.selectbox('Select a color theme', color_theme_list)    
-    input_color = 'blue'
-    heatmap = alt.Chart(df_pct).mark_rect().encode(
-            y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Año", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
-            x=alt.X(f'{'pais'}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
-            color=alt.Color(f'max({input_color}):Q',
-                             legend=None,
-                             scale=alt.Scale(scheme=selected_color_theme)),
-            stroke=alt.value('black'),
-            strokeWidth=alt.value(0.25),
-        ).properties(width=900
-        ).configure_axis(
-        labelFontSize=12,
-        titleFontSize=12
-        )    
-    st.altair_chart(heatmap, use_container_width=True)
-    
-    df_pct.columns = [f"{col}_Δ%" for col in df_pct.columns]  
-    st.write(df_pct)
-    df_resultado = df_pivot[['pais']].copy()
-    columnas_ordenadas = ['pais']
-    for año, col_delta in zip(anios, df_pct.columns):
-        df_resultado[año] = df_pivot[año]
-        df_resultado[col_delta] = df_pct[col_delta]  
-    df_resultado = df_resultado[columnas_ordenadas]   
-    df_resultado = df_resultado.sort_values(by="pais")    
+    df_resultado = df_resultado[columnas_ordenadas]
+      
+    # Ordenar filas por provincia
+    df_resultado = df_resultado.sort_values(by="pais")
+                
+    #st.markdown("<h4 style='text-align: left;'>Superficie por Provincia y variación interanual (%)</h4>", unsafe_allow_html=True)
+
+    # Obtener columnas de porcentaje
     cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]
         
     # Columnas normalizadas que se usarán solo para aplicar color
@@ -788,11 +740,9 @@ def exporta_destino():
 
     # Obtener todos los valores de % en una sola serie plana, sin NaN
     valores_pct = df_resultado[cols_pct].values.flatten()
-    st.write(valores_pct)
     valores_pct = valores_pct[~np.isnan(valores_pct)]
 
     # Calcular el máximo valor absoluto para normalizar de -max_abs a max_abs
-    st.write(valores_pct)
     max_abs = np.abs(valores_pct).max()
 
     # Crear un valor de recorte más representativo
@@ -837,7 +787,7 @@ def exporta_destino():
             color_hex = valor_a_color(valor_norm)
             tabla_provincia = tabla_provincia.tab_style(
                 style=style.fill(color=color_hex),
-                locations=gt_loc.body(columns=[col], rows=[row_idx])
+                 locations=gt_loc.body(columns=[col], rows=[row_idx])
             )
 
     # Configurar formato y estilos
@@ -885,15 +835,15 @@ def exporta_destino():
     html_output = gt_tbl.repr_html()
 
     html_wrapped = f"""
-        <div style="text-align: center; margin-bottom: 1em;">
-            <h2 style="margin-bottom: 0.2em;">Superficie por Provincia</h2>
-            <div style="width: 60px; height: 4px; background-color: red; margin: 0 auto 0.5em auto;"></div>
-            <p><em>Evolución anual y variaciones porcentuales</em></p>
-        </div>
-        <div style="overflow-x: auto; overflow-y: auto; width: 100%; white-space: nowrap;">
-            {html_output}
-        </div>
+    <div style="text-align: center; margin-bottom: 1em;">
+        <h2 style="margin-bottom: 0.2em;">Superficie por Provincia</h2>
+        <div style="width: 60px; height: 4px; background-color: red; margin: 0 auto 0.5em auto;"></div>
+        <p><em>Evolución anual y variaciones porcentuales</em></p>
+    </div>
+    <div style="overflow-x: auto; overflow-y: auto; width: 100%; white-space: nowrap;">
+        {html_output}
+    </div>
     """
 
-    st.components.v1.html(html_wrapped, height=1000, scrolling=False)    
+    st.components.v1.html(html_wrapped, height=1000, scrolling=False)
 
