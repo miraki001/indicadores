@@ -4,10 +4,10 @@ import numpy as np
 import json
 from datetime import datetime as dt
 import locale
-from script.exportaciones import mosto_registro_mensual
-from streamlit_kpi import streamlit_kpi
-from streamlit_product_card import product_card 
 from despachos import desp_consumo
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 
 def handle_card_click(card_name):
@@ -55,34 +55,22 @@ def indica1(dv1):
     mes2 = max(dva['mes1'])
     col = st.columns((4.5, 4.5), gap='small')
     with col[0]:
-      product_card(
-            product_name=delta1 + "%",
-            description='Despachos 2024', 
-            price=valoro,       
-            product_image='https://enolife.com.ar/es/wp-content/uploads/2025/06/Imagen1-10-1024x440.jpg', 
-            picture_position="left",
-            image_aspect_ratio="3/2",
-            button_text=None,   
-            on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_only"
-      )
+      fig = go.Figure(go.Indicator(
+      mode = "number+delta",
+      #gauge = {'shape': "bullet"},
+      delta = deltaoa,
+      value = valoroa,
+      domain = {'x': [0, 1], 'y': [0, 1]},
+      title = {'text': "Despachos 2024"}))
+      #fig.add_trace(go.Scatter(
+      #  x = dv1['anio'],
+      #  y = dv1['litros']))
+      #fig.add_trace(
+      #  go.add_bar(x=dv1.mes1, y=dv1.litros)
+      #)    
+      fig.add_bar(x = dv1.mes1,  y = dv1.litros)
+      #fig.update_layout(paper_bgcolor = "lightgray")
+      fig.show()
+      st.plotly_chart(fig, theme="streamlit")
     with col[1]:
-      product_card(
-            product_name=delta2 + "%",
-            description='Despachos 2025', 
-            price=valora,       
-            product_image='https://enolife.com.ar/es/wp-content/uploads/2025/06/Imagen1-10-1024x440.jpg', 
-            picture_position="left",
-            image_aspect_ratio="3/2",
-            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
-            styles={
-                "card": {"background-color": "#D7CDC6",}, 
-                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": "#5d4037"},
-                "text": {"font-family": "'Roboto Slab', serif", "line-height": "1.6", "font-size": "0.9em", "color": "#5d4037"},
-                "price": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.9em", "color": "red"},
-                "button": {"font-family": "'Roboto Slab', serif", "font-weight": "400", "font-size": "0.8em", "background-color": "#53372E",}
-            },
-            button_text=None,   
-            on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_only111"
-      )
+
