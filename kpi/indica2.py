@@ -71,7 +71,7 @@ def indica2(dv1):
       fig1.add_bar(x = dvoa.mes1,  y = dvoa.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
       fig1.show()
-      st.plotly_chart(fig1, theme="streamlit")
+      st.plotly_chart(fig1, theme="streamlit", key="desp1")
     with col[1]:
       fig2 = go.Figure(go.Indicator(
       mode = "number+delta",
@@ -89,4 +89,4 @@ def indica2(dv1):
       fig2.add_bar(x = dvoa.mes1,  y = dvoa.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
       fig2.show()
-      st.plotly_chart(fig2, theme="streamlit")
+      st.plotly_chart(fig2, theme="streamlit", key="desp2")
