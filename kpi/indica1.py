@@ -5,7 +5,6 @@ import json
 from datetime import datetime as dt
 import locale
 from script.exportaciones import mosto_registro_mensual
-from streamlit_kpi import streamlit_kpi
 from streamlit_product_card import product_card 
 from despachos import desp_consumo
 
