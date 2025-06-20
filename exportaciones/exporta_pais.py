@@ -701,12 +701,18 @@ def exporta_destino():
     #st.write(dv1)
     #melted_df = melted_df[melted_df['litros'] != 0 ]
     dv1 = dv1.groupby(['pais','anio'], as_index=False)[['litros']].sum()
-    dv2 = dv1.groupby(['pais'], as_index=False)[['litros']].sum()
-    pais_list11 = sorted(dv2["pais"].dropna().unique(), reverse=True)
     dv1 = dv1[dv1['anio'] > '2014']
-    dv1 = dv1[dv1['pais']== pais_list11]
+    dv2 = dv1.groupby(['pais'], as_index=False)[['litros']].sum()
     indexe1 = np.r_[-20:0]
-    dv1 = dv1.sort_values("litros", ignore_index=True).iloc[indexe1]
+    dv2 = dv2.sort_values("litros", ignore_index=True).iloc[indexe1]
+    pais_list11 = sorted(dv2["pais"].dropna().unique(), reverse=True)
+    #indexe1 = np.r_[-20:0]
+    #dv1 = dv1.sort_values("litros", ignore_index=True).iloc[indexe1]
+    #dv1 = dv1[dv1['anio'] > '2014']
+    dv1= dv1[dv1['pais'].isin(pais_list11)]
+    #dv1 = dv1[dv1['pais']== pais_list11]
+    #indexe1 = np.r_[-20:0]
+    #dv1 = dv1.sort_values("litros", ignore_index=True).iloc[indexe1]
     df_pivot = dv1.pivot(index='pais', columns='anio', values='litros').reset_index()
 
     # Asegurar que los años estén ordenados correctamente
