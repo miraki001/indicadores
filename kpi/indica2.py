@@ -29,6 +29,7 @@ def indica2(dv1):
     dva = dv1[dv1['anio'] == actual ]
     dvo = dv1[dv1['anio'] == anterior ]
     dvoa = dv1[dv1['anio'] == anterior-1 ]
+    dvo = dvo.groupby(['anio','mes1'], as_index=False)[['litros']].sum()
     mes = max(dva['mes'])
     dvam = dva[dv1['mes'] == mes ]
     dvo = dvo[dvo['mes']  <= mes]
