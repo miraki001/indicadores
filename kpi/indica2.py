@@ -73,4 +73,20 @@ def indica1(dv1):
       fig.show()
       st.plotly_chart(fig, theme="streamlit")
     with col[1]:
-
+      fig = go.Figure(go.Indicator(
+      mode = "number+delta",
+      #gauge = {'shape': "bullet"},
+      delta = deltaoa,
+      value = valoroa,
+      domain = {'x': [0, 1], 'y': [0, 1]},
+      title = {'text': "Despachos 2024"}))
+      #fig.add_trace(go.Scatter(
+      #  x = dv1['anio'],
+      #  y = dv1['litros']))
+      #fig.add_trace(
+      #  go.add_bar(x=dv1.mes1, y=dv1.litros)
+      #)    
+      fig.add_bar(x = dv1.mes1,  y = dv1.litros)
+      #fig.update_layout(paper_bgcolor = "lightgray")
+      fig.show()
+      st.plotly_chart(fig, theme="streamlit")
