@@ -81,8 +81,9 @@ def indica2(dv1):
       fig2 = go.Figure(go.Indicator(
       mode = "number+delta",
       #gauge = {'shape': "bullet"},
-      delta =  {'reference': valoa},
+      delta =  {'reference': valoa, 'relative': True, 'valueformat': ".2%"},
       value = valo,
+      number = {'valueformat': ".0f"},
       domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Despachos 2024"}))
       #fig.add_trace(go.Scatter(
