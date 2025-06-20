@@ -55,7 +55,7 @@ def indica2(dv1):
     mes2 = max(dva['mes1'])
     col = st.columns((4.5, 4.5), gap='small')
     with col[0]:
-      fig = go.Figure(go.Indicator(
+      fig1 = go.Figure(go.Indicator(
       mode = "number+delta",
       #gauge = {'shape': "bullet"},
       delta = {'reference': valoa},
@@ -68,12 +68,12 @@ def indica2(dv1):
       #fig.add_trace(
       #  go.add_bar(x=dv1.mes1, y=dv1.litros)
       #)    
-      fig.add_bar(x = dv1.mes1,  y = dv1.litros)
+      fig1.add_bar(x = dv1.mes1,  y = dv1.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
-      fig.show()
-      st.plotly_chart(fig, theme="streamlit")
+      fig1.show()
+      st.plotly_chart(fig1, theme="streamlit")
     with col[1]:
-      fig = go.Figure(go.Indicator(
+      fig2 = go.Figure(go.Indicator(
       mode = "number+delta",
       #gauge = {'shape': "bullet"},
       delta =  {'reference': valoa},
@@ -88,5 +88,5 @@ def indica2(dv1):
       #)    
       fig.add_bar(x = dv1.mes1,  y = dv1.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
-      fig.show()
-      st.plotly_chart(fig, theme="streamlit")
+      fig2.show()
+      st.plotly_chart(fig2, theme="streamlit")
