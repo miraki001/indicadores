@@ -68,7 +68,7 @@ def indica2(dv1):
       #fig.add_trace(
       #  go.add_bar(x=dv1.mes1, y=dv1.litros)
       #)    
-      fig1.add_bar(x = dv1.mes1,  y = dv1.litros)
+      fig1.add_bar(x = dvoa.mes1,  y = dvoa.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
       fig1.show()
       st.plotly_chart(fig1, theme="streamlit")
@@ -84,9 +84,9 @@ def indica2(dv1):
       #  x = dv1['anio'],
       #  y = dv1['litros']))
       #fig.add_trace(
-      #  go.add_bar(x=dv1.mes1, y=dv1.litros)
+      #  go.add_bar(x=dvoa.mes1, y=dvoa.litros)
       #)    
-      fig.add_bar(x = dv1.mes1,  y = dv1.litros)
+      fig.add_bar(x = dvoa.mes1,  y = dvoa.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
       fig2.show()
       st.plotly_chart(fig2, theme="streamlit")
