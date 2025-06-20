@@ -58,7 +58,7 @@ def indica2(dv1):
       fig = go.Figure(go.Indicator(
       mode = "number+delta",
       #gauge = {'shape': "bullet"},
-      delta = deltaoa,
+      delta = {'reference': valoa},
       value = valo,
       domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Despachos 2024"}))
@@ -76,7 +76,7 @@ def indica2(dv1):
       fig = go.Figure(go.Indicator(
       mode = "number+delta",
       #gauge = {'shape': "bullet"},
-      delta = deltaoa,
+      delta =  {'reference': valoa},
       value = valo,
       domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Despachos 2024"}))
