@@ -22,6 +22,7 @@ from kpi import ind_mercado_interno
 from kpi import ind_exportaciones
 from kpi import ind_superficie
 from kpi import indica1
+from kpi import indica2
 from streamlit_extras.metric_cards import style_metric_cards 
 
 
@@ -436,4 +437,5 @@ with tab4:
   ind_superficie.ind_superficie(dfsup,dfcos)
 with tab5:
   indica1.indica1(dv1) 
-
+with tab6:
+  indica2.indica2(dv1) 
