@@ -13,9 +13,9 @@ from streamlit_product_card import product_card
 
 def indica1(dv1):
     product_card(
-        product_name="Product Name Only",
-        description=None, 
-        price=None,       
+        product_name="Despachos",
+        description='2024', 
+        price=345.000,       
         product_image=None, 
         button_text=None,   
         key="core_name_only"
