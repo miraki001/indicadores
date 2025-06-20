@@ -76,5 +76,5 @@ def indica1(dv1):
             image_aspect_ratio="3/2",
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_only"
+            key="core_name_only111"
       )
