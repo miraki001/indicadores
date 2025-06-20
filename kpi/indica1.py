@@ -54,7 +54,7 @@ def indica1(dv1):
       #  deltaa = (1- deltaa) * -1
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
-      delta1 = str(_format_as_percentage(deltaoa))
+      delta1 = str(_format_as_percentage(deltaoa,2))
       mes2 = max(dva['mes1'])
       product_card(
             product_name=delta1 + "%",
