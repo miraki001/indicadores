@@ -745,7 +745,7 @@ def exporta_destino():
             x=alt.X(f'{'pais'}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
             color=alt.Color(f'max({input_color}):Q',
                              legend=None,
-                             scale=alt.Scale(scheme=input_color_theme)),
+                             scale=alt.Scale(scheme=selected_color_theme)),
             stroke=alt.value('black'),
             strokeWidth=alt.value(0.25),
         ).properties(width=900
