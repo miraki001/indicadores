@@ -700,6 +700,8 @@ def exporta_destino():
     # Pivotear el DataFrame para que cada fila sea una provincia y cada columna un año
     #st.write(dv1)
     dv1 = dv1.groupby(['pais','anio'], as_index=False)[['litros']].sum()
+    indexe1 = np.r_[-20:0]
+    dv1 = dv1.sort_values("litros", ignore_index=True).iloc[indexe1]
     df_pivot = dv1.pivot(index='pais', columns='anio', values='litros').reset_index()
 
     # Asegurar que los años estén ordenados correctamente
