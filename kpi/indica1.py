@@ -15,6 +15,10 @@ def handle_card_click(card_name):
     st.toast(f"Clicked: {card_name}")
     #desp_consumo.despachos_consumo() 
 
+def bgcolor_positive_or_negative(value):
+    bgcolor = "lightcoral" if value < 0 else "lightgreen"
+    return f"color: {bgcolor};"
+
 def _format_with_thousands_commas(val): 
   val = round(val,0)
   return f'{val:.12n}' 
@@ -77,7 +81,8 @@ def indica1(dv1):
             font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
             styles={
                 "card": {"background-color": "#e5a294",}, 
-                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": "#5d4037"},
+                #"title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": "#5d4037"},
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(delta2)},
                 "text": {"font-family": "'Roboto Slab', serif", "line-height": "1.6", "font-size": "0.9em", "color": "#5d4037"},
                 "price": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.9em", "color": "red"},
                 "button": {"font-family": "'Roboto Slab', serif", "font-weight": "400", "font-size": "0.8em", "background-color": "#53372E",}
