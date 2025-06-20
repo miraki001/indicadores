@@ -23,7 +23,7 @@ def _format_as_percentage(val, prec=0):
   return f'{val:.{prec}f}' 
 
 
-def indica1(dv1):
+def indica2(dv1):
     actual = dt.now().year  
     anterior = dt.now().year -1 
     dva = dv1[dv1['anio'] == actual ]
