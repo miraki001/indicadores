@@ -731,6 +731,7 @@ def exporta_destino():
       
     # Ordenar filas por provincia
     df_resultado = df_resultado.sort_values(by="pais")
+    st.write(df_resultado)
                 
     #st.markdown("<h4 style='text-align: left;'>Superficie por Provincia y variación interanual (%)</h4>", unsafe_allow_html=True)
 
