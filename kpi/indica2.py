@@ -65,14 +65,14 @@ def indica2(dv1):
       value = valo,
       domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Despachos 2024"}))
-      #fig1.add_trace(go.Scatter(
-      #  x = dvo['mes1'],
-      #  y = dvo['litros']))
+      fig1.add_trace(go.Scatter(
+        x = dvo['mes1'],
+        y = dvo['litros']))
       #fig1.add_trace(
       #  go.line(x=dvo.mes1, y=dvo.litros)
       #)    
         
-      fig1.add_line(x = dvo.mes1,  y = dvo.litros)
+      #fig1.add_line(x = dvo.mes1,  y = dvo.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
       fig1.show()
       st.plotly_chart(fig1, theme="streamlit", key="desp1")
