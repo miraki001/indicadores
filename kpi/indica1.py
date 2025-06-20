@@ -55,7 +55,6 @@ def indica1(dv1):
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       mes2 = max(dva['mes1'])
-        
       product_card(
             product_name=deltao + "%",
             description='Despachos 2024', 
