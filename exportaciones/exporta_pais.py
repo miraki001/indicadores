@@ -736,7 +736,7 @@ def exporta_destino():
 
     # Obtener columnas de porcentaje
     cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]
-    st.write(cols_pct)
+    st.write(df_resultado)
         
     # Columnas normalizadas que se usarán solo para aplicar color
     cols_norm = [f"{col}_norm" for col in cols_pct]
