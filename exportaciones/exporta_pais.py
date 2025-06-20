@@ -731,12 +731,15 @@ def exporta_destino():
       
     # Ordenar filas por provincia
     df_resultado = df_resultado.sort_values(by="pais")
-    st.write(df_resultado)
+    #st.write(df_resultado)
                 
     #st.markdown("<h4 style='text-align: left;'>Superficie por Provincia y variación interanual (%)</h4>", unsafe_allow_html=True)
 
     # Obtener columnas de porcentaje
     cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]
+    st.write(df_resultado)
+    melted_df = df_resultado.melt(id_vars=['pais'], 
+                    var_name='anio', value_name='litros')
     st.write(df_resultado)
     input_color = 'blue'
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
