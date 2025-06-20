@@ -740,6 +740,7 @@ def exporta_destino():
     st.write(df_resultado)
     melted_df = df_resultado.melt(id_vars=['pais'], 
                     var_name='anio', value_name='litros')
+    melted_df = melted_df[melted_df['litros'] <> 0 ]
     st.write(melted_df)
     input_color = 'blue'
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
