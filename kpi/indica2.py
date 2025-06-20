@@ -61,7 +61,7 @@ def indica2(dv1):
       fig1 = go.Figure(go.Indicator(
       mode = "number+delta",
       #gauge = {'shape': "bullet"},
-      delta = {'reference': valoa, 'relative': True},
+      delta = {'reference': valoa, 'relative': True, 'valueformat': ".2f"},
       value = valo,
       domain = {'x': [0, 1], 'y': [0, 1]},
       title = {'text': "Despachos 2024"}))
