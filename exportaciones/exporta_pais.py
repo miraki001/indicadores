@@ -741,7 +741,7 @@ def exporta_destino():
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
     heatmap = alt.Chart(df_resultado).mark_rect().encode(
-            y=alt.Y(f'{df_resultado['anio¿]}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
+            y=alt.Y(f'{df_resultado['anio']}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
             x=alt.X(f'{df_resultado['pais']}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
             color=alt.Color(f'max({df_resultado['litros']}):Q',
                              legend=None,
