@@ -55,6 +55,7 @@ def indica2(dv1):
     delta2 = str(_format_as_percentage(deltaa,2))
     mes2 = max(dva['mes1'])
     dvo = dvo.groupby(['anio','mes1'], as_index=False)[['litros']].sum()
+    st.write(dvo)
     col = st.columns((4.5, 4.5), gap='small')
     with col[0]:
       fig1 = go.Figure(go.Indicator(
