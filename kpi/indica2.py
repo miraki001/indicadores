@@ -71,6 +71,7 @@ def indica2(dv1):
       fig.add_trace(
         go.line(x=dvo.mes1, y=dvo.litros)
       )    
+        
       #fig1.add_bar(x = dvoa.mes1,  y = dvoa.litros)
       #fig.update_layout(paper_bgcolor = "lightgray")
       fig1.show()
