@@ -18,6 +18,7 @@ def indica1(dv1):
         price=345.345,       
         product_image='https://enolife.com.ar/es/wp-content/uploads/2025/06/Imagen1-10-1024x440.jpg', 
         picture_position="left",
+        image_aspect_ratio="3/2",
         button_text=None,   
         key="core_name_only"
     )
