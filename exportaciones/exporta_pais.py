@@ -15,6 +15,7 @@ from collections import defaultdict
 import plotly.graph_objects as go
 import altair as alt
 import matplotlib.colors as mcolors
+from great_tables import GT, html
 
 def exporta_destino():
 
@@ -827,7 +828,7 @@ def exporta_destino():
         except Exception:
             return "#ffffff"
 
-    tabla_provincia = pd.GT(data=df_resultado)
+    tabla_provincia = GT(data=df_resultado)
 
     for row_idx in range(len(df_resultado)):
         for col in cols_pct:
