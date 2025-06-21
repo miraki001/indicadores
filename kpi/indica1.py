@@ -121,5 +121,27 @@ def indica1(dv1):
             },
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_only111"
+            key="core_name_only133"
+      )
+    with col1[1]:
+      product_card(
+            product_name=delta2 + "%",
+            description='Despachos 2025', 
+            price=valora,       
+            product_image='https://enolife.com.ar/es/wp-content/uploads/2025/06/Imagen1-10-1024x440.jpg', 
+            picture_position="left",
+            image_aspect_ratio="3/2",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Mono:wght@400&display=swap",
+            styles={
+                "card": {"background-color": "#e5a294",}, 
+                #"title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": "#5d4037"},
+                #"title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": "lightgreen"},
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "0.9em", "color": "#5d4037"},
+                "price": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.9em", "color": "red"},
+                "button": {"font-family": "'Roboto Slab', serif", "font-weight": "400", "font-size": "0.8em", "background-color": "#53372E",}
+            },
+            button_text=None,   
+            on_button_click=lambda: handle_card_click("Clickable Card Area"),
+            key="core_name_only13443"
       )
