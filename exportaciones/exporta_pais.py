@@ -14,6 +14,7 @@ from pyecharts.charts import Sankey
 from collections import defaultdict
 import plotly.graph_objects as go
 import altair as alt
+import matplotlib.colors as mcolors
 
 def exporta_destino():
 
