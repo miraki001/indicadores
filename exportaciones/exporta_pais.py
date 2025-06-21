@@ -701,32 +701,32 @@ def exporta_destino():
     st.write(dv1)
     #melted_df = melted_df[melted_df['litros'] != 0 ]
     #dv1 = dv1.groupby(['pais','anio'], as_index=False)[['litros']].sum()
-    dv1 = dv1.groupby(['variedad','anio'], as_index=False)[['litros']].sum()
+    dv1 = dv1.groupby(['variedad1','anio'], as_index=False)[['litros']].sum()
     dv1 = dv1[dv1['anio'] > '2014']
     #dv2 = dv1.groupby(['pais'], as_index=False)[['litros']].sum()
-    dv2 = dv1.groupby(['variedad'], as_index=False)[['litros']].sum()
+    dv2 = dv1.groupby(['variedad1'], as_index=False)[['litros']].sum()
     indexe1 = np.r_[-20:0]
     dv2 = dv2.sort_values("litros", ignore_index=True).iloc[indexe1]
     #pais_list11 = sorted(dv2["pais"].dropna().unique(), reverse=True)
-    var_list11 = sorted(dv2["variedad"].dropna().unique(), reverse=True)
+    var_list11 = sorted(dv2["variedad1"].dropna().unique(), reverse=True)
     #indexe1 = np.r_[-20:0]
     #dv1 = dv1.sort_values("litros", ignore_index=True).iloc[indexe1]
     #dv1 = dv1[dv1['anio'] > '2014']
     #dv1= dv1[dv1['pais'].isin(pais_list11)]
-    dv1= dv1[dv1['pais'].isin(var_list11)]
+    dv1= dv1[dv1['variedad1'].isin(var_list11)]
     #dv1 = dv1[dv1['pais']== pais_list11]
     #indexe1 = np.r_[-20:0]
     #dv1 = dv1.sort_values("litros", ignore_index=True).iloc[indexe1]
     #df_pivot = dv1.pivot(index='pais', columns='anio', values='litros').reset_index()
-    df_pivot = dv1.pivot(index='variedad', columns='anio', values='litros').reset_index()
+    df_pivot = dv1.pivot(index='variedad1', columns='anio', values='litros').reset_index()
 
     # Asegurar que los años estén ordenados correctamente
     #df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
-    df_pivot = df_pivot[['variedad'] + sorted([col for col in df_pivot.columns if col != 'variedad'])]
+    df_pivot = df_pivot[['variedad1'] + sorted([col for col in df_pivot.columns if col != 'variedad1'])]
 
     # Identificar las columnas de año, ordenadas de mayor a menor
     #anios = sorted([col for col in df_pivot.columns if col != 'pais'])
-    anios = sorted([col for col in df_pivot.columns if col != 'variedad'])
+    anios = sorted([col for col in df_pivot.columns if col != 'variedad1'])
         
     # Calcular el cambio porcentual entre años (sobre las columnas)
     df_pct = df_pivot[anios].pct_change(axis=1)
@@ -737,14 +737,14 @@ def exporta_destino():
 
     # Insertar las columnas de diferencia al lado de cada año
     #df_resultado = df_pivot[['pais']].copy()
-    df_resultado = df_pivot[['variedad']].copy()
+    df_resultado = df_pivot[['variedad1']].copy()
     for año, col_delta in zip(anios, df_pct.columns):
         df_resultado[año] = df_pivot[año]
         df_resultado[col_delta] = df_pct[col_delta]
 
     # Ordenar columnas: primero 'provincia', luego años descendentes intercaladas con %Δ
     #columnas_ordenadas = ['pais']
-    columnas_ordenadas = ['variedad']
+    columnas_ordenadas = ['variedad1']
     for año in sorted(anios, reverse=True):
         #columnas_ordenadas.append(año)
         columnas_ordenadas.append(f"{año}_Δ%")
@@ -761,7 +761,7 @@ def exporta_destino():
     # Obtener columnas de porcentaje
     cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]
     st.write(df_resultado)
-    melted_df = df_resultado.melt(id_vars=['variedad'], 
+    melted_df = df_resultado.melt(id_vars=['variedad1'], 
                     var_name='anio', value_name='litros')
     melted_df = melted_df[melted_df['litros'] != 0 ]
     st.write(melted_df)
@@ -770,7 +770,7 @@ def exporta_destino():
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
     heatmap = alt.Chart(melted_df).mark_rect().encode(
             y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
-            x=alt.X(f'{'variedad'}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
+            x=alt.X(f'{'variedad1'}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
             color=alt.Color(f'max({'litros'}):Q',
                              legend=None,
                              scale=alt.Scale(scheme=selected_color_theme)),
