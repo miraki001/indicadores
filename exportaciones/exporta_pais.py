@@ -800,7 +800,7 @@ def exporta_destino():
     vmax_visible = np.percentile(np.abs(df_resultado[cols_pct].values), 95)
 
     # Recalcular normalización y colores
-    norma = TwoSlopeNorm(vmin=-vmax_visible, vcenter=0, vmax=vmax_visible)
+    norma = mcolors.TwoSlopeNorm(vmin=-vmax_visible, vcenter=0, vmax=vmax_visible)
 
     # Crear columnas normalizadas con vmax_visible
     for col in cols_pct:
