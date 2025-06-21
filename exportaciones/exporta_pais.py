@@ -813,7 +813,7 @@ def exporta_destino():
 
     # Crear colormap divergente: rojo - gris - verde
     colors = ['#b2182b', '#e6e6e6', '#4d9221']
-    cmap = LinearSegmentedColormap.from_list("custom_red_gray_green", colors)
+    cmap = mcolors.LinearSegmentedColormap.from_list("custom_red_gray_green", colors)
     #st.write(df_resultado[cols_pct].describe())
     #st.write(df_resultado)
 
