@@ -827,7 +827,7 @@ def exporta_destino():
         except Exception:
             return "#ffffff"
 
-    tabla_provincia = mcolors.GT(data=df_resultado)
+    tabla_provincia = pd.GT(data=df_resultado)
 
     for row_idx in range(len(df_resultado)):
         for col in cols_pct:
