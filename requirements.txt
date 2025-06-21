@@ -13,4 +13,5 @@ streamlit_extras
 streamlit-card
 streamlit_kpi
 streamlit_product_card 
+great_tables 
 
