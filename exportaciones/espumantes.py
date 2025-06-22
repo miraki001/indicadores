@@ -409,7 +409,7 @@ def espumantes():
         )
 
 
-        if st.checkbox('Ver datos en forma de tabla'):
+        if st.checkbox('Ver Exportaciones de Espumantes en forma de tabla'):
             st.dataframe(styled_df,
               column_config={
                 'Año': st.column_config.Column('Año'),
