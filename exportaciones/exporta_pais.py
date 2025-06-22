@@ -840,7 +840,7 @@ def exporta_destino():
                 style=style.fill(color=color_hex),
                  locations=gt_loc.body(columns=[col], rows=[row_idx])
             )
-    """
+    
     # Configurar formato y estilos
     gt_tbl = tabla_provincia \
         .tab_header(
@@ -884,7 +884,7 @@ def exporta_destino():
             locations=gt_loc.body(columns=["provincia"])
         )
     html_output = gt_tbl.repr_html()
-
+    """
     html_wrapped = f"""
     <div style="text-align: center; margin-bottom: 1em;">
         <h2 style="margin-bottom: 0.2em;">Superficie por Provincia</h2>
