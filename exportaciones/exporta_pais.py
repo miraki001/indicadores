@@ -829,7 +829,7 @@ def exporta_destino():
             return "#ffffff"
 
     tabla_provincia = GT(data=df_resultado)
-
+    """
     for row_idx in range(len(df_resultado)):
         for col in cols_pct:
             col_norm = f"{col}_norm"
@@ -840,7 +840,7 @@ def exporta_destino():
                 style=style.fill(color=color_hex),
                  locations=gt_loc.body(columns=[col], rows=[row_idx])
             )
-
+    """
     # Configurar formato y estilos
     gt_tbl = tabla_provincia \
         .tab_header(
