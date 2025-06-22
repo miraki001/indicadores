@@ -585,7 +585,7 @@ def espumantes():
 
         st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
 
-        if st.checkbox('Ver tabla Evolución mensual en litros'):
+        if st.checkbox('tabla Evolución mensual en litros'):
             st.dataframe(litros,
                 width = 600,   
                 height = 800,
@@ -683,7 +683,7 @@ def espumantes():
         st_echarts(options=option,key="otro1" + str(dt.now()), height="400px")
 
         
-        if st.checkbox('Ver tabla Evolución mensual en Fob'):
+        if st.checkbox('tabla Evolución mensual en Fob'):
             st.dataframe(fob,
                 width = 600,   
                 height = 800,
@@ -739,7 +739,7 @@ def espumantes():
 
         st_echarts(options=option,key="otro2" + str(dt.now()), height="400px")
 
-        if st.checkbox('Ver tabla Evolución mensual en precio por litro'):
+        if st.checkbox('tabla Evolución mensual en precio por litro'):
             st.dataframe(ppl,
                 width = 600,   
                 height = 800,
