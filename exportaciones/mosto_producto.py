@@ -128,14 +128,14 @@ def exporta_mosto_producto():
         with col1:
           with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Añomp",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Añompwe",  year_list, default=[2024],label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
         with col2:
             with st.popover("Pais"):
                 st.caption("Selecciona uno o más Paisesde la lista")
-                pais = st.multiselect("Pais23",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")      
+                pais = st.multiselect("Pais23x",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")      
 
     df_filtered = dv1.copy()
     Filtro = 'Filtro = Año = '
