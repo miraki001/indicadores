@@ -68,5 +68,5 @@ with tab6:
     espumantes.espumantes()    
 with tab7:
     #st.session_state['vEstado'] = '0'
-    mosto_producto.exporta_mosto_producto()    
+    st.write('Proximanente')   
     
