@@ -163,7 +163,7 @@ def espumantes():
         with col1:
             with st.popover("Año"):
                 st.caption("Selecciona uno o más años de la lista")
-                año = st.multiselect("Año",    year_list, default=year_filter,label_visibility="collapsed",help="Selecciona uno o más años")
+                año = st.multiselect("Año2w",    year_list, default=year_filter,label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
                 año = [str(a) for a in año]  # Asegura que la selección sea string también
             
@@ -171,26 +171,26 @@ def espumantes():
         with col2:
             with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedad34",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+                variedad = st.multiselect("Variedad3w4",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
             with st.popover("Envase"):
                 st.caption("Selecciona uno o más Envases de la lista")
-                envase = st.multiselect("Envaseee",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
+                envase = st.multiselect("Envaseeew",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
         with col4:
             with st.popover("Producto"):
                 st.caption("Selecciona uno o más Productos de la lista")
-                producto = st.multiselect("Productoeo",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
+                producto = st.multiselect("Productoeow",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
 
         with col5:
             with st.popover("Color"):
                 st.caption("Selecciona uno o más Colores de la lista")
-                color = st.multiselect("Coloreo",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
+                color = st.multiselect("Coloreow",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
         with col6:
             with st.popover("Pais"):
                 st.caption("Selecciona uno o más Paisesde la lista")
-                pais = st.multiselect("Pais",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")  
+                pais = st.multiselect("Paisw",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")  
                 pais = [str(a) for a in pais]
                 st.write(pais)
 
