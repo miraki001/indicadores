@@ -847,7 +847,7 @@ def exporta_destino():
             title="*Superficie por Provincia*",
             subtitle="Evolución anual y variaciones porcentuales"
         ) \
-        .cols_label(provincia="Provincia") \
+        .cols_label(variedad1="variedad1") \
         .fmt_number(columns=anios, decimals=2) \
         .fmt_percent(columns=cols_pct, decimals=2) \
         .cols_hide(columns=cols_norm) \
