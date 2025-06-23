@@ -369,10 +369,29 @@ with tab1:
       #  deltaoa = (deltaoa) * -1        
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
+      delta2 = str(_format_as_percentage(deltaa,2))
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones de Mostos ' + str(anterior), value=valoro + ' Tn. ', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Exportaciones de Mostos ' + str(actual), value=valora + ' Tn. ', delta=_format_as_percentage(deltaa,2) +'%')
+      product_card(
+            product_name=delta2 + "%",
+            description='Exportaciones  Mosto 2025', 
+            price=valora + 'Tn.' ,       
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
+            picture_position="left",
+            image_aspect_ratio="16/9",
+            image_object_fit="contain",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            styles={
+
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+
+            },
+            button_text=None,   
+            on_button_click=lambda: handle_card_click("Clickable Card Area"),
+            key="core_name_onlyep"
+      )     
+      #st.metric(label='Exportaciones de Mostos ' + str(anterior), value=valoro + ' Tn. ', delta=_format_as_percentage(deltaoa,2) +'%' )
+      #st.metric(label='Exportaciones de Mostos ' + str(actual), value=valora + ' Tn. ', delta=_format_as_percentage(deltaa,2) +'%')
    
    with colm[1]:
       dv2 = mosto_registro_mensual(anterior -2)
@@ -407,8 +426,27 @@ with tab1:
       #  deltaoa = (1- deltaoa) * -1        
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
+      delta2 = str(_format_as_percentage(deltaa,2))
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
+      product_card(
+            product_name=delta2 + "%",
+            description='Exportaciones  Mosto 2025', 
+            price=valora + 'u$s.' ,       
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
+            picture_position="left",
+            image_aspect_ratio="16/9",
+            image_object_fit="contain",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            styles={
+
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+
+            },
+            button_text=None,   
+            on_button_click=lambda: handle_card_click("Clickable Card Area"),
+            key="core_name_onlyep"
+      )     
       st.metric(label='Exportaciones de Mostos ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
       st.metric(label='Exportaciones de Mostos ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
