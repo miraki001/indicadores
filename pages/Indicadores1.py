@@ -203,7 +203,7 @@ with tab1:
       #st.write('Periodo : 01 Enero/' + mes2)
 
       product_card(
-            product_name=delta2 + "%",
+            product_name=delta2 + " %",
             description='Despachos ' + mesfin + ' ' + str(actual)  , 
             price=valora,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
@@ -259,9 +259,9 @@ with tab1:
       #st.write('Periodo : 01 Enero/' + mes2)
 
       product_card(
-            product_name=delta2 + "%",
+            product_name=delta2 + " %",
             description='Exportaciones '  + mesfin + ' ' + str(actual), 
-            price=valora + 'Hl.' ,       
+            price=valora + ' Hl.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
@@ -314,7 +314,7 @@ with tab1:
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
       product_card(
-            product_name=delta2 + "%",
+            product_name=delta2 + " %",
             description='Exportaciones '  + mesfin + ' ' + str(actual), 
             price=valora + 'Hl.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
@@ -376,7 +376,7 @@ with tab1:
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
       product_card(
-            product_name=delta2 + "%",
+            product_name=delta2 + " %",
             description='Exportaciones Mosto '  + mesfin + ' ' + str(actual), 
             price=valora + 'Tn.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
@@ -434,7 +434,7 @@ with tab1:
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
       product_card(
-            product_name=delta2 + "%",
+            product_name=delta2 + " %",
             description='Exportaciones Mosto '  + mesfin + ' ' + str(actual), 
             price=valora + 'u$s.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
@@ -474,8 +474,8 @@ with tab1:
      deltaa = vala/valo
      deltaa = (deltaa - 1)*100     
      product_card(
-            product_name=delta2 + "%",
-            description='Superficie'  + str(maxanio), 
+            product_name=delta2 + " %",
+            description='Superficie '  + str(maxanio), 
             price=valora + 'Ha.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_superficie.svg', 
             picture_position="left",
@@ -512,8 +512,8 @@ with tab1:
      deltaa = vala/valo
      deltaa = (deltaa - 1)*100 
      product_card(
-            product_name=delta2 + "%",
-            description='Cosecha' + str(maxanio), 
+            product_name=delta2 + " %",
+            description='Cosecha ' + str(maxanio), 
             price=valora + 'Q.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_barril.svg', 
             picture_position="left",
