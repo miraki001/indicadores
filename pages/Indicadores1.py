@@ -83,6 +83,12 @@ def _format_with_thousands_commas(val):
 def _format_as_percentage(val, prec=0): 
   return f'{val:.{prec}f}' 
 
+def bgcolor_positive_or_negative(value):
+    bgcolor = "coral" if value < 0 else "green"
+    #st.write(bgcolor)
+    #return f"color: {bgcolor};"
+    return bgcolor
+  
 def format_number(num):
     if num > 1000000:
         if not num % 1000000:
