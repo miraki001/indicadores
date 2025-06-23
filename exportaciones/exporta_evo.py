@@ -394,12 +394,12 @@ def exporta_evolucion():
         dv1 = dv1.astype({'Fob' : int, 'Litros': int} )
 
         dv1 = dv1.sort_index(axis = 1)
-        dv1 = dv1.rename(columns={'ppl': "Prec xLitro"})
+        dv1 = dv1.rename(columns={'ppl': "Prec x Litro"})
 
         styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %','Fob Var. %','Prec x Litro Var. %']).format(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
             "Fob": lambda x : '{:,.0f}'.format(x),
-            "ppl": lambda x : '{:,.2f}'.format(x),
+            "Prec x Litro": lambda x : '{:,.2f}'.format(x),
             "Litros Var %": lambda x : '{:,.2f} %'.format(x),
             "Fob Var. %": lambda x : '{:,.2f} %'.format(x),
             "Prec x Litro Var. %": lambda x : '{:,.2f} %'.format(x),
@@ -419,7 +419,7 @@ def exporta_evolucion():
                 'Fob': st.column_config.Column('Fob'),
                 'Litros Var %': st.column_config.Column('Litros Var %'),
                 'Fob Var. %': st.column_config.Column('Fob Var. %'),
-                'Prec x Litro': st.column_config.Column('ppl'),
+                'Prec x Litro': st.column_config.Column('Prec x Litro'),
                 'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
         
                 },
