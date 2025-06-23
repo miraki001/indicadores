@@ -218,7 +218,7 @@ with tab1:
             },
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_only"
+            key="core_name_onlyd"
       )     
       #st.metric(label='Despachos ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
       #st.metric(label='Despachos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
@@ -273,7 +273,7 @@ with tab1:
             },
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_only"
+            key="core_name_onlyeh"
       )              
       #st.metric(label='Exportaciones de Vinos ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
       #st.metric(label='Exportaciones de Vinos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
@@ -327,7 +327,7 @@ with tab1:
             },
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_only"
+            key="core_name_onlyep"
       )     
       #st.metric(label='Exportaciones de Vinos ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
       #st.metric(label='Exportaciones de Vinos ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
