@@ -131,7 +131,7 @@ def indica1(dv1):
             product_name=delta2 + "%",
             description='Despachos 2025', 
             price=valora,       
-            product_image='https://enolife.com.ar/es/wp-content/uploads/2025/06/Imagen1-10-1024x440.jpg', 
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
             picture_position="left",
             image_aspect_ratio="4/3",
             image_object_fit="contain",          
