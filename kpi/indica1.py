@@ -133,7 +133,8 @@ def indica1(dv1):
             price=valora,       
             product_image='https://enolife.com.ar/es/wp-content/uploads/2025/06/Imagen1-10-1024x440.jpg', 
             picture_position="left",
-            image_aspect_ratio="3/2",
+            image_aspect_ratio="4/3",
+            image_object_fit="contain",          
             font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Mono:wght@400&display=swap",
             styles={
                 "card": {"background-color": "#e5a294",}, 
