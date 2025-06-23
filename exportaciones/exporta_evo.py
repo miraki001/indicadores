@@ -394,6 +394,7 @@ def exporta_evolucion():
         dv1 = dv1.astype({'Fob' : int, 'Litros': int} )
 
         dv1 = dv1.sort_index(axis = 1)
+        dv1 = dv1.rename(columns={'ppl': "Prec xLitro"})
 
         styled_df = dv1.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %','Fob Var. %','Prec x Litro Var. %']).format(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
@@ -410,6 +411,7 @@ def exporta_evolucion():
 
 
         if st.checkbox('Ver datos en forma de tabla'):
+            column_orders =("Año", "Litros", "Litros Var %","Fob","Fob Var. %","Prec x Litro","Prec x Litro Var. %" )            
             st.dataframe(styled_df,
               column_config={
                 'Año': st.column_config.Column('Año'),
@@ -421,7 +423,8 @@ def exporta_evolucion():
                 'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
         
                 },
-                width = 800,   
+                column_order = column_orders, 
+                width = 1000,   
                 height = 800,
                 hide_index=True)
 
