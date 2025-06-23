@@ -155,46 +155,6 @@ mesfin = max(dva[dva['mes'] == mes]['nombre_mes'])
 
 #dv2 = pd.read_parquet("data/processed/exportaciones.parquet", engine="pyarrow")
 
-def gauge(value):
-  option = {
-    "tooltip": {
-      "formatter": '{a} <br/>{b} : {c}%'
-      },
-    "series": [
-      {
-        "name": 'Current',
-        "type": 'gauge',
-        "progress": {
-          "show": False
-          },
-        "axisLine": {
-          "lineStyle": {
-            "width": 6,
-            "color": [
-              [0.2, 'rgb(235, 34, 14)'],
-              [0.4, 'rgb(242, 99, 9)'],
-              [0.6, 'rgb(250, 197, 21)'],
-              [0.8, 'rgb(117, 198, 5)'],
-              [1, 'rgb(56, 182, 14)']
-              ]
-            }
-          },
-        "detail": {
-          "valueAnimation": True,
-          "formatter": f'{value}%',
-          "color": 'auto'
-          },
-        "data": [
-          {
-            "value": value,
-            "name": 'Hl'
-            },
-          ]
-        }
-      ]
-    }
-  st_echarts(option, height="400px", key="echarts-1")
-
 df_filtered = dv1.copy() 
 #actual = dt.now().year -4 
 tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie","Indica 1","Indica 2","Indica 3"])
@@ -231,10 +191,30 @@ with tab1:
       #  deltaa = (1- deltaa) * -1
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
+      delta2 = str(_format_as_percentage(deltaa,2))
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Despachos ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Despachos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
+
+      product_card(
+            product_name=delta2 + "%",
+            description='Despachos 2025', 
+            price=valora,       
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
+            picture_position="left",
+            image_aspect_ratio="16/9",
+            image_object_fit="contain",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            styles={
+
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaoa)},
+
+            },
+            button_text=None,   
+            on_button_click=lambda: handle_card_click("Clickable Card Area"),
+            key="core_name_only"
+      )     
+      #st.metric(label='Despachos ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
+      #st.metric(label='Despachos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
       #gauge(1500)
    with col[1]:
       #st.write(dv2)
@@ -266,10 +246,30 @@ with tab1:
       #  deltaoa = (1- deltaoa) * -1     
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
+      delta2 = str(_format_as_percentage(deltaa,2))
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones de Vinos ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Exportaciones de Vinos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
+
+      product_card(
+            product_name=delta2 + "%",
+            description='Exportaciones 2025', 
+            price=valora + 'Hl.' ,       
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
+            picture_position="left",
+            image_aspect_ratio="16/9",
+            image_object_fit="contain",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            styles={
+
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaoa)},
+
+            },
+            button_text=None,   
+            on_button_click=lambda: handle_card_click("Clickable Card Area"),
+            key="core_name_only"
+      )              
+      #st.metric(label='Exportaciones de Vinos ' + str(anterior), value=valoro + '  Hl.', delta=_format_as_percentage(deltaoa,2) +'%' )
+      #st.metric(label='Exportaciones de Vinos ' + str(actual), value=valora + '  Hl.', delta=_format_as_percentage(deltaa,2) +'%')
 
    with col[2]:
       dv2 = registro_mensual(anterior -2)
@@ -301,10 +301,29 @@ with tab1:
       #  deltaoa = (1- deltaoa) * -1           
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
+      delta2 = str(_format_as_percentage(deltaa,2))
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
-      st.metric(label='Exportaciones de Vinos ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Exportaciones de Vinos ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
+      product_card(
+            product_name=delta2 + "%",
+            description='Exportaciones 2025', 
+            price=valora + 'Hl.' ,       
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
+            picture_position="left",
+            image_aspect_ratio="16/9",
+            image_object_fit="contain",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            styles={
+
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaoa)},
+
+            },
+            button_text=None,   
+            on_button_click=lambda: handle_card_click("Clickable Card Area"),
+            key="core_name_only"
+      )     
+      #st.metric(label='Exportaciones de Vinos ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
+      #st.metric(label='Exportaciones de Vinos ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
 
    colm = st.columns((4.5, 4.5), gap='medium')
