@@ -8,15 +8,17 @@ from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Bar
 from pyecharts import options as opts
 import altair as alt
+from PIL import Image
 
 
 
 #colorPalette = ['#00b04f', '#ffbf00', 'ff0000']
 colorPalette = ['#332D75', '#604994', '#06C2CC']
 
+im = Image.open("observatorio.ico")
 st.set_page_config(
     page_title="Indicadores Observatorio",
-    page_icon="📈",
+    page_icon=im,
     layout="wide",
     initial_sidebar_state="expanded")
 
