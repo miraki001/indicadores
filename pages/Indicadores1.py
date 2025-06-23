@@ -204,7 +204,7 @@ with tab1:
 
       product_card(
             product_name=delta2 + "%",
-            description='Despachos ' + mesfin + ' ' + actual  , 
+            description='Despachos ' + mesfin + ' ' + str(actual)  , 
             price=valora,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
             picture_position="left",
