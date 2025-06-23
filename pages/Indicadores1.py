@@ -470,7 +470,7 @@ with tab1:
      deltaa = (deltaa - 1)*100     
      product_card(
             product_name=delta2 + "%",
-            description='Superficie 2025', 
+            description='Superficie' str(maxanio), 
             price=valora + 'Ha.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_superficie.svg', 
             picture_position="left",
@@ -507,7 +507,7 @@ with tab1:
      deltaa = (deltaa - 1)*100 
      product_card(
             product_name=delta2 + "%",
-            description='Cosecha 2025', 
+            description='Cosecha' + str(maxanio), 
             price=valora + 'Q.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_barril.svg', 
             picture_position="left",
