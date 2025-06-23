@@ -260,7 +260,7 @@ with tab1:
 
       product_card(
             product_name=delta2 + "%",
-            description='Exportaciones 2025', 
+            description='Exportaciones '  + mesfin + ' ' + str(actual), 
             price=valora + 'Hl.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
@@ -270,6 +270,7 @@ with tab1:
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
 
             },
             button_text=None,   
@@ -314,7 +315,7 @@ with tab1:
       #st.write('Periodo : 01 Enero/' + mes2)
       product_card(
             product_name=delta2 + "%",
-            description='Exportaciones 2025', 
+            description='Exportaciones '  + mesfin + ' ' + str(actual), 
             price=valora + 'Hl.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
@@ -324,6 +325,7 @@ with tab1:
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
 
             },
             button_text=None,   
@@ -375,7 +377,7 @@ with tab1:
       #st.write('Periodo : 01 Enero/' + mes2)
       product_card(
             product_name=delta2 + "%",
-            description='Exportaciones  Mosto 2025', 
+            description='Exportaciones Mosto '  + mesfin + ' ' + str(actual), 
             price=valora + 'Tn.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
@@ -385,6 +387,7 @@ with tab1:
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
 
             },
             button_text=None,   
@@ -432,7 +435,7 @@ with tab1:
       #st.write('Periodo : 01 Enero/' + mes2)
       product_card(
             product_name=delta2 + "%",
-            description='Exportaciones  Mosto 2025', 
+            description='Exportaciones Mosto '  + mesfin + ' ' + str(actual), 
             price=valora + 'u$s.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
@@ -442,6 +445,7 @@ with tab1:
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
 
             },
             button_text=None,   
@@ -481,6 +485,7 @@ with tab1:
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
 
             },
             button_text=None,   
@@ -518,6 +523,7 @@ with tab1:
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
 
             },
             button_text=None,   
