@@ -167,7 +167,7 @@ df_filtered = dv1.copy()
 tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie","Indica 1","Indica 2","Indica 3"])
 
 with tab1:
-   st.write('Datos acumulados de Enero a  ' + mesfin + ' de cada año' )
+   #st.write('Datos acumulados de Enero a  ' + mesfin + ' de cada año' )
 
    col = st.columns((4.5, 4.5, 4.5), gap='medium')
 
@@ -204,7 +204,7 @@ with tab1:
 
       product_card(
             product_name=delta2 + "%",
-            description='Despachos 2025', 
+            description='Despachos ' + mesfin + ' ' + actual  , 
             price=valora,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
             picture_position="left",
