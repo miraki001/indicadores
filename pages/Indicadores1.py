@@ -213,7 +213,7 @@ with tab1:
             font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
             styles={
 
-                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaoa)},
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
 
             },
             button_text=None,   
@@ -268,7 +268,7 @@ with tab1:
             font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
             styles={
 
-                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaoa)},
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
 
             },
             button_text=None,   
@@ -322,7 +322,7 @@ with tab1:
             font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
             styles={
 
-                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaoa)},
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
 
             },
             button_text=None,   
