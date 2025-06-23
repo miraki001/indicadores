@@ -509,7 +509,7 @@ with tab1:
             product_name=delta2 + "%",
             description='Cosecha 2025', 
             price=valora + 'Q.' ,       
-            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_precio.svg', 
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_barril.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
             image_object_fit="contain",
