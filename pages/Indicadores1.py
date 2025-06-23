@@ -214,7 +214,7 @@ with tab1:
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
-                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.2em", "color": "#5d4037"},
+                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "0.8em", "color": "#5d4037"},
 
             },
             button_text=None,   
