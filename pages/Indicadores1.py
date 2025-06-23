@@ -24,6 +24,7 @@ from kpi import ind_superficie
 from kpi import indica1
 from kpi import indica2
 from streamlit_extras.metric_cards import style_metric_cards 
+from streamlit_product_card import product_card 
 
 
 
