@@ -417,11 +417,11 @@ def exporta_evolucion():
                 'Fob': st.column_config.Column('Fob'),
                 'Litros Var %': st.column_config.Column('Litros Var %'),
                 'Fob Var. %': st.column_config.Column('Fob Var. %'),
-                'ppl': st.column_config.Column('ppl'),
+                'Prec x Litro': st.column_config.Column('ppl'),
                 'Prec x Litro Var. %': st.column_config.Column('Prec x Litro Var. %'),
         
                 },
-                width = 600,   
+                width = 800,   
                 height = 800,
                 hide_index=True)
 
