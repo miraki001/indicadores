@@ -388,7 +388,7 @@ with tab1:
             },
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_onlyep"
+            key="core_name_onlyeml"
       )     
       #st.metric(label='Exportaciones de Mostos ' + str(anterior), value=valoro + ' Tn. ', delta=_format_as_percentage(deltaoa,2) +'%' )
       #st.metric(label='Exportaciones de Mostos ' + str(actual), value=valora + ' Tn. ', delta=_format_as_percentage(deltaa,2) +'%')
@@ -445,7 +445,7 @@ with tab1:
             },
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_onlyep"
+            key="core_name_onlyemp"
       )     
       st.metric(label='Exportaciones de Mostos ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
       st.metric(label='Exportaciones de Mostos ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
