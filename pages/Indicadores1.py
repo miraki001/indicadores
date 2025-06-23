@@ -461,16 +461,34 @@ with tab1:
      dvoa = dfsup[dfsup['anio'] == maxanio-2 ]
      valoa = dvoa['sup'].sum()
      valoro = str(_format_with_thousands_commas(valo)) 
-     valora = str(_format_with_thousands_commas(vala)) 
+     valora = str(_format_with_thousands_commas(vala))
+     delta2 = str(_format_as_percentage(deltaa,2))
      deltaoa = valo/valoa
      #st.write(deltaoa)
      deltaoa = (deltaoa -1)*100     
      deltaa = vala/valo
      deltaa = (deltaa - 1)*100     
+     product_card(
+            product_name=delta2 + "%",
+            description='Superficie 2025', 
+            price=valora + 'Ha.' ,       
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_superficie.svg', 
+            picture_position="left",
+            image_aspect_ratio="16/9",
+            image_object_fit="contain",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            styles={
+
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+
+            },
+            button_text=None,   
+            on_button_click=lambda: handle_card_click("Clickable Card Area"),
+            key="core_name_onlysup"
+     )       
      
-     
-     st.metric(label='Superficie ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(deltaoa,2) +'%' )
-     st.metric(label='Superficie ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(deltaa,2) +'%')
+     #st.metric(label='Superficie ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(deltaoa,2) +'%' )
+     #st.metric(label='Superficie ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(deltaa,2) +'%')
    with colo[1]:
 
      dva = dfcos[dfcos['anio'] == maxanio ]
@@ -481,14 +499,33 @@ with tab1:
      valoa = dvoa['peso'].sum()
      valoro = str(_format_with_thousands_commas(valo)) 
      valora = str(_format_with_thousands_commas(vala)) 
+     delta2 = str(_format_as_percentage(deltaa,2))
      deltaoa = valo/valoa
      #st.write(deltaoa)
      deltaoa = (deltaoa -1)*100     
      deltaa = vala/valo
      deltaa = (deltaa - 1)*100 
+     product_card(
+            product_name=delta2 + "%",
+            description='Cosecha 2025', 
+            price=valora + 'Q.' ,       
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_superficie.svg', 
+            picture_position="left",
+            image_aspect_ratio="16/9",
+            image_object_fit="contain",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            styles={
+
+                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+
+            },
+            button_text=None,   
+            on_button_click=lambda: handle_card_click("Clickable Card Area"),
+            key="core_name_onlysup"
+     )      
      
-     st.metric(label='Cosecha ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(deltaoa,2) +'%' )
-     st.metric(label='Cosecha ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(deltaa,2) +'%')
+     #st.metric(label='Cosecha ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(deltaoa,2) +'%' )
+     #st.metric(label='Cosecha ' + str(maxanio), value= valora + ' ', delta=_format_as_percentage(deltaa,2) +'%')
             
 with tab2:
   ind_exportaciones.ind_exportaciones(dvex)
