@@ -447,8 +447,8 @@ with tab1:
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
             key="core_name_onlyemp"
       )     
-      st.metric(label='Exportaciones de Mostos ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
-      st.metric(label='Exportaciones de Mostos ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
+      #st.metric(label='Exportaciones de Mostos ' + str(anterior), value=valoro + '  u$s.', delta=_format_as_percentage(deltaoa,2) +'%' )
+      #st.metric(label='Exportaciones de Mostos ' + str(actual), value=valora + '  u$s.', delta=_format_as_percentage(deltaa,2) +'%')
 
    colo = st.columns((4.5, 4.5), gap='medium')
 
@@ -509,7 +509,7 @@ with tab1:
             product_name=delta2 + "%",
             description='Cosecha 2025', 
             price=valora + 'Q.' ,       
-            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_superficie.svg', 
+            product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_precio.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
             image_object_fit="contain",
