@@ -521,7 +521,7 @@ with tab1:
             },
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
-            key="core_name_onlysup"
+            key="core_name_onlycos"
      )      
      
      #st.metric(label='Cosecha ' + str(maxanio -1), value= valoro + '', delta=_format_as_percentage(deltaoa,2) +'%' )
