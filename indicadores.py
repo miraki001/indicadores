@@ -15,7 +15,7 @@ from PIL import Image
 #colorPalette = ['#00b04f', '#ffbf00', 'ff0000']
 colorPalette = ['#332D75', '#604994', '#06C2CC']
 
-im = Image.open("observatorio.ico")
+im = Image.open("Observatorio.ico")
 st.set_page_config(
     page_title="Indicadores Observatorio",
     page_icon=im,
