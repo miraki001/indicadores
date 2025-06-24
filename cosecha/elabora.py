@@ -41,7 +41,7 @@ def elabora_evo():
     depto_list = df_departamentos["depto"].to_numpy()
     depto_list = np.append( "Todos",depto_list)
     
-    df_colores = pd.read_parquet("data/processed/cosecha_colores.parquet", engine="pyarrow")
+    df_colores = pd.read_parquet("data/processed/despachos_color.parquet", engine="pyarrow")
     color_list = df_colores["color"].to_numpy()
     color_list = np.append("Todos",color_list )
     
