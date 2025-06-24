@@ -100,6 +100,11 @@ def bgcolor_positive_or_negative(value):
     #return f"color: {bgcolor};"
     return bgcolor
   
+def handle_card_click(card_name):
+    st.session_state.click_message = f"'{card_name}' was clicked!"
+    st.toast(f"Clicked: {card_name}")
+    st.Page(pg.show_exportaciones, title="Exportaciones")  
+  
 def format_number(num):
     if num > 1000000:
         if not num % 1000000:
