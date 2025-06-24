@@ -26,6 +26,8 @@ from kpi import indica2
 from streamlit_extras.metric_cards import style_metric_cards 
 from streamlit_product_card import product_card 
 
+st.set_page_config(initial_sidebar_state="collapsed",
+                  layout="wide",menu_items=None)
 
 
 hide_streamlit_style = """
