@@ -81,31 +81,31 @@ def elabora_evo():
         with col1:
             with st.popover("Provincia"):
                 st.caption("Selecciona uno o más provincia de la lista")
-                provincia = st.multiselect("Provincia",  ["Todas"] +   prov_list, default=["Todas"],label_visibility="collapsed",help="Selecciona uno o más años")           
+                provincia = st.multiselect("Provincia",   prov_list, default=["Todas"],label_visibility="collapsed",help="Selecciona uno o más años")           
         # Columna 2: Filtro para Países
         with col2:
             with st.popover("Variedad"):
                 st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedad",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
+                variedad = st.multiselect("Variedad", var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
             with st.popover("Departamento"):
                 st.caption("Selecciona uno o más Departamentos de la lista")
-                depto = st.multiselect("Departamento",  ["Todos"] + depto_list, default=["Todos"],label_visibility="collapsed")
+                depto = st.multiselect("Departamento",  depto_list, default=["Todos"],label_visibility="collapsed")
         with col4:
             with st.popover("Destino"):
                 st.caption("Selecciona uno o más Destinos de la lista")
-                destino = st.multiselect("Destino",  ["Todos"] + destino_list, default=["Todos"],label_visibility="collapsed")                
+                destino = st.multiselect("Destino",  destino_list, default=["Todos"],label_visibility="collapsed")                
 
         with col5:
             with st.popover("Color"):
                 st.caption("Selecciona uno o más Colores de la lista")
-                color = st.multiselect("Color",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
+                color = st.multiselect("Color",  color_list, default=["Todos"],label_visibility="collapsed")                
         with col6:
             with st.popover("Tipo de Uva"):
                 st.caption("Selecciona uno o más Tipos de la lista")
-                tipo = st.multiselect("Gurpo Envase",  ["Todos"] + tipo_list, default=["Todos"],label_visibility="collapsed")      
+                tipo = st.multiselect("Gurpo Envase",  tipo_list, default=["Todos"],label_visibility="collapsed")      
     
     
     #st.write(df_filtered)
