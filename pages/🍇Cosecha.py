@@ -17,6 +17,7 @@ from superficie import sup_prov_color
 from superficie import sup_prov_map
 from superficie import sup_variedad
 from cosecha import cosecha_var
+from cosecha import elabora
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -86,7 +87,7 @@ QUERY_V0 = f"""
 
 
 
-tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Superficie Evolución","Superficie por Provincia","Superficie por Variedad", "Cosecha Evolución","Cosecha por Provincias","Cosecha por Variedad",  "Rendimientos"])
+tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab8 = st.tabs(["Superficie Evolución","Superficie por Provincia","Superficie por Variedad", "Cosecha Evolución","Cosecha por Provincias","Cosecha por Variedad",  "Rendimientos","Elaboracion"])
 
 with tab1:
 
@@ -348,3 +349,5 @@ with tab6:
     cosecha_var.cosecha_var()
 with tab7:
     cosecha_rend.cosecha_rend()
+with tab8:
+    elabora.elabora_evo()
