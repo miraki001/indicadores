@@ -12,6 +12,7 @@ from despachos import desp_consumo
 def handle_card_click(card_name):
     st.session_state.click_message = f"'{card_name}' was clicked!"
     st.toast(f"Clicked: {card_name}")
+    st.Page(pg.show_exportaciones, title="Exportaciones")
     #desp_consumo.despachos_consumo() 
 
 def bgcolor_positive_or_negative(value):
