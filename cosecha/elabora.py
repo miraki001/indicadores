@@ -140,7 +140,7 @@ def elabora_evo():
     
 
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
-    st.write(df_anual)
+    #st.write(df_anual)
     total = []
     total.append(0)
     for index in range(len(df_anual)):
