@@ -155,22 +155,19 @@ def elabora_evo():
     df_sorted = df_anual.sort_values(by='Año', ascending=True)
 
     styled_df = df_sorted.style.applymap(bgcolor_positive_or_negative, subset=['Var % Año Ant.']).format(
-            {"Quintales": lambda x : '{:,.0f}'.format(x), 
+            {"Hl": lambda x : '{:,.0f}'.format(x), 
             "Var % Año Ant.": lambda x : '{:,.2f} %'.format(x),                                        }
             ,
             thousands='.',
             decimal=',',
     )
 
-    if st.checkbox('Ver tabla Cosecha por Año'):
+    if st.checkbox('Ver tabla Elaboración por Año'):
         st.dataframe(styled_df,
               column_config={
-                'Pais': st.column_config.Column('Pais'),
-                'Litros': st.column_config.Column('Litros'),
-                'Fob': st.column_config.Column('Fob'),
-                'Part. % Litro': st.column_config.Column('Part. % Litro'),
-                'Part % Fob': st.column_config.Column('Part % Fob'),
-                'Prec x Litro': st.column_config.Column('Prec x Litr'),
+                'Año': st.column_config.Column('Año'),
+                'Hl': st.column_config.Column('Hl'),
+                'Var % Año Ant.': st.column_config.Column('Var % Año Ant.'),
         
                 },
                 width = 400,   
@@ -190,7 +187,7 @@ def elabora_evo():
             "legend": {},
             "xAxis": {"type": "category", "data": df_anual["Año"].tolist()},
             "yAxis": [
-                {"type": "value" ,"name" : "Quintales" ,
+                {"type": "value" ,"name" : "Hl" ,
                  "axisLine": {
                     "show": 'false',
                   },              
@@ -200,7 +197,7 @@ def elabora_evo():
                 } ,           
             ],
             "series": [
-                {"data": df_anual["Quintales"].tolist(),"position" : 'rigth', "type": "line", "name": "Quintales" },
+                {"data": df_anual["Hl"].tolist(),"position" : 'rigth', "type": "line", "name": "Hl" },
             ],
         }
 
