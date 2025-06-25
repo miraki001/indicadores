@@ -203,7 +203,7 @@ def elabora_evo():
     df = df.reset_index().rename_axis(None, axis=1)
     
     fig = px.sunburst(df, path=['prov', 'producto'], values='litros',
-                      color='variedad', hover_data=['prov'],
+                      color='producto', hover_data=['prov'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(df['index'], weights=df['litros']))
     st.plotly_chart(fig, theme="streamlit")	
