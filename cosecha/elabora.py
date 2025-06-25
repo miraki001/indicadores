@@ -45,9 +45,6 @@ def elabora_evo():
     color_list = df_colores["color"].to_numpy()
     color_list = np.append("Todos",color_list )
     
-    df_destinos = pd.read_parquet("data/processed/cosecha_destinos.parquet", engine="pyarrow")
-    destino_list = df_destinos["destino"].to_numpy()
-    destino_list = np.append("Todos",destino_list )
     
     df_tipouvas = pd.read_parquet("data/processed/cosecha_tipouvas.parquet", engine="pyarrow")
     tipo_list = df_tipouvas["tipouva"].to_numpy()
@@ -76,7 +73,7 @@ def elabora_evo():
 
 
     with st.container(border=True):
-        col1, col2, col3,col4,col5,col6 = st.columns([1, 1, 1,1,1,1])  # Ajusta los tamaños de las columnas
+        col1, col2, col3,col4,col5 = st.columns([1, 1, 1,1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
         with col1:
@@ -94,16 +91,12 @@ def elabora_evo():
             with st.popover("Departamento"):
                 st.caption("Selecciona uno o más Departamentos de la lista")
                 depto = st.multiselect("Departamentoe",  depto_list, default=["Todos"],label_visibility="collapsed")
-        with col4:
-            with st.popover("Destino"):
-                st.caption("Selecciona uno o más Destinos de la lista")
-                destino = st.multiselect("Destinoe",  destino_list, default=["Todos"],label_visibility="collapsed")                
 
-        with col5:
+        with col4:
             with st.popover("Color"):
                 st.caption("Selecciona uno o más Colores de la lista")
                 color = st.multiselect("Colore",  color_list, default=["Todos"],label_visibility="collapsed")                
-        with col6:
+        with col5:
             with st.popover("Tipo de Uva"):
                 st.caption("Selecciona uno o más Tipos de la lista")
                 tipo = st.multiselect("Gurpo Envasee",  tipo_list, default=["Todos"],label_visibility="collapsed")      
@@ -130,10 +123,6 @@ def elabora_evo():
             df_filtered = df_filtered[df_filtered['color'].isin(color)]          
         Filtro = Filtro + ' Color = ' +  str(color) + ' '
             
-    if destino:
-        if destino[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['destino'].isin(destino)]               
-        Filtro = Filtro + ' Destino = ' +  str(destino) + ' '
     if tipo:
         if tipo[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['tipouva'].isin(tipo)]      
