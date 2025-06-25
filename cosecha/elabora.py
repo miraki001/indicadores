@@ -212,3 +212,15 @@ def elabora_evo():
     fig.update_traces(root_color="lightgrey")
     fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
     st.plotly_chart(fig, theme="streamlit")    
+
+
+    df = dv2.groupby(['prov','color'], as_index=False)[['litros']].sum()  
+    st.write(df)
+    df = df.reset_index().rename_axis(None, axis=1)
+    
+    fig = px.sunburst(df, path=['prov', 'color'], values='litros',
+                      color='color', hover_data=['prov'],
+                      color_continuous_scale='RdBu',
+                      color_continuous_midpoint=np.average(df['index'], weights=df['litros']))
+    st.plotly_chart(fig, theme="streamlit")	
+
