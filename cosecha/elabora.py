@@ -110,7 +110,7 @@ def elabora_evo():
 
     if año:
         #st.write(año)
-        if añ[0] != 'Todos':
+        if año[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['anio'].isin(año)]
             df_filtered["anio"] = df_filtered["anio"].astype(str)  
         Filtro = Filtro +  ' ' +str(año) + ' '
