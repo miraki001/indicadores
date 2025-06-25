@@ -104,7 +104,8 @@ def bgcolor_positive_or_negative(value):
 def handle_card_click(card_name):
     st.session_state.click_message = f"'{card_name}' was clicked!"
     st.toast(f"Clicked: {card_name}")
-    st.Page(pg.show_exportaciones, title="Exportaciones")  
+    #st.Page(pg.show_exportaciones, title="Exportaciones") 
+    st.switch_page("./pages/Mercado_Interno.py")
   
 def format_number(num):
     if num > 1000000:
