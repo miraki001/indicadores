@@ -341,7 +341,7 @@ with tab1:
             font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
             styles={
 
-                "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                "title": {"background-color": "#17a2b8","font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
                 "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
                 "price": {"color": "white", "background-color": "#17a2b8", "padding": "5px 10px", "border-radius": "5px", "text-align": "center", "font-weight": "bold"},
                 "product_name": {"color": "white", "background-color": "#17a2b8", "padding": "5px 10px", "border-radius": "5px", "text-align": "center", "font-weight": "bold"},
