@@ -68,7 +68,7 @@ def elabora_evo():
     dv1['anio'] = dv1['anio'].astype(str)
 
     df_filtered = dv1.copy()
-    st.write(df_filtered)
+    #st.write(df_filtered)
     
 
 
@@ -130,6 +130,7 @@ def elabora_evo():
     
     df_filtered = df_filtered[df_filtered['producto'] != 'Alcohol' ]
     df_filtered = df_filtered[df_filtered['producto'] != 'Mosto' ]
+    dv2 = df_filtered
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
     #st.write(df_anual)
     total = []
@@ -194,3 +195,15 @@ def elabora_evo():
 
     
     st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+    df = dv2.groupby(['provincia','variedad'], as_index=False)[['litros']].sum()    
+    df = df.reset_index().rename_axis(None, axis=1)
+    
+    fig = px.sunburst(df, path=['provincia', 'variedad'], values='litros',
+                      color='variedad', hover_data=['provincia'],
+                      color_continuous_scale='RdBu',
+                      color_continuous_midpoint=np.average(df['index'], weights=df['litros']))
+    st.plotly_chart(fig, theme="streamlit")	
+    fig = px.treemap(df, path=[px.Constant("Todas"), 'provincia', 'variedad'], values='litros')
+    fig.update_traces(root_color="lightgrey")
+    fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+    st.plotly_chart(fig, theme="streamlit")    
