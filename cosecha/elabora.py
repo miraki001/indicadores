@@ -79,12 +79,12 @@ def elabora_evo():
     # Columna 1: Filtro para Año
 
         with col1:
-            with st.popover("AÃ±o"):
+            with st.popover("Año"):
                 st.caption("Selecciona uno o mÃ¡s aÃ±os de la lista")
                 #aÃ±o = st.multiselect("AÃ±oe",  year_list, default= ['Todos'],label_visibility="collapsed",help="Selecciona uno o mÃ¡s aÃ±os")
-                aÃ±o = st.multiselect("AÃ±o111e",  year_list, default= year_filter,label_visibility="collapsed",help="Selecciona uno o mÃ¡s aÃ±os")
+                año = st.multiselect("Año111e",  year_list, default= year_filter,label_visibility="collapsed",help="Selecciona uno o mÃ¡s años")
                 #anio = st.multiselect("AÃ±o:", ["Todos"] + year_list, default=["Todos"])
-                aÃ±o = [str(a) for a in aÃ±o]  # Asegura que la selección sea string también
+                año = [str(a) for a in año]  # Asegura que la selección sea string también
         
         with col2:
             with st.popover("Provincia"):
