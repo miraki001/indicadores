@@ -28,10 +28,15 @@ def elabora_evo():
         bgcolor = "#EC654A" if value < 0 else "lightgreen"
         return f"background-color: {bgcolor};"
             
+    df_anios = pd.read_parquet("data/processed/cosecha_anios.parquet", engine="pyarrow")
+    year_list = df_anios["anio"].to_numpy()
+    #year_list = np.append(year_list, "Todos")   
+    actual = dt.now().year -10 
+    dv22 = df_anios[df_anios['anio'] > actual ]
+    year_filter = dv22["anio"].to_numpy()
+    #st.write(year_filter)
 
-    df_variedades = pd.read_parquet("data/processed/cosecha_variedades.parquet", engine="pyarrow")
-    var_list = df_variedades["variedad"].to_numpy()
-    var_list = np.append("Todas", var_list )
+
 
     df_provincias = pd.read_parquet("data/processed/cosecha_provincias.parquet", engine="pyarrow")
     prov_list = df_provincias["prov"].to_numpy()
@@ -46,10 +51,6 @@ def elabora_evo():
     color_list = np.append("Todos",color_list )
     
     
-    df_tipouvas = pd.read_parquet("data/processed/cosecha_tipouvas.parquet", engine="pyarrow")
-    tipo_list = df_tipouvas["tipouva"].to_numpy()
-    tipo_list = np.append("Todos",tipo_list )    
-
 
 
   
@@ -76,17 +77,21 @@ def elabora_evo():
         col1, col2, col3,col4,col5 = st.columns([1, 1, 1,1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
+
         with col1:
+            with st.popover("AÃ±o"):
+                st.caption("Selecciona uno o mÃ¡s aÃ±os de la lista")
+                #aÃ±o = st.multiselect("AÃ±oe",  year_list, default= ['Todos'],label_visibility="collapsed",help="Selecciona uno o mÃ¡s aÃ±os")
+                aÃ±o = st.multiselect("AÃ±o111e",  year_list, default= year_filter,label_visibility="collapsed",help="Selecciona uno o mÃ¡s aÃ±os")
+                #anio = st.multiselect("AÃ±o:", ["Todos"] + year_list, default=["Todos"])
+                aÃ±o = [str(a) for a in aÃ±o]  # Asegura que la selección sea string también
+        
+        with col2:
             with st.popover("Provincia"):
                 st.caption("Selecciona uno o más provincia de la lista")
                 provincia = st.multiselect("Provinciae",   prov_list, default=["Todas"],label_visibility="collapsed",help="Selecciona uno o más años")           
         # Columna 2: Filtro para Países
-        with col2:
-            with st.popover("Variedad"):
-                st.caption("Selecciona uno o más Variedades de la lista")
-                variedad = st.multiselect("Variedade", var_list, default=["Todas"],label_visibility="collapsed")
-    
-        # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
+
         with col3:
             with st.popover("Departamento"):
                 st.caption("Selecciona uno o más Departamentos de la lista")
@@ -195,15 +200,15 @@ def elabora_evo():
 
     
     st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
-    df = dv2.groupby(['provincia','variedad'], as_index=False)[['litros']].sum()    
+    df = dv2.groupby(['prov','producto'], as_index=False)[['litros']].sum()    
     df = df.reset_index().rename_axis(None, axis=1)
     
-    fig = px.sunburst(df, path=['provincia', 'variedad'], values='litros',
-                      color='variedad', hover_data=['provincia'],
+    fig = px.sunburst(df, path=['prov', 'producto'], values='litros',
+                      color='variedad', hover_data=['prov'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(df['index'], weights=df['litros']))
     st.plotly_chart(fig, theme="streamlit")	
-    fig = px.treemap(df, path=[px.Constant("Todas"), 'provincia', 'variedad'], values='litros')
+    fig = px.treemap(df, path=[px.Constant("Todas"), 'prov', 'producto'], values='litros')
     fig.update_traces(root_color="lightgrey")
     fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
     st.plotly_chart(fig, theme="streamlit")    
