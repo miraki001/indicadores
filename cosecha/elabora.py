@@ -74,7 +74,7 @@ def elabora_evo():
 
 
     with st.container(border=True):
-        col1, col2, col3,col4,col5 = st.columns([1, 1, 1,1,1])  # Ajusta los tamaños de las columnas
+        col1, col2, col3,col4 = st.columns([1, 1, 1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
 
@@ -101,10 +101,7 @@ def elabora_evo():
             with st.popover("Color"):
                 st.caption("Selecciona uno o más Colores de la lista")
                 color = st.multiselect("Colore",  color_list, default=["Todos"],label_visibility="collapsed")                
-        with col5:
-            with st.popover("Tipo de Uva"):
-                st.caption("Selecciona uno o más Tipos de la lista")
-                tipo = st.multiselect("Gurpo Envasee",  tipo_list, default=["Todos"],label_visibility="collapsed")      
+    
     
     
     #st.write(df_filtered)
