@@ -105,16 +105,21 @@ def elabora_evo():
     
     
     #st.write(df_filtered)
+    Filtro = 'Filtro = Año = '
+    Filtro = Filtro +  ' Todos '
+
+    if año:
+        #st.write(año)
+        if añ[0] != 'Todos':
+            df_filtered = df_filtered[df_filtered['anio'].isin(año)]
+            df_filtered["anio"] = df_filtered["anio"].astype(str)  
+        Filtro = Filtro +  ' ' +str(año) + ' '
+    
     Filtro = 'Filtro = Provincia = '    
     if provincia:
         if provincia[0] != 'Todas':        
             df_filtered = df_filtered[df_filtered['prov'].isin(provincia)]
         Filtro = Filtro +  ' ' + str(provincia) + ' '
-    if variedad:
-        if variedad[0] != 'Todas':
-            df_filtered = df_filtered[df_filtered['variedad'].isin(variedad)]
-            #st.write(variedad)
-        Filtro = Filtro + ' Variedades = ' +  str(variedad) + ' '
     if depto:
         if depto[0] != 'Todos':
             df_filtered = df_filtered[df_filtered['depto'].isin(depto)]
@@ -125,10 +130,6 @@ def elabora_evo():
             df_filtered = df_filtered[df_filtered['color'].isin(color)]          
         Filtro = Filtro + ' Color = ' +  str(color) + ' '
             
-    if tipo:
-        if tipo[0] != 'Todos':
-            df_filtered = df_filtered[df_filtered['tipouva'].isin(tipo)]      
-        Filtro = Filtro + ' Tipo = ' +  str(tipo) + ' '
     
     df_filtered = df_filtered[df_filtered['producto'] != 'Alcohol' ]
     df_filtered = df_filtered[df_filtered['producto'] != 'Mosto' ]
