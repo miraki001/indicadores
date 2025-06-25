@@ -343,7 +343,7 @@ with tab1:
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
                 "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
-
+                "price": {"color": "white", "background-color": "#17a2b8", "padding": "5px 10px", "border-radius": "5px", "text-align": "center", "font-weight": "bold"},
             },
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
