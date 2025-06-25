@@ -4,6 +4,7 @@ import numpy as np
 import json
 from streamlit_echarts import st_echarts
 from streamlit_echarts import JsCode
+import plotly.express as px
 
 from datetime import datetime as dt
 
