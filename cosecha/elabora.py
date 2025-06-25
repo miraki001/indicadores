@@ -68,7 +68,7 @@ def elabora_evo():
     dv1['anio'] = dv1['anio'].astype(str)
 
     df_filtered = dv1.copy()
-    #st.write(df_filtered)
+    st.write(df_filtered)
     
 
 
