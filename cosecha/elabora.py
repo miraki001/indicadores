@@ -133,7 +133,7 @@ def elabora_evo():
             
     
     df_filtered = df_filtered[df_filtered['producto'] != 'Alcohol' ]
-    df_filtered = df_filtered[df_filtered['producto'] != 'Mosto' ]
+    #df_filtered = df_filtered[df_filtered['producto'] != 'Mosto' ]
     dv2 = df_filtered
     df_anual = df_filtered.groupby(['anio'], as_index=False)[['litros']].sum()
     #st.write(df_anual)
