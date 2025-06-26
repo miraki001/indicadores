@@ -102,7 +102,7 @@ def bgcolor_positive_or_negative(value):
     return bgcolor
 
 def uppercase(str_data):
-   ord(str_data)
+   #ord(str_data)
    str_data = str_data -32
    chr('str_data')
    return str_data
