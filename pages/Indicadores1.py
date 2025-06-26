@@ -241,7 +241,7 @@ with tab1:
             price=f"    {delta2}  %",        
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
             picture_position="left",
-            image_aspect_ratio="16/9",
+            image_aspect_ratio="1/1",
             image_object_fit="contain",
             font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
             styles={
