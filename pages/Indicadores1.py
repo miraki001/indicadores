@@ -232,6 +232,7 @@ with tab1:
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
       pp = 'Despachos ' + mesfin + ' ' + str(actual) 
+      delta2 = locale.format_string("%.2f", deltaa, grouping=True)
       pp = pp.upper()
       pe = "   " + delta2 + " %"
 
