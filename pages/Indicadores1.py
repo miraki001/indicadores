@@ -250,7 +250,7 @@ with tab1:
                 },              
 
                 "image": { 
-                   "border": "5px dotted #28a745", "padding": "10px", "box-sizing": "border-box",
+                   #"border": "5px dotted #28a745", "padding": "10px", "box-sizing": "border-box",
                    "border-radius": "15px", "background-color": "#F0F2F6"
                  },              
                 "title": {"font-family": "'Roboto Condensed', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
