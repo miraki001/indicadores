@@ -562,7 +562,7 @@ with tab1:
 
                 "title": {"font-family": "'Roboto Regular 400', serif", "text-transform": "uppercase",   "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
                 "text": {"font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
-                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.5em", "color": bgcolor_positive_or_negative(delta2)},
+                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.5em", "color": bgcolor_positive_or_negative(deltaa)},
 
             },
             button_text=None,   
@@ -607,7 +607,7 @@ with tab1:
 
                 "title": {"font-family": "'Roboto Regular 400', serif", "text-transform": "uppercase",   "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
                 "text": {"font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
-                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.5em", "color": bgcolor_positive_or_negative(delta2)},
+                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.5em", "color": bgcolor_positive_or_negative(deltaa)},
 
             },
             button_text=None,   
