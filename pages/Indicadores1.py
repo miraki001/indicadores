@@ -243,7 +243,7 @@ with tab1:
             picture_position="left",
             image_aspect_ratio="1/1",
             image_object_fit="contain",
-            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
+            font_url="https://fonts.googleapis.com/css2?family=Roboto+Regular:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
             styles={
 
                 "card": {
@@ -254,7 +254,7 @@ with tab1:
                    "padding": "10px"
                 },              
               
-                "title": {"font-family": "'Roboto Condensed', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
+                "title": {"font-family": "'Roboto Regular', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
                 "text": {"background-color": "#F0F2F6", "font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
                 "price": { "letter-spacing": "1px", "background-color": "#E3E5E9","font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.6em", "color": bgcolor_positive_or_negative(deltaa)},
                 "button": {"background-color": "#F0F2F6", "color": "#F0F2F6", "border": "0.1px solid #e0a800", "border-radius": "0px", "text-transform": "uppercase", "font-weight": "900", "width": "100%"}
