@@ -238,6 +238,7 @@ with tab1:
             description=valora + ' hl', 
             #price=valora,       
             price=pe,       
+            price=f"  {delta2}  %"        
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
