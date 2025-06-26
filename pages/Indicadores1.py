@@ -96,7 +96,7 @@ def _format_as_percentage(val, prec=0):
   return f'{val:.{prec}f}' 
 
 def bgcolor_positive_or_negative(value):
-    bgcolor = "#EC2E35" if value < 0 else "#E3E5E9"
+    bgcolor = "#EC2E35" if value < 0 else "#6D6E70"
     #st.write(bgcolor)
     #return f"color: {bgcolor};"
     return bgcolor
