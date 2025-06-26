@@ -228,6 +228,7 @@ with tab1:
       #st.write('Periodo : 01 Enero/' + mes2)
       pp = 'Despachos ' + mesfin + ' ' + str(actual) 
       pp = pp.upper()
+      pe = "   " + delta2 + " %"
 
       product_card(
             #product_name=delta2 + " %",
@@ -236,7 +237,7 @@ with tab1:
             #description='Despachos ' + mesfin + ' ' + str(actual)  , 
             description=valora + ' hl', 
             #price=valora,       
-            price=" " + delta2 + " %",       
+            price=pe,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
