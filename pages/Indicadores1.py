@@ -309,17 +309,17 @@ with tab1:
             #description='Exportaciones '  + mesfin + ' ' + str(actual), 
             description=valora + ' hl', 
             #price=valora + ' Hl.' ,  
-            price='_ ' + delta2 + " %",       
+            price=' ' + delta2 + " %",       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
             image_object_fit="contain",
-            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Mono:wght@400&display=swap",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
             styles={
 
-                "title": {"font-family": "'Roboto Mono', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
-                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
-                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Regular', serif", "line-height": "1.6", "font-size": "1.6em", "color": bgcolor_positive_or_negative(deltaa)},
+                "title": {"font-family": "'Roboto Condensed', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
+                "text": {"font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
+                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.6em", "color": bgcolor_positive_or_negative(deltaa)},
 
             },
             button_text=None,   
@@ -374,12 +374,12 @@ with tab1:
             picture_position="left",
             image_aspect_ratio="16/9",
             image_object_fit="contain",
-            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Mono:wght@400&display=swap",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
             styles={
 
-                "title": {"font-family": "'Roboto Mono', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
-                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
-                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Regular', serif", "line-height": "1.6", "font-size": "1.5em", "color": bgcolor_positive_or_negative(deltaa)},
+                "title": {"font-family": "'Roboto Condensed', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
+                "text": {"font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
+                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.5em", "color": bgcolor_positive_or_negative(deltaa)},
 
                 #"title": {"background-color": "#17a2b8","font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
                 #"text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
