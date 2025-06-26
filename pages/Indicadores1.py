@@ -102,7 +102,10 @@ def bgcolor_positive_or_negative(value):
     return bgcolor
 
 def uppercase(str_data):
-    return ''.join([chr(ord(char) - 32) for char in str_data if ord(char) >= 65])
+   ord('str_data')
+   str_data = str_data -32
+   chr('str_data')
+   return str_data
   
 def handle_card_click(card_name):
     st.session_state.click_message = f"'{card_name}' was clicked!"
