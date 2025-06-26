@@ -437,15 +437,21 @@ with tab1:
             product_name=delta2 + " %",
             description='Exportaciones Mosto '  + mesfin + ' ' + str(actual), 
             price=valora + 'Tn.' ,       
+
+            product_name='Exportaciones Mosto '  + mesfin + ' ' + str(actual),        
+            #description='Exportaciones '  + mesfin + ' ' + str(actual), 
+            description=  valora  + ' tn', 
+            price=' ' + delta2 + " %",       
+        
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
             image_object_fit="contain",
-            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
-                "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
+                "text": {"font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
 
             },
             button_text=None,   
@@ -492,14 +498,19 @@ with tab1:
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
       product_card(
-            product_name=delta2 + " %",
-            description='Exportaciones Mosto '  + mesfin + ' ' + str(actual), 
-            price=valora + 'u$s.' ,       
+            #product_name=delta2 + " %",
+            #description='Exportaciones Mosto '  + mesfin + ' ' + str(actual), 
+            #price=valora + 'u$s.' ,       
+
+            product_name='Exportaciones Mosto '  + mesfin + ' ' + str(actual),        
+            #description='Exportaciones '  + mesfin + ' ' + str(actual), 
+            description= 'u$s ' + valora  , 
+            price=' ' + delta2 + " %",          
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
             image_object_fit="contain",
-            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
@@ -532,14 +543,19 @@ with tab1:
      deltaa = vala/valo
      deltaa = (deltaa - 1)*100     
      product_card(
-            product_name=delta2 + " %",
-            description='Superficie '  + str(maxanio), 
-            price=valora + 'Ha.' ,       
+            #product_name=delta2 + " %",
+            #description='Superficie '  + str(maxanio), 
+            #price=valora + 'Ha.' ,     
+
+            product_name='Superficie '  + str(maxanio),        
+            #description='Exportaciones '  + mesfin + ' ' + str(actual), 
+            description=  valora  + ' ha', 
+            price=' ' + delta2 + " %",        
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_superficie.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
             image_object_fit="contain",
-            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
@@ -570,14 +586,20 @@ with tab1:
      deltaa = vala/valo
      deltaa = (deltaa - 1)*100 
      product_card(
-            product_name=delta2 + " %",
-            description='Cosecha ' + str(maxanio), 
-            price=valora + 'Q.' ,       
+            #product_name=delta2 + " %",
+            #description='Cosecha ' + str(maxanio), 
+            #price=valora + 'Q.' ,       
+
+            product_name='Cosecha '  + str(maxanio),        
+            #description='Exportaciones '  + mesfin + ' ' + str(actual), 
+            description=  valora  + ' q', 
+            price=' ' + delta2 + " %",  
+       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_barril.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
             image_object_fit="contain",
-            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
+            font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
             styles={
 
                 "title": {"font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
