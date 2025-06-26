@@ -223,6 +223,8 @@ with tab1:
       #if deltaa < 1:
       #  deltaa = (1- deltaa) * -1
       st.write(deltaa)
+      st.write(locale.currency(deltaa,grouping=True))
+     
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       delta2 = str(_format_as_percentage(deltaa,2))
