@@ -246,7 +246,7 @@ with tab1:
                 "card": {
                   #"border": "2px solid #007bff", "border-radius": "20px",
                   #"box-shadow": "0 10px 30px rgba(0, 123, 255, 0.3)",
-                  "background-color": "#f0f8ff", "max-width": "600px", "margin": "0 auto"
+                  "background-color": "#F0F2F6", "max-width": "600px", "margin": "0 auto"
                 },              
 
                 "title": {"font-family": "'Roboto Condensed', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
