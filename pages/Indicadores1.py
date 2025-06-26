@@ -226,13 +226,13 @@ with tab1:
       delta2 = str(_format_as_percentage(deltaa,2))
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
+      pp = 'Despachos ' + mesfin + ' ' + str(actual) 
+      pp = pp.upper()
 
       product_card(
             #product_name=delta2 + " %",
-            pp = 'Despachos ' + mesfin + ' ' + str(actual) 
-            pp = pp.upper()
             product_name= pp ,
-            pp = 'Despachos ' + mesfin + ' ' + str(actual) 
+            #pp = 'Despachos ' + mesfin + ' ' + str(actual) 
             #description='Despachos ' + mesfin + ' ' + str(actual)  , 
             description=valora + ' hl', 
             #price=valora,       
