@@ -249,6 +249,10 @@ with tab1:
                   "background-color": "#EC2E35", "max-width": "600px", "margin": "0 auto"
                 },              
 
+                "image": { 
+                   "border": "5px dotted #28a745", "padding": "10px", "box-sizing": "border-box",
+                   "border-radius": "15px", "background-color": "#F0F2F6"
+                 },              
                 "title": {"font-family": "'Roboto Condensed', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
                 "text": {"background-color": "#F0F2F6", "font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
                 "price": { "background-color": "#E3E5E9","font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.5em", "color": bgcolor_positive_or_negative(deltaa)},
