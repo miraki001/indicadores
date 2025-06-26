@@ -15,7 +15,7 @@ from datetime import datetime as dt
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-#import locale
+import locale
 from script.exportaciones import registro_mensual
 from script.exportaciones import mosto_registro_mensual
 from kpi import ind_mercado_interno
@@ -79,6 +79,7 @@ st.markdown("""
 
 #locale.setlocale(category=locale.LC_ALL, locale="France", "fr_FR.UTF-8")
 #locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
+locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
 
 
 streamlit_style = """
