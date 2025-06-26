@@ -250,7 +250,7 @@ with tab1:
                 "button": {"background-color": "#F0F2F6", "color": "#F0F2F6", "border": "0.1px solid #e0a800", "border-radius": "0px", "text-transform": "uppercase", "font-weight": "900", "width": "100%"}
 
             },
-            button_text='_',   
+            button_text='',   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
             key="core_name_onlyd"
       )     
@@ -290,14 +290,16 @@ with tab1:
       delta2 = str(_format_as_percentage(deltaa,2))
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
+      pp = 'Exportaciones ' + mesfin + ' ' + str(actual) 
+      pp = pp.upper()
 
       product_card(
             #product_name=delta2 + " %",
-            product_name='Exportaciones '  + mesfin + ' ' + str(actual),
+            product_name=pp,
             #description='Exportaciones '  + mesfin + ' ' + str(actual), 
             description=valora + ' hl', 
             #price=valora + ' Hl.' ,  
-            price=' ' + delta2 + " %",       
+            price='_ ' + delta2 + " %",       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
@@ -307,7 +309,7 @@ with tab1:
 
                 "title": {"font-family": "'Roboto Mono', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
                 "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
-                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Regular', serif", "line-height": "1.6", "font-size": "1.5em", "color": bgcolor_positive_or_negative(deltaa)},
+                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Regular', serif", "line-height": "1.6", "font-size": "1.6em", "color": bgcolor_positive_or_negative(deltaa)},
 
             },
             button_text=None,   
