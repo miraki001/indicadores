@@ -229,7 +229,10 @@ with tab1:
 
       product_card(
             #product_name=delta2 + " %",
-            product_name= uppercase('Despachos ' + mesfin + ' ' + str(actual) ),
+            pp = 'Despachos ' + mesfin + ' ' + str(actual) 
+            pp = pp.upper()
+            product_name= pp ,
+            pp = 'Despachos ' + mesfin + ' ' + str(actual) 
             #description='Despachos ' + mesfin + ' ' + str(actual)  , 
             description=valora + ' hl', 
             #price=valora,       
