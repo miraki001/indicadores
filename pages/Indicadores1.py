@@ -250,7 +250,7 @@ with tab1:
                 "button": {"background-color": "#ffc107", "color": "black", "border": "1px solid #e0a800", "border-radius": "0px", "text-transform": "uppercase", "font-weight": "900", "width": "100%"}
 
             },
-            button_text=None,   
+            button_text='',   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
             key="core_name_onlyd"
       )     
