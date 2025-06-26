@@ -247,10 +247,10 @@ with tab1:
                 "title": {"font-family": "'Roboto Condensed', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
                 "text": {"background-color": "#F0F2F6", "font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
                 "price": { "background-color": "#E3E5E9","font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.6em", "color": bgcolor_positive_or_negative(deltaa)},
-                "button": {"background-color": "#ffc107", "color": "black", "border": "1px solid #e0a800", "border-radius": "0px", "text-transform": "uppercase", "font-weight": "900", "width": "100%"}
+                "button": {"background-color": "#F0F2F6", "color": "#F0F2F6", "border": "0.5px solid #e0a800", "border-radius": "0px", "text-transform": "uppercase", "font-weight": "900", "width": "100%"}
 
             },
-            button_text='ddd',   
+            button_text='_',   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
             key="core_name_onlyd"
       )     
