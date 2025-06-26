@@ -237,7 +237,7 @@ with tab1:
 
                 "title": {"font-family": "'Roboto Mono', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
                 "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
-                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Regular', serif", "line-height": "1.6", "font-size": "1.1em", "color": bgcolor_positive_or_negative(deltaa)},
+                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": bgcolor_positive_or_negative(deltaa)},
 
             },
             button_text=None,   
