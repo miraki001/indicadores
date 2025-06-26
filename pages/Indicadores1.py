@@ -100,6 +100,9 @@ def bgcolor_positive_or_negative(value):
     #st.write(bgcolor)
     #return f"color: {bgcolor};"
     return bgcolor
+
+def uppercase(str_data):
+    return ''.join([chr(ord(char) - 32) for char in str_data if ord(char) >= 65])
   
 def handle_card_click(card_name):
     st.session_state.click_message = f"'{card_name}' was clicked!"
@@ -223,7 +226,7 @@ with tab1:
 
       product_card(
             #product_name=delta2 + " %",
-            product_name='Despachos ' + mesfin + ' ' + str(actual) ,
+            product_name= uppercase('Despachos ' + mesfin + ' ' + str(actual) ),
             #description='Despachos ' + mesfin + ' ' + str(actual)  , 
             description=valora + ' hl', 
             #price=valora,       
