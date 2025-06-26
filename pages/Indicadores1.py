@@ -588,6 +588,7 @@ with tab1:
      deltaoa = (deltaoa -1)*100     
      deltaa = vala/valo
      deltaa = (deltaa - 1)*100 
+     delta2 = str(_format_as_percentage(deltaa,2))
      product_card(
             #product_name=delta2 + " %",
             #description='Cosecha ' + str(maxanio), 
