@@ -222,9 +222,12 @@ with tab1:
       #st.write('Periodo : 01 Enero/' + mes2)
 
       product_card(
-            product_name=delta2 + " %",
-            description='Despachos ' + mesfin + ' ' + str(actual)  , 
-            price=valora,       
+            #product_name=delta2 + " %",
+            product_name='Despachos ' + mesfin + ' ' + str(actual) ,
+            #description='Despachos ' + mesfin + ' ' + str(actual)  , 
+            description=valora + 'Hl.', 
+            #price=valora,       
+            price=delta2 + " %",       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
