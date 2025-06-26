@@ -341,9 +341,13 @@ with tab1:
       mes2 = max(dva['mes1'])
       #st.write('Periodo : 01 Enero/' + mes2)
       product_card(
-            product_name=delta2 + " %",
-            description='Exportaciones '  + mesfin + ' ' + str(actual), 
-            price=valora + 'Hl.' ,       
+            #product_name=delta2 + " %",
+            product_name='Exportaciones '  + mesfin + ' ' + str(actual),        
+            #description='Exportaciones '  + mesfin + ' ' + str(actual), 
+            description= 'u$s ' + valora , 
+            price=delta2 + " %",       
+        
+            #price=valora + 'Hl.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
@@ -351,10 +355,14 @@ with tab1:
             font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Slab:wght@400&display=swap",
             styles={
 
-                "title": {"background-color": "#17a2b8","font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                "title": {"font-family": "'Roboto Mono', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
                 "text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
-                "price": {"color": "white", "background-color": "#E3E5E9", "padding": "5px 10px", "border-radius": "5px", "text-align": "center", "font-weight": "bold"},
-                "product_name": {"color": "white", "background-color": "#17a2b8", "padding": "5px 10px", "border-radius": "5px", "text-align": "center", "font-weight": "bold"},
+                "price": { "background-color": "#E3E5E9","font-family": "'Roboto Regular', serif", "line-height": "1.6", "font-size": "1.1em", "color": bgcolor_positive_or_negative(deltaa)},
+
+                #"title": {"background-color": "#17a2b8","font-family": "'Old Standard TT', serif", "font-weight": "700", "font-size": "1.8em", "color": bgcolor_positive_or_negative(deltaa)},
+                #"text": {"font-family": "'Roboto Mono', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
+                #"price": {"color": "white", "background-color": "#E3E5E9", "padding": "5px 10px", "border-radius": "5px", "text-align": "center", "font-weight": "bold"},
+                #"product_name": {"color": "white", "background-color": "#17a2b8", "padding": "5px 10px", "border-radius": "5px", "text-align": "center", "font-weight": "bold"},
             },
             button_text=None,   
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
