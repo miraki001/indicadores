@@ -15,7 +15,7 @@ from datetime import datetime as dt
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import locale
+#import locale
 from script.exportaciones import registro_mensual
 from script.exportaciones import mosto_registro_mensual
 from kpi import ind_mercado_interno
