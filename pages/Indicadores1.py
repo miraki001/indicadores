@@ -79,7 +79,7 @@ st.markdown("""
 
 #locale.setlocale(category=locale.LC_ALL, locale="France", "fr_FR.UTF-8")
 #locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
-locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
+locale.setlocale(locale.LC_ALL, "es_ES.UTF-8")
 
 
 streamlit_style = """
