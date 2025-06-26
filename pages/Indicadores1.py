@@ -221,6 +221,7 @@ with tab1:
       deltaa = (deltaa - 1)*100
       #if deltaa < 1:
       #  deltaa = (1- deltaa) * -1
+      st.write(deltaa)
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
       delta2 = str(_format_as_percentage(deltaa,2))
