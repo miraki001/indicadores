@@ -243,6 +243,11 @@ with tab1:
             image_object_fit="contain",
             font_url="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@400&display=swap",
             styles={
+                "card": {
+                  "border": "2px solid #007bff", "border-radius": "20px",
+                  "box-shadow": "0 10px 30px rgba(0, 123, 255, 0.3)",
+                  "background-color": "#f0f8ff", "max-width": "400px", "margin": "0 auto"
+                },              
 
                 "title": {"font-family": "'Roboto Condensed', serif", "font-weight": "700", "font-size": "0.8em", "color": "#E31E24" },
                 "text": {"background-color": "#F0F2F6", "font-family": "'Roboto Condensed', serif", "line-height": "1.6", "font-size": "1.1em", "color": "#5d4037"},
