@@ -94,7 +94,7 @@ def _format_with_thousands_commas(val):
   return f'{val:.12n}' 
 
 def _format_as_percentage(val, prec=0): 
-  return f'{val:,.{prec}f}' 
+  return f'{val:.,{prec}f}' 
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "#EC2E35" if value < 0 else "#6D6E70"
