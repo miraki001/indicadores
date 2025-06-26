@@ -223,7 +223,8 @@ with tab1:
       #if deltaa < 1:
       #  deltaa = (1- deltaa) * -1
       st.write(deltaa)
-      st.write(locale.float(deltaa,grouping=True))
+      st.write(locale.format_string("%.2f", deltaa, grouping=True))
+      #st.write(locale.float(deltaa,grouping=True))
      
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
