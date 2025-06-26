@@ -223,7 +223,7 @@ with tab1:
       #if deltaa < 1:
       #  deltaa = (1- deltaa) * -1
       st.write(deltaa)
-      st.write(locale.currency(deltaa,grouping=True))
+      st.write(locale.number(deltaa,grouping=True))
      
       valoro = str(_format_with_thousands_commas(valo)) 
       valora = str(_format_with_thousands_commas(vala)) 
