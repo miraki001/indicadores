@@ -57,6 +57,7 @@ def ind_exportaciones(dva):
     dv1 = dv1.astype({'fob' : int, 'litros': int } )      
     dv2 = dv2.astype({'fob' : int, 'litros': int } )      
     st.write('Fraccionado')
+    st.markdown("**Fraccionado** ")
     option = {
           "color": [
                 '#332D75',
