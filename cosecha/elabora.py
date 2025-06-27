@@ -205,7 +205,7 @@ def elabora_evo():
         df = dv2.groupby(['prov','producto'], as_index=False)[['litros']].sum()  
         st.write(df)
         df = df.reset_index().rename_axis(None, axis=1)
-
+        st.write('paso')
     
     
         fig = px.sunburst(df, path=['prov', 'producto'], values='litros',
