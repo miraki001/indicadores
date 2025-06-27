@@ -200,13 +200,13 @@ def elabora_evo():
             ],
         }
 
-    
-    st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
-    df = dv2.groupby(['prov','producto'], as_index=False)[['litros']].sum()  
-    st.write(df)
-    df = df.reset_index().rename_axis(None, axis=1)
-
     if not df.empty:
+        st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+        df = dv2.groupby(['prov','producto'], as_index=False)[['litros']].sum()  
+        st.write(df)
+        df = df.reset_index().rename_axis(None, axis=1)
+
+    
     
         fig = px.sunburst(df, path=['prov', 'producto'], values='litros',
                       color='producto', hover_data=['prov'],
