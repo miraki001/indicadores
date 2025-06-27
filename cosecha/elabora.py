@@ -200,14 +200,14 @@ def elabora_evo():
             ],
         }
 
-    if not df_anual.empty:
-        st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
-        df = dv2.groupby(['prov','producto'], as_index=False)[['litros']].sum()  
-        st.write(df)
-        df = df.reset_index().rename_axis(None, axis=1)
+    st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+    df = dv2.groupby(['prov','producto'], as_index=False)[['litros']].sum()  
+    st.write(df)
+    df = df.reset_index().rename_axis(None, axis=1)
+    
+    if not df_anual.empty:    
         st.write('paso')
-    
-    
+        
         fig = px.sunburst(df, path=['prov', 'producto'], values='litros',
                       color='producto', hover_data=['prov'],
                       color_continuous_scale='RdBu',
