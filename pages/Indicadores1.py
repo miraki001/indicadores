@@ -316,7 +316,7 @@ with tab1:
             #description='Exportaciones '  + mesfin + ' ' + str(actual), 
             description=valora + ' hl', 
             #price=valora + ' Hl.' ,  
-            price=' ' + delta2 + " %",       
+            price=' ' + chr(10) + delta2 + " %",       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
             picture_position="left",
             image_aspect_ratio="16/9",
