@@ -56,7 +56,6 @@ def ind_exportaciones(dva):
     dv1.style.format(precision=0, thousands='.')
     dv1 = dv1.astype({'fob' : int, 'litros': int } )      
     dv2 = dv2.astype({'fob' : int, 'litros': int } )      
-    st.write('Fraccionado')
     st.markdown("**Fraccionado** ")
     option = {
           "color": [
@@ -68,7 +67,7 @@ def ind_exportaciones(dva):
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "title": {
-                "text": 'Fraccionado',
+                "text": '',
                 "textStyle": {
                         "fontSize": 14,
                 },                  
@@ -142,6 +141,7 @@ def ind_exportaciones(dva):
     dv1 = dv1.astype({'fob' : int, 'litros': int } )      
     dv2 = dv2.astype({'fob' : int, 'litros': int } )      
     #st.write(dv1)
+    st.markdown("**Granel** ")    
     option = {
           "color": [
                 '#332D75',
@@ -152,7 +152,7 @@ def ind_exportaciones(dva):
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "title": {
-                "text": 'Granel',
+                "text": '',
                 "textStyle": {
                         "fontSize": 14,
                 },                  
@@ -225,6 +225,7 @@ def ind_exportaciones(dva):
     dv1 = dv1.astype({'fob' : int, 'litros': int } )      
     dv2 = dv2.astype({'fob' : int, 'litros': int } )      
     #st.write(dv1)
+    st.markdown("**Mosto** ")        
     option = {
           "color": [
                 '#332D75',
@@ -235,7 +236,7 @@ def ind_exportaciones(dva):
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}},
             "legend": {},
             "title": {
-                "text": 'Mosto',
+                "text": '',
                 "textStyle": {
                         "fontSize": 14,
                 },                  
