@@ -222,8 +222,8 @@ with tab1:
       deltaa = (deltaa - 1)*100
       #if deltaa < 1:
       #  deltaa = (1- deltaa) * -1
-      st.write(deltaa)
-      st.write(locale.format_string("%.2f", deltaa, grouping=True))
+      #st.write(deltaa)
+      #st.write(locale.format_string("%.2f", deltaa, grouping=True))
       #st.write(locale.float(deltaa,grouping=True))
      
       valoro = str(_format_with_thousands_commas(valo)) 
@@ -244,7 +244,7 @@ with tab1:
             description=valora + ' hl', 
             #price=valora,       
             #price=pe,       
-            price= chr(160) +delta2 +"  %",        
+            price= chr(160) + chr(160) + delta2 +"  %",        
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_copa.svg', 
             picture_position="left",
             image_aspect_ratio="1/1",
