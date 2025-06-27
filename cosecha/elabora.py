@@ -149,7 +149,7 @@ def elabora_evo():
     df_anual['Var % Año Ant.'] = total
 
     df_anual = df_anual.sort_index(axis = 1)
-
+    df_anual  = df_anual.fillna(0)
     
     df_sorted = df_anual.sort_values(by='Año', ascending=True)
 
