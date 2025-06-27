@@ -375,7 +375,7 @@ with tab1:
             product_name='Exportaciones '  + mesfin + ' ' + str(actual),        
             #description='Exportaciones '  + mesfin + ' ' + str(actual), 
             description= 'u$s ' + valora , 
-            price=' '+ chr(160) + delta2 + " %",       
+            price=' '+ chr(9) + delta2 + " %",       
         
             #price=valora + 'Hl.' ,       
             product_image='https://www.observatoriova.com/wp-content/uploads/2023/08/icon_mundo.svg', 
