@@ -205,7 +205,7 @@ def elabora_evo():
     st.write(df)
     df = df.reset_index().rename_axis(None, axis=1)
     
-    if not df_anual.empty:    
+    if not df.empty:    
         st.write('paso')
         
         fig = px.sunburst(df, path=['prov', 'producto'], values='litros',
