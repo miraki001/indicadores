@@ -267,6 +267,7 @@ with tab1:
 
             },
             button_text='',   
+            mobile_breakpoint_behavior="shrink",         
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
             key="core_name_onlyd"
       )     
@@ -329,6 +330,7 @@ with tab1:
 
             },
             button_text=None,   
+            mobile_breakpoint_behavior="shrink",
             on_button_click=lambda: handle_card_click("Clickable Card Area"),
             key="core_name_onlyeh"
       )              
