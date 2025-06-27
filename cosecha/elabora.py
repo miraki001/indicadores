@@ -199,8 +199,8 @@ def elabora_evo():
                 {"data": df_anual["Hl"].tolist(),"position" : 'rigth', "type": "line", "name": "Hl" },
             ],
         }
-
-    st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
+    if not df_anual.empty:  
+        st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
     df = dv2.groupby(['prov','producto'], as_index=False)[['litros']].sum()  
     st.write(df)
     df = df.reset_index().rename_axis(None, axis=1)
