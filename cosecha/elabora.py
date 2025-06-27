@@ -200,7 +200,7 @@ def elabora_evo():
             ],
         }
 
-    if not df.empty:
+    if not df_anual.empty:
         st_echarts(options=option,key="gauge" + str(dt.now()), height="400px")
         df = dv2.groupby(['prov','producto'], as_index=False)[['litros']].sum()  
         st.write(df)
