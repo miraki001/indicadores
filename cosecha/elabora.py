@@ -206,7 +206,7 @@ def elabora_evo():
     #st.write(df)
     df = df.reset_index().rename_axis(None, axis=1)
 
-    if not df_filtered.empty:
+    if not df.empty:
     
         fig = px.sunburst(df, path=['prov', 'producto'], values='litros',
                       color='producto', hover_data=['prov'],
