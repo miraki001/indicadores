@@ -124,7 +124,7 @@ def exporta_evolucion():
                 div[data-testid="stPopover"]>div>button {
                     min-height: 32.4px;
                     height: 32.4px;
-                    background-color: #A9F8FA !important;
+                    #background-color: #A9F8FA !important;
                     color: black;
                 }
             </style>
@@ -161,7 +161,7 @@ def exporta_evolucion():
 
     # Columna 1: Filtro para Año
         with col1:
-            with st.popover("Año"):
+            with st.popover("Año", use_container_width=True):
                 st.caption("Selecciona uno o más años de la lista")
                 año = st.multiselect("Año",    year_list, default=year_filter,label_visibility="collapsed",help="Selecciona uno o más años")
                 #anio = st.multiselect("Año:", ["Todos"] + year_list, default=["Todos"])
@@ -169,26 +169,26 @@ def exporta_evolucion():
             
         # Columna 2: Filtro para Países
         with col2:
-            with st.popover("Variedad"):
+            with st.popover("Variedad", use_container_width=True):
                 st.caption("Selecciona uno o más Variedades de la lista")
                 variedad = st.multiselect("Variedad34",  ["Todas"] + var_list, default=["Todas"],label_visibility="collapsed")
     
         # Columna 3: Espacio vacío (puedes agregar algo más si lo deseas)
         with col3:
-            with st.popover("Envase"):
+            with st.popover("Envase", use_container_width=True):
                 st.caption("Selecciona uno o más Envases de la lista")
                 envase = st.multiselect("Envaseee",  ["Todos"] + envase_list, default=["Todos"],label_visibility="collapsed")
         with col4:
-            with st.popover("Producto"):
+            with st.popover("Producto", use_container_width=True):
                 st.caption("Selecciona uno o más Productos de la lista")
                 producto = st.multiselect("Productoeo",  ["Todos"] + producto_list, default=["Todos"],label_visibility="collapsed")                
 
         with col5:
-            with st.popover("Color"):
+            with st.popover("Color", use_container_width=True):
                 st.caption("Selecciona uno o más Colores de la lista")
                 color = st.multiselect("Coloreo",  ["Todos"] + color_list, default=["Todos"],label_visibility="collapsed")                
         with col6:
-            with st.popover("Pais"):
+            with st.popover("Pais", use_container_width=True):
                 st.caption("Selecciona uno o más Paisesde la lista")
                 pais = st.multiselect("Pais",  ["Todos"] + pais_list, default=["Todos"],label_visibility="collapsed")  
                 pais = [str(a) for a in pais]
