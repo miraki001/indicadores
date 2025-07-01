@@ -118,18 +118,7 @@ def espumantes():
             "Pais": "Todos",
         }
 
-    st.html(
-        '''
-            <style>
-                div[data-testid="stPopover"]>div>button {
-                    min-height: 32.4px;
-                    height: 32.4px;
-                    background-color: #A9F8FA !important;
-                    color: black;
-                }
-            </style>
-        '''
-    )
+
 
     actual = dt.now().year -4 
 
