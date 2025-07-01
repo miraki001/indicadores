@@ -195,7 +195,7 @@ tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Indicadores","Exportaciones", "
 with tab1:
    #st.write('Datos acumulados de Enero a  ' + mesfin + ' de cada año' )
 
-   col = st.columns((4.5, 4.5, 4.5), gap='None')
+   col = st.columns((4.5, 4.5, 4.5), gap=None)
 
    with col[0]:
       dva = dv1[dv1['anio'] == actual ]
