@@ -127,18 +127,7 @@ def exporta_destino():
             "grupoenvase": "Todos"
         }
 
-    st.html(
-        '''
-            <style>
-                div[data-testid="stPopover"]>div>button {
-                    min-height: 22.4px;
-                    height: 22.4px;
-                    background-color: #A9F8FA !important;
-                    color: black;
-                }
-            </style>
-        '''
-    )
+
 
     QUERY_V1 = f"""
         SELECT anio, cantlitros AS litros, valorfobsolo AS fob,variedad1,tipo_envase,pais,color,grupoenvase,producto
