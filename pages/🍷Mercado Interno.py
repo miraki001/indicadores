@@ -487,19 +487,21 @@ with tab1:
   st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
 
 
-  report_html = "<h1>Sales report</h1>"
-  #pq.download_pdf_button(report_html, file_name = "report.pdf", label = "Download PDF")  
-  report_html = "<h1>Sales report</h1>"
-
-  file_name = 'report.pdf'
-  pdfkit.from_string(report_html, file_name)
-  with open(file_name, "rb") as pdf_file:
-      st.download_button(
-          'Download PDF',
-          data = pdf_file,
-          file_name = file_name,
-          mime = 'application/octet-stream')
-      os.remove(file_name)  
+  st.markdown(
+    """
+    <style type="text/css" media="print">
+    div.page-break
+    {
+        page-break-after: always;
+        page-break-inside: avoid;
+    }
+    </style>
+    <div class="page-break">
+        <!-- Content goes here -->
+    </div>
+  """,
+    unsafe_allow_html=True,
+  ) 
 
 with tab2:    
     desp_prov.despachos_prov(df_filtros,dv1)
