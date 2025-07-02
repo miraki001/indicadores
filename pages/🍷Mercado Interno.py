@@ -20,6 +20,7 @@ from despachos import desp_consumo
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import pdfkit, os
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -483,6 +484,17 @@ with tab1:
   }
 
   st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
+  report_html = "<h1>Sales report</h1>"
+
+  file_name = 'report.pdf'
+  pdfkit.from_string(html, file_name)
+  with open(file_name, "rb") as pdf_file:
+      st.download_button(
+          'Download PDF',
+          data = pdf_file,
+          file_name = file_name,
+          mime = 'application/octet-stream')
+      os.remove(file_name)  
 
 with tab2:    
     desp_prov.despachos_prov(df_filtros,dv1)
