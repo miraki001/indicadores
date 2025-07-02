@@ -488,7 +488,7 @@ with tab1:
 
 
   report_html = "<h1>Sales report</h1>"
-  pq.download_pdf_button(report_html, file_name = "report.pdf", label = "Download PDF")  
+  #pq.download_pdf_button(report_html, file_name = "report.pdf", label = "Download PDF")  
   report_html = "<h1>Sales report</h1>"
 
   file_name = 'report.pdf'
