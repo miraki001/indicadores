@@ -21,7 +21,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pdfkit, os
-import streamlit.components.v1 as components
+
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -492,7 +492,7 @@ with tab1:
   report_html = "<h1>Sales report</h1>"
 
   file_name = 'report.pdf'
-  pdfkit.from_string(html, file_name)
+  pdfkit.from_string(report_html, file_name)
   with open(file_name, "rb") as pdf_file:
       st.download_button(
           'Download PDF',
