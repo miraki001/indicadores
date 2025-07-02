@@ -15,5 +15,5 @@ streamlit_kpi
 streamlit_product_card 
 great_tables 
 pdfkit
-components.v1
+
 
