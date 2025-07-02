@@ -484,6 +484,10 @@ with tab1:
   }
 
   st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
+
+
+  report_html = "<h1>Sales report</h1>"
+  pq.download_pdf_button(report_html, file_name = "report.pdf", label = "Download PDF")  
   report_html = "<h1>Sales report</h1>"
 
   file_name = 'report.pdf'
