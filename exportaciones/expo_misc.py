@@ -107,11 +107,11 @@ def exporta_misc():
 
     # Asegurar que los años estén ordenados correctamente
     #df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
-    df_pivot = df_pivot[['variedad'] + sorted([col for col in df_pivot.columns if col != 'variedad1'])]
+    df_pivot = df_pivot[['variedad'] + sorted([col for col in df_pivot.columns if col != 'variedad'])]
 
     # Identificar las columnas de año, ordenadas de mayor a menor
     #anios = sorted([col for col in df_pivot.columns if col != 'pais'])
-    anios = sorted([col for col in df_pivot.columns if col != 'variedad1'])
+    anios = sorted([col for col in df_pivot.columns if col != 'variedad'])
         
     # Calcular el cambio porcentual entre años (sobre las columnas)
     df_pct = df_pivot[anios].pct_change(axis=1)
