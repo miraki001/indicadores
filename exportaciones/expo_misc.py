@@ -83,7 +83,7 @@ def exporta_misc():
     
     
     # Pivotear el DataFrame para que cada fila sea una provincia y cada columna un año
-    #st.write(dv1)
+    st.write(dv1)
     #melted_df = melted_df[melted_df['litros'] != 0 ]
     #dv1 = dv1.groupby(['pais','anio'], as_index=False)[['litros']].sum()
     dv1 = dv1.groupby(['variedad1','anio'], as_index=False)[['litros']].sum()
