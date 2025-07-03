@@ -493,7 +493,7 @@ with tab1:
         }
     </script>
     <button onclick="print_page(this)">
-        Print page (choose 'Save as PDF' in print dialogue)
+        Imprimir Pagína (Elija 'Grabar como PDF' en la configuracíon de la impresora)
     </button>
     """
   components.html(show_print_button)  
