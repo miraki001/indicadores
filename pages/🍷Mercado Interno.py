@@ -496,7 +496,7 @@ with tab1:
         }
     </script>
     <button onclick="print_page(this)">
-        Imprimir Pagína (Elija 'Grabar como PDF' en la configuracíon de la impresora)
+        😃 Imprimir Pagína (Elija 'Grabar como PDF' en la configuracíon de la impresora)
     </button>
     """
   components.html(show_print_button)  
