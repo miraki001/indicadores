@@ -209,15 +209,15 @@ with tab1:
     with col8:          
 
         show_print_button ="""
-        <script>
+          <script>
             function print_page(obj) {
                 obj.style.display = "none";
                 parent.window.print();
             }
-        </script>
-        <button onclick="print_page(this)">
-            🖨️
-        </button>
+          </script>
+          <button onclick="print_page(this)">
+              🖨️
+          </button>
         """
         components.html(show_print_button)       
       if st.button(" ", icon=":material/print:", use_container_width=True):
