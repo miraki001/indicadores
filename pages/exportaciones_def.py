@@ -72,5 +72,5 @@ with tab7:
     st.write('Proximanente')   
 with tab8:
     #st.session_state['vEstado'] = '0'
-    expo_misc.expo_misc()
+    expo_misc.exporta_misc()
     
