@@ -208,18 +208,18 @@ with tab1:
             color = st.multiselect("colord",  color_list, default=["Todos"],label_visibility="collapsed")      
     with col8:          
 
-    show_print_button ="""
-      <script>
-          function print_page(obj) {
-              obj.style.display = "none";
-              parent.window.print();
-          }
-      </script>
-      <button onclick="print_page(this)">
-          🖨️
-      </button>
-      """
-      components.html(show_print_button)       
+        show_print_button ="""
+        <script>
+            function print_page(obj) {
+                obj.style.display = "none";
+                parent.window.print();
+            }
+        </script>
+        <button onclick="print_page(this)">
+            🖨️
+        </button>
+        """
+        components.html(show_print_button)       
       if st.button(" ", icon=":material/print:", use_container_width=True):
          st.write("Ciao")          
 
