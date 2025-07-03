@@ -731,7 +731,7 @@ def exporta_destino():
     df_resultado = df_pivot[['variedad1']].copy()
     for año, col_delta in zip(anios, df_pct.columns):
         df_resultado[año] = df_pivot[año]
-        df_resultado[col_delta] = df_pct[col_delta]
+        df_resultado[col_delta] = df_pct[col_delta]*100
         
     st.write(df_resultado)
     # Ordenar columnas: primero 'provincia', luego años descendentes intercaladas con %Δ
