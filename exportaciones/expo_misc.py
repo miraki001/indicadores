@@ -93,7 +93,7 @@ def exporta_misc():
     indexe1 = np.r_[-20:0]
     dv2 = dv2.sort_values("litros", ignore_index=True).iloc[indexe1]
     #pais_list11 = sorted(dv2["pais"].dropna().unique(), reverse=True)
-    var_list11 = sorted(dv2["variedad1"].dropna().unique(), reverse=True)
+    var_list11 = sorted(dv2["variedad"].dropna().unique(), reverse=True)
     #indexe1 = np.r_[-20:0]
     #dv1 = dv1.sort_values("litros", ignore_index=True).iloc[indexe1]
     #dv1 = dv1[dv1['anio'] > '2014']
