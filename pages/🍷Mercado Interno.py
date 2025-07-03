@@ -22,7 +22,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pdfkit, os
 from fpdf import FPDF
-
+import base64
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -487,6 +487,22 @@ with tab1:
 
   st_echarts(options=option,key="otro" + str(dt.now()), height="400px")
 
+  export_as_pdf = st.button("Export Report")
+
+  def create_download_link(val, filename):
+    b64 = base64.b64encode(val)  # val looks like b'...'
+    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="{filename}.pdf">Download file</a>'
+
+
+  if export_as_pdf:
+     pdf = FPDF()
+     pdf.add_page()
+     #pdf.image(tmpfile.name,10,10,100)
+     
+     html = create_download_link(pdf.output(dest="S").encode("latin-1"), "test")
+
+     st.markdown(html, unsafe_allow_html=True)
+  
 
   st.markdown(
     """
