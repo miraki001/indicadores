@@ -21,6 +21,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pdfkit, os
+from fpdf import FPDF
 
 
 st.set_page_config(initial_sidebar_state="collapsed",
