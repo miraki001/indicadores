@@ -79,7 +79,7 @@ def exporta_misc():
     
     dv1 = pd.read_parquet("data/processed/expo_registro_anual.parquet", engine="pyarrow")    
     dv1['anio'] = dv1['anio'].astype(str)
-
+    st.write("Variación porcentual interanual de las princiaples variedades exportadas")
     
     
     # Pivotear el DataFrame para que cada fila sea una provincia y cada columna un año
@@ -126,8 +126,10 @@ def exporta_misc():
     for año, col_delta in zip(anios, df_pct.columns):
         df_resultado[año] = df_pivot[año]
         df_resultado[col_delta] = df_pct[col_delta]*100
-        
-    st.write(df_resultado)
+    if st.checkbox('Ver forma de tabla'):       
+        st.write(df_resultado)
+
+    
     # Ordenar columnas: primero 'provincia', luego años descendentes intercaladas con %Δ
     #columnas_ordenadas = ['pais']
     columnas_ordenadas = ['variedad']
@@ -140,7 +142,6 @@ def exporta_misc():
     # Ordenar filas por provincia
     #df_resultado = df_resultado.sort_values(by="pais")
     df_resultado = df_resultado.sort_values(by="variedad")
-    #st.write(df_resultado)
                 
     #st.markdown("<h4 style='text-align: left;'>Superficie por Provincia y variación interanual (%)</h4>", unsafe_allow_html=True)
 
@@ -150,7 +151,7 @@ def exporta_misc():
     melted_df = df_resultado.melt(id_vars=['variedad'], 
                     var_name='anio', value_name='litros')
     melted_df = melted_df[melted_df['litros'] != 0 ]
-    st.write(melted_df)
+    #st.write(melted_df)
     input_color = 'blue'
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     #selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
