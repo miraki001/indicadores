@@ -77,7 +77,7 @@ def exporta_misc():
 
     
     
-    dv1 = pd.read_parquet("data/processed/expo_registro_anual", engine="pyarrow")    
+    dv1 = pd.read_parquet("data/processed/expo_registro_anual.parquet", engine="pyarrow")    
 
 
     
