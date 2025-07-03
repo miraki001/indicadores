@@ -167,7 +167,7 @@ tab1, tab2, tab3,tab4,tab5,tab6 = st.tabs(["Evolución", "Por Provincias", "Por 
 with tab1:
 
   with st.container(border=True):
-    col1, col2, col3,col4,col5,col6,col7= st.columns([1, 1, 1,1,1,1,1])  # Ajusta los tamaños de las columnas
+    col1, col2, col3,col4,col5,col6,col7,col8= st.columns([1, 1, 1,1,1,1,1,1])  # Ajusta los tamaños de las columnas
 
     # Columna 1: Filtro para Año
     with col1:    
@@ -206,8 +206,9 @@ with tab1:
         with st.popover("Color", use_container_width=True):
             st.caption("Selecciona uno o más Colores de la lista")
             color = st.multiselect("colord",  color_list, default=["Todos"],label_visibility="collapsed")      
-    if st.button(" ", icon=":material/print:", use_container_width=True):
-       st.write("Ciao")          
+    with col8:          
+      if st.button(" ", icon=":material/print:", use_container_width=True):
+         st.write("Ciao")          
 
   Filtro = 'Filtro = Año = '
   Filtro = Filtro +  ' Todos '
