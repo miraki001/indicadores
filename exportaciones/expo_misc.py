@@ -78,7 +78,7 @@ def exporta_misc():
     
     
     dv1 = pd.read_parquet("data/processed/expo_registro_anual.parquet", engine="pyarrow")    
-
+    dv1['anio'] = dv1['anio'].astype(str)
 
     
     
