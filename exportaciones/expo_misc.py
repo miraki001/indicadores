@@ -107,7 +107,7 @@ def exporta_misc():
 
     # Asegurar que los años estén ordenados correctamente
     #df_pivot = df_pivot[['pais'] + sorted([col for col in df_pivot.columns if col != 'pais'])]
-    df_pivot = df_pivot[['variedad1'] + sorted([col for col in df_pivot.columns if col != 'variedad1'])]
+    df_pivot = df_pivot[['variedad'] + sorted([col for col in df_pivot.columns if col != 'variedad1'])]
 
     # Identificar las columnas de año, ordenadas de mayor a menor
     #anios = sorted([col for col in df_pivot.columns if col != 'pais'])
