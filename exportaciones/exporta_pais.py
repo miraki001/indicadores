@@ -760,6 +760,7 @@ def exporta_destino():
     input_color = 'blue'
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
+    st.write(selected_color_theme)
     heatmap = alt.Chart(melted_df).mark_rect().encode(
             y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
             x=alt.X(f'{'variedad1'}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
