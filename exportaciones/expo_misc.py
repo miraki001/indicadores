@@ -158,7 +158,7 @@ def exporta_misc():
     sc = 'blues'
     #st.write(selected_color_theme)
     heatmap = alt.Chart(melted_df).mark_rect().encode(
-            y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
+            y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Año", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
             x=alt.X(f'{'variedad'}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
             color=alt.Color(f'max({'litros'}):Q',
                              legend=None,
