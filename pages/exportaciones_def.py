@@ -17,6 +17,7 @@ from exportaciones import mosto_evo
 from exportaciones import mosto_pais
 from exportaciones import mosto_producto
 from exportaciones import espumantes
+from exportaciones import expo_misc
 
 def bgcolor_positive_or_negative(value):
     bgcolor = "#EC654A" if value < 0 else "lightgreen"
@@ -71,5 +72,5 @@ with tab7:
     st.write('Proximanente')   
 with tab8:
     #st.session_state['vEstado'] = '0'
-    st.write('Proximanente')   
+    expo_misc.expo_misc()
     
