@@ -23,6 +23,7 @@ from plotly.subplots import make_subplots
 import pdfkit, os
 from fpdf import FPDF
 import base64
+import streamlit.components.v1 as components
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
