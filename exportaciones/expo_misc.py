@@ -147,7 +147,7 @@ def exporta_misc():
 
     # Obtener columnas de porcentaje
     cols_pct = [col for col in df_resultado.columns if col.endswith('_Δ%')]
-    st.write(df_resultado)
+    #st.write(df_resultado)
     melted_df = df_resultado.melt(id_vars=['variedad'], 
                     var_name='anio', value_name='litros')
     melted_df = melted_df[melted_df['litros'] != 0 ]
