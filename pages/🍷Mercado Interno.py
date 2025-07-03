@@ -520,6 +520,18 @@ with tab1:
   """,
     unsafe_allow_html=True,
   ) 
+  show_print_button ="""
+    <script>
+        function print_page(obj) {
+            obj.style.display = "none";
+            parent.window.print();
+        }
+    </script>
+    <button onclick="print_page(this)">
+        Print page (choose 'Save as PDF' in print dialogue)
+    </button>
+    """
+  components.html(show_print_button)  
 
 with tab2:    
     desp_prov.despachos_prov(df_filtros,dv1)
