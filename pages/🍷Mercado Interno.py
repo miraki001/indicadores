@@ -206,7 +206,7 @@ with tab1:
         with st.popover("Color", use_container_width=True):
             st.caption("Selecciona uno o más Colores de la lista")
             color = st.multiselect("colord",  color_list, default=["Todos"],label_visibility="collapsed")      
-    if st.button("", icon=":material/Print:", use_container_width=True):
+    if st.button(" ", icon=":material/Print:", use_container_width=True):
        st.write("Ciao")          
 
   Filtro = 'Filtro = Año = '
