@@ -17,7 +17,7 @@ great_tables
 pdfkit
 fpdf
 pandasai==2.3.0
-pandasai-litellm
+#pandasai-litellm
 litellm
 
 
