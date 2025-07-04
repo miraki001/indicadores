@@ -18,6 +18,7 @@ pdfkit
 fpdf
 pandasai
 litellm
+pandasai-litellm
 
 
 
