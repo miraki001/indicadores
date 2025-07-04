@@ -18,7 +18,6 @@ pdfkit
 fpdf
 pandasai
 litellm
-pandasai-litellm==0.0.1
 
 
 
