@@ -17,5 +17,5 @@ great_tables
 pdfkit
 fpdf
 pandasai
-pandasai_litellm
+pandasai-litellm
 
