@@ -95,7 +95,7 @@ def exporta_misc():
        temperature=0,  # Controla la aleatoriedad de la salida. 0 hace la salida más determinista y enfocada.
        max_tokens=None,  # Número máximo de tokens (palabras/subpalabras) que el modelo puede generar en su respuesta. None significa sin límite explícito aquí, aunque el modelo subyacente puede tener uno.
        max_retries=2,  # Número máximo de reintentos si la llamada a la API del LLM falla.
-       api_key=st.secrets["MISTRAL_API_KEY"],  # Clave API para acceder al servicio del LLM. ¡RECUERDA CAMBIAR ESTO POR TU PROPIA CLAVE!
+       api_key="6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb",  # Clave API para acceder al servicio del LLM. ¡RECUERDA CAMBIAR ESTO POR TU PROPIA CLAVE!
     )    
     
     llm = LiteLLM(
