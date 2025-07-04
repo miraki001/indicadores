@@ -172,7 +172,7 @@ def exporta_misc():
         titleFontSize=12
         ) 
     # height=300
-    st.altair_chart(heatmap, use_container_width=True, embed_options={'actions': False})
+    st.altair_chart(heatmap, use_container_width=True, showlegend="false")
         
     # Columnas normalizadas que se usarán solo para aplicar color
     cols_norm = [f"{col}_norm" for col in cols_pct]
