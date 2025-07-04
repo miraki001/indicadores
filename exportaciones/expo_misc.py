@@ -88,6 +88,7 @@ def exporta_misc():
     
     # Pivotear el DataFrame para que cada fila sea una provincia y cada columna un año
     #st.write(dv1)
+    os.environ['MISTRAL_API_KEY'] = '6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb'
     llm = LiteLLM(
         model="mistral/mistral-medium-latest",
         temperature=0,
