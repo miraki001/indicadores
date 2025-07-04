@@ -90,7 +90,7 @@ def exporta_misc():
     #st.write(dv1)
     os.environ['MISTRAL_API_KEY'] = '6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb'
     llm = LiteLLM(
-        model="mistral/mistral-medium-latest",
+        model='mistral/mistral-medium-latest',
         temperature=0,
         max_tokens=None,
         max_retries=2,
