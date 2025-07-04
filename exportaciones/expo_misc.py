@@ -90,14 +90,15 @@ def exporta_misc():
     # Pivotear el DataFrame para que cada fila sea una provincia y cada columna un año
     #st.write(dv1)
     os.environ['MISTRAL_API_KEY'] = '6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb'
-    llm = LiteLLM(
+    
+    llm = LiteLLM({
         model='mistral/mistral-medium-latest',
         temperature=0,
         max_tokens=None,
         max_retries=2,
         #api_key=st.secrets["MISTRAL_API_KEY"],
         api_key='6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb',
-    )
+    })
     pai.config.set({
         "llm":llm,
         'history_size':10,
