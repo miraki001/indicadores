@@ -157,13 +157,13 @@ def exporta_misc():
     #selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
     sc = 'blues'
     #st.write(selected_color_theme)
-    st.markdown("""
-        <style type='text/css'>
-            details {
-                display: none;
-            }
-        </style>
-    """, unsafe_allow_html=True)    
+    #st.markdown("""
+    #    <style type='text/css'>
+    #        details {
+    #            display: none;
+    #        }
+    #    </style>
+    #""", unsafe_allow_html=True)    
 
     heatmap = alt.Chart(melted_df).mark_rect().encode(
             y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Año", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
@@ -180,6 +180,14 @@ def exporta_misc():
         titleFontSize=12
         ) 
     # height=300
+
+    heatmap["usermeta"] = {
+        "embedOptions": {
+            "downloadFileName": "my-download-name",
+            "actions": {"export": True, "source": False, "editor": False},
+        }
+
+    
     st.altair_chart(heatmap, use_container_width=True, theme=None)
         
     # Columnas normalizadas que se usarán solo para aplicar color
