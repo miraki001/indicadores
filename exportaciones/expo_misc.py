@@ -19,6 +19,7 @@ from great_tables import GT, html
 import pandasai as pai
 from litellm import LiteLLM 
 import os
+#6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb
 
 def exporta_misc():
 
@@ -87,6 +88,13 @@ def exporta_misc():
     
     # Pivotear el DataFrame para que cada fila sea una provincia y cada columna un año
     #st.write(dv1)
+    llm = LiteLLM(
+        model="mistral/mistral-medium-latest",
+        temperature=0,
+        max_tokens=None,
+        max_retries=2,
+        api_key=st.secrets
+    )
     #melted_df = melted_df[melted_df['litros'] != 0 ]
     #dv1 = dv1.groupby(['pais','anio'], as_index=False)[['litros']].sum()
     dv1 = dv1.groupby(['variedad','anio'], as_index=False)[['litros']].sum()
