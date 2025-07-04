@@ -240,9 +240,9 @@ def exporta_misc():
     df =pai.DataFrame(dv1)
     par_pront=st.chat_input("Que desea saber")
     if par_pront:
-        with st.chat_message("human")
+        with st.chat_message("human"):
             st.write(par_pront)
-        with st.chat_message("ai")
+        with st.chat_message("ai"):
             response = df.chat(par_pront)
             if response.type == 'dataframe':
                 tabresultado,tabcodigo = st.tab(["Resultado","Codigo"])
