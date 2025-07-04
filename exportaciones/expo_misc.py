@@ -93,7 +93,12 @@ def exporta_misc():
         temperature=0,
         max_tokens=None,
         max_retries=2,
-        api_key=st.secrets
+        api_key=st.secrets["MISTRAL_API_KEY"],
+    )
+    pai.config.set({
+        "llm":llm,
+        'history_size':10,
+        'system_pronpt':"Pregunte al asistente que quiere saber sobre las exportaciones",
     )
     #melted_df = melted_df[melted_df['litros'] != 0 ]
     #dv1 = dv1.groupby(['pais','anio'], as_index=False)[['litros']].sum()
@@ -232,6 +237,31 @@ def exporta_misc():
     cmap = mcolors.LinearSegmentedColormap.from_list("custom_red_gray_green", colors)
     #st.write(df_resultado[cols_pct].describe())
     #st.write(df_resultado)
+    df =pai.DataFrame(dv1)
+    par_pront=st.chat_input("Que desea saber")
+    if par_pront:
+        with st.chat_message("human")
+            st.write(par_pront)
+        with st.chat_message("ai")
+            response = df.chat(par_pront)
+            if response.type == 'dataframe':
+                tabresultado,tabcodigo = st.tab(["Resultado","Codigo"])
+                with tabresultado:
+                    st.dataframe(response.value,use_container_width=True,hide_index=True)
+                with tabcodigo:
+                    st.code(response.last_code_executed,language='python')
+            elif response.type =='chart':
+                with open(response.value,'rb') as f:
+                    img_bytes = f.read()
+                img = image.open(io.BytesIO(img_bytes))
+                tabresultado,tabcodigo = st.tab(["Resultado","Codigo"])
+                with tabresultado:
+                    st.image(img)
+                with tabcodigo:
+                    st.code(response.last_code_executed,language='python')   
+                os.remove(response.value)
+            else:
+                st.write(response.value)
 
     #Convierte valor entre -1 y 1 en un color HEX
     def valor_a_color(valor_norm):
