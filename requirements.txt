@@ -16,7 +16,7 @@ streamlit_product_card
 great_tables 
 pdfkit
 fpdf
-pandasai
+pandasai==2.3.0
 pandasai-litellm
 litellm
 
