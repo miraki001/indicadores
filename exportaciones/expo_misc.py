@@ -186,7 +186,7 @@ def exporta_misc():
             "downloadFileName": "my-download-name",
             "actions": {"export": True, "source": False, "editor": False},
         }
-
+    }
     
     st.altair_chart(heatmap, use_container_width=True, theme=None)
         
