@@ -157,6 +157,14 @@ def exporta_misc():
     #selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
     sc = 'blues'
     #st.write(selected_color_theme)
+    st.markdown("""
+        <style type='text/css'>
+            details {
+                display: none;
+            }
+        </style>
+    """, unsafe_allow_html=True)    
+
     heatmap = alt.Chart(melted_df).mark_rect().encode(
             y=alt.Y(f'{'anio'}:O', axis=alt.Axis(title="Año", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
             x=alt.X(f'{'variedad'}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
