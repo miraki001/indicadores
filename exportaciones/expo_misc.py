@@ -184,7 +184,7 @@ def exporta_misc():
     heatmap["usermeta"] = {
         "embedOptions": {
             "downloadFileName": "my-download-name",
-            "actions": {"export": True, "source": False, "editor": False},
+            "actions": {"export": True, "source": False, "editor": False, "compiled": False},
         }
     }
     
