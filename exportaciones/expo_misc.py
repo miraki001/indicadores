@@ -16,6 +16,7 @@ import plotly.graph_objects as go
 import altair as alt
 import matplotlib.colors as mcolors
 from great_tables import GT, html
+import pandasai as pai
 
 def exporta_misc():
 
