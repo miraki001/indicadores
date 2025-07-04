@@ -17,7 +17,8 @@ import altair as alt
 import matplotlib.colors as mcolors
 from great_tables import GT, html
 import pandasai as pai
-from litellm import LiteLLM 
+#from litellm import LiteLLM 
+from pandasai_litellm import LiteLLM
 import os
 #6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb
 
