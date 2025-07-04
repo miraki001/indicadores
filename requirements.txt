@@ -16,4 +16,5 @@ streamlit_product_card
 great_tables 
 pdfkit
 fpdf
+pandasai
 
