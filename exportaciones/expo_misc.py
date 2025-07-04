@@ -92,12 +92,12 @@ def exporta_misc():
     os.environ['MISTRAL_API_KEY'] = '6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb'
     
     llm = LiteLLM(
-        'model'="mistral/mistral-medium-latest",
+        model="mistral/mistral-medium-latest",
         temperature=0,
-        max_tokens==None,
-        max_retries==2,
+        max_tokens=None,
+        max_retries=2,
         #api_key=st.secrets["MISTRAL_API_KEY"],
-        api_key=='6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb',
+        api_key='6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb',
     )
     pai.config.set({
         "llm":llm,
