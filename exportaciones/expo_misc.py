@@ -90,6 +90,13 @@ def exporta_misc():
     # Pivotear el DataFrame para que cada fila sea una provincia y cada columna un año
     #st.write(dv1)
     os.environ['MISTRAL_API_KEY'] = '6V2emtOQlRUK7SIJ5rCrMp7Bd4AsWqTb'
+    llm = LiteLLM(
+       model="mistral/mistral-medium-latest",  # Especifica el modelo a usar (en este caso, uno de Mistral).
+       temperature=0,  # Controla la aleatoriedad de la salida. 0 hace la salida más determinista y enfocada.
+       max_tokens=None,  # Número máximo de tokens (palabras/subpalabras) que el modelo puede generar en su respuesta. None significa sin límite explícito aquí, aunque el modelo subyacente puede tener uno.
+       max_retries=2,  # Número máximo de reintentos si la llamada a la API del LLM falla.
+       api_key=st.secrets["MISTRAL_API_KEY"],  # Clave API para acceder al servicio del LLM. ¡RECUERDA CAMBIAR ESTO POR TU PROPIA CLAVE!
+    )    
     
     llm = LiteLLM(
         model="mistral/mistral-medium-latest",
