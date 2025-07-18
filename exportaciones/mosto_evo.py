@@ -184,7 +184,7 @@ def exporta_mosto_evo():
     ppl = dv2.pivot_table(
           index='mes', 
           columns='anio',  
-          values=['fob']/['litros'],
+          values=['fob','litros','ppl'],
           aggfunc='sum'
     )
 
@@ -207,6 +207,9 @@ def exporta_mosto_evo():
     dv1 = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros','ppl']].sum()
     for index in range(len(dv1)):
         dv1['ppl'].loc[index] = dv1['fob'].loc[index] / dv1['litros'].loc[index]  
+
+    for index in range(len(ppl)):
+        ppl['ppl'].loc[index] = ppl['fob'].loc[index] / ppl['litros'].loc[index]  
         
     if dv1.empty:
         st.warning("No se encontraron resultados con los filtros seleccionados.")
