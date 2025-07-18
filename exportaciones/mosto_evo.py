@@ -200,9 +200,9 @@ def exporta_mosto_evo():
           aggfunc='sum'
     )
     
-    #st.write(ppl)
-    #st.write(ppf)
-    #st.write(ppt)
+    st.write(ppl)
+    st.write(ppf)
+    st.write(ppt)
     litros.columns = litros.columns.droplevel(0)
     
        
@@ -216,13 +216,13 @@ def exporta_mosto_evo():
     litros  = litros.fillna('')
     #ppf.columns = ppf.columns.droplevel(0)
     #ppf = ppf.reset_index().rename_axis(None, axis=1)
-    ppf  = ppf.fillna('')    
+    #ppf  = ppf.fillna('')    
     #ppt.columns = ppt.columns.droplevel(0)
     #ppt = ppt.reset_index().rename_axis(None, axis=1)
-    ppt  = ppt.fillna('')  
+    #ppt  = ppt.fillna('')  
     ppt.columns = ppt.columns.droplevel(0)
     ppf.columns = ppf.columns.droplevel(0)
-    ppl.columns = ppl.columns.droplevel(0)
+    #ppl.columns = ppl.columns.droplevel(0)
 
 
     actual = dt.now().year -4 
