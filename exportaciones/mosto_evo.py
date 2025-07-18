@@ -199,6 +199,7 @@ def exporta_mosto_evo():
     ppl  = ppl.fillna('')
     fob  = fob.fillna('')
     litros  = litros.fillna('')
+    st.write(ppl)
 
    
 
