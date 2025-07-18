@@ -230,7 +230,7 @@ def exporta_mosto_evo():
     for index in range(len(dv1)):
         dv1['ppl'].loc[index] = dv1['fob'].loc[index] / dv1['litros'].loc[index]  
 
-    anio1 = str(ppl.columns[1])
+    anio1 = ppl.columns[1]
     anio2 = ppl.columns[2]
     anio3 = ppl.columns[3]
     anio4 = ppl.columns[4]   
@@ -238,7 +238,7 @@ def exporta_mosto_evo():
     st.write(str(anio1))
 
     for index in range(len(ppl)):
-        ppl[str(anio1)].loc[index] = ppf[str(anio1)].loc[index] / ppt[str(anio1)].loc[index]  
+        ppl[anio1].loc[index] = ppf[anio1].loc[index] / ppt[anio1].loc[index]  
         
     if dv1.empty:
         st.warning("No se encontraron resultados con los filtros seleccionados.")
