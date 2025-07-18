@@ -184,7 +184,7 @@ def exporta_mosto_evo():
     ppl = dv2.pivot_table(
           index='mes', 
           columns='anio',  
-          values=['ppl'],
+          values=['fob'/'litros'],
           aggfunc='sum'
     )
 
