@@ -182,7 +182,7 @@ def exporta_variedades():
             tot1.append((  (df_anual['fob'].loc[index] / totfob *100 )))
             tot2.append((  (df_anual['fob'].loc[index] / df_anual['litros'].loc[index]) )    )
         #st.write(total)
-    df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",})
+    df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",'variedad1': "Variedad"})
     df_anual['Part. % Litros'] = total
     df_anual['Part % Fob '] = tot1
     df_anual['Prec x Litro'] = tot2
