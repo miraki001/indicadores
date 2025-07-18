@@ -223,7 +223,8 @@ def exporta_mosto_evo():
     ppt.columns = ppt.columns.droplevel(0)
     ppf.columns = ppf.columns.droplevel(0)
     #ppl.columns = ppl.columns.droplevel(0)
-
+    ppf = ppf.reset_index().rename_axis(None, axis=1)
+    ppt = ppt.reset_index().rename_axis(None, axis=1)
 
     actual = dt.now().year -4 
     dv1 = df_filtered.groupby(['anio'], as_index=False)[['fob', 'litros','ppl']].sum()
