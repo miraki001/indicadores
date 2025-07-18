@@ -238,7 +238,7 @@ def exporta_mosto_evo():
     st.write(str(anio1))
 
     for index in range(len(ppl)):
-        ppl[anio1].loc[index] = ppf[anio1].loc[index] / ppt[anio1].loc[index]  
+        ppl[str(anio1)].loc[index] = ppf[str(anio1)].loc[index] / ppt[str(anio1)].loc[index]  
         
     if dv1.empty:
         st.warning("No se encontraron resultados con los filtros seleccionados.")
