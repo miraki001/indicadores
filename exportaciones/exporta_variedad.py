@@ -199,7 +199,7 @@ def exporta_variedades():
             "Part. % Litros": lambda x : '{:,.2f} %'.format(x),
             "Part % Fob": lambda x : '{:,.2f} %'.format(x),
             "Prec x Litro": lambda x : '{:,.2f}'.format(x),
-                                        }
+            "Variedad"                            }
             ,
             thousands='.',
             decimal=',',
