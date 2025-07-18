@@ -217,6 +217,7 @@ def exporta_variedades():
                 'Prec x Litro': st.column_config.Column('Prec x Litr'),
         
                 },
+                column_order = column_orders,
                 width = 800,   
                 height = 200,
                 hide_index=True)
