@@ -188,6 +188,7 @@ def exporta_variedades():
 
     
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
+    df_sorted = df_sorted.reset_index().rename_axis(None, axis=1)
 
     styled_df = df_sorted.style.format(
             {"Litros": lambda x : '{:,.0f}'.format(x), 
