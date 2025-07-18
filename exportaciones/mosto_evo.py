@@ -215,7 +215,7 @@ def exporta_mosto_evo():
     fob  = fob.fillna('')
     litros  = litros.fillna('')
     #ppf.columns = ppf.columns.droplevel(0)
-    ppf = ppf.reset_index().rename_axis(None, axis=1)
+    #ppf = ppf.reset_index().rename_axis(None, axis=1)
     ppf  = ppf.fillna('')    
     #ppt.columns = ppt.columns.droplevel(0)
     ppt = ppt.reset_index().rename_axis(None, axis=1)
