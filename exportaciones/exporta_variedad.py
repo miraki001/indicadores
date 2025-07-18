@@ -212,7 +212,7 @@ def exporta_variedades():
                 'Variedad': st.column_config.Column('Variedad'),
                 'Litros': st.column_config.Column('Litros'),
                 'Fob': st.column_config.Column('Fob'),
-                'Part. % Litros': st.column_config.Column('Part. % Litro'),
+                'Part. % Litros': st.column_config.Column('Part. % Litros'),
                 'Part % Fob': st.column_config.Column('Part % Fob'),
                 'Prec x Litro': st.column_config.Column('Prec x Litro'),
         
