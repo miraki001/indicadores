@@ -187,7 +187,7 @@ def exporta_mosto_evo():
           values=['fob','litros','ppl'],
           aggfunc='sum'
     )
-
+    st.wrtite(ppl) 
     litros.columns = litros.columns.droplevel(0)
     
        
