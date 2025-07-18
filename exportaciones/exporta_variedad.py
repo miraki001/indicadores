@@ -173,7 +173,7 @@ def exporta_variedades():
     #df_anual.columns = df_anual.columns.droplevel(0)
     #st.write(df_anual['litros'])
     st.write(df_anual)
-    df_anual = df_anual.reset_index().rename_axis(None, axis=1)
+    #df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     totlitros = df_anual['litros'].sum()
     totfob = df_anual['fob'].sum()
     for index in range(len(df_anual)):
