@@ -181,13 +181,26 @@ def exporta_mosto_evo():
           values=['fob'],
           aggfunc='sum'
     )
+    ppf = dv2.pivot_table(
+          index='mes', 
+          columns='anio',  
+          values=['fob'],
+          aggfunc='sum'
+    )
+    ppt = dv2.pivot_table(
+          index='mes', 
+          columns='anio',  
+          values=['litros'],
+          aggfunc='sum'
+    )
     ppl = dv2.pivot_table(
           index='mes', 
           columns='anio',  
-          values=['fob','litros','ppl'],
+          values=['ppl'],
           aggfunc='sum'
     )
-    st.write(ppl) 
+    
+    #st.write(ppl) 
     litros.columns = litros.columns.droplevel(0)
     
        
@@ -199,8 +212,7 @@ def exporta_mosto_evo():
     ppl  = ppl.fillna('')
     fob  = fob.fillna('')
     litros  = litros.fillna('')
-    st.write(ppl)
-
+    
    
 
 
@@ -210,7 +222,7 @@ def exporta_mosto_evo():
         dv1['ppl'].loc[index] = dv1['fob'].loc[index] / dv1['litros'].loc[index]  
 
     for index in range(len(ppl)):
-        ppl['ppl'].loc[index] = ppl['fob'].loc[index] / ppl['litros'].loc[index]  
+        ppl['ppl'].loc[index] = ppf['fob'].loc[index] / ppt['litros'].loc[index]  
         
     if dv1.empty:
         st.warning("No se encontraron resultados con los filtros seleccionados.")
