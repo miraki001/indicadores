@@ -185,7 +185,8 @@ def exporta_variedades():
     df_anual['Part. % Litros'] = total
     df_anual['Part % Fob '] = tot1
     df_anual['Prec x Litro'] = tot2
-    df_anual = df_anual.reset_index().rename_axis(None, axis=1)
+    #df_anual = df_anual.reset_index().rename_axis(None, axis=1)
+    st.write(df_anual)
 
     
     df_sorted = df_anual.sort_values(by='Fob', ascending=False)
