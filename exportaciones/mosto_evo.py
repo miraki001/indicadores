@@ -220,6 +220,9 @@ def exporta_mosto_evo():
     ppt.columns = ppt.columns.droplevel(0)
     ppt = ppt.reset_index().rename_axis(None, axis=1)
     ppt  = ppt.fillna('')   
+    ppt = ppt.reset_index()
+    ppl = ppl.reset_index()
+    ppf = ppf.reset_index()
 
 
     actual = dt.now().year -4 
