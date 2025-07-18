@@ -234,8 +234,8 @@ def exporta_mosto_evo():
     anio2 = ppl.columns[2]
     anio3 = ppl.columns[3]
     anio4 = ppl.columns[4]   
-    st.write(anio)
-    st.write(str(anio))
+    st.write(anio1)
+    st.write(str(anio1))
 
     for index in range(len(ppl)):
         ppl[anio1].loc[index] = ppf[anio1].loc[index] / ppt[anio1].loc[index]  
