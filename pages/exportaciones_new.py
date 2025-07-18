@@ -408,6 +408,8 @@ else:
 
     st_echarts(options=option, height="400px")
 
+
+    st.write(ppl)
     st.subheader("Exportaciones evolución precio promedio por litro ")
    
     #ppl["mes"] = ppl["mes"].astype(str)
