@@ -212,8 +212,12 @@ def exporta_mosto_evo():
     ppl  = ppl.fillna('')
     fob  = fob.fillna('')
     litros  = litros.fillna('')
-    
-   
+    ppf.columns = ppf.columns.droplevel(0)
+    ppf = ppf.reset_index().rename_axis(None, axis=1)
+    ppf  = ppf.fillna('')    
+    ppt.columns = ppt.columns.droplevel(0)
+    ppt = ppt.reset_index().rename_axis(None, axis=1)
+    ppt  = ppt.fillna('')   
 
 
     actual = dt.now().year -4 
