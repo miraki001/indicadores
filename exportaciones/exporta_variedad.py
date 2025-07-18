@@ -206,13 +206,13 @@ def exporta_variedades():
     )
 
     if st.checkbox('Ver tabla Exportaciones según la Variedad'):
-        column_orders =("Variedad", "Litros", "Fob", "Part. % Litro","Part % Fob'","Prec x Litro" )                      
+        column_orders =("Variedad", "Litros", "Fob", "Part. % Litros","Part % Fob'","Prec x Litro" )                      
         st.dataframe(styled_df,
               column_config={
                 'Variedad': st.column_config.Column('Variedad'),
                 'Litros': st.column_config.Column('Litros'),
                 'Fob': st.column_config.Column('Fob'),
-                'Part. % Litro': st.column_config.Column('Part. % Litro'),
+                'Part. % Litros': st.column_config.Column('Part. % Litro'),
                 'Part % Fob': st.column_config.Column('Part % Fob'),
                 'Prec x Litro': st.column_config.Column('Prec x Litro'),
         
