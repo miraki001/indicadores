@@ -230,7 +230,7 @@ def exporta_mosto_evo():
     for index in range(len(dv1)):
         dv1['ppl'].loc[index] = dv1['fob'].loc[index] / dv1['litros'].loc[index]  
 
-    anio1 = ppl.columns[1]
+    anio1 = str(ppl.columns[1])
     anio2 = ppl.columns[2]
     anio3 = ppl.columns[3]
     anio4 = ppl.columns[4]    
