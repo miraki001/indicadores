@@ -200,9 +200,9 @@ def exporta_mosto_evo():
           aggfunc='sum'
     )
     
-    st.write(ppl)
-    st.write(ppf)
-    st.write(ppt)
+    #st.write(ppl)
+    #st.write(ppf)
+    #st.write(ppt)
     litros.columns = litros.columns.droplevel(0)
     
        
@@ -233,7 +233,9 @@ def exporta_mosto_evo():
     anio1 = str(ppl.columns[1])
     anio2 = ppl.columns[2]
     anio3 = ppl.columns[3]
-    anio4 = ppl.columns[4]    
+    anio4 = ppl.columns[4]   
+    st.write(anio)
+    st.write(str(anio))
 
     for index in range(len(ppl)):
         ppl[anio1].loc[index] = ppf[anio1].loc[index] / ppt[anio1].loc[index]  
