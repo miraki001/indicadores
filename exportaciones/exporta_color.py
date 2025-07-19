@@ -550,5 +550,5 @@ def exporta_color():
        parents='tipo_envase',
       values='litros',
     )
-    fig1.show()
+    #fig1.show()
     st.plotly_chart(fig1, theme="streamlit")
