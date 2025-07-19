@@ -544,11 +544,8 @@ def exporta_color():
                       #color_continuous_midpoint=np.average(df['litros'], weights=df['litros'])
 		      )
     st.plotly_chart(fig, theme="streamlit")
-    fig1 = px.sunburst(
-       df,
-       names='color',
-       parents='tipo_envase',
-      values='litros',
-    )
-    #fig1.show()
+    fig1 = px.sunburst(df, path=['color', 'tipo_envase', 'grupoenvase'], values='pop',
+                  color='lifeExp', hover_data=['iso_alpha'],
+                  color_continuous_scale='RdBu',
+                  color_continuous_midpoint=np.average(df['litros'], weights=df['grupoenvase']))
     st.plotly_chart(fig1, theme="streamlit")
