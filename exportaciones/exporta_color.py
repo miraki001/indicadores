@@ -546,8 +546,9 @@ def exporta_color():
     st.plotly_chart(fig, theme="streamlit")
     df["litros"] = df["litros"].astype(int)	
     fig1 = px.sunburst(df, path=['color', 'tipo_envase', 'grupoenvase'], values='litros',
+		  width = 1500, height =1000,     
                   color='litros', hover_data=['grupoenvase'],
                   color_continuous_scale='RdBu',)
                   #color_continuous_midpoint=np.average(df['litros'], weights=df['grupoenvase']))
-    fig1.update_layout(uniformtext=dict(minsize=20, mode='hide'))	
+    fig1.update_layout(uniformtext=dict(minsize=10, mode='hide'))	
     st.plotly_chart(fig1, theme="streamlit")
