@@ -184,7 +184,7 @@ def exporta_variedades():
         #st.write(total)
     df_anual = df_anual.rename(columns={'litros': "Litros", 'fob': "Fob",'variedad1': "Variedad"})
     df_anual['Part. % Litros'] = total
-    df_anual['Part % Fob '] = tot1
+    df_anual['Part % Fob'] = tot1
     df_anual['Prec x Litro'] = tot2
     #df_anual = df_anual.reset_index().rename_axis(None, axis=1)
     st.write(df_anual)
