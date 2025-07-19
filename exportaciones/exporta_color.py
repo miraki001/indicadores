@@ -538,6 +538,7 @@ def exporta_color():
     #event = st.plotly_chart(fig, key="iris22")
     st.write('3')	
     fig = px.sunburst(df, path=['color','tipo_envase', 'grupoenvase'], values='litros',
+		      width = 1000, height =1000, 
                       #color=['color','tipo_envase']
 		      hover_data=['grupoenvase'],
                       color_continuous_scale='RdBu',
