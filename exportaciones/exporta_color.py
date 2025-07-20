@@ -548,7 +548,7 @@ def exporta_color():
     df["litros"] = df["litros"].astype(int)
     cat_colors={}
     for i, color in enumerate(df["color"].unique()):
-       cat_colors[continent] = px.colors.qualitative.Dark2[i]
+       cat_colors[color] = px.colors.qualitative.Dark2[i]
     fig1 = px.sunburst(df, path=['color', 'tipo_envase', 'grupoenvase'], values='litros',
 		  width = 1500, height =1000,
 		  color_discrete_map=cat_colors,
