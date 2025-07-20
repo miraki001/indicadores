@@ -547,12 +547,12 @@ def exporta_color():
     st.plotly_chart(fig, theme="streamlit")
     df["litros"] = df["litros"].astype(int)
     cat_colors={}
-    for i, color in enumerate(df["color"].unique()):
-       cat_colors[color] = px.colors.qualitative.Dark2[i]
+    for i, tipo_envase in enumerate(df["tipo_envase"].unique()):
+       cat_colors[tipo_envase] = px.colors.qualitative.Dark2[i]
     fig1 = px.sunburst(df, path=['color', 'tipo_envase', 'grupoenvase'], values='litros',
 		  width = 1500, height =1000,
 		  color_discrete_map=cat_colors,
-                  color='color',
+                  color='tipo_envase',
                   #color='litros', 
 		  hover_data=['grupoenvase'],)
                   #color_continuous_scale='RdBu',)
