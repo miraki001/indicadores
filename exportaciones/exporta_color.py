@@ -554,7 +554,7 @@ def exporta_color():
 		  color_discrete_map=cat_colors,
                   color='color',
                   #color='litros', 
-		  hover_data=['grupoenvase'],
+		  hover_data=['grupoenvase'],)
                   #color_continuous_scale='RdBu',)
                   #color_continuous_midpoint=np.average(df['litros'], weights=df['grupoenvase']))
     fig1.update_layout(uniformtext=dict(minsize=10, mode='hide'))	
