@@ -545,11 +545,17 @@ def exporta_color():
                       #color_continuous_midpoint=np.average(df['litros'], weights=df['litros'])
 		      )
     st.plotly_chart(fig, theme="streamlit")
-    df["litros"] = df["litros"].astype(int)	
+    df["litros"] = df["litros"].astype(int)
+    cat_colors={}
+    for i, tipo_envase in enumerate(df["tipo_envase"].unique()):
+       cat_colors[continent] = px.colors.qualitative.Dark2[i]
     fig1 = px.sunburst(df, path=['color', 'tipo_envase', 'grupoenvase'], values='litros',
-		  width = 1500, height =1000,     
-                  color='litros', hover_data=['grupoenvase'],
-                  color_continuous_scale='RdBu',)
+		  width = 1500, height =1000,
+		  color_discrete_map=cat_colors,
+                  color='CONTINENT',
+                  #color='litros', 
+		  hover_data=['grupoenvase'],
+                  #color_continuous_scale='RdBu',)
                   #color_continuous_midpoint=np.average(df['litros'], weights=df['grupoenvase']))
     fig1.update_layout(uniformtext=dict(minsize=10, mode='hide'))	
     st.plotly_chart(fig1, theme="streamlit")
