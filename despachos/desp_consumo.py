@@ -252,7 +252,8 @@ def despachos_consumo():
                       color_continuous_midpoint=np.average(dft['valor'], weights=dft['valor']))
     st.plotly_chart(fig, theme="streamlit")    
     
-    st.write("
+    st.write(
+        """
              Scentia releva información sobre venta en volumen y facturación de vinos fraccionados en hipermercados, supermercados, autoservicios, drugstore y kioscos de todo el país. Su muestra equivale aproximadamente al 40% del total de despachos de vino en volumen al mercado interno de la Argentina.
         
-    ")
+    """)
