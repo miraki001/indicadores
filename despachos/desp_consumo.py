@@ -99,6 +99,7 @@ def despachos_consumo():
     #dv1['anio'] = dv1['anio'].astype(str)
 
     dv2 = cargar_datos(QUERY_V2)
+    st.write(dv2)
     
     QUERY_V3 = f"""
         SELECT anio,mes,canal,"CERVEZAS","VINOS_COMUNES","VINOS_FINOS","APERITIVOS_ALC","APERITIVOS_RTD","ESPUMANTES","FRIZANTES","SIDRAS_Y_SABORES","VINOS_FORTIFICADOS" 
