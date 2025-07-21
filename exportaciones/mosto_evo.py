@@ -200,9 +200,9 @@ def exporta_mosto_evo():
           aggfunc='sum'
     )
     
-    st.write(ppl)
-    st.write(ppf)
-    st.write(ppt)
+    #st.write(ppl)
+    #st.write(ppf)
+    #st.write(ppt)
     litros.columns = litros.columns.droplevel(0)
     
        
