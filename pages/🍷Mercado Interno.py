@@ -37,6 +37,9 @@ def _format_with_thousands_commas(val):
 
 def _format_as_percentage(val, prec=0): 
   return f'{val:.{prec}%}' 
+
+def imprimir1():
+    print
   
 def imprimir():  
     show_print_button = """
@@ -218,7 +221,7 @@ with tab1:
             st.caption("Selecciona uno o más Colores de la lista")
             color = st.multiselect("colord",  color_list, default=["Todos"],label_visibility="collapsed")      
     with col8:          
-        st.button(" ", icon=":material/print:", on_click=print ,use_container_width=True)
+        st.button(" ", icon=":material/print:", on_click=imprimi1 ,use_container_width=True)
 
         #show_print_button ="""
         #  <script>
