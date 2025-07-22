@@ -218,7 +218,7 @@ with tab1:
             st.caption("Selecciona uno o más Colores de la lista")
             color = st.multiselect("colord",  color_list, default=["Todos"],label_visibility="collapsed")      
     with col8:          
-        st.button(" ", icon=":material/print:", on_click=imprimir ,use_container_width=True)
+        st.button(" ", icon=":material/print:", on_click=print() ,use_container_width=True)
 
         #show_print_button ="""
         #  <script>
