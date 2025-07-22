@@ -39,7 +39,9 @@ def _format_as_percentage(val, prec=0):
   return f'{val:.{prec}%}' 
 
 def imprimir1():
-    print
+    add_keyboard_shortcuts({
+      'Ctrl+P'
+    })
   
 def imprimir():  
     show_print_button = """
