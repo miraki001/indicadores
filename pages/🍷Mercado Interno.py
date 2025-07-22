@@ -43,7 +43,7 @@ st.markdown(
     </div>
 """,
     unsafe_allow_html=True,
-
+)
 
 conn = st.connection("postgresql", type="sql")
 
