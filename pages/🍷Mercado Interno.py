@@ -22,6 +22,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit.components.v1 as components
 from fpdf import FPDF
+from base64 import b64encode
 
 
 st.set_page_config(initial_sidebar_state="collapsed",
@@ -60,6 +61,14 @@ def _format_as_percentage(val, prec=0):
 
 def imprimir1():
   st.write()
+
+
+def gen_pdf():
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Helvetica", size=24)
+    pdf.cell(txt="hello world")
+    return bytes(pdf.output())
   
 def imprimir():  
     show_print_button = """
@@ -547,6 +556,18 @@ with tab1:
     </button>
     """
   components.html(show_print_button)  
+
+base64_pdf = b64encode(gen_pdf()).decode("utf-8")
+pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="400" type="application/pdf">'
+st.markdown(pdf_display, unsafe_allow_html=True)
+
+# Add a download button:
+st.download_button(
+    label="Download PDF",
+    data=gen_pdf(),
+    file_name="file_name.pdf",
+    mime="application/pdf",
+)
 
 with tab2:    
     desp_prov.despachos_prov(df_filtros,dv1)
