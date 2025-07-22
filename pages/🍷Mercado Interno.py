@@ -21,10 +21,28 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit.components.v1 as components
-import pyautogui
+
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
+
+
+
+
+st.markdown(
+    """
+    <style type="text/css" media="print">
+    div.page-break
+    {
+        page-break-after: always;
+        page-break-inside: avoid;
+    }
+    </style>
+    <div class="page-break">
+        <!-- Content goes here -->
+    </div>
+""",
+    unsafe_allow_html=True,
 
 
 conn = st.connection("postgresql", type="sql")
@@ -40,7 +58,7 @@ def _format_as_percentage(val, prec=0):
   return f'{val:.{prec}%}' 
 
 def imprimir1():
-  pyautogui.hotkey("ctrl", "P")
+  st.write()
   
 def imprimir():  
     show_print_button = """
