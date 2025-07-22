@@ -21,6 +21,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit.components.v1 as components
+import pyautogui
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -39,9 +40,7 @@ def _format_as_percentage(val, prec=0):
   return f'{val:.{prec}%}' 
 
 def imprimir1():
-    add_keyboard_shortcuts({
-      'Ctrl+P'
-    })
+  pyautogui.hotkey("ctrl", "P")
   
 def imprimir():  
     show_print_button = """
@@ -223,7 +222,7 @@ with tab1:
             st.caption("Selecciona uno o más Colores de la lista")
             color = st.multiselect("colord",  color_list, default=["Todos"],label_visibility="collapsed")      
     with col8:          
-        st.button(" ", icon=":material/print:", keybinding="CTRL+P", on_click=imprimir1 ,use_container_width=True)
+        st.button(" ", icon=":material/print:", on_click=imprimir1 ,use_container_width=True)
 
         #show_print_button ="""
         #  <script>
