@@ -68,7 +68,7 @@ def gen_pdf():
     pdf.add_page()
     pdf.set_font("Helvetica", size=24)
     pdf.cell(200, 10, txt="Plant Disease Detection Report", ln=True, align="C")
-    pdf.cell(1,1 ,txt="hello world")
+    pdf.cell(1,12 ,txt="hello world")
     #return bytes(pdf.output())
     return pdf
   
@@ -558,6 +558,9 @@ with tab1:
     </button>
     """
   components.html(show_print_button)  
+
+
+st.print(sidebar=False, printer=“PDF”).
 
 #base64_pdf = b64encode(gen_pdf()).decode("latin-1")
 pdf_report = gen_pdf()
