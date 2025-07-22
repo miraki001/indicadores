@@ -559,7 +559,7 @@ with tab1:
   components.html(show_print_button)  
 
 #base64_pdf = b64encode(gen_pdf()).decode("latin-1")
-pdf_report = create_pdf(uploaded_image, predicted_class_name)
+pdf_report = gen_pdf()
         
         # Generate a download link for the PDF
 pdf_bytes = pdf_report.output(dest="S").encode("latin-1")
