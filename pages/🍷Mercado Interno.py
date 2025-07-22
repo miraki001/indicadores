@@ -38,7 +38,7 @@ def _format_with_thousands_commas(val):
 def _format_as_percentage(val, prec=0): 
   return f'{val:.{prec}%}' 
   
-def imprimir:  
+def imprimir():  
     show_print_button = """
           <script>
             function print_page(obj) {
