@@ -564,7 +564,7 @@ pdf_report = gen_pdf()
         
         # Generate a download link for the PDF
 pdf_bytes = pdf_report.output(dest="S").encode("latin-1")
-b64 = base64.b64encode(pdf_bytes).decode()
+b64 = b64encode.b64encode(pdf_bytes).decode()
 href = f'<a href="data:application/octet-stream;base64,{b64}" download="plant_disease_report.pdf">Download Report</a>'
 st.markdown(href, unsafe_allow_html=True)
 #pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="400" type="application/pdf">'
