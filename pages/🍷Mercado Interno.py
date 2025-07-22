@@ -207,6 +207,7 @@ with tab1:
             st.caption("Selecciona uno o más Colores de la lista")
             color = st.multiselect("colord",  color_list, default=["Todos"],label_visibility="collapsed")      
     with col8:          
+        st.button(" ", icon=":material/print:", use_container_width=True):
 
         #show_print_button ="""
         #  <script>
@@ -220,7 +221,7 @@ with tab1:
         #  </button>
         #"""
         #components.html(show_print_button)       
-        if st.button(" ", icon=":material/print:", use_container_width=True):
+        #if st.button(" ", icon=":material/print:", use_container_width=True):
 
   Filtro = 'Filtro = Año = '
   Filtro = Filtro +  ' Todos '
