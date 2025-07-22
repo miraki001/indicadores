@@ -37,6 +37,17 @@ def _format_with_thousands_commas(val):
 
 def _format_as_percentage(val, prec=0): 
   return f'{val:.{prec}%}' 
+  
+def imprimir:  
+    show_print_button = """
+          <script>
+            function print_page(obj) {
+                obj.style.display = "none";
+                parent.window.print();
+            }
+          </script>
+    """
+    components.html(show_print_button) 
 
 @st.cache_data
 def cargar_datos(consulta):
