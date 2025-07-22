@@ -69,7 +69,8 @@ def gen_pdf():
     pdf.set_font("Helvetica", size=24)
     pdf.cell(200, 10, txt="Plant Disease Detection Report", ln=True, align="C")
     pdf.cell(1,1 ,txt="hello world")
-    return bytes(pdf.output())
+    #return bytes(pdf.output())
+    return pdf
   
 def imprimir():  
     show_print_button = """
