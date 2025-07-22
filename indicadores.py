@@ -30,30 +30,30 @@ st.title("Indicadores")
 hide_streamlit_style = """
                 <style>
                 div[data-testid="stToolbar"] {
-                visibility: hidden;
+#                visibility: hidden;
                 height: 0%;
                 position: fixed;
                 }
                 div[data-testid="stDecoration"] {
-                visibility: hidden;
+#                visibility: hidden;
                 height: 0%;
                 position: fixed;
                 }
                 div[data-testid="stStatusWidget"] {
-                visibility: hidden;
+#                visibility: hidden;
                 height: 0%;
                 position: fixed;
                 }
                 #MainMenu {
-                visibility: hidden;
+#                visibility: hidden;
                 height: 0%;
                 }
                 header {
-                visibility: hidden;
+#                visibility: hidden;
                 height: 0%;
                 }
                 footer {
-                visibility: hidden;
+#                visibility: hidden;
                 height: 0%;
                 }
                 </style>
@@ -66,7 +66,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 hide_streamlit_style = """
             <style>
                 
-                header {visibility: hidden;}
+#                header {visibility: hidden;}
                 footer {visibility: hidden;} 
                 .streamlit-footer {display: none;}
                 
@@ -76,7 +76,7 @@ hide_streamlit_style = """
 
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-st.markdown(""" <style> #MainMenu {visibility: hidden;} footer {visibility: hidden;} </style> """, unsafe_allow_html=True)
+#st.markdown(""" <style> #MainMenu {visibility: hidden;} footer {visibility: hidden;} </style> """, unsafe_allow_html=True)
 
 tab1, tab2, tab3 = st.tabs(["Exportaciones", "Mercado Interno", "Cosecha y Superficie"])
 
