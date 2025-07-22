@@ -22,7 +22,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit.components.v1 as components
 from fpdf import FPDF
-from base64 import b64encode
+import base64
 
 
 st.set_page_config(initial_sidebar_state="collapsed",
