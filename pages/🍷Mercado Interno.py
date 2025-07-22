@@ -558,7 +558,7 @@ with tab1:
     """
   components.html(show_print_button)  
 
-base64_pdf = b64encode(gen_pdf()).decode()
+base64_pdf = b64encode(gen_pdf()).decode("latin-1")
 pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="400" type="application/pdf">'
 st.markdown(pdf_display, unsafe_allow_html=True)
 
