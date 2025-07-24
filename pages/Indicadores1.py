@@ -23,6 +23,7 @@ from kpi import ind_exportaciones
 from kpi import ind_superficie
 from kpi import indica1
 from kpi import indica2
+from kpi import complejo
 from streamlit_extras.metric_cards import style_metric_cards 
 from streamlit_product_card import product_card 
 import pages as pg
@@ -641,3 +642,5 @@ with tab5:
   indica1.indica1(dv1) 
 with tab6:
   indica2.indica2(dv1) 
+with tab7:
+  complejo.complejo(dvex,dv1,dfsup,dfcos) 
