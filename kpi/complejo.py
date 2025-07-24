@@ -45,7 +45,7 @@ def complejo(dvex,dvdes,dvsup,dvcos):
 
   dvex1 = dvex.groupby(['anio'], as_index=False)[['litros']].sum()
   litros = dvex['litros']
-  st.write(litros)
+  st.write(dvex1)
   kg = litros *1.33
   ha = kg/rend
   ap = pd.DataFrame([{'tipo': 'Exportaciones', 'cnt': litros, 'kg': kg,'ha': ha}])
