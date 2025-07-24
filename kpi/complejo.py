@@ -34,5 +34,28 @@ def complejo(dvex,dvdes,dvsup,dvcos):
   anterior = maxanio -1  
   dres = pd.DataFrame(columns=['tipo','cnt','litros','kg','ha'])
   dvex = dvex[dvex['anio'] == anterior]  
+  dvdes = dvdes[dvdes['anio'] == anterior]  
+  dvcos = dvcos[dvcos['anio'] == anterior]  
+  dvsup = dvsup[dvsup['anio'] == anterior]  
+  dvcos1 = dvcos.groupby(['anio'], as_index=False)[['peso']].sum()
+  cosecha = dvcos1['peso']
+  dvsup1 = dvsup.groupby(['anio'], as_index=False)[['sup']].sum()
+  sup = dvsup1['sup']
+  rend = cosecha/sup
+
   dvex1 = dvex.groupby(['anio'], as_index=False)[['litros']].sum()
-  st.write(dvex1)
+  litros = dvex['litros']
+  kg = litros *1.33
+  ha = kg/rend
+  ap = pd.DataFrame([{'tipo': 'Exportaciones', 'cnt': litros, 'kg': kg,'ha': ha}])
+  dres = pd.concat([dres,ap])    
+  
+  dvdes1 = dvdes.groupby(['anio'], as_index=False)[['litros']].sum()
+  litros = dvex['litros']
+  kg = litros *1.33
+  ha = kg/rend
+  ap = pd.DataFrame([{'tipo': 'Exportaciones', 'cnt': litros, 'kg': kg,'ha': ha}])
+  dres = pd.concat([dres,ap])    
+  
+
+  st.write(dres)
