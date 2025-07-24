@@ -177,7 +177,7 @@ def mosto_exportaciones_filtros():
 def mosto_registro_anual():
     conn = get_connection()
     query =  f"""
-        SELECT anio, cantlitros/743.5 AS litros,cntlitros, valorfobsolo AS fob, 1 AS ppl, pais,variedad1,tipo_envase ,codigoproducto as producto
+        SELECT anio, cantlitros/743.5 AS litros,cantlitros, valorfobsolo AS fob, 1 AS ppl, pais,variedad1,tipo_envase ,codigoproducto as producto
         FROM exportaciones2_m 
         WHERE producto = 'Mosto' and codigoproducto like '%CONCENTRADO%'
         ORDER BY anio 
@@ -195,7 +195,7 @@ def mosto_registro_anual():
 def mosto_registro_mensual(anio):     
     #conn = get_connection()
     query =  f"""
-        SELECT anio, mes,mes ||' '|| mess as mes1, cantlitros/743.5 AS litros,cntlitros, valorfobsolo AS fob,1 AS ppl,pais
+        SELECT anio, mes,mes ||' '|| mess as mes1, cantlitros/743.5 AS litros,cantlitros, valorfobsolo AS fob,1 AS ppl,pais
         FROM exportaciones2_m 
         WHERE producto = 'Mosto' and codigoproducto like '%CONCENTRADO%'
         and anio > {anio}
