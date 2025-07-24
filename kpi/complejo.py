@@ -81,7 +81,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   dvsec = dvcos[dvcos['destino'] == 'Secado']
   dvsec = dvsec.groupby(['anio'], as_index=False)[['peso']].sum()
-  kg = max(dvfes['peso'])
+  kg = max(dvsec['peso'])
   ha = kg/rend
   ap = pd.DataFrame([{'tipo': 'Pasas', 'cnt': kg,'litros': 0 , 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
