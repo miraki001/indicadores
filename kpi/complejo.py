@@ -56,6 +56,7 @@ def complejo(dvex,dvdes,dvsup,dvcos):
   
   dvdes1 = dvdes.groupby(['anio'], as_index=False)[['litros']].sum()
   litros = max(dvdes1['litros'])
+  litros = litros * 100
   kg = litros *1.33
   ha = kg/rend
   ap = pd.DataFrame([{'tipo': 'Despachos', 'cnt': litros,'litros': litros, 'kg': kg,'ha': ha}])
