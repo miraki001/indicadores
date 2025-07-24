@@ -41,7 +41,7 @@ def complejo(dvex,dvdes,dvsup,dvcos):
   cosecha = max(dvcos1['peso'])
   dvsup1 = dvsup.groupby(['anio'], as_index=False)[['sup']].sum()
   sup = max(dvsup1['sup'])
-  rend = cosecha/sup
+  rend = max((cosecha/sup ) * 100)
   st.write(rend)
   st.write(cosecha)
 
