@@ -42,6 +42,7 @@ def complejo(dvex,dvdes,dvsup,dvcos):
   dvsup1 = dvsup.groupby(['anio'], as_index=False)[['sup']].sum()
   sup = max(dvsup1['sup'])
   rend = cosecha/sup
+  st.write(rend)
 
   dvex1 = dvex.groupby(['anio'], as_index=False)[['litros']].sum()
   litros = max(dvex1['litros'])
