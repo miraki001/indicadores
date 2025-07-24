@@ -30,7 +30,7 @@ def complejo(dvex,dvdes,dvsup,dvcos):
   st.markdown(streamlit_style, unsafe_allow_html=True) 
 
     
-  maxanio = max(dva['anio'])
+  maxanio = max(dvex['anio'])
   anterior = maxanio -1  
   dres = pd.DataFrame(columns=['tipo','cnt','litros','kg','ha'])
   dvex = dvex[dvex['anio'] == anterior]  
