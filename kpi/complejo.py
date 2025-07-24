@@ -65,7 +65,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   
   dvmo = dvmosto.groupby(['anio'], as_index=False)[['litros']].sum()
   litros = max(dvex1['litros'])
-  cnt = max(litros/734.5)
+  cnt = float(litros/734.5)
   #st.write(dvex1)
   kg = litros *1.33
   ha = kg/rend
