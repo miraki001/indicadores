@@ -64,7 +64,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   dres = pd.concat([dres,ap])    
   
   dvmo = dvmosto.groupby(['anio'], as_index=False)[['litros']].sum()
-  litros = max(dvex1['litros'])
+  litros = max(dvmo['litros'])
   cnt = float(litros/734.5)
   #st.write(dvex1)
   kg = litros *1.33
