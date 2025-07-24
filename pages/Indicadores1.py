@@ -407,6 +407,7 @@ with tab1:
    with colm[0]:
       # mosto en toneladas
       dv2 = mosto_registro_mensual(anterior -2)
+      dvmosto =dv2
       #st.write(dv2)
       #st.write(max(dvo['mes']))
       #echarts_module.gauge(1500)
@@ -643,4 +644,4 @@ with tab5:
 with tab6:
   indica2.indica2(dv1) 
 with tab7:
-  complejo.complejo(dvex,dv1,dfsup,dfcos) 
+  complejo.complejo(dvex,dv1,dfsup,dfcos,dvmosto) 
