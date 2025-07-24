@@ -72,7 +72,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   ap = pd.DataFrame([{'tipo': 'Mosto', 'cnt': cnt,'litros': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
 
-  dvfes = dvcos[dvcos['destinouva'] == 'Consumo']
+  dvfes = dvcos[dvcos['destino'] == 'Consumo']
   dvfes = dvfes.groupby(['anio'], as_index=False)[['peso']].sum()
   kg = max(dvfes['peso'])
   ha = kg/rend
