@@ -78,5 +78,13 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   ha = kg/rend
   ap = pd.DataFrame([{'tipo': 'Consumo en Fresco', 'cnt': kg,'litros': 0 , 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
+
+  dvsec = dvcos[dvcos['destino'] == 'Secado']
+  dvsec = dvsec.groupby(['anio'], as_index=False)[['peso']].sum()
+  kg = max(dvfes['peso'])
+  ha = kg/rend
+  ap = pd.DataFrame([{'tipo': 'Pasas', 'cnt': kg,'litros': 0 , 'kg': kg,'ha': ha}])
+  dres = pd.concat([dres,ap])    
+
   
   st.write(dres)
