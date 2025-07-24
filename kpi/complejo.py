@@ -44,18 +44,18 @@ def complejo(dvex,dvdes,dvsup,dvcos):
   rend = cosecha/sup
 
   dvex1 = dvex.groupby(['anio'], as_index=False)[['litros']].sum()
-  litros = dvex['litros']
-  st.write(dvex1)
+  litros = dvex1['litros']
+  #st.write(dvex1)
   kg = litros *1.33
   ha = kg/rend
   ap = pd.DataFrame([{'tipo': 'Exportaciones', 'cnt': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
   
   dvdes1 = dvdes.groupby(['anio'], as_index=False)[['litros']].sum()
-  litros = dvex['litros']
+  litros = dvdes1['litros']
   kg = litros *1.33
   ha = kg/rend
-  ap = pd.DataFrame([{'tipo': 'Exportaciones', 'cnt': litros, 'kg': kg,'ha': ha}])
+  ap = pd.DataFrame([{'tipo': 'Despachos', 'cnt': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
   
 
