@@ -85,6 +85,8 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   ha = kg/rend
   ap = pd.DataFrame([{'tipo': 'Pasas', 'cnt': kg,'litros': 0 , 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
+  dres['kg'].astype(int)
+  dres['ha'].astype(int)
 
   
   st.write(dres)
