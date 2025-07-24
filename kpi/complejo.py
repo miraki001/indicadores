@@ -20,7 +20,7 @@ from script.exportaciones import mosto_registro_mensual
 
 
 
-def complejo(dvex,dvdes,dvsup,dvcos):
+def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   streamlit_style = """
     <style>
@@ -37,6 +37,7 @@ def complejo(dvex,dvdes,dvsup,dvcos):
   dvdes = dvdes[dvdes['anio'] == anterior]  
   dvcos = dvcos[dvcos['anio'] == anterior]  
   dvsup = dvsup[dvsup['anio'] == anterior]  
+  dvmosto = dvmosto[dvmosto['anio'] == anterior]  
   dvcos1 = dvcos.groupby(['anio'], as_index=False)[['peso']].sum()
   cosecha = max(dvcos1['peso'])
   dvsup1 = dvsup.groupby(['anio'], as_index=False)[['sup']].sum()
@@ -62,5 +63,13 @@ def complejo(dvex,dvdes,dvsup,dvcos):
   ap = pd.DataFrame([{'tipo': 'Despachos', 'cnt': litros,'litros': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
   
+  dvmo = dvmosto.groupby(['anio'], as_index=False)[['litros']].sum()
+  litros = max(dvex1['litros'])
+  cnt = max(litros/734.5)
+  #st.write(dvex1)
+  kg = litros *1.33
+  ha = kg/rend
+  ap = pd.DataFrame([{'tipo': 'Mosto', 'cnt': cnt,'litros': litros, 'kg': kg,'ha': ha}])
+  dres = pd.concat([dres,ap])    
 
   st.write(dres)
