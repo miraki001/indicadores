@@ -58,8 +58,8 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   dvdes1 = dvdes.groupby(['anio'], as_index=False)[['litros']].sum()
   litros = max(dvdes1['litros'])
   litros = litros * 100
-  kg = litros *1.33
-  ha = kg/rend
+  kg = int(litros *1.33)
+  ha = int(kg/rend)
   ap = pd.DataFrame([{'tipo': 'Despachos', 'cnt': litros,'litros': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
   
@@ -67,26 +67,26 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   litros = max(dvmo['cantlitros'])
   cnt = float(litros/734.5)
   #st.write(dvex1)
-  kg = litros *1.33
-  ha = kg/rend
+  kg = int(litros *1.33)
+  ha = int(kg/rend)
   ap = pd.DataFrame([{'tipo': 'Mosto', 'cnt': cnt,'litros': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
 
   dvfes = dvcos[dvcos['destino'] == 'Consumo']
   dvfes = dvfes.groupby(['anio'], as_index=False)[['peso']].sum()
-  kg = max(dvfes['peso'])
-  ha = kg/rend
+  kg = int(max(dvfes['peso']))
+  ha = int(kg/rend)
   ap = pd.DataFrame([{'tipo': 'Consumo en Fresco', 'cnt': kg,'litros': 0 , 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
 
   dvsec = dvcos[dvcos['destino'] == 'Secado']
   dvsec = dvsec.groupby(['anio'], as_index=False)[['peso']].sum()
-  kg = max(dvsec['peso'])
-  ha = kg/rend
+  kg = int(max(dvsec['peso']))
+  ha = int(kg/rend)
   ap = pd.DataFrame([{'tipo': 'Pasas', 'cnt': kg,'litros': 0 , 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
-  dres['kg'].astype(int)
-  dres['ha'].astype(int)
+  #dres['kg'].astype(int)
+  #dres['ha'].astype(int)
 
   
   st.write(dres)
