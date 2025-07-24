@@ -63,7 +63,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   ap = pd.DataFrame([{'tipo': 'Despachos', 'cnt': litros,'litros': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
   
-  dvmo = dvmosto.groupby(['anio'], as_index=False)[['litros']].sum()
+  dvmo = dvmosto.groupby(['anio'], as_index=False)[['cantlitros']].sum()
   litros = max(dvmo['litros'])
   cnt = float(litros/734.5)
   #st.write(dvex1)
