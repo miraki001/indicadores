@@ -38,9 +38,9 @@ def complejo(dvex,dvdes,dvsup,dvcos):
   dvcos = dvcos[dvcos['anio'] == anterior]  
   dvsup = dvsup[dvsup['anio'] == anterior]  
   dvcos1 = dvcos.groupby(['anio'], as_index=False)[['peso']].sum()
-  cosecha = dvcos1['peso']
+  cosecha = max(dvcos1['peso'])
   dvsup1 = dvsup.groupby(['anio'], as_index=False)[['sup']].sum()
-  sup = dvsup1['sup']
+  sup = max(dvsup1['sup'])
   rend = cosecha/sup
 
   dvex1 = dvex.groupby(['anio'], as_index=False)[['litros']].sum()
