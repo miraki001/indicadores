@@ -221,6 +221,13 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "emphasis": {"focus": "series"},
                 "data": [hap],
             },
+            {
+                "name": "Superficie total",
+                "type": "bar",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": [sup],
+            },          
         ],
     }
   st_echarts(options=options, height="500px")
