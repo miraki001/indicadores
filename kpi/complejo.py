@@ -93,6 +93,9 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   dvex1 = dres['litros'] 
   dres1 = dres.drop('cnt', axis=1)
   dex =  dres1[dres1['tipo'] == 'Exportaciones']  
+  dex = dex.drop('tipo', axis=1)
+
+  json_list = json.loads(json.dumps(list(dex.T.to_dict().values()))) 
   st.write(dex)
 
   options = {
@@ -113,7 +116,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": dex.tolist(),
+                "data": json_list,
             },
             {
                 "name": "Despachos",
