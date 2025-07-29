@@ -90,6 +90,8 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   
   st.write(dres)
+  dvex1 = dres[dres['tipo'] == 'Exportaciones']
+  st.write(dvex1)
 
   options = {
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
@@ -100,7 +102,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
         "xAxis": {"type": "value"},
         "yAxis": {
             "type": "category",
-            "data": ["Exportaciones", "Despachos", "Mosto", "Consumo en Fresco", "Pasas"],
+            "data": ["Litros", "Kg", "Ha"],
         },
         "series": [
             {
@@ -109,7 +111,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [100],
+                "data": dvex1,
             },
             {
                 "name": "Despachos",
