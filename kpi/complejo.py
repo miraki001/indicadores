@@ -90,7 +90,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   
   st.write(dres)
-  dvex1 = dres[dres['tipo'] == 'Exportaciones']
+  dvex1 = dres['litros'] 
   st.write(dvex1)
 
   options = {
