@@ -83,7 +83,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   dvfes = dvcos[dvcos['destino'] == 'Consumo']
   dvfes = dvfes.groupby(['anio'], as_index=False)[['peso']].sum()
-  kg = int(max(dvfes['peso']))
+  kg = int(max(dvfes['peso']) * 100)
   kgf = kg
   ha = int(kg/rend)
   haf = ha
@@ -92,7 +92,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   dvsec = dvcos[dvcos['destino'] == 'Secado']
   dvsec = dvsec.groupby(['anio'], as_index=False)[['peso']].sum()
-  kg = int(max(dvsec['peso']))
+  kg = int(max(dvsec['peso']) * 100)
   kgp = kg
   ha = int(kg/rend)
   hap = ha
