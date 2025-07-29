@@ -96,7 +96,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   options = {
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
         "legend": {
-            "data": ["Exportaciones", "Despachos", "Affiliate Ad", "Video Ad", "Search Engine"]
+            "data": ["Exportaciones", "Despachos", "Mosto", "Consumo en Fresco", "Pasas"]
         },
         "grid": {"left": "3%", "right": "4%", "bottom": "3%", "containLabel": True},
         "xAxis": {"type": "value"},
