@@ -91,7 +91,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   
   st.write(dres)
   dvex1 = dres['litros'] 
-  st.write(dvex1)
+  st.write(dvex1['litros'])
 
   options = {
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
