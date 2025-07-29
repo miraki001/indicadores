@@ -111,7 +111,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": dres["litros"].tolist(),
+                "data": dvex1["litros"].tolist(),
             },
             {
                 "name": "Despachos",
