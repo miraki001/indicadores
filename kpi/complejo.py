@@ -49,9 +49,12 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   dvex1 = dvex.groupby(['anio'], as_index=False)[['litros']].sum()
   litros = max(dvex1['litros'])
+  le = litros
   #st.write(dvex1)
   kg = int(litros *1.33)
+  kge = kg
   ha = int(kg/rend)
+  hae = ha
   ap = pd.DataFrame([{'tipo': 'Exportaciones', 'cnt': litros,'litros': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
   
@@ -118,7 +121,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": pp,
+                "data": le,kge,hae,
             },
             {
                 "name": "Despachos",
