@@ -90,3 +90,60 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   
   st.write(dres)
+
+  options = {
+        "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+        "legend": {
+            "data": ["Direct", "Mail Ad", "Affiliate Ad", "Video Ad", "Search Engine"]
+        },
+        "grid": {"left": "3%", "right": "4%", "bottom": "3%", "containLabel": True},
+        "xAxis": {"type": "value"},
+        "yAxis": {
+            "type": "category",
+            "data": ["Exportaciones", "Despachos", "Mosto", "Consumo en Fresco", "Pasas"],
+        },
+        "series": [
+            {
+                "name": "Exportaciones",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": 100,
+            },
+            {
+                "name": "Despachos",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": 120,
+            },
+            {
+                "name": "Mosto",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": 200,
+            },
+            {
+                "name": "Consumo en Fresco",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": 200,
+            },
+            {
+                "name": "Pasas",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": 40,
+            },
+        ],
+    }
+    st_echarts(options=options, height="500px")
+
