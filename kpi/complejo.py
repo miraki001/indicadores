@@ -122,7 +122,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
         "xAxis": {"type": "value"},
         "yAxis": {
             "type": "category",
-            "data": ["Litros", "Kg", "Ha"],
+            "data": ["Litros", "Kg"],
         },
         "series": [
             {
@@ -131,7 +131,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [le,kge,hae],
+                "data": [le,kge],
             },
             {
                 "name": "Despachos",
@@ -139,7 +139,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [ld,kgd,had],
+                "data": [ld,kgd],
             },
             {
                 "name": "Mosto",
@@ -147,7 +147,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [lm,kgm,ham],
+                "data": [lm,kgm],
             },
             {
                 "name": "Consumo en Fresco",
@@ -155,7 +155,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [0,kgf,haf],
+                "data": [0,kgf],
             },
             {
                 "name": "Pasas",
@@ -163,9 +163,66 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [0,kgp,hap],
+                "data": [0,kgp],
             },
         ],
     }
   st_echarts(options=options, height="500px")
+
+  options = {
+        "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+        "legend": {
+            "data": ["Exportaciones", "Despachos", "Mosto", "Consumo en Fresco", "Pasas"]
+        },
+        "grid": {"left": "3%", "right": "4%", "bottom": "3%", "containLabel": True},
+        "xAxis": {"type": "value"},
+        "yAxis": {
+            "type": "category",
+            "data": ["Ha"],
+        },
+        "series": [
+            {
+                "name": "Exportaciones",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": [hae],
+            },
+            {
+                "name": "Despachos",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": [had],
+            },
+            {
+                "name": "Mosto",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": [ham],
+            },
+            {
+                "name": "Consumo en Fresco",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": [haf],
+            },
+            {
+                "name": "Pasas",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": [hap],
+            },
+        ],
+    }
+  st_echarts(options=options, height="500px")
+
 
