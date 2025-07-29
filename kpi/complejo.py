@@ -91,12 +91,12 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   
   st.write(dres)
   dvex1 = dres['litros'] 
-  st.write(dvex1['litros'])
+  #st.write(dvex1['litros'])
 
   options = {
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
         "legend": {
-            "data": ["Direct", "Mail Ad", "Affiliate Ad", "Video Ad", "Search Engine"]
+            "data": ["Exportaciones", "Despachos", "Affiliate Ad", "Video Ad", "Search Engine"]
         },
         "grid": {"left": "3%", "right": "4%", "bottom": "3%", "containLabel": True},
         "xAxis": {"type": "value"},
@@ -106,12 +106,12 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
         },
         "series": [
             {
-                "name": "Exportaciones",
+                "name": "Litros",
                 "type": "bar",
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": dvex1["litros"].tolist(),
+                "data": dres["litros"].tolist(),
             },
             {
                 "name": "Despachos",
