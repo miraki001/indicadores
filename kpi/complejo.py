@@ -97,7 +97,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   #json_list = json.loads(json.dumps(list(dex.T.to_dict().values()))) 
   st.write(dex)
-  pp = json.dump(dex)
+  pp =  dex.to_json()
   st.write(pp)
 
   options = {
