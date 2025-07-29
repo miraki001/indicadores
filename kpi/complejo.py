@@ -97,6 +97,8 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
 
   #json_list = json.loads(json.dumps(list(dex.T.to_dict().values()))) 
   st.write(dex)
+  pp = json.dump(dex)
+  st.write(pp)
 
   options = {
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
@@ -116,7 +118,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": dex,
+                "data": pp,
             },
             {
                 "name": "Despachos",
