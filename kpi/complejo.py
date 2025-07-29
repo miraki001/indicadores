@@ -117,7 +117,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": 120,
+                "data": [120],
             },
             {
                 "name": "Mosto",
@@ -125,7 +125,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": 200,
+                "data": [200],
             },
             {
                 "name": "Consumo en Fresco",
