@@ -109,7 +109,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": 100,
+                "data": [100],
             },
             {
                 "name": "Despachos",
