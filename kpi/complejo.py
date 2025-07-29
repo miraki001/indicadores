@@ -126,7 +126,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": dres["kg"].tolist(),
+                "data": [kg,ha],
             },
             {
                 "name": "Mosto",
