@@ -106,7 +106,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
         },
         "series": [
             {
-                "name": "Litros",
+                "name": "Exportaciones",
                 "type": "bar",
                 "stack": "total",
                 "label": {"show": True},
