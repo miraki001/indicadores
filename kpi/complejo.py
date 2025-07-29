@@ -227,7 +227,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [sup - (hae+had+haf+ham+hap],
+                "data": [sup - (hae+had+haf+ham+hap)],
             },          
             {
                 "name": "Superficie total",
