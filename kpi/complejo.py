@@ -119,7 +119,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [120],
+                "data": dres["kg"].tolist(),
             },
             {
                 "name": "Mosto",
@@ -127,7 +127,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [200],
+                "data": dres["ha"].tolist(),
             },
             {
                 "name": "Consumo en Fresco",
