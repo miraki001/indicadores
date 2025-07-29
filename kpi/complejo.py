@@ -222,6 +222,14 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "data": [hap],
             },
             {
+                "name": "Diferencia",
+                "type": "bar",
+                "stack": "total",
+                "label": {"show": True},
+                "emphasis": {"focus": "series"},
+                "data": [sup - (hae+had+haf+ham+hap],
+            },          
+            {
                 "name": "Superficie total",
                 "type": "bar",
                 "label": {"show": True},
