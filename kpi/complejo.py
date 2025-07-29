@@ -61,31 +61,41 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   dvdes1 = dvdes.groupby(['anio'], as_index=False)[['litros']].sum()
   litros = max(dvdes1['litros'])
   litros = litros * 100
+  ld = litros
   kg = int(litros *1.33)
+  kgd = kg
   ha = int(kg/rend)
+  had = ha
   ap = pd.DataFrame([{'tipo': 'Despachos', 'cnt': litros,'litros': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
   
   dvmo = dvmosto.groupby(['anio'], as_index=False)[['cantlitros']].sum()
   litros = max(dvmo['cantlitros'])
+  lm = litros
   cnt = float(litros/734.5)
   #st.write(dvex1)
   kg = int(litros *1.33)
+  kgm = kg
   ha = int(kg/rend)
+  ham = ha
   ap = pd.DataFrame([{'tipo': 'Mosto', 'cnt': cnt,'litros': litros, 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
 
   dvfes = dvcos[dvcos['destino'] == 'Consumo']
   dvfes = dvfes.groupby(['anio'], as_index=False)[['peso']].sum()
   kg = int(max(dvfes['peso']))
+  kgf = kg
   ha = int(kg/rend)
+  haf = ha
   ap = pd.DataFrame([{'tipo': 'Consumo en Fresco', 'cnt': kg,'litros': 0 , 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
 
   dvsec = dvcos[dvcos['destino'] == 'Secado']
   dvsec = dvsec.groupby(['anio'], as_index=False)[['peso']].sum()
   kg = int(max(dvsec['peso']))
+  kgp = kg
   ha = int(kg/rend)
+  hap = ha
   ap = pd.DataFrame([{'tipo': 'Pasas', 'cnt': kg,'litros': 0 , 'kg': kg,'ha': ha}])
   dres = pd.concat([dres,ap])    
   #dres['kg'].astype(int)
@@ -99,9 +109,9 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
   dex = dex.drop('tipo', axis=1)
 
   #json_list = json.loads(json.dumps(list(dex.T.to_dict().values()))) 
-  st.write(dex)
-  pp =  dex.to_dict('list')
-  st.write(pp)
+  #st.write(dex)
+  #pp =  dex.to_dict('list')
+  #st.write(pp)
 
   options = {
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
@@ -129,7 +139,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": [kg,ha],
+                "data": [ld,kgd,had],
             },
             {
                 "name": "Mosto",
@@ -137,7 +147,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": dres["ha"].tolist(),
+                "data": [lm,kgm,ham],
             },
             {
                 "name": "Consumo en Fresco",
@@ -145,7 +155,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": 200,
+                "data": [0,kgf,haf],
             },
             {
                 "name": "Pasas",
@@ -153,7 +163,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": 40,
+                "data": [0,kgp,hap],
             },
         ],
     }
