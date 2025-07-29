@@ -145,5 +145,5 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
             },
         ],
     }
-    st_echarts(options=options, height="500px")
+  st_echarts(options=options, height="500px")
 
