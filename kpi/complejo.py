@@ -113,7 +113,7 @@ def complejo(dvex,dvdes,dvsup,dvcos,dvmosto):
                 "stack": "total",
                 "label": {"show": True},
                 "emphasis": {"focus": "series"},
-                "data": dex[].tolist(),
+                "data": dex.tolist(),
             },
             {
                 "name": "Despachos",
