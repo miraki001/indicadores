@@ -265,6 +265,28 @@ def despachos_consumo():
     litros2 = litros2.astype({'ppl Vinos Fort.': int})
     litros2 = litros2.astype({'ppl Sidras y Sab.': int})
     if st.checkbox('Ver precios promedio por litros en forma de tabla'):
+
+        column_orders =("Periodo", "ppl Vinos Comunes", "ppl Vinos Finos","ppl Cervezas","ppl RTD","ppl Espumantes","ppl Aperitivos Alc.","ppl Vinos Fort." ,"ppl Sidras y Sab.")
+        st.dataframe(styled_df,
+              column_config={
+                'Periodo': st.column_config.Column('Periodo'),
+                'ppl Vinos Comunes': st.column_config.Column('ppl Vinos Comunes'),
+                'ppl Vinos Finos': st.column_config.Column('ppl Vinos Finos'),
+                'ppl Cervezas': st.column_config.Column('ppl Cervezas'),
+                'ppl RTD': st.column_config.Column('ppl RTD'),
+                'ppl Espumantes': st.column_config.Column('ppl Espumantes'),
+                'ppl Aperitivos Alc.': st.column_config.Column('ppl Aperitivos Alc.'),
+                'ppl Vinos Fort.': st.column_config.Column('ppl Vinos Fort.'),
+                'ppl Sidras y Sab.': st.column_config.Column('ppl Sidras y Sab.'),
+        
+                },
+                column_order = column_orders,                     
+                width = 600,   
+                height = 800,
+                hide_index=True)
+
+
+        
        st.write(litros2)
     
     #pesos['VINOS_COMUNES'] = litros2['VINOS_COMUNES']/litros['VINOS_COMUNES']
