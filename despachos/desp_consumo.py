@@ -268,6 +268,32 @@ def despachos_consumo():
     
     #pesos['VINOS_COMUNES'] = litros2['VINOS_COMUNES']/litros['VINOS_COMUNES']
     #st.write(pesos)
+
+
+    option = {
+        "tooltip": {
+            "trigger": 'axis',
+            "axisPointer": { "type": 'cross' }
+        },
+        "legend": {},    
+        "xAxis": {
+            "type": "category",
+            "data": litros2['periodo'].to_list(),
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": litros2['ppl Vinos Comunes'].to_list(), "type": "line", "name": 'Vinos Comunes'}
+                   ,{"data": litros2['ppl Vinos Finos'].to_list(), "type": "line","name":'Vinos Finos'}
+                   ,{"data": litros2['ppl Cervezas'].to_list(), "type": "line","name":'Cervezas'} 
+                   ,{"data": litros2['ppl RTD'].to_list(), "type": "line","name":'Ape. RTD'} 
+                   ,{"data": litros2['ppl Espumantes'].to_list(), "type": "line","name":'Espumantes'} 
+                   ,{"data": litros2['ppl Aperitivos Alc.'].to_list(), "type": "line","name":'Ape. Alc'} 
+                   ,{"data": litros2['ppl Vinos Fort.'].to_list(), "type": "line","name":'Vinos Fort.'} 
+                   ,{"data": litros2['ppl Sidras y Sab.'].to_list(), "type": "line","name":'Sidras'} ],
+    }
+    st_echarts(
+        options=option, height="400px",
+    )
+
     
     
     dv3 = dv3.set_index(["anio","mes","canal"])
