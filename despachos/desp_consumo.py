@@ -230,6 +230,18 @@ def despachos_consumo():
         options=option, height="400px",
     )
 
+
+    valvc = []
+    valvf = []
+    for index in range(len(litros2)):
+       valvc.append(  (litros2['VINOS_COMUNES'].loc[index] / litros['VINOS_COMUNES'].loc[index ]) )
+       valvf.append(  (litros2['VINOS_FINOS'].loc[index] / litros['VINOS_FINOS'].loc[index ])  )
+    litros2['ppl Vinos Comunes'] = valvc
+    litros2['ppl Vinos Finos'] = valvf
+    litros2 = litros2.astype({'ppl Vinos Comunes': int} )
+    litros2 = litros2.astype({'ppl Vinos Finos': int} )
+    st.write(litros2)
+    
     pesos['VINOS_COMUNES'] = litros2['VINOS_COMUNES']/litros['VINOS_COMUNES']
     st.write(pesos)
     
