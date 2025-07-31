@@ -242,8 +242,8 @@ def despachos_consumo():
     litros2 = litros2.astype({'ppl Vinos Finos': int} )
     st.write(litros2)
     
-    pesos['VINOS_COMUNES'] = litros2['VINOS_COMUNES']/litros['VINOS_COMUNES']
-    st.write(pesos)
+    #pesos['VINOS_COMUNES'] = litros2['VINOS_COMUNES']/litros['VINOS_COMUNES']
+    #st.write(pesos)
     
     
     dv3 = dv3.set_index(["anio","mes","canal"])
