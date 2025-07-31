@@ -230,6 +230,10 @@ def despachos_consumo():
         options=option, height="400px",
     )
 
+    pesos['VINOS_COMUNES'] = litros2['VINOS_COMUNES']/litros['VINOS_COMUNES']
+    st.write(pesos)
+    
+    
     dv3 = dv3.set_index(["anio","mes","canal"])
     dv3 = dv3.reset_index().rename_axis(None, axis=1)  
     #st.write(dv3)
