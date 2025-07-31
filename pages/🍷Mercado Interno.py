@@ -560,7 +560,7 @@ with tab1:
   components.html(show_print_button)  
 
 
-st.print(sidebar=False, printer="PDF")
+#st.print(sidebar=False, printer="PDF")
 
 #base64_pdf = b64encode(gen_pdf()).decode("latin-1")
 pdf_report = gen_pdf()
