@@ -264,7 +264,8 @@ def despachos_consumo():
     litros2 = litros2.astype({'ppl Aperitivos Alc.': int})
     litros2 = litros2.astype({'ppl Vinos Fort.': int})
     litros2 = litros2.astype({'ppl Sidras y Sab.': int})
-    st.write(litros2)
+    if st.checkbox('Ver precios promedio por litros en forma de tabla'):
+       st.write(litros2)
     
     #pesos['VINOS_COMUNES'] = litros2['VINOS_COMUNES']/litros['VINOS_COMUNES']
     #st.write(pesos)
@@ -310,16 +311,16 @@ def despachos_consumo():
     acu2 = 0
     acu3 = 0
     acu4 = 0
-    st.write(dv1)
+    #st.write(dv1)
     dft = dv1.melt(id_vars=['anio','mes','periodo','canal'], var_name='producto', value_name='litros')
-    st.write(dv2)
+    #st.write(dv2)
     fig = px.sunburst(dft, path=['anio', 'producto'], values='litros',
                       color='producto', hover_data=['anio'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(dft['litros'], weights=dft['litros']))
     st.plotly_chart(fig, theme="streamlit")    
     dft = dv2.melt(id_vars=['anio','mes','periodo','canal'], var_name='producto', value_name='valores')
-    st.write(dft)    
+    #st.write(dft)    
     st.write(
         """
              Scentia releva información sobre venta en volumen y facturación de vinos fraccionados en hipermercados, supermercados, autoservicios, drugstore y kioscos de todo el país. Su muestra equivale aproximadamente al 40% del total de despachos de vino en volumen al mercado interno de la Argentina.
