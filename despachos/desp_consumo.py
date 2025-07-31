@@ -233,13 +233,37 @@ def despachos_consumo():
 
     valvc = []
     valvf = []
+    valc = []
+    valrtd = []
+    vales = []
+    valap = []
+    valf = []
+    vals = []
     for index in range(len(litros2)):
        valvc.append(  (litros2['VINOS_COMUNES'].loc[index] / litros['VINOS_COMUNES'].loc[index ]) )
        valvf.append(  (litros2['VINOS_FINOS'].loc[index] / litros['VINOS_FINOS'].loc[index ])  )
+       valc.append(  (litros2['CERVEZAS'].loc[index] / litros['CERVEZAS'].loc[index ])  )
+       valrtd.append(  (litros2['APERITIVOS_RTD'].loc[index] / litros['APERITIVOS_RTD'].loc[index ])  )
+       vales.append(  (litros2['ESPUMANTES'].loc[index] / litros['ESPUMANTES'].loc[index ])  )
+       valap.append(  (litros2['APERITIVOS_ALC'].loc[index] / litros['APERITIVOS_ALC'].loc[index ])  )
+       valf.append(  (litros2['VINOS_FORTIFICADOS'].loc[index] / litros['VINOS_FORTIFICADOS'].loc[index ])  )
+       vals.append(  (litros2['SIDRAS_Y_SABORES'].loc[index] / litros['SIDRAS_Y_SABORES'].loc[index ])  )
     litros2['ppl Vinos Comunes'] = valvc
     litros2['ppl Vinos Finos'] = valvf
+    litros2['ppl Cervezas'] = valc
+    litros2['ppl RTD'] = valrtd
+    litros2['ppl Espumantes'] = vales
+    litros2['ppl Aperitivos Alc.'] = valap
+    litros2['ppl Vinos Fort.'] = valf
+    litros2['ppl Sidras y Sab.'] = vals
     litros2 = litros2.astype({'ppl Vinos Comunes': int} )
     litros2 = litros2.astype({'ppl Vinos Finos': int} )
+    litros2 = litros2.astype({'ppl Cervezas': int})
+    litros2 = litros2.astype({'ppl RTD': int})
+    litros2 = litros2.astype({'ppl Espumantes': int})
+    litros2 = litros2.astype({'ppl Aperitivos Alc.': int})
+    litros2 = litros2.astype({'ppl Vinos Fort.': int})
+    litros2 = litros2.astype({'ppl Sidras y Sab.': int})
     st.write(litros2)
     
     #pesos['VINOS_COMUNES'] = litros2['VINOS_COMUNES']/litros['VINOS_COMUNES']
