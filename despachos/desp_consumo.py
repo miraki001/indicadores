@@ -287,7 +287,7 @@ def despachos_consumo():
 
 
         
-       st.write(litros2)
+        st.write(litros2)
     
     #pesos['VINOS_COMUNES'] = litros2['VINOS_COMUNES']/litros['VINOS_COMUNES']
     #st.write(pesos)
