@@ -266,7 +266,7 @@ def despachos_consumo():
     litros2 = litros2.astype({'ppl Sidras y Sab.': int})
     if st.checkbox('Ver precios promedio por litros en forma de tabla'):
 
-        styled_df = litros2.style.applymap(bgcolor_positive_or_negative, subset=['Litros Var %']).format(
+        styled_df = litros2.style.applymap(bgcolor_positive_or_negative, subset=['ppl RTD']).format(
             {"ppl Vinos Comunes": lambda x : '{:,.0f}'.format(x), 
             "ppl Vinos Finos": lambda x : '{:,.0f}'.format(x),
                                         }
