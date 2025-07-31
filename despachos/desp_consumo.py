@@ -291,7 +291,7 @@ def despachos_consumo():
         
                 },
                 column_order = column_orders,                     
-                width = 600,   
+                width = 10000,   
                 height = 800,
                 hide_index=True)
 
