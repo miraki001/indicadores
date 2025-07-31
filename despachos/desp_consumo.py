@@ -276,10 +276,10 @@ def despachos_consumo():
             decimal=',',
         )        
 
-        column_orders =("Periodo", "ppl Vinos Comunes", "ppl Vinos Finos","ppl Cervezas","ppl RTD","ppl Espumantes","ppl Aperitivos Alc.","ppl Vinos Fort." ,"ppl Sidras y Sab.")
+        column_orders =("periodo", "ppl Vinos Comunes", "ppl Vinos Finos","ppl Cervezas","ppl RTD","ppl Espumantes","ppl Aperitivos Alc.","ppl Vinos Fort." ,"ppl Sidras y Sab.")
         st.dataframe(styled_df,
               column_config={
-                'Periodo': st.column_config.Column('Periodo'),
+                'periodo': st.column_config.Column('periodo'),
                 'ppl Vinos Comunes': st.column_config.Column('ppl Vinos Comunes'),
                 'ppl Vinos Finos': st.column_config.Column('ppl Vinos Finos'),
                 'ppl Cervezas': st.column_config.Column('ppl Cervezas'),
