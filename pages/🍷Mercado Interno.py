@@ -574,13 +574,14 @@ st.markdown(href, unsafe_allow_html=True)
 #st.markdown(pdf_display, unsafe_allow_html=True)
 
 # Add a download button:
+"""
 st.download_button(
     label="Download PDF",
     data=gen_pdf(),
     file_name="file_name.pdf",
     mime="application/pdf",
 )
-
+"""
 with tab2:    
     desp_prov.despachos_prov(df_filtros,dv1)
 with tab3:    
