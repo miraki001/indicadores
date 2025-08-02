@@ -93,7 +93,7 @@ st.markdown(streamlit_style, unsafe_allow_html=True)
 
 conn = st.connection("postgresql", type="sql")
 
-@st.cache_data
+#@st.cache_data
 def buscar_cnt():
   with conn.session as session:
     buscar = "select count(fecha) as cnt from visitas "
