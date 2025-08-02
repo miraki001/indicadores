@@ -110,6 +110,7 @@ def ingresar():
         actualiza = "INSERT INTO visitas( fecha, cnt) "
         actualiza = actualiza + "VALUES (current_date,:cnt);"
         session.execute(text(actualiza), {"cnt": 1})
+        st.write('ingresar')
         session.commit()
 def actualizar():    
       with conn.session as session:
