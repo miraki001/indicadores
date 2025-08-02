@@ -153,6 +153,7 @@ def format_number(num):
     return f'{num // 1000} K'
 
 encontrada = buscar_cnt()
+st.write(encontrada)
 if encontrada == 0:
   ingresar()
 else:
