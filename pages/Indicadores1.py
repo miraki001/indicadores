@@ -115,7 +115,7 @@ def actualizar():
       with conn.session as session:
         actualiza = "update visitas "
         actualiza = actualiza + "set cnt = cnt + :cnt "
-        actualiza = actualiza + " WHERE fechar= current_date;"  
+        actualiza = actualiza + " WHERE fecha = current_date;"  
         session.execute(text(actualiza), {"cnt": 1})
         session.commit()
 
