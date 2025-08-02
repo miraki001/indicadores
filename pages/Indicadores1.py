@@ -110,7 +110,7 @@ def ingresar():
         actualiza = "INSERT INTO visitas( fecha, cnt) "
         actualiza = actualiza + "VALUES (current_date,:cnt);"
         session.execute(text(actualiza), {"cnt": 1})
-        st.write('ingresar')
+        st.write('ingresar commit')
         session.commit()
 def actualizar():    
       with conn.session as session:
@@ -156,6 +156,7 @@ def format_number(num):
 encontrada = buscar_cnt()
 st.write(encontrada)
 if encontrada == 0:
+  st.write('ingresar antes')
   ingresar()
 else:
   actualizar()
