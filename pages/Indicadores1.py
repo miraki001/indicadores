@@ -95,7 +95,7 @@ conn = st.connection("postgresql", type="sql")
 @st.cache_data
 def buscar_cnt():
   with conn.session as session:
-    buscar = "select count(nuri) as cnt from visitas "
+    buscar = "select count(fecha) as cnt from visitas "
     buscar = buscar  + " where fecha = current_date;  " 
     df2 = conn.query(buscar, ttl="0",),
     st.write(df2)
