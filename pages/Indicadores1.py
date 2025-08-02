@@ -98,8 +98,9 @@ def buscar_cnt():
   with conn.session as session:
     buscar = "select count(fecha) as cnt from visitas "
     buscar = buscar  + " where fecha = current_date;  " 
-    df2 = conn.query(buscar, ttl="0",),
+    df2 = conn.query(buscar, ttl="0"),
     st.write(df2)
+    st.write('despues')
     #vcnt = df2['cnt']
     #st.write(vcnt)
     cnt = df2[0].to_string(columns=['cnt'], header=False, index=False)
