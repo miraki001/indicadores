@@ -93,18 +93,18 @@ st.markdown(streamlit_style, unsafe_allow_html=True)
 
 conn = st.connection("postgresql", type="sql")
 
-#@st.cache_data
+@st.cache_data
 def buscar_cnt():
   with conn.session as session:
     buscar = "select count(fecha) as cnt from visitas "
     buscar = buscar  + " where fecha = current_date;  " 
     df2 = conn.query(buscar, ttl="0"),
-    st.write(df2)
-    st.write('despues')
+    #st.write(df2)
+    #st.write('despues')
     #vcnt = df2['cnt']
     #st.write(vcnt)
     cnt = df2[0].to_string(columns=['cnt'], header=False, index=False)
-    st.write(cnt)
+    #st.write(cnt)
     return cnt
 def ingresar():
       with conn.session as session:
@@ -155,10 +155,10 @@ def format_number(num):
     return f'{num // 1000} K'
 
 encontrada = buscar_cnt()
-st.write('el valor encontrado')
-st.write(encontrada)
+#st.write('el valor encontrado')
+#st.write(encontrada)
 if int(encontrada) == 0:
-  st.write('ingresar antes')
+  #st.write('ingresar antes')
   ingresar()
 else:
   actualizar()
