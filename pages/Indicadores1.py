@@ -90,6 +90,34 @@ streamlit_style = """
     """
 st.markdown(streamlit_style, unsafe_allow_html=True) 
 
+conn = st.connection("postgresql", type="sql")
+
+@st.cache_data
+def buscar_cnt():
+  with conn.session as session:
+    buscar = "select count(nuri) as cnt from visitas "
+    buscar = buscar  + " where fecha = current_date;  " 
+    df2 = conn.query(buscar, ttl="0",),
+    st.write(df2)
+    #vcnt = df2['cnt']
+    #st.write(vcnt)
+    cnt = df2[0].to_string(columns=['cnt'], header=False, index=False)
+    st.write(cnt)
+    return cnt
+def ingresar():
+      with conn.session as session:
+        actualiza = "INSERT INTO visitas( fecha, cnt) "
+        actualiza = actualiza + "VALUES (current_date,:cnt);"
+        session.execute(text(actualiza), {"cnt": 1})
+        session.commit()
+def actualizar():    
+      with conn.session as session:
+        actualiza = "update visitas "
+        actualiza = actualiza + "set cnt = cnt + :cnt ;"
+        actualiza = actualiza + " WHERE fechar= current_date"  
+        session.execute(text(actualiza), {"cnt": 1})
+        session.commit()
+
 def _format_with_thousands_commas(val): 
   val = round(val,0)
   return f'{val:.12n}' 
@@ -123,7 +151,12 @@ def format_number(num):
         return f'{round(num / 1000000, 1)} M'
     return f'{num // 1000} K'
 
-
+encontrada = buscar_cnt()
+if encontrada == 0:
+  ingresar()
+else:
+  actualizar()
+  
 hide_streamlit_style = """
                 <style>
                 div[data-testid="stToolbar"] {
