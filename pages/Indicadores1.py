@@ -28,6 +28,8 @@ from streamlit_extras.metric_cards import style_metric_cards
 from streamlit_product_card import product_card 
 import pages as pg
 from sqlalchemy import text
+from streamlit import runtime
+from streamlit.runtime.scriptrunner import get_script_run_ctx
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -83,6 +85,24 @@ st.markdown("""
 #locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
 locale.setlocale(locale.LC_ALL, "es_ES.UTF-8")
 
+def get_remote_ip() -> str:
+    """Get remote ip."""
+
+    try:
+        ctx = get_script_run_ctx()
+        if ctx is None:
+            return None
+
+        session_info = runtime.get_instance().get_client(ctx.session_id)
+        if session_info is None:
+            return None
+    except Exception as e:
+        return None
+
+    return session_info.request.remote_ip
+  
+st.title("Title")
+st.markdown(f"The remote ip is {get_remote_ip()}")
 
 streamlit_style = """
     <style>
