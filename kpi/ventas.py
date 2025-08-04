@@ -106,14 +106,16 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 dv1 = pd.read_parquet("data/processed/ventas.parquet", engine="pyarrow")
 actual = dt.now().year  
 anterior = dt.now().year -1  
-dv1
+dva = dv1[dv1['tipo'] == 'Nuevos' ]
+dva = dva[dva['anio'] == actual ]
+st.write(dva)
 
-df = df.reset_index().rename_axis(None, axis=1)
-df = df.rename(columns={'litros': "Hl", 'subgrupoenvase': "Envase",'color': "color"})  
-df = df.astype({'Hl': int } )      
+dva = dva.reset_index().rename_axis(None, axis=1)
+#df = df.rename(columns={'litros': "Hl", 'subgrupoenvase': "Envase",'color': "color"})  
+#df = df.astype({'Hl': int } )      
 
-fig = px.sunburst(df, path=['color', 'Envase'], values='Hl',
-                      color='Envase', hover_data=['color'],
+fig = px.sunburst(dva, path=['SUCURSAL_VTA', 'MARCA'], values='CNT',
+                      color='MARCA', hover_data=['SUCURSAL_VTA'],
                       color_continuous_scale='RdBu',
-                      color_continuous_midpoint=np.average(df['index'], weights=df['Hl']))
+                      color_continuous_midpoint=np.average(dva['index'], weights=dva['CNT']))
 st.plotly_chart(fig,key="indica5", theme="streamlit")	
