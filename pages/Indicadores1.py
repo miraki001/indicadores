@@ -112,9 +112,9 @@ pp = st.context.ip_address
 client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
 st.write(pp) 
 st.write(client_ip)
-with geoip2.database.Reader('/path/to/GeoLite2-City.mmdb') as reader:
-  response = reader.city(client_ip)
-  st.write(response)
+
+lat, lon = get_location()
+st.write(lat)
 
 streamlit_style = """
     <style>
