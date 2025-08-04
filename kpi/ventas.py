@@ -26,8 +26,8 @@ def ventas():
    dv1 = pd.read_parquet("data/processed/ventas.parquet", engine="pyarrow")
    actual = dt.now().year  
    anterior = dt.now().year -1  
-   dva = dv1[dv1['tipo'] == 'Nuevos' ]
-   dva = dva[dva['anio'] == actual ]
+   dva = dv1[dv1['TIPO'] == 'Nuevos' ]
+   dva = dva[dva['ANIO'] == actual ]
    st.write(dva)
 
    dva = dva.reset_index().rename_axis(None, axis=1)
