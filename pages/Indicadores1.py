@@ -31,7 +31,7 @@ from sqlalchemy import text
 from streamlit import runtime
 from streamlit.runtime.scriptrunner import get_script_run_ctx
 from streamlit_javascript import st_javascript
-import geoip2.webservice
+import geoip2.database
 
 
 st.set_page_config(initial_sidebar_state="collapsed",
