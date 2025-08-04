@@ -21,101 +21,21 @@ from sqlalchemy import text
 from streamlit import runtime
 
 
-st.set_page_config(initial_sidebar_state="collapsed",
-                  layout="wide",menu_items=None)
+def ventas():
 
+   dv1 = pd.read_parquet("data/processed/ventas.parquet", engine="pyarrow")
+   actual = dt.now().year  
+   anterior = dt.now().year -1  
+   dva = dv1[dv1['tipo'] == 'Nuevos' ]
+   dva = dva[dva['anio'] == actual ]
+   st.write(dva)
 
-hide_streamlit_style = """
-                <style>
-                div[data-testid="stToolbar"] {
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-                div[data-testid="stDecoration"] {
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-                div[data-testid="stStatusWidget"] {
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-                #MainMenu {
-                visibility: hidden;
-                height: 0%;
-                }
-                header {
-                visibility: hidden;
-                height: 0%;
-                }
-                footer {
-                visibility: hidden;
-                height: 0%;
-                }
-                </style>
-                """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+   dva = dva.reset_index().rename_axis(None, axis=1)
+   #df = df.rename(columns={'litros': "Hl", 'subgrupoenvase': "Envase",'color': "color"})  
+   #df = df.astype({'Hl': int } )      
 
-st.markdown("""
-        <style>
-               .block-container {
-                    padding-top: 1rem;
-                    padding-bottom: 0rem;
-                    padding-left: 1rem;
-                    padding-right: 1rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
-
-  
-hide_streamlit_style = """
-                <style>
-                div[data-testid="stToolbar"] {
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-                div[data-testid="stDecoration"] {
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-                div[data-testid="stStatusWidget"] {
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-                #MainMenu {
-                visibility: hidden;
-                height: 0%;
-                }
-                header {
-                visibility: hidden;
-                height: 0%;
-                }
-                footer {
-                visibility: hidden;
-                height: 0%;
-                }
-                </style>
-                """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-dv1 = pd.read_parquet("data/processed/ventas.parquet", engine="pyarrow")
-actual = dt.now().year  
-anterior = dt.now().year -1  
-dva = dv1[dv1['tipo'] == 'Nuevos' ]
-dva = dva[dva['anio'] == actual ]
-st.write(dva)
-
-dva = dva.reset_index().rename_axis(None, axis=1)
-#df = df.rename(columns={'litros': "Hl", 'subgrupoenvase': "Envase",'color': "color"})  
-#df = df.astype({'Hl': int } )      
-
-fig = px.sunburst(dva, path=['SUCURSAL_VTA', 'MARCA'], values='CNT',
+   fig = px.sunburst(dva, path=['SUCURSAL_VTA', 'MARCA'], values='CNT',
                       color='MARCA', hover_data=['SUCURSAL_VTA'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(dva['index'], weights=dva['CNT']))
-st.plotly_chart(fig,key="indica5", theme="streamlit")	
+   st.plotly_chart(fig,key="indica5", theme="streamlit")	
