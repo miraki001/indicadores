@@ -18,7 +18,7 @@ pdfkit
 fpdf
 pandasai
 streamlit_javascript
-geoip2
+geocoder
 
 
 
