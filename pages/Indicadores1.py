@@ -34,6 +34,7 @@ from streamlit_javascript import st_javascript
 import requests
 import geocoder
 from typing import Optional, Tuple
+import ipapi
 
 
 st.set_page_config(initial_sidebar_state="collapsed",
@@ -110,7 +111,8 @@ pp = st.context.ip_address
 client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
 #client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
 tt = 'http://ip-api.com/json/'+ client_ip
-client = st_javascript("await fetch(tt).then(r=>r.text())")
+#client = st_javascript("await fetch(tt).then(r=>r.text())")
+client = ipapi.location()
 st.write(pp) 
 st.write(client_ip)
 st.write(client)
