@@ -138,13 +138,13 @@ def show_location_details():
     if 'location_data' in st.session_state:
         data = st.session_state.location_data
         st.write("Location Details:")
-        col1, col2 = st.columns(2)
+        col111, col222 = st.columns(2)
         
-        with col1:
+        with col111:
             st.write("📍 City:", data['city'])
             st.write("🏘️ Region:", data['region'])
         
-        with col2:
+        with col222:
             st.write("🌍 Country:", data['country'])
             st.write("🔍 IP:", data['ip'])
 #locale.setlocale(category=locale.LC_ALL, locale="France", "fr_FR.UTF-8")
@@ -179,11 +179,11 @@ st.write(lat)
 
 if lat is not None and lon is not None:
   st.success("Location retrieved successfully!")
-  #show_location_details()
-  data = st.session_state.location_data
-  st.write("Location Details:")
-  st.write("📍 City:", data['city'])
-  st.write("🏘️ Region:", data['region'])
+  show_location_details()
+  #data = st.session_state.location_data
+  #st.write("Location Details:")
+  #st.write("📍 City:", data['city'])
+  #st.write("🏘️ Region:", data['region'])
 
 streamlit_style = """
     <style>
