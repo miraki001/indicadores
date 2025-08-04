@@ -180,7 +180,7 @@ client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text()
 st.write(pp) 
 st.write(client_ip)
 
-lat, lon = get_location()
+lat, lon = get_location_ipapi()
 st.write(lat)
 
 if lat is not None and lon is not None:
