@@ -179,7 +179,7 @@ st.write(lat)
 
 if lat is not None and lon is not None:
   st.success("Location retrieved successfully!")
-  show_location_details()
+  #show_location_details()
   data = st.session_state.location_data
   st.write("Location Details:")
   st.write("📍 City:", data['city'])
