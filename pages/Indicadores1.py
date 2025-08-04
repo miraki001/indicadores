@@ -30,6 +30,8 @@ import pages as pg
 from sqlalchemy import text
 from streamlit import runtime
 from streamlit.runtime.scriptrunner import get_script_run_ctx
+from streamlit_javascript import st_javascript
+
 
 st.set_page_config(initial_sidebar_state="collapsed",
                   layout="wide",menu_items=None)
@@ -104,7 +106,9 @@ def get_remote_ip() -> str:
 st.title("Title")
 st.markdown(f"The remote ip is {get_remote_ip()}")
 pp = st.context.ip_address
+client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
 st.write(pp) 
+st.write(client_ip)
 
 streamlit_style = """
     <style>
