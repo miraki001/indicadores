@@ -84,75 +84,6 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-def get_location_geocoder() -> Tuple[Optional[float], Optional[float]]:
-    """
-    Get location using geocoder library
-    """
-    g = geocoder.ip('me')
-    if g.ok:
-        return g.latlng[0], g.latlng[1]
-    return None, None
-
-def get_location_ipapi() -> Tuple[Optional[float], Optional[float]]:
-    """
-    Fallback method using ipapi.co service
-    """
-    try:
-        response = requests.get('https://ipapi.co/json/')
-        st.write(response)
-        if response.status_code == 200:
-            data = response.json()
-            lat = data.get('latitude')
-            lon = data.get('longitude')
-            st.write(data)
-            st.write('data')
-            
-            if lat is not None and lon is not None:
-                # Store additional location data in session state
-                st.session_state.location_data = {
-                    'city': data.get('city'),
-                    'region': data.get('region'),
-                    'country': data.get('country_name'),
-                    'ip': data.get('ip')
-                }
-                st.write(data.get('region'))
-                return lat, lon
-    except requests.RequestException as e:
-        st.error(f"Error retrieving location from ipapi.co: {str(e)}")
-    return None, None
-
-def get_location() -> Tuple[Optional[float], Optional[float]]:
-    """
-    Tries to get location first using geocoder, then falls back to ipapi.co
-    """
-    # Try geocoder first
-    lat, lon = get_location_geocoder()
-    
-    # If geocoder fails, try ipapi
-    if lat is None:
-        st.info("Primary geolocation method unsuccessful, trying alternative...")
-        lat, lon = get_location_ipapi()
-    
-    return lat, lon
-
-def show_location_details():
-    """
-    Displays the additional location details if available
-    """
-    st.write('antes')
-    #st.write("📍 City:", data['city'])
-    if 'location_data' in st.session_state:
-        data = st.session_state.location_data
-        st.write("Location Details:")
-        col111, col222 = st.columns(2)
-        
-        with col111:
-            st.write("📍 City:", data['city'])
-            st.write("🏘️ Region:", data['region'])
-        
-        with col222:
-            st.write("🌍 Country:", data['country'])
-            st.write("🔍 IP:", data['ip'])
 #locale.setlocale(category=locale.LC_ALL, locale="France", "fr_FR.UTF-8")
 #locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
 locale.setlocale(locale.LC_ALL, "es_ES.UTF-8")
@@ -177,6 +108,9 @@ st.title("Title")
 st.markdown(f"The remote ip is {get_remote_ip()}")
 pp = st.context.ip_address
 client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
+client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
+tt = "http://ip-api.com/json/"+ client_ip
+client = st_javascript("await fetch(tt).then(r=>r.text())")
 st.write(pp) 
 st.write(client_ip)
 
