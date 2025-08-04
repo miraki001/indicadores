@@ -103,7 +103,8 @@ def get_remote_ip() -> str:
   
 st.title("Title")
 st.markdown(f"The remote ip is {get_remote_ip()}")
-st.context.headers.get('ip')
+pp = st.context.headers.get('ip')
+st.write(pp) 
 
 streamlit_style = """
     <style>
@@ -178,11 +179,11 @@ def format_number(num):
 encontrada = buscar_cnt()
 #st.write('el valor encontrado')
 #st.write(encontrada)
-if int(encontrada) == 0:
+#if int(encontrada) == 0:
   #st.write('ingresar antes')
-  ingresar()
-else:
-  actualizar()
+#  ingresar()
+#else:
+#  actualizar()
   
 hide_streamlit_style = """
                 <style>
