@@ -84,7 +84,43 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
+def get_location_ipapi() -> Tuple[Optional[float], Optional[float]]:
+    """
+    Fallback method using ipapi.co service
+    """
+    try:
+        response = requests.get('https://ipapi.co/json/')
+        if response.status_code == 200:
+            data = response.json()
+            lat = data.get('latitude')
+            lon = data.get('longitude')
+            
+            if lat is not None and lon is not None:
+                # Store additional location data in session state
+                st.session_state.location_data = {
+                    'city': data.get('city'),
+                    'region': data.get('region'),
+                    'country': data.get('country_name'),
+                    'ip': data.get('ip')
+                }
+                return lat, lon
+    except requests.RequestException as e:
+        st.error(f"Error retrieving location from ipapi.co: {str(e)}")
+    return None, None
 
+def get_location() -> Tuple[Optional[float], Optional[float]]:
+    """
+    Tries to get location first using geocoder, then falls back to ipapi.co
+    """
+    # Try geocoder first
+    lat, lon = get_location_geocoder()
+    
+    # If geocoder fails, try ipapi
+    if lat is None:
+        st.info("Primary geolocation method unsuccessful, trying alternative...")
+        lat, lon = get_location_ipapi()
+    
+    return lat, lon
 
 #locale.setlocale(category=locale.LC_ALL, locale="France", "fr_FR.UTF-8")
 #locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
