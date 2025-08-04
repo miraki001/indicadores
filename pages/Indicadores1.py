@@ -136,6 +136,7 @@ def show_location_details():
     Displays the additional location details if available
     """
     st.write('antes')
+    st.write("📍 City:", data['city'])
     if 'location_data' in st.session_state:
         data = st.session_state.location_data
         st.write("Location Details:")
