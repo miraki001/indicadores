@@ -108,7 +108,7 @@ st.title("Title")
 st.markdown(f"The remote ip is {get_remote_ip()}")
 pp = st.context.ip_address
 client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
-client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
+#client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
 tt = "http://ip-api.com/json/"+ client_ip
 client = st_javascript("await fetch(tt).then(r=>r.text())")
 st.write(pp) 
