@@ -113,6 +113,7 @@ tt = "http://ip-api.com/json/"+ client_ip
 client = st_javascript("await fetch(tt).then(r=>r.text())")
 st.write(pp) 
 st.write(client_ip)
+st.write(client)
 
 streamlit_style = """
     <style>
