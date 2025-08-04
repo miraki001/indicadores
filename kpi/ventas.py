@@ -106,3 +106,14 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 dv1 = pd.read_parquet("data/processed/ventas.parquet", engine="pyarrow")
 actual = dt.now().year  
 anterior = dt.now().year -1  
+dv1
+
+df = df.reset_index().rename_axis(None, axis=1)
+df = df.rename(columns={'litros': "Hl", 'subgrupoenvase': "Envase",'color': "color"})  
+df = df.astype({'Hl': int } )      
+
+fig = px.sunburst(df, path=['color', 'Envase'], values='Hl',
+                      color='Envase', hover_data=['color'],
+                      color_continuous_scale='RdBu',
+                      color_continuous_midpoint=np.average(df['index'], weights=df['Hl']))
+st.plotly_chart(fig,key="indica5", theme="streamlit")	
