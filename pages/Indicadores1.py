@@ -112,7 +112,7 @@ client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text()
 #client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
 tt = 'http://ip-api.com/json/'+ client_ip
 #client = st_javascript("await fetch(tt).then(r=>r.text())")
-client = ipapi.location()
+client = ipapi.location(client_ip)
 st.write(pp) 
 st.write(client_ip)
 st.write(client)
