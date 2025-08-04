@@ -35,12 +35,14 @@ def ventas():
    #df = df.astype({'Hl': int } )      
 
    fig = px.sunburst(dva, path=['SUCURSAL_VTA', 'MODELO'], values='CNT',
+                      width = 600, height =600,
                       color='MODELO', hover_data=['SUCURSAL_VTA'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(dva['index'], weights=dva['CNT']))
    st.plotly_chart(fig,key="indica533", theme="streamlit")	
 
    fig = px.sunburst(dva, path=['SUCURSAL_VTA', 'MODELO'], values='PRECIO_VTA',
+                      width = 600, height =600,
                       color='MODELO', hover_data=['SUCURSAL_VTA'],
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(dva['index'], weights=dva['PRECIO_VTA']))
