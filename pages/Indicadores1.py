@@ -103,6 +103,7 @@ def get_location_ipapi() -> Tuple[Optional[float], Optional[float]]:
             data = response.json()
             lat = data.get('latitude')
             lon = data.get('longitude')
+            st.write(data)
             
             if lat is not None and lon is not None:
                 # Store additional location data in session state
