@@ -84,6 +84,15 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
+def get_location_geocoder() -> Tuple[Optional[float], Optional[float]]:
+    """
+    Get location using geocoder library
+    """
+    g = geocoder.ip('me')
+    if g.ok:
+        return g.latlng[0], g.latlng[1]
+    return None, None
+
 def get_location_ipapi() -> Tuple[Optional[float], Optional[float]]:
     """
     Fallback method using ipapi.co service
