@@ -47,4 +47,4 @@ def ventas():
                       color_continuous_scale='RdBu',
                       color_continuous_midpoint=np.average(dva['index'], weights=dva['PRECIO_VTA']))
    st.plotly_chart(fig,key="indica444533", theme="streamlit")	
-4
+
