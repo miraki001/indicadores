@@ -718,3 +718,5 @@ with tab6:
   indica2.indica2(dv1) 
 with tab7:
   complejo.complejo(dvex,dv1,dfsup,dfcos,dvmosto) 
+with tab8:
+  ventas.ventas()   
