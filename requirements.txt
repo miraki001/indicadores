@@ -19,6 +19,7 @@ fpdf
 pandasai
 streamlit_javascript
 geocoder
+ipapi
 
 
 
