@@ -114,17 +114,6 @@ client = st_javascript("await fetch(tt).then(r=>r.text())")
 st.write(pp) 
 st.write(client_ip)
 
-lat, lon = get_location_ipapi()
-st.write(lat)
-
-if lat is not None and lon is not None:
-  st.success("Location retrieved successfully!")
-  show_location_details()
-  #data = st.session_state.location_data
-  #st.write("Location Details:")
-  #st.write("📍 City:", data['city'])
-  #st.write("🏘️ Region:", data['region'])
-
 streamlit_style = """
     <style>
     iframe[title="streamlit_echarts.st_echarts"]{ height: 300px;} 
