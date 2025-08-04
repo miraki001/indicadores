@@ -31,6 +31,7 @@ from sqlalchemy import text
 from streamlit import runtime
 from streamlit.runtime.scriptrunner import get_script_run_ctx
 from streamlit_javascript import st_javascript
+import geoip2.webservice
 
 
 st.set_page_config(initial_sidebar_state="collapsed",
@@ -109,6 +110,9 @@ pp = st.context.ip_address
 client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text())")
 st.write(pp) 
 st.write(client_ip)
+with geoip2.database.Reader('/path/to/GeoLite2-City.mmdb') as reader:
+  response = reader.city(client_ip)
+  st.write(response)
 
 streamlit_style = """
     <style>
