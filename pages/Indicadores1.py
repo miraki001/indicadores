@@ -99,11 +99,13 @@ def get_location_ipapi() -> Tuple[Optional[float], Optional[float]]:
     """
     try:
         response = requests.get('https://ipapi.co/json/')
+        st.write(response)
         if response.status_code == 200:
             data = response.json()
             lat = data.get('latitude')
             lon = data.get('longitude')
             st.write(data)
+            st.write('data')
             
             if lat is not None and lon is not None:
                 # Store additional location data in session state
@@ -113,6 +115,7 @@ def get_location_ipapi() -> Tuple[Optional[float], Optional[float]]:
                     'country': data.get('country_name'),
                     'ip': data.get('ip')
                 }
+                st.write(data.get('region'))
                 return lat, lon
     except requests.RequestException as e:
         st.error(f"Error retrieving location from ipapi.co: {str(e)}")
