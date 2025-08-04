@@ -103,6 +103,7 @@ def get_remote_ip() -> str:
   
 st.title("Title")
 st.markdown(f"The remote ip is {get_remote_ip()}")
+st.context.headers.get('ip')
 
 streamlit_style = """
     <style>
