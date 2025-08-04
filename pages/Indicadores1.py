@@ -24,6 +24,7 @@ from kpi import ind_superficie
 from kpi import indica1
 from kpi import indica2
 from kpi import complejo
+from kpi import ventas
 from streamlit_extras.metric_cards import style_metric_cards 
 from streamlit_product_card import product_card 
 import pages as pg
@@ -263,7 +264,7 @@ mesfin = max(dva[dva['mes'] == mes]['nombre_mes'])
 
 df_filtered = dv1.copy() 
 #actual = dt.now().year -4 
-tab1, tab2, tab3,tab4,tab5,tab6,tab7 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie","Indica 1","Indica 2","Indica 3"])
+tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab8 = st.tabs(["Indicadores","Exportaciones", "Mercado Interno", "Cosecha y Superficie","Indica 1","Indica 2","Indica 3"],"Ventas")
 
 with tab1:
    #st.write('Datos acumulados de Enero a  ' + mesfin + ' de cada año' )
