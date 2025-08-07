@@ -114,9 +114,9 @@ client_ip = st_javascript("await fetch('https://api.ipify.org').then(r=>r.text()
 tt = 'http://ip-api.com/json/'+ client_ip
 #client = st_javascript("await fetch(tt).then(r=>r.text())")
 client = ipapi.location(client_ip)
-st.write(pp) 
-st.write(client_ip)
-st.write(client)
+#st.write(pp) 
+#st.write(client_ip)
+#st.write(client)
 
 streamlit_style = """
     <style>
@@ -189,8 +189,8 @@ def format_number(num):
     return f'{num // 1000} K'
 
 encontrada = buscar_cnt()
-#st.write('el valor encontrado')
-#st.write(encontrada)
+st.write('el valor encontrado')
+st.write(encontrada)
 #if int(encontrada) == 0:
   #st.write('ingresar antes')
 #  ingresar()
