@@ -138,7 +138,7 @@ def buscar_cnt():
     #vcnt = df2['cnt']
     #st.write(vcnt)
     cnt = df2[0].to_string(columns=['cnt'], header=False, index=False)
-    #st.write(cnt)
+    st.write(cnt)
     return cnt
 def ingresar():
       with conn.session as session:
